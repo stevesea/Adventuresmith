@@ -93,9 +93,28 @@ dependencies {
     //compile "com.android.support:cardview-v7:$androidSupportVersion"
     //compile "com.android.support:gridlayout-v7:$androidSupportVersion"
     //compile "com.android.support:preference-v7:$androidSupportVersion"
-    //compile "com.android.support:recyclerview-v7:$androidSupportVersion"
+    compile "com.android.support:recyclerview-v7:$androidSupportVersion"
     //compile "com.android.support:design:$androidSupportVersion"
 
     compile 'com.squareup.dagger:dagger:1.2.2'
     apt 'com.squareup.dagger:dagger-compiler:1.2.2'
+}
+
+
+// APT doesn't know to make these directories for tests. Force them to
+// be written.
+afterEvaluate {
+    def createAptTestDirs = tasks.create('createAptTestDirs')
+    createAptTestDirs.doFirst {
+        file("$buildDir/generated/source/apt/test/debug").mkdirs()
+        file("$buildDir/generated/source/apt/test/release").mkdirs()
+    }
+    tasks.getByName('mockableAndroidJar').finalizedBy(createAptTestDirs)
+}
+
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat 'full'
+    }
 }
