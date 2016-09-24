@@ -25,9 +25,8 @@ class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_region)
     public void onButtonClickedRegion() {
-        String[] items = ["regionA", "regionB"]
         resultList.adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                items)
+                Region.generate(5))
     }
 
     @OnClick(R.id.btn_fotf_spell)
@@ -47,7 +46,7 @@ class MainActivity extends AppCompatActivity {
         SwissKnife.inject this
 
         // This must be called for saved state restoring
-        SwissKnife.restoreState(this, savedInstanceState);
+        //SwissKnife.restoreState(this, savedInstanceState);
 
         // This mus be called for automatic parsing of intent extras
         SwissKnife.loadExtras(this)
