@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AndyGen</string>
+
+    <string name="txt_view_result_default">Click a button to generate something!</string>
+
+    <string name="lbl_btnbar_names">Names:</string>
+    <string name="lbl_btnbar_other">Other Things:</string>
+
+    <string name="lbl_btn_region">Region</string>
+    <string name="lbl_btn_place">Place</string>
+    <string name="lbl_btn_fotf_spell">FotF Spell</string>
+</resources>
