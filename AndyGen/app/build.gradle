@@ -34,6 +34,7 @@ android {
             applicationIdSuffix '.dev'
             minifyEnabled false
             signingConfig signingConfigs.debug
+            debuggable true
         }
         release {
             minifyEnabled true
