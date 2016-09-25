@@ -1,7 +1,7 @@
 package com.neeber.andygen.data.maze_rats
 
-import com.neeber.andygen.data.Shuffler
 import com.neeber.andygen.data.AbstractGenerator
+import com.neeber.andygen.data.Shuffler
 
 import javax.inject.Inject
 
@@ -362,10 +362,10 @@ Whistle""".readLines()
     List<GString> getFormatters() {
         return [
                 """Name: ${ -> pick(forenames)} ${ -> pick(surnames)}
-  Personality: ${ -> pick(personalities, 2)}
-  Appearance:  ${ -> pick(appearances, 2)}
-  Weapons:     ${ -> pick(weapons, 2)}
-  Equip:       ${ -> pick(equipment, 3)}\n"""
+  Personality: ${ -> pick(personalities, 2).join(", ")}
+  Appearance:  ${ -> pick(appearances, 2).join(", ")}
+  Weapons:     ${ -> pick(weapons, 2).join(", ")}
+  Equip:       ${ -> pick(equipment, 3).join(", ")}\n"""
         ]
     }
 

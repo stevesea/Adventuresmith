@@ -12,7 +12,7 @@ public abstract class AbstractGenerator {
         return shuffler.pick(items)
     }
 
-    def pick(List<?> items, int num) {
+    List<?> pick(List<?> items, int num) {
         return shuffler.pick(items, num)
     }
 

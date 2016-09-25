@@ -21,6 +21,6 @@ class MazeRatsGeneratorTest {
         printf mrMonsters.generate(4).toString() + "\n"
         printf mrAfflictions.generate(4).toString() + "\n"
         printf mrPotionEffects.generate(4).toString() + "\n"
-        printf mrChar.generate(2).toString() + "\n"
+        printf mrChar.generate(5).toString() + "\n"
     }
 }
