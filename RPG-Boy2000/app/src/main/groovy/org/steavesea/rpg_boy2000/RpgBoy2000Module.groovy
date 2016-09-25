@@ -10,7 +10,7 @@ import javax.inject.Singleton
         injects = [MainActivity.class, Shuffler.class],
         complete = false
 )
-public class AndyGenModule {
+public class RpgBoy2000Module {
     @Provides @Singleton
     Random provideRandom() {
         return new Random();

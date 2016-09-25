@@ -12,7 +12,7 @@ public class RpgBoy2000App extends Application {
 
         graph = ObjectGraph.create(
                 new AndroidModule(this),
-                new AndyGenModule()
+                new RpgBoy2000Module()
         );
     }
 
