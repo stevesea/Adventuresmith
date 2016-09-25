@@ -6,9 +6,12 @@ Goals:
 * produce a fun toy I'll use (and maybe other's will find useful)
 
 
-The ultimate goal is a nice-ish android app I can use to hold some
-random generators for RPGs. Specifically, I'll probably start with
-random tables from Perilous Wilds and Freebooters on the Frontier.
+The ultimate goal is a nice-ish android app I can use to for a 
+few random RPG tables I enjoy using as a DM. Specifically, 
+I'll probably start with random tables from Perilous Wilds, 
+Freebooters on the Frontier, and Maze Rats.
+
+![alt text](https://github.com/stevesea/andygen/raw/master/doc/mr_monsters "Monsters generated for Maze Rats")
 
 https://perilous-wilds.geekwire.net/region
 
