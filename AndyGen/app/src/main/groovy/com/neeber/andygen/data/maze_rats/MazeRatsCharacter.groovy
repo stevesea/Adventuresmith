@@ -361,11 +361,11 @@ Whistle""".readLines()
 
     List<GString> getFormatters() {
         return [
-                """Name: ${ -> pick(forenames)} ${ -> pick(surnames)}
-  Personality: ${ -> pick(personalities, 2).join(", ")}
-  Appearance:  ${ -> pick(appearances, 2).join(", ")}
-  Weapons:     ${ -> pick(weapons, 2).join(", ")}
-  Equip:       ${ -> pick(equipment, 3).join(", ")}\n"""
+"""Name: ${ -> pick(forenames)} ${ -> pick(surnames)}
+Personality: ${ -> pick(personalities, 2).join(", ")}
+Appearance:  ${ -> pick(appearances, 2).join(", ")}
+Weapons:     ${ -> pick(weapons, 2).join(", ")}
+Equip:       ${ -> pick(equipment, 3).join(", ")}"""
         ]
     }
 
