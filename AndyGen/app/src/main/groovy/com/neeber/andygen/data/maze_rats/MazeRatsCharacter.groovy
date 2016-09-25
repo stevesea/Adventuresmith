@@ -6,7 +6,8 @@ import com.neeber.andygen.data.Shuffler
 import javax.inject.Inject
 
 class MazeRatsCharacter extends AbstractGenerator {
-    static final List<String> forenames = """Adelaide
+    static final List<String> forenames = """\
+Adelaide
 Balthazar
 Barsaba
 Basil
@@ -65,9 +66,11 @@ Trilby
 Tuesday
 Ursula
 Webster
-Zora""".readLines()
+Zora\
+""".readLines()
 
-    static final List<String> surnames = """Barrow
+    static final List<String> surnames = """\
+Barrow
 Beetleman
 Belvedere
 Birdwhistle
@@ -126,9 +129,11 @@ Villin
 Wellbelove
 Westergren
 Wexley
-Wilberforce""".readLines()
+Wilberforce\
+""".readLines()
 
-    static final List<String> personalities = """Arrogant
+    static final List<String> personalities = """\
+Arrogant
 Avant-Garde
 Boastful
 Bored
@@ -187,9 +192,11 @@ Vengeful
 Whiner
 Wild Child
 Wisecracking
-World-weary""".readLines()
+World-weary\
+""".readLines()
 
-    static final List<String> appearances = """Acid Scars
+    static final List<String> appearances = """\
+Acid Scars
 Battle Scars
 Boney hands
 Braided Hair
@@ -248,10 +255,12 @@ Towering
 Unsmiling
 Weathered
 White Hair
-Wild Hair""".readLines()
+Wild Hair\
+""".readLines()
 
 
-    static final List<String> weapons = """Ancient Spear (d6)
+    static final List<String> weapons = """\
+Ancient Spear (d6)
 Arming Sword (d6)
 Battered Halberd (d8)
 Battleaxe (d8)
@@ -290,9 +299,11 @@ Stone-tip Spear (d6)
 Throwing Knives (d6)
 War Bow (d8)
 Warhammer (d8)
-Woodman’s axe (d8)""".readLines()
+Woodman’s axe (d8)\
+""".readLines()
 
-    static final List<String> equipment = """Acid
+    static final List<String> equipment = """\
+Acid
 Animal Scent
 Antitoxin
 Armor
@@ -351,7 +362,8 @@ Steel Mirror
 Tent
 Thick Gloves
 Trumpet
-Whistle""".readLines()
+Whistle\
+""".readLines()
 
 
     @Inject
@@ -361,11 +373,13 @@ Whistle""".readLines()
 
     List<GString> getFormatters() {
         return [
-"""Name: ${ -> pick(forenames)} ${ -> pick(surnames)}
+"""\
+Name: ${ -> pick(forenames)} ${ -> pick(surnames)}
 Personality: ${ -> pick(personalities, 2).join(", ")}
 Appearance:  ${ -> pick(appearances, 2).join(", ")}
 Weapons:     ${ -> pick(weapons, 2).join(", ")}
-Equip:       ${ -> pick(equipment, 3).join(", ")}"""
+Equip:       ${ -> pick(equipment, 3).join(", ")}\
+"""
         ]
     }
 

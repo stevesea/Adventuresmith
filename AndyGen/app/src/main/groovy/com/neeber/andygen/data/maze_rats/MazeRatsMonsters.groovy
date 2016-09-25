@@ -6,7 +6,8 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject;
 
 class MazeRatsMonsters extends AbstractGenerator {
-    static final List<String> creatures = """Ant
+    static final List<String> creatures = """\
+Ant
 Ape
 Badger
 Bat
@@ -105,7 +106,8 @@ Weasel
 Whale
 Wolf
 Wolverine
-Worm""".readLines()
+Worm\
+""".readLines()
 
     @Inject
     MazeRatsMonsters(Shuffler shuffler) {
