@@ -6,8 +6,7 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject
 
 class MazeRatsPotionEffects extends AbstractGenerator {
-    static final List<String> effects = """
-1-hour vampirism
+    static final List<String> effects = """1-hour vampirism
 Alter face
 Alter voice
 Animal-form

@@ -6,8 +6,7 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject;
 
 class MazeRatsMagic extends AbstractGenerator {
-    static final List<String> effects = """
-Absorbing
+    static final List<String> effects = """Absorbing
 Accelerating
 Attracting
 Awakening
@@ -108,8 +107,7 @@ Voracious
 Warding
 Withering""".readLines()
 
-    static final List<String> forms = """
-Acid
+    static final List<String> forms = """Acid
 Aether
 Air
 Alabaster
@@ -210,8 +208,7 @@ Winter
 Wood
 Worm""".readLines()
 
-    static final List<String> elements = """
-Arc
+    static final List<String> elements = """Arc
 Assassin
 Aura
 Bastion

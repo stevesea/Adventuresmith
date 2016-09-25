@@ -6,8 +6,7 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject
 
 class MazeRatsAfflictions extends AbstractGenerator {
-    static final List<String> afflictions = """
-Ages backwards
+    static final List<String> afflictions = """Ages backwards
 Always honest
 Always whispers
 Babbling
@@ -106,8 +105,7 @@ Transparent skin
 Vegetarianism
 Voice swaps gender
 Voice echoes
-Webb’d hands/feet
-        """.readLines()
+Webbedd hands/feet""".readLines()
 
     @Inject
     MazeRatsAfflictions(Shuffler shuffler) {

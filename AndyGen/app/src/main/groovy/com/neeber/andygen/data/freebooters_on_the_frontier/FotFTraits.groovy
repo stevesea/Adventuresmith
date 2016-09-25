@@ -6,8 +6,7 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject
 
 class FotFTraits extends AbstractGenerator {
-    static final List<String> virtues = """
-Ambitious
+    static final List<String> virtues = """Ambitious
 Benevolent
 Bold
 Brave
@@ -58,8 +57,7 @@ Steadfast
 Tactful
 Tolerant""".readLines()
 
-    static final List<String> vices = """
-Addict
+    static final List<String> vices = """Addict
 Aggressive
 Alcoholic
 Antagonistic

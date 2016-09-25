@@ -6,8 +6,7 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject
 
 class MazeRatsCharacter extends AbstractGenerator {
-    static final List<String> forenames = """
-Adelaide
+    static final List<String> forenames = """Adelaide
 Balthazar
 Barsaba
 Basil
@@ -68,8 +67,7 @@ Ursula
 Webster
 Zora""".readLines()
 
-    static final List<String> surnames = """
-Barrow
+    static final List<String> surnames = """Barrow
 Beetleman
 Belvedere
 Birdwhistle
@@ -130,8 +128,7 @@ Westergren
 Wexley
 Wilberforce""".readLines()
 
-    static final List<String> personalities = """
-Arrogant
+    static final List<String> personalities = """Arrogant
 Avant-Garde
 Boastful
 Bored
@@ -192,8 +189,7 @@ Wild Child
 Wisecracking
 World-weary""".readLines()
 
-    static final List<String> appearances = """
-Acid Scars
+    static final List<String> appearances = """Acid Scars
 Battle Scars
 Boney hands
 Braided Hair
@@ -255,8 +251,7 @@ White Hair
 Wild Hair""".readLines()
 
 
-    static final List<String> weapons = """
-Ancient Spear (d6)
+    static final List<String> weapons = """Ancient Spear (d6)
 Arming Sword (d6)
 Battered Halberd (d8)
 Battleaxe (d8)
@@ -297,8 +292,7 @@ War Bow (d8)
 Warhammer (d8)
 Woodman’s axe (d8)""".readLines()
 
-    static final List<String> equipment = """
-Acid
+    static final List<String> equipment = """Acid
 Animal Scent
 Antitoxin
 Armor

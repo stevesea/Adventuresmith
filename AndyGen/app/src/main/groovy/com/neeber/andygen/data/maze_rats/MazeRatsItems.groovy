@@ -6,8 +6,7 @@ import com.neeber.andygen.data.AbstractGenerator
 import javax.inject.Inject;
 
 class MazeRatsItems extends AbstractGenerator {
-    static final List<String> items = """
-Amulet
+    static final List<String> items = """Amulet
 Arrow
 Arrowhead
 Axe
