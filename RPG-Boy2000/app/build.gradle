@@ -1,4 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'groovyx.android'
+apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
+
+
+ext {
+    groovyVersion = '2.4.7'
+    androidSupportVersion = '24.2.1'
+    daggerVersion = '1.2.2'
+}
 
 android {
     compileSdkVersion 24
@@ -11,20 +20,88 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
-        release {
+        debug {
+            applicationIdSuffix '.dev'
             minifyEnabled false
+            signingConfig signingConfigs.debug
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        textReport true
+        textOutput 'stdout'
+        warning 'InvalidPackage' // lint sees references in the grooid jar to unavailable java classes
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/services/org.codehaus.groovy.runtime.ExtensionModule'
+        exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
+    }
+}
+
+androidGroovy {
+    // setup custom groovy compile options
+    options {
+        configure(groovyOptions) {
+            javaAnnotationProcessing = true
+            configurationScript = file("$projectDir/config/groovy-compile-options.groovy")
+        }
+    }
+    // skip javac MUST be false for not set for apt to work correctly
 }
 
 dependencies {
+    compile "org.codehaus.groovy:groovy:$groovyVersion:grooid"
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.arasthel:swissknife:1.4.0'
+
+    compile "com.android.support:support-annotations:$androidSupportVersion"
+    compile "com.android.support:support-v4:$androidSupportVersion"
+    compile "com.android.support:support-compat:$androidSupportVersion"
+    compile "com.android.support:support-core-utils:$androidSupportVersion"
+    compile "com.android.support:support-core-ui:$androidSupportVersion"
+    compile "com.android.support:appcompat-v7:$androidSupportVersion"
+    compile "com.android.support:design:$androidSupportVersion"
+    compile "com.android.support:recyclerview-v7:$androidSupportVersion"
+
+    compile "com.squareup.dagger:dagger:$daggerVersion"
+    apt "com.squareup.dagger:dagger-compiler:$daggerVersion"
+}
+
+// APT doesn't know to make these directories for tests. Force them to
+// be written.
+afterEvaluate {
+    def createAptTestDirs = tasks.create('createAptTestDirs')
+    createAptTestDirs.doFirst {
+        file("$buildDir/generated/source/apt/test/debug").mkdirs()
+        file("$buildDir/generated/source/apt/test/release").mkdirs()
+    }
+    tasks.getByName('mockableAndroidJar').finalizedBy(createAptTestDirs)
+}
+
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat 'full'
+    }
 }

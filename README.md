@@ -21,6 +21,9 @@ a tool I could get personal use out of when DMing.
 
 ## todo
 
+- use nav drawer
+- how to internationalize rpg content?
+- cleanup API between random tables & UI
 - use recyclerview instead of listview
 - move data into separate package/module
 - more dagger goodness
