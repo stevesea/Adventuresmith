@@ -20,4 +20,11 @@ class Shuffler {
         return local.take(num)
     }
 
+    int rollDice(int numDice, int nSides) {
+        int sum = 0
+        numDice.times {
+            sum += random.nextInt(nSides) + 1
+        }
+        return sum
+    }
 }

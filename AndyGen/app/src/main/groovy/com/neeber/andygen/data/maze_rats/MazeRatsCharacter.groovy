@@ -375,10 +375,11 @@ Whistle\
         return [
 """\
 Name: ${ -> pick(forenames)} ${ -> pick(surnames)}
-Personality: ${ -> pick(personalities, 2).join(", ")}
-Appearance:  ${ -> pick(appearances, 2).join(", ")}
-Weapons:     ${ -> pick(weapons, 2).join(", ")}
-Equip:       ${ -> pick(equipment, 3).join(", ")}\
+ STR: ${ -> rollDice(3, 6)}, DEX: ${ -> rollDice(3, 6)}, WIL: ${ -> rollDice(3, 6)}, HP: ${ -> rollDice(1, 6)}
+ Personality: ${ -> pick(personalities, 2).join(", ")}
+ Appearance:  ${ -> pick(appearances, 2).join(", ")}
+ Weapons:     ${ -> pick(weapons, 2).join(", ")}
+ Equip:       ${ -> pick(equipment, 3).join(", ")}
 """
         ]
     }

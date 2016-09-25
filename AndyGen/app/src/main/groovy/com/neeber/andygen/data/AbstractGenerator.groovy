@@ -16,6 +16,10 @@ public abstract class AbstractGenerator {
         return shuffler.pick(items, num)
     }
 
+    int rollDice(int numDice, int nSides) {
+        return shuffler.rollDice(numDice, nSides)
+    }
+
     abstract List<GString> getFormatters()
 
     String[] generate(int num) {
