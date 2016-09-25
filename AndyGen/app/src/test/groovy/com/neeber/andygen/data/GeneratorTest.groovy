@@ -1,6 +1,5 @@
 package com.neeber.andygen.data
 
-import com.neeber.andygen.Shuffler
 import com.neeber.andygen.data.freebooters_on_the_frontier.FotFSpells
 import com.neeber.andygen.data.perilous_wilds.PwPlace
 import com.neeber.andygen.data.perilous_wilds.PwRegion

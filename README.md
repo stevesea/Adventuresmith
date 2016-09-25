@@ -11,6 +11,14 @@ few random RPG tables I enjoy using as a DM. Specifically,
 I'll probably start with random tables from Perilous Wilds, 
 Freebooters on the Frontier, and Maze Rats.
 
+## random tables
+
+* Perilous Wilds, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
+* Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
+* Maze Rats 0.1, by Ben Milton. http://questingblog.com/maze-rats/
+
+## screenshot
+
 ![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/mr_monsters.png "Monsters generated for Maze Rats")
 
 https://perilous-wilds.geekwire.net/region

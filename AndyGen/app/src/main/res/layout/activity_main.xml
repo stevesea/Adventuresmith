@@ -12,7 +12,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_btnbar_names" />
+            android:text="@string/lbl_btnbar_names"
+            android:id="@+id/lbl_pw"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -52,7 +53,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_btnbar_fotf" />
+            android:text="@string/lbl_btnbar_fotf"
+            android:id="@+id/lbl_fotf"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -97,7 +99,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/lbl_btnbar_mazerats" />
+                    android:text="@string/lbl_btnbar_mazerats"
+                    android:id="@+id/lbl_mr"/>
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

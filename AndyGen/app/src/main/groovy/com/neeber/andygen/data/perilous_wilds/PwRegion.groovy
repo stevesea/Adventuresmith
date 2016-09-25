@@ -1,6 +1,6 @@
 package com.neeber.andygen.data.perilous_wilds
 
-import com.neeber.andygen.Shuffler
+import com.neeber.andygen.data.Shuffler
 import com.neeber.andygen.data.AbstractGenerator
 
 import javax.inject.Inject

@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
+import com.arasthel.swissknife.annotations.OnLongClick
 import com.neeber.andygen.data.freebooters_on_the_frontier.FotFSpells
 import com.neeber.andygen.data.freebooters_on_the_frontier.FotFTraits
-import com.neeber.andygen.data.maze_rats.MazeRatsAfflictions
-import com.neeber.andygen.data.maze_rats.MazeRatsCharacter
-import com.neeber.andygen.data.maze_rats.MazeRatsItems
-import com.neeber.andygen.data.maze_rats.MazeRatsMagic
-import com.neeber.andygen.data.maze_rats.MazeRatsMonsters
-import com.neeber.andygen.data.maze_rats.MazeRatsPotionEffects
+import com.neeber.andygen.data.maze_rats.*
 import com.neeber.andygen.data.perilous_wilds.PwPlace
 import com.neeber.andygen.data.perilous_wilds.PwRegion
 import groovy.transform.CompileStatic
@@ -96,15 +93,33 @@ class MainActivity extends AppCompatActivity {
         resultList.adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 mrMonster.generate(5))
     }
+
     @OnClick(R.id.btn_mr_afflictions)
     public void onButtonClickedMazeRatsAfflictions() {
         resultList.adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 mrAfflictions.generate(5))
     }
+
     @OnClick(R.id.btn_mr_potion_effects)
     public void onButtonClickedMazeRatsPotionEffects() {
         resultList.adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 mrPotEffects.generate(5))
+    }
+
+    @OnLongClick(R.id.lbl_mr)
+    public boolean onLongClickMR() {
+        Toast.makeText(this,"Maze Rats 0.1\nby Ben Milton\nhttp://questingblog.com/maze-rats/", Toast.LENGTH_SHORT).show();
+        return false;
+    }
+    @OnLongClick(R.id.lbl_pw)
+    public boolean onLongClickPW() {
+        Toast.makeText(this,"Perilous Wilds\nby Jason Lutes\nhttp://lampblackandbrimstone.blogspot.com/", Toast.LENGTH_SHORT).show();
+        return false;
+    }
+    @OnLongClick(R.id.lbl_fotf)
+    public boolean onLongClickFotF() {
+        Toast.makeText(this,"Freebooters on the Frontier\nby Jason Lutes\nhttp://lampblackandbrimstone.blogspot.com/", Toast.LENGTH_SHORT).show();
+        return false;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.neeber.andygen
 
+import com.neeber.andygen.data.Shuffler
 import dagger.Module
 import dagger.Provides
 

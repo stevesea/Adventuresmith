@@ -1,7 +1,6 @@
-package com.neeber.andygen
+package com.neeber.andygen.data
 
 import javax.inject.Inject
-import java.util.concurrent.ThreadLocalRandom;
 
 class Shuffler {
     private final Random random;

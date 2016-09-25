@@ -1,7 +1,5 @@
 package com.neeber.andygen.data
 
-import com.neeber.andygen.Shuffler
-
 public abstract class AbstractGenerator {
 
     protected final Shuffler shuffler;

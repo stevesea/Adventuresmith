@@ -1,6 +1,6 @@
 package com.neeber.andygen.data.maze_rats
 
-import com.neeber.andygen.Shuffler
+import com.neeber.andygen.data.Shuffler
 import com.neeber.andygen.data.AbstractGenerator
 
 import javax.inject.Inject;
