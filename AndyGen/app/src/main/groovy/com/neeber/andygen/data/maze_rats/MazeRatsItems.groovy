@@ -106,8 +106,7 @@ Turnip
 Wand
 Whetstone
 Whistle
-Wine
-        """.tokenize()
+Wine""".readLines()
 
     @Inject
     MazeRatsItems(Shuffler shuffler) {

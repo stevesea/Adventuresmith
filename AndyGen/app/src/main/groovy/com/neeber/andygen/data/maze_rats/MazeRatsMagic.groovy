@@ -106,8 +106,8 @@ Vaporizing
 Vengeful
 Voracious
 Warding
-Withering
-        """.tokenize()
+Withering""".readLines()
+
     static final List<String> forms = """
 Acid
 Aether
@@ -208,8 +208,8 @@ Wind
 Wine
 Winter
 Wood
-Worm
-        """.tokenize()
+Worm""".readLines()
+
     static final List<String> elements = """
 Arc
 Assassin
@@ -310,8 +310,7 @@ Wave
 Web
 Whisper
 Word
-Zone
-        """.tokenize()
+Zone""".readLines()
 
     @Inject
     MazeRatsMagic(Shuffler shuffler) {

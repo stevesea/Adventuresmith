@@ -66,8 +66,7 @@ Trilby
 Tuesday
 Ursula
 Webster
-Zora
-        """.tokenize()
+Zora""".readLines()
 
     static final List<String> surnames = """
 Barrow
@@ -129,8 +128,7 @@ Villin
 Wellbelove
 Westergren
 Wexley
-Wilberforce
-        """.tokenize()
+Wilberforce""".readLines()
 
     static final List<String> personalities = """
 Arrogant
@@ -192,8 +190,7 @@ Vengeful
 Whiner
 Wild Child
 Wisecracking
-World-weary
-        """.tokenize()
+World-weary""".readLines()
 
     static final List<String> appearances = """
 Acid Scars
@@ -255,114 +252,112 @@ Towering
 Unsmiling
 Weathered
 White Hair
-Wild Hair
-        """.tokenize()
+Wild Hair""".readLines()
 
 
-    static final List<String> weapons = [
-            "Ancient Spear (d6)",
-            "Arming Sword (d6)",
-            "Battered Halberd (d8)",
-            "Battleaxe (d8)",
-            "Bronze Dagger (d6)",
-            "Bronze-tip Spear (d6)",
-            "Carved Spear (d6)",
-            "Claymore (d8)",
-            "Crank Crossbow (d10)",
-            "Etched Glaive (d8)",
-            "Falchion (d8)",
-            "Flail (d8)",
-            "Gleaming Halberd (d8)",
-            "Hand Crossbow (d6)",
-            "Hatchet (d6)",
-            "Heirloom Glaive (d8)",
-            "Hunting Bow (d6)",
-            "Hunting Knife (d6)",
-            "Iron Club (d6)",
-            "Ivory Spear (d6)",
-            "Longbow (d8)",
-            "Maul (d8)",
-            "Messer (d8)",
-            "Morningstar (d8)",
-            "Obsidian Dagger (d6)",
-            "Painted Spear (d6)",
-            "Pull Crossbow (d10)",
-            "Quarterstaff (d6)",
-            "Rapier (d6)",
-            "Recurve Bow (d6)",
-            "Rusty Mace (d6)",
-            "Sling with bullets (d6)",
-            "Sling with stones (d6)",
-            "Spiked Club (d6)",
-            "Steel Dagger (d6)",
-            "Stone-tip Spear (d6)",
-            "Throwing Knives (d6)",
-            "War Bow (d8)",
-            "Warhammer (d8)",
-            "Woodman’s axe (d8)",
-    ]
-    static final List<String> equipment = [
-            "Acid",
-            "Animal Scent",
-            "Antitoxin",
-            "Armor",
-            "Bear Trap",
-            "Bell",
-            "Blank Book",
-            "Bolt-Cutters",
-            "Caltrops",
-            "Pliers",
-            "Candle",
-            "Chain (10 ft.)",
-            "Chalk (10)",
-            "Copper Wire",
-            "Crowbar",
-            "Dice",
-            "Door Ram",
-            "Ether",
-            "Falcon",
-            "Fiddle",
-            "Fire Oil",
-            "Fishing Hook",
-            "Flashbomb",
-            "Glue",
-            "Grap. Hook",
-            "Grease",
-            "Hacksaw",
-            "Hammer",
-            "Hand Drill",
-            "Hog Holder",
-            "Hound",
-            "Hourglass",
-            "Incense",
-            "Lantern",
-            "Large Sack",
-            "Lens",
-            "Lock & Key",
-            "Lockpicks (5)",
-            "Lodestone",
-            "Manacles",
-            "Marbles",
-            "Mule",
-            "Net",
-            "Pen & Ink",
-            "Pickaxe",
-            "Poison",
-            "Pole (10 ft.)",
-            "Potion",
-            "Rat",
-            "Rum Bottle",
-            "Shovel",
-            "Smokebomb",
-            "Spikes (5)",
-            "Spyglass",
-            "Stake",
-            "Steel Mirror",
-            "Tent",
-            "Thick Gloves",
-            "Trumpet",
-            "Whistle",
-    ]
+    static final List<String> weapons = """
+Ancient Spear (d6)
+Arming Sword (d6)
+Battered Halberd (d8)
+Battleaxe (d8)
+Bronze Dagger (d6)
+Bronze-tip Spear (d6)
+Carved Spear (d6)
+Claymore (d8)
+Crank Crossbow (d10)
+Etched Glaive (d8)
+Falchion (d8)
+Flail (d8)
+Gleaming Halberd (d8)
+Hand Crossbow (d6)
+Hatchet (d6)
+Heirloom Glaive (d8)
+Hunting Bow (d6)
+Hunting Knife (d6)
+Iron Club (d6)
+Ivory Spear (d6)
+Longbow (d8)
+Maul (d8)
+Messer (d8)
+Morningstar (d8)
+Obsidian Dagger (d6)
+Painted Spear (d6)
+Pull Crossbow (d10)
+Quarterstaff (d6)
+Rapier (d6)
+Recurve Bow (d6)
+Rusty Mace (d6)
+Sling with bullets (d6)
+Sling with stones (d6)
+Spiked Club (d6)
+Steel Dagger (d6)
+Stone-tip Spear (d6)
+Throwing Knives (d6)
+War Bow (d8)
+Warhammer (d8)
+Woodman’s axe (d8)""".readLines()
+
+    static final List<String> equipment = """
+Acid
+Animal Scent
+Antitoxin
+Armor
+Bear Trap
+Bell
+Blank Book
+Bolt-Cutters
+Caltrops
+Pliers
+Candle
+Chain (10 ft.)
+Chalk (10)
+Copper Wire
+Crowbar
+Dice
+Door Ram
+Ether
+Falcon
+Fiddle
+Fire Oil
+Fishing Hook
+Flashbomb
+Glue
+Grap. Hook
+Grease
+Hacksaw
+Hammer
+Hand Drill
+Hog Holder
+Hound
+Hourglass
+Incense
+Lantern
+Large Sack
+Lens
+Lock & Key
+Lockpicks (5)
+Lodestone
+Manacles
+Marbles
+Mule
+Net
+Pen & Ink
+Pickaxe
+Poison
+Pole (10 ft.)
+Potion
+Rat
+Rum Bottle
+Shovel
+Smokebomb
+Spikes (5)
+Spyglass
+Stake
+Steel Mirror
+Tent
+Thick Gloves
+Trumpet
+Whistle""".readLines()
 
 
     @Inject

@@ -106,8 +106,7 @@ Weasel
 Whale
 Wolf
 Wolverine
-Worm
-        """.tokenize()
+Worm""".readLines()
 
     @Inject
     MazeRatsMonsters(Shuffler shuffler) {

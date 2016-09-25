@@ -106,8 +106,7 @@ Truthsay
 Water breathing
 Water walking
 Web-slinging
-X-Ray vision
-        """.readLines()
+X-Ray vision""".readLines()
 
     @Inject
     MazeRatsPotionEffects(Shuffler shuffler) {

@@ -56,8 +56,7 @@ Responsible
 Selfless
 Steadfast
 Tactful
-Tolerant
-        """.tokenize()
+Tolerant""".readLines()
 
     static final List<String> vices = """
 Addict
@@ -109,8 +108,7 @@ Vain
 Vengeful
 Wasteful
 Wrathful
-Zealous
-        """.tokenize()
+Zealous""".readLines()
 
     @Inject
     FotFTraits(Shuffler shuffler) {
