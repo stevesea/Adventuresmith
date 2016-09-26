@@ -6,15 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import groovy.transform.CompileStatic
+import org.steavesea.rpg_boy2000.data.RbgBoyDataModule
+
+import javax.inject.Inject
 
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
+    Map<String, List<String>> db;
     List<String> buttons;
+    ResultsAdapter resultsAdapter
 
-    ButtonsAdapter() {
-        this.buttons = ["asdf", "asdf1", "asdf2", "asdfasdfasdfasdfasdf", "asdfasdf"]
+    @Inject
+    public ButtonsAdapter(Map<String, List<String>> db, ResultsAdapter resultsAdapter) {
+        this.buttons = db.get(RbgBoyDataModule.DEFAULT, [])
+        this.db = db
         notifyDataSetChanged()
+        this.resultsAdapter = resultsAdapter
     }
 
     @Override
@@ -31,13 +39,14 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
+                resultsAdapter.addAll(db.keySet().toList())
             }
         })
     }
 
     @Override
     int getItemCount() {
-        return buttons.size()
+        return buttons == null ? 0 : buttons.size()
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -51,6 +60,11 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public void clear() {
         buttons.clear()
+        notifyDataSetChanged()
+    }
+
+    public void useDb(String key) {
+        buttons = db.get(key, [])
         notifyDataSetChanged()
     }
 }

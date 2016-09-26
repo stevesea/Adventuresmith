@@ -18,6 +18,7 @@ import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
+import org.steavesea.rpg_boy2000.data.RbgBoyDataModule
 
 import javax.inject.Inject
 
@@ -120,10 +121,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_fotf) {
+            buttonsAdapter.useDb(RbgBoyDataModule.FREEBOOTERS)
             resultsAdapter.add("fotf");
         } else if (id == R.id.nav_mr) {
+            buttonsAdapter.useDb(RbgBoyDataModule.MAZERATS)
             resultsAdapter.add("mr");
         } else if (id == R.id.nav_pw) {
+            buttonsAdapter.useDb(RbgBoyDataModule.PERILOUS_WILDS)
             resultsAdapter.add("pw");
         }
 
