@@ -21,6 +21,7 @@ a tool I could get personal use out of when DMing.
 
 ## todo
 
+- how to delete individual results? click/long-click/gesture?
 - how to internationalize rpg content?
 - cleanup API between random tables & UI
 - use recyclerview instead of listview

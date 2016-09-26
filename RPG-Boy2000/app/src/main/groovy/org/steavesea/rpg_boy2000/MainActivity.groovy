@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
     @OnClick(R.id.clear_results)
     public void onClickFloater(View v) {
         resultsAdapter.clear()
-        Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+        Snackbar.make(v, "Cleared results", Snackbar.LENGTH_SHORT)
                 .setAction("Action", null).show();
     }
 

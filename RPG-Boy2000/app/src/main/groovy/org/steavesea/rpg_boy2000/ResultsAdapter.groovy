@@ -26,10 +26,11 @@ class ResultsAdapter  extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
         // - replace the contents of the view with that element
         final String name = dataset.get(position);
         holder.itemText.setText(dataset.get(position));
-        holder.itemText.setOnClickListener(new View.OnClickListener() {
+        holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 remove(name);
+                return true;
             }
         });
     }
