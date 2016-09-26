@@ -59,6 +59,15 @@ class ResultsAdapter  extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
         notifyItemInserted(position);
     }
 
+    public void add(String item) {
+        dataset.add(0, item)
+        notifyDataSetChanged()
+    }
+    public void addAll(List<String> items) {
+        dataset.addAll(0, items)
+        notifyDataSetChanged()
+    }
+
     public void remove(String item) {
         int position = dataset.indexOf(item);
         dataset.remove(position);

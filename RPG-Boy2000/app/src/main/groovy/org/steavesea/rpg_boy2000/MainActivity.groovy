@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
@@ -39,8 +38,9 @@ public class MainActivity extends AppCompatActivity
     @Inject
     ResultsAdapter resultsAdapter
 
-    @OnClick(R.id.fab)
+    @OnClick(R.id.clear_results)
     public void onClickFloater(View v) {
+        resultsAdapter.clear()
         Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
@@ -105,19 +105,6 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.action_about) {
-
-            Toast.makeText(this,"""\
-Content used with permission from
-
-Jason Lutes:
-  - Perilous Wilds
-  - Frebooters on the Frontier
-
-Ben Milton:
-  - Maze Rats
-""", Toast.LENGTH_LONG).show();
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -131,11 +118,11 @@ Ben Milton:
         int id = item.getItemId();
 
         if (id == R.id.nav_fotf) {
-            resultsAdapter.add(0, "fotf");
+            resultsAdapter.add("fotf");
         } else if (id == R.id.nav_mr) {
-            resultsAdapter.add(0, "mr");
+            resultsAdapter.add("mr");
         } else if (id == R.id.nav_pw) {
-            resultsAdapter.add(0, "pw");
+            resultsAdapter.add("pw");
         }
 
         drawer.closeDrawer(GravityCompat.START);

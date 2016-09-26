@@ -12,4 +12,14 @@
     <string name="acknowledgements">Acknowledgements</string>
     <string name="about">About</string>
     <string name="information">Information</string>
+    <string name="content_used_with_permission_from">Content used with permission from</string>
+    <string name="select_a_supplement">Select a supplement:</string>
+    <string name="content_permission_body">
+Jason Lutes\n
+  \t- The Perilous Wilds\n
+  \t- Freebooters of the Frontier\n
+\n
+Ben Milton\n
+  \t- Maze Rats\n
+    </string>
 </resources>
