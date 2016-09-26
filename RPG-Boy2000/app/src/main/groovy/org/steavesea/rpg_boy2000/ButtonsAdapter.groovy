@@ -40,7 +40,10 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                resultsAdapter.addAll(rpgBoyData.runGenerator(currentDataset, btnText))
+                resultsAdapter.addAll(
+                        // TODO: output any header info? seems like could be handy...
+                        //["Generated ${btnText} ... ".toString()] +
+                                rpgBoyData.runGenerator(currentDataset, btnText))
             }
         })
     }

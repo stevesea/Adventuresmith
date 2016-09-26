@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_fotf) {
             buttonsAdapter.useDb(RpgBoyData.FREEBOOTERS)
-            resultsAdapter.add("fotf");
+            resultsAdapter.add("### Switched to Freebooters on the Frontier ###");
         } else if (id == R.id.nav_mr) {
             buttonsAdapter.useDb(RpgBoyData.MAZERATS)
-            resultsAdapter.add("mr");
+            resultsAdapter.add("### Switched to Maze Rats ###");
         } else if (id == R.id.nav_pw) {
             buttonsAdapter.useDb(RpgBoyData.PERILOUS_WILDS)
-            resultsAdapter.add("pw");
+            resultsAdapter.add("### Switched to The Perilous Wilds ###");
         }
 
         drawer.closeDrawer(GravityCompat.START);
