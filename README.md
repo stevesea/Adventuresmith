@@ -21,7 +21,6 @@ a tool I could get personal use out of when DMing.
 
 ## todo
 
-- use nav drawer
 - how to internationalize rpg content?
 - cleanup API between random tables & UI
 - use recyclerview instead of listview
@@ -49,3 +48,5 @@ https://github.com/pieces029/is-taylor-swift-single-groovy-android/tree/master/s
 
 
 add 'new groovy class' template to Android Studio http://www.mscharhag.com/groovy/creating-android-apps-with-groovy
+
+https://github.com/JStumpp/awesome-android

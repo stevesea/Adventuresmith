@@ -16,6 +16,7 @@
             android:title="@string/freebooters_on_the_frontier"/>
     </group>
 
+    <!--
     <item android:title="Communicate">
         <menu>
             <item
@@ -28,5 +29,5 @@
                 android:title="Send"/>
         </menu>
     </item>
-
+    -->
 </menu>

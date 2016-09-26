@@ -7,25 +7,37 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
 
+import javax.inject.Inject
+
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    @InjectView(R.id.recycler_buttons)
+    RecyclerView recyclerButtons
+    @InjectView(R.id.recycler_results)
+    RecyclerView recyclerResults
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawer;
     @InjectView(R.id.nav_view)
-    NavigationView navigationView;
+    NavigationView navigationView
+
+    @Inject
+    ResultsAdapter resultsAdapter
 
     @OnClick(R.id.fab)
     public void onClickFloater(View v) {
@@ -50,6 +62,7 @@ public class MainActivity extends AppCompatActivity
         // This mus be called for automatic parsing of intent extras
         SwissKnife.loadExtras(this)
 
+
         setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -58,6 +71,12 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        recyclerButtons.layoutManager = new LinearLayoutManager(this);// TODO: use grid
+        recyclerResults.layoutManager = new LinearLayoutManager(this)
+        // TODO: setup  button adapters
+
+        recyclerResults.adapter = resultsAdapter
     }
 
     @Override
@@ -86,6 +105,19 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_about) {
+
+            Toast.makeText(this,"""\
+Content used with permission from
+
+Jason Lutes:
+  - Perilous Wilds
+  - Frebooters on the Frontier
+
+Ben Milton:
+  - Maze Rats
+""", Toast.LENGTH_LONG).show();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -99,15 +131,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_fotf) {
-            // Handle the camera action
+            resultsAdapter.add(0, "fotf");
         } else if (id == R.id.nav_mr) {
-
+            resultsAdapter.add(0, "mr");
         } else if (id == R.id.nav_pw) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            resultsAdapter.add(0, "pw");
         }
 
         drawer.closeDrawer(GravityCompat.START);

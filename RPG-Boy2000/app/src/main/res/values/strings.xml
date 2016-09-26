@@ -9,4 +9,7 @@
     <string name="maze_rats">Maze Rats</string>
     <string name="perilous_wilds">Perilous Wilds</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
+    <string name="acknowledgements">Acknowledgements</string>
+    <string name="about">About</string>
+    <string name="information">Information</string>
 </resources>
