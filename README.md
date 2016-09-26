@@ -21,6 +21,20 @@ a tool I could get personal use out of when DMing.
 
 ## todo
 
+- cleanup directory structure. figure out license, and if want to stay
+  on github
+- figure out requirements
+ -- how easy should it for non-programmer to add new data? (right now it's hard)
+ -- what niche is this trying to fill? I don't care about a random d100 
+    table with 2-3 sentence result. I want:
+      - evocative tables from interesting supplements
+      - complicated tables with multiple rolls (PW steadings, dangers, etc)
+- is dagger helping or hurting?
+- add unit tests
+- limit # of items in results list. 
+- figure out publishing
+- develop a Groovy DSL to define the data or at least the formatting? Or, 
+  should it all be data driven?
 - how to delete individual results? click/long-click/gesture?
 - how to internationalize rpg content?
 - cleanup API between random tables & UI
