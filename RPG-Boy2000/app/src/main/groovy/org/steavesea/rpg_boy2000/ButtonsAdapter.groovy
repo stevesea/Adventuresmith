@@ -6,21 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.RbgBoyDataModule
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    Map<String, List<String>> db;
     List<String> buttons;
     ResultsAdapter resultsAdapter
+    RpgBoyData rpgBoyData
+    String currentDataset = RpgBoyData.DEFAULT
 
     @Inject
-    public ButtonsAdapter(Map<String, List<String>> db, ResultsAdapter resultsAdapter) {
-        this.buttons = db.get(RbgBoyDataModule.DEFAULT, [])
-        this.db = db
+    public ButtonsAdapter(RpgBoyData rpgBoyData, ResultsAdapter resultsAdapter) {
+        this.buttons = rpgBoyData.getButtons(currentDataset)
+        this.rpgBoyData = rpgBoyData
         notifyDataSetChanged()
         this.resultsAdapter = resultsAdapter
     }
@@ -39,7 +40,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                resultsAdapter.addAll(db.keySet().toList())
+                resultsAdapter.addAll(rpgBoyData.runGenerator(currentDataset, btnText))
             }
         })
     }
@@ -64,7 +65,8 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public void useDb(String key) {
-        buttons = db.get(key, [])
+        currentDataset = key
+        buttons = rpgBoyData.getButtons(key)
         notifyDataSetChanged()
     }
 }

@@ -1,11 +1,18 @@
 package org.steavesea.rpg_boy2000.data.maze_rats
 
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 import org.steavesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
 
 class MazeRatsPotionEffects extends AbstractGenerator {
+    public String getName() {
+        return "Potion Effects"
+    }
+    public String getDataset() {
+        return RpgBoyData.MAZERATS
+    }
     static final List<String> effects = """\
 1-hour vampirism
 Alter face

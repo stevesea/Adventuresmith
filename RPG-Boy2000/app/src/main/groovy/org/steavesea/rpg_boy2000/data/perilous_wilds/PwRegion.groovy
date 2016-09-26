@@ -2,10 +2,19 @@ package org.steavesea.rpg_boy2000.data.perilous_wilds
 
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
 import org.steavesea.rpg_boy2000.data.Shuffler
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 
 class PwRegion extends AbstractGenerator {
+    public String getName() {
+        return "Region"
+    }
+    public String getDataset() {
+        return RpgBoyData.PERILOUS_WILDS
+    }
+
+
     static final List<String> adjectives = """
         Ageless Ashen
         Black Blessed Blighted Blue Broken Burning

@@ -2,10 +2,17 @@ package org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier
 
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
 import org.steavesea.rpg_boy2000.data.Shuffler
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 
 class FotFSpells extends AbstractGenerator {
+    public String getName() {
+        return "Spells"
+    }
+    public String getDataset() {
+        return RpgBoyData.FREEBOOTERS
+    }
     static final List<String> elements = """
         Acid Aether Air Anger Ash Avarice
         Balance Blight Blood Bone Bones Brimstone

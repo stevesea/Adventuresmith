@@ -1,11 +1,18 @@
 package org.steavesea.rpg_boy2000.data.perilous_wilds
 
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 import org.steavesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
 
 class PwPlace extends AbstractGenerator {
+    public String getName() {
+        return "Place"
+    }
+    public String getDataset() {
+        return RpgBoyData.PERILOUS_WILDS
+    }
     static final List<String> adjectives = """
         Ancient Ashen
         Black Bloody Blue Bright Broken Burning

@@ -1,11 +1,18 @@
 package org.steavesea.rpg_boy2000.data.maze_rats
 
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 import org.steavesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
 
 class MazeRatsMagic extends AbstractGenerator {
+    public String getName() {
+        return "Spells"
+    }
+    public String getDataset() {
+        return RpgBoyData.MAZERATS
+    }
     static final List<String> effects = """\
 Absorbing
 Accelerating

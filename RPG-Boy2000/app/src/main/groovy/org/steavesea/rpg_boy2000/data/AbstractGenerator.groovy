@@ -20,6 +20,8 @@ public abstract class AbstractGenerator {
         return shuffler.rollDice(numDice, nSides)
     }
 
+    abstract String getName();
+    abstract String getDataset();
     abstract List<GString> getFormatters()
 
     String[] generate(int num) {

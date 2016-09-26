@@ -2,10 +2,17 @@ package org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier
 
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
 import org.steavesea.rpg_boy2000.data.Shuffler
+import org.steavesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 
 class FotFTraits extends AbstractGenerator {
+    public String getName() {
+        return "Traits"
+    }
+    public String getDataset() {
+        return RpgBoyData.FREEBOOTERS
+    }
     static final List<String> virtues = """\
 Ambitious
 Benevolent

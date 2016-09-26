@@ -2,7 +2,8 @@ package org.steavesea.rpg_boy2000
 
 import android.app.Application
 import dagger.ObjectGraph
-import org.steavesea.rpg_boy2000.data.RbgBoyDataModule
+
+import org.steavesea.rpg_boy2000.data.RpgBoyDataModule
 
 public class RpgBoy2000App extends Application {
     private ObjectGraph graph;
@@ -14,7 +15,7 @@ public class RpgBoy2000App extends Application {
         graph = ObjectGraph.create(
                 new AndroidModule(this),
                 new RpgBoy2000Module(),
-                new RbgBoyDataModule()
+                new RpgBoyDataModule()
         );
     }
 
