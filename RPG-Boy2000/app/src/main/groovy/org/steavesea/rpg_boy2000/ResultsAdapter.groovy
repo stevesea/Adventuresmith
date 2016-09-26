@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView;
 
-class ResultsAdapter  extends RecyclerView.Adapter<ResultsAdapter.ViewHolder> {
+class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder

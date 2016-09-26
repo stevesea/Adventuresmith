@@ -15,4 +15,9 @@ public class RpgBoy2000Module {
     public ResultsAdapter provideResultsAdapter() {
         new ResultsAdapter(new ArrayList<String>())
     }
+
+    @Provides @Singleton
+    public ButtonsAdapter provideButtonsAdapter() {
+        return new ButtonsAdapter()
+    }
 }

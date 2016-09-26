@@ -57,3 +57,6 @@ https://github.com/JStumpp/awesome-android
 http://www.vogella.com/tutorials/AndroidRecyclerView/article.html
 
 http://stackoverflow.com/questions/28684759/import-material-design-icons-into-an-android-project
+
+
+http://blog.sqisland.com/2014/12/recyclerview-grid-with-header.html

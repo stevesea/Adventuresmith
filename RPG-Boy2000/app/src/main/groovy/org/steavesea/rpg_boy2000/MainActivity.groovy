@@ -7,6 +7,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity
 
     @Inject
     ResultsAdapter resultsAdapter
+    @Inject
+    ButtonsAdapter buttonsAdapter
 
     @OnClick(R.id.clear_results)
     public void onClickFloater(View v) {
@@ -71,11 +74,11 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        recyclerButtons.layoutManager = new LinearLayoutManager(this);// TODO: use grid
+        recyclerButtons.layoutManager = new GridLayoutManager(this, 3);
         recyclerResults.layoutManager = new LinearLayoutManager(this)
-        // TODO: setup  button adapters
 
         recyclerResults.adapter = resultsAdapter
+        recyclerButtons.adapter = buttonsAdapter
     }
 
     @Override
