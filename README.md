@@ -29,6 +29,8 @@ a tool I could get personal use out of when DMing.
 - more dagger goodness
 - more swissknife goodness
 - image buttons? (game-icons.net)
+- preferences (??? what would they be?)
+- a way to copy/save a set of results? (send via e-mail?)
 
 
 ## Other random generators with the same/similar content
@@ -53,3 +55,5 @@ add 'new groovy class' template to Android Studio http://www.mscharhag.com/groov
 https://github.com/JStumpp/awesome-android
 
 http://www.vogella.com/tutorials/AndroidRecyclerView/article.html
+
+http://stackoverflow.com/questions/28684759/import-material-design-icons-into-an-android-project

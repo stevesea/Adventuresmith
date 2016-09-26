@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity
                 .setAction("Action", null).show();
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
