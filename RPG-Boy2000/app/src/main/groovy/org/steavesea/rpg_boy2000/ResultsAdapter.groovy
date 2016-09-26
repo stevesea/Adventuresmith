@@ -1,5 +1,6 @@
 package org.steavesea.rpg_boy2000
 
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,8 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override
             public boolean onLongClick(View v) {
                 remove(name);
+                Snackbar.make(v, "Erased item ${name}", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
                 return true;
             }
         });
@@ -69,6 +72,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyDataSetChanged()
     }
 
+    // TODO: is there more robust way to remove item by widget? this removes by string... which if generators are unique shouldn't be a problem
     public void remove(String item) {
         int position = dataset.indexOf(item);
         dataset.remove(position);

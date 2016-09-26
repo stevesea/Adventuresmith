@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_mr"
-            android:icon="@drawable/ic_folder_black_24dp"
+            android:icon="@drawable/ic_nfc_black_24dp"
             android:title="@string/maze_rats"/>
         <item
             android:id="@+id/nav_pw"
-            android:icon="@drawable/ic_folder_black_24dp"
+            android:icon="@drawable/ic_terrain_black_24dp"
             android:title="@string/perilous_wilds"/>
         <item
             android:id="@+id/nav_fotf"
-            android:icon="@drawable/ic_folder_black_24dp"
+            android:icon="@drawable/ic_wallpaper_black_24dp"
             android:title="@string/freebooters_on_the_frontier"/>
     </group>
 </menu>
