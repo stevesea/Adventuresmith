@@ -9,9 +9,13 @@ sources:
 * Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
 * Maze Rats 0.1, by Ben Milton. http://questingblog.com/maze-rats/
 
-## Screenshot
+## Screenshots
 
-![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/mr_monsters.png "Monsters generated for Maze Rats")
+![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/nav_drawer.png "Sliding nav bar, acknowledgements")
+
+![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/mr_chars.png "Maze Rats - characters")
+
+![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/mr_monsters.png "Maze Rats - monsters")
 
 ## Goals
 
@@ -21,6 +25,7 @@ a tool I could get personal use out of when DMing.
 
 ## todo
 
+- do header-button trick in grid layout to put a heading?
 - cleanup directory structure. figure out license, and if want to stay
   on github
 - figure out requirements
