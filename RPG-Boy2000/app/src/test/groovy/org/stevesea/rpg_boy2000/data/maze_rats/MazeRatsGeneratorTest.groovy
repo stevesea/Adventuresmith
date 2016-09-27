@@ -20,13 +20,7 @@
 package org.stevesea.rpg_boy2000.data.maze_rats
 
 import org.junit.Test
-import org.steavesea.rpg_boy2000.data.Shuffler
-import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsAfflictions
-import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsCharacter
-import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsItems
-import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsMagic
-import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsMonsters
-import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsPotionEffects
+import org.stevesea.rpg_boy2000.data.Shuffler
 
 class MazeRatsGeneratorTest {
 

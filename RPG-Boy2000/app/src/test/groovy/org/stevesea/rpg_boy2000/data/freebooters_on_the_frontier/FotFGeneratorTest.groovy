@@ -25,8 +25,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
-import org.steavesea.rpg_boy2000.data.Shuffler
-import org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier.FotFSpells
+import org.stevesea.rpg_boy2000.data.Shuffler
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any

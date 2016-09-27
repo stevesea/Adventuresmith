@@ -16,12 +16,12 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000.data.perilous_wilds
+package org.stevesea.rpg_boy2000.data.perilous_wilds
 
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.AbstractGenerator
-import org.steavesea.rpg_boy2000.data.RpgBoyData
-import org.steavesea.rpg_boy2000.data.Shuffler
+import org.stevesea.rpg_boy2000.data.AbstractGenerator
+import org.stevesea.rpg_boy2000.data.RpgBoyData
+import org.stevesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
 

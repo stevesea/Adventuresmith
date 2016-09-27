@@ -25,9 +25,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
-import org.steavesea.rpg_boy2000.data.Shuffler
-import org.steavesea.rpg_boy2000.data.perilous_wilds.PwPlace
-import org.steavesea.rpg_boy2000.data.perilous_wilds.PwRegion
+import org.stevesea.rpg_boy2000.data.Shuffler
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any

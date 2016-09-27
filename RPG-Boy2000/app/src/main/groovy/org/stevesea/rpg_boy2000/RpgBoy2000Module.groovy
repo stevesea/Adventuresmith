@@ -17,14 +17,17 @@
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.steavesea.rpg_boy2000;
 
-import java.lang.annotation.Retention;
+package org.stevesea.rpg_boy2000
 
-import javax.inject.Qualifier;
+import dagger.Module
+import groovy.transform.CompileStatic
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-@Qualifier @Retention(RUNTIME)
-public @interface ForApplication {
+@CompileStatic
+@Module(
+        injects = [MainActivity.class, ResultsAdapter.class, ButtonsAdapter.class],
+        library = true,
+        complete = false
+)
+public class RpgBoy2000Module {
 }

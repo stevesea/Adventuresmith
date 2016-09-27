@@ -16,41 +16,38 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000.data
+
+
+package org.stevesea.rpg_boy2000.data
 
 import groovy.transform.CompileStatic
 
+import javax.inject.Inject
+
 @CompileStatic
-public abstract class AbstractGenerator {
+class Shuffler {
+    private final Random random;
 
-    protected final Shuffler shuffler;
-
-    AbstractGenerator(Shuffler shuffler) {
-        this.shuffler = shuffler
+    @Inject
+    Shuffler(Random random) {
+        this.random = random
     }
 
     def pick(List<?> items) {
-        return shuffler.pick(items)
+        return items.get(random.nextInt(items.size()))
     }
 
     List<?> pick(List<?> items, int num) {
-        return shuffler.pick(items, num)
+        def local = items.collect()
+        Collections.shuffle(local)
+        return local.take(num)
     }
 
     int rollDice(int numDice, int nSides) {
-        return shuffler.rollDice(numDice, nSides)
-    }
-
-    abstract String getName()
-    abstract String getDataset()
-
-    abstract String generate()
-
-    String[] generate(int num) {
-        def strings = []
-        num.times {
-            strings << generate()
+        int sum = 0
+        numDice.times {
+            sum += random.nextInt(nSides) + 1
         }
-        return strings as String[]
+        return sum
     }
 }

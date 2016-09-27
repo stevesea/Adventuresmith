@@ -16,7 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000
+
+
+package org.stevesea.rpg_boy2000
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -38,7 +40,8 @@ import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.RpgBoyData
+import org.steavesea.rpg_boy2000.R
+import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 

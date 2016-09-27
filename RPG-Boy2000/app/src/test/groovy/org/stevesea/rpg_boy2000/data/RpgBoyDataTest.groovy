@@ -4,8 +4,6 @@ import dagger.ObjectGraph
 import org.junit.Before
 import org.junit.Test
 import org.junit.Assert
-import org.steavesea.rpg_boy2000.data.RpgBoyData
-import org.steavesea.rpg_boy2000.data.RpgBoyDataModule
 
 class RpgBoyDataTest {
     private ObjectGraph graph;

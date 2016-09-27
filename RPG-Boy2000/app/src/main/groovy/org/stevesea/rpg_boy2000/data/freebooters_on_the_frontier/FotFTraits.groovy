@@ -16,12 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier
+
+
+package org.stevesea.rpg_boy2000.data.freebooters_on_the_frontier
 
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.AbstractGenerator
-import org.steavesea.rpg_boy2000.data.Shuffler
-import org.steavesea.rpg_boy2000.data.RpgBoyData
+import org.stevesea.rpg_boy2000.data.AbstractGenerator
+import org.stevesea.rpg_boy2000.data.Shuffler
+import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 

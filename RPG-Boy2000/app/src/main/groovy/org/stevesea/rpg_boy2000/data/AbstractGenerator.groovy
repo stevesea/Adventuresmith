@@ -18,36 +18,41 @@
  */
 
 
-package org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier
+package org.stevesea.rpg_boy2000.data
 
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.AbstractGenerator
-import org.steavesea.rpg_boy2000.data.RpgBoyData
-import org.steavesea.rpg_boy2000.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
-class FotFChars extends AbstractGenerator {
-    public String getName() {
-        return "Characters"
-    }
-    public String getDataset() {
-        return RpgBoyData.FREEBOOTERS
-    }
-    static final List<String> virtues = """\
-""".readLines()
+public abstract class AbstractGenerator {
 
-    static final List<String> vices = """\
-""".readLines()
+    protected final Shuffler shuffler;
 
-    @Inject
-    FotFChars(Shuffler shuffler) {
-        super(shuffler);
+    AbstractGenerator(Shuffler shuffler) {
+        this.shuffler = shuffler
     }
 
-    String generate() {
-        return "${ -> pick(virtues)} <> ${ -> pick(vices)}"
+    def pick(List<?> items) {
+        return shuffler.pick(items)
     }
 
+    List<?> pick(List<?> items, int num) {
+        return shuffler.pick(items, num)
+    }
+
+    int rollDice(int numDice, int nSides) {
+        return shuffler.rollDice(numDice, nSides)
+    }
+
+    abstract String getName()
+    abstract String getDataset()
+
+    abstract String generate()
+
+    String[] generate(int num) {
+        def strings = []
+        num.times {
+            strings << generate()
+        }
+        return strings as String[]
+    }
 }

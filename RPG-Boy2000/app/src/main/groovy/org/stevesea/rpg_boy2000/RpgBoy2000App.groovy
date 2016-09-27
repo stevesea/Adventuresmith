@@ -16,36 +16,31 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000.data
 
+
+package org.stevesea.rpg_boy2000
+
+import android.app.Application
+import dagger.ObjectGraph
 import groovy.transform.CompileStatic
-
-import javax.inject.Inject
+import org.stevesea.rpg_boy2000.data.RpgBoyDataModule
 
 @CompileStatic
-class Shuffler {
-    private final Random random;
+public class RpgBoy2000App extends Application {
+    private ObjectGraph graph;
 
-    @Inject
-    Shuffler(Random random) {
-        this.random = random
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        graph = ObjectGraph.create(
+                new AndroidModule(this),
+                new RpgBoy2000Module(),
+                new RpgBoyDataModule()
+        );
     }
 
-    def pick(List<?> items) {
-        return items.get(random.nextInt(items.size()))
-    }
-
-    List<?> pick(List<?> items, int num) {
-        def local = items.collect()
-        Collections.shuffle(local)
-        return local.take(num)
-    }
-
-    int rollDice(int numDice, int nSides) {
-        int sum = 0
-        numDice.times {
-            sum += random.nextInt(nSides) + 1
-        }
-        return sum
+    public void inject(Object object) {
+        graph.inject(object);
     }
 }

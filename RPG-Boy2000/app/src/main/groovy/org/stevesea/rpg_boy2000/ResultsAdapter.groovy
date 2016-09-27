@@ -16,7 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000
+
+
+package org.stevesea.rpg_boy2000
 
 import android.content.Context
 import android.support.design.widget.Snackbar
@@ -27,6 +29,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import groovy.transform.CompileStatic
+import org.steavesea.rpg_boy2000.R
 
 import javax.inject.Inject
 import javax.inject.Singleton

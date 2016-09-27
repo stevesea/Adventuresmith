@@ -16,29 +16,38 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000
 
-import android.app.Application
-import dagger.ObjectGraph
+
+package org.stevesea.rpg_boy2000.data.freebooters_on_the_frontier
+
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.RpgBoyDataModule
+import org.stevesea.rpg_boy2000.data.AbstractGenerator
+import org.stevesea.rpg_boy2000.data.RpgBoyData
+import org.stevesea.rpg_boy2000.data.Shuffler
+
+import javax.inject.Inject
 
 @CompileStatic
-public class RpgBoy2000App extends Application {
-    private ObjectGraph graph;
+class FotFChars extends AbstractGenerator {
+    public String getName() {
+        return "Characters"
+    }
+    public String getDataset() {
+        return RpgBoyData.FREEBOOTERS
+    }
+    static final List<String> virtues = """\
+""".readLines()
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    static final List<String> vices = """\
+""".readLines()
 
-        graph = ObjectGraph.create(
-                new AndroidModule(this),
-                new RpgBoy2000Module(),
-                new RpgBoyDataModule()
-        );
+    @Inject
+    FotFChars(Shuffler shuffler) {
+        super(shuffler);
     }
 
-    public void inject(Object object) {
-        graph.inject(object);
+    String generate() {
+        return "${ -> pick(virtues)} <> ${ -> pick(vices)}"
     }
+
 }

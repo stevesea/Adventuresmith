@@ -16,7 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000.data
+
+
+package org.stevesea.rpg_boy2000.data
 
 import groovy.transform.CompileStatic
 

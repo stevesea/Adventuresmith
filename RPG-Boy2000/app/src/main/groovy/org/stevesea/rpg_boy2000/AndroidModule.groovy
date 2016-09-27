@@ -17,7 +17,7 @@
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.steavesea.rpg_boy2000
+package org.stevesea.rpg_boy2000
 
 import android.content.Context
 import dagger.Module
@@ -25,7 +25,6 @@ import dagger.Provides
 import groovy.transform.CompileStatic
 
 import javax.inject.Singleton
-
 /**
  * A module for Android-specific dependencies which require a {@link Context} or
  * {@link android.app.Application} to create.
@@ -41,7 +40,7 @@ public class AndroidModule {
 
     /**
      * Allow the application context to be injected but require that it be annotated with
-     * {@link ForApplication @Annotation} to explicitly differentiate it from an activity context.
+     * {@link org.stevesea.rpg_boy2000.ForApplication @Annotation} to explicitly differentiate it from an activity context.
      */
     @Provides @Singleton @ForApplication Context provideApplicationContext() {
         return application;

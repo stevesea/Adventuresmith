@@ -17,7 +17,7 @@
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.steavesea.rpg_boy2000
+package org.stevesea.rpg_boy2000
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -25,7 +25,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.data.RpgBoyData
+import org.steavesea.rpg_boy2000.R
+import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 

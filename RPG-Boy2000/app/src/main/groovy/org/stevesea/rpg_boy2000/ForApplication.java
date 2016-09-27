@@ -16,16 +16,15 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.steavesea.rpg_boy2000
 
-import dagger.Module
-import groovy.transform.CompileStatic
+package org.stevesea.rpg_boy2000;
 
-@CompileStatic
-@Module(
-        injects = [MainActivity.class, ResultsAdapter.class, ButtonsAdapter.class],
-        library = true,
-        complete = false
-)
-public class RpgBoy2000Module {
+import java.lang.annotation.Retention;
+
+import javax.inject.Qualifier;
+
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+@Qualifier @Retention(RUNTIME)
+public @interface ForApplication {
 }
