@@ -52,3 +52,6 @@ http://www.nbos.com/products/inspiration-pad-pro
 
 https://coolors.co
 http://paletton.com/
+https://material.google.com/style/color.html#
+https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView
+https://bignerdranch.github.io/simple-item-decoration/#divider_item_decoration

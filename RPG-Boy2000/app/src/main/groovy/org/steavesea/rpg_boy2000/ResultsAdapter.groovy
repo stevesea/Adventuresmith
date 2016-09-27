@@ -18,7 +18,7 @@
  */
 package org.steavesea.rpg_boy2000
 
-import android.graphics.Color
+import android.content.Context
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
 import android.text.Html
@@ -27,15 +27,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    Map<Integer,String> colors = [
-            0 : "#FFFFFF",
-            1 : "#FAFAFA",
-            2 : "#F5F5F5",
-            3 : "#EEEEEE",
-            4 : "#F5F5F5",
-            5 : "#FAFAFA",
+    @Inject @ForApplication
+    Context context
+
+    List<Integer> colors = [
+            R.color.resultsBg0,
+            R.color.resultsBg1,
+            R.color.resultsBg2,
+            R.color.resultsBg3,
+            R.color.resultsBg4,
+            R.color.resultsBg5
     ]
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -56,7 +63,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         // - replace the contents of the view with that element
         final String name = dataset.get(position);
         holder.itemText.setText(Html.fromHtml(dataset.get(position), Html.FROM_HTML_MODE_LEGACY));
-        holder.itemText.setBackgroundColor(Color.parseColor(colors.get(position % colors.size())))
+        holder.itemText.setBackgroundColor(context.getColor((int)colors.get(position % colors.size())))
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -84,8 +91,8 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<String> dataset;
 
-    ResultsAdapter(List<String> dataset) {
-        this.dataset = dataset
+    ResultsAdapter() {
+        this.dataset = new ArrayList<String>()
     }
 
     public void add(int position, String item) {

@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity
         recyclerButtons.adapter = buttonsAdapter
         recyclerButtons.layoutManager = new GridLayoutManager(this, 3)
 
+
         recyclerResults.adapter = resultsAdapter
         recyclerResults.layoutManager = new LinearLayoutManager(this)
 
