@@ -22,6 +22,7 @@ package org.steavesea.rpg_boy2000
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import groovy.transform.CompileStatic
 
 import javax.inject.Singleton
 
@@ -29,6 +30,7 @@ import javax.inject.Singleton
  * A module for Android-specific dependencies which require a {@link Context} or
  * {@link android.app.Application} to create.
  */
+@CompileStatic
 @Module(library = true)
 public class AndroidModule {
     private final RpgBoy2000App application;

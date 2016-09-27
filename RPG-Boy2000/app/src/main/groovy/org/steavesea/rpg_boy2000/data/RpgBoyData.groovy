@@ -18,9 +18,12 @@
  */
 package org.steavesea.rpg_boy2000.data
 
+import groovy.transform.CompileStatic
+
 import javax.inject.Inject
 import javax.inject.Singleton;
 
+@CompileStatic
 @Singleton
 public class RpgBoyData {
     Map<String, List<String>> buttonLists = new HashMap<>()

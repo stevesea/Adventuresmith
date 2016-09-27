@@ -20,9 +20,10 @@ package org.steavesea.rpg_boy2000
 
 import android.app.Application
 import dagger.ObjectGraph
-
+import groovy.transform.CompileStatic
 import org.steavesea.rpg_boy2000.data.RpgBoyDataModule
 
+@CompileStatic
 public class RpgBoy2000App extends Application {
     private ObjectGraph graph;
 

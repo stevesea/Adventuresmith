@@ -19,7 +19,9 @@
 package org.steavesea.rpg_boy2000
 
 import dagger.Module
+import groovy.transform.CompileStatic
 
+@CompileStatic
 @Module(
         injects = [MainActivity.class, ResultsAdapter.class, ButtonsAdapter.class],
         library = true,

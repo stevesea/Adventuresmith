@@ -26,10 +26,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import groovy.transform.CompileStatic
 
 import javax.inject.Inject
 import javax.inject.Singleton
 
+@CompileStatic
 @Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 

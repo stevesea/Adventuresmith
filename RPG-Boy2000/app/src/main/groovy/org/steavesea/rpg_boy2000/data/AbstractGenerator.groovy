@@ -18,6 +18,9 @@
  */
 package org.steavesea.rpg_boy2000.data
 
+import groovy.transform.CompileStatic
+
+@CompileStatic
 public abstract class AbstractGenerator {
 
     protected final Shuffler shuffler;

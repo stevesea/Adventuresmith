@@ -20,12 +20,14 @@
 
 package org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier
 
+import groovy.transform.CompileStatic
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
 import org.steavesea.rpg_boy2000.data.RpgBoyData
 import org.steavesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
 
+@CompileStatic
 class FotFChars extends AbstractGenerator {
     public String getName() {
         return "Characters"

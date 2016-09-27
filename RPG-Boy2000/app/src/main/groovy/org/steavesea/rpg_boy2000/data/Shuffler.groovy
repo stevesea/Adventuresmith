@@ -18,8 +18,11 @@
  */
 package org.steavesea.rpg_boy2000.data
 
+import groovy.transform.CompileStatic
+
 import javax.inject.Inject
 
+@CompileStatic
 class Shuffler {
     private final Random random;
 

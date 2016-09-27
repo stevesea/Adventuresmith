@@ -20,6 +20,7 @@ package org.steavesea.rpg_boy2000.data
 
 import dagger.Module
 import dagger.Provides
+import groovy.transform.CompileStatic
 import org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier.FotFSpells
 import org.steavesea.rpg_boy2000.data.freebooters_on_the_frontier.FotFTraits
 import org.steavesea.rpg_boy2000.data.maze_rats.MazeRatsAfflictions
@@ -33,6 +34,7 @@ import org.steavesea.rpg_boy2000.data.perilous_wilds.PwRegion
 
 import javax.inject.Singleton
 
+@CompileStatic
 @Module(
         injects = [Shuffler.class, RpgBoyData.class],
         complete = false,

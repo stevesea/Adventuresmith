@@ -18,12 +18,14 @@
  */
 package org.steavesea.rpg_boy2000.data.maze_rats
 
+import groovy.transform.CompileStatic
 import org.steavesea.rpg_boy2000.data.AbstractGenerator
 import org.steavesea.rpg_boy2000.data.RpgBoyData
 import org.steavesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
 
+@CompileStatic
 class MazeRatsCharacter extends AbstractGenerator {
     public String getName() {
         return "Character"
