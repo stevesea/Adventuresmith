@@ -106,4 +106,8 @@ class PwPlace extends AbstractGenerator {
         ]
     }
 
+    String generate() {
+        return pick(getFormatters())
+    }
+
 }

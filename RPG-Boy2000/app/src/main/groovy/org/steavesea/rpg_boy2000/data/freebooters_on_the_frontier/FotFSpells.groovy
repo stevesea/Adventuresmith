@@ -195,8 +195,8 @@ class FotFSpells extends AbstractGenerator {
         ]
     }
 
-    List<GString> getFormatters() {
-        return getNoNameFormatters() + getNameFormatters()
+    String generate() {
+        return pick(getNoNameFormatters() + getNameFormatters())
     }
 
 }

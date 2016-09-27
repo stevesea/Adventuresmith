@@ -111,4 +111,7 @@ class PwRegion extends AbstractGenerator {
         ]
     }
 
+    String generate() {
+        return pick(getFormatters())
+    }
 }

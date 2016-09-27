@@ -141,10 +141,8 @@ Webbedd hands/feet\
         super(shuffler);
     }
 
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(afflictions)}",
-        ]
+    String generate() {
+        return "${ -> pick(afflictions)}"
     }
 
 }

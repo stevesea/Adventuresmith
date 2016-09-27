@@ -398,9 +398,8 @@ Whistle\
         super(shuffler);
     }
 
-    List<GString> getFormatters() {
-        return [
-"""\
+    String generate() {
+        return """
 <strong><small>Name</small>: <em>${ -> pick(forenames)} ${ -> pick(surnames)}</em></strong>
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: ${ -> rollDice(3, 6)} DEX: ${ -> rollDice(3, 6)} WIL: ${ -> rollDice(3, 6)} HP: ${ -> rollDice(1, 6)}</small>
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Personality</small></strong>: ${ -> pick(personalities, 2).join(", ")}
@@ -408,7 +407,7 @@ Whistle\
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Weapons</small></strong>:     ${ -> pick(weapons, 2).join(", ")}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Equip</small></strong>:       ${ -> pick(equipment, 3).join(", ")}
 """
-        ]
+
     }
 
 }

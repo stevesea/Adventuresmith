@@ -151,4 +151,8 @@ Wine\
                 "${ -> pick(MazeRatsMagic.forms)} ${ -> pick(items)}",
         ]
     }
+
+    String generate() {
+        return pick(getFormatters())
+    }
 }

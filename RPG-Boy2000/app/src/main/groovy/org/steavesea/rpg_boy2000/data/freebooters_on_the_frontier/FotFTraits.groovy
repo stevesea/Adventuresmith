@@ -144,10 +144,8 @@ Zealous\
         super(shuffler);
     }
 
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(virtues)} <> ${ -> pick(vices)}",
-        ]
+    String generate() {
+        return "${ -> pick(virtues)} <> ${ -> pick(vices)}"
     }
 
 }

@@ -357,4 +357,7 @@ Zone\
                 "${ -> pick(forms)} of ${ -> pick(effects)} ${ -> pick(elements)}",
         ]
     }
+    String generate() {
+        return pick(getFormatters())
+    }
 }

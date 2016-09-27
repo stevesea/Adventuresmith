@@ -141,10 +141,8 @@ X-Ray vision\
         super(shuffler);
     }
 
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(effects)}",
-        ]
+    String generate() {
+        return "${ -> pick(effects)}"
     }
 
 }

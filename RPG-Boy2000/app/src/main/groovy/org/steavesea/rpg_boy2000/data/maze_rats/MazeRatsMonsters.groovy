@@ -151,4 +151,8 @@ Worm\
                 "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(creatures)} ${ -> pick(creatures)}",
         ]
     }
+
+    String generate() {
+        return pick(getFormatters())
+    }
 }

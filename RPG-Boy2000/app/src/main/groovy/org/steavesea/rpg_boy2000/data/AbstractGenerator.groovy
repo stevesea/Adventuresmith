@@ -44,22 +44,12 @@ public abstract class AbstractGenerator {
     abstract String getName()
     abstract String getDataset()
 
-    /**
-     *
-     * @return a list of possible formatters. It's OK for this to return a single-entry
-     */
-    abstract List<GString> getFormatters()
-
-    String generate() {
-        return generate(1)
-    }
+    abstract String generate()
 
     String[] generate(int num) {
-        List<GString> formatters = getFormatters()
-
         def strings = []
         num.times {
-            strings << pick(formatters)
+            strings << generate()
         }
         return strings as String[]
     }
