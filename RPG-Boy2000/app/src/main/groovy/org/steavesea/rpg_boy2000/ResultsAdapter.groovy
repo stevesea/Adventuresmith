@@ -3,6 +3,7 @@ package org.steavesea.rpg_boy2000
 import android.graphics.Color
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +36,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final String name = dataset.get(position);
-        holder.itemText.setText(dataset.get(position));
+        holder.itemText.setText(Html.fromHtml(dataset.get(position), Html.FROM_HTML_MODE_LEGACY));
         holder.itemText.setBackgroundColor(Color.parseColor(colors.get(position % colors.size())))
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
