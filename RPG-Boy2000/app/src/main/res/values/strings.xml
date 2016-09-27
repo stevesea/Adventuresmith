@@ -12,14 +12,23 @@
     <string name="acknowledgements">Acknowledgements</string>
     <string name="about">About</string>
     <string name="information">Information</string>
-    <string name="content_used_with_permission_from">Content used with permission from</string>
     <string name="select_a_supplement">Select a supplement:</string>
-    <string name="content_permission_body">
-Jason Lutes\n
-  \t- The Perilous Wilds\n
-  \t- Freebooters of the Frontier\n
-\n
-Ben Milton\n
-  \t- Maze Rats\n
+    <string name="content_permission"><![CDATA[
+        <strong><small>Content used with permission from</small></strong>
+        <ul style="list-style-type:none">
+            <li><strong>Jason Lutes</strong>
+            <ul>
+                <li><em>The Perilous Wilds</em></li>
+                <li>Freebooters of the Frontier</li>
+            </ul>
+            </li>
+        </ul>
+        <ul>
+            <strong>Ben Milton</strong>
+            <ul>
+                <li>Maze Rats</li>
+            </ul>
+        </ul>
+        ]]>
     </string>
 </resources>

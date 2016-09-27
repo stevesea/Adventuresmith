@@ -25,6 +25,7 @@ import org.steavesea.rpg_boy2000.data.Shuffler
 import javax.inject.Inject
 
 class PwPlace extends AbstractGenerator {
+
     public String getName() {
         return "Place"
     }

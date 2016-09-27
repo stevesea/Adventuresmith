@@ -49,23 +49,12 @@
             android:padding="@dimen/activity_vertical_margin"
             >
 
+            <!-- note: main activity re-loads this with HTML.fromHtml version -->
             <TextView
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:id="@+id/permission_header"
+                android:id="@+id/content_permission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="@string/content_used_with_permission_from"/>
-
-            <TextView
-                android:id="@+id/permission_body"
-                android:layout_below="@+id/permission_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="@string/content_permission_body"/>
-
-
+                android:text="This will be replaced at Startup"/>
         </RelativeLayout>
     </android.support.design.widget.NavigationView>
 

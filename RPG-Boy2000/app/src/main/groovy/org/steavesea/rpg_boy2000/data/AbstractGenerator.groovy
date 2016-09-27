@@ -38,9 +38,18 @@ public abstract class AbstractGenerator {
         return shuffler.rollDice(numDice, nSides)
     }
 
-    abstract String getName();
-    abstract String getDataset();
+    abstract String getName()
+    abstract String getDataset()
+
+    /**
+     *
+     * @return a list of possible formatters. It's OK for this to return a single-entry
+     */
     abstract List<GString> getFormatters()
+
+    String generate() {
+        return generate(1)
+    }
 
     String[] generate(int num) {
         List<GString> formatters = getFormatters()

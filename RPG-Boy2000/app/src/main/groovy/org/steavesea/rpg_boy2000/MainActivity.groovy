@@ -29,9 +29,11 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     @InjectView(R.id.nav_view)
     NavigationView navigationView
+
+    @InjectView(R.id.content_permission)
+    TextView contentPermissionTextView
 
     @Inject
     ResultsAdapter resultsAdapter
@@ -83,6 +88,7 @@ public class MainActivity extends AppCompatActivity
         // This mus be called for automatic parsing of intent extras
         SwissKnife.loadExtras(this)
 
+        contentPermissionTextView.text = Html.fromHtml(getString(R.string.content_permission), Html.FROM_HTML_MODE_LEGACY)
 
         setSupportActionBar(toolbar);
 
