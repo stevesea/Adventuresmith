@@ -40,4 +40,8 @@ public class RpgBoyData {
         return generatorMap.get(dataset).get(name).generate(5).toList()
     }
 
+    public Set<String> getDatasets() {
+        return buttonLists.keySet()
+    }
+
 }
