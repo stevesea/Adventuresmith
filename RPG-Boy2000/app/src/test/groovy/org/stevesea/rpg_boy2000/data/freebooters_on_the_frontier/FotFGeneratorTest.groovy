@@ -38,20 +38,18 @@ class FotFGeneratorTest {
     @Mock
     Random mockRandom
 
-    FotFSpells spells
-
+    Shuffler shuffler
 
     @Before
     void setup() {
         // set the shuffler up so that it's always just returning the first item
-        Shuffler shuffler = new Shuffler(mockRandom);
+        shuffler = new Shuffler(mockRandom);
         when(mockRandom.nextInt(any(Integer.class))).thenReturn(0)
-
-        spells = new FotFSpells(shuffler);
     }
 
     @Test
-    void testSpells() {
-        assertEquals("Acid Armor", spells.generate())
+    void testGenerators() {
+        assertEquals("Acid Armor", new FotFSpells(shuffler).generate())
+        assertEquals("Ambitious <> Addict", new FotFTraits(shuffler).generate())
     }
 }

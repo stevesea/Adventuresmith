@@ -37,28 +37,19 @@ class PerilousWildsGeneratorTest {
 
     @Mock
     Random mockRandom
-
-    PwRegion region
-    PwPlace place
+    Shuffler shuffler
 
 
     @Before
     void setup() {
         // set the shuffler up so that it's always just returning the first item
-        Shuffler shuffler = new Shuffler(mockRandom);
+        shuffler = new Shuffler(mockRandom);
         when(mockRandom.nextInt(any(Integer.class))).thenReturn(0)
-
-        region = new PwRegion(shuffler);
-        place = new PwPlace(shuffler);
     }
 
     @Test
-    void testRegion() {
-        assertEquals("Ageless Bay", region.generate())
-    }
-
-    @Test
-    void testPlace() {
-        assertEquals("The Barrier", place.generate())
+    void testGenerators() {
+        assertEquals("Ageless Bay", new PwRegion(shuffler).generate())
+        assertEquals("The Barrier", new PwPlace(shuffler).generate())
     }
 }

@@ -39,7 +39,7 @@ class Shuffler {
 
     List<?> pick(List<?> items, int num) {
         def local = items.collect()
-        Collections.shuffle(local)
+        Collections.shuffle(local, random)
         return local.take(num)
     }
 

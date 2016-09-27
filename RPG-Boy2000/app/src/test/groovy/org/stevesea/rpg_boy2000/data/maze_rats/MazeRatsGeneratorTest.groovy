@@ -19,27 +19,46 @@
 
 package org.stevesea.rpg_boy2000.data.maze_rats
 
+import groovy.transform.CompileStatic
+import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.runners.MockitoJUnitRunner
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import static org.junit.Assert.assertEquals
+import static org.mockito.Matchers.any
+import static org.mockito.Mockito.when
+
+@CompileStatic
+@RunWith(MockitoJUnitRunner)
 class MazeRatsGeneratorTest {
 
-    Shuffler shuffler = new Shuffler(new Random());
+    @Mock
+    Random mockRandom
 
-    MazeRatsCharacter mrChar = new MazeRatsCharacter(shuffler);
-    MazeRatsMagic mrMagic = new MazeRatsMagic(shuffler)
-    MazeRatsItems mrItems = new MazeRatsItems(shuffler)
-    MazeRatsMonsters mrMonsters = new MazeRatsMonsters(shuffler)
-    MazeRatsAfflictions mrAfflictions = new MazeRatsAfflictions(shuffler)
-    MazeRatsPotionEffects mrPotionEffects = new MazeRatsPotionEffects(shuffler)
+    Shuffler shuffler
 
+    @Before
+    void setup() {
+        // set the shuffler up so that it's always just returning the first item
+        shuffler = new Shuffler(mockRandom);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(0)
+    }
     @Test
-    public void test() {
-        printf mrMagic.generate(4).toString() + "\n"
-        printf mrItems.generate(4).toString() + "\n"
-        printf mrMonsters.generate(4).toString() + "\n"
-        printf mrAfflictions.generate(4).toString() + "\n"
-        printf mrPotionEffects.generate(4).toString() + "\n"
-        printf mrChar.generate(5).join("\n")
+    void testGenerators() {
+        assertEquals("Arc Acid", new MazeRatsMagic(shuffler).generate())
+        assertEquals("Arc Amulet", new MazeRatsItems(shuffler).generate())
+        assertEquals("Arc Ant", new MazeRatsMonsters(shuffler).generate())
+        assertEquals("Ages backwards", new MazeRatsAfflictions(shuffler).generate())
+        assertEquals("1-hour vampirism", new MazeRatsPotionEffects(shuffler).generate())
+        assertEquals("\n" +
+                "<strong><small>Name</small>: <em>Adelaide Barrow</em></strong>\n" +
+                "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: 3 DEX: 3 WIL: 3 HP: 1</small>\n" +
+                "<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Personality</small></strong>: Avant-Garde, Boastful\n" +
+                "<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Appearance</small></strong>:  Battle Scars, Boney hands\n" +
+                "<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Weapons</small></strong>:     Arming Sword (d6), Battered Halberd (d8)\n" +
+                "<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Equip</small></strong>:       Animal Scent, Antitoxin, Armor\n", new MazeRatsCharacter(shuffler).generate())
     }
 }
