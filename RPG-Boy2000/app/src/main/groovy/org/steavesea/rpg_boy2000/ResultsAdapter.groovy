@@ -1,5 +1,6 @@
 package org.steavesea.rpg_boy2000
 
+import android.graphics.Color
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,8 +9,14 @@ import android.view.ViewGroup
 import android.widget.TextView;
 
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
-    public static final String SEPARATOR = "------------"
-
+    Map<Integer,String> colors = [
+            0 : "#FFFFFF",
+            1 : "#FAFAFA",
+            2 : "#F5F5F5",
+            3 : "#EEEEEE",
+            4 : "#F5F5F5",
+            5 : "#FAFAFA",
+    ]
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -29,16 +36,16 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         // - replace the contents of the view with that element
         final String name = dataset.get(position);
         holder.itemText.setText(dataset.get(position));
-        if (name != SEPARATOR)
-            holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    remove(name);
-                    Snackbar.make(v, "Erased item ${name}", Snackbar.LENGTH_SHORT)
-                            .setAction("Action", null).show();
-                    return true;
-                }
-            });
+        holder.itemText.setBackgroundColor(Color.parseColor(colors.get(position % colors.size())))
+        holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                remove(name);
+                Snackbar.make(v, "Erased item ${name}", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -85,9 +92,5 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void clear() {
         dataset.clear()
         notifyDataSetChanged()
-    }
-
-    boolean isEmpty() {
-        return dataset.isEmpty()
     }
 }

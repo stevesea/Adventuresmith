@@ -40,9 +40,6 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override
             void onClick(View v) {
                 def results = rpgBoyData.runGenerator(currentDataset, btnText)
-
-                if (!resultsAdapter.isEmpty())
-                    results.add(ResultsAdapter.SEPARATOR)
                 resultsAdapter.addAll(results)
             }
         })
