@@ -8,9 +8,9 @@ public class RpgBoyData {
     Map<String, List<String>> buttonLists = new HashMap<>()
     Map<String, Map<String, AbstractGenerator>> generatorMap = new HashMap<>()
 
-    public static final String PERILOUS_WILDS = 'PerilousWilds'
-    public static final String FREEBOOTERS = 'Freebooters'
-    public static final String MAZERATS = 'MazeRats'
+    public static final String PERILOUS_WILDS = 'The Perilous Wilds'
+    public static final String FREEBOOTERS = 'Freebooters on the Frontier'
+    public static final String MAZERATS = 'Maze Rats'
     public static final String DEFAULT = MAZERATS
 
     @Inject

@@ -75,11 +75,13 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        recyclerButtons.layoutManager = new GridLayoutManager(this, 3);
-        recyclerResults.layoutManager = new LinearLayoutManager(this)
+        recyclerButtons.adapter = buttonsAdapter
+        recyclerButtons.layoutManager = new GridLayoutManager(this, 3)
 
         recyclerResults.adapter = resultsAdapter
-        recyclerButtons.adapter = buttonsAdapter
+        recyclerResults.layoutManager = new LinearLayoutManager(this)
+
+        getSupportActionBar().setTitle(RpgBoyData.DEFAULT)
     }
 
     @Override
@@ -120,16 +122,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        String key = RpgBoyData.MAZERATS
         if (id == R.id.nav_fotf) {
-            buttonsAdapter.useDb(RpgBoyData.FREEBOOTERS)
-            resultsAdapter.add("### Switched to Freebooters on the Frontier ###");
+            key = RpgBoyData.FREEBOOTERS
         } else if (id == R.id.nav_mr) {
-            buttonsAdapter.useDb(RpgBoyData.MAZERATS)
-            resultsAdapter.add("### Switched to Maze Rats ###");
+            key = RpgBoyData.MAZERATS
         } else if (id == R.id.nav_pw) {
-            buttonsAdapter.useDb(RpgBoyData.PERILOUS_WILDS)
-            resultsAdapter.add("### Switched to The Perilous Wilds ###");
+            key = RpgBoyData.PERILOUS_WILDS
         }
+        getSupportActionBar().setTitle(key)
+        buttonsAdapter.useDb(key)
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

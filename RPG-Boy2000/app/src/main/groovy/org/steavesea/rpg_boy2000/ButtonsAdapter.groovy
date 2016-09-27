@@ -12,7 +12,6 @@ import javax.inject.Inject
 
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
-
     List<String> buttons;
     ResultsAdapter resultsAdapter
     RpgBoyData rpgBoyData
@@ -40,10 +39,11 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                resultsAdapter.addAll(
-                        // TODO: output any header info? seems like could be handy...
-                        //["Generated ${btnText} ... ".toString()] +
-                                rpgBoyData.runGenerator(currentDataset, btnText))
+                def results = rpgBoyData.runGenerator(currentDataset, btnText)
+
+                if (!resultsAdapter.isEmpty())
+                    results.add(ResultsAdapter.SEPARATOR)
+                resultsAdapter.addAll(results)
             }
         })
     }

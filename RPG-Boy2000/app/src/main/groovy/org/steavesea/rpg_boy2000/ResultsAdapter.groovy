@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView;
 
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
+    public static final String SEPARATOR = "------------"
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -27,15 +29,16 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         // - replace the contents of the view with that element
         final String name = dataset.get(position);
         holder.itemText.setText(dataset.get(position));
-        holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                remove(name);
-                Snackbar.make(v, "Erased item ${name}", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
-                return true;
-            }
-        });
+        if (name != SEPARATOR)
+            holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    remove(name);
+                    Snackbar.make(v, "Erased item ${name}", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+            });
     }
 
     @Override
@@ -82,5 +85,9 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void clear() {
         dataset.clear()
         notifyDataSetChanged()
+    }
+
+    boolean isEmpty() {
+        return dataset.isEmpty()
     }
 }
