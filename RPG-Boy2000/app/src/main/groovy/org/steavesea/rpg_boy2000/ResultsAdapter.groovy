@@ -25,9 +25,10 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView;
+import android.widget.TextView
 
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
+
     Map<Integer,String> colors = [
             0 : "#FFFFFF",
             1 : "#FAFAFA",

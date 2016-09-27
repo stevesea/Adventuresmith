@@ -51,6 +51,9 @@
 
             <!-- note: main activity re-loads this with HTML.fromHtml version -->
             <TextView
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:background="@color/colorContentBg"
                 android:id="@+id/content_permission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

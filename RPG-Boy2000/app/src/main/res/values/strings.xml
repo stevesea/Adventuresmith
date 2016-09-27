@@ -14,21 +14,19 @@
     <string name="information">Information</string>
     <string name="select_a_supplement">Select a supplement:</string>
     <string name="content_permission"><![CDATA[
-        <strong><small>Content used with permission from</small></strong>
-        <ul style="list-style-type:none">
-            <li><strong>Jason Lutes</strong>
+        <strong>Content used with permission from:</strong>
+        <ul>
+            <strong>Jason Lutes</strong>
             <ul>
                 <li><em>The Perilous Wilds</em></li>
-                <li>Freebooters of the Frontier</li>
+                <li><em>Freebooters of the Frontier</em></li>
             </ul>
-            </li>
         </ul>
         <ul>
             <strong>Ben Milton</strong>
             <ul>
-                <li>Maze Rats</li>
+                <li><em>Maze Rats</em></li>
             </ul>
-        </ul>
-        ]]>
+        </ul>]]>
     </string>
 </resources>
