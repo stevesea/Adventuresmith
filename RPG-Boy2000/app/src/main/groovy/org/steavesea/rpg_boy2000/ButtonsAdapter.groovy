@@ -88,4 +88,8 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         buttons = rpgBoyData.getButtons(key)
         notifyDataSetChanged()
     }
+
+    public int getButtonTextLength(int position) {
+        return buttons.get(position).length()
+    }
 }

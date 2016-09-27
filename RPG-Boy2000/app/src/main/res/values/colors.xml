@@ -8,7 +8,5 @@
     <color name="resultsBg0">#FFFFFF</color>
     <color name="resultsBg1">#ECEFF1</color>
     <color name="resultsBg2">#CFD8DC</color>
-    <color name="resultsBg3">#B0BEC5</color>
-    <color name="resultsBg4">#CFD8DC</color>
-    <color name="resultsBg5">#ECEFF1</color>
+    <color name="resultsBg3">#ECEFF1</color>
 </resources>

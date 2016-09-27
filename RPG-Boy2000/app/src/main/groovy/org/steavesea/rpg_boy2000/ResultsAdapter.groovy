@@ -33,6 +33,7 @@ import javax.inject.Singleton
 @Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
+    // so we can look up resources
     @Inject @ForApplication
     Context context
 
@@ -40,9 +41,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
             R.color.resultsBg0,
             R.color.resultsBg1,
             R.color.resultsBg2,
-            R.color.resultsBg3,
-            R.color.resultsBg4,
-            R.color.resultsBg5
+            R.color.resultsBg3
     ]
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -61,15 +60,14 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = dataset.get(position);
+        final String txt = dataset.get(position);
         holder.itemText.setText(Html.fromHtml(dataset.get(position), Html.FROM_HTML_MODE_LEGACY));
         holder.itemText.setBackgroundColor(context.getColor((int)colors.get(position % colors.size())))
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                remove(name);
-                Snackbar.make(v, "Erased item ${name}", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
+                remove(txt);
+                Snackbar.make(v, "Erased item", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 return true;
             }
         });

@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         recyclerButtons.adapter = buttonsAdapter
-        recyclerButtons.layoutManager = new GridLayoutManager(this, 3)
 
+        recyclerButtons.layoutManager = new GridLayoutManager(this, 2)
 
         recyclerResults.adapter = resultsAdapter
         recyclerResults.layoutManager = new LinearLayoutManager(this)
