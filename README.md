@@ -5,7 +5,7 @@
 ## Overview
 
 This is an Android/Groovy application for randomly generating various
-things for tabletop RPGs (names, spells, items, monsters, etc). The 
+things for tabletop RPGs (names, spells, items, monsters, etc). The
 content for this application was taken with permission from the following
 sources:
 
@@ -59,3 +59,4 @@ http://paletton.com/
 https://material.google.com/style/color.html#
 https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView
 https://bignerdranch.github.io/simple-item-decoration/#divider_item_decoration
+https://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout
