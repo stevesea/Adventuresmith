@@ -106,13 +106,31 @@ public class MainActivity extends AppCompatActivity
         recyclerButtons.adapter = buttonsAdapter
         recyclerResults.adapter = resultsAdapter
 
+        // change # of cols, depending on orientation
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
             recyclerButtons.layoutManager = new GridLayoutManager(this, 2)
             recyclerResults.layoutManager = new GridLayoutManager(this, 2)
-        }
-        else{
+            ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (resultsAdapter.getTextLength(position) > 48)
+                        return 2
+                    else
+                        return 1
+                }
+            });
+        } else{
             recyclerButtons.layoutManager = new GridLayoutManager(this, 4)
             recyclerResults.layoutManager = new GridLayoutManager(this, 3)
+            ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (resultsAdapter.getTextLength(position) > 48)
+                        return 3
+                    else
+                        return 1
+                }
+            });
         }
 
         // on first startup, open the drawer

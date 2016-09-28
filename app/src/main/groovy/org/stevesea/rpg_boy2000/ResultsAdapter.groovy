@@ -123,4 +123,8 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         dataset.clear()
         notifyDataSetChanged()
     }
+
+    public int getTextLength(int position) {
+        return dataset.get(position).size()
+    }
 }
