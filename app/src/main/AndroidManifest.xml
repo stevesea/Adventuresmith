@@ -19,7 +19,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.steavesea.rpg_boy2000">
+          package="org.stevesea.rpg_boy2000">
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
