@@ -1,4 +1,8 @@
-# andygen
+# RPG-Boy 2000
+
+[Build status](https://circleci.com/gh/stevesea/RPGboy2000.svg?&style=shield&circle-token=d5b638c2be4157b4b3bdd347bd139c392968d7db)
+
+## Overview
 
 This is an Android/Groovy application for randomly generating various
 things for tabletop RPGs (names, spells, items, monsters, etc). The 
@@ -11,11 +15,11 @@ sources:
 
 ## Screenshots
 
-![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/nav_drawer.png "Sliding nav bar, acknowledgements")
+![alt text](https://github.com/stevesea/RPGboy2000/raw/master/docs/images/nav_drawer.png "Sliding nav bar, acknowledgements")
 
-![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/mr_chars.png "Maze Rats - characters")
+![alt text](https://github.com/stevesea/RPGboy2000/raw/master/docs/images/mr_chars.png "Maze Rats - characters")
 
-![alt text](https://github.com/stevesea/andygen/raw/master/docs/images/mr_monsters.png "Maze Rats - monsters")
+![alt text](https://github.com/stevesea/RPGboy2000/raw/master/docs/images/mr_monsters.png "Maze Rats - monsters")
 
 
 ## Other random generators with the same/similar content
