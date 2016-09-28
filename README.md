@@ -1,6 +1,6 @@
 # RPG-Boy 2000
 
-[Build status](https://circleci.com/gh/stevesea/RPGboy2000.svg?&style=shield&circle-token=d5b638c2be4157b4b3bdd347bd139c392968d7db)
+[![Build status](https://circleci.com/gh/stevesea/RPGboy2000.svg?&style=shield&circle-token=d5b638c2be4157b4b3bdd347bd139c392968d7db)](https://circleci.com/gh/stevesea/RPGboy2000)
 
 ## Overview
 
