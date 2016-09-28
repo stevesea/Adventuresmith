@@ -26,7 +26,7 @@ dependencies:
 
 test:
     override:
-        - (./gradlew assembleDebug):
+        - (./gradlew test assembleDebug):
             timeout: 360
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
