@@ -5,12 +5,16 @@
     <color name="colorAccent">#DD2C00</color>
     <color name="colorContentBg">#ECEFF1</color>
     <color name="colorButtons">#CFD8DC</color>
-    <color name="resultsBg0">#FFFFFF</color>
-    <color name="resultsBg1">#FAFAFA</color>
-    <color name="resultsBg2">#F5F5F5</color>
-    <color name="resultsBg3">#EEEEEE</color>
-    <color name="resultsBg4">#E0E0E0</color>
-    <color name="resultsBg5">#EEEEEE</color>
-    <color name="resultsBg6">#F5F5F5</color>
-    <color name="resultsBg7">#FAFAFA</color>
+    <color name="resultsBg0">#F4F4F4</color> <!-- 3 -->
+    <color name="resultsBg1">#FDFDFD</color> <!-- 0 -->
+    <color name="resultsBg2">#DFDFDF</color> <!-- 10 -->
+    <color name="resultsBg3">#EEEEEE</color> <!-- 5 -->
+    <color name="resultsBg4">#E2E2E2</color> <!-- 9 -->
+    <color name="resultsBg5">#FAFAFA</color> <!-- 1 -->
+    <color name="resultsBg6">#E8E8E8</color> <!-- 7 -->
+    <color name="resultsBg7">#F1F1F1</color> <!-- 4 -->
+    <color name="resultsBg8">#EBEBEB</color> <!-- 6 -->
+    <color name="resultsBg9">#F7F7F7</color> <!-- 2 -->
+    <color name="resultsBg10">#DDDDDD</color> <!-- 11 -->
+    <color name="resultsBg11">#E5E5E5</color> <!-- 8 -->
 </resources>
