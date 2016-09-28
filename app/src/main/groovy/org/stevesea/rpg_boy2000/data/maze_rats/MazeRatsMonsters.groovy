@@ -147,8 +147,8 @@ Worm\
                 "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(MazeRatsMagic.elements)} ${ -> pick(creatures)}",
                 "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(creatures)}",
                 "${ -> pick(MazeRatsMagic.forms)} ${ -> pick(creatures)}",
-                "${ -> pick(creatures)} ${ -> pick(creatures)}",
-                "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(creatures)} ${ -> pick(creatures)}",
+                "${ -> pick(creatures, 2).join(" ")}",
+                "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(creatures, 2).join(" ")}",
         ]
     }
 
