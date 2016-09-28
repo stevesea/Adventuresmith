@@ -28,7 +28,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.steavesea.rpg_boy2000.org.stevesea.rpg_boy2000.MainActivity"
+    tools:context="org.stevesea.rpg_boy2000.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <!-- layout area for buttons-->
@@ -44,6 +44,5 @@
         android:layout_below="@+id/recycler_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
         />
 </RelativeLayout>
