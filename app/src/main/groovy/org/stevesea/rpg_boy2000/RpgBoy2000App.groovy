@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 @CompileStatic
 public class RpgBoy2000App extends Application {
     private ObjectGraph graph;
-    AtomicBoolean isFirstStartup = new AtomicBoolean(true)
+    static AtomicBoolean isFirstStartup = new AtomicBoolean(true)
 
     @Override
     public void onCreate() {
@@ -47,6 +47,4 @@ public class RpgBoy2000App extends Application {
     public void inject(Object object) {
         graph.inject(object);
     }
-
-
 }

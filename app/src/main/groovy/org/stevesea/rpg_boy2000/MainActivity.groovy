@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        drawer.openDrawer(GravityCompat.START)
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -108,17 +107,26 @@ public class MainActivity extends AppCompatActivity
         recyclerResults.adapter = resultsAdapter
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            recyclerButtons.layoutManager = new GridLayoutManager(this, 2);
-            recyclerResults.layoutManager = new GridLayoutManager(this, 1)
+            recyclerButtons.layoutManager = new GridLayoutManager(this, 2)
+            recyclerResults.layoutManager = new GridLayoutManager(this, 2)
         }
         else{
-            recyclerButtons.layoutManager = new GridLayoutManager(this, 4);
+            recyclerButtons.layoutManager = new GridLayoutManager(this, 4)
             recyclerResults.layoutManager = new GridLayoutManager(this, 3)
         }
 
-        if (((RpgBoy2000App) getApplication()).isFirstStartup) {
-            getSupportActionBar().setTitle(RpgBoyData.DEFAULT)
-            ((RpgBoy2000App) getApplication()).isFirstStartup.set(false)
+        // on first startup, open the drawer
+        if (RpgBoy2000App.isFirstStartup.get()) {
+            drawer.openDrawer(GravityCompat.START)
+            RpgBoy2000App.isFirstStartup.set(false)
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy()
+        if (isFinishing()) {
+            RpgBoy2000App.isFirstStartup.set(false)
         }
     }
 
