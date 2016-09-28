@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        drawer.openDrawer(GravityCompat.START)
+
         navigationView.setNavigationItemSelectedListener(this);
 
         recyclerButtons.adapter = buttonsAdapter
