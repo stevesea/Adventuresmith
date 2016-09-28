@@ -25,7 +25,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import groovy.transform.CompileStatic
-import org.steavesea.rpg_boy2000.R
 import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
