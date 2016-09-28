@@ -20,6 +20,7 @@
 
 package org.stevesea.rpg_boy2000
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -28,7 +29,6 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.text.Html
@@ -105,13 +105,21 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         recyclerButtons.adapter = buttonsAdapter
-
-        recyclerButtons.layoutManager = new GridLayoutManager(this, 2)
-
         recyclerResults.adapter = resultsAdapter
-        recyclerResults.layoutManager = new LinearLayoutManager(this)
 
-        getSupportActionBar().setTitle(RpgBoyData.DEFAULT)
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            recyclerButtons.layoutManager = new GridLayoutManager(this, 2);
+            recyclerResults.layoutManager = new GridLayoutManager(this, 1)
+        }
+        else{
+            recyclerButtons.layoutManager = new GridLayoutManager(this, 4);
+            recyclerResults.layoutManager = new GridLayoutManager(this, 3)
+        }
+
+        if (((RpgBoy2000App) getApplication()).isFirstStartup) {
+            getSupportActionBar().setTitle(RpgBoyData.DEFAULT)
+            ((RpgBoy2000App) getApplication()).isFirstStartup.set(false)
+        }
     }
 
     @Override

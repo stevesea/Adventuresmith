@@ -25,12 +25,16 @@ import dagger.ObjectGraph
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.RpgBoyDataModule
 
+import java.util.concurrent.atomic.AtomicBoolean
+
 @CompileStatic
 public class RpgBoy2000App extends Application {
     private ObjectGraph graph;
+    AtomicBoolean isFirstStartup = new AtomicBoolean(true)
 
     @Override
     public void onCreate() {
+        isFirstStartup.set(true)
         super.onCreate();
 
         graph = ObjectGraph.create(
@@ -43,4 +47,6 @@ public class RpgBoy2000App extends Application {
     public void inject(Object object) {
         graph.inject(object);
     }
+
+
 }
