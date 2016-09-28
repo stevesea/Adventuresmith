@@ -46,7 +46,11 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
             R.color.resultsBg0,
             R.color.resultsBg1,
             R.color.resultsBg2,
-            R.color.resultsBg3
+            R.color.resultsBg3,
+            R.color.resultsBg4,
+            R.color.resultsBg5,
+            R.color.resultsBg6,
+            R.color.resultsBg7,
     ]
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
