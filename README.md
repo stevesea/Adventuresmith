@@ -21,3 +21,7 @@ sources:
 
 ![alt text](https://github.com/stevesea/RPGboy2000/raw/master/docs/images/mr_monsters.png "Maze Rats - monsters")
 
+
+## License
+This project is licensed under [GNU General Public License, version 3 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0).
+
