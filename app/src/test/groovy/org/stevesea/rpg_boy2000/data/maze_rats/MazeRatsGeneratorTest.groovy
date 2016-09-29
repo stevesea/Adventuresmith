@@ -54,8 +54,7 @@ class MazeRatsGeneratorTest {
         assertEquals("Ages backwards", new MazeRatsAfflictions(shuffler).generate())
         assertEquals("1-hour vampirism", new MazeRatsPotionEffects(shuffler).generate())
         assertEquals("<strong><small>Name</small>: <em>Adelaide Barrow</em></strong>\n" +
-                "<br/>&nbsp;&nbsp;<small>STR: 3 DEX: 3 WIL: 3</small>\n" +
-                "<br/>&nbsp;&nbsp;<small>HP: 1</small>\n" +
+                "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: 3 DEX: 3 WIL: 3 &nbsp;&nbsp;&nbsp;&nbsp;HP: 1</small>\n" +
                 "<br/><strong><small>Personality</small></strong>: Avant-Garde, Boastful\n" +
                 "<br/><strong><small>Appearance</small></strong>: Battle Scars, Boney hands\n" +
                 "<br/><strong><small>Weapons</small></strong>: Arming Sword (d6), Battered Halberd (d8)\n" +

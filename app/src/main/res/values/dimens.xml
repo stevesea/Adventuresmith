@@ -7,5 +7,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="resultListFontSize">14sp</dimen>
+    <dimen name="resultListFontSize">16sp</dimen>
+
+    <!-- -->
+    <dimen name="buttonCols">3</dimen>
+    <dimen name="resultCols">2</dimen>
+    <dimen name="resultColsLongtext">2</dimen>
 </resources>

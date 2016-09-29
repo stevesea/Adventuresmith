@@ -30,7 +30,6 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.support.v7.widget.Toolbar
 import android.text.Html
 import android.view.Menu
@@ -108,33 +107,31 @@ public class MainActivity extends AppCompatActivity
 
         // change # of cols, depending on orientation
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            recyclerButtons.layoutManager = new GridLayoutManager(this, 2)
+            recyclerButtons.layoutManager = new GridLayoutManager(this, 3)
 
-            StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS)
-            recyclerResults.layoutManager = manager
-
+            recyclerResults.layoutManager = new GridLayoutManager(this, 2)
+            ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (resultsAdapter.getTextLength(position) > 48)
+                        return 2
+                    else
+                        return 1
+                }
+            })
         } else{
-            recyclerButtons.layoutManager = new GridLayoutManager(this, 4)
+            recyclerButtons.layoutManager = new GridLayoutManager(this, 5)
 
-            StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
-            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS)
-            recyclerResults.layoutManager = manager
-        }
-
-        // on first startup, open the drawer
-        // TODO: this feels kinda wonky... do we really want to do this?
-        if (RpgBoy2000App.isFirstStartup.get()) {
-            drawer.openDrawer(GravityCompat.START)
-            RpgBoy2000App.isFirstStartup.set(false)
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy()
-        if (isFinishing()) {
-            RpgBoy2000App.isFirstStartup.set(false)
+            recyclerResults.layoutManager = new GridLayoutManager(this, 4)
+            ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (resultsAdapter.getTextLength(position) > 48)
+                        return 2
+                    else
+                        return 1
+                }
+            })
         }
     }
 
