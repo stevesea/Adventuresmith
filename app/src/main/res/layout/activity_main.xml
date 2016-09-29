@@ -39,27 +39,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer">
-
-
-        <!-- not sure if HTML is any easier than laying out some text views.
-         seems like text views will be way to go once I start caring about
-         the actual layout -->
-        <RelativeLayout
-            android:background="@color/colorContentBg"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingRight="@dimen/activity_vertical_margin"
-            android:layout_gravity="bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/content_permission"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/content_permission"/>
-        </RelativeLayout>
-    </android.support.design.widget.NavigationView>
+        app:menu="@menu/activity_main_drawer"/>
 
 </android.support.v4.widget.DrawerLayout>
