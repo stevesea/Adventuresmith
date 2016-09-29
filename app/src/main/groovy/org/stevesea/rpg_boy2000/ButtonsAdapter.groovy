@@ -28,17 +28,19 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     List<String> buttons;
     ResultsAdapter resultsAdapter
     RpgBoyData rpgBoyData
-    String currentDataset = RpgBoyData.DEFAULT
+    String currentDataset
 
     @Inject
     public ButtonsAdapter(RpgBoyData rpgBoyData, ResultsAdapter resultsAdapter) {
-        this.buttons = rpgBoyData.getButtons(currentDataset)
+        this.buttons = new ArrayList<>()
         this.rpgBoyData = rpgBoyData
         notifyDataSetChanged()
         this.resultsAdapter = resultsAdapter
@@ -85,7 +87,8 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public void useDb(String key) {
         currentDataset = key
-        buttons = rpgBoyData.getButtons(key)
+        buttons.clear()
+        buttons.addAll(rpgBoyData.getButtons(key))
         notifyDataSetChanged()
     }
 

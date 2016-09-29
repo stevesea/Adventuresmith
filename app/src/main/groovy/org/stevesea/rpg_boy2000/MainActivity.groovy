@@ -30,11 +30,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
@@ -57,9 +55,6 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     @InjectView(R.id.nav_view)
     NavigationView navigationView
-
-    @InjectView(R.id.content_permission)
-    TextView contentPermissionTextView
 
     @Inject
     ResultsAdapter resultsAdapter
@@ -89,14 +84,17 @@ public class MainActivity extends AppCompatActivity
         // This mus be called for automatic parsing of intent extras
         SwissKnife.loadExtras(this)
 
-        contentPermissionTextView.text = Html.fromHtml(getString(R.string.content_permission), Html.FROM_HTML_MODE_LEGACY)
-
         setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        if (RpgBoy2000App.isFirstStartup.get()) {
+            resultsAdapter.add(getString(R.string.welcome_msg))
+            RpgBoy2000App.isFirstStartup.set(false)
+        }
 
 
         navigationView.setNavigationItemSelectedListener(this);
@@ -145,7 +143,14 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_attribution) {
+            resultsAdapter.clear()
+
+            resultsAdapter.add(getString(R.string.content_permission))
+
+            return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -167,6 +172,7 @@ public class MainActivity extends AppCompatActivity
         }
         getSupportActionBar().setTitle(key)
         buttonsAdapter.useDb(key)
+        resultsAdapter.clear()
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

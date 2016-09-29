@@ -30,4 +30,5 @@
         </ul>]]>
     </string>
     <string name="action_attribution">Attribution</string>
+    <string name="welcome_msg">Welcome! Select a supplement to begin.</string>
 </resources>
