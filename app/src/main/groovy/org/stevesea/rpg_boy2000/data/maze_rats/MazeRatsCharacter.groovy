@@ -22,6 +22,8 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import javax.inject.Inject
+
 @CompileStatic
 class MazeRatsCharacter extends AbstractGenerator {
     static final List<String> forenames = """\
@@ -383,9 +385,7 @@ Trumpet
 Whistle\
 """.readLines()
 
-    MazeRatsCharacter() {
-    }
-
+    @Inject
     MazeRatsCharacter(Shuffler shuffler) {
         super(shuffler)
     }

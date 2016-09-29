@@ -22,6 +22,8 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import javax.inject.Inject
+
 @CompileStatic
 class MazeRatsItems extends AbstractGenerator {
     static final List<String> items = """\
@@ -127,9 +129,7 @@ Whistle
 Wine\
 """.readLines()
 
-    MazeRatsItems() {
-    }
-
+    @Inject
     MazeRatsItems(Shuffler shuffler) {
         super(shuffler)
     }

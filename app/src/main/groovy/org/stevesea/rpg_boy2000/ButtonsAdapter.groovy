@@ -19,7 +19,6 @@
 
 package org.stevesea.rpg_boy2000
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -40,11 +39,11 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     ResultsAdapter resultsAdapter
     Dataset currentDataset
 
-    Context context
+    RpgBoy2000App app
 
     @Inject
-    public ButtonsAdapter(ResultsAdapter resultsAdapter, @ForApplication Context context) {
-        this.context = context
+    public ButtonsAdapter(ResultsAdapter resultsAdapter, RpgBoy2000App app) {
+        this.app = app
         this.buttons = new ArrayList<>()
         this.resultsAdapter = resultsAdapter
     }
@@ -58,8 +57,8 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     void onBindViewHolder(ViewHolder holder, int position) {
-        final AbstractGenerator generator = buttons.get(position).createGenerator()
-        final String btnText = context.getString(buttons.get(position).stringResourceId);
+        final AbstractGenerator generator = app.generatorFactory(buttons.get(position))
+        final String btnText = app.getString(buttons.get(position).stringResourceId);
         holder.btn.setText(btnText)
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override

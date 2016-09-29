@@ -60,8 +60,4 @@ public enum DatasetButton {
     static Collection<DatasetButton> getButtonsForDataset(Dataset dset) {
         return values().grep{((DatasetButton)it).dataset == dset}
     }
-
-    AbstractGenerator createGenerator() {
-        return clz.newInstance()
-    }
 }

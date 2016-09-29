@@ -28,9 +28,6 @@ public abstract class AbstractGenerator {
 
     protected final Shuffler shuffler;
 
-    AbstractGenerator() {
-        this(new Shuffler(new Random()))
-    }
     AbstractGenerator(Shuffler shuffler) {
         this.shuffler = shuffler
     }

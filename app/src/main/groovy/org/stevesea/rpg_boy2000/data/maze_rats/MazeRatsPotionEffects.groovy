@@ -22,6 +22,8 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import javax.inject.Inject
+
 @CompileStatic
 class MazeRatsPotionEffects extends AbstractGenerator {
     static final List<String> effects = """\
@@ -127,9 +129,7 @@ Web-slinging
 X-Ray vision\
 """.readLines()
 
-    MazeRatsPotionEffects() {
-    }
-
+    @Inject
     MazeRatsPotionEffects(Shuffler shuffler) {
         super(shuffler)
     }

@@ -24,6 +24,8 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import javax.inject.Inject
+
 @CompileStatic
 class FotFTraits extends AbstractGenerator {
     static final List<String> virtues = """\
@@ -132,9 +134,7 @@ Wrathful
 Zealous\
 """.readLines()
 
-    FotFTraits() {
-    }
-
+    @Inject
     FotFTraits(Shuffler shuffler) {
         super(shuffler)
     }

@@ -24,6 +24,8 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import javax.inject.Inject
+
 @CompileStatic
 class FotFSpells extends AbstractGenerator {
     static final List<String> elements = """
@@ -152,9 +154,7 @@ class FotFSpells extends AbstractGenerator {
         zant zark zirian zred
         """.tokenize()
 
-    FotFSpells() {
-    }
-
+    @Inject
     FotFSpells(Shuffler shuffler) {
         super(shuffler);
     }

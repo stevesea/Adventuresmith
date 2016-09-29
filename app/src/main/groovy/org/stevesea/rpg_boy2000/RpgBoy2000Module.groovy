@@ -24,12 +24,14 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import groovy.transform.CompileStatic
+import org.stevesea.rpg_boy2000.data.RpgBoyDataModule
 import org.stevesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Singleton
 
 @CompileStatic
 @Module(
+        includes = RpgBoyDataModule.class,
         injects = [MainActivity.class, ResultsAdapter.class, ButtonsAdapter.class, Shuffler.class],
         library = true,
         complete = false

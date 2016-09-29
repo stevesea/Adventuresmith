@@ -22,6 +22,8 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Shuffler
 
+import javax.inject.Inject
+
 @CompileStatic
 class PwRegion extends AbstractGenerator {
     static final List<String> adjectives = """
@@ -84,9 +86,7 @@ class PwRegion extends AbstractGenerator {
         Wall Waste Wasteland Woods
         """.tokenize()
 
-    PwRegion() {
-    }
-
+    @Inject
     PwRegion(Shuffler shuffler) {
         super(shuffler)
     }
