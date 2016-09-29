@@ -19,16 +19,16 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.stevesea.rpg_boy2000">
+          package="org.stevesea.rpgpad">
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="org.stevesea.rpg_boy2000.RpgBoy2000App"
+        android:name="org.stevesea.rpgpad.RpgPadApp"
         android:theme="@style/AppTheme">
         <activity
-            android:name="org.stevesea.rpg_boy2000.MainActivity"
+            android:name="org.stevesea.rpgpad.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
