@@ -20,7 +20,6 @@
 
 package org.stevesea.rpg_boy2000
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -105,34 +104,19 @@ public class MainActivity extends AppCompatActivity
         recyclerButtons.adapter = buttonsAdapter
         recyclerResults.adapter = resultsAdapter
 
-        // change # of cols, depending on orientation
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            recyclerButtons.layoutManager = new GridLayoutManager(this, 3)
+        recyclerButtons.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
 
-            recyclerResults.layoutManager = new GridLayoutManager(this, 2)
-            ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                @Override
-                public int getSpanSize(int position) {
-                    if (resultsAdapter.getTextLength(position) > 48)
-                        return 2
-                    else
-                        return 1
-                }
-            })
-        } else{
-            recyclerButtons.layoutManager = new GridLayoutManager(this, 5)
-
-            recyclerResults.layoutManager = new GridLayoutManager(this, 4)
-            ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                @Override
-                public int getSpanSize(int position) {
-                    if (resultsAdapter.getTextLength(position) > 48)
-                        return 2
-                    else
-                        return 1
-                }
-            })
-        }
+        recyclerResults.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
+        final int longTextSpan = getResources().getInteger(R.integer.resultColsLongtext)
+        ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (resultsAdapter.getTextLength(position) > 48)
+                    return longTextSpan
+                else
+                    return 1
+            }
+        })
     }
 
     @Override

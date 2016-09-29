@@ -10,7 +10,7 @@
     <dimen name="resultListFontSize">16sp</dimen>
 
     <!-- -->
-    <dimen name="buttonCols">3</dimen>
-    <dimen name="resultCols">2</dimen>
-    <dimen name="resultColsLongtext">2</dimen>
+    <integer name="buttonCols">3</integer>
+    <integer name="resultCols">2</integer>
+    <integer name="resultColsLongtext">2</integer>
 </resources>

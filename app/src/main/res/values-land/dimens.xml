@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="buttonCols">5</dimen>
-    <dimen name="resultCols">4</dimen>
-    <dimen name="resultColsLongtext">2</dimen>
+    <integer name="buttonCols">5</integer>
+    <integer name="resultCols">4</integer>
+    <integer name="resultColsLongtext">2</integer>
 </resources>
