@@ -20,19 +20,10 @@ package org.stevesea.rpg_boy2000.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsAfflictions extends AbstractGenerator {
-    public String getName() {
-        return "Afflictions"
-    }
-    public Dataset getDataset() {
-        return Dataset.MazeRats
-    }
     static final List<String> afflictions = """\
 Ages backwards
 Always honest
@@ -136,9 +127,11 @@ Voice echoes
 Webbedd hands/feet\
 """.readLines()
 
-    @Inject
+    MazeRatsAfflictions() {
+    }
+
     MazeRatsAfflictions(Shuffler shuffler) {
-        super(shuffler);
+        super(shuffler)
     }
 
     String generate() {

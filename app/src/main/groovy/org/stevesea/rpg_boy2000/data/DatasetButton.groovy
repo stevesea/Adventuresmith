@@ -16,13 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Boy 2000.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 package org.stevesea.rpg_boy2000.data
 
-import dagger.Module
-import dagger.Provides
 import groovy.transform.CompileStatic
+import org.stevesea.rpg_boy2000.R
 import org.stevesea.rpg_boy2000.data.freebooters_on_the_frontier.FotFSpells
 import org.stevesea.rpg_boy2000.data.freebooters_on_the_frontier.FotFTraits
 import org.stevesea.rpg_boy2000.data.maze_rats.MazeRatsAfflictions
@@ -34,39 +31,37 @@ import org.stevesea.rpg_boy2000.data.maze_rats.MazeRatsPotionEffects
 import org.stevesea.rpg_boy2000.data.perilous_wilds.PwPlace
 import org.stevesea.rpg_boy2000.data.perilous_wilds.PwRegion
 
-import javax.inject.Singleton
-
 @CompileStatic
-@Module(
-        injects = [Shuffler.class, RpgBoyData.class],
-        complete = false,
-        library = true
-)
-public class RpgBoyDataModule {
+public enum DatasetButton {
+    FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells),
+    FreebooterTraits(Dataset.FreebootersOnTheFrontier, FotFTraits.class, R.string.FotFTraits),
 
-    @Provides @Singleton
-    Random provideRandom() {
-        return new Random();
+    PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces),
+    PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions),
+
+    MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters),
+    MrMonsters(Dataset.MazeRats, MazeRatsMonsters.class, R.string.MrMonsters),
+    MrMagic(Dataset.MazeRats, MazeRatsMagic.class, R.string.MrMagic),
+    MrItems(Dataset.MazeRats, MazeRatsItems.class, R.string.MrItems),
+    MrAfflictions(Dataset.MazeRats, MazeRatsAfflictions.class, R.string.MrAfflictions),
+    MrPotionEffects(Dataset.MazeRats, MazeRatsPotionEffects.class, R.string.MrPotionEffects),
+    ;
+
+    int stringResourceId
+    Dataset dataset
+    Class<? extends AbstractGenerator> clz;
+
+    DatasetButton(Dataset dataset, Class<? extends AbstractGenerator> clz, int stringResourceId) {
+        this.stringResourceId = stringResourceId
+        this.dataset = dataset
+        this.clz = clz
     }
 
-    // this seems dumb... but i don't know how else to do it right now
-    @Provides
-    List<AbstractGenerator> provideGenerators(PwPlace pwPlace, PwRegion pwRegion,
-                                              FotFSpells fotFSpells, FotFTraits fotFTraits,
-                                              MazeRatsAfflictions mazeRatsAfflictions, MazeRatsCharacter mazeRatsCharacter,
-                                              MazeRatsItems mazeRatsItems, MazeRatsMagic mazeRatsMagic, MazeRatsMonsters mazeRatsMonsters,
-                                              MazeRatsPotionEffects mazeRatsPotionEffects) {
-        def result = []
-        result.add(pwRegion)
-        result.add(pwPlace)
-        result.add(fotFTraits)
-        result.add(fotFSpells)
-        result.add(mazeRatsCharacter)
-        result.add(mazeRatsMagic)
-        result.add(mazeRatsItems)
-        result.add(mazeRatsMonsters)
-        result.add(mazeRatsAfflictions)
-        result.add(mazeRatsPotionEffects)
-        return result
+    static Collection<DatasetButton> getButtonsForDataset(Dataset dset) {
+        return values().grep{((DatasetButton)it).dataset == dset}
+    }
+
+    AbstractGenerator createGenerator() {
+        return clz.newInstance()
     }
 }

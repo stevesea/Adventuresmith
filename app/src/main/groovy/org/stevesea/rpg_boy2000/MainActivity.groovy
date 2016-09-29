@@ -38,7 +38,6 @@ import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.Dataset
-import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 

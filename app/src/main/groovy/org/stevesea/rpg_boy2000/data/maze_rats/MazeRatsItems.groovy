@@ -20,19 +20,10 @@ package org.stevesea.rpg_boy2000.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsItems extends AbstractGenerator {
-    public String getName() {
-        return "Items"
-    }
-    public Dataset getDataset() {
-        return Dataset.MazeRats
-    }
     static final List<String> items = """\
 Amulet
 Arrow
@@ -136,9 +127,11 @@ Whistle
 Wine\
 """.readLines()
 
-    @Inject
+    MazeRatsItems() {
+    }
+
     MazeRatsItems(Shuffler shuffler) {
-        super(shuffler);
+        super(shuffler)
     }
 
     List<GString> getFormatters() {

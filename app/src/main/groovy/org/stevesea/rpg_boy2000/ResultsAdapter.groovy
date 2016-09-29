@@ -38,7 +38,6 @@ import javax.inject.Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     // so we can look up resources
-    @Inject @ForApplication
     Context context
 
     List<Integer> colors = [
@@ -101,7 +100,9 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<String> dataset;
 
-    ResultsAdapter() {
+    @Inject
+    ResultsAdapter(@ForApplication Context context) {
+        this.context = context
         this.dataset = new ArrayList<String>()
     }
 

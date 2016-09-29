@@ -1,39 +1,25 @@
 package org.stevesea.rpg_boy2000.data
 
-import dagger.ObjectGraph
 import groovy.transform.CompileStatic
-import org.junit.Before
-import org.junit.Test
 import org.junit.Assert
+import org.junit.Test
 
 @CompileStatic
 class RpgBoyDataTest {
-    private ObjectGraph graph;
-    private RpgBoyData data;
-
-    @Before
-    void setup() {
-        graph = ObjectGraph.create(
-                new RpgBoyDataModule()
-        )
-        data = graph.get(RpgBoyData.class)
-    }
 
     @Test
-    void verifyDiscoveredExpectedDatasets() {
-        Set<Dataset> expected = new HashSet<>()
-        expected.addAll(Dataset.values())
-
-        Assert.assertEquals(expected, data.getDatasets())
+    void verifyButtonsMr() {
+        Assert.assertEquals([DatasetButton.MrCharacters, DatasetButton.MrMonsters, DatasetButton.MrMagic, DatasetButton.MrItems, DatasetButton.MrAfflictions, DatasetButton.MrPotionEffects],
+                DatasetButton.getButtonsForDataset(Dataset.MazeRats))
     }
-
     @Test
-    void verifyButtons() {
-        Assert.assertEquals(["Character", "Spells", "Items", "Monsters", "Afflictions", "Potion Effects"],
-                data.getButtons(Dataset.MazeRats))
-        Assert.assertEquals(["Region", "Place"],
-                data.getButtons(Dataset.ThePerilousWilds))
-        Assert.assertEquals(["Traits", "Spells"],
-                data.getButtons(Dataset.FreebootersOnTheFrontier))
+    void verifyButtonsPw() {
+        Assert.assertEquals([DatasetButton.PerilousPlaces, DatasetButton.PerilousRegions],
+                DatasetButton.getButtonsForDataset(Dataset.ThePerilousWilds))
+    }
+    @Test
+    void verifyButtonsFotF() {
+        Assert.assertEquals([DatasetButton.FreebooterSpells, DatasetButton.FreebooterTraits],
+                DatasetButton.getButtonsForDataset(Dataset.FreebootersOnTheFrontier))
     }
 }

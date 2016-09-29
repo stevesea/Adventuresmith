@@ -19,14 +19,16 @@
 
 package org.stevesea.rpg_boy2000
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import groovy.transform.CompileStatic
+import org.stevesea.rpg_boy2000.data.AbstractGenerator
 import org.stevesea.rpg_boy2000.data.Dataset
-import org.stevesea.rpg_boy2000.data.RpgBoyData
+import org.stevesea.rpg_boy2000.data.DatasetButton
 
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -34,16 +36,16 @@ import javax.inject.Singleton
 @Singleton
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
-    List<String> buttons;
+    List<DatasetButton> buttons;
     ResultsAdapter resultsAdapter
-    RpgBoyData rpgBoyData
     Dataset currentDataset
 
+    Context context
+
     @Inject
-    public ButtonsAdapter(RpgBoyData rpgBoyData, ResultsAdapter resultsAdapter) {
+    public ButtonsAdapter(ResultsAdapter resultsAdapter, @ForApplication Context context) {
+        this.context = context
         this.buttons = new ArrayList<>()
-        this.rpgBoyData = rpgBoyData
-        notifyDataSetChanged()
         this.resultsAdapter = resultsAdapter
     }
 
@@ -56,12 +58,13 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     void onBindViewHolder(ViewHolder holder, int position) {
-        final String btnText = buttons.get(position);
+        final AbstractGenerator generator = buttons.get(position).createGenerator()
+        final String btnText = context.getString(buttons.get(position).stringResourceId);
         holder.btn.setText(btnText)
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                def results = rpgBoyData.runGenerator(currentDataset, btnText)
+                def results = generator.generate(5).toList()
                 resultsAdapter.addAll(results)
             }
         })
@@ -89,11 +92,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void useDb(Dataset key) {
         currentDataset = key
         buttons.clear()
-        buttons.addAll(rpgBoyData.getButtons(key))
+        buttons.addAll(DatasetButton.getButtonsForDataset(key))
         notifyDataSetChanged()
-    }
-
-    public int getButtonTextLength(int position) {
-        return buttons.get(position).length()
     }
 }

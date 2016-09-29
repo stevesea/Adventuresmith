@@ -23,7 +23,8 @@ package org.stevesea.rpg_boy2000
 import android.app.Application
 import dagger.ObjectGraph
 import groovy.transform.CompileStatic
-import org.stevesea.rpg_boy2000.data.RpgBoyDataModule
+import org.stevesea.rpg_boy2000.data.AbstractGenerator
+import org.stevesea.rpg_boy2000.data.DatasetButton
 
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -37,13 +38,15 @@ public class RpgBoy2000App extends Application {
         super.onCreate();
 
         graph = ObjectGraph.create(
-                new AndroidModule(this),
-                new RpgBoy2000Module(),
-                new RpgBoyDataModule()
+                new RpgBoy2000Module(this)
         );
     }
 
     public void inject(Object object) {
         graph.inject(object);
+    }
+
+    public AbstractGenerator generatorFactory(DatasetButton btn) {
+        return graph.get(btn.clz)
     }
 }

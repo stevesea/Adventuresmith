@@ -20,19 +20,10 @@ package org.stevesea.rpg_boy2000.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsPotionEffects extends AbstractGenerator {
-    public String getName() {
-        return "Potion Effects"
-    }
-    public Dataset getDataset() {
-        return Dataset.MazeRats
-    }
     static final List<String> effects = """\
 1-hour vampirism
 Alter face
@@ -136,9 +127,11 @@ Web-slinging
 X-Ray vision\
 """.readLines()
 
-    @Inject
+    MazeRatsPotionEffects() {
+    }
+
     MazeRatsPotionEffects(Shuffler shuffler) {
-        super(shuffler);
+        super(shuffler)
     }
 
     String generate() {

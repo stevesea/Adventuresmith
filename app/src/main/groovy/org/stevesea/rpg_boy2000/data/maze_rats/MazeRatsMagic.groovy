@@ -20,19 +20,10 @@ package org.stevesea.rpg_boy2000.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsMagic extends AbstractGenerator {
-    public String getName() {
-        return "Spells"
-    }
-    public Dataset getDataset() {
-        return Dataset.MazeRats
-    }
     static final List<String> effects = """\
 Absorbing
 Accelerating
@@ -342,9 +333,11 @@ Word
 Zone\
 """.readLines()
 
-    @Inject
+    MazeRatsMagic() {
+    }
+
     MazeRatsMagic(Shuffler shuffler) {
-        super(shuffler);
+        super(shuffler)
     }
 
     List<GString> getFormatters() {

@@ -22,11 +22,15 @@ package org.stevesea.rpg_boy2000.data
 
 import groovy.transform.CompileStatic
 
+// TODO: use http://groovy-lang.org/templating.html instead?
 @CompileStatic
 public abstract class AbstractGenerator {
 
     protected final Shuffler shuffler;
 
+    AbstractGenerator() {
+        this(new Shuffler(new Random()))
+    }
     AbstractGenerator(Shuffler shuffler) {
         this.shuffler = shuffler
     }
@@ -42,9 +46,6 @@ public abstract class AbstractGenerator {
     int rollDice(int numDice, int nSides) {
         return shuffler.rollDice(numDice, nSides)
     }
-
-    abstract String getName()
-    abstract Dataset getDataset()
 
     abstract String generate()
 

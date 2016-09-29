@@ -20,20 +20,10 @@ package org.stevesea.rpg_boy2000.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class PwRegion extends AbstractGenerator {
-    public String getName() {
-        return "Region"
-    }
-    public Dataset getDataset() {
-        return Dataset.ThePerilousWilds
-    }
-
     static final List<String> adjectives = """
         Ageless Ashen
         Black Blessed Blighted Blue Broken Burning
@@ -94,9 +84,11 @@ class PwRegion extends AbstractGenerator {
         Wall Waste Wasteland Woods
         """.tokenize()
 
-    @Inject
+    PwRegion() {
+    }
+
     PwRegion(Shuffler shuffler) {
-        super(shuffler);
+        super(shuffler)
     }
 
     List<GString> getFormatters() {

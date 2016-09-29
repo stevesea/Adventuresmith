@@ -32,4 +32,17 @@
     <string name="maze_rats">Maze Rats</string>
     <string name="perilous_wilds">The Perilous Wilds</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
+
+    <string name="FotFSpells">Spells</string>
+    <string name="FotFTraits">Traits</string>
+
+    <string name="PwPlaces">Places</string>
+    <string name="PwRegions">Regions</string>
+
+    <string name="MrAfflictions">Afflictions</string>
+    <string name="MrCharacters">Characters</string>
+    <string name="MrItems">Items</string>
+    <string name="MrMagic">Spells</string>
+    <string name="MrMonsters">Monsters</string>
+    <string name="MrPotionEffects">Potion Effects</string>
 </resources>
