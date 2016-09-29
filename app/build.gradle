@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
+apply plugin: "org.sonarqube"
 
 
 ext {
@@ -62,6 +63,21 @@ androidGroovy {
         }
     }
     // skip javac MUST be false for not set for apt to work correctly
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "RPGboy2000 :: Simple Project :: Generate nonsense at push of a button!"
+        property "sonar.projectKey", "org.org.stevesea:rpg_boy2000"
+
+        property "sonar.sourceEncoding","UTF-8"
+        property "sonar.sources","."
+        property "sonar.exclusions","build/**,**/*.png"
+
+        property "sonar.import_unknown_files", true
+
+        property "sonar.android.lint.report", "./build/outputs/lint-results.xml"
+    }
 }
 
 dependencies {
