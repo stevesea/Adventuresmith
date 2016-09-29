@@ -28,18 +28,13 @@ import javax.inject.Singleton;
 @CompileStatic
 @Singleton
 public class RpgBoyData {
-    Map<String, List<String>> buttonLists = new HashMap<>()
-    Map<String, Map<String, AbstractGenerator>> generatorMap = new HashMap<>()
-
-    public static final String PERILOUS_WILDS = 'The Perilous Wilds'
-    public static final String FREEBOOTERS = 'Freebooters on the Frontier'
-    public static final String MAZERATS = 'Maze Rats'
-    public static final String DEFAULT = MAZERATS
+    Map<Dataset, List<String>> buttonLists = new HashMap<>()
+    Map<Dataset, Map<String, AbstractGenerator>> generatorMap = new HashMap<>()
 
     @Inject
     RpgBoyData(List<AbstractGenerator> generators) {
         for (AbstractGenerator g : generators) {
-            String dataset = g.getDataset()
+            Dataset dataset = g.getDataset()
             String name = g.getName()
             if (!generatorMap.containsKey(dataset)) {
                 generatorMap.put(dataset, new HashMap<String, AbstractGenerator>());
@@ -51,11 +46,11 @@ public class RpgBoyData {
         }
     }
 
-    public List<String> getButtons(String key) {
+    public List<String> getButtons(Dataset key) {
         return buttonLists.get(key, [])
     }
 
-    public List<String> runGenerator(String dataset, String name) {
+    public List<String> runGenerator(Dataset dataset, String name) {
         if (!generatorMap.containsKey(dataset))
             return []
         if (!generatorMap.get(dataset).containsKey(name))
@@ -63,7 +58,7 @@ public class RpgBoyData {
         return generatorMap.get(dataset).get(name).generate(5).toList()
     }
 
-    public Set<String> getDatasets() {
+    public Set<Dataset> getDatasets() {
         return buttonLists.keySet()
     }
 

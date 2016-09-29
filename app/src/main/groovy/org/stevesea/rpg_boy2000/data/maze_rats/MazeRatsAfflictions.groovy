@@ -20,7 +20,7 @@ package org.stevesea.rpg_boy2000.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.RpgBoyData
+import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
@@ -30,8 +30,8 @@ class MazeRatsAfflictions extends AbstractGenerator {
     public String getName() {
         return "Afflictions"
     }
-    public String getDataset() {
-        return RpgBoyData.MAZERATS
+    public Dataset getDataset() {
+        return Dataset.MazeRats
     }
     static final List<String> afflictions = """\
 Ages backwards

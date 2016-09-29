@@ -37,6 +37,7 @@ import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
+import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
@@ -162,15 +163,15 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        String key = RpgBoyData.MAZERATS
+        Dataset key = Dataset.MazeRats
         if (id == R.id.nav_fotf) {
-            key = RpgBoyData.FREEBOOTERS
+            key = Dataset.FreebootersOnTheFrontier
         } else if (id == R.id.nav_mr) {
-            key = RpgBoyData.MAZERATS
+            key = Dataset.MazeRats
         } else if (id == R.id.nav_pw) {
-            key = RpgBoyData.PERILOUS_WILDS
+            key = Dataset.ThePerilousWilds
         }
-        getSupportActionBar().setTitle(key)
+        getSupportActionBar().setTitle(getString(key.stringResourceId))
         buttonsAdapter.useDb(key)
         resultsAdapter.clear()
 

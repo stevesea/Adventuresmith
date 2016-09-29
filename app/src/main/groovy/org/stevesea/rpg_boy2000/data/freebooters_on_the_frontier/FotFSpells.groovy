@@ -22,8 +22,8 @@ package org.stevesea.rpg_boy2000.data.freebooters_on_the_frontier
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
+import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
-import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
 
@@ -32,8 +32,8 @@ class FotFSpells extends AbstractGenerator {
     public String getName() {
         return "Spells"
     }
-    public String getDataset() {
-        return RpgBoyData.FREEBOOTERS
+    public Dataset getDataset() {
+        return Dataset.FreebootersOnTheFrontier
     }
     static final List<String> elements = """
         Acid Aether Air Anger Ash Avarice

@@ -25,6 +25,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import groovy.transform.CompileStatic
+import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.RpgBoyData
 
 import javax.inject.Inject
@@ -36,7 +37,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     List<String> buttons;
     ResultsAdapter resultsAdapter
     RpgBoyData rpgBoyData
-    String currentDataset
+    Dataset currentDataset
 
     @Inject
     public ButtonsAdapter(RpgBoyData rpgBoyData, ResultsAdapter resultsAdapter) {
@@ -85,7 +86,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyDataSetChanged()
     }
 
-    public void useDb(String key) {
+    public void useDb(Dataset key) {
         currentDataset = key
         buttons.clear()
         buttons.addAll(rpgBoyData.getButtons(key))

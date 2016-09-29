@@ -1,10 +1,12 @@
 package org.stevesea.rpg_boy2000.data
 
 import dagger.ObjectGraph
+import groovy.transform.CompileStatic
 import org.junit.Before
 import org.junit.Test
 import org.junit.Assert
 
+@CompileStatic
 class RpgBoyDataTest {
     private ObjectGraph graph;
     private RpgBoyData data;
@@ -19,8 +21,8 @@ class RpgBoyDataTest {
 
     @Test
     void verifyDiscoveredExpectedDatasets() {
-        Set<String> expected = new HashSet<>()
-        expected.addAll([RpgBoyData.PERILOUS_WILDS, RpgBoyData.FREEBOOTERS, RpgBoyData.MAZERATS])
+        Set<Dataset> expected = new HashSet<>()
+        expected.addAll(Dataset.values())
 
         Assert.assertEquals(expected, data.getDatasets())
     }
@@ -28,10 +30,10 @@ class RpgBoyDataTest {
     @Test
     void verifyButtons() {
         Assert.assertEquals(["Character", "Spells", "Items", "Monsters", "Afflictions", "Potion Effects"],
-                data.getButtons(RpgBoyData.MAZERATS))
+                data.getButtons(Dataset.MazeRats))
         Assert.assertEquals(["Region", "Place"],
-                data.getButtons(RpgBoyData.PERILOUS_WILDS))
+                data.getButtons(Dataset.ThePerilousWilds))
         Assert.assertEquals(["Traits", "Spells"],
-                data.getButtons(RpgBoyData.FREEBOOTERS))
+                data.getButtons(Dataset.FreebootersOnTheFrontier))
     }
 }

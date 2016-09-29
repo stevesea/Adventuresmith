@@ -20,7 +20,7 @@ package org.stevesea.rpg_boy2000.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpg_boy2000.data.AbstractGenerator
-import org.stevesea.rpg_boy2000.data.RpgBoyData
+import org.stevesea.rpg_boy2000.data.Dataset
 import org.stevesea.rpg_boy2000.data.Shuffler
 
 import javax.inject.Inject
@@ -31,8 +31,8 @@ class PwPlace extends AbstractGenerator {
     public String getName() {
         return "Place"
     }
-    public String getDataset() {
-        return RpgBoyData.PERILOUS_WILDS
+    public Dataset getDataset() {
+        return Dataset.ThePerilousWilds
     }
     static final List<String> adjectives = """
         Ancient Ashen
