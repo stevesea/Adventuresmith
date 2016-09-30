@@ -58,6 +58,9 @@ public enum DatasetButton {
     }
 
     static Collection<DatasetButton> getButtonsForDataset(Dataset dset) {
+        if (dset.equals(Dataset.None)) {
+            return new ArrayList<>()
+        }
         return values().grep{((DatasetButton)it).dataset == dset}
     }
 }

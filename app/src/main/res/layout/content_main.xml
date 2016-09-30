@@ -17,32 +17,36 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
-<RelativeLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.stevesea.rpgpad.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    >
+    <RelativeLayout
+        android:id="@+id/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        tools:context="org.stevesea.rpgpad.MainActivity"
+        tools:showIn="@layout/app_bar_main">
 
-    <!-- layout area for buttons-->
-    <android.support.v7.widget.RecyclerView
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:id="@+id/recycler_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_results"
-        android:layout_below="@+id/recycler_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-</RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:id="@+id/recycler_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <!-- layout area for buttons-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_results"
+            android:layout_below="@+id/recycler_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -19,6 +19,7 @@
 package org.stevesea.rpgpad
 
 import android.os.Bundle
+import android.support.design.widget.CollapsingToolbarLayout
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
@@ -37,7 +38,6 @@ import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
 
 import javax.inject.Inject
-
 // TODO: select result items (actions: favorite, share, copy to clipboard)
 // TODO: long-click result item (action: copy to clipboard)
 // TODO: swipe support?
@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar
+
+    @InjectView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout collapsingToolbarLayout
+
+
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawer;
     @InjectView(R.id.nav_view)
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity
     @OnClick(R.id.clear_results)
     public void onClickFloater(View v) {
         resultsAdapter.clear()
-        Snackbar.make(v, "Cleared results", Snackbar.LENGTH_SHORT)
+        Snackbar.make(v, getString(R.string.cleared_results_msg), Snackbar.LENGTH_SHORT)
                 .setAction("Action", null).show();
     }
 
@@ -88,12 +93,15 @@ public class MainActivity extends AppCompatActivity
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         if (RpgPadApp.isFirstStartup.get()) {
+            collapsingToolbarLayout.title = getString(R.string.app_name)
+            buttonsAdapter.useDb(Dataset.None)
             resultsAdapter.addAll( [
                     getString(R.string.welcome_msg) + getString(R.string.content_attribution),
                     getString(R.string.content_thanks)
@@ -152,6 +160,8 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.action_attribution) {
             resultsAdapter.clear()
+            buttonsAdapter.useDb(Dataset.None)
+            collapsingToolbarLayout.title = getString(R.string.app_name)
 
             resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
 
@@ -169,7 +179,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Dataset key = Dataset.MazeRats
+        Dataset key = Dataset.None
         if (id == R.id.nav_fotf) {
             key = Dataset.FreebootersOnTheFrontier
         } else if (id == R.id.nav_mr) {
@@ -177,7 +187,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_pw) {
             key = Dataset.ThePerilousWilds
         }
-        getSupportActionBar().setTitle(getString(key.stringResourceId))
+        collapsingToolbarLayout.setTitle(getString(key.stringResourceId))
         buttonsAdapter.useDb(key)
         resultsAdapter.clear()
 

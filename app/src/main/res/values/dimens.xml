@@ -9,6 +9,8 @@
 
     <dimen name="resultListFontSize">16sp</dimen>
 
+    <dimen name="detail_backdrop_height">256dp</dimen>
+
     <!-- -->
     <integer name="buttonCols">3</integer>
     <integer name="resultCols">2</integer>

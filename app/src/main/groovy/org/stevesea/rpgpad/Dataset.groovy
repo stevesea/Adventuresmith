@@ -27,6 +27,7 @@ public enum Dataset {
     // TODO: minor arcana generator (get permission)
     // TODO: into the odd (get permission)
     // TODO: others?
+    None(R.string.app_name),
     MazeRats(R.string.maze_rats),
     ThePerilousWilds(R.string.perilous_wilds),
     FreebootersOnTheFrontier(R.string.freebooters_on_the_frontier);

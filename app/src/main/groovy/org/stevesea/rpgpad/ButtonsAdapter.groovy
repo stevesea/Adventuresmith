@@ -34,7 +34,6 @@ import javax.inject.Singleton
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     List<DatasetButton> buttons;
     ResultsAdapter resultsAdapter
-    Dataset currentDataset
 
     RpgPadApp app
 
@@ -80,13 +79,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public void clear() {
-        buttons.clear()
-        notifyDataSetChanged()
-    }
-
     public void useDb(Dataset key) {
-        currentDataset = key
         buttons.clear()
         buttons.addAll(DatasetButton.getButtonsForDataset(key))
         notifyDataSetChanged()
