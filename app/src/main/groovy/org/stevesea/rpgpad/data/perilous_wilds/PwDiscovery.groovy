@@ -42,7 +42,7 @@ class PwDiscovery extends AbstractGenerator {
 
     @Override
     String generate() {
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             default: return generateUnnatural()
             case 2..4: return generateNatural()
             case 5..6: return generateEvidence()
@@ -64,7 +64,7 @@ statue/idol/totem
 statue/idol/totem
 statue/idol/totem""".readLines()
     String pickEnigmatic() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 12: return pwDetails.pickOddity()
             default: return pick(enigmatic)
         }
@@ -122,7 +122,7 @@ great temple""".readLines()
 
     String generateStructure() {
         List<String> result = ["<strong>Structure</strong> - Who built it? Is it connected to anything else they made nearby?"]
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 1:
                 result.add("<strong>Enigmatic</strong> - ${pickEnigmatic()}".toString())
                 result.add("<strong><small>Age</small></strong> - ${pwDetails.pickAge()}".toString()) // TODO
@@ -201,7 +201,7 @@ map
 food/supplies
 food/supplies""".readLines()
     String pickStashCache() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 10..12: return pwTreasure.generate()
             default: return pick(stash_cache)
         }
@@ -209,7 +209,7 @@ food/supplies""".readLines()
 
     String generateEvidence() {
         List<String> result = ["<strong>Evidence</strong> - Consider the implications and be ready for them to take the bait."]
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 1..6:
                 result.add("<strong>Tracks/Spoor</strong> - ${pick(track_spoor)}".toString())
                 result.add("<strong><small>Age</small></strong> - ${pwDetails.pickAge()}".toString())
@@ -240,7 +240,7 @@ nest/aerie
 nest/aerie
 hive""".readLines()
     String pickLair() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 11..12: return "ruins (see ${generateStructure()}"
             default: return pick(lair)
         }
@@ -257,7 +257,7 @@ cliff/crevasse/chasm
 ravine/gorge
 ravine/gorge""".readLines()
     String pickObstacle() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 11..12: return pwDetails.getOddity()
             default: pick(obstacle)
         }
@@ -303,7 +303,7 @@ earth-based (peak, formation, crater, etc.)
 earth-based (peak, formation, crater, etc.)
 earth-based (peak, formation, crater, etc.)""".readLines()
     String pickLandmark() {
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 11..12: return pwDetails.getOddity()
             default: return pick(landmark)
         }
@@ -324,7 +324,7 @@ ore (copper, iron, etc.)
 precious metal/gems""".readLines()
     String generateNatural() {
         List<String> result = ["<strong>Natural Feature</strong> - Describe how they notice it and what sets it apart."]
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 1..2:
                 result.add("<strong>Lair</strong> - ${pickLair()}".toString())
                 result.add("<strong><small>Creature</small></strong> - ${pwCreature.generate()}".toString())
@@ -394,7 +394,7 @@ presence""".readLines()
 
     String generateUnnatural() {
         List<String> result = ["<strong>Unnatural Feature</strong> - How does it affect its surroundings?"]
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 1..9:
                 result.add("<strong>Arcane</strong> - ${pick(arcaneFeature)}".toString())
                 result.add("<strong><small>Alignment</small></strong> - ${pwDetails.pickAlignment()}".toString())

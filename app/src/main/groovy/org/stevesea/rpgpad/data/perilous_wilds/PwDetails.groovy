@@ -71,7 +71,7 @@ drain life/magic
 read/control minds""".readLines()
 
     String pickAbility() {
-        def dice = rollDice(1, 12)
+        def dice = roll("1d12")
         return pickAbility(dice)
     }
 
@@ -173,7 +173,7 @@ hate/envy
 love/admiration""".readLines()
 
     String pickAspect() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 11:
                 return pickElement()
             case 12:
@@ -238,7 +238,7 @@ many limbs/tails
 tentacles/tendrils""".readLines()
 
     String pickFeature() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 8:
                 return pickAspect()
             case 9:
@@ -295,7 +295,7 @@ magnetic/repellant
 devoid of life
 unexpectedly alive""".readLines()
     String pickOddity() {
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 12: return pickN(oddity, 2).join(", ")
             default: return pick(oddity)
         }
@@ -366,7 +366,7 @@ Planar
 Stealthy
 Terrifying""".readLines()
     String pickTag() {
-        switch(rollDice(1, 12)) {
+        switch(roll("1d12")) {
             case 12: return pickN(tag, 2).join(", ")
             default: return pick(tag)
         }
@@ -386,7 +386,7 @@ mountains
 mountains
 Oddity""".readLines()
     String pickTerrain() {
-        switch(rollDice(1,12)) {
+        switch(roll("1d12")) {
             case 12: return pickOddity()
             default: return pick(terrain)
         }

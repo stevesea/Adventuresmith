@@ -18,6 +18,10 @@
   ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
+<!-- TODO: stick icon on the buttons:
+    android:drawableLeft="@drawable/skull"
+    android:gravity="center|center_vertical"
+-->
 <Button
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/button_grid_item_btn"

@@ -34,12 +34,23 @@ public abstract class AbstractGenerator {
         return shuffler.pick(items)
     }
 
+    def pick(Dice dice, List<?> items) {
+        return shuffler.pick(dice, items)
+    }
+    def pick(String diceStr, List<?> items) {
+        return pick(Dice.dice(diceStr), items)
+    }
+
     List<?> pickN(List<?> items, int num) {
         return shuffler.pickN(items, num)
     }
 
-    int rollDice(int numDice, int nSides) {
-        return shuffler.rollDice(numDice, nSides)
+    int roll(int numDice, int nSides, int modifier=0) {
+        return Dice.roll(numDice, nSides, modifier, shuffler.random)
+    }
+
+    int roll(String diceStr) {
+        return Dice.roll(diceStr, shuffler.random)
     }
 
     abstract String generate()

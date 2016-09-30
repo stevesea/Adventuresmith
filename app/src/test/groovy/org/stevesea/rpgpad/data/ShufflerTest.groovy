@@ -15,42 +15,40 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
+
 package org.stevesea.rpgpad.data
 
 import groovy.transform.CompileStatic
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.runners.MockitoJUnitRunner
 
-import javax.inject.Inject
+import static org.mockito.Matchers.any
+import static org.mockito.Mockito.when
 
 @CompileStatic
-class Shuffler {
-    final Random random;
+@RunWith(MockitoJUnitRunner)
+class ShufflerTest {
+    @Mock
+    Random mockRandom
 
-    @Inject
-    Shuffler(Random random) {
-        this.random = random
+    Shuffler shuffler
+
+    @Before
+    void setup() {
+        // set the shuffler up so that it's always just returning the first item
+        shuffler = new Shuffler(mockRandom);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(0)
     }
 
-    def pick(List<?> items) {
-        return items.get(random.nextInt(items.size()))
+    @Test
+    public void testRoll() {
+        Assert.assertEquals("item1", shuffler.pick("1d4", ["item1", "item2", "item3", "item4"]))
     }
 
-    def pick(Dice dice, List<?> items) {
-        // ensure our index is within the acceptable range for the collection
-        int index = Math.min(
-                dice.roll() - 1, // dice are 1-based, list indexes are 0-based so subtract 1
-                items.size() - 1
-        )
-        return items.get(index)
-    }
-
-    def pick(String diceStr, List<?> items) {
-        return pick(Dice.dice(diceStr, random), items)
-    }
-
-    List<?> pickN(List<?> items, int num) {
-        def local = items.collect()
-        Collections.shuffle(local, random)
-        return local.take(num)
-    }
 }

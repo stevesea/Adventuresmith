@@ -393,7 +393,7 @@ Whistle\
     String generate() {
         return """\
 <strong><small>Name</small>: <em>${ -> pick(forenames)} ${ -> pick(surnames)}</em></strong>
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: ${ -> rollDice(3, 6)} DEX: ${ -> rollDice(3, 6)} WIL: ${ -> rollDice(3, 6)} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${ -> rollDice(1, 6)}</small>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: ${ -> roll("3d6")} DEX: ${ -> roll("3d6")} WIL: ${ -> roll("3d6")} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${ -> roll("1d6")}</small>
 <br/><strong><small>Personality</small></strong>: ${ -> pickN(personalities, 2).join(", ")}
 <br/><strong><small>Appearance</small></strong>: ${ -> pickN(appearances, 2).join(", ")}
 <br/><strong><small>Weapons</small></strong>: ${ -> pickN(weapons, 2).join(", ")}

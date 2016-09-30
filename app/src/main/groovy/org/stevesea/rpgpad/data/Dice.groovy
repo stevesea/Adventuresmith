@@ -35,7 +35,7 @@ class Dice {
      * @param r
      * @return
      */
-    static Dice fromString(String diceStr, Random r = new Random()) {
+    static Dice dice(String diceStr, Random r = new Random()) {
         int indPlus = diceStr.indexOf("+")
         int indD = diceStr.indexOf("d")
 
@@ -73,7 +73,7 @@ class Dice {
     }
 
     static Integer roll(String diceStr, Random r = new Random()) {
-        return fromString(diceStr, r).roll()
+        return dice(diceStr, r).roll()
     }
 
     @Override

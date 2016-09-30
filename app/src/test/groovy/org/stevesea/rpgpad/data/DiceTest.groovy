@@ -52,7 +52,7 @@ class DiceTest {
 
     @Test
     public void testStringParsingWithModifier() {
-        Dice d = Dice.fromString("2d20+4", mockRandom)
+        Dice d = Dice.dice("2d20+4", mockRandom)
         Assert.assertEquals(2, d.nDice)
         Assert.assertEquals(20, d.nSides)
         Assert.assertEquals(4, d.mod)
@@ -63,7 +63,7 @@ class DiceTest {
 
     @Test
     public void testStringParsing() {
-        Dice d = Dice.fromString("34d12", mockRandom)
+        Dice d = Dice.dice("34d12", mockRandom)
         Assert.assertEquals(34, d.nDice)
         Assert.assertEquals(12, d.nSides)
         Assert.assertEquals(0, d.mod)

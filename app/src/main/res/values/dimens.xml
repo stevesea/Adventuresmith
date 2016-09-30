@@ -14,9 +14,7 @@
     <integer name="resultCols">2</integer>
     <integer name="resultColsLongtext">2</integer>
 
-    <integer name="numGeneratedDefault">1</integer>
     <integer name="numGeneratedSingle">1</integer>
     <integer name="numGeneratedSome">3</integer>
     <integer name="numGeneratedMany">6</integer>
-    <integer name="numGeneratedAttrArray">6</integer>
 </resources>
