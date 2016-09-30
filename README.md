@@ -1,14 +1,12 @@
-# RPG-Boy 2000
+# RPG-Pad
 
 ## Overview
 
 [![Build status](https://circleci.com/gh/stevesea/RPGpad.svg?&style=shield&circle-token=d5b638c2be4157b4b3bdd347bd139c392968d7db)](https://circleci.com/gh/stevesea/RPGpad)
 [![Build Status](https://travis-ci.org/stevesea/RPGpad.svg?branch=master)](https://travis-ci.org/stevesea/RPGpad)
 
-This is an Android/Groovy application for randomly generating various
-things for tabletop RPGs (names, spells, items, monsters, etc). The
-content for this application was taken with permission from the following
-sources:
+This is an Android application which randomly generates configurable things for tabletop RPGs
+(names, spells, items, monsters, etc). The application uses content produced by the following individuals:
 
 * Perilous Wilds, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
 * Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
@@ -17,11 +15,12 @@ sources:
 
 ## Screenshots
 
+![alt text](https://github.com/stevesea/RPGpad/raw/master/docs/images/initial_screen.png "The initial screen")
 ![alt text](https://github.com/stevesea/RPGpad/raw/master/docs/images/nav_drawer.png "Sliding nav bar, acknowledgements")
 
 ![alt text](https://github.com/stevesea/RPGpad/raw/master/docs/images/mr_chars.png "Maze Rats - characters")
-
 ![alt text](https://github.com/stevesea/RPGpad/raw/master/docs/images/mr_monsters.png "Maze Rats - monsters")
+![alt text](https://github.com/stevesea/RPGpad/raw/master/docs/images/mr_spells.png "Maze Rats - spells")
 
 ## Other random generators with the same/similar content
 
