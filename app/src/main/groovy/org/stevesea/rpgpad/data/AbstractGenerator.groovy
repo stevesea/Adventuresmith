@@ -34,8 +34,8 @@ public abstract class AbstractGenerator {
         return shuffler.pick(items)
     }
 
-    List<?> pick(List<?> items, int num) {
-        return shuffler.pick(items, num)
+    List<?> pickN(List<?> items, int num) {
+        return shuffler.pickN(items, num)
     }
 
     int rollDice(int numDice, int nSides) {

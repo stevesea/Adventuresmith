@@ -35,7 +35,7 @@ class Shuffler {
         return items.get(random.nextInt(items.size()))
     }
 
-    List<?> pick(List<?> items, int num) {
+    List<?> pickN(List<?> items, int num) {
         def local = items.collect()
         Collections.shuffle(local, random)
         return local.take(num)

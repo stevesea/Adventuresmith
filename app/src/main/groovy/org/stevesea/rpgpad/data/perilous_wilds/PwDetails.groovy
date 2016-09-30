@@ -82,7 +82,7 @@ read/control minds""".readLines()
             case 10:
                 return "immunity " + pickElement()
             case 12:
-                return pick(ability, 2).join(", ")
+                return pickN(ability, 2).join(", ")
             default:
                 return pick(ability)
         }
@@ -177,7 +177,7 @@ love/admiration""".readLines()
             case 11:
                 return pickElement()
             case 12:
-                return pick(aspect, 2).join(", ")
+                return pickN(aspect, 2).join(", ")
             default:
                 return pick(aspect)
         }
@@ -248,7 +248,7 @@ tentacles/tendrils""".readLines()
             case 11:
                 return pickOddity()
             case 12:
-                return pick(feature, 2).join(", ")
+                return pickN(feature, 2).join(", ")
             default:
                 return pick(feature)
         }
@@ -296,7 +296,7 @@ devoid of life
 unexpectedly alive""".readLines()
     String pickOddity() {
         switch(rollDice(1, 12)) {
-            case 12: return pick(oddity, 2).join(", ")
+            case 12: return pickN(oddity, 2).join(", ")
             default: return pick(oddity)
         }
     }
@@ -367,7 +367,7 @@ Stealthy
 Terrifying""".readLines()
     String pickTag() {
         switch(rollDice(1, 12)) {
-            case 12: return pick(tag, 2).join(", ")
+            case 12: return pickN(tag, 2).join(", ")
             default: return pick(tag)
         }
     }

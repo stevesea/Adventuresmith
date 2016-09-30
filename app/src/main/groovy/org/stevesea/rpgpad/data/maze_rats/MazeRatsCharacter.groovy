@@ -394,10 +394,10 @@ Whistle\
         return """\
 <strong><small>Name</small>: <em>${ -> pick(forenames)} ${ -> pick(surnames)}</em></strong>
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: ${ -> rollDice(3, 6)} DEX: ${ -> rollDice(3, 6)} WIL: ${ -> rollDice(3, 6)} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${ -> rollDice(1, 6)}</small>
-<br/><strong><small>Personality</small></strong>: ${ -> pick(personalities, 2).join(", ")}
-<br/><strong><small>Appearance</small></strong>: ${ -> pick(appearances, 2).join(", ")}
-<br/><strong><small>Weapons</small></strong>: ${ -> pick(weapons, 2).join(", ")}
-<br/><strong><small>Equip</small></strong>: ${ -> pick(equipment, 3).join(", ")}\
+<br/><strong><small>Personality</small></strong>: ${ -> pickN(personalities, 2).join(", ")}
+<br/><strong><small>Appearance</small></strong>: ${ -> pickN(appearances, 2).join(", ")}
+<br/><strong><small>Weapons</small></strong>: ${ -> pickN(weapons, 2).join(", ")}
+<br/><strong><small>Equip</small></strong>: ${ -> pickN(equipment, 3).join(", ")}\
 """
 
     }
