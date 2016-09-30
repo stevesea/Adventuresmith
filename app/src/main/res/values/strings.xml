@@ -27,7 +27,7 @@
         </ul>]]>
     </string>
     <string name="action_attribution">Attribution</string>
-    <string name="welcome_msg"><![CDATA[Welcome! <br/>Select a supplement to begin.</ul>]]></string>
+    <string name="welcome_msg"><![CDATA[Welcome! <br/><br/>Select a supplement to begin.</ul>]]></string>
 
     <string name="maze_rats">Maze Rats</string>
     <string name="perilous_wilds">The Perilous Wilds</string>
