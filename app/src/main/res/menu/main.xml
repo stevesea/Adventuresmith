@@ -3,6 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
+        android:icon="@drawable/ic_build_black_24dp"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never"/>
@@ -10,5 +11,6 @@
         android:id="@+id/action_attribution"
         android:orderInCategory="100"
         android:title="@string/action_attribution"
+        android:icon="@drawable/ic_help"
         app:showAsAction="never"/>
 </menu>
