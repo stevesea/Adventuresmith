@@ -25,14 +25,14 @@ import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject;
 
-class PwCreature extends AbstractGenerator{
+class PwTreasure extends AbstractGenerator{
     @Inject
-    PwCreature(Shuffler shuffler) {
+    PwTreasure(Shuffler shuffler) {
         super(shuffler)
     }
 
     @Override
     String generate() {
-        return "Critter TBD"
+        return "Treasure TBD"
     }
 }

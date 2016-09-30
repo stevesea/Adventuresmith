@@ -29,6 +29,7 @@ import org.stevesea.rpgpad.data.maze_rats.MazeRatsMagic
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsMonsters
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsPotionEffects
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
+import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 
@@ -40,6 +41,7 @@ public enum DatasetButton {
     PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces),
     PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions),
     PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
+    PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters),
     MrMonsters(Dataset.MazeRats, MazeRatsMonsters.class, R.string.MrMonsters),

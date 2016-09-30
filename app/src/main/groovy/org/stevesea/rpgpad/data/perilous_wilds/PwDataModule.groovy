@@ -24,11 +24,12 @@ import groovy.transform.CompileStatic
 @CompileStatic
 @Module(
         injects = [
-                PwPlace.class,
-                PwRegion.class,
+                PwCreature.class,
                 PwDetails.class,
                 PwDiscovery.class,
-                PwCreature.class
+                PwPlace.class,
+                PwRegion.class,
+                PwTreasure.class
         ],
         library = true,
         complete = false

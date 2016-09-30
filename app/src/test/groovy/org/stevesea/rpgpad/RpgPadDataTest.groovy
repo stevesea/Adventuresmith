@@ -15,7 +15,7 @@ class RpgPadDataTest {
 
     @Test
     void verifyButtonsPw() {
-        Assert.assertEquals([DatasetButton.PerilousPlaces, DatasetButton.PerilousRegions, DatasetButton.PerilousDetails],
+        Assert.assertEquals([DatasetButton.PerilousPlaces, DatasetButton.PerilousRegions, DatasetButton.PerilousDetails, DatasetButton.PerilousDiscovery],
                 DatasetButton.getButtonsForDataset(Dataset.ThePerilousWilds))
     }
 
