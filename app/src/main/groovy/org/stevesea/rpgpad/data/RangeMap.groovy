@@ -23,9 +23,18 @@ package org.stevesea.rpgpad.data
 import groovy.transform.CompileStatic;
 
 @CompileStatic
-class RangeMap extends TreeMap<Integer, GString> {
-    RangeMap withVals(IntRange range, GString obj) {
+class RangeMap extends TreeMap<Integer, Object> {
+    RangeMap with(IntRange range, Object obj) {
         range.each{ i -> put(i, obj)}
         return this
+    }
+    RangeMap with(Integer i, Object obj) {
+        put(i, obj)
+        return this
+    }
+
+    @Override
+    Object get(Object key) {
+        return getOrDefault(key, lastEntry().getValue())
     }
 }

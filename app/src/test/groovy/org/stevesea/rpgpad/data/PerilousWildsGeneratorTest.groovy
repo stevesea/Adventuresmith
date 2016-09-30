@@ -56,8 +56,8 @@ class PerilousWildsGeneratorTest {
     @Test
     void doit() {
         def templates = new RangeMap()
-            .withVals((1..5), "asdf ${ -> Dice.roll('1d12')}")
-            .withVals((6..9), "sdfg ${ -> Dice.roll('1d12')}")
+            .with((1..5), "asdf ${ -> Dice.roll('1d12')}")
+            .with((6..9), "sdfg ${ -> Dice.roll('1d12')}")
         println templates
     }
 
