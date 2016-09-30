@@ -22,6 +22,7 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 public enum Dataset {
+    // TODO: try moving string data into resources
     // TODO: complete perilous wilds generators
     // TODO: minor arcana generator (get permission)
     // TODO: into the odd (get permission)

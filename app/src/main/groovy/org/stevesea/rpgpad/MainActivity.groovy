@@ -92,7 +92,11 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         if (RpgPadApp.isFirstStartup.get()) {
-            resultsAdapter.add(getString(R.string.welcome_msg))
+            resultsAdapter.addAll( [
+                    getString(R.string.welcome_msg) + getString(R.string.content_attribution),
+                    getString(R.string.content_thanks)
+                    ]
+                    )
             RpgPadApp.isFirstStartup.set(false)
         }
 
@@ -147,7 +151,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_attribution) {
             resultsAdapter.clear()
 
-            resultsAdapter.add(getString(R.string.content_permission))
+            resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
 
             return true;
         }
