@@ -27,13 +27,21 @@ public enum Dataset {
     // TODO: minor arcana generator (get permission)
     // TODO: into the odd (get permission)
     // TODO: others?
-    None(R.string.app_name),
-    MazeRats(R.string.maze_rats),
-    ThePerilousWilds(R.string.perilous_wilds),
-    FreebootersOnTheFrontier(R.string.freebooters_on_the_frontier);
+    None(R.string.app_name, R.id.nav_thanks),
+    MazeRats(R.string.maze_rats, R.id.nav_mr),
+    ThePerilousWilds(R.string.perilous_wilds, R.id.nav_pw),
+    FreebootersOnTheFrontier(R.string.freebooters_on_the_frontier, R.id.nav_fotf),
+    DiceRoller(R.string.dice_roller, R.id.nav_dice)
+    ;
 
     int stringResourceId
-    Dataset(int stringResourceId) {
+    int menuNavId
+
+    Dataset(int stringResourceId, int menuNavId) {
         this.stringResourceId = stringResourceId
+        this.menuNavId = menuNavId
+    }
+    static Dataset lookupDatasetForNavItem(int navItem) {
+        return values().grep{((Dataset)it).menuNavId == navItem}[0]
     }
 }

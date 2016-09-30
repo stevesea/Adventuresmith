@@ -24,7 +24,7 @@ import javax.inject.Inject
 
 @CompileStatic
 class Shuffler {
-    private final Random random;
+    final Random random;
 
     @Inject
     Shuffler(Random random) {
@@ -41,11 +41,7 @@ class Shuffler {
         return local.take(num)
     }
 
-    int rollDice(int numDice, int nSides) {
-        int sum = 0
-        numDice.times {
-            sum += random.nextInt(nSides) + 1
-        }
-        return sum
+    int rollDice(Integer numDice, Integer nSides) {
+        return Dice.roll(numDice, nSides, 0, random)
     }
 }

@@ -14,5 +14,15 @@
             android:id="@+id/nav_fotf"
             android:icon="@drawable/ic_wallpaper_black_24dp"
             android:title="@string/freebooters_on_the_frontier"/>
+
+        <item
+            android:id="@+id/nav_dice"
+            android:icon="@drawable/dice_6"
+            android:title="@string/dice_roller"/>
+
+        <item android:id="@+id/nav_thanks"
+              android:icon="@drawable/ic_help"
+              android:title="@string/nav_thanks"/>
     </group>
+
 </menu>

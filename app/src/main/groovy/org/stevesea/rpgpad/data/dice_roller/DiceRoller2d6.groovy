@@ -15,27 +15,28 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
-package org.stevesea.rpgpad.data
 
-import dagger.Module
+package org.stevesea.rpgpad.data.dice_roller
+
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.dice_roller.DiceRollerDataModule
-import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFDataModule
-import org.stevesea.rpgpad.data.maze_rats.MazeRatsDataModule
-import org.stevesea.rpgpad.data.perilous_wilds.PwDataModule
+import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.Dice
+import org.stevesea.rpgpad.data.Shuffler
+
+import javax.inject.Inject;
 
 @CompileStatic
-@Module(
-        // TODO: this feels dumb. a lot of weight to carry around, just to allow injection. need to figure out alternative
-        includes = [
-                FotFDataModule.class,
-                MazeRatsDataModule.class,
-                PwDataModule.class,
-                DiceRollerDataModule.class,
-        ],
-        library = true,
-        complete = false
-)
-class RpgPadDataModule {
+class DiceRoller2d6 extends AbstractGenerator {
+    @Inject
+    DiceRoller2d6(Shuffler shuffler) {
+        super(shuffler)
+    }
+
+    @Override
+    String generate() {
+        def dice = Dice.dice(2, 6, shuffler.random)
+        return "${ss(dice.toString())} : ${dice.roll()}"
+    }
 }

@@ -15,27 +15,25 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
-package org.stevesea.rpgpad.data
+package org.stevesea.rpgpad.data.dice_roller
 
 import dagger.Module
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.dice_roller.DiceRollerDataModule
-import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFDataModule
-import org.stevesea.rpgpad.data.maze_rats.MazeRatsDataModule
-import org.stevesea.rpgpad.data.perilous_wilds.PwDataModule
 
 @CompileStatic
 @Module(
-        // TODO: this feels dumb. a lot of weight to carry around, just to allow injection. need to figure out alternative
-        includes = [
-                FotFDataModule.class,
-                MazeRatsDataModule.class,
-                PwDataModule.class,
-                DiceRollerDataModule.class,
+        injects = [
+                DiceRoller1d20.class,
+                DiceRoller2d6.class,
+                DiceRoller1d20Advantage.class,
+                DiceRoller1d20Disadvantage.class,
+                DiceRoller3d6.class,
+                DiceRoller4d4.class,
         ],
         library = true,
         complete = false
 )
-class RpgPadDataModule {
+class DiceRollerDataModule {
 }

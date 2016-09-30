@@ -24,4 +24,12 @@ class RpgPadDataTest {
         Assert.assertEquals([DatasetButton.FreebooterSpells, DatasetButton.FreebooterTraits],
                 DatasetButton.getButtonsForDataset(Dataset.FreebootersOnTheFrontier))
     }
+
+    @Test
+    void verifyDatasetLookupByMenuItem() {
+        Assert.assertEquals(Dataset.MazeRats, Dataset.lookupDatasetForNavItem(R.id.nav_mr))
+        Assert.assertEquals(Dataset.DiceRoller, Dataset.lookupDatasetForNavItem(R.id.nav_dice))
+        Assert.assertEquals(Dataset.ThePerilousWilds, Dataset.lookupDatasetForNavItem(R.id.nav_pw))
+        Assert.assertEquals(Dataset.FreebootersOnTheFrontier, Dataset.lookupDatasetForNavItem(R.id.nav_fotf))
+    }
 }

@@ -152,14 +152,6 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.action_attribution) {
-            resultsAdapter.clear()
-            buttonsAdapter.useDb(Dataset.None)
-            getSupportActionBar().title = getString(R.string.app_name)
-
-            resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
-
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -172,17 +164,15 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Dataset key = Dataset.None
-        if (id == R.id.nav_fotf) {
-            key = Dataset.FreebootersOnTheFrontier
-        } else if (id == R.id.nav_mr) {
-            key = Dataset.MazeRats
-        } else if (id == R.id.nav_pw) {
-            key = Dataset.ThePerilousWilds
-        }
+        // TODO: how to add these menu items programatically?
+        Dataset key = Dataset.lookupDatasetForNavItem(id)
         getSupportActionBar().title = getString(key.stringResourceId)
+
         buttonsAdapter.useDb(key)
         resultsAdapter.clear()
+        if (key == Dataset.None) {
+            resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
+        }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

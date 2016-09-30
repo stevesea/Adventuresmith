@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/select_a_supplement"
+        android:text="@string/select_a_category"
         android:textSize="20sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 

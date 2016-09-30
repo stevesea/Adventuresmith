@@ -55,11 +55,12 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     void onBindViewHolder(ViewHolder holder, int position) {
         final AbstractGenerator generator = app.generatorFactory(buttons.get(position))
         final String btnText = app.getString(buttons.get(position).stringResourceId);
+        final int numToGenerate = app.getResources().getInteger(buttons.get(position).numGeneratedId)
         holder.btn.setText(btnText)
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                def results = generator.generate(5).toList()
+                def results = generator.generate(numToGenerate).toList()
                 resultsAdapter.addAll(results)
             }
         })

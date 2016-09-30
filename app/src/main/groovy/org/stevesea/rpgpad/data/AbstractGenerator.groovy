@@ -51,4 +51,14 @@ public abstract class AbstractGenerator {
         }
         return strings as String[]
     }
+
+    String strong(String input) {
+        return "<strong>${input}</strong>"
+    }
+    String small(String input) {
+        return "<small>${input}</small>"
+    }
+    String ss(String input) {
+        return strong(small(input))
+    }
 }

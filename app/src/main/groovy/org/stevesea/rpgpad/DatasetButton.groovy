@@ -20,6 +20,12 @@ package org.stevesea.rpgpad
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Advantage
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Disadvantage
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller2d6
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller3d6
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller4d4
 import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFSpells
 import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFTraits
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsAfflictions
@@ -35,30 +41,39 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 
 @CompileStatic
 public enum DatasetButton {
-    FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells),
-    FreebooterTraits(Dataset.FreebootersOnTheFrontier, FotFTraits.class, R.string.FotFTraits),
+    FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells, R.integer.numGeneratedMany),
+    FreebooterTraits(Dataset.FreebootersOnTheFrontier, FotFTraits.class, R.string.FotFTraits, R.integer.numGeneratedMany),
 
-    PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces),
-    PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions),
-    PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
-    PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
+    PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
+    PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
+    PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails, R.integer.numGeneratedSome),
+    PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery, R.integer.numGeneratedSome),
 
-    MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters),
-    MrMonsters(Dataset.MazeRats, MazeRatsMonsters.class, R.string.MrMonsters),
-    MrMagic(Dataset.MazeRats, MazeRatsMagic.class, R.string.MrMagic),
-    MrItems(Dataset.MazeRats, MazeRatsItems.class, R.string.MrItems),
-    MrAfflictions(Dataset.MazeRats, MazeRatsAfflictions.class, R.string.MrAfflictions),
-    MrPotionEffects(Dataset.MazeRats, MazeRatsPotionEffects.class, R.string.MrPotionEffects),
+    MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters, R.integer.numGeneratedSome),
+    MrMonsters(Dataset.MazeRats, MazeRatsMonsters.class, R.string.MrMonsters, R.integer.numGeneratedMany),
+    MrMagic(Dataset.MazeRats, MazeRatsMagic.class, R.string.MrMagic, R.integer.numGeneratedMany),
+    MrItems(Dataset.MazeRats, MazeRatsItems.class, R.string.MrItems, R.integer.numGeneratedMany),
+    MrAfflictions(Dataset.MazeRats, MazeRatsAfflictions.class, R.string.MrAfflictions, R.integer.numGeneratedMany),
+    MrPotionEffects(Dataset.MazeRats, MazeRatsPotionEffects.class, R.string.MrPotionEffects, R.integer.numGeneratedMany),
+
+    Dr1d20(Dataset.DiceRoller, DiceRoller1d20.class, R.string.dice_roller_1d20),
+    Dr2d20Adv(Dataset.DiceRoller, DiceRoller1d20Advantage.class, R.string.dice_roller_2d20_adv),
+    Dr2d20Disadv(Dataset.DiceRoller, DiceRoller1d20Disadvantage.class, R.string.dice_roller_2d20_disadv),
+    Dr2d6(Dataset.DiceRoller, DiceRoller2d6.class, R.string.dice_roller_2d6),
+    Dr3d6(Dataset.DiceRoller, DiceRoller3d6.class, R.string.dice_roller_3d6, R.integer.numGeneratedAttrArray),
+    Dr4d4(Dataset.DiceRoller, DiceRoller4d4.class, R.string.dice_roller_4d4, R.integer.numGeneratedAttrArray),
     ;
 
     int stringResourceId
     Dataset dataset
-    Class<? extends AbstractGenerator> clz;
+    Class<? extends AbstractGenerator> clz
+    int numGeneratedId
 
-    DatasetButton(Dataset dataset, Class<? extends AbstractGenerator> clz, int stringResourceId) {
+    DatasetButton(Dataset dataset, Class<? extends AbstractGenerator> clz, int stringResourceId, int numGeneratedId = R.integer.numGeneratedDefault) {
         this.stringResourceId = stringResourceId
         this.dataset = dataset
         this.clz = clz
+        this.numGeneratedId = numGeneratedId
     }
 
     static Collection<DatasetButton> getButtonsForDataset(Dataset dset) {

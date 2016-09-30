@@ -9,7 +9,7 @@
     <string name="acknowledgements">Acknowledgements</string>
     <string name="about">About</string>
     <string name="information">Information</string>
-    <string name="select_a_supplement">Select a supplement:</string>
+    <string name="select_a_category">Select a category:</string>
     <string name="cleared_results_msg">Results cleared.</string>
     <string name="content_attribution"><![CDATA[
         <h3>Attribution</h3>
@@ -34,9 +34,10 @@
         <ul>
         </ul>]]>
     </string>
-    <string name="action_attribution">Attribution &amp; Thanks</string>
-    <string name="welcome_msg"><![CDATA[<h3>Welcome!</h3> <br/><br/><mark>Select a supplement to begin.</mark><br/><br/><br/><br/>]]></string>
+    <string name="nav_thanks">Attribution &amp; Thanks</string>
+    <string name="welcome_msg"><![CDATA[<h3>Welcome!</h3> <br/><br/><mark>Select a category to begin.</mark><br/><br/><br/><br/>]]></string>
 
+    <string name="dice_roller">Dice Roller</string>
     <string name="maze_rats">Maze Rats</string>
     <string name="perilous_wilds">The Perilous Wilds</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
@@ -55,4 +56,11 @@
     <string name="MrMagic">Spells</string>
     <string name="MrMonsters">Monsters</string>
     <string name="MrPotionEffects">Potion Effects</string>
+
+    <string name="dice_roller_3d6">3d6</string>
+    <string name="dice_roller_4d4">4d4</string>
+    <string name="dice_roller_2d6">2d6</string>
+    <string name="dice_roller_1d20">1d20</string>
+    <string name="dice_roller_2d20_adv">2d20 (adv)</string>
+    <string name="dice_roller_2d20_disadv">2d20 (disadv)</string>
 </resources>
