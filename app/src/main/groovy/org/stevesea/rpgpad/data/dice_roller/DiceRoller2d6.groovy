@@ -36,7 +36,8 @@ class DiceRoller2d6 extends AbstractGenerator {
 
     @Override
     String generate() {
-        def dice = Dice.dice(2, 6, shuffler.random)
-        return "${ss(dice.toString())} : ${dice.roll()}"
+        def dice = Dice.dice(1, 6, shuffler.random)
+        def rolls = [dice.roll(), dice.roll()]
+        return "${ss("2d6")} : ${rolls.sum()} ${small(rolls.toString())}"
     }
 }

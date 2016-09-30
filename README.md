@@ -12,6 +12,12 @@ This is an Android application which randomly generates configurable things for 
 * Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
 * Maze Rats 0.1, by Ben Milton. http://questingblog.com/maze-rats/
 
+## Goals
+
+I'm interested in using this app to enable some complex random tables that involve a handful of
+dice and multiple interrelated tables (like Perilous Wilds).
+
+I'm not particularly interested in RPG-Pad being a general-purpose random-generator engine. 
 
 ## Screenshots
 

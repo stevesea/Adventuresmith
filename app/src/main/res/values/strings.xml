@@ -57,10 +57,16 @@
     <string name="MrMonsters">Monsters</string>
     <string name="MrPotionEffects">Potion Effects</string>
 
+    <string name="dice_roller_2d6">2d6</string>
     <string name="dice_roller_3d6">3d6</string>
     <string name="dice_roller_4d4">4d4</string>
-    <string name="dice_roller_2d6">2d6</string>
+    <string name="dice_roller_1d6">1d6</string>
+    <string name="dice_roller_1d8">1d8</string>
+    <string name="dice_roller_1d10">1d10</string>
+    <string name="dice_roller_1d12">1d12</string>
     <string name="dice_roller_1d20">1d20</string>
+    <string name="dice_roller_1d30">1d30</string>
+    <string name="dice_roller_1d100">1d100</string>
     <string name="dice_roller_2d20_adv">2d20 (adv)</string>
     <string name="dice_roller_2d20_disadv">2d20 (disadv)</string>
 </resources>

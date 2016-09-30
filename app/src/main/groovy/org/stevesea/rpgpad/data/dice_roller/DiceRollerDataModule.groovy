@@ -25,10 +25,16 @@ import groovy.transform.CompileStatic
 @CompileStatic
 @Module(
         injects = [
+                DiceRoller1d6.class,
+                DiceRoller1d8.class,
+                DiceRoller1d10.class,
+                DiceRoller1d12.class,
                 DiceRoller1d20.class,
-                DiceRoller2d6.class,
                 DiceRoller1d20Advantage.class,
                 DiceRoller1d20Disadvantage.class,
+                DiceRoller1d30.class,
+                DiceRoller1d100.class,
+                DiceRoller2d6.class,
                 DiceRoller3d6.class,
                 DiceRoller4d4.class,
         ],

@@ -39,6 +39,6 @@ class DiceRoller1d20Disadvantage extends AbstractGenerator {
         def dice = Dice.dice(1, 20, shuffler.random)
         def rolls = [dice.roll(), dice.roll()]
 
-        return "${ss(dice.toString() + " disadv")} : ${Collections.min(rolls)} ${rolls}"
+        return "${ss(dice.toString() + " disadv")} : ${Collections.min(rolls)} ${small(rolls.toString())}"
     }
 }

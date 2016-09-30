@@ -74,7 +74,7 @@ class DiceTest {
 
     @Test
     public void testDiceRoller3d6() {
-        Assert.assertEquals("<strong><small>3d6</small></strong> : 3", new DiceRoller3d6(shuffler).generate())
+        Assert.assertEquals("<strong><small>3d6</small></strong> : 3 <small>[1, 1, 1]</small>", new DiceRoller3d6(shuffler).generate())
     }
     @Test
     public void testDiceRoller1d20() {
@@ -82,10 +82,10 @@ class DiceTest {
     }
     @Test
     public void testDiceRoller1d20adv() {
-        Assert.assertEquals("<strong><small>1d20 adv</small></strong> : 1 [1, 1]", new DiceRoller1d20Advantage(shuffler).generate())
+        Assert.assertEquals("<strong><small>1d20 adv</small></strong> : 1 <small>[1, 1]</small>", new DiceRoller1d20Advantage(shuffler).generate())
     }
     @Test
     public void testDiceRoller1d20disadv() {
-        Assert.assertEquals("<strong><small>1d20 disadv</small></strong> : 1 [1, 1]", new DiceRoller1d20Disadvantage(shuffler).generate())
+        Assert.assertEquals("<strong><small>1d20 disadv</small></strong> : 1 <small>[1, 1]</small>", new DiceRoller1d20Disadvantage(shuffler).generate())
     }
 }

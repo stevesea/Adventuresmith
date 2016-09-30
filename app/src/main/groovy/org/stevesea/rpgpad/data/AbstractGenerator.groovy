@@ -53,6 +53,7 @@ public abstract class AbstractGenerator {
         return Dice.roll(diceStr, shuffler.random)
     }
 
+    // TODO: split generate-the-value from generate-text-ready-for-display?
     abstract String generate()
 
     String[] generate(int num) {

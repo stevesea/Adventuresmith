@@ -28,17 +28,15 @@ import org.stevesea.rpgpad.data.Shuffler
 import javax.inject.Inject;
 
 @CompileStatic
-class DiceRoller1d20Advantage extends AbstractGenerator {
+class DiceRoller1d100 extends AbstractGenerator {
     @Inject
-    DiceRoller1d20Advantage(Shuffler shuffler) {
+    DiceRoller1d100(Shuffler shuffler) {
         super(shuffler)
     }
 
     @Override
     String generate() {
-        def dice = Dice.dice(1, 20, shuffler.random)
-        def rolls = [dice.roll(), dice.roll()]
-
-        return "${ss(dice.toString() + " adv")} : ${Collections.max(rolls)} ${small(rolls.toString())}"
+        def dice = Dice.dice(1, 100, shuffler.random)
+        return "${ss(dice.toString())} : ${dice.roll()}"
     }
 }

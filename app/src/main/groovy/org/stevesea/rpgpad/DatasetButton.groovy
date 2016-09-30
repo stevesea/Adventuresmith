@@ -20,9 +20,15 @@ package org.stevesea.rpgpad
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d10
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d100
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d12
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Advantage
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Disadvantage
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d30
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d6
+import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d8
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller2d6
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller3d6
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller4d4
@@ -56,7 +62,13 @@ public enum DatasetButton {
     MrAfflictions(Dataset.MazeRats, MazeRatsAfflictions.class, R.string.MrAfflictions, R.integer.numGeneratedMany),
     MrPotionEffects(Dataset.MazeRats, MazeRatsPotionEffects.class, R.string.MrPotionEffects, R.integer.numGeneratedMany),
 
+    Dr1d6(Dataset.DiceRoller, DiceRoller1d6.class, R.string.dice_roller_1d6),
+    Dr1d8(Dataset.DiceRoller, DiceRoller1d8.class, R.string.dice_roller_1d8),
+    Dr1d10(Dataset.DiceRoller, DiceRoller1d10.class, R.string.dice_roller_1d10),
+    Dr1d12(Dataset.DiceRoller, DiceRoller1d12.class, R.string.dice_roller_1d12),
     Dr1d20(Dataset.DiceRoller, DiceRoller1d20.class, R.string.dice_roller_1d20),
+    Dr1d30(Dataset.DiceRoller, DiceRoller1d30.class, R.string.dice_roller_1d30),
+    Dr1d100(Dataset.DiceRoller, DiceRoller1d100.class, R.string.dice_roller_1d100),
     Dr2d20Adv(Dataset.DiceRoller, DiceRoller1d20Advantage.class, R.string.dice_roller_2d20_adv),
     Dr2d20Disadv(Dataset.DiceRoller, DiceRoller1d20Disadvantage.class, R.string.dice_roller_2d20_disadv),
     Dr2d6(Dataset.DiceRoller, DiceRoller2d6.class, R.string.dice_roller_2d6),
