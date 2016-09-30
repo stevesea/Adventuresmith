@@ -26,6 +26,7 @@ import groovy.transform.CompileStatic
         injects = [
                 PwPlace.class,
                 PwRegion.class,
+                PwDetails.class,
         ],
         library = true,
         complete = false
