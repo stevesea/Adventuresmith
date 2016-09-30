@@ -34,7 +34,6 @@ import javax.inject.Singleton
 @CompileStatic
 @Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
-
     // so we can look up resources
     Context context
 

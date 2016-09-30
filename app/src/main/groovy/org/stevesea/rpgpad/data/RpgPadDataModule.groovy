@@ -26,6 +26,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwDataModule
 
 @CompileStatic
 @Module(
+        // TODO: this feels dumb. a lot of weight to carry around, just to allow injection. need to figure out alternative
         includes = [FotFDataModule.class, MazeRatsDataModule.class, PwDataModule.class],
         library = true,
         complete = false

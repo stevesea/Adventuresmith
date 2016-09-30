@@ -38,6 +38,9 @@ import groovy.transform.CompileStatic
 
 import javax.inject.Inject
 
+// TODO: select result items (actions: favorite, share, copy to clipboard)
+// TODO: long-click result item (action: copy to clipboard)
+// TODO: swipe support?
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -137,6 +140,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        // TODO: implement settings
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;

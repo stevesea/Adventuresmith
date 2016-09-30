@@ -22,6 +22,10 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 public enum Dataset {
+    // TODO: complete perilous wilds generators
+    // TODO: minor arcana generator (get permission)
+    // TODO: into the odd (get permission)
+    // TODO: others?
     MazeRats(R.string.maze_rats),
     ThePerilousWilds(R.string.perilous_wilds),
     FreebootersOnTheFrontier(R.string.freebooters_on_the_frontier);
