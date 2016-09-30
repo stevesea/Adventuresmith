@@ -22,7 +22,7 @@
           package="org.stevesea.rpgpad">
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/skull"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:name="org.stevesea.rpgpad.RpgPadApp"
