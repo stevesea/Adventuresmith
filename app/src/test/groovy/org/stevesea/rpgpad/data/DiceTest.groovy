@@ -82,7 +82,7 @@ class DiceTest {
     }
     @Test
     public void testDiceRoller1d20adv() {
-        Assert.assertEquals("<strong><small>1d20 disadv</small></strong> : 1 [1, 1]", new DiceRoller1d20Advantage(shuffler).generate())
+        Assert.assertEquals("<strong><small>1d20 adv</small></strong> : 1 [1, 1]", new DiceRoller1d20Advantage(shuffler).generate())
     }
     @Test
     public void testDiceRoller1d20disadv() {
