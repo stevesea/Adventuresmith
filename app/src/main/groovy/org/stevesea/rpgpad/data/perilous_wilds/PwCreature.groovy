@@ -15,23 +15,24 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
+
 package org.stevesea.rpgpad.data.perilous_wilds
 
-import dagger.Module
-import groovy.transform.CompileStatic
+import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.Shuffler
 
-@CompileStatic
-@Module(
-        injects = [
-                PwPlace.class,
-                PwRegion.class,
-                PwDetails.class,
-                PwDiscovery.class,
-                PwCreature.class
-        ],
-        library = true,
-        complete = false
-)
-class PwDataModule {
+import javax.inject.Inject;
+
+class PwCreature extends AbstractGenerator{
+    @Inject
+    PwCreature(Shuffler shuffler) {
+        super(shuffler)
+    }
+
+    @Override
+    String generate() {
+        return null
+    }
 }

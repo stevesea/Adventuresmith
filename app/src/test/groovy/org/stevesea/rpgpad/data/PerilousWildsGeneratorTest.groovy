@@ -52,4 +52,5 @@ class PerilousWildsGeneratorTest {
         assertEquals("Ageless Bay", new PwRegion(shuffler).generate())
         assertEquals("The Barrier", new PwPlace(shuffler).generate())
     }
+
 }
