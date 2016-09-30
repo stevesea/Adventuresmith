@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity
 
         recyclerButtons.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
 
-        recyclerResults.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
         final int longTextSpan = getResources().getInteger(R.integer.resultColsLongtext)
-        ((GridLayoutManager)recyclerResults.layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+        GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
+        resultsGridLayoutMgr.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 if (resultsAdapter.getTextLength(position) > 48)
@@ -129,6 +129,8 @@ public class MainActivity extends AppCompatActivity
                     return 1
             }
         })
+
+        recyclerResults.layoutManager = resultsGridLayoutMgr
     }
 
     @Override
