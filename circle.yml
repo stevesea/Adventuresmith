@@ -4,7 +4,7 @@
 
 general:
     artifacts:
-        - /home/ubuntu/RPGboy2000/app/build/outputs/apk/
+        - /home/ubuntu/RPGpad/app/build/outputs/apk/
 
 machine:
     java:
