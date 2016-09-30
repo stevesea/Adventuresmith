@@ -24,7 +24,8 @@ import groovy.transform.CompileStatic;
 
 @CompileStatic
 class RangeMap extends TreeMap<Integer, GString> {
-    void put(IntRange range, GString obj) {
+    RangeMap withVals(IntRange range, GString obj) {
         range.each{ i -> put(i, obj)}
+        return this
     }
 }
