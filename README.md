@@ -17,7 +17,7 @@ This is an Android application which randomly generates configurable things for 
 I'm interested in using this app to enable some complex random tables that involve a handful of
 dice and multiple interrelated tables (like Perilous Wilds).
 
-I'm not particularly interested in RPG-Pad being a general-purpose random-generator engine. 
+I'm not particularly interested in RPG-Pad being a general-purpose random-generator engine.
 
 ## Screenshots
 

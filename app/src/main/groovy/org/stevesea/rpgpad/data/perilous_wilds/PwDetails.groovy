@@ -22,6 +22,7 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.Dice
 import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject;
@@ -69,14 +70,8 @@ seduce/hypnotize
 dissolve/disintegrate
 drain life/magic
 read/control minds""".readLines()
-
     String pickAbility() {
-        def dice = roll("1d12")
-        return pickAbility(dice)
-    }
-
-    String pickAbility(int dice) {
-        switch (dice) {
+        switch (roll("1d12")) {
             case 8:
                 return pickMagicType()
             case 10:
@@ -105,6 +100,9 @@ dying""".readLines()
     String pickActivity() {
         pick(activity)
     }
+    String pickActivity(Dice dice) {
+        pick(dice, activity)
+    }
 
     static List<String> adjective = """\
 slick/slimy
@@ -122,6 +120,9 @@ colorful""".readLines()
 
     String pickAdjective() {
         pick(adjective)
+    }
+    String pickAdjective(Dice dice) {
+        pick(dice, adjective)
     }
 
     static List<String> age = """\
@@ -142,6 +143,9 @@ pre-historic
     String pickAge() {
         pick(age)
     }
+    String pickAge(Dice dice) {
+        pick(dice, age)
+    }
 
     static List<String> alignment = """
 Chaotic
@@ -158,6 +162,9 @@ Lawful
 Lawful""".readLines()
     String pickAlignment() {
         pick(alignment)
+    }
+    String pickAlignment(Dice dice) {
+        pick(dice, alignment)
     }
 
     static List<String> aspect = """\
@@ -199,6 +206,9 @@ disappeared/dead""".readLines()
     String pickCondition() {
         pick(condition)
     }
+    String pickCondition(Dice dice) {
+        pick(dice, condition)
+    }
 
     static List<String> disposition = """\
 attacking
@@ -216,6 +226,9 @@ friendly""".readLines()
     String pickDisposition() {
         pick(disposition)
     }
+    String pickDisposition(Dice dice) {
+        pick(dice, disposition)
+    }
 
     static List<String> element = """\
 air
@@ -226,6 +239,9 @@ life
 death""".readLines()
     String pickElement() {
         pick(element)
+    }
+    String pickElement(Dice dice) {
+        pick(dice, element)
     }
 
     static List<String> feature = """\
@@ -264,6 +280,9 @@ summoning""".readLines()
     String pickMagicType() {
         pick(magic_type)
     }
+    String pickMagicType(Dice dice) {
+        pick(dice, magic_type)
+    }
 
     static List<String> number_appearing = """\
 Solitary (1)
@@ -280,6 +299,9 @@ Horde (4d6 per wave)
 Horde (4d6 per wave)""".readLines()
     String pickNumberAppearing() {
         pick(number_appearing)
+    }
+    String pickNumberAppearing(Dice dice) {
+        pick(dice, number_appearing)
     }
 
     static List<String> oddity = """\
@@ -317,6 +339,9 @@ up/skyward""".readLines()
     String pickOrientation() {
         pick(orientation)
     }
+    String pickOrientation(Dice dice) {
+        pick(dice, orientation)
+    }
 
     static List<String> ruination = """\
 arcane disaster
@@ -333,6 +358,9 @@ depleted resources
 better prospects elsewhere""".readLines()
     String pickRuination() {
         pick(ruination)
+    }
+    String pickRuination(Dice dice) {
+        pick(dice, ruination)
     }
 
     static List<String> size = """\
@@ -351,6 +379,9 @@ Huge""".readLines()
 
     String pickSize() {
         pick(size)
+    }
+    String pickSize(Dice dice) {
+        pick(dice, size)
     }
 
     static List<String> tag = """\
@@ -407,5 +438,8 @@ visible at near distance
 visible at great distance/focal point""".readLines()
     String pickVisibility() {
         pick(visibility)
+    }
+    String pickVisibility(Dice dice) {
+        pick(dice, visibility)
     }
 }

@@ -53,4 +53,12 @@ class PerilousWildsGeneratorTest {
         assertEquals("The Barrier", new PwPlace(shuffler).generate())
     }
 
+    @Test
+    void doit() {
+        def templates = new RangeMap()
+        templates.put((1..5), "asdf ${ -> Dice.roll('1d12')}")
+        templates.put((6..9), "sdfg ${ -> Dice.roll('1d12')}")
+        println templates
+    }
+
 }
