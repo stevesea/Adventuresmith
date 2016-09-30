@@ -19,7 +19,6 @@
 package org.stevesea.rpgpad
 
 import android.os.Bundle
-import android.support.design.widget.CollapsingToolbarLayout
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
@@ -51,10 +50,6 @@ public class MainActivity extends AppCompatActivity
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar
-
-    @InjectView(R.id.collapsing_toolbar)
-    CollapsingToolbarLayout collapsingToolbarLayout
-
 
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawer;
@@ -93,14 +88,12 @@ public class MainActivity extends AppCompatActivity
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         if (RpgPadApp.isFirstStartup.get()) {
-            collapsingToolbarLayout.title = getString(R.string.app_name)
             buttonsAdapter.useDb(Dataset.None)
             resultsAdapter.addAll( [
                     getString(R.string.welcome_msg) + getString(R.string.content_attribution),
@@ -109,7 +102,6 @@ public class MainActivity extends AppCompatActivity
                     )
             RpgPadApp.isFirstStartup.set(false)
         }
-
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -163,13 +155,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_attribution) {
             resultsAdapter.clear()
             buttonsAdapter.useDb(Dataset.None)
-            collapsingToolbarLayout.title = getString(R.string.app_name)
+            getSupportActionBar().title = getString(R.string.app_name)
 
             resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
 
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -189,7 +180,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_pw) {
             key = Dataset.ThePerilousWilds
         }
-        collapsingToolbarLayout.setTitle(getString(key.stringResourceId))
+        getSupportActionBar().title = getString(key.stringResourceId)
         buttonsAdapter.useDb(key)
         resultsAdapter.clear()
 
