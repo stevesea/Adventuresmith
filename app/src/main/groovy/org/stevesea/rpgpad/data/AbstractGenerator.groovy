@@ -30,23 +30,27 @@ public abstract class AbstractGenerator {
         this.shuffler = shuffler
     }
 
-    def pick(List<?> items) {
+    def pick(Collection<?> items) {
         return shuffler.pick(items)
     }
-    def pick(String diceStr, RangeMap map) {
-        return map.get(Dice.dice(diceStr, shuffler.random))
+    def pick(RangeMap map) {
+        return shuffler.pick(map.values())
     }
 
-    def pick(String diceStr, List<?> items) {
+    def pick(String diceStr, RangeMap map) {
+        return map.pick(Dice.dice(diceStr, shuffler.random))
+    }
+
+    def pick(String diceStr, Collection<?> items) {
         return shuffler.pick(Dice.dice(diceStr, shuffler.random), items)
     }
 
-    List<?> pickN(List<?> items, int num) {
+    Collection<?> pickN(Collection<?> items, int num) {
         return shuffler.pickN(items, num)
     }
 
-    List<?> pickN(RangeMap map, int num) {
-        return shuffler.pickN(map.values().asList(), num)
+    Collection<?> pickN(RangeMap map, int num) {
+        return shuffler.pickN(map.values(), num)
     }
 
     int roll(int numDice, int nSides, int modifier=0) {

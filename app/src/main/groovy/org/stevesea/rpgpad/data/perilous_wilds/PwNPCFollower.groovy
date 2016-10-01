@@ -22,19 +22,38 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.RangeMap
 import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject;
 
 @CompileStatic
-class PwTreasure extends AbstractGenerator{
+class PwNPCFollower extends AbstractGenerator{
+    PwDetails pwDetails
+    PwNPC pwNPC
+
     @Inject
-    PwTreasure(Shuffler shuffler) {
+    PwNPCFollower(Shuffler shuffler, PwDetails pwDetails, PwNPC pwNPC) {
         super(shuffler)
+        this.pwDetails = pwDetails
+        this.pwNPC = pwNPC
     }
 
     @Override
     String generate() {
-        return "Treasure TBD"
+        return "Follower TBD"
     }
+    RangeMap asdfasdf = new RangeMap()
+            .with(1, '')
+            .with(2, '')
+            .with(3, '')
+            .with(4, '')
+            .with(5, '')
+            .with(6, '')
+            .with(7, '')
+            .with(8, '')
+            .with(9, '')
+            .with(10, '')
+            .with(11, '')
+            .with(12, '')
 }

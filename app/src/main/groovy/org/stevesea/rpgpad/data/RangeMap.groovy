@@ -33,8 +33,11 @@ class RangeMap extends TreeMap<Integer, Object> {
         return this
     }
 
-    @Override
-    Object get(Object key) {
-        return getOrDefault(key, lastEntry().getValue())
+    Object get(Integer key) {
+        return super.get(Math.min(key, lastKey()))
+    }
+
+    Object pick(Dice dice) {
+        return get(dice.roll())
     }
 }

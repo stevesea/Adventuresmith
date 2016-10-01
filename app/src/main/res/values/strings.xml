@@ -49,6 +49,7 @@
     <string name="PwPlaces">Places</string>
     <string name="PwRegions">Regions</string>
     <string name="PwDetails">Details</string>
+    <string name="PwNPC">NPC</string>
 
     <string name="MrAfflictions">Afflictions</string>
     <string name="MrCharacters">Characters</string>

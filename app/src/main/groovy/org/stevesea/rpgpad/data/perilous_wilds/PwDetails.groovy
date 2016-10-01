@@ -28,7 +28,7 @@ import org.stevesea.rpgpad.data.Shuffler
 import javax.inject.Inject
 // TODO : these are broken. discovery.structure and others want to pick via 1d8+4 and similar. need to be sure to retain the list order n stuff
 @CompileStatic
-class PwDetails  extends AbstractGenerator {
+class PwDetails extends AbstractGenerator {
 
     @Inject
     PwDetails(Shuffler shuffler) {
@@ -37,7 +37,7 @@ class PwDetails  extends AbstractGenerator {
 
     @Override
     String generate() {
-        return """
+        return """\
 <br/><strong><small>Ability: </small></strong>${pickAbility()}
 <br/><strong><small>Activity: </small></strong>${pickActivity()}
 <br/><strong><small>Adjective: </small></strong>${pickAdjective()}
@@ -55,11 +55,11 @@ class PwDetails  extends AbstractGenerator {
 <br/><strong><small>Size: </small></strong>${pickSize()}
 <br/><strong><small>Tag: </small></strong>${pickTag()}
 <br/><strong><small>Terrain: </small></strong>${pickTerrain()}
-<br/><strong><small>Visbility: </small></strong>${pickVisibility()}
+<br/><strong><small>Visbility: </small></strong>${pickVisibility()}\
 """
     }
 
-    static RangeMap ability = new RangeMap()
+    RangeMap ability = new RangeMap()
         .with(1, 'bless/curse')
         .with(2, 'entangle/trap/snare')
         .with(3, 'poison/disease')
@@ -71,331 +71,249 @@ class PwDetails  extends AbstractGenerator {
         .with(9, 'drain life/magic')
         .with(10, "immunity: ${ -> pickElement()}")
         .with(11, 'read/control minds')
-        .with(12, "${ -> pickN(ability, 2)}")
+        .with(12, "${ -> pickN(ability, 2).join(', ')}")
 
-    String pickAbility(String diceStr = "1d12") {
-        return ability.get(roll(diceStr))
+    String pickAbility(String diceStr = '1d12') {
+        return pick(diceStr, ability)
+    }
+
+    RangeMap activity = new RangeMap()
+        .with(1, 'laying trap/ambush')
+        .with(2, 'fighting/at war')
+        .with(3, 'prowling/on patrol')
+        .with(4, 'hunting/foraging')
+        .with(5, 'eating/resting')
+        .with(6, 'crafting/praying')
+        .with(7, 'traveling/relocating')
+        .with(8, 'exploring/lost')
+        .with(9, 'returning home')
+        .with(10, 'building/excavating')
+        .with(11, 'sleeping')
+        .with(12, 'dying')
+
+    String pickActivity(String diceStr = '1d12') {
+        return pick(diceStr, activity)
+    }
+
+    RangeMap adjective = new RangeMap()
+            .with(1, 'slick/slimy')
+            .with(2, 'rough/hard/sharp')
+            .with(3, 'smooth/soft/dull')
+            .with(4, 'corroded/rusty')
+            .with(5, 'rotten/decaying')
+            .with(6, 'broken/brittle')
+            .with(7, 'stinking/smelly')
+            .with(8, 'weak/thin/drained')
+            .with(9, 'strong/fat/full')
+            .with(10, 'pale/poor/shallow')
+            .with(11, 'dark/rich/deep')
+            .with(12, 'colorful')
+
+    String pickAdjective(String diceStr = '1d12') {
+        pick(diceStr, adjective)
+    }
+    RangeMap age = new RangeMap()
+            .with(1, 'being born/built')
+            .with(2..4, 'young/recent')
+            .with(5..7, 'middle-aged')
+            .with(8..9, 'old')
+            .with(10..11, 'ancient')
+            .with(12, 'pre-historic')
+
+    String pickAge(String diceStr = '1d12') {
+        pick(diceStr, age)
+    }
+
+    RangeMap alignment = new RangeMap()
+            .with(1..2, 'Chaotic')
+            .with(3..4, 'Evil')
+            .with(5..8, 'Neutral')
+            .with(9..10, 'Good')
+            .with(11..12, 'Lawful')
+    String pickAlignment(String diceStr = '1d12') {
+        pick(diceStr, alignment)
+    }
+    RangeMap aspect = new RangeMap()
+            .with(1, 'power/strength')
+            .with(2, 'trickery/dexterity')
+            .with(3, 'time/constitution')
+            .with(4, 'knowledge/intelligence')
+            .with(5, 'nature/wisdom')
+            .with(6, 'culture/charisma')
+            .with(7, 'war/lies/discord')
+            .with(8, 'peace/truth/balance')
+            .with(9, 'hate/envy')
+            .with(10, 'love/admiration')
+            .with(11, "${ -> pickElement()}")
+            .with(12, "${ -> pickN(aspect, 2).join(', ')}")
+
+    String pickAspect(String dice = '1d12') {
+        pick(dice, aspect)
+    }
+
+    RangeMap condition = new RangeMap()
+            .with(1, 'being built/born')
+            .with(2..4, 'intact/healthy/stable')
+            .with(5..7, 'occupied/active/alert')
+            .with(8..9, 'worn/tired/weak')
+            .with(10, 'vacant/lost')
+            .with(11, 'ruined/defiled/dying')
+            .with(12, 'disappeared/dead')
+    String pickCondition(String dice='1d12') {
+        pick(dice, condition)
+    }
+
+    RangeMap disposition = new RangeMap()
+            .with(1, 'attacking')
+            .with(2..4, 'hostile/aggressive')
+            .with(5..6, 'cautious/doubtful')
+            .with(7, 'fearful/fleeing')
+            .with(8..10, 'neutral')
+            .with(11, 'curious/hopeful')
+            .with(12, 'friendly')
+
+    String pickDisposition(String dice='1d12') {
+        pick(dice, disposition)
     }
 
 
-    static List<String> activity = """\
-laying trap/ambush
-fighting/at war
-prowling/on patrol
-hunting/foraging
-eating/resting
-crafting/praying
-traveling/relocating
-exploring/lost
-returning home
-building/excavating
-sleeping
-dying""".readLines()
+    RangeMap element = new RangeMap()
+            .with(1..2, 'air')
+            .with(3..4, 'earth')
+            .with(5..6, 'fire')
+            .with(7..8, 'water')
+            .with(9..10, 'life')
+            .with(11..12, 'death')
 
-    String pickActivity() {
-        pick(activity)
+    String pickElement(String dice='1d12') {
+        pick(dice, element)
+    }
+    RangeMap feature = new RangeMap()
+            .with(1, 'heavily armored')
+            .with(2..3, 'winged/flying')
+            .with(4, 'multiple heads/headless')
+            .with(5, 'many eyes/one eye')
+            .with(6, 'many limbs/tails')
+            .with(7, 'tentacles/tendrils')
+            .with(8, "${ -> pickAspect()}")
+            .with(9, "${ -> pickElement()}")
+            .with(10, "${ -> pickMagicType()}")
+            .with(11, "${ -> pickOddity()}")
+            .with(12, "${ -> pickN(feature, 2).join(', ')}")
+
+    String pickFeature(String dice = '1d12') {
+        pick(dice, feature)
     }
 
-    static List<String> adjective = """\
-slick/slimy
-rough/hard/sharp
-smooth/soft/dull
-corroded/rusty
-rotten/decaying
-broken/brittle
-stinking/smelly
-weak/thin/drained
-strong/fat/full
-pale/poor/shallow
-dark/rich/deep
-colorful""".readLines()
+    RangeMap magic_type = new RangeMap()
+            .with(1..2, 'divination')
+            .with(3..4, 'enchantment')
+            .with(5..6, 'evocation')
+            .with(7..8, 'illusion')
+            .with(9..10, 'necromancy')
+            .with(11..12, 'summoning')
+    String pickMagicType(String dice='1d12') {
+        pick(dice, magic_type)
+    }
+    RangeMap number_appearing = new RangeMap()
+            .with(1..4, 'Solitary (1)')
+            .with(5..9, "Group (1d6+2) [${ -> roll('1d6+2')}]")
+            .with(10..12, "Horde (4d6 per wave) [${ ->  roll('4d6')}]")
 
-    String pickAdjective() {
-        pick(adjective)
+    String pickNumberAppearing(String dice='1d12') {
+        pick(dice, number_appearing)
     }
 
-    static List<String> age = """\
-being born/built
-young/recent
-young/recent
-young/recent
-middle-aged
-middle-aged
-middle-aged
-old
-old
-ancient
-ancient
-pre-historic
-""".readLines()
-
-    String pickAge() {
-        pick(age)
+    RangeMap oddity = new RangeMap()
+            .with(1, 'weird color/smell/sound')
+            .with(2, 'geometric')
+            .with(3, 'web/network/system')
+            .with(4, 'crystalline/glass-like')
+            .with(5, 'fungal')
+            .with(6, 'gaseous/smokey')
+            .with(7, 'mirage/illusion')
+            .with(8, 'volcanic/explosive')
+            .with(9, 'magnetic/repellant')
+            .with(10, 'devoid of life')
+            .with(11, 'nexpectedly alive')
+            .with(12, "${ -> pickN(oddity, 2).join(', ')}")
+    String pickOddity(String dice = '1d12') {
+        pick(dice, oddity)
     }
 
-    static List<String> alignment = """
-Chaotic
-Chaotic
-Evil
-Evil
-Neutral
-Neutral
-Neutral
-Neutral
-Good
-Good
-Lawful
-Lawful""".readLines()
-    String pickAlignment() {
-        pick(alignment)
+    RangeMap orientation = new RangeMap()
+            .with(1..2, 'down/earthward')
+            .with(3, 'north')
+            .with(4, 'northeast')
+            .with(5, 'east')
+            .with(6, 'southeast')
+            .with(7, 'south')
+            .with(8, 'southwest')
+            .with(9, 'west')
+            .with(10, 'northwest')
+            .with(11..12, 'up/skyward')
+    String pickOrientation(String dice = '1d12') {
+        pick(dice, orientation)
     }
 
-    static List<String> aspect = """\
-power/strength
-trickery/dexterity
-time/constitution
-knowledge/intelligence
-nature/wisdom
-culture/charisma
-war/lies/discord
-peace/truth/balance
-hate/envy
-love/admiration""".readLines()
-
-    String pickAspect() {
-        switch(roll("1d12")) {
-            case 11:
-                return pickElement()
-            case 12:
-                return pickN(aspect, 2).join(", ")
-            default:
-                return pick(aspect)
-        }
+    RangeMap ruination = new RangeMap()
+            .with(1, 'arcane disaster')
+            .with(2, 'damnation/curse')
+            .with(3..4, 'earthquake/fire/flood')
+            .with(5..6, 'plague/famine/drought')
+            .with(7..8, 'overrun by monsters')
+            .with(9..10, 'war/invasion')
+            .with(11, 'depleted resources')
+            .with(12, 'better prospects elsewhere')
+    String pickRuination(String dice = '1d12') {
+        pick(dice, ruination)
     }
 
-    static List<String> condition = """\
-being built/born
-intact/healthy/stable
-intact/healthy/stable
-intact/healthy/stable
-occupied/active/alert
-occupied/active/alert
-occupied/active/alert
-worn/tired/weak
-worn/tired/weak
-vacant/lost
-ruined/defiled/dying
-disappeared/dead""".readLines()
-    String pickCondition() {
-        pick(condition)
+    RangeMap size = new RangeMap()
+            .with(1, 'Tiny')
+            .with(2..3, 'Small')
+            .with(4..9, 'medium-sized')
+            .with(10..11, 'Large')
+            .with(12, 'Huge')
+
+    String pickSize(String dice = '1d12') {
+        pick(dice, size)
     }
 
-    static List<String> disposition = """\
-attacking
-hostile/aggressive
-hostile/aggressive
-hostile/aggressive
-cautious/doubtful
-cautious/doubtful
-fearful/fleeing
-neutral
-neutral
-neutral
-curious/hopeful
-friendly""".readLines()
-    String pickDisposition() {
-        pick(disposition)
+    RangeMap tag = new RangeMap()
+            .with(1, 'Amorphous')
+            .with(2, 'Cautious')
+            .with(3, 'Construct')
+            .with(4, 'Devious')
+            .with(5, 'Intelligent')
+            .with(6, 'Magical')
+            .with(7..8, 'Organized')
+            .with(9, 'Planar')
+            .with(10, 'Stealthy')
+            .with(11, 'Terrifying')
+            .with(12, "${ -> pickN(tag, 2)}")
+    String pickTag(String dice = '1d12') {
+        pick(dice, tag)
     }
 
-    static List<String> element = """\
-air
-earth
-fire
-water
-life
-death""".readLines()
-    String pickElement() {
-        pick(element)
+    RangeMap terrain = new RangeMap()
+            .with(1, 'wasteland/desert')
+            .with(2..3, 'flatland/plain')
+            .with(4, 'wetland/marsh/swamp')
+            .with(5..7, 'woodland/forest/jungle')
+            .with(8..9, 'highland/hills')
+            .with(10..11, 'moutnains')
+            .with(12, "${ -> pickOddity()}")
+    String pickTerrain(String dice = '1d12') {
+        pick(dice, terrain)
     }
-
-    static List<String> feature = """\
-heavily armored
-winged/flying
-winged/flying
-multiple heads/headless
-many eyes/one eye
-many limbs/tails
-tentacles/tendrils""".readLines()
-
-    String pickFeature() {
-        switch(roll("1d12")) {
-            case 8:
-                return pickAspect()
-            case 9:
-                return pickAspect()
-            case 10:
-                return pickMagicType()
-            case 11:
-                return pickOddity()
-            case 12:
-                return pickN(feature, 2).join(", ")
-            default:
-                return pick(feature)
-        }
-    }
-
-    static List<String> magic_type = """\
-divination
-enchantment
-evocation
-illusion
-necromancy
-summoning""".readLines()
-    String pickMagicType() {
-        pick(magic_type)
-    }
-
-    static List<String> number_appearing = """\
-Solitary (1)
-Solitary (1)
-Solitary (1)
-Solitary (1)
-Group (1d6+2)
-Group (1d6+2)
-Group (1d6+2)
-Group (1d6+2)
-Group (1d6+2)
-Horde (4d6 per wave)
-Horde (4d6 per wave)
-Horde (4d6 per wave)""".readLines()
-    String pickNumberAppearing() {
-        pick(number_appearing)
-    }
-
-    static List<String> oddity = """\
-weird color/smell/sound
-geometric
-web/network/system
-crystalline/glass-like
-fungal
-gaseous/smokey
-mirage/illusion
-volcanic/explosive
-magnetic/repellant
-devoid of life
-unexpectedly alive""".readLines()
-    String pickOddity() {
-        switch(roll("1d12")) {
-            case 12: return pickN(oddity, 2).join(", ")
-            default: return pick(oddity)
-        }
-    }
-
-    static List<String> orientation = """\
-down/earthward
-down/earthward
-north
-northeast
-east
-southeast
-south
-southwest
-west
-northwest
-up/skyward
-up/skyward""".readLines()
-    String pickOrientation() {
-        pick(orientation)
-    }
-
-    static List<String> ruination = """\
-arcane disaster
-damnation/curse
-earthquake/fire/flood
-earthquake/fire/flood
-plague/famine/drought
-plague/famine/drought
-overrun by monsters
-overrun by monsters
-war/invasion
-war/invasion
-depleted resources
-better prospects elsewhere""".readLines()
-    String pickRuination() {
-        pick(ruination)
-    }
-
-    static List<String> size = """\
-Tiny
-Small
-Small
-medium-sized
-medium-sized
-medium-sized
-medium-sized
-medium-sized
-medium-sized
-Large
-Large
-Huge""".readLines()
-
-    String pickSize() {
-        pick(size)
-    }
-
-    static List<String> tag = """\
-Amorphous
-Cautious
-Construct
-Devious
-Intelligent
-Magical
-Organized
-Organized
-Planar
-Stealthy
-Terrifying""".readLines()
-    String pickTag() {
-        switch(roll("1d12")) {
-            case 12: return pickN(tag, 2).join(", ")
-            default: return pick(tag)
-        }
-    }
-
-    static List<String> terrain = """\
-wasteland/desert
-flatland/plain
-flatland/plain
-wetland/marsh/swamp
-woodland/forest/jungle
-woodland/forest/jungle
-woodland/forest/jungle
-highland/hills
-highland/hills
-mountains
-mountains
-Oddity""".readLines()
-    String pickTerrain() {
-        switch(roll("1d12")) {
-            case 12: return pickOddity()
-            default: return pick(terrain)
-        }
-    }
-
-    static List<String> visibility = """\
-buried/camouflaged/nigh invisible
-buried/camouflaged/nigh invisible
-partly covered/overgrown/hidden
-partly covered/overgrown/hidden
-partly covered/overgrown/hidden
-partly covered/overgrown/hidden
-obvious/in plain sight
-obvious/in plain sight
-obvious/in plain sight
-visible at near distance
-visible at near distance
-visible at great distance/focal point""".readLines()
-    String pickVisibility() {
-        pick(visibility)
+    RangeMap visibility = new RangeMap()
+            .with(1..2, 'buried/camouflaged/nigh invisible')
+            .with(3..6, 'partly covered/overgrown/hidden')
+            .with(7..9, 'obvious/in plain sight')
+            .with(10..11, 'visible at near distance')
+            .with(12, 'visible at great distance/focal point')
+    String pickVisibility(String dice='1d12') {
+        pick(dice, visibility)
     }
 }

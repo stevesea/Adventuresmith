@@ -18,6 +18,8 @@
  */
 package org.stevesea.rpgpad
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
@@ -74,8 +76,10 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                remove(txt);
-                Snackbar.make(v, "Erased item", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newHtmlText("RPG-Pad result",txt, txt);
+                clipboard.setPrimaryClip(clip);
+                Snackbar.make(v, "Copied item to clipboard", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 return true;
             }
         });

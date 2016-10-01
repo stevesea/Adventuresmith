@@ -24,6 +24,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
+import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 
@@ -54,11 +56,64 @@ class PerilousWildsGeneratorTest {
     }
 
     @Test
+    void testDetails() {
+        assertEquals("""\
+<br/><strong><small>Ability: </small></strong>bless/curse
+<br/><strong><small>Activity: </small></strong>laying trap/ambush
+<br/><strong><small>Adjective: </small></strong>slick/slimy
+<br/><strong><small>Age: </small></strong>being born/built
+<br/><strong><small>Aspect: </small></strong>power/strength
+<br/><strong><small>Condition: </small></strong>being built/born
+<br/><strong><small>Disposition: </small></strong>attacking
+<br/><strong><small>Element: </small></strong>air
+<br/><strong><small>Feature: </small></strong>heavily armored
+<br/><strong><small>Magic Type: </small></strong>divination
+<br/><strong><small>No. Appearing: </small></strong>Solitary (1)
+<br/><strong><small>Oddity: </small></strong>weird color/smell/sound
+<br/><strong><small>Orientation: </small></strong>down/earthward
+<br/><strong><small>Ruination: </small></strong>arcane disaster
+<br/><strong><small>Size: </small></strong>Tiny
+<br/><strong><small>Tag: </small></strong>Amorphous
+<br/><strong><small>Terrain: </small></strong>wasteland/desert
+<br/><strong><small>Visbility: </small></strong>buried/camouflaged/nigh invisible\
+""", new PwDetails(shuffler).generate())
+    }
+
+    @Test
+    void testNPC() {
+        assertEquals("""\
+<h4>Wilderness</h4>
+<br/><strong>Occupation</strong>: Criminal: bandit/brigand/thug
+<br/><strong>Activity</strong>: laying trap/ambush
+<br/><strong>Alignment</strong>: Chaotic
+<br/><br/>Physical Appearance: disfigured (missing teeth, eye, etc.)
+<br/>Personality: loner/alienated/antisocial
+<br/>Quirk: insecure/racist/xenophobic
+<h4>Rural</h4>
+<br/><strong>Occupation</strong>: beggar/urchin
+<br/><strong>Activity</strong>: laying trap/ambush
+<br/><strong>Alignment</strong>: Chaotic
+<br/><br/>Physical Appearance: disfigured (missing teeth, eye, etc.)
+<br/>Personality: loner/alienated/antisocial
+<br/>Quirk: insecure/racist/xenophobic
+<h4>Urban</h4>
+<br/><strong>Occupation</strong>: beggar/urchin
+<br/><strong>Activity</strong>: laying trap/ambush
+<br/><strong>Alignment</strong>: Chaotic
+<br/><br/>Physical Appearance: disfigured (missing teeth, eye, etc.)
+<br/>Personality: loner/alienated/antisocial
+<br/>Quirk: insecure/racist/xenophobic\
+""", new PwNPC(shuffler, new PwDetails(shuffler)).generate())
+    }
+
+    @Test
     void doit() {
         def templates = new RangeMap()
             .with((1..5), "asdf ${ -> Dice.roll('1d12')}")
             .with((6..9), "sdfg ${ -> Dice.roll('1d12')}")
         println templates
     }
+
+
 
 }

@@ -29,7 +29,9 @@ import groovy.transform.CompileStatic
                 PwDiscovery.class,
                 PwPlace.class,
                 PwRegion.class,
-                PwTreasure.class
+                PwTreasure.class,
+                PwNPC.class,
+                PwNPCFollower.class,
         ],
         library = true,
         complete = false

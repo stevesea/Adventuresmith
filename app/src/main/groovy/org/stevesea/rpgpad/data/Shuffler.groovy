@@ -31,24 +31,24 @@ class Shuffler {
         this.random = random
     }
 
-    def pick(List<?> items) {
-        return items.get(random.nextInt(items.size()))
+    def pick(Collection<?> items) {
+        return items.getAt(random.nextInt(items.size()))
     }
 
-    def pick(Dice dice, List<?> items) {
+    def pick(Dice dice, Collection<?> items) {
         // ensure our index is within the acceptable range for the collection
         int index = Math.min(
                 dice.roll() - 1, // dice are 1-based, list indexes are 0-based so subtract 1
                 items.size() - 1
         )
-        return items.get(index)
+        return items.getAt(index)
     }
 
-    def pick(String diceStr, List<?> items) {
+    def pick(String diceStr, Collection<?> items) {
         return pick(Dice.dice(diceStr, random), items)
     }
 
-    List<?> pickN(List<?> items, int num) {
+    Collection<?> pickN(Collection<?> items, int num) {
         def local = items.collect()
         Collections.shuffle(local, random)
         return local.take(num)
