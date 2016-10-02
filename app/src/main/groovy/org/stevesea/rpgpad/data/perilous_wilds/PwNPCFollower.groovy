@@ -54,15 +54,14 @@ class PwNPCFollower extends AbstractGenerator{
 <br/>${strong('Follower')}
 <br/>${ss('Competence:')} ${pick(competence)}
 <br/>${ss('Background:')} ${pick(background)}
+<br/>${ss('Tags:')} ${ -> calculatedTags.addAll(pickN(tags, tagCount)) ; calculatedTags.join(', ')}
+<br/>${ss('Quality:')} ${ -> qual} &nbsp;&nbsp;${ss('Loyalty:')} ${ -> loy}
+<br/>
 <br/>${ss('Instinct:')} ${pick(instinct)}
 <br/>${ss('Cost:')} ${pick(cost)}
 <br/>
 <br/>${ss('Hit Points:')} ${pick(hit_points)}
 <br/>${ss('Damage Die:')} ${pick(damage_die)}
-<br/>
-<br/>${ss('Quality:')} ${ -> qual}
-<br/>${ss('Loyalty:')} ${ -> loy}
-<br/>${ss('Tags:')} ${ -> calculatedTags.addAll(pickN(tags, tagCount)) ; calculatedTags}
 <br/>
 ${ pwNPC.genTraits()}\
 """
@@ -76,7 +75,7 @@ ${ pwNPC.genTraits()}\
 
     RangeMap background = new RangeMap()
             .with(1..2, "Life of servitude/oppression${ -> calculatedTags.add('Meek'); ''}")
-            .with(3, "Past their prime${ -> qual-=1; calculatedTags.add('+-Wise'); ''}")
+            .with(3, "Past their prime${ -> qual-=1; calculatedTags.add('?-Wise+'); ''}")
             .with(4..5, "Has lived a life of danger${ -> tagCount+=2; ''}")
             .with(6..9, "Unremarkable")
             .with(10, "Has lived a life of privilege ${ -> tagCount+=1; ''}")

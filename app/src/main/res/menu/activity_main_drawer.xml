@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_mr"
-            android:icon="@drawable/ic_nfc_black_24dp"
-            android:title="@string/maze_rats"/>
+    <group android:checkableBehavior="single" android:id="@+id/nav_pw_group">
         <item
             android:id="@+id/nav_pw"
             android:icon="@drawable/ic_terrain_black_24dp"
             android:title="@string/perilous_wilds"/>
         <item
+            android:id="@+id/nav_pw_npc"
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="@string/perilous_wilds_npc"/>
+        <item
+            android:id="@+id/nav_pw_creature"
+            android:icon="@drawable/paw"
+            android:title="@string/perilous_wilds_creature"/>
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
+        <item
+            android:id="@+id/nav_mr"
+            android:icon="@drawable/ic_nfc_black_24dp"
+            android:title="@string/maze_rats"/>
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/nav_fotf_group">
+        <item
             android:id="@+id/nav_fotf"
-            android:icon="@drawable/ic_wallpaper_black_24dp"
+            android:icon="@drawable/ic_map_black_24dp"
             android:title="@string/freebooters_on_the_frontier"/>
     </group>
     <group android:checkableBehavior="single" android:id="@+id/nav_dice_group">

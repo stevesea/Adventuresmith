@@ -65,6 +65,7 @@ class PwPlace extends AbstractGenerator {
         """.tokenize()
 
     static final List<String> nouns = """
+        [Name]
         Arm Ash
         Blood
         Child Cinder Corpse Crystal

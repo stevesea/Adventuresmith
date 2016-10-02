@@ -20,6 +20,7 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.RangeMap
 import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject
@@ -48,6 +49,7 @@ class PwRegion extends AbstractGenerator {
         """.tokenize()
 
     static final List<String> nouns = """
+        [Name]
         Ash
         Bone Darkness Dead Death Desolation Despair Devil Doom Dragon
         Fate Fear Fire Fury
@@ -90,19 +92,15 @@ class PwRegion extends AbstractGenerator {
     PwRegion(Shuffler shuffler) {
         super(shuffler)
     }
-
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(adjectives)} ${ -> pick(terrains)}",
-                "${ -> pick(terrains)} of (the) ${ -> pick(nouns)}",
-                "The ${ -> pick(adjectives)} ${ -> pick(terrains)}",
-                "${ -> pick(nouns)} ${ -> pick(terrains)}",
-                "${ -> pick(nouns)}\'s ${ -> pick(adjectives)} ${ -> pick(terrains)}",
-                "${ -> pick(adjectives)} ${ -> pick(terrains)} of (the) ${ -> pick(nouns)}"
-        ]
-    }
+    RangeMap regions = new RangeMap()
+            .with(1..4, "${ -> pick(adjectives)} ${ -> pick(terrains)}")
+            .with(5..6, "${ -> pick(terrains)} of (the) ${ -> pick(nouns)}")
+            .with(7..8, "The ${ -> pick(adjectives)} ${ -> pick(terrains)}")
+            .with(9..10, "${ -> pick(nouns)} ${ -> pick(terrains)}")
+            .with(11, "${-> pick(nouns)}'s ${-> pick(adjectives)} ${-> pick(terrains)}")
+            .with(12, "${ -> pick(adjectives)} ${ -> pick(terrains)} of (the) ${ -> pick(nouns)}")
 
     String generate() {
-        return pick(getFormatters())
+        return pick(regions)
     }
 }

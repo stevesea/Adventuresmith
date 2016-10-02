@@ -139,7 +139,10 @@ Zealous\
     }
 
     String generate() {
-        return "${ -> pick(virtues)} <> ${ -> pick(vices)}"
+        return """\
+<br/>${ss('Virtue:')} ${ -> pick(virtues)}
+<br/>${ss('Vice:')} ${ -> pick(vices)}\
+"""
     }
 
 }

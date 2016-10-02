@@ -86,7 +86,7 @@ class PerilousWildsGeneratorTest {
     void testNPC() {
         assertEquals("""\
 <br/><strong>Wilderness</strong>
-<br/><strong><small>Occupation:</small></strong> bandit/brigand/thug
+<br/><strong><small>Occupation:</small></strong> Criminal: bandit/brigand/thug
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
 <br/><strong><small>Alignment:</small></strong> Chaotic
 <br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
@@ -101,15 +101,14 @@ class PerilousWildsGeneratorTest {
 <br/><strong>Follower</strong>
 <br/><strong><small>Competence:</small></strong> A liability
 <br/><strong><small>Background:</small></strong> Life of servitude/oppression
+<br/><strong><small>Tags:</small></strong> ?-Wise, Meek
+<br/><strong><small>Quality:</small></strong> -1 &nbsp;&nbsp;<strong><small>Loyalty:</small></strong> 0
+<br/>
 <br/><strong><small>Instinct:</small></strong> Loot, pillage, and burn
 <br/><strong><small>Cost:</small></strong> Debauchery
 <br/>
 <br/><strong><small>Hit Points:</small></strong> 3HP (Weak/frail/soft)
 <br/><strong><small>Damage Die:</small></strong> d4 (Not very dangerous)
-<br/>
-<br/><strong><small>Quality:</small></strong> -1
-<br/><strong><small>Loyalty:</small></strong> 0
-<br/><strong><small>Tags:</small></strong> [?-Wise, Meek]
 <br/>
 <br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial

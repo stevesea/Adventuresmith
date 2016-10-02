@@ -40,6 +40,8 @@
     <string name="dice_roller">Dice Roller</string>
     <string name="maze_rats">Maze Rats</string>
     <string name="perilous_wilds">The Perilous Wilds</string>
+    <string name="perilous_wilds_npc">    NPCs</string>
+    <string name="perilous_wilds_creature">Creatures</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
 
     <string name="FotFSpells">Spells</string>
@@ -47,8 +49,8 @@
 
     <string name="PwDiscovery">Discovery</string>
     <string name="PwDanger">Danger</string>
-    <string name="PwPlaces">Places</string>
-    <string name="PwRegions">Regions</string>
+    <string name="PwPlaces">Place Names</string>
+    <string name="PwRegions">Region Names</string>
     <string name="PwDetails">Details</string>
 
     <string name="PwNPC">NPC</string>

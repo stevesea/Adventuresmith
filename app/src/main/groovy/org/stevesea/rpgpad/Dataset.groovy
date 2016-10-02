@@ -30,6 +30,8 @@ public enum Dataset {
     None(R.string.app_name, R.id.nav_thanks),
     MazeRats(R.string.maze_rats, R.id.nav_mr),
     ThePerilousWilds(R.string.perilous_wilds, R.id.nav_pw),
+    ThePerilousWildsNPC(R.string.perilous_wilds_npc, R.id.nav_pw_npc),
+    ThePerilousWildsCreature(R.string.perilous_wilds_creature, R.id.nav_pw_creature),
     FreebootersOnTheFrontier(R.string.freebooters_on_the_frontier, R.id.nav_fotf),
     DiceRoller(R.string.dice_roller, R.id.nav_dice)
     ;

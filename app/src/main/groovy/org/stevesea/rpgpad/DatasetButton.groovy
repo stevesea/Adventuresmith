@@ -46,7 +46,6 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHuman
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHumanoid
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureMonster
 import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
-import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
@@ -63,25 +62,25 @@ public enum DatasetButton {
     FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells, R.integer.numGeneratedMany),
     FreebooterTraits(Dataset.FreebootersOnTheFrontier, FotFTraits.class, R.string.FotFTraits, R.integer.numGeneratedMany),
 
-    PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
-    PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
     PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
     PerilousDanger(Dataset.ThePerilousWilds, PwDanger.class, R.string.PwDanger),
+    PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
+    PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
 
-    PerilousNPC(Dataset.ThePerilousWilds, PwNPC.class, R.string.PwNPC),
-    PerilousNPCWilderness(Dataset.ThePerilousWilds, PwNPCWilderness.class, R.string.PwNPCWilderness),
-    PerilousNPCRural(Dataset.ThePerilousWilds, PwNPCRural.class, R.string.PwNPCRural),
-    PerilousNPCUrban(Dataset.ThePerilousWilds, PwNPCUrban.class, R.string.PwNPCUrban),
+    PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC),
+    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwNPCFollower.class, R.string.PwNPCFollower),
+    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness),
+    PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural),
+    PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban),
 
-    PerilousNPCFollower(Dataset.ThePerilousWilds, PwNPCFollower.class, R.string.PwNPCFollower),
+    PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature),
+    PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreatureBeast.class, R.string.PwCreatureBeast),
+    PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreatureHuman.class, R.string.PwCreatureHuman),
+    PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid),
+    PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreatureMonster.class, R.string.PwCreatureMonster),
 
-    PerilousCreature(Dataset.ThePerilousWilds, PwCreature.class, R.string.PwCreature),
-    PerilousCreatureB(Dataset.ThePerilousWilds, PwCreatureBeast.class, R.string.PwCreatureBeast),
-    PerilousCreatureHuman(Dataset.ThePerilousWilds, PwCreatureHuman.class, R.string.PwCreatureHuman),
-    PerilousCreatureHumanoid(Dataset.ThePerilousWilds, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid),
-    PerilousCreatureMonster(Dataset.ThePerilousWilds, PwCreatureMonster.class, R.string.PwCreatureMonster),
+    //PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
 
-    PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters, R.integer.numGeneratedSome),
     MrMonsters(Dataset.MazeRats, MazeRatsMonsters.class, R.string.MrMonsters, R.integer.numGeneratedMany),
