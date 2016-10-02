@@ -21,6 +21,13 @@
 
 -ignorewarnings
 
+# make crashlytics reports more meaningful
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
+-keep class com.crashlytics.** { *; }
+-dontwarn com.crashlytics.**
+
 -keep class org.codehaus.groovy.vmplugin.**
 -keep class org.codehaus.groovy.runtime.dgm*
 -keep class org.codehaus.groovy.util.**

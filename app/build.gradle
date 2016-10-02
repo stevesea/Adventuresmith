@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
+apply plugin: 'io.fabric'
 
 
 ext {
@@ -24,7 +25,6 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix '.dev'
             minifyEnabled false
             signingConfig signingConfigs.debug
             debuggable true
@@ -103,6 +103,18 @@ dependencies {
 
     compile "com.squareup.dagger:dagger:$daggerVersion"
     apt "com.squareup.dagger:dagger-compiler:$daggerVersion"
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.4@aar') {
+        transitive = true;
+    }
+
+    debugCompile 'com.facebook.stetho:stetho:1.3.1'
+    debugCompile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    debugCompile 'com.facebook.stetho:stetho-timber:1.3.1@aar'
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
 
 // APT doesn't know to make these directories for tests. Force them to

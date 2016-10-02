@@ -34,7 +34,9 @@ import android.view.View
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
+import com.crashlytics.android.Crashlytics
 import groovy.transform.CompileStatic
+import io.fabric.sdk.android.Fabric
 
 import javax.inject.Inject
 // TODO: select result items (actions: favorite, share, copy to clipboard)
@@ -71,6 +73,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // TODO: sample app did this in initializer... ?
+        Fabric.with(this, new Crashlytics())
+
         contentView = R.layout.activity_main
 
         ((RpgPadApp) getApplication()).inject(this);

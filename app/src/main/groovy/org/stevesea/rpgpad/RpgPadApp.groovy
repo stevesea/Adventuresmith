@@ -19,8 +19,11 @@
 package org.stevesea.rpgpad
 
 import android.app.Application
+import com.facebook.stetho.Stetho
+import com.squareup.leakcanary.LeakCanary
 import dagger.ObjectGraph
 import groovy.transform.CompileStatic
+import io.fabric.sdk.android.Fabric
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 import java.util.concurrent.atomic.AtomicBoolean
@@ -33,6 +36,13 @@ public class RpgPadApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+        Stetho.initializeWithDefaults(this);
 
         graph = ObjectGraph.create(
                 new RpgPadModule(this)
