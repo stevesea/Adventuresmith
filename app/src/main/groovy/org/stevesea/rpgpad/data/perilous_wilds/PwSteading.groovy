@@ -122,7 +122,8 @@ class PwSteading extends AbstractGenerator{
 
         return """\
 ${strong('Village')}
-<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
+<br/>
+<br/>${ss('Built by:')} ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(village)}
 <br/>${pick(village_problem)}
 <br/>
@@ -145,7 +146,8 @@ ${strong('Village')}
 
         return """\
 ${strong('Town')}
-<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
+<br/>
+<br/>${ss('Built by:')} ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(town)}
 <br/>${pick(town_problem)}
 <br/>
@@ -170,7 +172,8 @@ ${strong('Town')}
 
         return """\
 ${strong('Keep')}
-<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
+<br/>
+<br/>${ss('Built by:')} ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(keep)}
 <br/>${pick(keep_problem)}
 <br/>
@@ -194,7 +197,8 @@ ${strong('Keep')}
 
         return """\
 ${strong('City')}
-<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
+<br/>
+<br/>${ss('Built by:')} ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(city)}
 <br/>${pick(city_problem)}
 <br/>

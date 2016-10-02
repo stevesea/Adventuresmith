@@ -130,10 +130,12 @@ ${ -> pick(hazard_trap)}
     RangeMap dangerMap = new RangeMap()
             .with(1, """\
 ${strong('Unnatural Entity')}
+<br/>
 <br/>${ -> pick(unnatural_entity)}\
 """)
             .with(2..6, """\
 ${strong('Hazard')}
+<br/>
 <br/>${ -> pick(hazard)}\
 """)
             .with(7..12,"${ -> pwCreature.generate()}")
