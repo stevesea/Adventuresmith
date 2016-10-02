@@ -34,8 +34,6 @@ https://perilous-wilds.geekwire.net/region
 
 http://www.random-generator.com/index.php?title=Category:Dungeon_World
 
-https://gitlab.com/phrakture/perlious-wilds/tree/master
-
 ## License
 This project is licensed under [GNU General Public License, version 3 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0).
 

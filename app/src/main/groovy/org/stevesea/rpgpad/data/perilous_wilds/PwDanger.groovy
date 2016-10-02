@@ -78,7 +78,7 @@ class PwDanger extends AbstractGenerator {
 
     RangeMap unnatural_entity = new RangeMap()
             .with(1..8, """\
-<br/>${pick(undead)}
+<br/>${ -> pick(undead)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -86,7 +86,7 @@ class PwDanger extends AbstractGenerator {
 <br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}\
 """)
             .with(9..11, """\
-<br/>${pick(planar)}
+<br/>${ -> pick(planar)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -97,7 +97,7 @@ class PwDanger extends AbstractGenerator {
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
             .with(12, """\
-<br/>${pick(divine)}
+<br/>${ -> pick(divine)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -110,23 +110,21 @@ class PwDanger extends AbstractGenerator {
 """)
     RangeMap hazard = new RangeMap()
             .with(1..2, """\
-<br/>${pick(hazard_unnatural)}
+<br/>${ -> pick(hazard_unnatural)}
 <br/>
 <br/>${ss('Aspect:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Visbility:')} ${ -> pwDetails.pickVisibility()}\
 """)
             .with(3..10, """\
-<br/>${pick(hazard_natural)}
+<br/>${ -> pick(hazard_natural)}
 """)
             .with(11..12, """\
-<br/>${pick(hazard_trap)}
+<br/>${ -> pick(hazard_trap)}
 <br/>
 <br/>${ss('Aspect:')} ${-> pwDetails.pickAbility()}
 <br/>${ss('Visbility:')} ${-> pwDetails.pickVisibility()}\
 <br/>
-<br/>${ss('Creature Responsible:')}
-<br/>
-${pwCreature.generate()}
+<br/>${ss('Creature responsible:')} ${ -> pick(pwCreature.creature_no_tags)}
 """)
 
     RangeMap dangerMap = new RangeMap()

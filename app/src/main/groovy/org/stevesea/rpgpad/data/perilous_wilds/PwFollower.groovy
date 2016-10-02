@@ -27,7 +27,7 @@ import org.stevesea.rpgpad.data.RangeMap
 import javax.inject.Inject
 
 @CompileStatic
-class PwNPCFollower extends AbstractGenerator{
+class PwFollower extends AbstractGenerator{
     PwNPC pwNPC
 
     int qual=0
@@ -36,7 +36,7 @@ class PwNPCFollower extends AbstractGenerator{
     Set<?> calculatedTags = new TreeSet<>()
 
     @Inject
-    PwNPCFollower(PwNPC pwNPC) {
+    PwFollower(PwNPC pwNPC) {
         super(pwNPC.shuffler)
         this.pwNPC = pwNPC
     }

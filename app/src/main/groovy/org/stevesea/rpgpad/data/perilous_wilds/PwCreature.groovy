@@ -134,18 +134,18 @@ class PwCreature extends AbstractGenerator {
 
     RangeMap unnatural_entity = new RangeMap()
             .with(1..8, """\
-<br/>${pick(PwDanger.undead)}
+<br/>${ -> pick(PwDanger.undead)}
 <br/>
 """)
             .with(9..11, """\
-<br/>${pick(PwDanger.planar)}
+<br/>${ -> pick(PwDanger.planar)}
 <br/>
 <br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
 <br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
             .with(12, """\
-<br/>${pick(PwDanger.divine)}
+<br/>${ -> pick(PwDanger.divine)}
 <br/>
 <br/>${ss('Aspect:')} ${ -> pwDetails.pickAspect()}
 <br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
@@ -153,6 +153,11 @@ class PwCreature extends AbstractGenerator {
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
 
+    RangeMap creature_no_tags = new RangeMap()
+            .with(1..4, "${ -> pick(beast)}")
+            .with(5..6, "human")
+            .with(7..8, "${ -> pick(humanoid)}")
+            .with(9..12, "${ -> pick(monster)}")
 
     RangeMap creature = new RangeMap()
             .with(1..4, """\

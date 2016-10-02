@@ -27,10 +27,12 @@ import org.mockito.runners.MockitoJUnitRunner
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreature
 import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
+import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
-import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
+import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
+import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any
@@ -113,7 +115,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
-""", new PwNPCFollower(new PwNPC(new PwDetails(shuffler))).generate())
+""", new PwFollower(new PwNPC(new PwDetails(shuffler))).generate())
     }
 
     @Test
@@ -128,6 +130,35 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>No. Appearing:</small></strong> Solitary (1)
 <br/><strong><small>Size:</small></strong> Tiny\
 """, new PwCreature(new PwNPC(new PwDetails(shuffler))).generate())
+    }
+
+    @Test
+    void testDiscovery() {
+        assertEquals("""\
+<br/><strong>Unnatural Feature</strong>
+<br/>&nbsp;&nbsp;<small>How does it affect its surroundings?</small>
+<br/>
+<br/><br/><strong>Arcane</strong>
+<br/>residue
+<br/><strong><small>Alignment:</small></strong> Chaotic
+<br/><strong><small>Magic Type:</small></strong> divination""", new PwDiscovery(new PwSteading(new PwCreature(new PwNPC(new PwDetails(shuffler))))).generate())
+    }
+    @Test
+    void testSteading() {
+        assertEquals("""\
+<br/><strong>Steading</strong>
+<br/>
+<br/>Built by: human
+<br/>
+<strong>Village</strong>
+Natural defenses
+Surrounded by arid or uncultivable land
+<br/>
+<br/><strong><small>Prosperity:</small></strong> Poor
+<br/><strong><small>Population:</small></strong> Steady
+<br/><strong><small>Defenses:</small></strong> Militia
+<br/>
+<br/>Need: food<br/>Oath: other steading<br/>Resource: game/fruit/vegetable<br/>Safe""", new PwSteading(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
     }
 
     @Test

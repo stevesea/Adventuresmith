@@ -52,6 +52,7 @@
     <string name="PwPlaces">Place Names</string>
     <string name="PwRegions">Region Names</string>
     <string name="PwDetails">Details</string>
+    <string name="PwSteading">Steading</string>
 
     <string name="PwNPC">NPC</string>
     <string name="PwNPCWilderness">NPC (wilderness)</string>

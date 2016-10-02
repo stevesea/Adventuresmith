@@ -47,13 +47,15 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHumanoid
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureMonster
 import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
+import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
-import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCRural
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCUrban
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCWilderness
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
+import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
+
 // TODO: seems like this could be data-driven instead of enum. since it's enum, it's hard to extend
 //       without changing code... not huge now, but will be bigger deal if ever want to extend to allow
 //       user-specified tables
@@ -64,11 +66,12 @@ public enum DatasetButton {
 
     PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
     PerilousDanger(Dataset.ThePerilousWilds, PwDanger.class, R.string.PwDanger),
+    PerilousSteading(Dataset.ThePerilousWilds, PwSteading.class, R.string.PwSteading),
     PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
     PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
 
     PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC),
-    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwNPCFollower.class, R.string.PwNPCFollower),
+    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwFollower.class, R.string.PwNPCFollower),
     PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness),
     PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural),
     PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban),
