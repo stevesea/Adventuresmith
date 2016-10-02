@@ -45,6 +45,10 @@ public abstract class AbstractGenerator {
         return shuffler.pick(Dice.dice(diceStr, shuffler.random), items)
     }
 
+    Dice dice(String diceStr) {
+        return shuffler.dice(diceStr)
+    }
+
     Collection<?> pickN(Collection<?> items, int num) {
         return shuffler.pickN(items, num)
     }

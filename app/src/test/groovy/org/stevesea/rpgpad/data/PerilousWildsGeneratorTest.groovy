@@ -26,6 +26,7 @@ import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 
@@ -82,38 +83,52 @@ class PerilousWildsGeneratorTest {
     @Test
     void testNPC() {
         assertEquals("""\
-<h4>Wilderness</h4>
-<br/><strong>Occupation</strong>: Criminal: bandit/brigand/thug
-<br/><strong>Activity</strong>: laying trap/ambush
-<br/><strong>Alignment</strong>: Chaotic
-<br/><br/>Physical Appearance: disfigured (missing teeth, eye, etc.)
-<br/>Personality: loner/alienated/antisocial
-<br/>Quirk: insecure/racist/xenophobic
-<h4>Rural</h4>
-<br/><strong>Occupation</strong>: beggar/urchin
-<br/><strong>Activity</strong>: laying trap/ambush
-<br/><strong>Alignment</strong>: Chaotic
-<br/><br/>Physical Appearance: disfigured (missing teeth, eye, etc.)
-<br/>Personality: loner/alienated/antisocial
-<br/>Quirk: insecure/racist/xenophobic
-<h4>Urban</h4>
-<br/><strong>Occupation</strong>: beggar/urchin
-<br/><strong>Activity</strong>: laying trap/ambush
-<br/><strong>Alignment</strong>: Chaotic
-<br/><br/>Physical Appearance: disfigured (missing teeth, eye, etc.)
-<br/>Personality: loner/alienated/antisocial
-<br/>Quirk: insecure/racist/xenophobic\
+<br/><strong>Wilderness</strong>
+<br/><strong><small>Occupation</small></strong>: Criminal: bandit/brigand/thug
+<br/><strong><small>Activity</small></strong>: laying trap/ambush
+<br/><strong><small>Alignment</small></strong>: Chaotic
+<br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
+<br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
+<br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic
+<br/>
+<br/><strong>Rural</strong>
+<br/><strong><small>Occupation</small></strong>: beggar/urchin
+<br/><strong><small>Activity</small></strong>: laying trap/ambush
+<br/><strong><small>Alignment</small></strong>: Chaotic
+<br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
+<br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
+<br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic
+<br/>
+<br/><strong>Urban</strong>
+<br/><strong><small>Occupation</small></strong>: beggar/urchin
+<br/><strong><small>Activity</small></strong>: laying trap/ambush
+<br/><strong><small>Alignment</small></strong>: Chaotic
+<br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
+<br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
+<br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
 """, new PwNPC(shuffler, new PwDetails(shuffler)).generate())
     }
 
     @Test
-    void doit() {
-        def templates = new RangeMap()
-            .with((1..5), "asdf ${ -> Dice.roll('1d12')}")
-            .with((6..9), "sdfg ${ -> Dice.roll('1d12')}")
-        println templates
+    void testFollower() {
+        assertEquals("""\
+<br/><strong>Follower</strong>
+<br/><strong><small>Competence:</small></strong> A liability
+<br/><strong><small>Background:</small></strong> Life of servitude/oppression
+<br/><strong><small>Instinct:</small></strong> Loot, pillage, and burn
+<br/><strong><small>Cost:</small></strong> Debauchery
+<br/>
+<br/><strong><small>Hit Points:</small></strong> 3HP (Weak/frail/soft)
+<br/><strong><small>Damage Die:</small></strong> d4 (Not very dangerous)
+<br/>
+<br/><strong><small>Quality:</small></strong> -1
+<br/><strong><small>Loyalty:</small></strong> 0
+<br/><strong><small>Tags:</small></strong> [?-Wise, Meek]
+<br/>
+<br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
+<br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
+<br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
+""", new PwNPCFollower(shuffler, new PwNPC(shuffler, new PwDetails(shuffler))).generate())
     }
-
-
 
 }

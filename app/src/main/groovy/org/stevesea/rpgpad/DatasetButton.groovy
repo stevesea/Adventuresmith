@@ -43,10 +43,12 @@ import org.stevesea.rpgpad.data.maze_rats.MazeRatsPotionEffects
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPCRural
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPCUrban
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPCWilderness
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
-
-
 // TODO: seems like this could be data-driven instead of enum. since it's enum, it's hard to extend
 //       without changing code... not huge now, but will be bigger deal if ever want to extend to allow
 //       user-specified tables
@@ -57,9 +59,13 @@ public enum DatasetButton {
 
     PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
     PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
-    PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
     PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
     PerilousNPC(Dataset.ThePerilousWilds, PwNPC.class, R.string.PwNPC),
+    PerilousNPCWilderness(Dataset.ThePerilousWilds, PwNPCWilderness.class, R.string.PwNPCWilderness),
+    PerilousNPCRural(Dataset.ThePerilousWilds, PwNPCRural.class, R.string.PwNPCRural),
+    PerilousNPCUrban(Dataset.ThePerilousWilds, PwNPCUrban.class, R.string.PwNPCUrban),
+    PerilousNPCFollower(Dataset.ThePerilousWilds, PwNPCFollower.class, R.string.PwNPCFollower),
+    PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters, R.integer.numGeneratedSome),
     MrMonsters(Dataset.MazeRats, MazeRatsMonsters.class, R.string.MrMonsters, R.integer.numGeneratedMany),

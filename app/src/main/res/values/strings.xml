@@ -50,6 +50,10 @@
     <string name="PwRegions">Regions</string>
     <string name="PwDetails">Details</string>
     <string name="PwNPC">NPC</string>
+    <string name="PwNPCWilderness">NPC (wilderness)</string>
+    <string name="PwNPCRural">NPC (rural)</string>
+    <string name="PwNPCUrban">NPC (urban)</string>
+    <string name="PwNPCFollower">Follower</string>
 
     <string name="MrAfflictions">Afflictions</string>
     <string name="MrCharacters">Characters</string>

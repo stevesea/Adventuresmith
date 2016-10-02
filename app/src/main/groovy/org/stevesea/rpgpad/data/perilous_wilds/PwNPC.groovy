@@ -40,17 +40,19 @@ class PwNPC extends AbstractGenerator{
     String generate() {
         """\
 ${context.get(1)}
+<br/>
 ${context.get(4)}
+<br/>
 ${context.get(10)}\
 """
     }
 
     String getNpcInfo(String contextName, RangeMap context) {
         """\
-<h4>${contextName}</h4>
-<br/>${strong('Occupation')}: ${ -> pick(context)}
-<br/>${strong('Activity')}: ${ -> pwDetails.pickActivity()}
-<br/>${strong('Alignment')}: ${ -> pwDetails.pickAlignment()}
+<br/>${strong(contextName)}
+<br/>${ss('Occupation')}: ${ -> pick(context)}
+<br/>${ss('Activity')}: ${ -> pwDetails.pickActivity()}
+<br/>${ss('Alignment')}: ${ -> pwDetails.pickAlignment()}
 <br/>${ -> getTraits()}\
 """
     }
@@ -217,9 +219,9 @@ ${context.get(10)}\
             .with(12, "they are ${ -> pick('1d11', quirk)} despite [a contradictory detail of your choice]")
 
     RangeMap traitsMap = new RangeMap()
-            .with(1..6, "Physical Appearance: ${ -> pick(physAppearance)}")
-            .with(7..9, "Personality: ${ -> pick(personality)}")
-            .with(10..12, "Quirk: ${ -> pick(quirk)}")
+            .with(1..6, "${ss('Physical Appearance:')} ${ -> pick(physAppearance)}")
+            .with(7..9, "${ss('Personality:')} ${ -> pick(personality)}")
+            .with(10..12, "${ss('Quirk:')} ${ -> pick(quirk)}")
 
     String getSingleTrait() {
         pick(traitsMap)

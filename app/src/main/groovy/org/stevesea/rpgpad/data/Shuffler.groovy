@@ -44,6 +44,10 @@ class Shuffler {
         return items.getAt(index)
     }
 
+    Dice dice(String diceStr) {
+        return Dice.dice(diceStr, random)
+    }
+
     def pick(String diceStr, Collection<?> items) {
         return pick(Dice.dice(diceStr, random), items)
     }
