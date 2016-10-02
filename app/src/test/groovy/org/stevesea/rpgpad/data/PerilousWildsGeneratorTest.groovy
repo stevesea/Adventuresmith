@@ -25,6 +25,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreature
+import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
@@ -85,13 +86,13 @@ class PerilousWildsGeneratorTest {
     void testNPC() {
         assertEquals("""\
 <br/><strong>Wilderness</strong>
-<br/><strong><small>Occupation:</small></strong> Criminal: bandit/brigand/thug
+<br/><strong><small>Occupation:</small></strong> bandit/brigand/thug
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
 <br/><strong><small>Alignment:</small></strong> Chaotic
 <br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
-""", new PwNPC(shuffler, new PwDetails(shuffler)).generate())
+""", new PwNPC(new PwDetails(shuffler)).generate())
     }
 
     @Test
@@ -113,7 +114,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
-""", new PwNPCFollower(shuffler, new PwNPC(shuffler, new PwDetails(shuffler))).generate())
+""", new PwNPCFollower(new PwNPC(new PwDetails(shuffler))).generate())
     }
 
     @Test
@@ -127,7 +128,20 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Disposition:</small></strong> attacking
 <br/><strong><small>No. Appearing:</small></strong> Solitary (1)
 <br/><strong><small>Size:</small></strong> Tiny\
-""", new PwCreature(shuffler, new PwNPC(shuffler, new PwDetails(shuffler))).generate())
+""", new PwCreature(new PwNPC(new PwDetails(shuffler))).generate())
+    }
+
+    @Test
+    void testDanger() {
+        assertEquals("""\
+<strong>Unnatural Entity</strong>
+<br/>
+<br/><br/>haunt/wisp
+<br/>
+<br/><strong><small>Ability:</small></strong> bless/curse
+<br/><strong><small>Activity:</small></strong> laying trap/ambush
+<br/><strong><small>Alignment:</small></strong> Chaotic
+<br/><strong><small>Disposition:</small></strong> attacking""", new PwDanger(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
     }
 
 }

@@ -29,6 +29,7 @@ import groovy.transform.CompileStatic
                 PwCreatureHuman.class,
                 PwCreatureHumanoid.class,
                 PwCreatureMonster.class,
+                PwDanger.class,
                 PwDetails.class,
                 PwDiscovery.class,
                 PwNPC.class,

@@ -45,6 +45,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureBeast
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHuman
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHumanoid
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureMonster
+import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
@@ -65,6 +66,7 @@ public enum DatasetButton {
     PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
     PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
     PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
+    PerilousDanger(Dataset.ThePerilousWilds, PwDanger.class, R.string.PwDanger),
 
     PerilousNPC(Dataset.ThePerilousWilds, PwNPC.class, R.string.PwNPC),
     PerilousNPCWilderness(Dataset.ThePerilousWilds, PwNPCWilderness.class, R.string.PwNPCWilderness),

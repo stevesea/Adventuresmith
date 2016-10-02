@@ -23,7 +23,6 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject
 
@@ -37,8 +36,8 @@ class PwNPCFollower extends AbstractGenerator{
     Set<?> calculatedTags = new TreeSet<>()
 
     @Inject
-    PwNPCFollower(Shuffler shuffler, PwNPC pwNPC) {
-        super(shuffler)
+    PwNPCFollower(PwNPC pwNPC) {
+        super(pwNPC.shuffler)
         this.pwNPC = pwNPC
     }
 

@@ -23,9 +23,8 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-import org.stevesea.rpgpad.data.Shuffler
 
-import javax.inject.Inject;
+import javax.inject.Inject
 
 @CompileStatic
 class PwCreature extends AbstractGenerator {
@@ -33,13 +32,13 @@ class PwCreature extends AbstractGenerator {
     PwNPC pwNPC
 
     @Inject
-    PwCreature(Shuffler shuffler,PwNPC pwNPC) {
-        super(shuffler)
+    PwCreature(PwNPC pwNPC) {
+        super(pwNPC.shuffler)
         this.pwDetails = pwNPC.pwDetails
         this.pwNPC = pwNPC
     }
 
-    RangeMap earthbound = new RangeMap()
+    static RangeMap earthbound = new RangeMap()
             .with(1, 'termite/tick/louse')
             .with(2, 'snail/slug/worm')
             .with(3, 'ant/centipede/scorpion')
@@ -52,7 +51,7 @@ class PwCreature extends AbstractGenerator {
             .with(10, 'ox/rhino')
             .with(11, 'bear/ape/gorilla')
             .with(12, 'mammoth/dinosaur')
-    RangeMap airborne = new RangeMap()
+    static RangeMap airborne = new RangeMap()
             .with(1, 'mosquito/firefly')
             .with(2, 'locust/dragonfly/moth')
             .with(3, 'bee/wasp')
@@ -65,7 +64,7 @@ class PwCreature extends AbstractGenerator {
             .with(10, 'eagle/owl')
             .with(11, 'condor')
             .with(12, 'pteranodon')
-    RangeMap water_going = new RangeMap()
+    static RangeMap water_going = new RangeMap()
             .with(1, 'insect')
             .with(2, 'jelly/anemone')
             .with(3, 'clam/oyster/snail')
@@ -83,14 +82,14 @@ class PwCreature extends AbstractGenerator {
             .with(1..7, "${ -> pick(earthbound)}")
             .with(8..10, "${ -> pick(airborne)}")
             .with(11..12, "${ -> pick(water_going)}")
-    RangeMap humanoid_common = new RangeMap()
+    static RangeMap humanoid_common = new RangeMap()
             .with(1..3, 'halfling (Small)')
             .with(4..5, 'goblin/kobold (Small)')
             .with(6..7, 'dwarf/gnome (Small)')
             .with(8..9, 'orc/hobgoblin/gnoll')
             .with(10..11, 'half-elf/half-orc, etc.')
             .with(12, 'elf')
-    RangeMap humanoid_uncommon = new RangeMap()
+    static RangeMap humanoid_uncommon = new RangeMap()
             .with(1, 'fey (Tiny)')
             .with(2..3, 'catfolk/dogfolk')
             .with(4..6, 'lizardfolk/merfolk')
@@ -120,7 +119,7 @@ class PwCreature extends AbstractGenerator {
             .with(1..3, 'slime/ooze (Amorphous)')
             .with(4..6, 'creation (Construct)')
             .with(7..9, "${ -> pick(beast) } + ${ -> pwDetails.pickOddity()}")
-            .with(10..12, 'Unnatural Entity') // TODO -- comes from danger table
+            .with(10..12, "${ -> pick(unnatural_entity)}")
     RangeMap monster_legendary = new RangeMap()
             .with(1..3, 'dragon/colossus (Huge)')
             .with(4..6, "${ -> pick(monster_unusual)} (Huge)")
@@ -132,6 +131,27 @@ class PwCreature extends AbstractGenerator {
             .with(1..7, "${ -> pick(monster_unusual)}")
             .with(8..10, "${ -> pick(monster_rare)}")
             .with(11..12, "${ -> pick(monster_legendary)}")
+
+    RangeMap unnatural_entity = new RangeMap()
+            .with(1..8, """\
+<br/>${pick(PwDanger.undead)}
+<br/>
+""")
+            .with(9..11, """\
+<br/>${pick(PwDanger.planar)}
+<br/>
+<br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
+<br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
+""")
+            .with(12, """\
+<br/>${pick(PwDanger.divine)}
+<br/>
+<br/>${ss('Aspect:')} ${ -> pwDetails.pickAspect()}
+<br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
+<br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
+""")
 
 
     RangeMap creature = new RangeMap()

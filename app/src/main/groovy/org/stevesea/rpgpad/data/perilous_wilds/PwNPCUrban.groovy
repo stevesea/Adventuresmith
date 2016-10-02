@@ -21,15 +21,14 @@
 package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject
 
 @CompileStatic
 class PwNPCUrban extends PwNPC {
     @Inject
-    PwNPCUrban(Shuffler shuffler, PwDetails pwDetails) {
-        super(shuffler, pwDetails)
+    PwNPCUrban(PwDetails pwDetails) {
+        super(pwDetails)
     }
 
     @Override

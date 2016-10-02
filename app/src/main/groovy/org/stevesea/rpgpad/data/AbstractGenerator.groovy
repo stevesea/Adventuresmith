@@ -24,7 +24,7 @@ import groovy.transform.CompileStatic
 @CompileStatic
 public abstract class AbstractGenerator {
 
-    protected final Shuffler shuffler;
+    final Shuffler shuffler;
 
     AbstractGenerator(Shuffler shuffler) {
         this.shuffler = shuffler

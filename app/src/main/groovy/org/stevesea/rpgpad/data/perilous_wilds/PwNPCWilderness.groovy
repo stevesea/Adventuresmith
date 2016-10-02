@@ -21,15 +21,14 @@
 package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject
 
 @CompileStatic
 class PwNPCWilderness extends PwNPC {
     @Inject
-    PwNPCWilderness(Shuffler shuffler, PwDetails pwDetails) {
-        super(shuffler, pwDetails)
+    PwNPCWilderness(PwDetails pwDetails) {
+        super(pwDetails)
     }
 
     @Override
