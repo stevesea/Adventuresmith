@@ -47,7 +47,7 @@ class ShufflerTest {
     }
 
     @Test
-    public void testRoll() {
+    void testRoll() {
         Assert.assertEquals("item1", shuffler.pick("1d4", ["item1", "item2", "item3", "item4"]))
     }
 

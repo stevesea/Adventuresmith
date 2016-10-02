@@ -51,7 +51,7 @@ class DiceTest {
     }
 
     @Test
-    public void testStringParsingWithModifier() {
+    void testStringParsingWithModifier() {
         Dice d = Dice.dice("2d20+4", mockRandom)
         Assert.assertEquals(2, d.nDice)
         Assert.assertEquals(20, d.nSides)
@@ -62,7 +62,7 @@ class DiceTest {
     }
 
     @Test
-    public void testStringParsing() {
+    void testStringParsing() {
         Dice d = Dice.dice("34d12", mockRandom)
         Assert.assertEquals(34, d.nDice)
         Assert.assertEquals(12, d.nSides)
@@ -73,11 +73,11 @@ class DiceTest {
     }
 
     @Test
-    public void testDiceRoller3d6() {
+    void testDiceRoller3d6() {
         Assert.assertEquals("<strong><small>3d6</small></strong> : 3 <small>[1, 1, 1]</small>", new DiceRoller3d6(shuffler).generate())
     }
     @Test
-    public void testDiceRoller1d20() {
+    void testDiceRoller1d20() {
         Assert.assertEquals("<strong><small>1d20</small></strong> : 1", new DiceRoller1d20(shuffler).generate())
     }
     @Test

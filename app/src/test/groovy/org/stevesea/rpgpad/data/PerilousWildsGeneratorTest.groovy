@@ -122,7 +122,7 @@ class PerilousWildsGeneratorTest {
     void testCreature() {
         assertEquals("""\
 <strong>Beast</strong>
-<br/>
+<br/>&nbsp;&nbsp;<small>Start with a real-world creature, then put a spin on it.</small>
 <br/>termite/tick/louse
 <br/>
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
@@ -146,10 +146,8 @@ class PerilousWildsGeneratorTest {
     @Test
     void testSteading() {
         assertEquals("""\
-<br/><strong>Steading</strong>
+<strong>Village</strong>
 <br/>Built by: human
-<br/>
-<br/><strong>Village</strong>
 <br/>Natural defenses
 <br/>Surrounded by arid or uncultivable land
 <br/>
@@ -164,6 +162,7 @@ class PerilousWildsGeneratorTest {
     void testDanger() {
         assertEquals("""\
 <strong>Unnatural Entity</strong>
+<br/>&nbsp;&nbsp;<small>Describe it -- creepy, twisted, awe-inspiring</small>
 <br/>haunt/wisp
 <br/>
 <br/><strong><small>Ability:</small></strong> bless/curse

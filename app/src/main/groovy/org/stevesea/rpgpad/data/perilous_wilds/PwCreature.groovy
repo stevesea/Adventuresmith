@@ -162,7 +162,7 @@ class PwCreature extends AbstractGenerator {
     RangeMap creature = new RangeMap()
             .with(1..4, """\
 ${strong('Beast')}
-<br/>
+<br/>&nbsp;&nbsp;${small('Start with a real-world creature, then put a spin on it.')}
 <br/>${ -> pick(beast)}
 <br/>
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -176,14 +176,13 @@ ${strong('Human')}
 <br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
 <br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
 <br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-<br/>${ss('Size:')} ${ -> pwDetails.pickSize()}
 <br/>
 <br/>${ss('Occupation:')} ${ -> pick(pwNPC.occupation)}
 <br/>${ -> pwNPC.genSingleTrait()}\
 """)
             .with(7..8, """\
 ${strong('Humanoid')}
-<br/>
+<br/>&nbsp;&nbsp;${small('If you roll a classic fantasy species, adapt it to your setting')}
 <br/>${ -> pick(humanoid)}
 <br/>
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -196,7 +195,7 @@ ${strong('Humanoid')}
 """)
             .with(9..12, """\
 ${strong('Monster')}
-<br/>
+<br/>&nbsp;&nbsp;${small('Give every monster life!')}
 <br/>${ -> pick(monster)}
 <br/>
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}

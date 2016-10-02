@@ -130,10 +130,12 @@ class PwDanger extends AbstractGenerator {
     RangeMap dangerMap = new RangeMap()
             .with(1, """\
 ${strong('Unnatural Entity')}
+<br/>&nbsp;&nbsp;${small('Describe it -- creepy, twisted, awe-inspiring')}
 ${ -> pick(unnatural_entity)}\
 """)
             .with(2..6, """\
 ${strong('Hazard')}
+<br/>&nbsp;&nbsp;${small('Threaten them (or their stuff)')}
 ${ -> pick(hazard)}\
 """)
             .with(7..12,"${ -> pwCreature.generate()}")
