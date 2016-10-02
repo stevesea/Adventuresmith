@@ -34,6 +34,6 @@ class PwNPCUrban extends PwNPC {
 
     @Override
     String generate() {
-        return getNpcInfo('Urban', urban)
+        return genNpcInfo('Urban', urban)
     }
 }

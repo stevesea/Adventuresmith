@@ -82,7 +82,13 @@ public abstract class AbstractGenerator {
     String small(String input) {
         return "<small>${input}</small>"
     }
+    String em(String input) {
+        return "<em>${input}</em>"
+    }
     String ss(String input) {
         return strong(small(input))
+    }
+    String ssem(String input) {
+        return strong(small(em(input)))
     }
 }

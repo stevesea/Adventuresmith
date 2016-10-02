@@ -38,29 +38,23 @@ class PwNPC extends AbstractGenerator{
 
     @Override
     String generate() {
-        """\
-${context.get(1)}
-<br/>
-${context.get(4)}
-<br/>
-${context.get(10)}\
-"""
+        pick(context)
     }
 
-    String getNpcInfo(String contextName, RangeMap context) {
+    String genNpcInfo(String contextName, RangeMap context) {
         """\
 <br/>${strong(contextName)}
-<br/>${ss('Occupation')}: ${ -> pick(context)}
-<br/>${ss('Activity')}: ${ -> pwDetails.pickActivity()}
-<br/>${ss('Alignment')}: ${ -> pwDetails.pickAlignment()}
-<br/>${ -> getTraits()}\
+<br/>${ss('Occupation:')} ${ -> pick(context)}
+<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
+<br/>${ -> genTraits()}\
 """
     }
 
     RangeMap context = new RangeMap()
-            .with(1..3, "${ -> getNpcInfo('Wilderness', wilderness)}")
-            .with(4..9, "${ -> getNpcInfo('Rural', rural)}")
-            .with(10..12, "${ -> getNpcInfo('Urban', urban)}")
+            .with(1..3, "${ -> genNpcInfo('Wilderness', wilderness)}")
+            .with(4..9, "${ -> genNpcInfo('Rural', rural)}")
+            .with(10..12, "${ -> genNpcInfo('Urban', urban)}")
 
     RangeMap criminal = new RangeMap()
             .with(1, 'bandit/brigand/thug')
@@ -223,10 +217,10 @@ ${context.get(10)}\
             .with(7..9, "${ss('Personality:')} ${ -> pick(personality)}")
             .with(10..12, "${ss('Quirk:')} ${ -> pick(quirk)}")
 
-    String getSingleTrait() {
+    String genSingleTrait() {
         pick(traitsMap)
     }
-    String getTraits() {
+    String genTraits() {
         """\
 <br/>${ -> traitsMap.get(1)}
 <br/>${ -> traitsMap.get(7)}

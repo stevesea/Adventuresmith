@@ -40,6 +40,11 @@ import org.stevesea.rpgpad.data.maze_rats.MazeRatsItems
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsMagic
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsMonsters
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsPotionEffects
+import org.stevesea.rpgpad.data.perilous_wilds.PwCreature
+import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureBeast
+import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHuman
+import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHumanoid
+import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureMonster
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
@@ -60,11 +65,20 @@ public enum DatasetButton {
     PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
     PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
     PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
+
     PerilousNPC(Dataset.ThePerilousWilds, PwNPC.class, R.string.PwNPC),
     PerilousNPCWilderness(Dataset.ThePerilousWilds, PwNPCWilderness.class, R.string.PwNPCWilderness),
     PerilousNPCRural(Dataset.ThePerilousWilds, PwNPCRural.class, R.string.PwNPCRural),
     PerilousNPCUrban(Dataset.ThePerilousWilds, PwNPCUrban.class, R.string.PwNPCUrban),
+
     PerilousNPCFollower(Dataset.ThePerilousWilds, PwNPCFollower.class, R.string.PwNPCFollower),
+
+    PerilousCreature(Dataset.ThePerilousWilds, PwCreature.class, R.string.PwCreature),
+    PerilousCreatureB(Dataset.ThePerilousWilds, PwCreatureBeast.class, R.string.PwCreatureBeast),
+    PerilousCreatureHuman(Dataset.ThePerilousWilds, PwCreatureHuman.class, R.string.PwCreatureHuman),
+    PerilousCreatureHumanoid(Dataset.ThePerilousWilds, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid),
+    PerilousCreatureMonster(Dataset.ThePerilousWilds, PwCreatureMonster.class, R.string.PwCreatureMonster),
+
     PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters, R.integer.numGeneratedSome),

@@ -25,6 +25,10 @@ import groovy.transform.CompileStatic
 @Module(
         injects = [
                 PwCreature.class,
+                PwCreatureBeast.class,
+                PwCreatureHuman.class,
+                PwCreatureHumanoid.class,
+                PwCreatureMonster.class,
                 PwDetails.class,
                 PwDiscovery.class,
                 PwNPC.class,

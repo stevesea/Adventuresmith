@@ -28,32 +28,181 @@ import org.stevesea.rpgpad.data.Shuffler
 import javax.inject.Inject;
 
 @CompileStatic
-class PwCreature extends AbstractGenerator{
+class PwCreature extends AbstractGenerator {
     PwDetails pwDetails
     PwNPC pwNPC
 
     @Inject
-    PwCreature(Shuffler shuffler, PwDetails pwDetails, PwNPC pwNPC) {
+    PwCreature(Shuffler shuffler,PwNPC pwNPC) {
         super(shuffler)
-        this.pwDetails = pwDetails
+        this.pwDetails = pwNPC.pwDetails
         this.pwNPC = pwNPC
+    }
+
+    RangeMap earthbound = new RangeMap()
+            .with(1, 'termite/tick/louse')
+            .with(2, 'snail/slug/worm')
+            .with(3, 'ant/centipede/scorpion')
+            .with(4, 'snake/lizard')
+            .with(5, 'vole/rat/weasel')
+            .with(6, 'boar/pig')
+            .with(7, 'dog/fox/wolf')
+            .with(8, 'cat/lion/panther')
+            .with(9, 'deer/horse/camel')
+            .with(10, 'ox/rhino')
+            .with(11, 'bear/ape/gorilla')
+            .with(12, 'mammoth/dinosaur')
+    RangeMap airborne = new RangeMap()
+            .with(1, 'mosquito/firefly')
+            .with(2, 'locust/dragonfly/moth')
+            .with(3, 'bee/wasp')
+            .with(4, 'chicken/duck/goose')
+            .with(5, 'songbird/parrot')
+            .with(6, 'gull/waterbird')
+            .with(7, 'heron/crane/stork')
+            .with(8, 'crow/raven')
+            .with(9, 'hawk/falcon')
+            .with(10, 'eagle/owl')
+            .with(11, 'condor')
+            .with(12, 'pteranodon')
+    RangeMap water_going = new RangeMap()
+            .with(1, 'insect')
+            .with(2, 'jelly/anemone')
+            .with(3, 'clam/oyster/snail')
+            .with(4, 'eel/snake')
+            .with(5, 'frog/toad')
+            .with(6, 'fish')
+            .with(7, 'crab/lobster')
+            .with(8, 'turtle')
+            .with(9, 'alligator/crocodile')
+            .with(10, 'dolphin/shark')
+            .with(11, 'squid/octopus')
+            .with(12, 'whale')
+
+    RangeMap beast = new RangeMap()
+            .with(1..7, "${ -> pick(earthbound)}")
+            .with(8..10, "${ -> pick(airborne)}")
+            .with(11..12, "${ -> pick(water_going)}")
+    RangeMap humanoid_common = new RangeMap()
+            .with(1..3, 'halfling (Small)')
+            .with(4..5, 'goblin/kobold (Small)')
+            .with(6..7, 'dwarf/gnome (Small)')
+            .with(8..9, 'orc/hobgoblin/gnoll')
+            .with(10..11, 'half-elf/half-orc, etc.')
+            .with(12, 'elf')
+    RangeMap humanoid_uncommon = new RangeMap()
+            .with(1, 'fey (Tiny)')
+            .with(2..3, 'catfolk/dogfolk')
+            .with(4..6, 'lizardfolk/merfolk')
+            .with(7, 'birdfolk')
+            .with(8..10, 'ogre/troll (Large)')
+            .with(11..12, 'cyclops/giant (Large)')
+    RangeMap humanoid_hybrid = new RangeMap()
+            .with(1..2, 'centaur')
+            .with(3..5, 'werewolf/werebear')
+            .with(6, 'werecreature (human + Beast)') // TODO
+            .with(7..10, 'human + Beast') // TODO
+            .with(11..12, 'human + 2 Beasts') // TODO
+
+    RangeMap humanoid = new RangeMap()
+            .with(1..7, "${ -> pick(humanoid_common)}")
+            .with(8..10, "${ -> pick(humanoid_uncommon)}")
+            .with(11..12, "${ -> pick(humanoid_hybrid)}")
+
+    RangeMap monster_unusual = new RangeMap()
+            .with(1..3, 'plant/fungus')
+            .with(4..5, 'Undead Human')
+            .with(6, 'Undead Humanoid')
+            .with(7..8, 'Beast + Beast')
+            .with(9..10, 'Beast + Ability')
+            .with(11..12, 'Beast + Feature')
+    RangeMap monster_rare = new RangeMap()
+            .with(1..3, 'slime/ooze (Amorphous)')
+            .with(4..6, 'creation (Construct)')
+            .with(7..9, 'Beast + Oddity')
+            .with(10..12, 'Unnatural Entity')
+    RangeMap monster_legendary = new RangeMap()
+            .with(1..3, 'dragon/colossus (Huge)')
+            .with(4..6, 'Unusual + Huge')
+            .with(7..9, 'Rare + Huge')
+            .with(10, 'Beast + dragon')
+            .with(11, 'Unusual + dragon')
+            .with(12, 'Rare + dragon')
+    RangeMap monster = new RangeMap()
+            .with(1..7, "${ -> pick(monster_unusual)}")
+            .with(8..10, "${ -> pick(monster_rare)}")
+            .with(11..12, "${ -> pick(monster_legendary)}")
+
+
+    RangeMap creature = new RangeMap()
+            .with(1..4, """\
+${strong('Beast')}
+<br/>
+<br/>${ -> pick(beast)}
+<br/>
+<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
+<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
+<br/>${ss('Size:')} ${ -> pwDetails.pickSize()}\
+""")
+            .with(5..6, """\
+${strong('Human')}
+<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
+<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
+<br/>${ss('Size:')} ${ -> pwDetails.pickSize()}
+<br/>
+<br/>${ss('Occupation:')} ${ -> pick(pwNPC.occupation)}
+<br/>${ss('Trait:')} ${ -> pwNPC.genSingleTrait()}\
+""")
+            .with(7..8, """\
+${strong('Humanoid')}
+<br/>
+<br/>${ -> pick(humanoid)}
+<br/>
+<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
+<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
+<br/>
+<br/>${ss('Occupation:')} ${ -> pick(pwNPC.occupation)}
+<br/>${ss('Trait:')} ${ -> pwNPC.genSingleTrait()}\
+""")
+            .with(9..12, """\
+${strong('Monster')}
+<br/>
+<br/>${ -> pick(monster)}
+<br/>
+<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
+<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
+<br/>${ss('Size:')} ${ -> pwDetails.pickSize()}
+<br/>
+<br/>${ssem('Ability:')} ${ -> pwDetails.pickAbility()}
+<br/>${ssem('Adjective:')} ${ -> pwDetails.pickAdjective()}
+<br/>${ssem('Age:')} ${ -> pwDetails.pickAge()}
+<br/>${ssem('Aspect:')} ${ -> pwDetails.pickAspect()}
+<br/>${ssem('Condition:')} ${ -> pwDetails.pickCondition()}
+<br/>${ssem('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>${ssem('Tags:')} ${ -> pwDetails.pickTag()}\
+""")
+    String genBeast() {
+        creature.get(1)
+    }
+    String genHuman() {
+        creature.get(5)
+    }
+    String genHumanoid() {
+        creature.get(7)
+    }
+    String genMonster() {
+        creature.get(9)
     }
 
     @Override
     String generate() {
-        return "Critter TBD"
+        pick(creature)
     }
-    RangeMap asdfasdf = new RangeMap()
-            .with(1, '')
-            .with(2, '')
-            .with(3, '')
-            .with(4, '')
-            .with(5, '')
-            .with(6, '')
-            .with(7, '')
-            .with(8, '')
-            .with(9, '')
-            .with(10, '')
-            .with(11, '')
-            .with(12, '')
 }

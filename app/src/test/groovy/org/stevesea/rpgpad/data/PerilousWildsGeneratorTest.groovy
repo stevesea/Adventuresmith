@@ -24,6 +24,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
+import org.stevesea.rpgpad.data.perilous_wilds.PwCreature
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCFollower
@@ -84,25 +85,9 @@ class PerilousWildsGeneratorTest {
     void testNPC() {
         assertEquals("""\
 <br/><strong>Wilderness</strong>
-<br/><strong><small>Occupation</small></strong>: Criminal: bandit/brigand/thug
-<br/><strong><small>Activity</small></strong>: laying trap/ambush
-<br/><strong><small>Alignment</small></strong>: Chaotic
-<br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
-<br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
-<br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic
-<br/>
-<br/><strong>Rural</strong>
-<br/><strong><small>Occupation</small></strong>: beggar/urchin
-<br/><strong><small>Activity</small></strong>: laying trap/ambush
-<br/><strong><small>Alignment</small></strong>: Chaotic
-<br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
-<br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
-<br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic
-<br/>
-<br/><strong>Urban</strong>
-<br/><strong><small>Occupation</small></strong>: beggar/urchin
-<br/><strong><small>Activity</small></strong>: laying trap/ambush
-<br/><strong><small>Alignment</small></strong>: Chaotic
+<br/><strong><small>Occupation:</small></strong> Criminal: bandit/brigand/thug
+<br/><strong><small>Activity:</small></strong> laying trap/ambush
+<br/><strong><small>Alignment:</small></strong> Chaotic
 <br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
@@ -129,6 +114,20 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
 """, new PwNPCFollower(shuffler, new PwNPC(shuffler, new PwDetails(shuffler))).generate())
+    }
+
+    @Test
+    void testCreature() {
+        assertEquals("""\
+<strong>Beast</strong>
+<br/>
+<br/>termite/tick/louse
+<br/>
+<br/><strong><small>Activity:</small></strong> laying trap/ambush
+<br/><strong><small>Disposition:</small></strong> attacking
+<br/><strong><small>No. Appearing:</small></strong> Solitary (1)
+<br/><strong><small>Size:</small></strong> Tiny\
+""", new PwCreature(shuffler, new PwNPC(shuffler, new PwDetails(shuffler))).generate())
     }
 
 }

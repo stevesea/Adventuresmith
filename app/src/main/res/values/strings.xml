@@ -49,11 +49,18 @@
     <string name="PwPlaces">Places</string>
     <string name="PwRegions">Regions</string>
     <string name="PwDetails">Details</string>
+
     <string name="PwNPC">NPC</string>
     <string name="PwNPCWilderness">NPC (wilderness)</string>
     <string name="PwNPCRural">NPC (rural)</string>
     <string name="PwNPCUrban">NPC (urban)</string>
     <string name="PwNPCFollower">Follower</string>
+
+    <string name="PwCreature">Creature</string>
+    <string name="PwCreatureBeast">Creature (Beast)</string>
+    <string name="PwCreatureHuman">Creature (Human)</string>
+    <string name="PwCreatureHumanoid">Creature (Humanoid)</string>
+    <string name="PwCreatureMonster">Creature (Monster)</string>
 
     <string name="MrAfflictions">Afflictions</string>
     <string name="MrCharacters">Characters</string>

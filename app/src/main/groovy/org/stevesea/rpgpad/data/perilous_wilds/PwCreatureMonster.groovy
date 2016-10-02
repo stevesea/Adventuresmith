@@ -26,14 +26,14 @@ import org.stevesea.rpgpad.data.Shuffler
 import javax.inject.Inject
 
 @CompileStatic
-class PwNPCRural extends PwNPC {
+class PwCreatureMonster extends PwCreature {
     @Inject
-    PwNPCRural(Shuffler shuffler, PwDetails pwDetails) {
-        super(shuffler, pwDetails)
+    PwCreatureMonster(Shuffler shuffler, PwNPC pwNPC) {
+        super(shuffler, pwNPC)
     }
 
     @Override
     String generate() {
-        return genNpcInfo('Rural', rural)
+        return genMonster()
     }
 }

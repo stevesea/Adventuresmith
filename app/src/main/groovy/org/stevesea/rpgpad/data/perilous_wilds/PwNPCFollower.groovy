@@ -65,7 +65,7 @@ class PwNPCFollower extends AbstractGenerator{
 <br/>${ss('Loyalty:')} ${ -> loy}
 <br/>${ss('Tags:')} ${ -> calculatedTags.addAll(pickN(tags, tagCount)) ; calculatedTags}
 <br/>
-${ pwNPC.getTraits()}\
+${ pwNPC.genTraits()}\
 """
     }
 

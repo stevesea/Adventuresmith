@@ -14,23 +14,6 @@ class RpgPadDataTest {
     }
 
     @Test
-    void verifyButtonsPw() {
-        Assert.assertEquals(
-                [
-                        DatasetButton.PerilousPlaces,
-                        DatasetButton.PerilousRegions,
-                        DatasetButton.PerilousDiscovery,
-                        DatasetButton.PerilousNPC,
-                        DatasetButton.PerilousNPCWilderness,
-                        DatasetButton.PerilousNPCRural,
-                        DatasetButton.PerilousNPCUrban,
-                        DatasetButton.PerilousNPCFollower,
-                        DatasetButton.PerilousDetails,
-                ],
-                DatasetButton.getButtonsForDataset(Dataset.ThePerilousWilds))
-    }
-
-    @Test
     void verifyButtonsFotF() {
         Assert.assertEquals([DatasetButton.FreebooterSpells, DatasetButton.FreebooterTraits],
                 DatasetButton.getButtonsForDataset(Dataset.FreebootersOnTheFrontier))
