@@ -42,12 +42,7 @@ class PwSteading extends AbstractGenerator{
     }
 
     String generate(String diceStr) {
-        """\
-<br/>${strong('Steading')}
-<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
-<br/>
-<br/>${ -> pick(diceStr, steadingMap)}\
-"""
+        pick(diceStr, steadingMap)
     }
 
 
@@ -127,6 +122,7 @@ class PwSteading extends AbstractGenerator{
 
         return """\
 ${strong('Village')}
+<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(village)}
 <br/>${pick(village_problem)}
 <br/>
@@ -149,6 +145,7 @@ ${strong('Village')}
 
         return """\
 ${strong('Town')}
+<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(town)}
 <br/>${pick(town_problem)}
 <br/>
@@ -173,6 +170,7 @@ ${strong('Town')}
 
         return """\
 ${strong('Keep')}
+<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(keep)}
 <br/>${pick(keep_problem)}
 <br/>
@@ -196,6 +194,7 @@ ${strong('Keep')}
 
         return """\
 ${strong('City')}
+<br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${pick(city)}
 <br/>${pick(city_problem)}
 <br/>
@@ -218,7 +217,7 @@ ${strong('City')}
             .with(1..2, "Surrounded by arid or uncultivable land${ -> info.tags.add('Need: food');''}")
             .with(3..4, "Dedicated to a deity${ -> info.tags.add('Religious: deity'); info.tags.add('Enmity: steading of opposing deity');''}")
             .with(5..6, "Recently at war: -Prosperity if they fought to the end, -Defenses if they lost${ -> info.population.decr();''}")
-            .with(7..8, "Monster problem${ -> info.tags.add('Blight: ' + pwCreature.genMonster()); info.tags.add('Need: adventurers');''}")
+            .with(7..8, "Monster problem${ -> info.tags.add('Blight: that monster'); info.tags.add('Need: adventurers');''}")
             .with(9..10, "Absorbed another village${ -> info.population.incr(); info.tags.add('Lawless');''}")
             .with(11..12, "Remote or unwelcoming${ -> info.prosperity.decr(); info.tags.add('Dwarven, Elven, or other non-human');''}")
 
