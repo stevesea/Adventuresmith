@@ -73,8 +73,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: sample app did this in initializer... ?
-        Fabric.with(this, new Crashlytics())
 
         contentView = R.layout.activity_main
 

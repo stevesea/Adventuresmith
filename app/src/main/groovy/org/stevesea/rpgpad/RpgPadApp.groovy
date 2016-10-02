@@ -19,9 +19,11 @@
 package org.stevesea.rpgpad
 
 import android.app.Application
+import com.crashlytics.android.Crashlytics
 import com.squareup.leakcanary.LeakCanary
 import dagger.ObjectGraph
 import groovy.transform.CompileStatic
+import io.fabric.sdk.android.Fabric
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 import java.util.concurrent.atomic.AtomicBoolean
@@ -41,6 +43,8 @@ public class RpgPadApp extends Application {
         }
         LeakCanary.install(this);
         //Stetho.initializeWithDefaults(this);
+        // TODO: sample app did this in initializer... ?
+        Fabric.with(this, new Crashlytics())
 
         graph = ObjectGraph.create(
                 new RpgPadModule(this)
