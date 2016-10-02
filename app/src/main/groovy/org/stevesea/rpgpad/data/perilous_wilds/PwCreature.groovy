@@ -100,9 +100,9 @@ class PwCreature extends AbstractGenerator {
     RangeMap humanoid_hybrid = new RangeMap()
             .with(1..2, 'centaur')
             .with(3..5, 'werewolf/werebear')
-            .with(6, 'werecreature (human + Beast)') // TODO
-            .with(7..10, 'human + Beast') // TODO
-            .with(11..12, 'human + 2 Beasts') // TODO
+            .with(6, "werecreature (human + ${ -> pick(beast) })")
+            .with(7..10, "human + ${ -> pick(beast) }")
+            .with(11..12, "human + ${ -> pickN(beast,2).join(' + ')}")
 
     RangeMap humanoid = new RangeMap()
             .with(1..7, "${ -> pick(humanoid_common)}")
@@ -112,22 +112,22 @@ class PwCreature extends AbstractGenerator {
     RangeMap monster_unusual = new RangeMap()
             .with(1..3, 'plant/fungus')
             .with(4..5, 'Undead Human')
-            .with(6, 'Undead Humanoid')
-            .with(7..8, 'Beast + Beast')
-            .with(9..10, 'Beast + Ability')
-            .with(11..12, 'Beast + Feature')
+            .with(6, "Undead Humanoid ( ${ -> pick(humanoid)}")
+            .with(7..8, "${ -> pickN(beast,2).join(' + ')}")
+            .with(9..10, "${ -> pick(beast) } + ${ -> pwDetails.pickAbility()}")
+            .with(11..12, "${ -> pick(beast) } + ${ -> pwDetails.pickFeature()}")
     RangeMap monster_rare = new RangeMap()
             .with(1..3, 'slime/ooze (Amorphous)')
             .with(4..6, 'creation (Construct)')
-            .with(7..9, 'Beast + Oddity')
-            .with(10..12, 'Unnatural Entity')
+            .with(7..9, "${ -> pick(beast) } + ${ -> pwDetails.pickOddity()}")
+            .with(10..12, 'Unnatural Entity') // TODO -- comes from danger table
     RangeMap monster_legendary = new RangeMap()
             .with(1..3, 'dragon/colossus (Huge)')
-            .with(4..6, 'Unusual + Huge')
-            .with(7..9, 'Rare + Huge')
-            .with(10, 'Beast + dragon')
-            .with(11, 'Unusual + dragon')
-            .with(12, 'Rare + dragon')
+            .with(4..6, "${ -> pick(monster_unusual)} (Huge)")
+            .with(7..9, "${ -> pick(monster_rare)} (Huge)")
+            .with(10, "${ -> pick(beast) } + dragon")
+            .with(11, "${ -> pick(monster_unusual)} + dragon")
+            .with(12, "${ -> pick(monster_rare)} + dragon")
     RangeMap monster = new RangeMap()
             .with(1..7, "${ -> pick(monster_unusual)}")
             .with(8..10, "${ -> pick(monster_rare)}")
@@ -154,7 +154,7 @@ ${strong('Human')}
 <br/>${ss('Size:')} ${ -> pwDetails.pickSize()}
 <br/>
 <br/>${ss('Occupation:')} ${ -> pick(pwNPC.occupation)}
-<br/>${ss('Trait:')} ${ -> pwNPC.genSingleTrait()}\
+<br/>${ -> pwNPC.genSingleTrait()}\
 """)
             .with(7..8, """\
 ${strong('Humanoid')}
