@@ -78,7 +78,7 @@ class PwDanger extends AbstractGenerator {
 
     RangeMap unnatural_entity = new RangeMap()
             .with(1..8, """\
-<br/>${ -> pick(undead)}
+${ -> pick(undead)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -86,7 +86,7 @@ class PwDanger extends AbstractGenerator {
 <br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}\
 """)
             .with(9..11, """\
-<br/>${ -> pick(planar)}
+${ -> pick(planar)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -97,7 +97,7 @@ class PwDanger extends AbstractGenerator {
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
             .with(12, """\
-<br/>${ -> pick(divine)}
+${ -> pick(divine)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -110,16 +110,16 @@ class PwDanger extends AbstractGenerator {
 """)
     RangeMap hazard = new RangeMap()
             .with(1..2, """\
-<br/>${ -> pick(hazard_unnatural)}
+${ -> pick(hazard_unnatural)}
 <br/>
 <br/>${ss('Aspect:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Visbility:')} ${ -> pwDetails.pickVisibility()}\
 """)
             .with(3..10, """\
-<br/>${ -> pick(hazard_natural)}
+${ -> pick(hazard_natural)}
 """)
             .with(11..12, """\
-<br/>${ -> pick(hazard_trap)}
+${ -> pick(hazard_trap)}
 <br/>
 <br/>${ss('Aspect:')} ${-> pwDetails.pickAbility()}
 <br/>${ss('Visbility:')} ${-> pwDetails.pickVisibility()}\
@@ -130,13 +130,11 @@ class PwDanger extends AbstractGenerator {
     RangeMap dangerMap = new RangeMap()
             .with(1, """\
 ${strong('Unnatural Entity')}
-<br/>&nbsp;&nbsp;${small('Describe it -- creepy, twisted, awe-inspiring')}
-${ -> pick(unnatural_entity)}\
+<br/>${ -> pick(unnatural_entity)}\
 """)
             .with(2..6, """\
 ${strong('Hazard')}
-<br/>&nbsp;&nbsp;${small('Threaten them (or their stuff)')}
-${ -> pick(hazard)}\
+<br/>${ -> pick(hazard)}\
 """)
             .with(7..12,"${ -> pwCreature.generate()}")
 

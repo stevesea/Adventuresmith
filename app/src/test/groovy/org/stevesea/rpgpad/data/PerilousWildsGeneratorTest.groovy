@@ -121,8 +121,7 @@ class PerilousWildsGeneratorTest {
     @Test
     void testCreature() {
         assertEquals("""\
-<strong>Beast</strong>
-<br/>&nbsp;&nbsp;<small>Start with a real-world creature, then put a spin on it.</small>
+<strong>Beast</strong> -- <small>Start with a real-world creature, then put a spin on it.</small>
 <br/>termite/tick/louse
 <br/>
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
@@ -135,10 +134,9 @@ class PerilousWildsGeneratorTest {
     @Test
     void testDiscovery() {
         assertEquals("""\
-<br/><strong>Unnatural Feature</strong>
-<br/>&nbsp;&nbsp;<small>How does it affect its surroundings?</small>
+<strong>Unnatural Feature</strong> -- <small>How does it affect its surroundings?</small>
 <br/>
-<br/><br/><strong>Arcane</strong>
+<br/><strong>Arcane</strong>
 <br/>residue
 <br/><strong><small>Alignment:</small></strong> Chaotic
 <br/><strong><small>Magic Type:</small></strong> divination""", new PwDiscovery(new PwSteading(new PwCreature(new PwNPC(new PwDetails(shuffler))))).generate())
@@ -162,7 +160,6 @@ class PerilousWildsGeneratorTest {
     void testDanger() {
         assertEquals("""\
 <strong>Unnatural Entity</strong>
-<br/>&nbsp;&nbsp;<small>Describe it -- creepy, twisted, awe-inspiring</small>
 <br/>haunt/wisp
 <br/>
 <br/><strong><small>Ability:</small></strong> bless/curse
