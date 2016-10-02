@@ -87,7 +87,8 @@ class PerilousWildsGeneratorTest {
     @Test
     void testNPC() {
         assertEquals("""\
-<br/><strong>Wilderness</strong>
+<strong>NPC: Wilderness</strong>
+<br/>
 <br/><strong><small>Occupation:</small></strong> Criminal: bandit/brigand/thug
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
 <br/><strong><small>Alignment:</small></strong> Chaotic
@@ -100,16 +101,17 @@ class PerilousWildsGeneratorTest {
     @Test
     void testFollower() {
         assertEquals("""\
-<br/><strong>Follower</strong>
+<strong>Follower</strong>
+<br/>
 <br/><strong><small>Competence:</small></strong> A liability
 <br/><strong><small>Background:</small></strong> Life of servitude/oppression
-<br/><strong><small>Tags:</small></strong> ?-Wise, Meek
-<br/><strong><small>Quality:</small></strong> -1 &nbsp;&nbsp;<strong><small>Loyalty:</small></strong> 0
+<br/><strong><small>Tags:</small></strong>
+<br/>&nbsp;&nbsp;?-Wise,<br/>&nbsp;&nbsp;Meek
+<br/><strong><small>Quality:</small></strong> -1&nbsp;&nbsp;<strong><small>Loyalty:</small></strong> 0&nbsp;&nbsp;<strong><small>Cost:</small></strong> Debauchery
 <br/>
 <br/><strong><small>Instinct:</small></strong> Loot, pillage, and burn
-<br/><strong><small>Cost:</small></strong> Debauchery
 <br/>
-<br/><strong><small>Hit Points:</small></strong> 3HP (Weak/frail/soft)
+<br/><strong><small>Hit Points:</small></strong> 3HP (weak/frail/soft)
 <br/><strong><small>Damage Die:</small></strong> d4 (Not very dangerous)
 <br/>
 <br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)

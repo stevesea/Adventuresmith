@@ -51,14 +51,15 @@ class PwFollower extends AbstractGenerator{
         calculatedTags.add("?-Wise")
 
         def result = """\
-<br/>${strong('Follower')}
+${strong('Follower')}
+<br/>
 <br/>${ss('Competence:')} ${pick(competence)}
 <br/>${ss('Background:')} ${pick(background)}
-<br/>${ss('Tags:')} ${ -> calculatedTags.addAll(pickN(tags, tagCount)) ; calculatedTags.join(', ')}
-<br/>${ss('Quality:')} ${ -> qual} &nbsp;&nbsp;${ss('Loyalty:')} ${ -> loy}
+<br/>${ss('Tags:')}
+<br/>&nbsp;&nbsp;${ -> calculatedTags.addAll(pickN(tags, tagCount)) ; calculatedTags.join(',<br/>&nbsp;&nbsp;')}
+<br/>${ss('Quality:')} ${ -> qual}&nbsp;&nbsp;${ss('Loyalty:')} ${ -> loy}&nbsp;&nbsp;${ss('Cost:')} ${pick(cost)}
 <br/>
 <br/>${ss('Instinct:')} ${pick(instinct)}
-<br/>${ss('Cost:')} ${pick(cost)}
 <br/>
 <br/>${ss('Hit Points:')} ${pick(hit_points)}
 <br/>${ss('Damage Die:')} ${pick(damage_die)}
@@ -79,7 +80,7 @@ ${ pwNPC.genTraits()}\
             .with(4..5, "Has lived a life of danger${ -> tagCount+=2; ''}")
             .with(6..9, "Unremarkable")
             .with(10, "Has lived a life of privilege ${ -> tagCount+=1; ''}")
-            .with(11, "Specialist[${-> pick(pwNPC.specialist)}]  ${ -> qual+=1 ; tagCount-=2; ''}")
+            .with(11, "Specialist (${-> pick(pwNPC.specialist)}) ${ -> qual+=1 ; tagCount-=2; ''}")
             .with(12, "${ -> pickN(background, 2).join(', ')}")
     RangeMap loyalty = new RangeMap()
             .with(1..2, '0')
@@ -106,9 +107,9 @@ ${ pwNPC.genTraits()}\
             .with(12, "Good")
 
     RangeMap hit_points = new RangeMap()
-            .with(1..3, '3HP (Weak/frail/soft)')
-            .with(4..9, '6HP (Able-bodied 6HP)')
-            .with(10..12, '9HP (Tough/strong/hard)')
+            .with(1..3, '3HP (weak/frail/soft)')
+            .with(4..9, '6HP (able-bodied)')
+            .with(10..12, '9HP (tough/strong/hard)')
     RangeMap damage_die = new RangeMap()
             .with(1..4, "d4 (Not very dangerous)")
             .with(5..10, "d6 (Can defend themselves)")

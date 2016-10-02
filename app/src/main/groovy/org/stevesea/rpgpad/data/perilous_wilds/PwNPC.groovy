@@ -42,7 +42,8 @@ class PwNPC extends AbstractGenerator {
 
     String genNpcInfo(String contextName, RangeMap context) {
         """\
-<br/>${strong(contextName)}
+${strong('NPC: ' + contextName)}
+<br/>
 <br/>${ss('Occupation:')} ${ -> pick(context)}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
 <br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
@@ -55,7 +56,7 @@ class PwNPC extends AbstractGenerator {
             .with(4..9, "${ -> genNpcInfo('Rural', rural)}")
             .with(10..12, "${ -> genNpcInfo('Urban', urban)}")
 
-    RangeMap criminal = new RangeMap()
+    static RangeMap criminal = new RangeMap()
             .with(1, 'bandit/brigand/thug')
             .with(2, 'bandit/brigand/thug')
             .with(3..4, 'thief')
@@ -66,7 +67,7 @@ class PwNPC extends AbstractGenerator {
             .with(11, 'lieutenant')
             .with(12, 'boss')
 
-    RangeMap commoner = new RangeMap()
+    static RangeMap commoner = new RangeMap()
             .with(1, 'housewife/husband')
             .with(2..3, 'hunter/gatherer')
             .with(4..6, 'farmer/herder')
@@ -77,7 +78,7 @@ class PwNPC extends AbstractGenerator {
             .with(12, 'apprentice/adventurer')
 
 
-    RangeMap tradesperson = new RangeMap()
+    static RangeMap tradesperson = new RangeMap()
             .with(1, 'cobbler/furrier/tailor')
             .with(2, 'weaver/basketmaker')
             .with(3, 'potter/carpenter')
@@ -91,7 +92,7 @@ class PwNPC extends AbstractGenerator {
             .with(11, 'artist/actor/minstrel')
             .with(12, 'armorer/weaponsmith')
 
-    RangeMap merchant = new RangeMap()
+    static RangeMap merchant = new RangeMap()
             .with(1..3, 'general goods/outfitter')
             .with(4, 'raw materials')
             .with(5, 'grain/livestock')
@@ -103,7 +104,7 @@ class PwNPC extends AbstractGenerator {
             .with(11, 'books/scrolls')
             .with(12, 'magic supplies/items')
 
-    RangeMap specialist = new RangeMap()
+    static RangeMap specialist = new RangeMap()
             .with(1, 'undertaker')
             .with(2, 'sage/scholar/wizard')
             .with(3, 'writer/illuminator')
@@ -117,7 +118,7 @@ class PwNPC extends AbstractGenerator {
             .with(11, 'cartographer')
             .with(12, 'inventor')
 
-    RangeMap official = new RangeMap()
+    static RangeMap official = new RangeMap()
             .with(1, 'town crier')
             .with(2, 'tax collector')
             .with(3..4, 'armiger/gentry')
@@ -181,7 +182,7 @@ class PwNPC extends AbstractGenerator {
             .with(9, 'notable eyes (blue, bloodshot, etc.)')
             .with(10, 'clean/well-dressed/well-groomed')
             .with(11, 'attractive/handsome/stunning')
-            .with(12, "they are ${ -> pick('1d11', physAppearance)} despite [a contradictory detail of your choice]")
+            .with(12, "they are [${ -> pick('1d11', physAppearance)}] despite [a contradictory detail of your choice]")
 
     RangeMap personality = new RangeMap()
             .with(1, 'loner/alienated/antisocial')
@@ -195,7 +196,7 @@ class PwNPC extends AbstractGenerator {
             .with(9, 'kind/generous/compassionate')
             .with(10, 'easygoing/relaxed/peaceful')
             .with(11, 'cheerful/happy/optimistic')
-            .with(12, "they are ${ -> pick('1d11', personality)} despite [a contradictory detail of your choice]")
+            .with(12, "they are [${ -> pick('1d11', personality)}] despite [a contradictory detail of your choice]")
 
     RangeMap quirk = new RangeMap()
             .with(1, 'insecure/racist/xenophobic')
@@ -209,7 +210,7 @@ class PwNPC extends AbstractGenerator {
             .with(9, 'smart aleck/know-it-all')
             .with(10, 'artistic/dreamer/delusional')
             .with(11, 'naive/idealistic')
-            .with(12, "they are ${ -> pick('1d11', quirk)} despite [a contradictory detail of your choice]")
+            .with(12, "they are [${ -> pick('1d11', quirk)}] despite [a contradictory detail of your choice]")
 
     RangeMap traitsMap = new RangeMap()
             .with(1..6, "${ss('Physical Appearance:')} ${ -> pick(physAppearance)}")

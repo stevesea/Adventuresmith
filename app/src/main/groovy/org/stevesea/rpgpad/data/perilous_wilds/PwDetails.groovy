@@ -291,7 +291,7 @@ class PwDetails extends AbstractGenerator {
             .with(9, 'Planar')
             .with(10, 'Stealthy')
             .with(11, 'Terrifying')
-            .with(12, "${ -> pickN(tag, 2)}")
+            .with(12, "${ -> pickN(tag, 2).join(', ')}")
     String pickTag(String dice = '1d12') {
         pick(dice, tag)
     }

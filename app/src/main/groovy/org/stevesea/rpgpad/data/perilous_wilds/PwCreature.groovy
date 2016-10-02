@@ -99,7 +99,7 @@ class PwCreature extends AbstractGenerator {
     RangeMap humanoid_hybrid = new RangeMap()
             .with(1..2, 'centaur')
             .with(3..5, 'werewolf/werebear')
-            .with(6, "werecreature (human + ${ -> pick(beast) })")
+            .with(6, "werecreature <br/><small>human + ${ -> pick(beast) }</small>")
             .with(7..10, "human + ${ -> pick(beast) }")
             .with(11..12, "human + ${ -> pickN(beast,2).join(' + ')}")
 
@@ -110,8 +110,8 @@ class PwCreature extends AbstractGenerator {
 
     RangeMap monster_unusual = new RangeMap()
             .with(1..3, 'plant/fungus')
-            .with(4..5, 'Undead Human')
-            .with(6, "Undead Humanoid ( ${ -> pick(humanoid)} )")
+            .with(4..5, "Undead Human <br/><small>${ -> pick(PwDanger.undead)}</small>")
+            .with(6, "Undead Humanoid  <br/><small>${ -> pick(PwDanger.undead)} + ${ -> pick(humanoid)}</small>")
             .with(7..8, "${ -> pickN(beast,2).join(' + ')}")
             .with(9..10, "${ -> pick(beast) } + ${ -> pwDetails.pickAbility()}")
             .with(11..12, "${ -> pick(beast) } + ${ -> pwDetails.pickFeature()}")
@@ -134,18 +134,17 @@ class PwCreature extends AbstractGenerator {
 
     RangeMap unnatural_entity = new RangeMap()
             .with(1..8, """\
-<br/>${ -> pick(PwDanger.undead)}
-<br/>
+${ -> pick(PwDanger.undead)}\
 """)
             .with(9..11, """\
-<br/>${ -> pick(PwDanger.planar)}
+${ -> pick(PwDanger.planar)}
 <br/>
 <br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
 <br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
             .with(12, """\
-<br/>${ -> pick(PwDanger.divine)}
+${ -> pick(PwDanger.divine)}
 <br/>
 <br/>${ss('Aspect:')} ${ -> pwDetails.pickAspect()}
 <br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
@@ -200,10 +199,9 @@ ${strong('Monster')} -- ${small('Give every monster life!')}
 <br/>${ -> pick(monster)}
 <br/>
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
+<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}&nbsp;&nbsp;${ss('Size:')} ${ -> pwDetails.pickSize()}
 <br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
 <br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-<br/>${ss('Size:')} ${ -> pwDetails.pickSize()}
 <br/>
 <br/>${strong('Optional:')}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${ -> pwDetails.pickAbility()}
@@ -212,6 +210,7 @@ ${strong('Monster')} -- ${small('Give every monster life!')}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${ -> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Condition:')} ${ -> pwDetails.pickCondition()}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${ -> pwDetails.pickOddity()}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Tags:')} ${ -> pwDetails.pickTag()}\
 """)
     String genBeast() {
