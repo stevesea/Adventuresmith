@@ -111,7 +111,7 @@ class PwCreature extends AbstractGenerator {
     RangeMap monster_unusual = new RangeMap()
             .with(1..3, 'plant/fungus')
             .with(4..5, 'Undead Human')
-            .with(6, "Undead Humanoid ( ${ -> pick(humanoid)}")
+            .with(6, "Undead Humanoid ( ${ -> pick(humanoid)} )")
             .with(7..8, "${ -> pickN(beast,2).join(' + ')}")
             .with(9..10, "${ -> pick(beast) } + ${ -> pwDetails.pickAbility()}")
             .with(11..12, "${ -> pick(beast) } + ${ -> pwDetails.pickFeature()}")
@@ -200,13 +200,14 @@ ${strong('Monster')}
 <br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
 <br/>${ss('Size:')} ${ -> pwDetails.pickSize()}
 <br/>
-<br/>${ssem('Ability:')} ${ -> pwDetails.pickAbility()}
-<br/>${ssem('Adjective:')} ${ -> pwDetails.pickAdjective()}
-<br/>${ssem('Age:')} ${ -> pwDetails.pickAge()}
-<br/>${ssem('Aspect:')} ${ -> pwDetails.pickAspect()}
-<br/>${ssem('Condition:')} ${ -> pwDetails.pickCondition()}
-<br/>${ssem('Feature:')} ${ -> pwDetails.pickFeature()}
-<br/>${ssem('Tags:')} ${ -> pwDetails.pickTag()}\
+<br/>${strong('Optional:')}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${ -> pwDetails.pickAbility()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${ -> pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${ -> pwDetails.pickAge()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${ -> pwDetails.pickAspect()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Condition:')} ${ -> pwDetails.pickCondition()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Tags:')} ${ -> pwDetails.pickTag()}\
 """)
     String genBeast() {
         creature.get(1)

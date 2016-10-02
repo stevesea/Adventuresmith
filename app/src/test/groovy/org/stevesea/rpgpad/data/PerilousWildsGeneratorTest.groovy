@@ -135,8 +135,7 @@ class PerilousWildsGeneratorTest {
     void testDanger() {
         assertEquals("""\
 <strong>Unnatural Entity</strong>
-<br/>
-<br/><br/>haunt/wisp
+<br/>haunt/wisp
 <br/>
 <br/><strong><small>Ability:</small></strong> bless/curse
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
