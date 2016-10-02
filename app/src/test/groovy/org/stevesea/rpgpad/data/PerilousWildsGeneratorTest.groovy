@@ -147,12 +147,11 @@ class PerilousWildsGeneratorTest {
     void testSteading() {
         assertEquals("""\
 <br/><strong>Steading</strong>
-<br/>
 <br/>Built by: human
 <br/>
-<strong>Village</strong>
-Natural defenses
-Surrounded by arid or uncultivable land
+<br/><strong>Village</strong>
+<br/>Natural defenses
+<br/>Surrounded by arid or uncultivable land
 <br/>
 <br/><strong><small>Prosperity:</small></strong> Poor
 <br/><strong><small>Population:</small></strong> Steady

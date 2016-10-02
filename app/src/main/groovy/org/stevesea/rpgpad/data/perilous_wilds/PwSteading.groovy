@@ -44,10 +44,9 @@ class PwSteading extends AbstractGenerator{
     String generate(String diceStr) {
         """\
 <br/>${strong('Steading')}
-<br/>
 <br/>Built by: ${ -> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>
-${ -> pick(diceStr, steadingMap)}\
+<br/>${ -> pick(diceStr, steadingMap)}\
 """
     }
 
@@ -128,8 +127,8 @@ ${ -> pick(diceStr, steadingMap)}\
 
         return """\
 ${strong('Village')}
-${pick(village)}
-${pick(village_problem)}
+<br/>${pick(village)}
+<br/>${pick(village_problem)}
 <br/>
 <br/>${ss('Prosperity:')} ${info.prosperity}
 <br/>${ss('Population:')} ${info.population}
@@ -150,8 +149,8 @@ ${pick(village_problem)}
 
         return """\
 ${strong('Town')}
-${pick(town)}
-${pick(town_problem)}
+<br/>${pick(town)}
+<br/>${pick(town_problem)}
 <br/>
 <br/>${ss('Prosperity:')} ${info.prosperity}
 <br/>${ss('Population:')} ${info.population}
@@ -174,8 +173,8 @@ ${pick(town_problem)}
 
         return """\
 ${strong('Keep')}
-${pick(keep)}
-${pick(keep_problem)}
+<br/>${pick(keep)}
+<br/>${pick(keep_problem)}
 <br/>
 <br/>${ss('Prosperity:')} ${info.prosperity}
 <br/>${ss('Population:')} ${info.population}
@@ -197,8 +196,8 @@ ${pick(keep_problem)}
 
         return """\
 ${strong('City')}
-${pick(city)}
-${pick(city_problem)}
+<br/>${pick(city)}
+<br/>${pick(city_problem)}
 <br/>
 <br/>${ss('Prosperity:')} ${info.prosperity}
 <br/>${ss('Population:')} ${info.population}
