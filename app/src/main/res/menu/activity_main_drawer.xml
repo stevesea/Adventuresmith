@@ -14,6 +14,10 @@
             android:id="@+id/nav_pw_creature"
             android:icon="@drawable/paw"
             android:title="@string/perilous_wilds_creature"/>
+        <item
+            android:id="@+id/nav_pw_treasure"
+            android:icon="@drawable/ic_highlight_black_24dp"
+            android:title="@string/perilous_wilds_treasure"/>
     </group>
     <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
         <item

@@ -55,7 +55,9 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwNPCWilderness
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
-
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureItem
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureUnguarded
 // TODO: seems like this could be data-driven instead of enum. since it's enum, it's hard to extend
 //       without changing code... not huge now, but will be bigger deal if ever want to extend to allow
 //       user-specified tables
@@ -64,25 +66,28 @@ public enum DatasetButton {
     FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells, R.integer.numGeneratedMany),
     FreebooterTraits(Dataset.FreebootersOnTheFrontier, FotFTraits.class, R.string.FotFTraits, R.integer.numGeneratedMany),
 
-    PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery),
-    PerilousDanger(Dataset.ThePerilousWilds, PwDanger.class, R.string.PwDanger),
-    PerilousSteading(Dataset.ThePerilousWilds, PwSteading.class, R.string.PwSteading),
+    PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery, R.integer.numGeneratedSingle),
+    PerilousDanger(Dataset.ThePerilousWilds, PwDanger.class, R.string.PwDanger, R.integer.numGeneratedSingle),
+    PerilousSteading(Dataset.ThePerilousWilds, PwSteading.class, R.string.PwSteading, R.integer.numGeneratedSingle),
     PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedMany),
     PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedMany),
 
-    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness),
-    PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural),
-    PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban),
-    PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC),
-    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwFollower.class, R.string.PwNPCFollower),
+    // TODO: having to create a class for each button is kinda dumb. how to just specify a method to run?
+    PerilousTreasure(Dataset.ThePerilousWildsTreasure, PwTreasure.class, R.string.PwTreasure),
+    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
+    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded),
 
-    PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreatureBeast.class, R.string.PwCreatureBeast),
-    PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreatureHuman.class, R.string.PwCreatureHuman),
-    PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid),
-    PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreatureMonster.class, R.string.PwCreatureMonster),
-    PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature),
+    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness, R.integer.numGeneratedSingle),
+    PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural, R.integer.numGeneratedSingle),
+    PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban, R.integer.numGeneratedSingle),
+    PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC, R.integer.numGeneratedSingle),
+    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwFollower.class, R.string.PwNPCFollower, R.integer.numGeneratedSingle),
 
-    //PerilousDetails(Dataset.ThePerilousWilds, PwDetails.class, R.string.PwDetails),
+    PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreatureBeast.class, R.string.PwCreatureBeast, R.integer.numGeneratedSingle),
+    PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreatureHuman.class, R.string.PwCreatureHuman, R.integer.numGeneratedSingle),
+    PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid, R.integer.numGeneratedSingle),
+    PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreatureMonster.class, R.string.PwCreatureMonster, R.integer.numGeneratedSingle),
+    PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature, R.integer.numGeneratedSingle),
 
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters, R.integer.numGeneratedSome),

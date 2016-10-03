@@ -33,6 +33,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any
@@ -171,6 +172,13 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
 <br/><strong><small>Alignment:</small></strong> Chaotic
 <br/><strong><small>Disposition:</small></strong> attacking""", new PwDanger(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
+    }
+
+    @Test
+    void testTreasure() {
+        assertEquals("""\
+A few coins, 2d8 or so
+&nbsp;&nbsp;<small>[2]</small>""", new PwTreasure(new PwDetails(shuffler)).generate())
     }
 
 }

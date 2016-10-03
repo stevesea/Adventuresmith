@@ -22,19 +22,164 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
+import org.stevesea.rpgpad.data.RangeMap
 
-import javax.inject.Inject;
+import javax.inject.Inject
 
 @CompileStatic
 class PwTreasure extends AbstractGenerator{
+    PwDetails pwDetails
     @Inject
-    PwTreasure(Shuffler shuffler) {
-        super(shuffler)
+    PwTreasure(PwDetails pwDetails) {
+        super(pwDetails.shuffler)
+        this.pwDetails = pwDetails
+    }
+
+    RangeMap utility_item = new RangeMap()
+            .with(1, 'key/lockpick')
+            .with(2, 'potion/food')
+            .with(3, 'clothing/cloak')
+            .with(4, 'decanter/vessel/cup')
+            .with(5, 'cage/box/coffer')
+            .with(6, 'instrument/tool')
+            .with(7, 'book/scroll')
+            .with(8, 'weapon/staff/wand')
+            .with(9, 'armor/shield/helm')
+            .with(10, 'mirror/hourglass')
+            .with(11, 'pet/mount')
+            .with(12, 'device/construct')
+
+    RangeMap art_item = new RangeMap()
+            .with(1, 'trinket/charm')
+            .with(2, 'painting/pottery')
+            .with(3, 'ring/gloves')
+            .with(4, 'carpet/tapestry')
+            .with(5, 'statuette/idol')
+            .with(6, 'flag/banner')
+            .with(7, 'bracelet/armband')
+            .with(8, 'necklace/amulet')
+            .with(9, 'belt/harness')
+            .with(10, 'hat/mask')
+            .with(11, 'orb/sigil/rod')
+            .with(12, 'crown/scepter')
+
+    RangeMap item = new RangeMap()
+            .with(1..8, "${ -> pick(utility_item)}")
+            .with(9..12, "${ -> pick(art_item)}")
+
+    RangeMap treasure = new RangeMap()
+            .with(1, """\
+A few coins, 2d8 or so
+&nbsp;&nbsp;${ -> small('[' + roll('2d8') + ']') }\
+""")
+            .with(2, """\
+A useful item
+<br/>&nbsp;&nbsp;${-> small(pick(utility_item))}
+<br/>
+<br/>${-> getOptionalItemTags(false)}\
+""")
+            .with(3, """\
+Several coins, about 4d10
+<br/>&nbsp;&nbsp;${-> small('[' + roll('4d10') + ']')}\
+""")
+            .with(4, """\
+A small valuable (gem, art), worth 2d10x10 coins, 0 weight
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('2d10') * 10) + ']')}\
+""")
+            .with(5, """\
+Some minor magical trinket
+<br/>&nbsp;&nbsp;${-> small(pick(item))}
+<br/>
+<br/>${-> getOptionalItemTags(true)}\
+""")
+            .with(6, 'Useful clue (map, note, etc.)')
+            .with(7, """\
+Bag of coins, 1d4x100, 1 weight per 100
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('1d4') * 100) + ']')}\
+""")
+            .with(8, """\
+A small item (gem, art) of great value (2d6x100 coins, 0 weight)
+<br/>&nbsp;&nbsp;${-> small(pick(art_item))}
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('2d6') * 100) + ']')}
+<br/>
+<br/>${-> getOptionalItemTags(false)}\
+""")
+            .with(9, """\
+A chest of coins and other small valuables. 1 weight, worth 3d6x100 coins.
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('3d6') * 100) + ']')}
+""")
+            .with(10, """\
+A magical item or magical effect
+<br/>&nbsp;&nbsp;${-> small(pick(item))}
+<br/>
+<br/>${-> getOptionalItemTags(true)}\
+""")
+            .with(11, """\
+Many bags of coins, 2d4x100 or so
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('2d4') * 100) + ']')}\
+""")
+            .with(12, """\
+A sign of office (crown, banner) worth at least 3d4x100 coins
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('3d4') * 100) + ']')}
+<br/>
+<br/>${-> getOptionalItemTags(false)}\
+""")
+            .with(13, """\
+A large art item (4d4x100 coins, 1 weight)
+<br/>&nbsp;&nbsp;${-> small(pick(art_item))}
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('4d4') * 100) + ']')}
+<br/>
+<br/>${-> getOptionalItemTags(false)}\
+""")
+            .with(14, """\
+Unique item worth at least 5d4x100 coins
+<br/>&nbsp;&nbsp;${-> small(pick(item))}
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('5d4') * 100) + ']')}
+<br/>
+<br/>${-> getOptionalItemTags(false)}\
+""")
+            .with(15, """\
+Everything needed to learn a new spell.
+<br/>${ -> pick(treasure)}\
+""")
+            .with(16, """\
+A portal or secret path (or directions to one)
+<br/>${ -> pick(treasure)}\
+""")
+            .with(17, """\
+Something relating to one of the characters
+<br/>${ -> pick(treasure)}\
+""")
+            .with(18, """\
+A hoard: 1d10x1000 coins and 1d10x10 gems worth 2d6x100 each
+<br/>&nbsp;&nbsp; coins: ${-> (roll('1d10') * 1000)}
+<br/>&nbsp;&nbsp; gems: ${-> (roll('1d10') * 10) + ' worth ' + (roll('2d6') * 100) + ' each'}
+""")
+
+    String getOptionalItemTags(boolean includeMagic) {
+        if (includeMagic)
+            """\
+${strong('Optional:')}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${-> pwDetails.pickAbility()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Magic Type:')} ${-> pwDetails.pickMagicType()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
+"""
+        else
+            """\
+${strong('Optional:')}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
+"""
     }
 
     @Override
     String generate() {
-        return "Treasure TBD"
+        return pick(treasure)
     }
 }

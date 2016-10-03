@@ -15,37 +15,41 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
+
 package org.stevesea.rpgpad.data.perilous_wilds
 
-import dagger.Module
 import groovy.transform.CompileStatic
+import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.RangeMap
+import org.stevesea.rpgpad.data.Shuffler
+
+import javax.inject.Inject;
 
 @CompileStatic
-@Module(
-        injects = [
-                PwCreature.class,
-                PwCreatureBeast.class,
-                PwCreatureHuman.class,
-                PwCreatureHumanoid.class,
-                PwCreatureMonster.class,
-                PwDanger.class,
-                PwDetails.class,
-                PwDiscovery.class,
-                PwFollower.class,
-                PwNPC.class,
-                PwNPCRural.class,
-                PwNPCUrban.class,
-                PwNPCWilderness.class,
-                PwPlace.class,
-                PwRegion.class,
-                PwSteading.class,
-                PwTreasure.class,
-                PwTreasureItem.class,
-                PwTreasureUnguarded.class,
-        ],
-        library = true,
-        complete = false
-)
-class PwDataModule {
+class PwDungeon extends AbstractGenerator{
+    @Inject
+    PwDungeon(Shuffler shuffler) {
+        super(shuffler)
+    }
+
+    @Override
+    String generate() {
+        return "Dungeon TBD"
+    }
+
+    RangeMap asdfasdf = new RangeMap()
+            .with(1, '')
+            .with(2, '')
+            .with(3, '')
+            .with(4, '')
+            .with(5, '')
+            .with(6, '')
+            .with(7, '')
+            .with(8, '')
+            .with(9, '')
+            .with(10, '')
+            .with(11, '')
+            .with(12, '')
 }

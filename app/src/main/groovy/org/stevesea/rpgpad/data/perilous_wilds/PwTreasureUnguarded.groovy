@@ -15,37 +15,31 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
+
 package org.stevesea.rpgpad.data.perilous_wilds
 
-import dagger.Module
 import groovy.transform.CompileStatic
 
+import javax.inject.Inject;
+
 @CompileStatic
-@Module(
-        injects = [
-                PwCreature.class,
-                PwCreatureBeast.class,
-                PwCreatureHuman.class,
-                PwCreatureHumanoid.class,
-                PwCreatureMonster.class,
-                PwDanger.class,
-                PwDetails.class,
-                PwDiscovery.class,
-                PwFollower.class,
-                PwNPC.class,
-                PwNPCRural.class,
-                PwNPCUrban.class,
-                PwNPCWilderness.class,
-                PwPlace.class,
-                PwRegion.class,
-                PwSteading.class,
-                PwTreasure.class,
-                PwTreasureItem.class,
-                PwTreasureUnguarded.class,
-        ],
-        library = true,
-        complete = false
-)
-class PwDataModule {
+class PwTreasureUnguarded extends PwTreasure {
+    @Inject
+    PwTreasureUnguarded(PwDetails pwDetails) {
+        super(pwDetails)
+    }
+
+    @Override
+    String generate() {
+        List<Integer> rolls = [ roll('1d6'), roll('1d6') ]
+        Integer rollMin = Collections.min(rolls)
+        if (rollMin.equals(6)) {
+            // if not double-sixes, use smaller roll
+            return treasure.getAt(rollMin)
+        } else {
+            return treasure.getAt(roll('3d6'))
+        }
+    }
 }
