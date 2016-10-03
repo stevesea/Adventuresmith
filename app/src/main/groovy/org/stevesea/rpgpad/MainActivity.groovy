@@ -34,13 +34,10 @@ import android.view.View
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
-import com.crashlytics.android.Crashlytics
 import groovy.transform.CompileStatic
-import io.fabric.sdk.android.Fabric
 
 import javax.inject.Inject
 // TODO: select result items (actions: favorite, share, copy to clipboard)
-// TODO: long-click result item (action: copy to clipboard)
 // TODO: swipe support?
 @CompileStatic
 public class MainActivity extends AppCompatActivity

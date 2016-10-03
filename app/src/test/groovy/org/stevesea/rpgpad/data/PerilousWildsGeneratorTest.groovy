@@ -34,6 +34,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded2Bonus
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any
@@ -179,6 +180,30 @@ class PerilousWildsGeneratorTest {
         assertEquals("""\
 A few coins, 2d8 or so
 &nbsp;&nbsp;<small>[2]</small>""", new PwTreasure(new PwDetails(shuffler)).generate())
+    }
+
+    @Test
+    void testTreasureGuarded() {
+        assertEquals("""\
+<strong>damage die - D4</strong>
+<br/>Several coins, about 4d10
+<br/>&nbsp;&nbsp;<small>[4]</small>
+<br/>
+<br/><strong>damage die - D6</strong>
+<br/>Several coins, about 4d10
+<br/>&nbsp;&nbsp;<small>[4]</small>
+<br/>
+<br/><strong>damage die - D8</strong>
+<br/>Several coins, about 4d10
+<br/>&nbsp;&nbsp;<small>[4]</small>
+<br/>
+<br/><strong>damage die - D10</strong>
+<br/>Several coins, about 4d10
+<br/>&nbsp;&nbsp;<small>[4]</small>
+<br/>
+<br/><strong>damage die - D12</strong>
+<br/>Several coins, about 4d10
+<br/>&nbsp;&nbsp;<small>[4]</small>""", new PwTreasureGuarded2Bonus(new PwDetails(shuffler)).generate())
     }
 
 }

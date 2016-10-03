@@ -25,40 +25,15 @@ import groovy.transform.CompileStatic
 import javax.inject.Inject;
 
 @CompileStatic
-class PwTreasureGuarded extends PwTreasure {
+class PwTreasureGuarded1Bonus extends PwTreasureGuarded {
+
     @Inject
-    PwTreasureGuarded(PwDetails pwDetails) {
+    PwTreasureGuarded1Bonus(PwDetails pwDetails) {
         super(pwDetails)
     }
 
     @Override
     String generate() {
-        generateForBonus(0)
-    }
-    Integer rollWithBonus(String damageDice, Integer bonus) {
-        int result = roll(damageDice)
-        if (bonus > 0) {
-            result += roll(bonus + 'd4')
-        }
-        return result
-    }
-
-    String generateForBonus(Integer bonuses) {
-        """\
-${strong('damage die - D4')}
-<br/>${ -> treasure.get(rollWithBonus('1d4', bonuses))}
-<br/>
-<br/>${strong('damage die - D6')}
-<br/>${ -> treasure.get(rollWithBonus('1d6', bonuses))}
-<br/>
-<br/>${strong('damage die - D8')}
-<br/>${ -> treasure.get(rollWithBonus('1d8', bonuses))}
-<br/>
-<br/>${strong('damage die - D10')}
-<br/>${ -> treasure.get(rollWithBonus('1d10', bonuses))}
-<br/>
-<br/>${strong('damage die - D12')}
-<br/>${ -> treasure.get(rollWithBonus('1d12', bonuses))}\
-"""
+        return generateForBonus(1)
     }
 }

@@ -36,8 +36,6 @@ import javax.inject.Singleton
 @CompileStatic
 @Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
-    // so we can look up resources
-    Context context
 
     List<Integer> colors = [
             R.color.resultsBg0,
@@ -72,11 +70,11 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         // - replace the contents of the view with that element
         final String txt = dataset.get(position);
         holder.itemText.setText(Html.fromHtml(dataset.get(position), Html.FROM_HTML_MODE_LEGACY));
-        holder.itemText.setBackgroundColor(context.getColor((int)colors.get(position % colors.size())))
+        holder.itemText.setBackgroundColor(holder.itemView.getContext().getColor((int)colors.get(position % colors.size())))
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager clipboard = (ClipboardManager)holder.itemView.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newHtmlText("RPG-Pad result",txt, txt);
                 clipboard.setPrimaryClip(clip);
                 Snackbar.make(v, "Copied item to clipboard", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
@@ -102,8 +100,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     private List<String> dataset;
 
     @Inject
-    ResultsAdapter(@ForApplication Context context) {
-        this.context = context
+    ResultsAdapter() {
         this.dataset = new ArrayList<String>()
     }
 
@@ -119,13 +116,6 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void addAll(List<String> items) {
         dataset.addAll(0, items)
         notifyDataSetChanged()
-    }
-
-    // TODO: is there more robust way to remove item by widget? this removes by string... which if generators are unique shouldn't be a problem
-    public void remove(String item) {
-        int position = dataset.indexOf(item);
-        dataset.remove(position);
-        notifyItemRemoved(position);
     }
 
     public void clear() {

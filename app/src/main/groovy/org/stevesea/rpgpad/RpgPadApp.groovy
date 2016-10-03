@@ -43,7 +43,6 @@ public class RpgPadApp extends Application {
         }
         LeakCanary.install(this);
         //Stetho.initializeWithDefaults(this);
-        // TODO: sample app did this in initializer... ?
         Fabric.with(this, new Crashlytics())
 
         graph = ObjectGraph.create(

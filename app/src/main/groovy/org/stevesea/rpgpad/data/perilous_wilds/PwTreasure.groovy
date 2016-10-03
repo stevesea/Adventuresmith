@@ -77,7 +77,7 @@ A useful item
 <br/>&nbsp;&nbsp;${-> small(pick(utility_item))}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
             .with(3, """\
 Several coins, about 4d10
@@ -85,7 +85,12 @@ Several coins, about 4d10
 """)
             .with(4, """\
 A small valuable (gem, art), worth 2d10x10 coins, 0 weight
-<br/>&nbsp;&nbsp;${-> small('[' + (roll('2d10') * 10) + ']')}\
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('2d10') * 10) + ']')}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
             .with(5, """\
 Some minor magical trinket
@@ -95,9 +100,14 @@ Some minor magical trinket
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Magic Type:')} ${-> pwDetails.pickMagicType()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
-            .with(6, 'Useful clue (map, note, etc.)')
+            .with(6, """
+Useful clue (map, note, etc.)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
+""")
             .with(7, """\
 Bag of coins, 1d4x100, 1 weight per 100
 <br/>&nbsp;&nbsp;${-> small('[' + (roll('1d4') * 100) + ']')}\
@@ -110,11 +120,11 @@ A small item (gem, art) of great value (2d6x100 coins, 0 weight)
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
             .with(9, """\
 A chest of coins and other small valuables. 1 weight, worth 3d6x100 coins.
-<br/>&nbsp;&nbsp;${-> small('[' + (roll('3d6') * 100) + ']')}
+<br/>&nbsp;&nbsp;${-> small('[' + (roll('3d6') * 100) + ']')}\
 """)
             .with(10, """\
 A magical item or magical effect
@@ -125,7 +135,7 @@ A magical item or magical effect
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Magic Type:')} ${-> pwDetails.pickMagicType()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
             .with(11, """\
 Many bags of coins, 2d4x100 or so
@@ -137,7 +147,7 @@ A sign of office (crown, banner) worth at least 3d4x100 coins
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
             .with(13, """\
 A large art item (4d4x100 coins, 1 weight)
@@ -147,7 +157,7 @@ A large art item (4d4x100 coins, 1 weight)
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
             .with(14, """\
 Unique item worth at least 5d4x100 coins
@@ -157,34 +167,37 @@ Unique item worth at least 5d4x100 coins
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
     //TODO : how to 'roll again' -- need to know the dice range from the original roll
             .with(15, """\
 Everything needed to learn a new spell.
-<br/>${ -> pick('1d12', treasure)}\
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${-> pwDetails.pickAbility()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Magic Type:')} ${-> pwDetails.pickMagicType()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>
+<br/>${-> pick('1d12', treasure)}\
 """)
             .with(16, """\
 A portal or secret path (or directions to one)
+<br/>
 <br/>${ -> pick('1d12', treasure)}\
 """)
             .with(17, """\
 Something relating to one of the characters
-<br/>${ -> pick('1d12', treasure)}\
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${-> pwDetails.pickAge()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${-> pwDetails.pickAspect()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>
+<br/>${-> pick('1d12', treasure)}\
 """)
             .with(18, """\
 A hoard: 1d10x1000 coins and 1d10x10 gems worth 2d6x100 each
 <br/>&nbsp;&nbsp; coins: ${-> (roll('1d10') * 1000)}
-<br/>&nbsp;&nbsp; gems: ${-> (roll('1d10') * 10) + ' worth ' + (roll('2d6') * 100) + ' each'}
+<br/>&nbsp;&nbsp; gems: ${-> (roll('1d10') * 10) + ' worth ' + (roll('2d6') * 100) + ' each'}\
 """)
 
     @Override

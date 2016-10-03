@@ -140,8 +140,9 @@ Zealous\
 
     String generate() {
         return """\
-<br/>${ss('Virtue:')} ${ -> pick(virtues)}
-<br/>${ss('Vice:')} ${ -> pick(vices)}\
+${strong('Virtue:')} ${ -> pick(virtues)}
+<br/>
+<br/>${strong('Vice:')} ${ -> pick(vices)}\
 """
     }
 
