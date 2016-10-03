@@ -78,7 +78,7 @@ public enum DatasetButton {
 
     PerilousSteading(Dataset.ThePerilousWildsNames, PwSteading.class, R.string.PwSteading, R.integer.numGeneratedSingle),
     PerilousDungeon(Dataset.ThePerilousWildsNames, PwDungeon.class, R.string.PwDungeon, R.integer.numGeneratedSingle),
-    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwFollower.class, R.string.PwNPCFollower, R.integer.numGeneratedSingle),
+    PerilousNPCFollower(Dataset.ThePerilousWildsNames, PwFollower.class, R.string.PwNPCFollower, R.integer.numGeneratedSingle),
     PerilousPlaces(Dataset.ThePerilousWildsNames, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedSome),
     PerilousRegions(Dataset.ThePerilousWildsNames, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedSome),
 
@@ -89,16 +89,16 @@ public enum DatasetButton {
     PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded1Bonus.class, R.string.PwTreasureGuarded1, R.integer.numGeneratedSingle),
     PerilousTreasureGuarded2(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded2Bonus.class, R.string.PwTreasureGuarded2, R.integer.numGeneratedSingle),
 
+    PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC, R.integer.numGeneratedSingle),
     PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness, R.integer.numGeneratedSingle),
     PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural, R.integer.numGeneratedSingle),
     PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban, R.integer.numGeneratedSingle),
-    PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC, R.integer.numGeneratedSingle),
 
+    PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature, R.integer.numGeneratedSingle),
     PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreatureBeast.class, R.string.PwCreatureBeast, R.integer.numGeneratedSingle),
     PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreatureHuman.class, R.string.PwCreatureHuman, R.integer.numGeneratedSingle),
     PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid, R.integer.numGeneratedSingle),
     PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreatureMonster.class, R.string.PwCreatureMonster, R.integer.numGeneratedSingle),
-    PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature, R.integer.numGeneratedSingle),
 
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters, R.integer.numGeneratedSingle),

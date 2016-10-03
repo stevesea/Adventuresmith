@@ -45,19 +45,19 @@ class PwTreasureGuarded extends PwTreasure {
 
     String generateForBonus(Integer bonuses) {
         """\
-${strong('damage die - D4')}
+${strong('damage die - D4' + "${bonuses == 0 ? '' : ' + ' + bonuses + 'd4'}")}
 <br/>${ -> treasure.get(rollWithBonus('1d4', bonuses))}
 <br/>
-<br/>${strong('damage die - D6')}
+<br/>${strong('damage die - D6' + "${bonuses == 0 ? '' : ' + ' + bonuses + 'd4'}")}
 <br/>${ -> treasure.get(rollWithBonus('1d6', bonuses))}
 <br/>
-<br/>${strong('damage die - D8')}
+<br/>${strong('damage die - D8' + "${bonuses == 0 ? '' : ' + ' + bonuses + 'd4'}")}
 <br/>${ -> treasure.get(rollWithBonus('1d8', bonuses))}
 <br/>
-<br/>${strong('damage die - D10')}
+<br/>${strong('damage die - D10' + "${bonuses == 0 ? '' : ' + ' + bonuses + 'd4'}")}
 <br/>${ -> treasure.get(rollWithBonus('1d10', bonuses))}
 <br/>
-<br/>${strong('damage die - D12')}
+<br/>${strong('damage die - D12' + "${bonuses == 0 ? '' : ' + ' + bonuses + 'd4'}")}
 <br/>${ -> treasure.get(rollWithBonus('1d12', bonuses))}\
 """
     }

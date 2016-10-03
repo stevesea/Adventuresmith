@@ -61,8 +61,8 @@
     <string name="PwTreasureUnguarded">Unguarded Treasure</string>
     <string name="PwTreasureItem">Item</string>
     <string name="PwTreasureGuarded">Guarded Treasure</string>
-    <string name="PwTreasureGuarded1">Guarded Treasure +1bonus</string>
-    <string name="PwTreasureGuarded2">Guarded Treasure +2bonus</string>
+    <string name="PwTreasureGuarded1">Guarded Treasure +1d4</string>
+    <string name="PwTreasureGuarded2">Guarded Treasure +2d4</string>
     <string name="PwTreasureGuarded1_help">Apply a +1d4 bonus to the treasure roll</string>
     <string name="PwTreasureGuarded2_help">Apply a +2d4 bonus to the treasure roll</string>
     <string name="PwTreasure">Treasure</string>

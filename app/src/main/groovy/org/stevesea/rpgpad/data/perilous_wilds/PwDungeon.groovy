@@ -39,9 +39,9 @@ class PwDungeon extends AbstractGenerator{
 
     static enum dungeon_size {
         Small(2, '1d4',  6, '1d6+2'),
-        Medium(2, '1d6', 6, '2d6+4'),
-        Large(2, '1d6+1',6, '3d6+6'),
-        Huge(2, '1d6+2', 6, '4d6+10');
+        Medium(3, '1d6', 6, '2d6+4'),
+        Large(4, '1d6+1',6, '3d6+6'),
+        Huge(5, '1d6+2', 6, '4d6+10');
 
         int theme
         String themeStr
@@ -165,7 +165,7 @@ ${strong('Dungeon')}
 <br/>${ss('Ruination:')} ${ -> pick(dungeon_ruination)}
 <br/>
 <br/>${strong('Themes:')}
-<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).sort().collect{ it.toString() + '&nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
+<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).collect{ it.toString() + '&nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
 """
     }
 }

@@ -20,7 +20,7 @@
             android:title="@string/perilous_wilds_treasure"/>
         <item
             android:id="@+id/nav_pw_names"
-            android:icon="@drawable/ic_highlight_black_24dp"
+            android:icon="@drawable/book_open_page_variant"
             android:title="@string/perilous_wilds_names"/>
     </group>
     <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
