@@ -234,7 +234,7 @@ class PwDetails extends AbstractGenerator {
             .with(8, 'volcanic/explosive')
             .with(9, 'magnetic/repellant')
             .with(10, 'devoid of life')
-            .with(11, 'nexpectedly alive')
+            .with(11, 'unexpectedly alive')
             .with(12, "${ -> pickN(oddity, 2).join(', ')}")
     String pickOddity(String dice = '1d12') {
         pick(dice, oddity)
