@@ -186,23 +186,23 @@ A few coins, 2d8 or so
     @Test
     void testTreasureGuarded() {
         assertEquals("""\
-<strong>damage die - D4</strong>
+<strong>damage die - D4 + 2d4</strong>
 <br/>Several coins, about 4d10
 <br/>&nbsp;&nbsp;<small>[4]</small>
 <br/>
-<br/><strong>damage die - D6</strong>
+<br/><strong>damage die - D6 + 2d4</strong>
 <br/>Several coins, about 4d10
 <br/>&nbsp;&nbsp;<small>[4]</small>
 <br/>
-<br/><strong>damage die - D8</strong>
+<br/><strong>damage die - D8 + 2d4</strong>
 <br/>Several coins, about 4d10
 <br/>&nbsp;&nbsp;<small>[4]</small>
 <br/>
-<br/><strong>damage die - D10</strong>
+<br/><strong>damage die - D10 + 2d4</strong>
 <br/>Several coins, about 4d10
 <br/>&nbsp;&nbsp;<small>[4]</small>
 <br/>
-<br/><strong>damage die - D12</strong>
+<br/><strong>damage die - D12 + 2d4</strong>
 <br/>Several coins, about 4d10
 <br/>&nbsp;&nbsp;<small>[4]</small>""", new PwTreasureGuarded2Bonus(new PwDetails(shuffler)).generate())
     }
