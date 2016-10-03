@@ -63,10 +63,6 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded1Bonus
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded2Bonus
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureItem
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureUnguarded
-// TODO: seems like this could be data-driven instead of enum. since it's enum, it's hard to extend
-//       without changing code... not huge now, but will be bigger deal if ever want to extend to allow
-//       user-specified tables
-// TODO: having to create a class for each button is kinda dumb. how to just specify a method to run?
 @CompileStatic
 public enum DatasetButton {
     FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells, R.integer.numGeneratedMany),

@@ -18,8 +18,6 @@
   ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<!-- TODO: stick an icon onto the result?
-    android:dra="@drawable/skull"-->
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/result_list_item_text"

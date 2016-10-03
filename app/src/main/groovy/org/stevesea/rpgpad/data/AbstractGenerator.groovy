@@ -20,7 +20,6 @@ package org.stevesea.rpgpad.data
 
 import groovy.transform.CompileStatic
 
-// TODO: use http://groovy-lang.org/templating.html instead? -- needs more groovy libs than is typically in grooid
 @CompileStatic
 public abstract class AbstractGenerator {
 
@@ -65,7 +64,6 @@ public abstract class AbstractGenerator {
         return Dice.roll(diceStr, shuffler.random)
     }
 
-    // TODO: split generate-the-value from generate-text-ready-for-display?
     abstract String generate()
 
     String[] generate(int num) {

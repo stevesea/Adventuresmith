@@ -37,8 +37,6 @@ import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
 
 import javax.inject.Inject
-// TODO: select result items (actions: favorite, share, copy to clipboard)
-// TODO: swipe support?
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -164,12 +162,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        // TODO: how to add these menu items programatically?
         Dataset key = Dataset.lookupDatasetForNavItem(id)
         getSupportActionBar().title = getString(key.stringResourceId)
 
         buttonsAdapter.useDb(key)
-        // TODO: clear or not when switching button sets?
         //resultsAdapter.clear()
         if (key == Dataset.None) {
             resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])

@@ -22,12 +22,6 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 public enum Dataset {
-    // TODO: try moving string data into resources
-    // TODO: minor arcana generator (get permission)
-    // TODO: into the odd (get permission)
-    // TODO: hex crawl generation?
-    // TODO: dungeon-room/trap generator?
-    // TODO: others?
     None(R.string.app_name, R.id.nav_thanks),
     MazeRats(R.string.maze_rats, R.id.nav_mr),
     ThePerilousWilds(R.string.perilous_wilds, R.id.nav_pw),

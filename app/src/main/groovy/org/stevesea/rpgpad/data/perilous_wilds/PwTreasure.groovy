@@ -169,7 +169,6 @@ Unique item worth at least 5d4x100 coins
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}\
 """)
-    //TODO : how to 'roll again' -- need to know the dice range from the original roll
             .with(15, """\
 Everything needed to learn a new spell.
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${-> pwDetails.pickAbility()}
