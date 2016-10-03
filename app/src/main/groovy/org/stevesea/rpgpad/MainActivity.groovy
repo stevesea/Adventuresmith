@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         //SwissKnife.restoreState(this, savedInstanceState);
 
         // This mus be called for automatic parsing of intent extras
-        SwissKnife.loadExtras(this)
+        //SwissKnife.loadExtras(this)
 
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity
                 else
                     return 1
             }
-        }
+        } as GridLayoutManager.SpanSizeLookup
 
         recyclerResults.layoutManager = resultsGridLayoutMgr
     }
