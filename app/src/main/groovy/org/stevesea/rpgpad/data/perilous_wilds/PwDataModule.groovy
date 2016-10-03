@@ -41,6 +41,7 @@ import groovy.transform.CompileStatic
                 PwRegion.class,
                 PwSteading.class,
                 PwTreasure.class,
+                PwTreasureGuarded.class,
                 PwTreasureItem.class,
                 PwTreasureUnguarded.class,
         ],

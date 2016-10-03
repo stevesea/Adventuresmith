@@ -86,7 +86,7 @@ ${strong('Divine')}
             .with(4..7, 'cave/tunnels')
             .with(8..9, 'nest/aerie')
             .with(10, 'hive')
-            .with(11..12, 'ruins (see STRUCTURE)') // TODO Structure?
+            .with(11..12, 'ruins (see STRUCTURE)')
     RangeMap obstacle = new RangeMap()
             .with(1..5, 'difficult ground')
             .with(6..8, 'cliff/crevasse/chasm')
@@ -163,7 +163,7 @@ ${strong('Resource')}
             .with(4..5, 'tools/weapons/armor')
             .with(6..7, 'map')
             .with(8..9, 'food/supplies')
-            .with(10..12, 'treasure (p43)') // TODO treasure gen
+            .with(10..12, 'treasure (see TREASURE)')
     RangeMap evidence = new RangeMap()
             .with(1..6, """\
 ${strong('Tracks/Spoor')}
@@ -211,7 +211,7 @@ ${strong('Stash/Cache')}
             .with(3..4, "${ -> pick('1d8+4', dwelling)}")
             .with(5..6, "${ -> pick('1d8+4', burial_religious)}")
             .with(7..8, "${ -> pwSteading.generate('1d10+2')}")
-            .with(9..12, 'DUNGEON') // TODO: dungeon
+            .with(9..12, '(roll DUNGEON)')
     RangeMap structure = new RangeMap()
             .with(1, """\
 ${strong('Enigmatic')}

@@ -26,7 +26,6 @@ import org.stevesea.rpgpad.data.RangeMap
 import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Inject
-// TODO : these are broken. discovery.structure and others want to pick via 1d8+4 and similar. need to be sure to retain the list order n stuff
 @CompileStatic
 class PwDetails extends AbstractGenerator {
 

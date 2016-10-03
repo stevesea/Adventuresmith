@@ -56,6 +56,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureItem
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureUnguarded
 // TODO: seems like this could be data-driven instead of enum. since it's enum, it's hard to extend
@@ -76,6 +77,7 @@ public enum DatasetButton {
     PerilousTreasure(Dataset.ThePerilousWildsTreasure, PwTreasure.class, R.string.PwTreasure),
     PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
     PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded),
+    PerilousTreasureGuarded(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.class, R.string.PwTreasureGuarded),
 
     PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness, R.integer.numGeneratedSingle),
     PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural, R.integer.numGeneratedSingle),
