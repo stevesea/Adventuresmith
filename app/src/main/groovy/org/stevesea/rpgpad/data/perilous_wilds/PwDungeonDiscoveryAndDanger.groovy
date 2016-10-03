@@ -27,16 +27,15 @@ import org.stevesea.rpgpad.data.RangeMap
 import javax.inject.Inject
 
 @CompileStatic
-class PwDungeonFind extends AbstractGenerator{
+class PwDungeonDiscoveryAndDanger extends AbstractGenerator{
     PwCreature pwCreature
     PwDetails pwDetails
     @Inject
-    PwDungeonFind(PwCreature pwCreature) {
+    PwDungeonDiscoveryAndDanger(PwCreature pwCreature) {
         super(pwCreature.shuffler)
         this.pwCreature = pwCreature
         this.pwDetails = pwCreature.pwDetails
     }
-
 
     RangeMap discovery_dressing = new RangeMap()
             .with(1, 'junk/debris')
@@ -127,36 +126,78 @@ class PwDungeonFind extends AbstractGenerator{
     RangeMap danger = new RangeMap()
             .with(1..4, "${ -> pick(danger_trap)}")
             .with(5..11, """\
-${ -> pick(pwCreature.creature_no_tags)}
-<br/>${ -> pick(danger_creature)}
-<br/>&nbsp;&nbsp;${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>&nbsp;&nbsp;${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
-<br/>&nbsp;&nbsp;${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
+${ -> pick(pwCreature.creature_no_tags)} : ${ -> pick(danger_creature)}
+<br/>&nbsp;&nbsp;${ssem('Alignment:')} ${-> pwDetails.pickAlignment()}
+<br/>&nbsp;&nbsp;${ssem('Disposition:')} ${-> pwDetails.pickDisposition()}
+<br/>&nbsp;&nbsp;${ssem('No. Appearing:')} ${-> pwDetails.pickNumberAppearing()}
 """)
             .with(12, "${ -> pick(danger_entity)}")
 
+    RangeMap area_type_and_contents = new RangeMap()
+            .with(1, """\
+${strong('Area Type:')} Common [Unthemed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;empty""")
+            .with(2, """\
+${strong('Area Type:')} Common [Unthemed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(danger)}""")
+            .with(3..4, """\
+${strong('Area Type:')} Common [Unthemed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(discovery)}
+<br/>&nbsp;&nbsp;${ -> pick(danger)}""")
+            .with(5..6, """\
+${strong('Area Type:')} Common [Unthemed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(discovery)}""")
+            .with(7, """\
+${strong('Area Type:')} Common [Themed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(danger)}""")
+            .with(8, """\
+${strong('Area Type:')} Common [Themed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(discovery)}
+<br/>&nbsp;&nbsp;${ -> pick(danger)}""")
+            .with(9, """\
+${strong('Area Type:')} Common [Themed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(discovery)}""")
+            .with(10, """\
+${strong('Area Type:')} Unique [Themed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(danger)}""")
+            .with(11, """\
+${strong('Area Type:')} Unique [Themed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(discovery)}
+<br/>&nbsp;&nbsp;${ -> pick(danger)}""")
+            .with(12, """\
+${strong('Area Type:')} Unique [Themed]
+<br/>
+<br/>${strong('Contents:')}
+<br/>&nbsp;&nbsp;${ -> pick(discovery)}""")
+
     @Override
     String generate() {
-        String dsizeStr = (String)pick('1d12', sizeMap)
-        def dsize = dungeon_size.valueOf(dsizeStr)
-        int numThemes = roll(dsize.themeStr)
-        int numAreas = roll(dsize.areaLimitStr)
-        def countdowns = []
-        numThemes.times{
-            countdowns.add('&#x25A2')
-        }
-        def countdownsStr = countdowns.join('&nbsp;')
-        return """\
-${strong('Dungeon')}
+        """\
+${ -> pick(area_type_and_contents)}
 <br/>
-<br/>${ss('Size:')} ${dsizeStr} &nbsp;&nbsp;&nbsp;&nbsp;${ss('Area Limit:')} ${numAreas}
-<br/>${ss('Builder:')} ${ -> pick(foundation_builder)}
-<br/>${ss('Function:')} ${ -> pick(foundation_function)}
-<br/>
-<br/>${ss('Ruination:')} ${ -> pick(dungeon_ruination)}
-<br/>
-<br/>${strong('Themes:')}
-<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).collect{ it.toString() + '&nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
+<br/>${ss('Optional:')}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${-> pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Element:')} ${-> pwDetails.pickElement()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${-> pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Orientation:')} ${-> pwDetails.pickOrientation()}\
 """
     }
 }

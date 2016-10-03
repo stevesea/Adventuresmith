@@ -142,114 +142,19 @@ class PwDungeon extends AbstractGenerator{
             .with(6..9, "${ -> pick(theme_unusual)}")
             .with(10..12, "${ -> pick(theme_extraordinary)}")
 
-    RangeMap discovery_dressing = new RangeMap()
-            .with(1, 'junk/debris')
-            .with(2, 'tracks/marks')
-            .with(3, 'signs of battle')
-            .with(4, 'writing/carving')
-            .with(5, 'warning')
-            .with(6, "dead ${ -> pick(pwCreature.creature_no_tags)}")
-            .with(7, 'bones/remains')
-            .with(8, 'book/scroll/map')
-            .with(9, 'broken door/wall')
-            .with(10, 'breeze/wind/smell')
-            .with(11, 'lichen/moss/fungus')
-            .with(12, "${ -> pwDetails.pickOddity()}")
-    RangeMap discovery_feature = new RangeMap()
-            .with(1, 'cave-in/collapse')
-            .with(2, 'pit/shaft/chasm')
-            .with(3, 'pillars/columns')
-            .with(4, 'locked door/gate')
-            .with(5, 'alcoves/niches')
-            .with(6, 'bridge/stairs/ramp')
-            .with(7, 'fountain/well/pool')
-            .with(8, 'puzzle')
-            .with(9, 'altar/dais/platform')
-            .with(10, 'statue/idol')
-            .with(11, 'magic pool/statue/idol')
-            .with(12, 'connection to another dungeon')
-    RangeMap discovery_find = new RangeMap()
-            .with(1, 'trinkets')
-            .with(2, 'tools')
-            .with(3, 'weapons/armor')
-            .with(4, 'supplies/trade goods')
-            .with(5, 'coins/gems/jewelry')
-            .with(6, 'poisons/potions')
-            .with(7, 'adventurer/captive')
-            .with(8, 'magic item')
-            .with(9, 'scroll/book')
-            .with(10, 'magic weapon/armor')
-            .with(11, 'artifact')
-            .with(12, "${ -> pickN(discovery_find, 2).join(', ')}")
-
-    //A starting point: extrapolate, embellish, integrate.
-    RangeMap discovery = new RangeMap()
-            .with(1..3, "${ -> pick(discovery_dressing)}")
-            .with(4..9, "${ -> pick(discovery_feature)}")
-            .with(10..12, "${ -> pick(discovery_find)}")
-
-    RangeMap danger_trap = new RangeMap()
-            .with(1, 'alarm')
-            .with(2, 'ensnaring/paralyzing')
-            .with(3, 'pit')
-            .with(4, 'crushing')
-            .with(5, 'piercing/puncturing')
-            .with(6, 'chopping/slashing')
-            .with(7, 'confusing (maze, etc.)')
-            .with(8, 'gas (poison, etc.)')
-            .with(9, "${ -> pwDetails.pickElement()}")
-            .with(10, 'ambush')
-            .with(11, 'magical')
-            .with(12, "${ -> pickN(danger_trap, 2).join(', ')}")
-    RangeMap danger_creature = new RangeMap()
-            .with(1, 'waiting in ambush')
-            .with(2, 'fighting/squabbling')
-            .with(3, 'prowling/on patrol')
-            .with(4, 'looking for food')
-            .with(5, 'eating/resting')
-            .with(6, 'guarding')
-            .with(7, 'on the move')
-            .with(8, 'searching/scavenging')
-            .with(9, 'returning to den')
-            .with(10, 'making plans')
-            .with(11, 'sleeping')
-            .with(12, 'dying')
-    RangeMap danger_entity = new RangeMap()
-            .with(1, 'alien interloper')
-            .with(2, 'vermin lord')
-            .with(3, 'criminal mastermind')
-            .with(4, 'warlord')
-            .with(5, 'high priest')
-            .with(6, 'oracle')
-            .with(7, 'wizard/witch/alchemist')
-            .with(8, "${ -> pick(pwCreature.monster)} lord")
-            .with(9, 'evil spirit/ghost')
-            .with(10, 'undead lord (lich, etc.)')
-            .with(11, 'demon')
-            .with(12, 'dark god')
-    // if they would notice, show signs of an approaching threat
-    RangeMap danger = new RangeMap()
-            .with(1..4, "${ -> pick(danger_trap)}")
-            .with(5..11, """\
-${ -> pick(pwCreature.creature_no_tags)}
-<br/>${ -> pick(danger_creature)}
-<br/>&nbsp;&nbsp;${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>&nbsp;&nbsp;${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
-<br/>&nbsp;&nbsp;${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-""")
-            .with(12, "${ -> pick(danger_entity)}")
-
     @Override
     String generate() {
         String dsizeStr = (String)pick('1d12', sizeMap)
         def dsize = dungeon_size.valueOf(dsizeStr)
         int numThemes = roll(dsize.themeStr)
         int numAreas = roll(dsize.areaLimitStr)
+
         def countdowns = []
         numThemes.times{
             countdowns.add('&#x25A2')
         }
         def countdownsStr = countdowns.join('&nbsp;')
+
         return """\
 ${strong('Dungeon')}
 <br/>
@@ -260,7 +165,7 @@ ${strong('Dungeon')}
 <br/>${ss('Ruination:')} ${ -> pick(dungeon_ruination)}
 <br/>
 <br/>${strong('Themes:')}
-<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).collect{ it.toString() + '&nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
+<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).sort().collect{ it.toString() + '&nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
 """
     }
 }

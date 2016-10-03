@@ -210,8 +210,16 @@ A few coins, 2d8 or so
     @Test
     void testDungeon() {
         assertEquals("""\
-asdfasdf
-asdfasdf""", new PwDungeon(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
+<strong>Dungeon</strong>
+<br/>
+<br/><strong><small>Size:</small></strong> Small &nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Area Limit:</small></strong> 3
+<br/><strong><small>Builder:</small></strong> aliens/precursors
+<br/><strong><small>Function:</small></strong> source/portal
+<br/>
+<br/><strong><small>Ruination:</small></strong> arcane disaster
+<br/>
+<br/><strong>Themes:</strong>
+<br/>&nbsp;&nbsp;rot/decay&nbsp;&#x25A2""", new PwDungeon(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
     }
 
 }

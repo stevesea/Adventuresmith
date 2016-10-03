@@ -33,6 +33,7 @@ import groovy.transform.CompileStatic
                 PwDetails.class,
                 PwDiscovery.class,
                 PwDungeon.class,
+                PwDungeonDiscoveryAndDanger.class,
                 PwFollower.class,
                 PwNPC.class,
                 PwNPCRural.class,

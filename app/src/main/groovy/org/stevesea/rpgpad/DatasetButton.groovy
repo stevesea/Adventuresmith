@@ -48,6 +48,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureMonster
 import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
+import org.stevesea.rpgpad.data.perilous_wilds.PwDungeonDiscoveryAndDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPCRural
@@ -73,23 +74,25 @@ public enum DatasetButton {
 
     PerilousDiscovery(Dataset.ThePerilousWilds, PwDiscovery.class, R.string.PwDiscovery, R.integer.numGeneratedSingle),
     PerilousDanger(Dataset.ThePerilousWilds, PwDanger.class, R.string.PwDanger, R.integer.numGeneratedSingle),
-    PerilousSteading(Dataset.ThePerilousWilds, PwSteading.class, R.string.PwSteading, R.integer.numGeneratedSingle),
-    PerilousDungeon(Dataset.ThePerilousWilds, PwDungeon.class, R.string.PwDungeon, R.integer.numGeneratedSingle),
-    PerilousPlaces(Dataset.ThePerilousWilds, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedSome),
-    PerilousRegions(Dataset.ThePerilousWilds, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedSome),
+    PerilousDungeonExplore(Dataset.ThePerilousWilds, PwDungeonDiscoveryAndDanger.class, R.string.PwDungeonExplore, R.integer.numGeneratedSingle),
 
-    PerilousTreasure(Dataset.ThePerilousWildsTreasure, PwTreasure.class, R.string.PwTreasure),
-    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
-    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded),
-    PerilousTreasureGuarded(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.class, R.string.PwTreasureGuarded),
-    PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded1Bonus.class, R.string.PwTreasureGuarded1),
-    PerilousTreasureGuarded2(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded2Bonus.class, R.string.PwTreasureGuarded2),
+    PerilousSteading(Dataset.ThePerilousWildsNames, PwSteading.class, R.string.PwSteading, R.integer.numGeneratedSingle),
+    PerilousDungeon(Dataset.ThePerilousWildsNames, PwDungeon.class, R.string.PwDungeon, R.integer.numGeneratedSingle),
+    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwFollower.class, R.string.PwNPCFollower, R.integer.numGeneratedSingle),
+    PerilousPlaces(Dataset.ThePerilousWildsNames, PwPlace.class,  R.string.PwPlaces, R.integer.numGeneratedSome),
+    PerilousRegions(Dataset.ThePerilousWildsNames, PwRegion.class, R.string.PwRegions, R.integer.numGeneratedSome),
+
+    PerilousTreasure(Dataset.ThePerilousWildsTreasure, PwTreasure.class, R.string.PwTreasure, R.integer.numGeneratedSingle),
+    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem, R.integer.numGeneratedSome),
+    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded, R.integer.numGeneratedSingle),
+    PerilousTreasureGuarded(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.class, R.string.PwTreasureGuarded, R.integer.numGeneratedSingle),
+    PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded1Bonus.class, R.string.PwTreasureGuarded1, R.integer.numGeneratedSingle),
+    PerilousTreasureGuarded2(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded2Bonus.class, R.string.PwTreasureGuarded2, R.integer.numGeneratedSingle),
 
     PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness, R.integer.numGeneratedSingle),
     PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural, R.integer.numGeneratedSingle),
     PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban, R.integer.numGeneratedSingle),
     PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC, R.integer.numGeneratedSingle),
-    PerilousNPCFollower(Dataset.ThePerilousWildsNPC, PwFollower.class, R.string.PwNPCFollower, R.integer.numGeneratedSingle),
 
     PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreatureBeast.class, R.string.PwCreatureBeast, R.integer.numGeneratedSingle),
     PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreatureHuman.class, R.string.PwCreatureHuman, R.integer.numGeneratedSingle),
@@ -105,30 +108,32 @@ public enum DatasetButton {
     MrAfflictions(Dataset.MazeRats, MazeRatsAfflictions.class, R.string.MrAfflictions, R.integer.numGeneratedSome),
     MrPotionEffects(Dataset.MazeRats, MazeRatsPotionEffects.class, R.string.MrPotionEffects, R.integer.numGeneratedSome),
 
-    Dr1d6(Dataset.DiceRoller, DiceRoller1d6.class, R.string.dice_roller_1d6),
-    Dr1d8(Dataset.DiceRoller, DiceRoller1d8.class, R.string.dice_roller_1d8),
-    Dr1d10(Dataset.DiceRoller, DiceRoller1d10.class, R.string.dice_roller_1d10),
-    Dr1d12(Dataset.DiceRoller, DiceRoller1d12.class, R.string.dice_roller_1d12),
-    Dr1d20(Dataset.DiceRoller, DiceRoller1d20.class, R.string.dice_roller_1d20),
-    Dr1d30(Dataset.DiceRoller, DiceRoller1d30.class, R.string.dice_roller_1d30),
-    Dr1d100(Dataset.DiceRoller, DiceRoller1d100.class, R.string.dice_roller_1d100),
-    Dr2d20Adv(Dataset.DiceRoller, DiceRoller1d20Advantage.class, R.string.dice_roller_2d20_adv),
-    Dr2d20Disadv(Dataset.DiceRoller, DiceRoller1d20Disadvantage.class, R.string.dice_roller_2d20_disadv),
-    Dr2d6(Dataset.DiceRoller, DiceRoller2d6.class, R.string.dice_roller_2d6),
-    Dr3d6(Dataset.DiceRoller, DiceRoller3d6.class, R.string.dice_roller_3d6),
-    Dr4d4(Dataset.DiceRoller, DiceRoller4d4.class, R.string.dice_roller_4d4),
+    Dr1d6(Dataset.DiceRoller, DiceRoller1d6.class, R.string.dice_roller_1d6, R.integer.numGeneratedSingle),
+    Dr1d8(Dataset.DiceRoller, DiceRoller1d8.class, R.string.dice_roller_1d8, R.integer.numGeneratedSingle),
+    Dr1d10(Dataset.DiceRoller, DiceRoller1d10.class, R.string.dice_roller_1d10, R.integer.numGeneratedSingle),
+    Dr1d12(Dataset.DiceRoller, DiceRoller1d12.class, R.string.dice_roller_1d12, R.integer.numGeneratedSingle),
+    Dr1d20(Dataset.DiceRoller, DiceRoller1d20.class, R.string.dice_roller_1d20, R.integer.numGeneratedSingle),
+    Dr1d30(Dataset.DiceRoller, DiceRoller1d30.class, R.string.dice_roller_1d30, R.integer.numGeneratedSingle),
+    Dr1d100(Dataset.DiceRoller, DiceRoller1d100.class, R.string.dice_roller_1d100, R.integer.numGeneratedSingle),
+    Dr2d20Adv(Dataset.DiceRoller, DiceRoller1d20Advantage.class, R.string.dice_roller_2d20_adv, R.integer.numGeneratedSingle),
+    Dr2d20Disadv(Dataset.DiceRoller, DiceRoller1d20Disadvantage.class, R.string.dice_roller_2d20_disadv, R.integer.numGeneratedSingle),
+    Dr2d6(Dataset.DiceRoller, DiceRoller2d6.class, R.string.dice_roller_2d6, R.integer.numGeneratedSingle),
+    Dr3d6(Dataset.DiceRoller, DiceRoller3d6.class, R.string.dice_roller_3d6, R.integer.numGeneratedSingle),
+    Dr4d4(Dataset.DiceRoller, DiceRoller4d4.class, R.string.dice_roller_4d4, R.integer.numGeneratedSingle),
     ;
 
     int stringResourceId
     Dataset dataset
     Class<? extends AbstractGenerator> clz
     int numGeneratedId
+    int helpTextId
 
-    DatasetButton(Dataset dataset, Class<? extends AbstractGenerator> clz, int stringResourceId, int numGeneratedId = R.integer.numGeneratedSingle) {
+    DatasetButton(Dataset dataset, Class<? extends AbstractGenerator> clz, int stringResourceId, int numGeneratedId, int helpTextId = 0) {
         this.stringResourceId = stringResourceId
         this.dataset = dataset
         this.clz = clz
         this.numGeneratedId = numGeneratedId
+        this.helpTextId = helpTextId
     }
 
     static Collection<DatasetButton> getButtonsForDataset(Dataset dset) {

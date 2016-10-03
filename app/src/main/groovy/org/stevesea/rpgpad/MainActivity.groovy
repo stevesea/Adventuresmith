@@ -169,7 +169,8 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().title = getString(key.stringResourceId)
 
         buttonsAdapter.useDb(key)
-        resultsAdapter.clear()
+        // TODO: clear or not when switching button sets?
+        //resultsAdapter.clear()
         if (key == Dataset.None) {
             resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
         }
