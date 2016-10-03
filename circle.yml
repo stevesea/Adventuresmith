@@ -11,6 +11,8 @@ machine:
         version: oraclejdk8
     environment:
         ANDROID_HOME: /usr/local/android-sdk-linux
+        GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+
 dependencies:
     override:
         - echo y | android update sdk --no-ui --all --filter "tools"
