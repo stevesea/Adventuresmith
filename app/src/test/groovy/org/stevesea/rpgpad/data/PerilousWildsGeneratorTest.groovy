@@ -28,6 +28,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwCreature
 import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
+import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
@@ -204,6 +205,13 @@ A few coins, 2d8 or so
 <br/><strong>damage die - D12</strong>
 <br/>Several coins, about 4d10
 <br/>&nbsp;&nbsp;<small>[4]</small>""", new PwTreasureGuarded2Bonus(new PwDetails(shuffler)).generate())
+    }
+
+    @Test
+    void testDungeon() {
+        assertEquals("""\
+asdfasdf
+asdfasdf""", new PwDungeon(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
     }
 
 }

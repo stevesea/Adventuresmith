@@ -52,8 +52,9 @@ class FotFGeneratorTest {
     void testGenerators() {
         assertEquals("Acid Armor", new FotFSpells(shuffler).generate())
         assertEquals("""\
-<br/><strong><small>Virtue:</small></strong> Ambitious
-<br/><strong><small>Vice:</small></strong> Addict\
+<strong>Virtue:</strong> Ambitious
+<br/>
+<br/><strong>Vice:</strong> Addict\
 """, new FotFTraits(shuffler).generate())
     }
 }

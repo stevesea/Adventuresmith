@@ -27,120 +27,16 @@ import org.stevesea.rpgpad.data.RangeMap
 import javax.inject.Inject
 
 @CompileStatic
-class PwDungeon extends AbstractGenerator{
+class PwDungeonFind extends AbstractGenerator{
     PwCreature pwCreature
     PwDetails pwDetails
     @Inject
-    PwDungeon(PwCreature pwCreature) {
+    PwDungeonFind(PwCreature pwCreature) {
         super(pwCreature.shuffler)
         this.pwCreature = pwCreature
         this.pwDetails = pwCreature.pwDetails
     }
 
-    static enum dungeon_size {
-        Small(2, '1d4',  6, '1d6+2'),
-        Medium(2, '1d6', 6, '2d6+4'),
-        Large(2, '1d6+1',6, '3d6+6'),
-        Huge(2, '1d6+2', 6, '4d6+10');
-
-        int theme
-        String themeStr
-        int areaLimit
-        String areaLimitStr
-
-        dungeon_size(int theme, String themeStr, int areaLimit, String areaLimitStr) {
-            this.theme = theme
-            this.themeStr = themeStr
-            this.areaLimit = areaLimit
-            this.areaLimitStr = areaLimitStr
-        }
-
-        @Override
-        public String toString() {
-            return "${name()}: themes ${theme} (${themeStr}) Areas ${areaLimit} (${areaLimitStr})"
-        }
-    }
-
-    // size, themes, areas* (total common and unique)
-    RangeMap sizeMap = new RangeMap()
-            .with(1..3, dungeon_size.Small.name())
-            .with(4..9, dungeon_size.Medium.name())
-            .with(10..11, dungeon_size.Large.name())
-            .with(12, dungeon_size.Huge.name())
-    RangeMap dungeon_ruination = new RangeMap()
-            .with(1, 'arcane disaster')
-            .with(2, 'damnation/curse')
-            .with(3..4, 'earthquake/fire/flood')
-            .with(5..6, 'plague/famine/drought')
-            .with(7..8, 'overrun by monsters')
-            .with(9..10, 'war/invasion')
-            .with(11, 'depleted resources')
-            .with(12, 'better prospects elsewhere')
-    // who built it, to what end?
-    RangeMap foundation_builder = new RangeMap()
-            .with(1, 'aliens/precursors')
-            .with(2, 'demigod/demon')
-            .with(3..4, 'natural (caves, etc.)')
-            .with(5, 'religious order/cult')
-            .with(6..7, "${ -> pick(pwCreature.humanoid)}")
-            .with(8..9, 'dwarves/gnomes')
-            .with(10, 'elves')
-            .with(11, 'wizard/madman')
-            .with(12, 'monarch/warlord')
-    RangeMap foundation_function = new RangeMap()
-            .with(1, 'source/portal')
-            .with(2, 'mine')
-            .with(3..4, 'tomb/crypt')
-            .with(5, 'prison')
-            .with(6..7, 'lair/den/hideout')
-            .with(8..9, 'stronghold/sanctuary')
-            .with(10, 'shrine/temple/oracle')
-            .with(11, 'archive/library')
-            .with(12, 'unknown/mystery')
-    RangeMap theme_mundane = new RangeMap()
-            .with(1, 'rot/decay')
-            .with(2, 'torture/agony')
-            .with(3, 'madness')
-            .with(4, 'all is lost')
-            .with(5, 'noble sacrifice')
-            .with(6, 'savage fury')
-            .with(7, 'survival')
-            .with(8, 'criminal activity')
-            .with(9, 'secrets/treachery')
-            .with(10, 'tricks and traps')
-            .with(11, 'invasion/infestation')
-            .with(12, 'factions at war')
-    RangeMap theme_unusual = new RangeMap()
-            .with(1, 'creation/invention')
-            .with(2, "${ -> pwDetails.pickElement()}")
-            .with(3, 'knowledge/learning')
-            .with(4, 'growth/expansion')
-            .with(5, 'deepening mystery')
-            .with(6, 'transformation/change')
-            .with(7, 'chaos and destruction')
-            .with(8, 'shadowy forces')
-            .with(9, 'forbidden knowledge')
-            .with(10, 'poison/disease')
-            .with(11, 'corruption/blight')
-            .with(12, 'impending disaster')
-    RangeMap theme_extraordinary = new RangeMap()
-            .with(1, 'scheming evil')
-            .with(2, 'divination/scrying')
-            .with(3, 'blasphemy')
-            .with(4, 'arcane research')
-            .with(5, 'occult forces')
-            .with(6, 'an ancient curse')
-            .with(7, 'mutation')
-            .with(8, 'the unquiet dead')
-            .with(9, 'bottomless hunger')
-            .with(10, 'incredible power')
-            .with(11, 'unspeakable horrors')
-            .with(12, 'holy war')
-    //What’s it all about? Choose or roll according to Dungeon Size.
-    RangeMap theme = new RangeMap()
-            .with(1..5, "${ -> pick(theme_mundane)}")
-            .with(6..9, "${ -> pick(theme_unusual)}")
-            .with(10..12, "${ -> pick(theme_extraordinary)}")
 
     RangeMap discovery_dressing = new RangeMap()
             .with(1, 'junk/debris')
