@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
         final int longTextSpan = getResources().getInteger(R.integer.resultColsLongtext)
         GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
-        resultsGridLayoutMgr.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+        resultsGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 if (resultsAdapter.getTextLength(position) > 48)
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity
                 else
                     return 1
             }
-        })
+        }
 
         recyclerResults.layoutManager = resultsGridLayoutMgr
     }
@@ -146,7 +146,6 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        // TODO: implement settings
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
