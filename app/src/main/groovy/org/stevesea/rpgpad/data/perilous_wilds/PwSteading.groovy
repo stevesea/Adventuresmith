@@ -117,7 +117,7 @@ class PwSteading extends AbstractGenerator{
             prosperity = Prosperity.Poor
             population = Population.Steady
             defenses = Defenses.Militia
-            tags.add("Resource: ${pick(pwDetails.resource)}")
+            tags.add("Resource: ${pick(pwDetails.resource)}".toString())
             tags.add('Oath: other steading')
         }
 
@@ -141,7 +141,7 @@ ${strong('Village')}
             prosperity = Prosperity.Moderate
             population = Population.Steady
             defenses = Defenses.Watch
-            tags.add("Resource: ${ pick(pwDetails.resource)}")
+            tags.add("Resource: ${ pick(pwDetails.resource)}".toString())
             tags.add('Trade: 2 other steadings')
         }
 
@@ -212,11 +212,11 @@ ${strong('City')}
     }
     RangeMap village = new RangeMap()
             .with(1..3, "Natural defenses${ -> info.tags.add('Safe'); info.defenses.decr();''}")
-            .with(4..6, "Abundant resources${ -> info.tags.add('Enmity: GM choice'); info.tags.add("Resource: ${ -> pick(pwDetails.resource)}"); info.prosperity.incr();''}")
+            .with(4..6, "Abundant resources${ -> info.tags.add('Enmity: GM choice'); info.tags.add("Resource: ${ -> pick(pwDetails.resource)}".toString()); info.prosperity.incr();''}")
             .with(7..8, "Protected by another steading${ -> info.tags.add('Oath: other steading'); info.defenses.incr();''}")
-            .with(9..10, "On a major road.${ -> info.tags.add("Trade: ${-> pick(pwDetails.resource)}"); info.prosperity.incr();''}")
+            .with(9..10, "On a major road.${ -> info.tags.add("Trade: ${-> pick(pwDetails.resource)}".toString()); info.prosperity.incr();''}")
             .with(11, "Built around a wizard’s tower${ -> info.tags.add('Personage: the wizard'); info.tags.add('Blight: arcane creatures');''}")
-            .with(12, "Built on a site of religious significance${ -> info.tags.add('Divine: ' + pick(pwDetails.divine)); info.tags.add('History: GM\'s choice');''}")
+            .with(12, "Built on a site of religious significance${ -> info.tags.add("Divine: ${ -> pick(pwDetails.divine)}".toString() ); info.tags.add('History: GM\'s choice');''}")
 
     RangeMap village_problem = new RangeMap()
             .with(1..2, "Surrounded by arid or uncultivable land${ -> info.tags.add('Need: food');''}")
@@ -231,7 +231,7 @@ ${strong('City')}
             .with(2..3, "At a crossroads${ -> info.tags.add('Market'); info.prosperity.incr();''}")
             .with(4..5, "Defended by another steading${ -> info.tags.add('Oath: other steading (defender)'); info.defenses.incr();''}")
             .with(6..7, "Built around a church${-> info.tags.add('Power: divine'); ''}")
-            .with(8..10, "Built around a craft${-> info.tags.add('Resource: ' + pick(pwDetails.resource)); info.tags.add('Craft: (for resource)');''}")
+            .with(8..10, "Built around a craft${-> info.tags.add("Resource: ${ -> pick(pwDetails.resource)}".toString()); info.tags.add('Craft: (for resource)');''}")
             .with(11..12, "Built around a military post${ -> info.defenses.incr();''}")
 
     RangeMap town_problem = new RangeMap()
