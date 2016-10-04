@@ -29,6 +29,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
+import org.stevesea.rpgpad.data.perilous_wilds.PwDungeonDiscoveryAndDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
@@ -220,6 +221,32 @@ A few coins, 2d8 or so
 <br/>
 <br/><strong>Themes:</strong>
 <br/>&nbsp;&nbsp;rot/decay&nbsp;&#x25A2""", new PwDungeon().withShuffler(shuffler).generate())
+    }
+
+    @Test
+    void exerciser() {
+
+        // run through the generators
+        def gens = [
+                new PwCreature(),
+                new PwDanger(),
+                new PwDiscovery(),
+                new PwDungeon(),
+                new PwDungeonDiscoveryAndDanger(),
+                new PwFollower(),
+                new PwNPC(),
+                new PwPlace(),
+                new PwRegion(),
+                new PwSteading(),
+                new PwTreasure(),
+                ]
+        gens.each { gen ->
+            //println "################"
+            10.times {
+                //println "-------"
+                /*println*/ gen.generate()
+            }
+        }
     }
 
 }

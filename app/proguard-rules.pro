@@ -28,6 +28,7 @@
 -keep class com.crashlytics.** { *; }
 -dontwarn com.crashlytics.**
 
+
 -keep class org.codehaus.groovy.vmplugin.**
 -keep class org.codehaus.groovy.runtime.dgm*
 -keep class org.codehaus.groovy.util.**
@@ -35,30 +36,17 @@
 -keep class org.codehaus.groovy.reflection.**
 -keep class org.codehaus.groovy.control.**
 
--keepclassmembers class org.codehaus.groovy.util.** {
-  *;
-}
--keepclassmembers class org.codehaus.groovy.runtime.dgm* {
-  *;
-}
--keepclassmembers class ** implements org.codehaus.groovy.runtime.GeneratedClosure {
-  *;
-}
--keepclassmembers class org.codehaus.groovy.runtime.** {
-  *;
-}
--keepclassmembers class org.codehaus.groovy.reflection.** {
-  *;
-}
+-keepclassmembers class org.codehaus.groovy.util.** {  *; }
+-keepclassmembers class org.codehaus.groovy.runtime.dgm* { *; }
+-keepclassmembers class ** implements org.codehaus.groovy.runtime.GeneratedClosure { *; }
+-keepclassmembers class org.codehaus.groovy.reflection.** { *;}
+-keepclassmembers class org.codehaus.groovy.reflection.GroovyClassValue* {*;}
+-keepclassmembers class org.codehaus.groovy.runtime.** { *; }
+-keepclassmembers class org.codehaus.groovy.control.SourceUnit { *; }
 
--keepclassmembers class org.codehaus.groovy.control.SourceUnit {
-  *;
-}
+
+-keep class org.stevesea.**
+-keepclassmembers class org.stevesea.** { *; }
 
 -dontwarn org.codehaus.groovy.**
 -dontwarn groovy**
-
--keep class com.arasthel.swissknife.utils.Finder {
-  ** findView(android.app.Activity, java.lang.String, java.lang.String);
-  ** findView(android.view.View, java.lang.String, java.lang.String);
-}

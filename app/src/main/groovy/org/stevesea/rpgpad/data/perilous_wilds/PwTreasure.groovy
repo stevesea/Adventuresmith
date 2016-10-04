@@ -35,7 +35,7 @@ class PwTreasure extends AbstractGenerator{
         this
     }
 
-    static RangeMap utility_item = new RangeMap()
+    RangeMap utility_item = new RangeMap()
             .with(1, 'key/lockpick')
             .with(2, 'potion/food')
             .with(3, 'clothing/cloak')
@@ -49,7 +49,7 @@ class PwTreasure extends AbstractGenerator{
             .with(11, 'pet/mount')
             .with(12, 'device/construct')
 
-    static RangeMap art_item = new RangeMap()
+    RangeMap art_item = new RangeMap()
             .with(1, 'trinket/charm')
             .with(2, 'painting/pottery')
             .with(3, 'ring/gloves')

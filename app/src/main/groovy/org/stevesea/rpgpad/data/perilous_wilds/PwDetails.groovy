@@ -308,4 +308,33 @@ class PwDetails extends AbstractGenerator {
     String pickVisibility(String dice='1d12') {
         pick(dice, visibility)
     }
+
+
+    RangeMap undead = new RangeMap()
+            .with(1..4, 'haunt/wisp')
+            .with(5..8, 'ghost/spectre')
+            .with(9, 'banshee')
+            .with(10..11, 'wraith/wight')
+            .with(12, 'spirit lord/master')
+
+    RangeMap planar = new RangeMap()
+            .with(1..3, 'imp (Small)')
+            .with(4..6, 'lesser elemental')
+            .with(7..9, 'lesser demon/horror')
+            .with(10, 'greater elemental')
+            .with(11, 'greater demon/horror')
+            .with(12, 'devil/elemental lord')
+
+    RangeMap divine = new RangeMap()
+            .with(1..5, 'agent')
+            .with(6..9, 'champion')
+            .with(10..11, 'army (Host)')
+            .with(12, 'avatar')
+
+    RangeMap resource = new RangeMap()
+            .with(1..4, 'game/fruit/vegetable')
+            .with(5..6, 'herb/spice/dye source')
+            .with(7..9, 'timber/stone')
+            .with(10..11, 'ore (copper, iron, etc.)')
+            .with(12, 'precious metal/gems')
 }

@@ -6,6 +6,19 @@
     <color name="colorContentBg">#ECEFF1</color>
     <color name="colorButtons">#CFD8DC</color>
 
+
+    <!--
+     solarized
+    http://ethanschoonover.com/solarized#features
+
+    android themes
+    https://github.com/mukesh525/MaterialDemo/blob/master/app/src/main/res/values/themes.xml
+
+    button tint:
+    http://stackoverflow.com/questions/3024983/how-do-i-change-the-tint-of-an-imagebutton-on-focus-press
+    http://stackoverflow.com/questions/11095222/android-imageview-change-tint-to-simulate-button-click/18724834#18724834
+    -->
+
     <color name="resultsBg0">#F4F4F4</color> <!-- 3 -->
     <color name="resultsBg1">#FDFDFD</color> <!-- 0 -->
     <color name="resultsBg2">#DFDFDF</color> <!-- 10 -->

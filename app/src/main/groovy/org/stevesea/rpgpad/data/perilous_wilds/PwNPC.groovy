@@ -42,7 +42,7 @@ class PwNPC extends AbstractGenerator {
 
     String genNpcInfo(String contextName, RangeMap context) {
         """\
-${strong('NPC: ' + contextName)}
+${strong("NPC: ${contextName}")}
 <br/>
 <br/>${ss('Occupation:')} ${ -> pick(context)}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -56,7 +56,7 @@ ${strong('NPC: ' + contextName)}
             .with(4..9, "${ -> genNpcInfo('Rural', rural)}")
             .with(10..12, "${ -> genNpcInfo('Urban', urban)}")
 
-    static RangeMap criminal = new RangeMap()
+    RangeMap criminal = new RangeMap()
             .with(1, 'bandit/brigand/thug')
             .with(2, 'bandit/brigand/thug')
             .with(3..4, 'thief')
@@ -67,7 +67,7 @@ ${strong('NPC: ' + contextName)}
             .with(11, 'lieutenant')
             .with(12, 'boss')
 
-    static RangeMap commoner = new RangeMap()
+    RangeMap commoner = new RangeMap()
             .with(1, 'housewife/husband')
             .with(2..3, 'hunter/gatherer')
             .with(4..6, 'farmer/herder')
@@ -78,7 +78,7 @@ ${strong('NPC: ' + contextName)}
             .with(12, 'apprentice/adventurer')
 
 
-    static RangeMap tradesperson = new RangeMap()
+    RangeMap tradesperson = new RangeMap()
             .with(1, 'cobbler/furrier/tailor')
             .with(2, 'weaver/basketmaker')
             .with(3, 'potter/carpenter')
@@ -92,7 +92,7 @@ ${strong('NPC: ' + contextName)}
             .with(11, 'artist/actor/minstrel')
             .with(12, 'armorer/weaponsmith')
 
-    static RangeMap merchant = new RangeMap()
+    RangeMap merchant = new RangeMap()
             .with(1..3, 'general goods/outfitter')
             .with(4, 'raw materials')
             .with(5, 'grain/livestock')
@@ -104,7 +104,7 @@ ${strong('NPC: ' + contextName)}
             .with(11, 'books/scrolls')
             .with(12, 'magic supplies/items')
 
-    static RangeMap specialist = new RangeMap()
+    RangeMap specialist = new RangeMap()
             .with(1, 'undertaker')
             .with(2, 'sage/scholar/wizard')
             .with(3, 'writer/illuminator')
@@ -118,7 +118,7 @@ ${strong('NPC: ' + contextName)}
             .with(11, 'cartographer')
             .with(12, 'inventor')
 
-    static RangeMap official = new RangeMap()
+    RangeMap official = new RangeMap()
             .with(1, 'town crier')
             .with(2, 'tax collector')
             .with(3..4, 'armiger/gentry')
