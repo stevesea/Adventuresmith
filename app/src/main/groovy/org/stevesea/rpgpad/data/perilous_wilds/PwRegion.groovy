@@ -21,9 +21,6 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class PwRegion extends AbstractGenerator {
@@ -88,10 +85,6 @@ class PwRegion extends AbstractGenerator {
         Wall Waste Wasteland Woods
         """.tokenize()
 
-    @Inject
-    PwRegion(Shuffler shuffler) {
-        super(shuffler)
-    }
     RangeMap regions = new RangeMap()
             .with(1..4, "${ -> pick(adjectives)} ${ -> pick(terrains)}")
             .with(5..6, "${ -> pick(terrains)} of (the) ${ -> pick(nouns)}")

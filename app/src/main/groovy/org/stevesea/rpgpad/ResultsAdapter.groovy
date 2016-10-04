@@ -32,11 +32,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import groovy.transform.CompileStatic
 
-import javax.inject.Inject
-import javax.inject.Singleton
-
 @CompileStatic
-@Singleton
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     List<Integer> colors = [
@@ -109,7 +105,6 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<String> dataset;
 
-    @Inject
     ResultsAdapter() {
         this.dataset = new ArrayList<String>()
     }

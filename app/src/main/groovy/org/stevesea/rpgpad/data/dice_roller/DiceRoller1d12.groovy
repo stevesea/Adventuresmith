@@ -23,16 +23,9 @@ package org.stevesea.rpgpad.data.dice_roller
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.Dice
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject;
 
 @CompileStatic
 class DiceRoller1d12 extends AbstractGenerator {
-    @Inject
-    DiceRoller1d12(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     @Override
     String generate() {

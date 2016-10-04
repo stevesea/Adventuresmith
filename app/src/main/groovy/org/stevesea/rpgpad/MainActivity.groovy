@@ -36,7 +36,6 @@ import com.arasthel.swissknife.annotations.InjectView
 import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
 
-import javax.inject.Inject
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,9 +52,7 @@ public class MainActivity extends AppCompatActivity
     @InjectView(R.id.nav_view)
     NavigationView navigationView
 
-    @Inject
     ResultsAdapter resultsAdapter
-    @Inject
     ButtonsAdapter buttonsAdapter
 
     @OnClick(R.id.clear_results)
@@ -71,10 +68,11 @@ public class MainActivity extends AppCompatActivity
 
         contentView = R.layout.activity_main
 
-        ((RpgPadApp) getApplication()).getRpgPadComponent().inject(this);
-
         // This must be called for injection of views and callbacks to take place
         SwissKnife.inject this
+
+        resultsAdapter = new ResultsAdapter()
+        buttonsAdapter = new ButtonsAdapter(resultsAdapter)
 
         // This must be called for saved state restoring
         //SwissKnife.restoreState(this, savedInstanceState);

@@ -20,9 +20,6 @@ package org.stevesea.rpgpad.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsMagic extends AbstractGenerator {
@@ -334,11 +331,6 @@ Whisper
 Word
 Zone\
 """.readLines()
-
-    @Inject
-    MazeRatsMagic(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     List<GString> getFormatters() {
         return [

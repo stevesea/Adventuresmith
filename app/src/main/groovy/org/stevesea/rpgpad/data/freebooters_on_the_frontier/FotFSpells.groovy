@@ -22,9 +22,6 @@ package org.stevesea.rpgpad.data.freebooters_on_the_frontier
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class FotFSpells extends AbstractGenerator {
@@ -153,11 +150,6 @@ class FotFSpells extends AbstractGenerator {
         yop
         zant zark zirian zred
         """.tokenize()
-
-    @Inject
-    FotFSpells(Shuffler shuffler) {
-        super(shuffler);
-    }
 
     GString getWizardName() {
         List<String> oneInTenchanceOfHyphen = ["-"]

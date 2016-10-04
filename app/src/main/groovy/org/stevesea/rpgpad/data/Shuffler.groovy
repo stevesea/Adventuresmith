@@ -20,13 +20,14 @@ package org.stevesea.rpgpad.data
 
 import groovy.transform.CompileStatic
 
-import javax.inject.Inject
-
 @CompileStatic
 class Shuffler {
     final Random random;
 
-    @Inject
+    Shuffler() {
+        this(new Random())
+    }
+
     Shuffler(Random random) {
         this.random = random
     }

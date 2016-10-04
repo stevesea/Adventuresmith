@@ -23,23 +23,22 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-
-import javax.inject.Inject
+import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwFollower extends AbstractGenerator{
-    PwNPC pwNPC
+    PwNPC pwNPC = new PwNPC()
+    @Override
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        super.withShuffler(shuff)
+        pwNPC.withShuffler(shuff)
+        this
+    }
 
     int qual=0
     int loy=0
     int tagCount=0
     Set<?> calculatedTags = new TreeSet<>()
-
-    @Inject
-    PwFollower(PwNPC pwNPC) {
-        super(pwNPC.shuffler)
-        this.pwNPC = pwNPC
-    }
 
     @Override
     String generate() {

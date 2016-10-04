@@ -21,9 +21,6 @@ package org.stevesea.rpgpad.data.freebooters_on_the_frontier
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class FotFTraits extends AbstractGenerator {
@@ -132,11 +129,6 @@ Wasteful
 Wrathful
 Zealous\
 """.readLines()
-
-    @Inject
-    FotFTraits(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     String generate() {
         return """\

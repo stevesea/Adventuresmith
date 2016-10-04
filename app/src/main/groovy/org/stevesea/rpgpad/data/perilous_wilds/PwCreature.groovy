@@ -23,21 +23,20 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-
-import javax.inject.Inject
+import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwCreature extends AbstractGenerator {
-    PwDetails pwDetails
-    PwNPC pwNPC
+    PwDetails pwDetails = new PwDetails()
+    PwNPC pwNPC = new PwNPC()
 
-    @Inject
-    PwCreature(PwNPC pwNPC) {
-        super(pwNPC.shuffler)
-        this.pwDetails = pwNPC.pwDetails
-        this.pwNPC = pwNPC
+    @Override
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        super.withShuffler(shuff)
+        pwDetails.withShuffler(shuff)
+        pwNPC.withShuffler(shuff)
+        this
     }
-
     static RangeMap earthbound = new RangeMap()
             .with(1, 'termite/tick/louse')
             .with(2, 'snail/slug/worm')

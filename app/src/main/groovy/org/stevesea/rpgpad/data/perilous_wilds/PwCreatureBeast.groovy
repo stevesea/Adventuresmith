@@ -22,15 +22,8 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 
-import javax.inject.Inject
-
 @CompileStatic
 class PwCreatureBeast extends PwCreature {
-    @Inject
-    PwCreatureBeast(PwNPC pwNPC) {
-        super(pwNPC)
-    }
-
     @Override
     String generate() {
         return genBeast()

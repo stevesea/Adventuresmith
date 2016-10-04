@@ -10,7 +10,6 @@ apply from: "$rootDir/gradle/signing.gradle"
 ext {
     groovyVersion = '2.4.7'
     androidSupportVersion = '24.2.1'
-    daggerVersion = '2.7'
     junitVersion = '4.12'
 }
 
@@ -122,9 +121,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:$androidSupportVersion"
     compile "com.android.support:design:$androidSupportVersion"
     compile "com.android.support:recyclerview-v7:$androidSupportVersion"
-
-    apt 'com.google.dagger:dagger-compiler:2.7'
-    compile 'com.google.dagger:dagger:2.7'
 
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'

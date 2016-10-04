@@ -20,9 +20,6 @@ package org.stevesea.rpgpad.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsMonsters extends AbstractGenerator {
@@ -128,11 +125,6 @@ Wolf
 Wolverine
 Worm\
 """.readLines()
-
-    @Inject
-    MazeRatsMonsters(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     List<GString> getFormatters() {
         return [

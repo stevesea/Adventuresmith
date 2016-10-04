@@ -20,9 +20,6 @@ package org.stevesea.rpgpad.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsAfflictions extends AbstractGenerator {
@@ -128,11 +125,6 @@ Voice swaps gender
 Voice echoes
 Webbedd hands/feet\
 """.readLines()
-
-    @Inject
-    MazeRatsAfflictions(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     String generate() {
         return "${ -> pick(afflictions)}"

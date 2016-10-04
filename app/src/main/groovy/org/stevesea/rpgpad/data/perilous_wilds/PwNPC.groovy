@@ -23,18 +23,18 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-
-import javax.inject.Inject
+import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwNPC extends AbstractGenerator {
-    PwDetails pwDetails
-    @Inject
-    PwNPC(PwDetails pwDetails) {
-        super(pwDetails.shuffler)
-        this.pwDetails = pwDetails
-    }
+    PwDetails pwDetails = new PwDetails()
 
+    @Override
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        super.withShuffler(shuff)
+        pwDetails.withShuffler(shuff)
+        this
+    }
     @Override
     String generate() {
         pick(context)

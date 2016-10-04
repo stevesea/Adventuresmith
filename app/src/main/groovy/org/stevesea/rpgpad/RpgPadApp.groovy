@@ -24,13 +24,11 @@ import com.crashlytics.android.core.CrashlyticsCore
 import com.squareup.leakcanary.LeakCanary
 import groovy.transform.CompileStatic
 import io.fabric.sdk.android.Fabric
-import org.stevesea.rpgpad.data.maze_rats.MazeRatsDataModule
 
 import java.util.concurrent.atomic.AtomicBoolean
 
 @CompileStatic
 public class RpgPadApp extends Application {
-    RpgPadComponent rpgPadComponent
     static AtomicBoolean isFirstStartup = new AtomicBoolean(true)
 
     @Override
@@ -48,20 +46,5 @@ public class RpgPadApp extends Application {
                 .core(new CrashlyticsCore.Builder()/*.disabled(BuildConfig.DEBUG)*/.build())
                 .build();
         Fabric.with(this, crashlyticsKit)
-
-         rpgPadComponent = DaggerRpgPadComponent.builder()
-                 .rpgPadModule(new RpgPadModule(this))
-         .mazeRatsDataModule(new MazeRatsDataModule())
-                 .build()
     }
-
-    public RpgPadComponent getRpgPadComponent() {
-        return rpgPadComponent;
-    }
-
-    /*
-    public AbstractGenerator generatorFactory(DatasetButton btn) {
-        return rpgPadComponent.
-    }
-    */
 }

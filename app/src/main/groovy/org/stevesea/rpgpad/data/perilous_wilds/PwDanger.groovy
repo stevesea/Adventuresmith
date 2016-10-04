@@ -23,18 +23,19 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-
-import javax.inject.Inject
+import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwDanger extends AbstractGenerator {
-    final PwCreature pwCreature
-    final PwDetails pwDetails
-    @Inject
-    PwDanger(PwCreature pwCreature) {
-        super(pwCreature.shuffler)
-        this.pwCreature = pwCreature
-        this.pwDetails = pwCreature.pwDetails
+    final PwCreature pwCreature = new PwCreature()
+    final PwDetails pwDetails = new PwDetails()
+
+    @Override
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        super.withShuffler(shuff)
+        pwDetails.withShuffler(shuff)
+        pwCreature.withShuffler(shuff)
+        this
     }
 
     static RangeMap undead = new RangeMap()

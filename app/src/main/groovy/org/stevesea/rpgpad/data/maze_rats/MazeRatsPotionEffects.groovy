@@ -20,9 +20,6 @@ package org.stevesea.rpgpad.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsPotionEffects extends AbstractGenerator {
@@ -128,11 +125,6 @@ Water walking
 Web-slinging
 X-Ray vision\
 """.readLines()
-
-    @Inject
-    MazeRatsPotionEffects(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     String generate() {
         return "${ -> pick(effects)}"

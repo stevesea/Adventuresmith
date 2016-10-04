@@ -23,18 +23,18 @@ package org.stevesea.rpgpad.data.perilous_wilds
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
-
-import javax.inject.Inject
+import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwDungeon extends AbstractGenerator{
-    PwCreature pwCreature
-    PwDetails pwDetails
-    @Inject
-    PwDungeon(PwCreature pwCreature) {
-        super(pwCreature.shuffler)
-        this.pwCreature = pwCreature
-        this.pwDetails = pwCreature.pwDetails
+    PwCreature pwCreature = new PwCreature()
+    PwDetails pwDetails = new PwDetails()
+    @Override
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        super.withShuffler(shuff)
+        pwDetails.withShuffler(shuff)
+        pwCreature.withShuffler(shuff)
+        this
     }
 
     static enum dungeon_size {

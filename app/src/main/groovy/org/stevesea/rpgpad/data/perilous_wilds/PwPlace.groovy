@@ -20,9 +20,6 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class PwPlace extends AbstractGenerator {
@@ -82,11 +79,6 @@ class PwPlace extends AbstractGenerator {
         Thief Troll
         Warrior Water Witch Wizard
         """.tokenize()
-
-    @Inject
-    PwPlace(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     List<GString> getFormatters() {
         return [

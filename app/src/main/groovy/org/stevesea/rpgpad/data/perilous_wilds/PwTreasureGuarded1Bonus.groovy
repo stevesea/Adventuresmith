@@ -22,15 +22,8 @@ package org.stevesea.rpgpad.data.perilous_wilds
 
 import groovy.transform.CompileStatic
 
-import javax.inject.Inject;
-
 @CompileStatic
 class PwTreasureGuarded1Bonus extends PwTreasureGuarded {
-
-    @Inject
-    PwTreasureGuarded1Bonus(PwDetails pwDetails) {
-        super(pwDetails)
-    }
 
     @Override
     String generate() {

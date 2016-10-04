@@ -26,20 +26,12 @@ import android.widget.Button
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
-import javax.inject.Inject
-import javax.inject.Singleton
-
-@Singleton
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     List<DatasetButton> buttons;
     ResultsAdapter resultsAdapter
 
-    RpgPadApp app
-
-    @Inject
-    public ButtonsAdapter(ResultsAdapter resultsAdapter, RpgPadApp app) {
-        this.app = app
+    public ButtonsAdapter(ResultsAdapter resultsAdapter) {
         this.buttons = new ArrayList<>()
         this.resultsAdapter = resultsAdapter
     }
@@ -53,7 +45,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     void onBindViewHolder(ViewHolder holder, int position) {
-        final AbstractGenerator generator //= app.generatorFactory(buttons.get(position))
+        final AbstractGenerator generator = buttons.get(position).clz.newInstance()
         final String btnText = holder.itemView.getContext().getString(buttons.get(position).stringResourceId);
         final int numToGenerate = holder.itemView.getContext().getResources().getInteger(buttons.get(position).numGeneratedId)
         holder.btn.setText(btnText)

@@ -59,8 +59,8 @@ class PerilousWildsGeneratorTest {
 
     @Test
     void testGenerators() {
-        assertEquals("Ageless Bay", new PwRegion(shuffler).generate())
-        assertEquals("The Barrier", new PwPlace(shuffler).generate())
+        assertEquals("Ageless Bay", new PwRegion().withShuffler(shuffler).generate())
+        assertEquals("The Barrier", new PwPlace().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -84,7 +84,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Tag: </small></strong>Amorphous
 <br/><strong><small>Terrain: </small></strong>wasteland/desert
 <br/><strong><small>Visbility: </small></strong>buried/camouflaged/nigh invisible\
-""", new PwDetails(shuffler).generate())
+""", new PwDetails().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -98,7 +98,7 @@ class PerilousWildsGeneratorTest {
 <br/><br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
-""", new PwNPC(new PwDetails(shuffler)).generate())
+""", new PwNPC().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -120,7 +120,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
 <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
 <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic\
-""", new PwFollower(new PwNPC(new PwDetails(shuffler))).generate())
+""", new PwFollower().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -134,7 +134,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Disposition:</small></strong> attacking
 <br/><strong><small>No. Appearing:</small></strong> Solitary (1)
 <br/><strong><small>Size:</small></strong> Tiny\
-""", new PwCreature(new PwNPC(new PwDetails(shuffler))).generate())
+""", new PwCreature().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -145,7 +145,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong>Arcane</strong>
 <br/>residue
 <br/><strong><small>Alignment:</small></strong> Chaotic
-<br/><strong><small>Magic Type:</small></strong> divination""", new PwDiscovery(new PwSteading(new PwCreature(new PwNPC(new PwDetails(shuffler))))).generate())
+<br/><strong><small>Magic Type:</small></strong> divination""", new PwDiscovery().withShuffler(shuffler).generate())
     }
     @Test
     void testSteading() {
@@ -160,7 +160,7 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Population:</small></strong> Steady
 <br/><strong><small>Defenses:</small></strong> Militia
 <br/>
-<br/>Need: food<br/>Oath: other steading<br/>Resource: game/fruit/vegetable<br/>Safe""", new PwSteading(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
+<br/>Need: food<br/>Oath: other steading<br/>Resource: game/fruit/vegetable<br/>Safe""", new PwSteading().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -173,14 +173,14 @@ class PerilousWildsGeneratorTest {
 <br/><strong><small>Ability:</small></strong> bless/curse
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
 <br/><strong><small>Alignment:</small></strong> Chaotic
-<br/><strong><small>Disposition:</small></strong> attacking""", new PwDanger(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
+<br/><strong><small>Disposition:</small></strong> attacking""", new PwDanger().withShuffler(shuffler).generate())
     }
 
     @Test
     void testTreasure() {
         assertEquals("""\
 A few coins, 2d8 or so
-&nbsp;&nbsp;<small>[2]</small>""", new PwTreasure(new PwDetails(shuffler)).generate())
+&nbsp;&nbsp;<small>[2]</small>""", new PwTreasure().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -204,7 +204,7 @@ A few coins, 2d8 or so
 <br/>
 <br/><strong>damage die - D12 + 2d4</strong>
 <br/>Several coins, about 4d10
-<br/>&nbsp;&nbsp;<small>[4]</small>""", new PwTreasureGuarded2Bonus(new PwDetails(shuffler)).generate())
+<br/>&nbsp;&nbsp;<small>[4]</small>""", new PwTreasureGuarded2Bonus().withShuffler(shuffler).generate())
     }
 
     @Test
@@ -219,7 +219,7 @@ A few coins, 2d8 or so
 <br/><strong><small>Ruination:</small></strong> arcane disaster
 <br/>
 <br/><strong>Themes:</strong>
-<br/>&nbsp;&nbsp;rot/decay&nbsp;&#x25A2""", new PwDungeon(new PwCreature(new PwNPC(new PwDetails(shuffler)))).generate())
+<br/>&nbsp;&nbsp;rot/decay&nbsp;&#x25A2""", new PwDungeon().withShuffler(shuffler).generate())
     }
 
 }

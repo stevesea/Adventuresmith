@@ -22,11 +22,15 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 public abstract class AbstractGenerator {
+    Shuffler shuffler;
 
-    final Shuffler shuffler;
+    AbstractGenerator() {
+        this.shuffler = new Shuffler()
+    }
 
-    AbstractGenerator(Shuffler shuffler) {
-        this.shuffler = shuffler
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        this.shuffler = shuff
+        this
     }
 
     def pick(Collection<?> items) {

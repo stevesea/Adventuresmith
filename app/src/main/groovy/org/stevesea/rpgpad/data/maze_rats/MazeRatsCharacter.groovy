@@ -20,9 +20,6 @@ package org.stevesea.rpgpad.data.maze_rats
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.Shuffler
-
-import javax.inject.Inject
 
 @CompileStatic
 class MazeRatsCharacter extends AbstractGenerator {
@@ -384,11 +381,6 @@ Thick Gloves
 Trumpet
 Whistle\
 """.readLines()
-
-    @Inject
-    MazeRatsCharacter(Shuffler shuffler) {
-        super(shuffler)
-    }
 
     String generate() {
         return """\

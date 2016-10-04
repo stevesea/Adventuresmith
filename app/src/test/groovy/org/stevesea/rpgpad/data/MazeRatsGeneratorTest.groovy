@@ -52,16 +52,16 @@ class MazeRatsGeneratorTest {
     }
     @Test
     void testGenerators() {
-        assertEquals("Arc Acid", new MazeRatsMagic(shuffler).generate())
-        assertEquals("Arc Amulet", new MazeRatsItems(shuffler).generate())
-        assertEquals("Arc Ant", new MazeRatsMonsters(shuffler).generate())
-        assertEquals("Ages backwards", new MazeRatsAfflictions(shuffler).generate())
-        assertEquals("1-hour vampirism", new MazeRatsPotionEffects(shuffler).generate())
+        assertEquals("Arc Acid", new MazeRatsMagic().withShuffler(shuffler).generate())
+        assertEquals("Arc Amulet", new MazeRatsItems().withShuffler(shuffler).generate())
+        assertEquals("Arc Ant", new MazeRatsMonsters().withShuffler(shuffler).generate())
+        assertEquals("Ages backwards", new MazeRatsAfflictions().withShuffler(shuffler).generate())
+        assertEquals("1-hour vampirism", new MazeRatsPotionEffects().withShuffler(shuffler).generate())
         assertEquals("<strong><small>Name</small>: <em>Adelaide Barrow</em></strong>\n" +
                 "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: 3 DEX: 3 WIL: 3 &nbsp;&nbsp;&nbsp;&nbsp;HP: 1</small>\n" +
                 "<br/><strong><small>Personality</small></strong>: Avant-Garde, Boastful\n" +
                 "<br/><strong><small>Appearance</small></strong>: Battle Scars, Boney hands\n" +
                 "<br/><strong><small>Weapons</small></strong>: Arming Sword (d6), Battered Halberd (d8)\n" +
-                "<br/><strong><small>Equip</small></strong>: Animal Scent, Antitoxin, Armor", new MazeRatsCharacter(shuffler).generate())
+                "<br/><strong><small>Equip</small></strong>: Animal Scent, Antitoxin, Armor", new MazeRatsCharacter().withShuffler(shuffler).generate())
     }
 }
