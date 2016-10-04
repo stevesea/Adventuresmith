@@ -1,0 +1,86 @@
+<!--
+  ~ Copyright (c) 2016 Steve Christensen
+  ~
+  ~ This file is part of RPG-Pad.
+  ~
+  ~ RPG-Pad is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ RPG-Pad is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources>
+    <string name="dice_roller">Dice Roller</string>
+    <string name="maze_rats">Maze Rats</string>
+    <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
+
+    <string name="nav_thanks">Attribution &amp; Thanks</string>
+
+    <string name="perilous_wilds">The Perilous Wilds</string>
+    <string name="perilous_wilds_npc">NPCs</string>
+    <string name="perilous_wilds_creature">Creatures</string>
+    <string name="perilous_wilds_treasure">Treasure</string>
+    <string name="perilous_wilds_names">Create &amp; Name</string>
+
+    <string name="FotFSpells">Spells</string>
+    <string name="FotFTraits">Traits</string>
+
+    <string name="PwDiscovery">Discovery</string>
+    <string name="PwDanger">Danger</string>
+    <string name="PwPlaces">Place Names</string>
+    <string name="PwRegions">Region Names</string>
+    <string name="PwDetails">Details</string>
+    <string name="PwSteading">Steading</string>
+    <string name="PwDungeon">Dungeon</string>
+    <string name="PwDungeonExplore">Explore Dungeon</string>
+
+    <string name="PwTreasureUnguarded">Unguarded Treasure</string>
+    <string name="PwTreasureItem">Item</string>
+    <string name="PwTreasureGuarded">Guarded Treasure</string>
+    <string name="PwTreasureGuarded1">Guarded Treasure +1d4</string>
+    <string name="PwTreasureGuarded2">Guarded Treasure +2d4</string>
+    <string name="PwTreasureGuarded1_help">Apply a +1d4 bonus to the treasure roll</string>
+    <string name="PwTreasureGuarded2_help">Apply a +2d4 bonus to the treasure roll</string>
+    <string name="PwTreasure">Treasure</string>
+
+    <string name="PwNPC">NPC</string>
+    <string name="PwNPCWilderness">NPC (wilderness)</string>
+    <string name="PwNPCRural">NPC (rural)</string>
+    <string name="PwNPCUrban">NPC (urban)</string>
+    <string name="PwNPCFollower">Follower</string>
+
+    <string name="PwCreature">Creature</string>
+    <string name="PwCreatureBeast">Creature (Beast)</string>
+    <string name="PwCreatureHuman">Creature (Human)</string>
+    <string name="PwCreatureHumanoid">Creature (Humanoid)</string>
+    <string name="PwCreatureMonster">Creature (Monster)</string>
+
+    <string name="MrAfflictions">Afflictions</string>
+    <string name="MrCharacters">Characters</string>
+    <string name="MrItems">Items</string>
+    <string name="MrMagic">Spells</string>
+    <string name="MrMonsters">Monsters</string>
+    <string name="MrPotionEffects">Potion Effects</string>
+
+    <string name="dice_roller_2d6">2d6</string>
+    <string name="dice_roller_3d6">3d6</string>
+    <string name="dice_roller_4d4">4d4</string>
+    <string name="dice_roller_1d6">1d6</string>
+    <string name="dice_roller_1d8">1d8</string>
+    <string name="dice_roller_1d10">1d10</string>
+    <string name="dice_roller_1d12">1d12</string>
+    <string name="dice_roller_1d20">1d20</string>
+    <string name="dice_roller_1d30">1d30</string>
+    <string name="dice_roller_1d100">1d100</string>
+    <string name="dice_roller_2d20_adv">2d20 (adv)</string>
+    <string name="dice_roller_2d20_disadv">2d20 (disadv)</string>
+</resources>

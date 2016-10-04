@@ -20,6 +20,7 @@ package org.stevesea.rpgpad
 
 import android.app.Application
 import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.squareup.leakcanary.LeakCanary
 import dagger.ObjectGraph
 import groovy.transform.CompileStatic
@@ -43,7 +44,11 @@ public class RpgPadApp extends Application {
         }
         LeakCanary.install(this);
         //Stetho.initializeWithDefaults(this);
-        Fabric.with(this, new Crashlytics())
+        // Set up Crashlytics, disabled for debug builds
+        Crashlytics crashlyticsKit = new Crashlytics.Builder()
+                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .build();
+        Fabric.with(this, crashlyticsKit)
 
         graph = ObjectGraph.create(
                 new RpgPadModule(this)

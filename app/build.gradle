@@ -40,16 +40,28 @@ android {
         }
     }
 
+    productFlavors {
+        demo {
+            versionNameSuffix '-demo'
+        }
+        full {
+        }
+    }
 
     buildTypes {
         debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
             minifyEnabled false
             debuggable true
             applicationIdSuffix
             signingConfig signingConfigs.debug
+
+            // Disable fabric build ID generation for debug builds
+            ext.enableCrashlytics = false
         }
         release {
-            //minifyEnabled true
+            minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
