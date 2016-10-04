@@ -1,0 +1,7 @@
+/**
+ * Grab all the signing info out of project properties or from an environment variable.
+ */
+ext.keystorePassword = project.hasProperty('keystorePassword')?project.getProperty('keystorePassword'):System.getenv('KEYSTORE_PASSWORD')?:''
+ext.aliasKeyPassword = project.hasProperty('aliasKeyPassword')?project.getProperty('aliasKeyPassword'):System.getenv('ALIAS_KEY_PASSWORD')?:''
+ext.storeKeyAlias = project.hasProperty('storeKeyAlias')?project.getProperty('storeKeyAlias'):System.getenv('STORE_KEY_ALIAS')?:''
+ext.keystorePath = project.hasProperty('keystorePath')?project.getProperty('keystorePath'):System.getenv('KEYSTORE_PATH')?:''

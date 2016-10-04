@@ -4,6 +4,8 @@ apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
 apply plugin: 'io.fabric'
 
+apply from: "$rootDir/gradle/signing.gradle"
+
 
 ext {
     groovyVersion = '2.4.7'
@@ -23,16 +25,34 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        release {
+            storeFile file("$keystorePath")
+            storePassword "$keystorePassword"
+            keyAlias "$storeKeyAlias"
+            keyPassword "$aliasKeyPassword"
+        }
+    }
+
+
     buildTypes {
         debug {
             minifyEnabled false
-            signingConfig signingConfigs.debug
             debuggable true
+            applicationIdSuffix
+            signingConfig signingConfigs.debug
         }
         release {
-            minifyEnabled true
+            //minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
