@@ -21,7 +21,7 @@ withConfig(configuration) {
      */
     inline(phase: CONVERSION) { source, context, classNode ->
         source.AST.classes*.fields.flatten().each { field ->
-            def found = field.annotations.find { it.classNode.name == 'InjectView' || it.classNode.name == 'Inject' }
+            def found = field.annotations.find { it.classNode.name == 'InjectView' || it.classNode.name == 'Inject' || it.classNode.name == 'BindView'}
 
             if (found) {
                 field.addAnnotation(new AnnotationNode(ClassHelper.make(PackageScope)))

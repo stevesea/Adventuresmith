@@ -56,17 +56,6 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
                 resultsAdapter.addAll(results)
             }
         })
-        /*
-        if (buttons.get(position).helpTextId != 0) {
-            final String btnHelp = holder.itemView.getContext()
-            holder.btn.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    Snackbar.make(v, btnHelp, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
-                    return true;
-                }
-            });
-        }*/
     }
 
     @Override

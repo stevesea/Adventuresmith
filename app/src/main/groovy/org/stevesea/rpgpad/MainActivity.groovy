@@ -15,10 +15,12 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 package org.stevesea.rpgpad
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
@@ -31,36 +33,22 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.arasthel.swissknife.SwissKnife
-import com.arasthel.swissknife.annotations.InjectView
-import com.arasthel.swissknife.annotations.OnClick
 import groovy.transform.CompileStatic
 
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    @InjectView(R.id.recycler_buttons)
     RecyclerView recyclerButtons
-    @InjectView(R.id.recycler_results)
     RecyclerView recyclerResults
 
-    @InjectView(R.id.toolbar)
     Toolbar toolbar
 
-    @InjectView(R.id.drawer_layout)
     DrawerLayout drawer;
-    @InjectView(R.id.nav_view)
+
     NavigationView navigationView
 
     ResultsAdapter resultsAdapter
     ButtonsAdapter buttonsAdapter
-
-    @OnClick(R.id.clear_results)
-    public void onClickFloater(View v) {
-        resultsAdapter.clear()
-        Snackbar.make(v, getString(R.string.cleared_results_msg), Snackbar.LENGTH_SHORT)
-                .setAction("Action", null).show();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +56,24 @@ public class MainActivity extends AppCompatActivity
 
         contentView = R.layout.activity_main
 
-        // This must be called for injection of views and callbacks to take place
-        SwissKnife.inject this
+        navigationView = findViewById(R.id.nav_view) as NavigationView
+        drawer = findViewById(R.id.drawer_layout) as DrawerLayout
+        toolbar = findViewById(R.id.toolbar) as Toolbar
+        recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
+        recyclerResults = findViewById(R.id.recycler_results) as RecyclerView
+
+        FloatingActionButton fab = findViewById(R.id.clear_results) as FloatingActionButton
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            void onClick(View v) {
+                resultsAdapter.clear()
+                Snackbar.make(v, getString(R.string.cleared_results_msg), Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+            }
+        })
 
         resultsAdapter = new ResultsAdapter()
         buttonsAdapter = new ButtonsAdapter(resultsAdapter)
-
-        // This must be called for saved state restoring
-        //SwissKnife.restoreState(this, savedInstanceState);
-
-        // This mus be called for automatic parsing of intent extras
-        //SwissKnife.loadExtras(this)
 
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null

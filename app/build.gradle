@@ -111,8 +111,6 @@ dependencies {
     testCompile "junit:junit:$junitVersion"
     testCompile 'org.mockito:mockito-core:1.10.19'
 
-    compile 'com.arasthel:swissknife:1.4.0'
-
     compile "com.android.support:support-annotations:$androidSupportVersion"
     compile "com.android.support:support-v4:$androidSupportVersion"
     compile "com.android.support:support-compat:$androidSupportVersion"
