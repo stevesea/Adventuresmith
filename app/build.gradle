@@ -10,7 +10,8 @@ apply from: "$rootDir/gradle/signing.gradle"
 ext {
     groovyVersion = '2.4.7'
     androidSupportVersion = '24.2.1'
-    daggerVersion = '1.2.2'
+    daggerVersion = '2.7'
+    junitVersion = '4.12'
 }
 
 android {
@@ -40,14 +41,6 @@ android {
         }
     }
 
-    productFlavors {
-        demo {
-            versionNameSuffix '-demo'
-        }
-        full {
-        }
-    }
-
     buildTypes {
         debug {
             applicationIdSuffix '.debug'
@@ -56,9 +49,6 @@ android {
             debuggable true
             applicationIdSuffix
             signingConfig signingConfigs.debug
-
-            // Disable fabric build ID generation for debug builds
-            ext.enableCrashlytics = false
         }
         release {
             minifyEnabled true
@@ -119,7 +109,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:$junitVersion"
     testCompile 'org.mockito:mockito-core:1.10.19'
 
     compile 'com.arasthel:swissknife:1.4.0'
@@ -133,8 +123,11 @@ dependencies {
     compile "com.android.support:design:$androidSupportVersion"
     compile "com.android.support:recyclerview-v7:$androidSupportVersion"
 
-    compile "com.squareup.dagger:dagger:$daggerVersion"
-    apt "com.squareup.dagger:dagger-compiler:$daggerVersion"
+    apt 'com.google.dagger:dagger-compiler:2.7'
+    compile 'com.google.dagger:dagger:2.7'
+
+    provided 'javax.annotation:jsr250-api:1.0'
+    compile 'javax.inject:javax.inject:1'
 
     compile('com.crashlytics.sdk.android:crashlytics:2.6.4@aar') {
         transitive = true;

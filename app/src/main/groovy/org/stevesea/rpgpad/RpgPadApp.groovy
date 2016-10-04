@@ -22,16 +22,15 @@ import android.app.Application
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
 import com.squareup.leakcanary.LeakCanary
-import dagger.ObjectGraph
 import groovy.transform.CompileStatic
 import io.fabric.sdk.android.Fabric
-import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.maze_rats.MazeRatsDataModule
 
 import java.util.concurrent.atomic.AtomicBoolean
 
 @CompileStatic
 public class RpgPadApp extends Application {
-    private ObjectGraph graph;
+    RpgPadComponent rpgPadComponent
     static AtomicBoolean isFirstStartup = new AtomicBoolean(true)
 
     @Override
@@ -46,20 +45,23 @@ public class RpgPadApp extends Application {
         //Stetho.initializeWithDefaults(this);
         // Set up Crashlytics, disabled for debug builds
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
-                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .core(new CrashlyticsCore.Builder()/*.disabled(BuildConfig.DEBUG)*/.build())
                 .build();
         Fabric.with(this, crashlyticsKit)
 
-        graph = ObjectGraph.create(
-                new RpgPadModule(this)
-        );
+         rpgPadComponent = DaggerRpgPadComponent.builder()
+                 .rpgPadModule(new RpgPadModule(this))
+         .mazeRatsDataModule(new MazeRatsDataModule())
+                 .build()
     }
 
-    public void inject(Object object) {
-        graph.inject(object);
+    public RpgPadComponent getRpgPadComponent() {
+        return rpgPadComponent;
     }
 
+    /*
     public AbstractGenerator generatorFactory(DatasetButton btn) {
-        return graph.get(btn.clz)
+        return rpgPadComponent.
     }
+    */
 }

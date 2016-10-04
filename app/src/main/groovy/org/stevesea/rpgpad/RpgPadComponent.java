@@ -15,26 +15,24 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
-package org.stevesea.rpgpad.data
 
-import dagger.Module
-import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.dice_roller.DiceRollerDataModule
-import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFDataModule
-import org.stevesea.rpgpad.data.maze_rats.MazeRatsDataModule
-import org.stevesea.rpgpad.data.perilous_wilds.PwDataModule
+package org.stevesea.rpgpad;
 
-@CompileStatic
-@Module(
-        includes = [
-                FotFDataModule.class,
+import org.stevesea.rpgpad.data.maze_rats.MazeRatsDataModule;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+@Singleton
+@Component(
+        modules = {
+                RpgPadModule.class,
                 MazeRatsDataModule.class,
-                PwDataModule.class,
-                DiceRollerDataModule.class,
-        ],
-        library = true,
-        complete = false
+        }
 )
-class RpgPadDataModule {
+interface RpgPadComponent {
+    void inject(MainActivity activity);
 }

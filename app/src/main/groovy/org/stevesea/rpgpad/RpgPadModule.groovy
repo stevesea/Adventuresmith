@@ -22,18 +22,11 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.RpgPadDataModule
-import org.stevesea.rpgpad.data.Shuffler
 
 import javax.inject.Singleton
 
 @CompileStatic
-@Module(
-        includes = RpgPadDataModule.class,
-        injects = [MainActivity.class, ResultsAdapter.class, ButtonsAdapter.class, Shuffler.class],
-        library = true,
-        complete = false
-)
+@Module
 public class RpgPadModule {
     private final RpgPadApp application;
 

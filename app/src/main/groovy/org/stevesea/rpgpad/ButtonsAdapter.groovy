@@ -53,7 +53,7 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     void onBindViewHolder(ViewHolder holder, int position) {
-        final AbstractGenerator generator = app.generatorFactory(buttons.get(position))
+        final AbstractGenerator generator //= app.generatorFactory(buttons.get(position))
         final String btnText = holder.itemView.getContext().getString(buttons.get(position).stringResourceId);
         final int numToGenerate = holder.itemView.getContext().getResources().getInteger(buttons.get(position).numGeneratedId)
         holder.btn.setText(btnText)

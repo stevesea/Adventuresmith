@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
 
         contentView = R.layout.activity_main
 
-        ((RpgPadApp) getApplication()).inject(this);
+        ((RpgPadApp) getApplication()).getRpgPadComponent().inject(this);
 
         // This must be called for injection of views and callbacks to take place
         SwissKnife.inject this

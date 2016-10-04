@@ -6,7 +6,6 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url 'http://dl.bintray.com/kaleidos/maven' }
         maven { url 'https://maven.fabric.io/public' }
-        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.0'

@@ -19,20 +19,17 @@
 package org.stevesea.rpgpad.data.maze_rats
 
 import dagger.Module
+import dagger.Provides
 import groovy.transform.CompileStatic
+import org.stevesea.rpgpad.data.Shuffler
+
+import javax.inject.Singleton
 
 @CompileStatic
-@Module(
-        injects = [
-                MazeRatsAfflictions.class,
-                MazeRatsCharacter.class,
-                MazeRatsItems.class,
-                MazeRatsMagic.class,
-                MazeRatsMonsters.class,
-                MazeRatsPotionEffects.class,
-        ],
-        library = true,
-        complete = false
-)
+@Module
 class MazeRatsDataModule {
+    @Provides @Singleton
+    public MazeRatsAfflictions provideAfflictions(Shuffler shuffler) {
+        return new MazeRatsAfflictions(shuffler);
+    }
 }
