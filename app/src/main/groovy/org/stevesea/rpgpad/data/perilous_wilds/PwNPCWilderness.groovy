@@ -27,6 +27,6 @@ class PwNPCWilderness extends PwNPC {
 
     @Override
     String generate() {
-        return genNpcInfo('Urban', urban)
+        return genNpcInfo('Wilderness', wilderness)
     }
 }
