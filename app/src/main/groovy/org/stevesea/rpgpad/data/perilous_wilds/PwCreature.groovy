@@ -109,8 +109,8 @@ class PwCreature extends AbstractGenerator {
 
     RangeMap monster_unusual = new RangeMap()
             .with(1..3, 'plant/fungus')
-            .with(4..5, "Undead Human <br/><small>${ -> pick(pwDetails.undead)}</small>")
-            .with(6, "Undead Humanoid  <br/><small>${ -> pick(pwDetails.undead)} + ${ -> pick(humanoid)}</small>")
+            .with(4..5, "Undead Human <small/>[${ -> pick(pwDetails.undead)}]</small>")
+            .with(6, "Undead Humanoid  <small>[${ -> pick(pwDetails.undead)} + ${ -> pick(humanoid)}]</small>")
             .with(7..8, "${ -> pickN(beast,2).join(' + ')}")
             .with(9..10, "${ -> pick(beast) } + ${ -> pwDetails.pickAbility()}")
             .with(11..12, "${ -> pick(beast) } + ${ -> pwDetails.pickFeature()}")

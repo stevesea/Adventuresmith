@@ -20,6 +20,7 @@
 package org.stevesea.rpgpad
 
 import android.os.Bundle
+import android.support.annotation.NonNull
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -38,8 +39,19 @@ import groovy.transform.CompileStatic
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String RV_BUTTONS_MGR = MainActivity.class.name + '.rv_buttons_mgr'
+    private static final String RV_RESULTS_MGR = MainActivity.class.name + '.rv_results_mgr'
+    private static final String RV_RESULTS_ITEMS = MainActivity.class.name + '.rv_results_items'
+
+    private static final String DATASET_CURRENT = MainActivity.class.name + '.dataset_current'
+
     RecyclerView recyclerButtons
     RecyclerView recyclerResults
+
+    ArrayList<String> results;
+    ArrayList<DatasetButton> buttons;
+
+    Dataset datasetCurrent
 
     Toolbar toolbar
 
@@ -59,21 +71,19 @@ public class MainActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view) as NavigationView
         drawer = findViewById(R.id.drawer_layout) as DrawerLayout
         toolbar = findViewById(R.id.toolbar) as Toolbar
-        recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
+
         recyclerResults = findViewById(R.id.recycler_results) as RecyclerView
+        recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
 
         FloatingActionButton fab = findViewById(R.id.clear_results) as FloatingActionButton
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                resultsAdapter.clear()
+                resultsClear()
                 Snackbar.make(v, getString(R.string.cleared_results_msg), Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }
         })
-
-        resultsAdapter = new ResultsAdapter()
-        buttonsAdapter = new ButtonsAdapter(resultsAdapter)
 
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
@@ -84,36 +94,65 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (RpgPadApp.isFirstStartup.get()) {
-            buttonsAdapter.useDb(Dataset.None)
-            resultsAdapter.addAll( [
-                    getString(R.string.welcome_msg) + getString(R.string.content_attribution),
-                    getString(R.string.content_thanks)
-                    ]
-                    )
-            RpgPadApp.isFirstStartup.set(false)
-        }
-
         navigationView.setNavigationItemSelectedListener(this);
 
-        recyclerButtons.adapter = buttonsAdapter
-        recyclerResults.adapter = resultsAdapter
 
+        results = new ArrayList<>()
+        buttons = new ArrayList<>()
+
+        buttonsAdapter = new ButtonsAdapter(this, buttons)
+        recyclerButtons.adapter = buttonsAdapter
         recyclerButtons.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
 
-        final int longTextSpan = getResources().getInteger(R.integer.resultColsLongtext)
+        resultsAdapter = new ResultsAdapter(results);
+        recyclerResults.adapter = resultsAdapter
         GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
+
+        final int longTextSpan = getResources().getInteger(R.integer.resultColsLongtext)
+
         resultsGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (resultsAdapter.getTextLength(position) > 48)
+                if (results.getAt(position).length() > 48)
                     return longTextSpan
                 else
                     return 1
             }
         } as GridLayoutManager.SpanSizeLookup
+        resultsGridLayoutMgr.onSaveInstanceState()
 
         recyclerResults.layoutManager = resultsGridLayoutMgr
+
+        if (savedInstanceState == null) {
+            // first time
+            useDataset(Dataset.None)
+            resultsAdd(0, getString(R.string.welcome_msg))
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+
+        datasetCurrent = savedInstanceState.getSerializable(DATASET_CURRENT) as Dataset
+        useDataset(datasetCurrent)
+
+        List<String> restoredItems = savedInstanceState.getSerializable(RV_RESULTS_ITEMS) as ArrayList<String>
+        resultsAddAll(restoredItems)
+
+        recyclerButtons.getLayoutManager().onRestoreInstanceState(savedInstanceState.getParcelable(RV_BUTTONS_MGR));
+        recyclerResults.getLayoutManager().onRestoreInstanceState(savedInstanceState.getParcelable(RV_RESULTS_MGR));
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelable(RV_BUTTONS_MGR, recyclerButtons.getLayoutManager().onSaveInstanceState());
+        outState.putParcelable(RV_RESULTS_MGR, recyclerResults.getLayoutManager().onSaveInstanceState());
+        outState.putSerializable(RV_RESULTS_ITEMS, results)
+        outState.putSerializable(DATASET_CURRENT, datasetCurrent)
+
+        super.onSaveInstanceState(outState)
     }
 
     @Override
@@ -157,15 +196,42 @@ public class MainActivity extends AppCompatActivity
         Dataset key = Dataset.lookupDatasetForNavItem(id)
         getSupportActionBar().title = getString(key.stringResourceId)
 
-        buttonsAdapter.useDb(key)
-        //resultsAdapter.clear()
-        if (key == Dataset.None) {
-            resultsAdapter.addAll([getString(R.string.content_attribution), getString(R.string.content_thanks)])
-        }
+        useDataset(key)
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
 
+    public void resultsAdd(int position, String item) {
+        results.add(position, item);
+        resultsAdapter.notifyItemInserted(position);
+        recyclerResults.scrollToPosition(0)
+    }
+
+    public resultsAddAll(List<String> items) {
+        results.addAll(0, items)
+        resultsAdapter.notifyDataSetChanged()
+        recyclerResults.scrollToPosition(0)
+    }
+
+    void resultsClear() {
+        results.clear()
+        resultsAdapter.notifyDataSetChanged()
+    }
+
+    public void useDataset(Dataset key) {
+        datasetCurrent = key
+
+        buttons.clear()
+        buttons.addAll(DatasetButton.getButtonsForDataset(key))
+
+        results.clear()
+        if (key == Dataset.None) {
+            resultsAdd(0, getString(R.string.content_attribution))
+            resultsAdd(1, getString(R.string.content_thanks))
+        }
+        resultsAdapter.notifyDataSetChanged()
+        buttonsAdapter.notifyDataSetChanged()
+    }
 }

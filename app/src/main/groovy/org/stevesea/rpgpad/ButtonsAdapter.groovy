@@ -28,12 +28,12 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
-    List<DatasetButton> buttons;
-    ResultsAdapter resultsAdapter
+    List<DatasetButton> buttons
+    MainActivity mainActivity
 
-    public ButtonsAdapter(ResultsAdapter resultsAdapter) {
-        this.buttons = new ArrayList<>()
-        this.resultsAdapter = resultsAdapter
+    public ButtonsAdapter(MainActivity mainActivity, List<DatasetButton> buttons) {
+        this.buttons = buttons
+        this.mainActivity = mainActivity
     }
 
     @Override
@@ -47,13 +47,11 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     void onBindViewHolder(ViewHolder holder, int position) {
         final AbstractGenerator generator = buttons.get(position).clz.newInstance()
         final String btnText = holder.itemView.getContext().getString(buttons.get(position).stringResourceId);
-        final int numToGenerate = holder.itemView.getContext().getResources().getInteger(buttons.get(position).numGeneratedId)
         holder.btn.setText(btnText)
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                def results = generator.generate(numToGenerate).toList()
-                resultsAdapter.addAll(results)
+                mainActivity.resultsAdd(0, generator.generate())
             }
         })
     }
@@ -72,9 +70,4 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public void useDb(Dataset key) {
-        buttons.clear()
-        buttons.addAll(DatasetButton.getButtonsForDataset(key))
-        notifyDataSetChanged()
-    }
 }

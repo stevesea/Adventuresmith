@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
@@ -78,6 +80,9 @@ android {
         exclude 'META-INF/services/org.codehaus.groovy.runtime.ExtensionModule'
         exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 androidGroovy {
@@ -116,6 +121,8 @@ dependencies {
     testCompile "junit:junit:$junitVersion"
     testCompile 'org.mockito:mockito-core:1.10.19'
 
+    compile 'com.samskivert:jmustache:1.13'
+
     compile "com.android.support:support-annotations:$androidSupportVersion"
     compile "com.android.support:support-v4:$androidSupportVersion"
     compile "com.android.support:support-compat:$androidSupportVersion"
@@ -139,6 +146,7 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 // APT doesn't know to make these directories for tests. Force them to
@@ -157,4 +165,7 @@ tasks.withType(Test) {
     testLogging {
         exceptionFormat 'full'
     }
+}
+repositories {
+    mavenCentral()
 }

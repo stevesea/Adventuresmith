@@ -89,6 +89,12 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         });
     }
 
+
+    List<String> dataset;
+
+    ResultsAdapter(List<String> data) {
+        this.dataset = data
+    }
     @Override
     int getItemCount() {
         return dataset.size()
@@ -101,34 +107,5 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
             super(v);
             itemText = (TextView) v.findViewById(R.id.result_list_item_text);
         }
-    }
-
-    private List<String> dataset;
-
-    ResultsAdapter() {
-        this.dataset = new ArrayList<String>()
-    }
-
-    public void add(int position, String item) {
-        dataset.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void add(String item) {
-        dataset.add(0, item)
-        notifyDataSetChanged()
-    }
-    public void addAll(List<String> items) {
-        dataset.addAll(0, items)
-        notifyDataSetChanged()
-    }
-
-    public void clear() {
-        dataset.clear()
-        notifyDataSetChanged()
-    }
-
-    public int getTextLength(int position) {
-        return dataset.get(position).size()
     }
 }

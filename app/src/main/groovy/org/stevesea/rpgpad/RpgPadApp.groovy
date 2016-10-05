@@ -25,12 +25,8 @@ import com.squareup.leakcanary.LeakCanary
 import groovy.transform.CompileStatic
 import io.fabric.sdk.android.Fabric
 
-import java.util.concurrent.atomic.AtomicBoolean
-
 @CompileStatic
 public class RpgPadApp extends Application {
-    static AtomicBoolean isFirstStartup = new AtomicBoolean(true)
-
     @Override
     public void onCreate() {
         super.onCreate();
