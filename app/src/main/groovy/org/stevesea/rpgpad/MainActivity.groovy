@@ -19,7 +19,6 @@
  */
 package org.stevesea.rpgpad
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.NonNull
@@ -27,13 +26,11 @@ import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
-import android.support.v4.view.MenuItemCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.ShareActionProvider
 import android.support.v7.widget.Toolbar
 import android.text.Html
 import android.text.Spanned
@@ -67,9 +64,6 @@ public class MainActivity extends AppCompatActivity
 
     ResultsAdapter resultsAdapter
     ButtonsAdapter buttonsAdapter
-
-    ShareActionProvider shareActionProvider
-    Intent shareIntent
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,19 +171,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-
-
-        MenuItem item = menu.findItem(R.id.action_share) as MenuItem
-        shareActionProvider = MenuItemCompat.getActionProvider(item) as ShareActionProvider
-
-        if (shareActionProvider != null) {
-            shareIntent = new Intent()
-            shareIntent.setAction(Intent.ACTION_SEND)
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "some initial text")
-            shareIntent.setType("text/plain")
-        }
-        attachShareIntent()
-
         return true;
     }
 
@@ -203,35 +184,18 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.action_share) {
-
-            Intent sIntent = new Intent();
-            sIntent.setAction(Intent.ACTION_SEND);
-            sIntent.setType("text/html");
-
-            results.each { r ->
-                sIntent.putExtra(Intent.EXTRA_TEXT, convertToHtml(r));
-            }
-            shareIntent = sIntent
-            attachShareIntent()
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    static Spanned convertToHtml(String input) {
+    static Spanned htmlStrToSpanned(String input) {
         if (Build.VERSION.SDK_INT >= 24 /*Build.VERSION_CODES.N*/) {
             Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY)
         } else {
             Html.fromHtml(input);
         }
     }
-
-    void attachShareIntent() {
-        if (shareActionProvider != null && shareIntent != null)
-            shareActionProvider.setShareIntent(shareIntent)
-    }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

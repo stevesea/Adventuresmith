@@ -7,12 +7,6 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never"
-        />
-    <item
-        android:id="@+id/action_share"
-        android:icon="@drawable/ic_share_black_24dp"
-        android:title="@string/menu_share"
-        app:showAsAction="ifRoom"
-        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+        android:visible="false"
         />
 </menu>

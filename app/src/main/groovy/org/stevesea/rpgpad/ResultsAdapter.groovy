@@ -18,11 +18,9 @@
  */
 package org.stevesea.rpgpad
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.support.design.widget.Snackbar
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,17 +46,35 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
     void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String txt = dataset.get(position);
+        String htmlTxt = dataset.get(position)
 
-        holder.itemText.text = MainActivity.convertToHtml(txt)
+        Spanned spanned = MainActivity.htmlStrToSpanned(htmlTxt)
+        String plainTxt = spanned.toString()
+
+        holder.itemText.text = spanned
 
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ClipboardManager clipboard = (ClipboardManager)holder.itemView.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newHtmlText("RPG-Pad result",txt, txt);
-                clipboard.setPrimaryClip(clip);
-                Snackbar.make(v, "Copied item to clipboard", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
+                // TODO: https://gist.github.com/mediavrog/5625602
+                /*
+                ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
+                ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
+                clipboard.setPrimaryClip(clipData)
+                */
+
+                Intent sIntent = new Intent()
+                sIntent.setAction(Intent.ACTION_SEND)
+                sIntent.setType("text/html")
+                sIntent.putExtra(Intent.EXTRA_SUBJECT, "Look at what I generated with ${v.getContext().getString(R.string.app_name)}")
+                sIntent.putExtra(Intent.EXTRA_TEXT, plainTxt)
+                sIntent.putExtra(Intent.EXTRA_HTML_TEXT, htmlTxt)
+                //sIntent.setClipData(clipData)
+                v.getContext().startActivity(Intent.createChooser(sIntent,
+                        v.getContext().getString(R.string.action_share)))
+
+                //Snackbar.make(v, "Shared...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 return true;
             }
         });
