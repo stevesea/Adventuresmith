@@ -23,6 +23,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.crashlytics.android.answers.Answers
+import com.crashlytics.android.answers.CustomEvent
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -45,12 +47,17 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     void onBindViewHolder(ViewHolder holder, int position) {
-        final AbstractGenerator generator = buttons.get(position).clz.newInstance()
-        final String btnText = holder.itemView.getContext().getString(buttons.get(position).stringResourceId);
+        final DatasetButton btn = buttons.get(position)
+        final AbstractGenerator generator = btn.clz.newInstance()
+        final String btnText = holder.itemView.getContext().getString(btn.stringResourceId);
         holder.btn.setText(btnText)
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
+                Answers.getInstance().logCustom(new CustomEvent("Generated Result")
+                        .putCustomAttribute("Dataset", btn.getDataset().name())
+                        .putCustomAttribute("Button", btn.getDataset().name() + '.' + btnText)
+                )
                 mainActivity.resultsAdd(0, generator.generate())
             }
         })

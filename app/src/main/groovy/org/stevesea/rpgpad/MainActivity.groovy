@@ -37,6 +37,8 @@ import android.text.Spanned
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.crashlytics.android.answers.Answers
+import com.crashlytics.android.answers.CustomEvent
 import groovy.transform.CompileStatic
 
 @CompileStatic
@@ -240,6 +242,10 @@ public class MainActivity extends AppCompatActivity
         if (key == Dataset.None) {
             resultsAdd(0, getString(R.string.content_attribution))
             resultsAdd(1, getString(R.string.content_thanks))
+        } else {
+            Answers.getInstance().logCustom(new CustomEvent("Selected Dataset")
+                    .putCustomAttribute("Dataset", key.name())
+            )
         }
         resultsAdapter.notifyDataSetChanged()
         buttonsAdapter.notifyDataSetChanged()
