@@ -21,6 +21,9 @@
 
 -ignorewarnings
 
+-keep class org.stevesea.**
+-keepclassmembers class org.stevesea.** { *; }
+
 # make crashlytics reports more meaningful
 -keepattributes *Annotation*
 -keepattributes SourceFile,LineNumberTable
@@ -40,13 +43,10 @@
 -keepclassmembers class org.codehaus.groovy.runtime.dgm* { *; }
 -keepclassmembers class ** implements org.codehaus.groovy.runtime.GeneratedClosure { *; }
 -keepclassmembers class org.codehaus.groovy.reflection.** { *;}
--keepclassmembers class org.codehaus.groovy.reflection.GroovyClassValue* {*;}
 -keepclassmembers class org.codehaus.groovy.runtime.** { *; }
 -keepclassmembers class org.codehaus.groovy.control.SourceUnit { *; }
 
-
--keep class org.stevesea.**
--keepclassmembers class org.stevesea.** { *; }
+-keep class groovy.lang.** { *; }
 
 -dontwarn org.codehaus.groovy.**
 -dontwarn groovy**
