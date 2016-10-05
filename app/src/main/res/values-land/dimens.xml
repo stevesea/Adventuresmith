@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="buttonCols">5</integer>
-    <integer name="resultCols">4</integer>
+    <integer name="resultCols">2</integer>
     <integer name="resultColsLongtext">2</integer>
 </resources>

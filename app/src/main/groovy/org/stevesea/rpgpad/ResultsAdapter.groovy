@@ -23,7 +23,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.os.Build
 import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.text.Html
 import android.view.LayoutInflater
@@ -34,21 +33,6 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
-
-    List<Integer> colors = [
-            R.color.resultsBg0,
-            R.color.resultsBg1,
-            R.color.resultsBg2,
-            R.color.resultsBg3,
-            R.color.resultsBg4,
-            R.color.resultsBg5,
-            R.color.resultsBg6,
-            R.color.resultsBg7,
-            R.color.resultsBg8,
-            R.color.resultsBg9,
-            R.color.resultsBg10,
-            R.color.resultsBg11,
-    ]
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -76,7 +60,6 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
             holder.itemText.setText(Html.fromHtml(dataset.get(position)));
         }
 
-        holder.itemText.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), (int)colors.get(position % colors.size())))
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
