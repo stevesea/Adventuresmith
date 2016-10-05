@@ -67,7 +67,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
                 Intent sIntent = new Intent()
                 sIntent.setAction(Intent.ACTION_SEND)
                 sIntent.setType("text/html")
-                sIntent.putExtra(Intent.EXTRA_SUBJECT, "Look at what I generated with ${v.getContext().getString(R.string.app_name)}")
+                //sIntent.putExtra(Intent.EXTRA_SUBJECT, "Look at what I generated with ${v.getContext().getString(R.string.app_name)}")
                 sIntent.putExtra(Intent.EXTRA_TEXT, plainTxt)
                 sIntent.putExtra(Intent.EXTRA_HTML_TEXT, htmlTxt)
                 //sIntent.setClipData(clipData)
