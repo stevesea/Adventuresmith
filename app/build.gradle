@@ -6,6 +6,11 @@ apply plugin: 'io.fabric'
 
 apply from: "$rootDir/gradle/signing.gradle"
 
+androidGitVersion {
+    // default:
+    //format = '%tag%%.count%%<commit>%%-branch%%...dirty%'
+    format = '%tag%%.count%%-commit%%-branch%'
+}
 
 ext {
     groovyVersion = '2.4.7'
