@@ -21,10 +21,8 @@ package org.stevesea.rpgpad
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.os.Build
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,13 +50,7 @@ class ResultsAdapter extends RecyclerView.Adapter<ViewHolder> {
         // - replace the contents of the view with that element
         final String txt = dataset.get(position);
 
-        //https://blog.egorand.me/all-the-things-compat/
-        // https://developer.android.com/reference/android/text/Html.html
-        if (Build.VERSION.SDK_INT >= 24 /*Build.VERSION_CODES.N*/) {
-            holder.itemText.setText(Html.fromHtml(dataset.get(position), Html.FROM_HTML_MODE_LEGACY));
-        } else {
-            holder.itemText.setText(Html.fromHtml(dataset.get(position)));
-        }
+        holder.itemText.text = MainActivity.convertToHtml(txt)
 
         holder.itemText.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

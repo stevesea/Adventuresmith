@@ -42,5 +42,5 @@
         <ul>
         </ul>]]>
     </string>
-    <string name="welcome_msg"><![CDATA[<h3>Welcome!</h3> <br/><br/><mark>Select a category to begin.</mark><br/><br/><br/><br/>]]></string>
+    <string name="welcome_msg"><![CDATA[<h3>Welcome!</h3> <br/><br/>Select a category to begin.<br/><br/>]]></string>
 </resources>

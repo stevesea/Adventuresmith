@@ -11,5 +11,6 @@
     <string name="acknowledgements">Acknowledgements</string>
     <string name="select_a_category">Select a category:</string>
     <string name="cleared_results_msg">Results cleared.</string>
+    <string name="menu_share">Share</string>
 
 </resources>
