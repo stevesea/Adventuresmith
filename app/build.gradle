@@ -16,7 +16,7 @@ androidGitVersion {
 
 ext {
     groovyVersion = '2.4.7'
-    androidSupportVersion = '24.2.1'
+    androidSupportVersion = '24.2.0'
     junitVersion = '4.12'
 }
 
