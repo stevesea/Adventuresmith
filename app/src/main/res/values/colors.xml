@@ -3,9 +3,8 @@
     <color name="colorPrimary">#607D8B</color>
     <color name="colorPrimaryDark">#37474F</color>
     <color name="colorAccent">#DD2C00</color>
-    <color name="colorContentBg">#ECEFF1</color>
-    <color name="colorButtons">#CFD8DC</color>
 
+    <color name="button_color">#CFD8DC</color>
     <color name="resultListBg">#E2E2E2</color>
     <!--
      solarized
