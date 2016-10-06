@@ -24,7 +24,6 @@ import android.os.Bundle
 import android.support.annotation.NonNull
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
@@ -40,6 +39,7 @@ import android.view.View
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import groovy.transform.CompileStatic
+import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 public class MainActivity extends AppCompatActivity
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity
     private static final String RV_RESULTS_ITEMS = MainActivity.class.name + '.rv_results_items'
 
     private static final String DATASET_CURRENT = MainActivity.class.name + '.dataset_current'
+    private static final String BUTTON_CURRENT = MainActivity.class.name + '.button_current'
 
     RecyclerView recyclerButtons
     RecyclerView recyclerResults
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity
     ArrayList<DatasetButton> buttons;
 
     Dataset datasetCurrent
+    DatasetButton buttonCurrent
 
     Toolbar toolbar
 
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity
 
     ResultsAdapter resultsAdapter
     ButtonsAdapter buttonsAdapter
+
+    FloatingActionButton fab
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +84,14 @@ public class MainActivity extends AppCompatActivity
         recyclerResults = findViewById(R.id.recycler_results) as RecyclerView
         recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
 
-        FloatingActionButton fab = findViewById(R.id.clear_results) as FloatingActionButton
+
+        fab = findViewById(R.id.fab_again) as FloatingActionButton
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
-                resultsClear()
-                Snackbar.make(v, getString(R.string.cleared_results_msg), Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
+                if (buttonCurrent != null) {
+                    generateButtonPressed(buttonCurrent)
+                }
             }
         })
 
@@ -132,6 +137,19 @@ public class MainActivity extends AppCompatActivity
             // first time
             useDataset(Dataset.None)
             resultsAdd(0, getString(R.string.welcome_msg))
+
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume()
+        checkFabVisibility()
+    }
+
+    void checkFabVisibility() {
+        if (fab != null) {
+            fab.setVisibility(buttonCurrent == null ? View.INVISIBLE : View.VISIBLE)
         }
     }
 
@@ -142,6 +160,7 @@ public class MainActivity extends AppCompatActivity
 
         datasetCurrent = savedInstanceState.getSerializable(DATASET_CURRENT) as Dataset
         useDataset(datasetCurrent)
+        buttonCurrent = savedInstanceState.getSerializable(BUTTON_CURRENT) as DatasetButton
 
         List<String> restoredItems = savedInstanceState.getSerializable(RV_RESULTS_ITEMS) as ArrayList<String>
         resultsAddAll(restoredItems)
@@ -156,6 +175,7 @@ public class MainActivity extends AppCompatActivity
         outState.putParcelable(RV_RESULTS_MGR, recyclerResults.getLayoutManager().onSaveInstanceState());
         outState.putSerializable(RV_RESULTS_ITEMS, results)
         outState.putSerializable(DATASET_CURRENT, datasetCurrent)
+        outState.putSerializable(BUTTON_CURRENT, buttonCurrent)
 
         super.onSaveInstanceState(outState)
     }
@@ -183,8 +203,8 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_clear) {
+            resultsClear()
             return true;
         }
 
@@ -232,8 +252,18 @@ public class MainActivity extends AppCompatActivity
         resultsAdapter.notifyDataSetChanged()
     }
 
+    void generateButtonPressed(DatasetButton btn) {
+        buttonCurrent = btn
+        checkFabVisibility()
+        final AbstractGenerator generator = btn.clz.newInstance()
+        resultsAdd(0, generator.generate())
+    }
+
     public void useDataset(Dataset key) {
         datasetCurrent = key
+
+        buttonCurrent = null
+        checkFabVisibility()
 
         buttons.clear()
         buttons.addAll(DatasetButton.getButtonsForDataset(key))

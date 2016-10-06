@@ -40,7 +40,6 @@
         <!-- Toolbar is the actual app bar with text and the action items -->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:paddingTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -51,11 +50,12 @@
     <include layout="@layout/content_main"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/clear_results"
+        android:id="@+id/fab_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_delete"/>
+        android:tint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_input_add"/>
 
 </android.support.design.widget.CoordinatorLayout>

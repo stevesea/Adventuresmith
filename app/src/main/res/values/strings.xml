@@ -12,5 +12,6 @@
     <string name="select_a_category">Select a category:</string>
     <string name="cleared_results_msg">Results cleared.</string>
     <string name="action_share">Share…</string>
+    <string name="action_clear">Clear</string>
 
 </resources>
