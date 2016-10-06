@@ -48,14 +48,12 @@
     <string name="PwTreasureGuarded">Guarded Treasure</string>
     <string name="PwTreasureGuarded1">Guarded Treasure +1d4</string>
     <string name="PwTreasureGuarded2">Guarded Treasure +2d4</string>
-    <string name="PwTreasureGuarded1_help">Apply a +1d4 bonus to the treasure roll</string>
-    <string name="PwTreasureGuarded2_help">Apply a +2d4 bonus to the treasure roll</string>
     <string name="PwTreasure">Treasure</string>
 
     <string name="PwNPC">NPC</string>
-    <string name="PwNPCWilderness">NPC (wilderness)</string>
-    <string name="PwNPCRural">NPC (rural)</string>
-    <string name="PwNPCUrban">NPC (urban)</string>
+    <string name="PwNPCWilderness">NPC - Wilderness</string>
+    <string name="PwNPCRural">NPC - Rural</string>
+    <string name="PwNPCUrban">NPC Urban</string>
     <string name="PwNPCFollower">Follower</string>
 
     <string name="PwCreature">Creature</string>
