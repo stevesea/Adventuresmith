@@ -12,11 +12,30 @@ This is an Android application which randomly generates configurable things for 
 * Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
 * Maze Rats 0.1, by Ben Milton. http://questingblog.com/maze-rats/
 
-## Other random generators with the same/similar content
+## Roadmap
 
-https://perilous-wilds.geekwire.net/region
+* ~~Implement enough it's ready for consumption~~
+* **1.0-beta** use Crashlytics' Beta
+    * https://betas.to/guJ4ZNqt  - this link will let you install Crashlytics' Beta app, which allows
+     me to track usage, crashes, and keep beta users updated with new versions as I fix problems
+    * ~~announce to smaller G+ audience, and my local gaming group~~
+    * announce to wider audience on G+ (OSR, DW Tavern, Gauntlet)
+    * Development tasks during beta
+        * polish UI
+        * fix bugs and enhancements (usability, formatting) things brought up during beta
+        * figure out less generic name than 'RPG-Pad'
+* **1.0** Publish on Google Play
+    * ~~register as developer~~
+    * publish
+    * create GitHub web page for the project (separate from the source page)
+* **2.0** More content, easier to maintain content
+    * rather than Groovy GStrings & closures, use a templating engine
+    * make application more data-driven, and easier for other people to submit content
+    * get suggestions from beta users and G+ community for new random generator content
+* **Future**
+    * move the result generation into a backend REST API. that'll make it much easier to create
+      thinner clients for android/iOS/web. also, learning AWS or other hosting will be fun :D
 
-http://www.random-generator.com/index.php?title=Category:Dungeon_World
 
 ## Goals
 
@@ -26,7 +45,16 @@ http://www.random-generator.com/index.php?title=Category:Dungeon_World
     interrelated tables (Perilous Wilds is a good example).
   * evocative, interesting random table entries.
 
-* I'm not particularly interested in turning this app into a general-purpose random-generator engine.
+* I'm not particularly interested in turning this app into a general-purpose random-generator engine --
+  I don't want 20+ variations of name-generation tables
+
+
+## Other random generators with the same/similar content
+
+https://perilous-wilds.geekwire.net/region
+
+http://www.random-generator.com/index.php?title=Category:Dungeon_World
+
 
 ## Screenshots
 
