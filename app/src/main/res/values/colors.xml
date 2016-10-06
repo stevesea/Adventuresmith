@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#607D8B</color>
-    <color name="colorPrimaryDark">#37474F</color>
-    <color name="colorAccent">#DD2C00</color>
+    <color name="colorPrimary">#795548</color>
+    <color name="colorPrimaryDark">#5D4037</color>
+    <color name="colorPrimaryLight">#D7CCC8</color>
+    <color name="colorAccent">#00BCD4</color>
 
-    <color name="button_color">#CFD8DC</color>
-    <color name="resultListBg">#E2E2E2</color>
+    <color name="button_color">@color/colorAccent</color>
+    <color name="resultListBg">@color/colorPrimaryLight</color>
     <!--
      solarized
     http://ethanschoonover.com/solarized#features
