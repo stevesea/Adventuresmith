@@ -28,11 +28,20 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--
+    http://www.android4devs.com/2015/06/navigation-view-material-design-support.html
+    -->
+
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <!--
+        app:itemBackground="@color/colorPrimaryLightLight"
+        app:itemIconTint="@color/blackT87"
+        app:itemTextColor="@color/blackT87"
+    -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

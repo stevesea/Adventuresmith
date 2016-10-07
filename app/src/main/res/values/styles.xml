@@ -6,6 +6,7 @@
         <!-- https://medium.com/google-developers/theming-with-appcompat-1a292b754b35#.sqiy67j0d -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="colorButtonNormal">@color/colorAccentDark</item>
@@ -14,6 +15,8 @@
         colorControlNormal controls the ‘normal’ state of components such as an unselected EditText, and unselected Checkboxes and RadioButtons
         colorControlActivated overrides colorAccent as the activated or checked state for Checkboxes and RadioButtons
         colorControlHighlight controls the ripple coloring
+
+        http://stackoverflow.com/questions/26583780/where-can-i-find-the-default-styles-for-theme-appcompat-light
         -->
     </style>
 
