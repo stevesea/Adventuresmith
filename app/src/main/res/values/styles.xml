@@ -3,11 +3,18 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <!-- https://medium.com/google-developers/theming-with-appcompat-1a292b754b35#.sqiy67j0d -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="colorButtonNormal">@color/button_color</item>
+        <item name="colorButtonNormal">@color/colorAccentDark</item>
+
+        <!--
+        colorControlNormal controls the ‘normal’ state of components such as an unselected EditText, and unselected Checkboxes and RadioButtons
+        colorControlActivated overrides colorAccent as the activated or checked state for Checkboxes and RadioButtons
+        colorControlHighlight controls the ripple coloring
+        -->
     </style>
 
     <style name="AppTheme.NoActionBar">

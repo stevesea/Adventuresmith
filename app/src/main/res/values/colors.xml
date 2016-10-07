@@ -14,9 +14,7 @@
     <color name="colorAccentLight">#B2EBF2</color>
     <color name="colorAccentLightLight">#E0F7FA</color>
 
-    <color name="button_color">@color/colorAccent</color>
-
-    <color name="resultCardBg">@color/colorPrimaryLightLight</color>
+    <color name="resultCardBg">@color/colorPrimaryLight</color>
     <!--
      solarized
     http://ethanschoonover.com/solarized#features
