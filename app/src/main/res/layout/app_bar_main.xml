@@ -46,6 +46,40 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimaryLightLight"
+        >
+        <ImageView
+            android:id="@+id/img_vines"
+            android:src="@drawable/ic_curling_vines"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="100%"
+            app:layout_widthPercent="100%"
+            />
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:id="@+id/img_bones"
+            android:src="@drawable/ic_dinosaur_bones"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="70%"
+            app:layout_widthPercent="100%"
+            />
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/img_tentacles"
+            android:src="@drawable/ic_interlaced_tentacles"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="70%"
+            app:layout_widthPercent="100%"
+            />
+    </android.support.percent.PercentRelativeLayout>
+
     <include layout="@layout/content_main"/>
 
     <android.support.design.widget.FloatingActionButton
