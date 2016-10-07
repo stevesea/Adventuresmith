@@ -53,6 +53,16 @@
         android:background="@color/colorPrimaryLightLight"
         >
         <ImageView
+            android:src="@drawable/brown_leather_by_sharandra_d6wduob"
+            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="100%"
+            app:layout_widthPercent="100%"
+            android:tint="#99FFFFFF"
+            />
+        <!--
+        <ImageView
             android:id="@+id/img_vines"
             android:src="@drawable/ic_curling_vines"
             android:layout_width="0dp"
@@ -78,6 +88,7 @@
             app:layout_heightPercent="70%"
             app:layout_widthPercent="100%"
             />
+            -->
     </android.support.percent.PercentRelativeLayout>
 
     <include layout="@layout/content_main"/>

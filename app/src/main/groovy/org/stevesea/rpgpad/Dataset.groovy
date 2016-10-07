@@ -24,7 +24,7 @@ import groovy.transform.CompileStatic
 public enum Dataset {
     None(R.string.app_name, R.id.nav_thanks),
     MazeRats(R.string.maze_rats, R.id.nav_mr),
-    ThePerilousWilds(R.string.perilous_wilds, R.id.nav_pw),
+    ThePerilousWilds(R.string.perilous_wilds_explore, R.id.nav_pw),
     ThePerilousWildsNPC(R.string.perilous_wilds_npc, R.id.nav_pw_npc),
     ThePerilousWildsCreature(R.string.perilous_wilds_creature, R.id.nav_pw_creature),
     ThePerilousWildsTreasure(R.string.perilous_wilds_treasure, R.id.nav_pw_treasure),

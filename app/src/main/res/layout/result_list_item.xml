@@ -29,21 +29,35 @@
     card_view:cardPreventCornerOverlap="false"
     card_view:cardUseCompatPadding="true"
     >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <!--
+            <ImageView
+                android:src="@drawable/seamless_parchment_texture_by_fantasystock"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                />
+                -->
+            <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/result_list_item_text"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="@dimen/resultListFontSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:text="Replaced at runtime!"/>
+        </FrameLayout>
     <!--
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground" -->
+    android:foreground="?android:attr/selectableItemBackground"-->
 
-    <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/result_list_item_text"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:textSize="@dimen/resultListFontSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:text="Replaced at runtime!"/>
 </android.support.v7.widget.CardView>
