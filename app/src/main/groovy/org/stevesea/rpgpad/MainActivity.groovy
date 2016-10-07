@@ -134,12 +134,13 @@ public class MainActivity extends AppCompatActivity
 
         recyclerResults.layoutManager = resultsGridLayoutMgr
 
+
         if (savedInstanceState == null) {
             // first time
-            useDataset(Dataset.None)
+            //useDataset(Dataset.None)
             resultsAdd(0, getString(R.string.welcome_msg))
-
         }
+
     }
 
     @Override
