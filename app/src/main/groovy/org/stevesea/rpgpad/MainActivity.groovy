@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity
 
 
         datasetCurrent = savedInstanceState.getSerializable(DATASET_CURRENT) as Dataset
-        useDataset(datasetCurrent)
+        useDataset(datasetCurrent != null ? datasetCurrent : Dataset.None)
         buttonCurrent = savedInstanceState.getSerializable(BUTTON_CURRENT) as DatasetButton
 
         List<String> restoredItems = savedInstanceState.getSerializable(RV_RESULTS_ITEMS) as ArrayList<String>
