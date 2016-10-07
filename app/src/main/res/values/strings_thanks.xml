@@ -21,21 +21,23 @@
 <resources>
     <string name="content_attribution"><![CDATA[
         <h3>Attribution</h3>
+        <h4>Content</h4>
         This application uses content produced by the following individuals
         <ul>
-            <h4>Jason Lutes</h4>
+            <h5>Jason Lutes</h5>
             <ul>
                 <li><em>&nbsp;The Perilous Wilds</em></li>
                 <li><em>&nbsp;Freebooters of the Frontier</em></li>
             </ul>
         </ul>
         <ul>
-            <h4>Ben Milton</h4>
+            <h5>Ben Milton</h5>
             <ul>
                 <li><em>&nbsp;Maze Rats</em></li>
             </ul>
         </ul>
-        This application uses Icons made by Lorc. Available on http://game-icons.net
+        <h4>Artwork</h4>
+        This application uses icons made by Lorc. Available on http://game-icons.net
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[

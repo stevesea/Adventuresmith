@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single" android:id="@+id/nav_pw_group">
-        <item
-            android:id="@+id/nav_pw"
-            android:icon="@drawable/ic_terrain_black_24dp"
-            android:title="@string/perilous_wilds"/>
-        <item
-            android:id="@+id/nav_pw_npc"
-            android:icon="@drawable/ic_group_black_24dp"
-            android:title="@string/perilous_wilds_npc"/>
-        <item
-            android:id="@+id/nav_pw_creature"
-            android:icon="@drawable/paw"
-            android:title="@string/perilous_wilds_creature"/>
-        <item
-            android:id="@+id/nav_pw_treasure"
-            android:icon="@drawable/ic_highlight_black_24dp"
-            android:title="@string/perilous_wilds_treasure"/>
-        <item
-            android:id="@+id/nav_pw_names"
-            android:icon="@drawable/book_open_page_variant"
-            android:title="@string/perilous_wilds_names"/>
-    </group>
+    <item android:title="@string/perilous_wilds"
+          android:icon="@drawable/ic_terrain_black_24dp"
+        >
+        <menu>
+            <group android:checkableBehavior="single" android:id="@+id/nav_pw_group">
+                <item
+                    android:id="@+id/nav_pw"
+                    android:icon="@drawable/ic_wallpaper_black_24dp"
+                    android:title="@string/perilous_wilds_explore"/>
+                <item
+                    android:id="@+id/nav_pw_npc"
+                    android:icon="@drawable/ic_group_black_24dp"
+                    android:title="@string/perilous_wilds_npc"/>
+                <item
+                    android:id="@+id/nav_pw_creature"
+                    android:icon="@drawable/paw"
+                    android:title="@string/perilous_wilds_creature"/>
+                <item
+                    android:id="@+id/nav_pw_treasure"
+                    android:icon="@drawable/ic_highlight_black_24dp"
+                    android:title="@string/perilous_wilds_treasure"/>
+                <item
+                    android:id="@+id/nav_pw_names"
+                    android:icon="@drawable/book_open_page_variant"
+                    android:title="@string/perilous_wilds_names"/>
+            </group>
+        </menu>
+    </item>
     <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
         <item
             android:id="@+id/nav_mr"

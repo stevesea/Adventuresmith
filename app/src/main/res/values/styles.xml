@@ -9,9 +9,9 @@
 
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="colorButtonNormal">@color/colorAccentDark</item>
 
         <!--
+        <item name="colorButtonNormal">@color/colorPrimary</item>
         colorControlNormal controls the ‘normal’ state of components such as an unselected EditText, and unselected Checkboxes and RadioButtons
         colorControlActivated overrides colorAccent as the activated or checked state for Checkboxes and RadioButtons
         colorControlHighlight controls the ripple coloring
@@ -25,7 +25,28 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- android:textColorPrimary is the color of the title text in the Toolbar
+        <item name="android:textColorPrimary">@android:color/holo_blue_light</item> -->
+        <!-- actionMenuTextColor is the color of the text of action (menu) items
+        <item name="actionMenuTextColor">@android:color/holo_green_light</item>-->
+        <!-- Tints the input fields like checkboxes and text fields
+        <item name="colorAccent">@color/white</item>-->
+        <!-- Applies to views in their normal state. -->
+        <item name="colorControlNormal">@color/white</item>
+        <!-- Applies to views in their activated state (i.e checked or switches)
+        <item name="colorControlActivated">@color/controlActivated</item>-->
+        <!-- Applied to framework control highlights (i.e ripples or list selectors)
+        <item name="colorControlHighlight">@color/controlActivated</item>-->
+
+        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+        <!--
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        -->
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 <!--

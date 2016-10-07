@@ -26,6 +26,7 @@
     <string name="nav_thanks">Attribution &amp; Thanks</string>
 
     <string name="perilous_wilds">The Perilous Wilds</string>
+    <string name="perilous_wilds_explore">Discoveries &amp; Dangers</string>
     <string name="perilous_wilds_npc">NPCs</string>
     <string name="perilous_wilds_creature">Creatures</string>
     <string name="perilous_wilds_treasure">Treasure</string>
@@ -36,12 +37,14 @@
 
     <string name="PwDiscovery">Discovery</string>
     <string name="PwDanger">Danger</string>
+    <string name="PwDungeonExplore">Explore Dungeon</string>
+
     <string name="PwPlaces">Place Names</string>
     <string name="PwRegions">Region Names</string>
     <string name="PwDetails">Details</string>
     <string name="PwSteading">Steading</string>
     <string name="PwDungeon">Dungeon</string>
-    <string name="PwDungeonExplore">Explore Dungeon</string>
+    <string name="PwNPCFollower">Follower</string>
 
     <string name="PwTreasureUnguarded">Unguarded Treasure</string>
     <string name="PwTreasureItem">Item</string>
@@ -51,16 +54,16 @@
     <string name="PwTreasure">Treasure</string>
 
     <string name="PwNPC">NPC</string>
-    <string name="PwNPCWilderness">NPC - Wilderness</string>
-    <string name="PwNPCRural">NPC - Rural</string>
-    <string name="PwNPCUrban">NPC Urban</string>
-    <string name="PwNPCFollower">Follower</string>
+    <string name="PwNPCWilderness">Wilderness</string>
+    <string name="PwNPCRural">Rural</string>
+    <string name="PwNPCUrban">Urban</string>
+
 
     <string name="PwCreature">Creature</string>
-    <string name="PwCreatureBeast">Creature (Beast)</string>
-    <string name="PwCreatureHuman">Creature (Human)</string>
-    <string name="PwCreatureHumanoid">Creature (Humanoid)</string>
-    <string name="PwCreatureMonster">Creature (Monster)</string>
+    <string name="PwCreatureBeast">Beast</string>
+    <string name="PwCreatureHuman">Human</string>
+    <string name="PwCreatureHumanoid">Humanoid</string>
+    <string name="PwCreatureMonster">Monster</string>
 
     <string name="MrAfflictions">Afflictions</string>
     <string name="MrCharacters">Characters</string>
