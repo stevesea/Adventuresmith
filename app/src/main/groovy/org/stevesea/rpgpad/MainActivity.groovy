@@ -44,6 +44,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 @CompileStatic
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int MAX_RESULTS = 50
     private static final String RV_BUTTONS_MGR = MainActivity.class.name + '.rv_buttons_mgr'
     private static final String RV_RESULTS_MGR = MainActivity.class.name + '.rv_results_mgr'
     private static final String RV_RESULTS_ITEMS = MainActivity.class.name + '.rv_results_items'
@@ -163,7 +164,7 @@ public class MainActivity extends AppCompatActivity
         buttonCurrent = savedInstanceState.getSerializable(BUTTON_CURRENT) as DatasetButton
 
         List<String> restoredItems = savedInstanceState.getSerializable(RV_RESULTS_ITEMS) as ArrayList<String>
-        resultsAddAll(restoredItems)
+        resultsRestore(restoredItems)
 
         recyclerButtons.getLayoutManager().onRestoreInstanceState(savedInstanceState.getParcelable(RV_BUTTONS_MGR));
         recyclerResults.getLayoutManager().onRestoreInstanceState(savedInstanceState.getParcelable(RV_RESULTS_MGR));
@@ -237,12 +238,22 @@ public class MainActivity extends AppCompatActivity
 
     public void resultsAdd(int position, String item) {
         results.add(position, item);
+
+        int previousSize = results.size()
+        int itemsToRemove = previousSize - MAX_RESULTS
+        for (int ind = results.size() - 1; ind >= MAX_RESULTS ; ind--) {
+            results.remove(ind)
+            resultsAdapter.notifyItemRemoved(ind)
+        }
+
         resultsAdapter.notifyItemInserted(position);
         recyclerResults.scrollToPosition(0)
     }
 
-    public resultsAddAll(List<String> items) {
-        results.addAll(0, items)
+    // called on restore (so don't bother trying to be efficient with notifications)
+    public resultsRestore(List<String> items) {
+        results.clear()
+        results.addAll(items)
         resultsAdapter.notifyDataSetChanged()
         recyclerResults.scrollToPosition(0)
     }
