@@ -1,0 +1,27 @@
+<!--
+  ~ Copyright (c) 2016 Steve Christensen
+  ~
+  ~ This file is part of RPG-Pad.
+  ~
+  ~ RPG-Pad is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ RPG-Pad is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<vector android:height="24dp" android:viewportHeight="512.0"
+    android:viewportWidth="512.0" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#5D4037"
+        android:pathData="M256,0L477.7,128L477.7,384L256,512L34.3,384L34.3,128z"/>
+    <path android:fillColor="#00BCD4"
+          android:pathData="M255.7,18.5c-71.2,0 -127.2,47.1 -127.2,102.2 0,25.7 12,49.2 32.2,67.5l2.9,2.6 2.1,55.6 57.4,-31 33.9,54.3 33.3,-53.7 55.3,30.3 1.6,-54.8 3,-2.7c20.7,-18.3 32.8,-42 32.8,-68 0,-55.1 -56,-102.2 -127.2,-102.2zM175.9,107.7c23.4,-0.3 58.4,18.5 58.4,18.5 0,21.8 -17.6,39.4 -39.4,39.4 -21.8,0 -39.4,-17.6 -39.4,-39.4h0c0.4,-13.7 9,-18.4 20.5,-18.5zM335.4,107.7c11.4,0.1 20,4.8 20.5,18.5 0,21.8 -17.6,39.4 -39.4,39.4 -21.8,0 -39.4,-17.6 -39.4,-39.4 0,0 35,-18.8 58.4,-18.5zM255.7,155.8l20.3,45.4h-40.7l20.3,-45.4zM216.5,240.3l-22.2,12c6.8,35.1 2.8,66.8 -18,98.9 -17.9,27.6 -63.3,49 -95.7,28.7 -40,-25.1 -11.6,-63.6 12.7,-40 -1.5,-52.5 -48.8,-47.9 -63.4,-16.1 -40.5,88.4 95.5,149.8 170.4,82.8 0.8,41.9 23.9,78.7 73,84.7 39.8,4.9 72.8,-38.6 22.4,-71.6 8.5,38 -46.2,42.6 -46.7,-11.6 -0.2,-21 10.7,-39.1 26.3,-52.5 7.4,13.9 16.9,27.6 28.6,41.1C376,479.2 526.5,416.2 484.1,323.8c-14.6,-31.8 -61.9,-36.4 -63.4,16.1 24.3,-23.6 52.7,14.8 12.7,40 -32.3,20.3 -77.8,-1 -95.7,-28.7 -20.5,-31.7 -24.7,-63.1 -18.2,-97.8l-22.8,-12.5 -39.8,64.2 -40.5,-64.9z"/>
+</vector>
