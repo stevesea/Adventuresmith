@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- brown -->
     <color name="colorPrimary">#795548</color>
     <color name="colorPrimaryDark">#5D4037</color>
+    <color name="colorPrimaryDarkDark">#3E2723</color>
     <color name="colorPrimaryLight">#D7CCC8</color>
+    <color name="colorPrimaryLightLight">#EFEBE9</color>
+
+    <!-- cyan -->
     <color name="colorAccent">#00BCD4</color>
+    <color name="colorAccentDark">#0097A7</color>
+    <color name="colorAccentDarkDark">#006064</color>
+    <color name="colorAccentLight">#B2EBF2</color>
+    <color name="colorAccentLightLight">#E0F7FA</color>
 
     <color name="button_color">@color/colorAccent</color>
-    <color name="resultListBg">@color/colorPrimaryLight</color>
+
+    <color name="resultCardBg">@color/colorPrimaryLightLight</color>
     <!--
      solarized
     http://ethanschoonover.com/solarized#features

@@ -127,6 +127,7 @@ dependencies {
     compile "com.android.support:design:$androidSupportVersion"
     compile "com.android.support:percent:$androidSupportVersion"
     compile "com.android.support:recyclerview-v7:$androidSupportVersion"
+    compile "com.android.support:cardview-v7:$androidSupportVersion"
     compile "com.android.support:support-annotations:$androidSupportVersion"
     compile "com.android.support:support-v4:$androidSupportVersion"
     compile "com.android.support:support-compat:$androidSupportVersion"
