@@ -10,7 +10,10 @@
     <dimen name="resultListFontSize">16sp</dimen>
 
     <!-- -->
-    <integer name="buttonCols">8</integer>
+    <integer name="buttonCols">10</integer>
+    <integer name="buttonSpanRegular">3</integer>
+    <integer name="buttonSpanShort">2</integer>
+
     <integer name="resultCols">1</integer>
     <integer name="resultColsLongtext">1</integer>
 </resources>

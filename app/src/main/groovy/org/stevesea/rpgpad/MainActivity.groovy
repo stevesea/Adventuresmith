@@ -114,14 +114,19 @@ public class MainActivity extends AppCompatActivity
         buttonsAdapter = new ButtonsAdapter(this, buttons)
         recyclerButtons.adapter = buttonsAdapter
         GridLayoutManager buttonGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
+
+        final int btnSpanShort = getResources().getInteger(R.integer.buttonSpanShort)
+        final int btnSpanRegular = getResources().getInteger(R.integer.buttonSpanRegular)
         buttonGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 String btnTxt = getString(buttons.getAt(position).getStringResourceId())
-                if (btnTxt.length() <= 6)
-                    return 2
-                else
-                    return 3
+                if (btnTxt.length() <= 6) {
+                    return btnSpanShort
+                }
+                else {
+                    return btnSpanRegular
+                }
             }
         } as GridLayoutManager.SpanSizeLookup
 
@@ -131,13 +136,12 @@ public class MainActivity extends AppCompatActivity
         recyclerResults.adapter = resultsAdapter
         GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
 
-        final int longTextSpan = getResources().getInteger(R.integer.resultColsLongtext)
-
+        final resultSpanLong = getResources().getInteger(R.integer.resultColsLongtext)
         resultsGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 if (results.getAt(position).length() > 48)
-                    return longTextSpan
+                    return resultSpanLong
                 else
                     return 1
             }

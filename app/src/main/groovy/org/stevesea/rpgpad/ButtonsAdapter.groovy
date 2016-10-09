@@ -18,11 +18,12 @@
  */
 package org.stevesea.rpgpad
 
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.TextView
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import groovy.transform.CompileStatic
@@ -48,8 +49,8 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
     void onBindViewHolder(ViewHolder holder, int position) {
         final DatasetButton btn = buttons.get(position)
         final String btnText = holder.itemView.getContext().getString(btn.stringResourceId);
-        holder.btn.setText(btnText)
-        holder.btn.setOnClickListener(new View.OnClickListener() {
+        holder.btnText.setText(btnText)
+        holder.btnCard.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
                 mainActivity.generateButtonPressed(btn)
@@ -68,10 +69,12 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public Button btn;
+        public TextView btnText;
+        public CardView btnCard;
         public ViewHolder(View v) {
             super(v);
-            btn = (Button) v.findViewById(R.id.button_grid_item_btn);
+            btnText = (TextView) v.findViewById(R.id.btn_txt);
+            btnCard = (CardView) v.findViewById(R.id.btn_card)
         }
     }
 

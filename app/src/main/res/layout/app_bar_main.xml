@@ -63,6 +63,8 @@
                 android:minHeight="80dp"/>
 
             <RelativeLayout
+                android:minHeight="40dp"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <!-- Toolbar is the actual app bar with text and the action items -->
@@ -74,12 +76,19 @@
                     android:theme="@style/AppTheme.AppBarOverlay"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-                <android.support.v7.widget.RecyclerView
+                <RelativeLayout
+                    app:layout_scrollFlags="scroll|enterAlways"
                     android:layout_below="@id/toolbar"
-                    android:id="@+id/recycler_buttons"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="match_parent">
+                    <android.support.v7.widget.RecyclerView
+                        app:layout_scrollFlags="scroll|enterAlways"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/recycler_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </RelativeLayout>
             </RelativeLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
