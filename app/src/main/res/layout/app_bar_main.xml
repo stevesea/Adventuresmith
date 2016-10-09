@@ -25,15 +25,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.stevesea.rpgpad.MainActivity">
+    tools:context="org.stevesea.rpgpad.MainActivity"
+    android:background="@color/colorPrimary"
+    >
 
+    <!--
     <ImageView
         android:src="@drawable/brown_leather_by_sharandra_d6wduob"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tint="#33000000"
+        android:tint="#77795548"
         />
+        -->
 
     <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
     <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
