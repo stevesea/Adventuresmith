@@ -20,6 +20,7 @@
 
 package org.stevesea.rpgpad.data.freebooters_on_the_frontier
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -51,6 +52,10 @@ class FotFSpells extends AbstractGenerator {
         Youth
         """.tokenize()
 
+    String getElement() {
+        pick(elements)
+    }
+
     static final List<String> forms = """
         Armor Arrow Aura
         Bane Beast Blade Blast Blessing Blob Blood Bolt Bond Boon Brain Burst
@@ -71,6 +76,9 @@ class FotFSpells extends AbstractGenerator {
         Veil Voice
         Wall Ward Wave Weapon Weave Whisper Wings Word
         """.tokenize()
+    String getForm() {
+        pick(forms)
+    }
 
     static final List<String> adjectives = """
         All-Knowing All-Seeing Arcane
@@ -94,8 +102,11 @@ class FotFSpells extends AbstractGenerator {
         Weakening White Wondrous
         Yellow
         """.tokenize()
+    String getAdjective() {
+        pick(adjectives)
+    }
 
-    static final List<String> name_1stpart = """
+    static final List<String> name_1stparts = """
         AAb Aga Alha Appol Apu Arne Asmo
         Baha Bal Barba Bol By
         Can Cinni Cir Cyn Cyto Dar Darg De Des Dra Dul
@@ -123,7 +134,7 @@ class FotFSpells extends AbstractGenerator {
         Za Zal Zan Zili Zim Zuur Zza
         """.tokenize()
 
-    static final List<String> name_2ndpart = """
+    static final List<String> name_2ndparts = """
         ak alto ana anti aris ark asta
         balia bus by
         cas ce
@@ -150,40 +161,41 @@ class FotFSpells extends AbstractGenerator {
         yop
         zant zark zirian zred
         """.tokenize()
-
-    GString getWizardName() {
-        List<String> oneInTenchanceOfHyphen = ["-"]
-        oneInTenchanceOfHyphen.addAll(Collections.nCopies(9, ""))
-
-        return "${ -> pick(name_1stpart)}${ -> pick(oneInTenchanceOfHyphen)}${ -> pick(name_2ndpart)}"
+    String getName1stPart() {
+        pick(name_1stparts)
+    }
+    String getName2ndPart() {
+        pick(name_2ndparts)
+    }
+    String getPossibleHyphen() {
+        List<String> oneInTenchanceOfHyphen = ['-']
+        oneInTenchanceOfHyphen.addAll(Collections.nCopies(9, ''))
+        pick(oneInTenchanceOfHyphen)
     }
 
-    List<GString> getNoNameFormatters() {
-        return [
-                "${ -> pick(elements)} ${ -> pick(forms)}",
-                "${ -> pick(adjectives)} ${ -> pick(forms)}",
-                "${ -> pick(adjectives)} ${ -> pick(elements)}",
-                "${ -> pick(forms)} of ${ -> pick(elements)}",
-                "${ -> pick(forms)} of the ${ -> pick(adjectives)} ${ -> pick(forms)}",
-                "${ -> pick(forms)} of ${ -> pick(adjectives)} ${ -> pick(elements)}"
-        ]
-    }
+    List<String> templates = [
+            '{{element}} {{form}}',
+            '{{adjective}} {{form}}',
+            '{{adjective}} {{element}}',
+            '{{form}} of {{element}}',
+            '{{form}} of the {{adjective}} {{form}}',
+            '{{form}} of {{adjective}} {{element}}',
+            '{{name1stPart}}{{possibleHyphen}}{{name2ndPart}}’s {{adjective}} {{form}}',
+            '{{name1stPart}}{{possibleHyphen}}{{name2ndPart}}’s {{adjective}} {{element}}',
+            '{{name1stPart}}{{possibleHyphen}}{{name2ndPart}}’s {{form}} of {{element}}',
+            '{{name1stPart}}{{possibleHyphen}}{{name2ndPart}}’s {{element}} {{form}}',
+            '{{form}} of {{name1stPart}}{{possibleHyphen}}{{name2ndPart}}',
+            '{{element}} {{form}} of {{name1stPart}}{{possibleHyphen}}{{name2ndPart}}',
+            '{{adjective}} {{form}} of {{name1stPart}}{{possibleHyphen}}{{name2ndPart}}',
+            '{{adjective}} {{element}} of {{name1stPart}}{{possibleHyphen}}{{name2ndPart}}',
+    ]
 
-    List<GString> getNameFormatters() {
-        return [
-                "${ -> getWizardName()}’s ${ -> pick(adjectives)} ${ -> pick(forms)}",
-                "${ -> getWizardName()}’s ${ -> pick(adjectives)} ${ -> pick(elements)}",
-                "${ -> getWizardName()}’s ${ -> pick(forms)} of ${ -> pick(elements)}",
-                "${ -> getWizardName()}’s ${ -> pick(elements)} ${ -> pick(forms)}",
-                "${ -> pick(forms)} of ${ -> getWizardName()}",
-                "${ -> pick(elements)} ${ -> pick(forms)} of ${ -> getWizardName()}",
-                "${ -> pick(adjectives)} ${ -> pick(forms)} of ${ -> getWizardName()}",
-                "${ -> pick(adjectives)} ${ -> pick(elements)} of ${ -> getWizardName()}",
-        ]
+    String getTemplate() {
+        pick(templates)
     }
 
     String generate() {
-        return pick(getNoNameFormatters() + getNameFormatters())
+        Mustache.compiler().compile(getTemplate()).execute(this)
     }
 
 }

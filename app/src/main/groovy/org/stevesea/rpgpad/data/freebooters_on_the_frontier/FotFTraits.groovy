@@ -19,6 +19,7 @@
 
 package org.stevesea.rpgpad.data.freebooters_on_the_frontier
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -130,12 +131,27 @@ Wrathful
 Zealous\
 """.readLines()
 
-    String generate() {
-        return """\
-${strong('Virtue:')} ${ -> pick(virtues)}
+    def values() {
+        ['virtue': pick(virtues), 'vice':pick(vices)]
+    }
+    String getVirtue() {
+        pick(virtues)
+    }
+    String getVice() {
+        pick(vices)
+    }
+
+    String getTemplate() {
+        '''\
+<strong>Virtue:</strong> {{virtue}}
 <br/>
-<br/>${strong('Vice:')} ${ -> pick(vices)}\
-"""
+<br/><strong>Vice:</strong> {{vice}}\
+'''
+    }
+
+    @Override
+    String generate() {
+        Mustache.compiler().compile(getTemplate()).execute(this)
     }
 
 }

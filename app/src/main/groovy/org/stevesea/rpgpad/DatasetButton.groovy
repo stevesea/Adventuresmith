@@ -134,4 +134,9 @@ public enum DatasetButton {
         }
         return values().grep{((DatasetButton)it).dataset == dset}
     }
+
+    String generate() {
+        final AbstractGenerator generator = clz.newInstance()
+        return generator.generate()
+    }
 }

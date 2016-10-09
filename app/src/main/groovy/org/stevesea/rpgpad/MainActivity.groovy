@@ -39,7 +39,6 @@ import android.view.View
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 public class MainActivity extends AppCompatActivity
@@ -283,8 +282,7 @@ public class MainActivity extends AppCompatActivity
     void generateButtonPressed(DatasetButton btn) {
         buttonCurrent = btn
         checkFabVisibility()
-        final AbstractGenerator generator = btn.clz.newInstance()
-        resultsAdd(0, generator.generate())
+        resultsAdd(0, btn.generate())
     }
 
     public void useDataset(Dataset key) {
