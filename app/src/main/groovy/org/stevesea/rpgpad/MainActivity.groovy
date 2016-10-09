@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity
         buttonsAdapter = new ButtonsAdapter(this, buttons)
         recyclerButtons.adapter = buttonsAdapter
         recyclerButtons.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
+        //recyclerButtons.layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.HORIZONTAL)
 
         resultsAdapter = new ResultsAdapter(results);
         recyclerResults.adapter = resultsAdapter
