@@ -27,6 +27,14 @@
     android:layout_height="match_parent"
     tools:context="org.stevesea.rpgpad.MainActivity">
 
+    <ImageView
+        android:src="@drawable/brown_leather_by_sharandra_d6wduob"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tint="#33000000"
+        />
+
     <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
     <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
     <android.support.design.widget.AppBarLayout
@@ -44,7 +52,6 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-
             <ImageView
                 android:src="@drawable/manticore"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
@@ -52,7 +59,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
-                android:minHeight="100dp"/>
+                android:minHeight="80dp"/>
 
             <!-- Toolbar is the actual app bar with text and the action items -->
             <android.support.v7.widget.Toolbar
@@ -63,52 +70,21 @@
                 android:theme="@style/AppTheme.AppBarOverlay"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
+
             </android.support.v7.widget.Toolbar>
 
-            <android.support.percent.PercentRelativeLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_buttons"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                >
-                <android.support.v7.widget.RecyclerView
-                    android:paddingBottom="8dp"
-                    android:id="@+id/recycler_buttons"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_widthPercent="80%"
-                    android:layout_centerHorizontal="true"
-                    />
-            </android.support.percent.PercentRelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                />
+
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.percent.PercentRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <!--
-        <ImageView
-            android:src="@drawable/brown_leather_by_sharandra_d6wduob"
-            android:scaleType="fitXY"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_heightPercent="100%"
-            app:layout_widthPercent="100%"
-            android:tint="#33000000"
-            />
-            -->
-        <ImageView
-            android:layout_alignParentTop="true"
-            android:id="@+id/img_bones"
-            android:src="@drawable/ic_dinosaur_bones"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerInParent="true"
-            app:layout_heightPercent="100%"
-            app:layout_widthPercent="100%"
-            />
-    </android.support.percent.PercentRelativeLayout>
 
     <include layout="@layout/content_main"/>
 
