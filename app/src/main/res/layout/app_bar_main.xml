@@ -28,14 +28,13 @@
     tools:context="org.stevesea.rpgpad.MainActivity"
     android:background="@color/colorPrimary"
     >
-
-    <!--
+<!--
     <ImageView
-        android:src="@drawable/brown_leather_by_sharandra_d6wduob"
+        android:src="@drawable/garden"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tint="#77795548"
+        android:tint="#cc795548"
         />
         -->
 
