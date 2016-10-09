@@ -47,6 +47,7 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:titleEnabled="false"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
@@ -61,23 +62,25 @@
                 app:layout_collapseMode="parallax"
                 android:minHeight="80dp"/>
 
-            <!-- Toolbar is the actual app bar with text and the action items -->
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"
-                android:theme="@style/AppTheme.AppBarOverlay"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                android:layout_height="match_parent">
+                <!-- Toolbar is the actual app bar with text and the action items -->
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_buttons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
-                />
+                <android.support.v7.widget.RecyclerView
+                    android:layout_below="@id/toolbar"
+                    android:id="@+id/recycler_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </RelativeLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

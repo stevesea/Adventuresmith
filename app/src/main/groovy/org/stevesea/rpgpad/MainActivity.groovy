@@ -113,8 +113,19 @@ public class MainActivity extends AppCompatActivity
 
         buttonsAdapter = new ButtonsAdapter(this, buttons)
         recyclerButtons.adapter = buttonsAdapter
-        recyclerButtons.layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
-        //recyclerButtons.layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.HORIZONTAL)
+        GridLayoutManager buttonGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
+        buttonGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                String btnTxt = getString(buttons.getAt(position).getStringResourceId())
+                if (btnTxt.length() <= 6)
+                    return 2
+                else
+                    return 3
+            }
+        } as GridLayoutManager.SpanSizeLookup
+
+        recyclerButtons.layoutManager = buttonGridLayoutMgr
 
         resultsAdapter = new ResultsAdapter(results);
         recyclerResults.adapter = resultsAdapter
