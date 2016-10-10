@@ -24,7 +24,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class MazeRatsCharacter extends AbstractGenerator {
-    static final List<String> forenames = """\
+    static final List<String> forenames = '''\
 Adelaide
 Balthazar
 Barsaba
@@ -85,9 +85,9 @@ Tuesday
 Ursula
 Webster
 Zora\
-""".readLines()
+'''.readLines()
 
-    static final List<String> surnames = """\
+    static final List<String> surnames = '''\
 Barrow
 Beetleman
 Belvedere
@@ -148,9 +148,9 @@ Wellbelove
 Westergren
 Wexley
 Wilberforce\
-""".readLines()
+'''.readLines()
 
-    static final List<String> personalities = """\
+    static final List<String> personalities = '''\
 Arrogant
 Avant-Garde
 Boastful
@@ -211,9 +211,9 @@ Whiner
 Wild Child
 Wisecracking
 World-weary\
-""".readLines()
+'''.readLines()
 
-    static final List<String> appearances = """\
+    static final List<String> appearances = '''\
 Acid Scars
 Battle Scars
 Boney hands
@@ -274,10 +274,10 @@ Unsmiling
 Weathered
 White Hair
 Wild Hair\
-""".readLines()
+'''.readLines()
 
 
-    static final List<String> weapons = """\
+    static final List<String> weapons = '''\
 Ancient Spear (d6)
 Arming Sword (d6)
 Battered Halberd (d8)
@@ -318,9 +318,9 @@ Throwing Knives (d6)
 War Bow (d8)
 Warhammer (d8)
 Woodman’s axe (d8)\
-""".readLines()
+'''.readLines()
 
-    static final List<String> equipment = """\
+    static final List<String> equipment = '''\
 Acid
 Animal Scent
 Antitoxin
@@ -381,7 +381,7 @@ Tent
 Thick Gloves
 Trumpet
 Whistle\
-""".readLines()
+'''.readLines()
 
     String getTemplate() {
         return '''\

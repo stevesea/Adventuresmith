@@ -24,7 +24,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class MazeRatsMagic extends AbstractGenerator {
-    static final List<String> effects = """\
+    static final List<String> effects = '''\
 Absorbing
 Accelerating
 Attracting
@@ -125,9 +125,9 @@ Vengeful
 Voracious
 Warding
 Withering\
-""".readLines()
+'''.readLines()
 
-    static final List<String> forms = """\
+    static final List<String> forms = '''\
 Acid
 Aether
 Air
@@ -228,9 +228,9 @@ Wine
 Winter
 Wood
 Worm\
-""".readLines()
+'''.readLines()
 
-    static final List<String> elements = """\
+    static final List<String> elements = '''\
 Arc
 Assassin
 Aura
@@ -331,7 +331,7 @@ Web
 Whisper
 Word
 Zone\
-""".readLines()
+'''.readLines()
 
     List<String> templates =  [
                 '{{element}} {{form}}',

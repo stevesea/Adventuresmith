@@ -23,7 +23,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class MazeRatsAfflictions extends AbstractGenerator {
-    static final List<String> afflictions = """\
+    static final List<String> afflictions = '''\
 Ages backwards
 Always honest
 Always whispers
@@ -124,7 +124,7 @@ Vegetarianism
 Voice swaps gender
 Voice echoes
 Webbedd hands/feet\
-""".readLines()
+'''.readLines()
 
     String generate() {
         return pick(afflictions)

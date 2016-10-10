@@ -23,7 +23,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class MazeRatsPotionEffects extends AbstractGenerator {
-    static final List<String> effects = """\
+    static final List<String> effects = '''\
 1-hour vampirism
 Alter face
 Alter voice
@@ -124,7 +124,7 @@ Water breathing
 Water walking
 Web-slinging
 X-Ray vision\
-""".readLines()
+'''.readLines()
 
     String generate() {
         pick(effects)

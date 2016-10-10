@@ -24,7 +24,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class MazeRatsMonsters extends AbstractGenerator {
-    static final List<String> creatures = """\
+    static final List<String> creatures = '''\
 Ant
 Ape
 Badger
@@ -125,7 +125,7 @@ Whale
 Wolf
 Wolverine
 Worm\
-""".readLines()
+'''.readLines()
 
    List<String> templates = [
                 '{{element}} {{creature}}',
