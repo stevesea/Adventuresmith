@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="@string/perilous_wilds"
-          android:icon="@drawable/ic_terrain_black_24dp"
         >
         <menu>
             <group android:checkableBehavior="single" android:id="@+id/nav_pw_group">
@@ -29,29 +28,43 @@
             </group>
         </menu>
     </item>
-    <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
-        <item
-            android:id="@+id/nav_mr"
-            android:icon="@drawable/ic_nfc_black_24dp"
-            android:title="@string/maze_rats"/>
-    </group>
-    <group android:checkableBehavior="single" android:id="@+id/nav_fotf_group">
-        <item
-            android:id="@+id/nav_fotf"
-            android:icon="@drawable/ic_map_black_24dp"
-            android:title="@string/freebooters_on_the_frontier"/>
-    </group>
-    <group android:checkableBehavior="single" android:id="@+id/nav_dice_group">
-        <item
-            android:id="@+id/nav_dice"
-            android:icon="@drawable/dice_6"
-            android:title="@string/dice_roller"/>
-    </group>
-    <group android:checkableBehavior="single" android:id="@+id/nav_thanks_group">
-        <item android:id="@+id/nav_thanks"
-              android:icon="@drawable/ic_help"
-              android:title="@string/nav_thanks"
-            />
-    </group>
+    <item android:title="@string/maze_rats"
+        >
+        <menu>
+            <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
+                <item
+                    android:id="@+id/nav_mr"
+                    android:icon="@drawable/ic_nfc_black_24dp"
+                    android:title="@string/maze_rats"/>
+            </group>
+        </menu>
+    </item>
+    <item android:title="@string/freebooters_on_the_frontier"
+        >
+        <menu>
+            <group android:checkableBehavior="single" android:id="@+id/nav_fotf_group">
+                <item
+                    android:id="@+id/nav_fotf"
+                    android:icon="@drawable/ic_map_black_24dp"
+                    android:title="@string/freebooters_on_the_frontier"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/nav_misc"
+        >
+        <menu>
+            <group android:checkableBehavior="single" android:id="@+id/nav_misc_group">
+                <item
+                    android:id="@+id/nav_dice"
+                    android:icon="@drawable/dice_6"
+                    android:title="@string/dice_roller"/>
+                <item android:id="@+id/nav_thanks"
+                      android:icon="@drawable/ic_help"
+                      android:title="@string/nav_thanks"
+                    />
+            </group>
+        </menu>
+    </item>
 
 </menu>
