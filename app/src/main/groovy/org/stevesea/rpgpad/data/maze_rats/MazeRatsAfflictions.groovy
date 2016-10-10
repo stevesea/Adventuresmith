@@ -127,7 +127,7 @@ Webbedd hands/feet\
 """.readLines()
 
     String generate() {
-        return "${ -> pick(afflictions)}"
+        return pick(afflictions)
     }
 
 }

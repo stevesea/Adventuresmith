@@ -127,7 +127,7 @@ X-Ray vision\
 """.readLines()
 
     String generate() {
-        return "${ -> pick(effects)}"
+        pick(effects)
     }
 
 }
