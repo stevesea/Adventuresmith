@@ -57,12 +57,12 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwNPCWilderness
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
-import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded1Bonus
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded2Bonus
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureItem
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureUnguarded
+
 @CompileStatic
 public enum DatasetButton {
     FreebooterSpells(Dataset.FreebootersOnTheFrontier, FotFSpells.class,  R.string.FotFSpells),
@@ -78,12 +78,11 @@ public enum DatasetButton {
     PerilousPlaces(Dataset.ThePerilousWildsNames, PwPlace.class,  R.string.PwPlaces),
     PerilousRegions(Dataset.ThePerilousWildsNames, PwRegion.class, R.string.PwRegions),
 
-    PerilousTreasure(Dataset.ThePerilousWildsTreasure, PwTreasure.class, R.string.PwTreasure),
-    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
-    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded),
     PerilousTreasureGuarded(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.class, R.string.PwTreasureGuarded),
     PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded1Bonus.class, R.string.PwTreasureGuarded1),
     PerilousTreasureGuarded2(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded2Bonus.class, R.string.PwTreasureGuarded2),
+    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded),
+    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
 
     PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC),
     PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness),
