@@ -131,16 +131,6 @@ Wrathful
 Zealous\
 """.readLines()
 
-    def values() {
-        ['virtue': pick(virtues), 'vice':pick(vices)]
-    }
-    String getVirtue() {
-        pick(virtues)
-    }
-    String getVice() {
-        pick(vices)
-    }
-
     String getTemplate() {
         '''\
 <strong>Virtue:</strong> {{virtue}}
@@ -151,7 +141,11 @@ Zealous\
 
     @Override
     String generate() {
-        Mustache.compiler().compile(getTemplate()).execute(this)
+        Mustache.compiler().compile(getTemplate()).execute(
+                [
+                        'virtue': pick(virtues),
+                        'vice':pick(vices)
+                ])
     }
 
 }

@@ -18,6 +18,7 @@
  */
 package org.stevesea.rpgpad.data.maze_rats
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -332,17 +333,21 @@ Word
 Zone\
 """.readLines()
 
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(elements)} ${ -> pick(forms)}",
-                "${ -> pick(effects)} ${ -> pick(forms)}",
-                "${ -> pick(effects)} ${ -> pick(elements)}",
-                "${ -> pick(effects)} ${ -> pick(elements)} ${ -> pick(forms)}",
-                "${ -> pick(forms)} of ${ -> pick(elements)}",
-                "${ -> pick(forms)} of ${ -> pick(effects)} ${ -> pick(elements)}",
+    List<String> templates =  [
+                '{{element}} {{form}}',
+                '{{effect}} {{form}}',
+                '{{effect}} {{element}}',
+                '{{effect}} {{element}} {{form}}',
+                '{{form}} of {{element}}',
+                '{{form}} of {{effect}} {{element}}',
         ]
-    }
     String generate() {
-        return pick(getFormatters())
+        Mustache.compiler().compile(pick(templates) as String).execute(
+                [
+                        element: pick(elements),
+                        effect: pick(effects),
+                        form: pick(forms),
+                ]
+        )
     }
 }

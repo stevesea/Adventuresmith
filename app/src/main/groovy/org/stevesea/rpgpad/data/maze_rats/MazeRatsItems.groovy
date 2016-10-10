@@ -18,6 +18,7 @@
  */
 package org.stevesea.rpgpad.data.maze_rats
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -126,18 +127,23 @@ Whistle
 Wine\
 """.readLines()
 
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(MazeRatsMagic.elements)} ${ -> pick(items)}",
-                "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(items)}",
-                "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(MazeRatsMagic.elements)} ${ -> pick(items)}",
-                "${ -> pick(items)} of ${ -> pick(MazeRatsMagic.elements)}",
-                "${ -> pick(items)} of ${ -> pick(MazeRatsMagic.effects)} ${ -> pick(MazeRatsMagic.elements)}",
-                "${ -> pick(MazeRatsMagic.forms)} ${ -> pick(items)}",
+    List<String> templates = [
+                '{{element}} {{item}}',
+                '{{effect}} {{item}}',
+                '{{effect}} {{element}} {{item}}',
+                '{{item}} of {{element}}',
+                '{{item}} of {{effect}} {{element}}',
+                '{{form}} {{item}}',
         ]
-    }
 
     String generate() {
-        return pick(getFormatters())
+        Mustache.compiler().compile(pick(templates) as String).execute(
+                [
+                        element: pick(MazeRatsMagic.elements),
+                        effect: pick(MazeRatsMagic.effects),
+                        form: pick(MazeRatsMagic.forms),
+                        item: pick(items),
+                ]
+        )
     }
 }

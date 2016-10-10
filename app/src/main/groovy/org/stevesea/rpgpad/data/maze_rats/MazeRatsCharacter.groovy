@@ -18,6 +18,7 @@
  */
 package org.stevesea.rpgpad.data.maze_rats
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -382,16 +383,32 @@ Trumpet
 Whistle\
 """.readLines()
 
-    String generate() {
-        return """\
-<strong><small>Name</small>: <em>${ -> pick(forenames)} ${ -> pick(surnames)}</em></strong>
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: ${ -> roll("3d6")} DEX: ${ -> roll("3d6")} WIL: ${ -> roll("3d6")} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${ -> roll("1d6")}</small>
-<br/><strong><small>Personality</small></strong>: ${ -> pickN(personalities, 2).join(", ")}
-<br/><strong><small>Appearance</small></strong>: ${ -> pickN(appearances, 2).join(", ")}
-<br/><strong><small>Weapons</small></strong>: ${ -> pickN(weapons, 2).join(", ")}
-<br/><strong><small>Equip</small></strong>: ${ -> pickN(equipment, 3).join(", ")}\
-"""
+    String getTemplate() {
+        return '''\
+<strong><small>Name</small>: <em>{{forename}} {{surname}}</em></strong>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR: {{str}} DEX: {{dex}} WIL: {{wil}} &nbsp;&nbsp;&nbsp;&nbsp;HP: {{hp}}</small>
+<br/><strong><small>Personality</small></strong>: {{personality2}}
+<br/><strong><small>Appearance</small></strong>: {{appearance2}}
+<br/><strong><small>Weapons</small></strong>: {{weapon}}
+<br/><strong><small>Equip</small></strong>: {{equip}}\
+'''
+    }
 
+    String generate() {
+        Mustache.compiler().compile(getTemplate()).execute(
+                [
+                        forename: pick(forenames),
+                        surname: pick(surnames),
+                        personality2: pickN(personalities,2).join(', '),
+                        appearance2: pickN(appearances,2).join(', '),
+                        weapon: pickN(weapons, 2).join(', '),
+                        equip: pickN(equipment, 3).join(', '),
+                        str: roll('3d6'),
+                        dex: roll('3d6'),
+                        wil: roll('3d6'),
+                        hp: roll('1d6'),
+                ]
+        )
     }
 
 }

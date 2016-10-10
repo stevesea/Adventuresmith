@@ -23,6 +23,7 @@ package org.stevesea.rpgpad.data.freebooters_on_the_frontier
 import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
+import org.stevesea.rpgpad.data.RangeMap
 
 @CompileStatic
 class FotFSpells extends AbstractGenerator {
@@ -52,10 +53,6 @@ class FotFSpells extends AbstractGenerator {
         Youth
         """.tokenize()
 
-    String getElement() {
-        pick(elements)
-    }
-
     static final List<String> forms = """
         Armor Arrow Aura
         Bane Beast Blade Blast Blessing Blob Blood Bolt Bond Boon Brain Burst
@@ -76,9 +73,6 @@ class FotFSpells extends AbstractGenerator {
         Veil Voice
         Wall Ward Wave Weapon Weave Whisper Wings Word
         """.tokenize()
-    String getForm() {
-        pick(forms)
-    }
 
     static final List<String> adjectives = """
         All-Knowing All-Seeing Arcane
@@ -102,9 +96,6 @@ class FotFSpells extends AbstractGenerator {
         Weakening White Wondrous
         Yellow
         """.tokenize()
-    String getAdjective() {
-        pick(adjectives)
-    }
 
     static final List<String> name_1stparts = """
         AAb Aga Alha Appol Apu Arne Asmo
@@ -161,17 +152,10 @@ class FotFSpells extends AbstractGenerator {
         yop
         zant zark zirian zred
         """.tokenize()
-    String getName1stPart() {
-        pick(name_1stparts)
-    }
-    String getName2ndPart() {
-        pick(name_2ndparts)
-    }
-    String getPossibleHyphen() {
-        List<String> oneInTenchanceOfHyphen = ['-']
-        oneInTenchanceOfHyphen.addAll(Collections.nCopies(9, ''))
-        pick(oneInTenchanceOfHyphen)
-    }
+
+    RangeMap possibleHyphenMap = new RangeMap()
+        .with(1,'-')
+        .with(2..9,'')
 
     List<String> templates = [
             '{{element}} {{form}}',
@@ -190,12 +174,16 @@ class FotFSpells extends AbstractGenerator {
             '{{adjective}} {{element}} of {{name1stPart}}{{possibleHyphen}}{{name2ndPart}}',
     ]
 
-    String getTemplate() {
-        pick(templates)
-    }
-
     String generate() {
-        Mustache.compiler().compile(getTemplate()).execute(this)
+        Mustache.compiler().compile(pick(templates) as String).execute(
+                [
+                        adjective: pick(adjectives),
+                        element: pick(elements),
+                        form: pick(forms),
+                        name1stPart: pick(name_1stparts),
+                        name2ndPart: pick(name_2ndparts),
+                        possibleHyphen: pick(possibleHyphenMap),
+                ])
     }
 
 }

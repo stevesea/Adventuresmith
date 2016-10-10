@@ -18,6 +18,7 @@
  */
 package org.stevesea.rpgpad.data.maze_rats
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
@@ -126,18 +127,24 @@ Wolverine
 Worm\
 """.readLines()
 
-    List<GString> getFormatters() {
-        return [
-                "${ -> pick(MazeRatsMagic.elements)} ${ -> pick(creatures)}",
-                "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(MazeRatsMagic.elements)} ${ -> pick(creatures)}",
-                "${ -> pick(MazeRatsMagic.effects)} ${ -> pick(creatures)}",
-                "${ -> pick(MazeRatsMagic.forms)} ${ -> pick(creatures)}",
-                "${ -> pickN(creatures, 2).join(" ")}",
-                "${ -> pick(MazeRatsMagic.effects)} ${ -> pickN(creatures, 2).join(" ")}",
-        ]
-    }
+   List<String> templates = [
+                '{{element}} {{creature}}',
+                '{{effect}} {{element}} {{creature}}',
+                '{{effect}} {{creature}}',
+                '{{form}} {{creature}}',
+                '{{creature2}}',
+                '{{effect}} {{creature2}}',
+   ]
 
-    String generate() {
-        return pick(getFormatters())
-    }
+   String generate() {
+       Mustache.compiler().compile(pick(templates) as String).execute(
+                [
+                        element  : pick(MazeRatsMagic.elements),
+                        effect   : pick(MazeRatsMagic.effects),
+                        form     : pick(MazeRatsMagic.forms),
+                        creature : pick(creatures),
+                        creature2: pickN(creatures, 2).join(' ')
+                ]
+       )
+   }
 }
