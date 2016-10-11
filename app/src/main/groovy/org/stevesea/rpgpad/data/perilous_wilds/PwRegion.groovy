@@ -18,13 +18,14 @@
  */
 package org.stevesea.rpgpad.data.perilous_wilds
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
 
 @CompileStatic
 class PwRegion extends AbstractGenerator {
-    static final List<String> adjectives = """
+    static final List<String> adjectives = '''
         Ageless Ashen
         Black Blessed Blighted Blue Broken Burning
         Cold Cursed
@@ -43,9 +44,9 @@ class PwRegion extends AbstractGenerator {
         Savage Shadowy Shattered Shifting Shining Silver
         White Wicked
         Yellow
-        """.tokenize()
+        '''.tokenize()
 
-    static final List<String> nouns = """
+    static final List<String> nouns = '''
         [Name]
         Ash
         Bone Darkness Dead Death Desolation Despair Devil Doom Dragon
@@ -62,9 +63,9 @@ class PwRegion extends AbstractGenerator {
         Thorn Thunder Traitor Troll
         Victory
         Witch
-        """.tokenize()
+        '''.tokenize()
 
-    static final List<String> terrains = """
+    static final List<String> terrains = '''
         Bay Bluffs Bog
         Cliffs
         Desert Downs Dunes
@@ -83,17 +84,23 @@ class PwRegion extends AbstractGenerator {
         Teeth Thicket
         Upland
         Wall Waste Wasteland Woods
-        """.tokenize()
+        '''.tokenize()
 
     RangeMap regions = new RangeMap()
-            .with(1..4, "${ -> pick(adjectives)} ${ -> pick(terrains)}")
-            .with(5..6, "${ -> pick(terrains)} of (the) ${ -> pick(nouns)}")
-            .with(7..8, "The ${ -> pick(adjectives)} ${ -> pick(terrains)}")
-            .with(9..10, "${ -> pick(nouns)} ${ -> pick(terrains)}")
-            .with(11, "${-> pick(nouns)}'s ${-> pick(adjectives)} ${-> pick(terrains)}")
-            .with(12, "${ -> pick(adjectives)} ${ -> pick(terrains)} of (the) ${ -> pick(nouns)}")
+            .with(1..4, '{{adjective}} {{terrain}}')
+            .with(5..6, '{{terrain}} of (the) {{noun}}')
+            .with(7..8, 'The {{adjective}} {{terrain}}')
+            .with(9..10, '{{noun}} {{terrain}}')
+            .with(11, '{{noun}}\'s {{adjective}} {{terrain}}')
+            .with(12, '{{adjective}} {{terrain}} of (the) {{noun}}')
 
     String generate() {
-        return pick(regions)
+        Mustache.compiler().compile(pick(regions) as String).execute(
+                [
+                        terrain: pick(terrains),
+                        adjective: pick(adjectives),
+                        noun: pick(nouns),
+                ]
+        )
     }
 }

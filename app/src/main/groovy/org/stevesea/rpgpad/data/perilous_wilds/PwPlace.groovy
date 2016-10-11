@@ -18,12 +18,13 @@
  */
 package org.stevesea.rpgpad.data.perilous_wilds
 
+import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class PwPlace extends AbstractGenerator {
-    static final List<String> adjectives = """
+    static final List<String> adjectives = '''
         Ancient Ashen
         Black Bloody Blue Bright Broken Burning
         Clouded Copper Cracked
@@ -41,9 +42,9 @@ class PwPlace extends AbstractGenerator {
         Screaming Sharp Shattered Shifting Shining Shivering Shrouded Silver Stalwart Stoney Sunken
         Thorny Thundering
         White Withered
-        """.tokenize()
+        '''.tokenize()
 
-    static final List<String> features = """
+    static final List<String> features = '''
         Barrier Beach Bowl
         Camp Cave Circle City Cliff Crater Crossing Crypt
         Den Ditch
@@ -59,9 +60,9 @@ class PwPlace extends AbstractGenerator {
         Tangle Temple Throne Tomb Tower Town Tree
         Vale Valley Village
         Wall
-        """.tokenize()
+        '''.tokenize()
 
-    static final List<String> nouns = """
+    static final List<String> nouns = '''
         [Name]
         Arm Ash
         Blood
@@ -78,21 +79,24 @@ class PwPlace extends AbstractGenerator {
         Sailor Silver Skull Smoke Souls Spear Spirit Stone Sword
         Thief Troll
         Warrior Water Witch Wizard
-        """.tokenize()
+        '''.tokenize()
 
-    List<GString> getFormatters() {
-        return [
-                "The ${ -> pick(features)}",
-                "The ${ -> pick(adjectives)} ${ -> pick(features)}",
-                "The ${ -> pick(features)} of (the) ${ -> pick(nouns)}",
-                "The ${ -> pick(nouns)}\'s ${ -> pick(features)}",
-                "${ -> pick(features)} of the ${ -> pick(adjectives)} ${ -> pick(nouns)}",
-                "The ${ -> pick(adjectives)} ${ -> pick(nouns)}",
+    List<String> templates = [
+                'The {{feature}}',
+                'The {{adjective}} {{feature}}',
+                'The {{feature}} of (the) {{noun}}',
+                'The {{noun}}\'s {{feature}}',
+                '{{feature}} of the {{adjective}} {{noun}}',
+                'The {{adjective}} {{noun}}',
         ]
-    }
 
     String generate() {
-        return pick(getFormatters())
+        Mustache.compiler().compile(pick(templates) as String).execute(
+                [
+                        feature: pick(features),
+                        adjective: pick(adjectives),
+                        noun: pick(nouns),
+                ]
+        )
     }
-
 }
