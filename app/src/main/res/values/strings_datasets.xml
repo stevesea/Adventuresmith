@@ -22,6 +22,7 @@
     <string name="dice_roller">Dice Roller</string>
     <string name="maze_rats">Maze Rats</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
+    <string name="fourth_page">The Fourth Page</string>
 
     <string name="nav_thanks">Attribution &amp; Thanks</string>
 
@@ -31,6 +32,11 @@
     <string name="perilous_wilds_creature">Creatures</string>
     <string name="perilous_wilds_treasure">Treasure</string>
     <string name="perilous_wilds_names">Create &amp; Name</string>
+
+    <string name="fourth_page_artifact">Artifact</string>
+    <string name="fourth_page_monster">Monster</string>
+    <string name="fourth_page_city">City</string>
+    <string name="fourth_page_dungeon">Dungeon</string>
 
     <string name="FotFSpells">Spells</string>
     <string name="FotFTraits">Traits</string>

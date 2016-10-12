@@ -32,6 +32,8 @@ import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d8
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller2d6
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller3d6
 import org.stevesea.rpgpad.data.dice_roller.DiceRoller4d4
+import org.stevesea.rpgpad.data.fourth_page.FourthPageArtifact
+import org.stevesea.rpgpad.data.fourth_page.FourthPageMonster
 import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFSpells
 import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFTraits
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsAfflictions
@@ -115,6 +117,10 @@ public enum DatasetButton {
     Dr2d6(Dataset.DiceRoller, DiceRoller2d6.class, R.string.dice_roller_2d6),
     Dr3d6(Dataset.DiceRoller, DiceRoller3d6.class, R.string.dice_roller_3d6),
     Dr4d4(Dataset.DiceRoller, DiceRoller4d4.class, R.string.dice_roller_4d4),
+
+
+    FpArtifacts(Dataset.TheFourthPage, FourthPageArtifact.class, R.string.fourth_page_artifact),
+    FpMonster(Dataset.TheFourthPage, FourthPageMonster.class, R.string.fourth_page_monster),
     ;
 
     int stringResourceId

@@ -31,6 +31,7 @@ public enum Dataset {
     ThePerilousWildsTreasure(R.string.perilous_wilds_treasure, R.id.nav_pw_treasure),
     ThePerilousWildsNames(R.string.perilous_wilds_names, R.id.nav_pw_names),
     FreebootersOnTheFrontier(R.string.freebooters_on_the_frontier, R.id.nav_fotf),
+    TheFourthPage(R.string.fourth_page, R.id.nav_fourth_page),
     DiceRoller(R.string.dice_roller, R.id.nav_dice)
     ;
 

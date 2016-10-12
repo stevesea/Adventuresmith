@@ -50,9 +50,18 @@
             </group>
         </menu>
     </item>
+    <item android:title="@string/fourth_page">
+        <menu>
+            <group android:checkableBehavior="single" android:id="@+id/nav_fourth_page_group">
+                <item
+                    android:id="@+id/nav_fourth_page"
+                    android:icon="@drawable/ic_terrain_black_24dp"
+                    android:title="@string/fourth_page"/>
+            </group>
+        </menu>
+    </item>
 
-    <item android:title="@string/nav_misc"
-        >
+    <item android:title="@string/nav_misc">
         <menu>
             <group android:checkableBehavior="single" android:id="@+id/nav_misc_group">
                 <item
