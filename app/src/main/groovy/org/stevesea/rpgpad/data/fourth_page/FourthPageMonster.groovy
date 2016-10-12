@@ -134,7 +134,7 @@ They outnumber you.\
 
         String template = '''\
 <strong>Nature:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{natureKey}}</small><strong> - {{nature}}
+<br/>&nbsp;&nbsp;<strong><small>{{natureKey}}</small></strong> - {{nature}}
 <br/>
 <br/><strong>Role:</strong>
 <br/>&nbsp;&nbsp;<strong><small>{{roleKey}}</small></strong> - {{role}}\
