@@ -23,7 +23,7 @@ import groovy.transform.CompileStatic
 @CompileStatic
 public enum Dataset {
     // TODO: get rid of enums, is bad android practice http://guides.codepath.com/android/Replacing-Enums-with-Enumerated-Annotations
-    None(R.string.app_name, R.id.nav_thanks),
+    None(R.string.nav_thanks, R.id.nav_thanks),
     MazeRats(R.string.maze_rats, R.id.nav_mr),
     ThePerilousWilds(R.string.perilous_wilds_explore, R.id.nav_pw),
     ThePerilousWildsNPC(R.string.perilous_wilds_npc, R.id.nav_pw_npc),
