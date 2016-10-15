@@ -123,16 +123,13 @@ dependencies {
 
     compile 'com.samskivert:jmustache:1.13'
 
+    compile 'com.arasthel:swissknife:1.4.0'
+
     compile "com.android.support:appcompat-v7:$androidSupportVersion"
     compile "com.android.support:design:$androidSupportVersion"
     compile "com.android.support:percent:$androidSupportVersion"
     compile "com.android.support:recyclerview-v7:$androidSupportVersion"
     compile "com.android.support:cardview-v7:$androidSupportVersion"
-    //compile "com.android.support:support-annotations:$androidSupportVersion"
-    //compile "com.android.support:support-v4:$androidSupportVersion"
-    //compile "com.android.support:support-compat:$androidSupportVersion"
-    //compile "com.android.support:support-core-utils:$androidSupportVersion"
-    //compile "com.android.support:support-core-ui:$androidSupportVersion"
 
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'
