@@ -57,7 +57,7 @@
             app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
 
             <ImageView
-                android:src="@drawable/manticore"
+                android:src="@drawable/mmanticore"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
