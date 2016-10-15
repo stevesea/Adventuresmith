@@ -40,9 +40,6 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeonDiscoveryAndDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
-import org.stevesea.rpgpad.data.perilous_wilds.PwNPCRural
-import org.stevesea.rpgpad.data.perilous_wilds.PwNPCUrban
-import org.stevesea.rpgpad.data.perilous_wilds.PwNPCWilderness
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
@@ -74,9 +71,9 @@ public enum DatasetButton {
     PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
 
     PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC),
-    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPCWilderness.class, R.string.PwNPCWilderness),
-    PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPCRural.class, R.string.PwNPCRural),
-    PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban),
+    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPC.generators.get('wilderness'), R.string.PwNPCWilderness),
+    PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPC.generators.get('rural'), R.string.PwNPCRural),
+    PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPC.generators.get('urban'), R.string.PwNPCUrban),
 
     PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature),
     PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreature.generators.get('beast'), R.string.PwCreatureBeast),
