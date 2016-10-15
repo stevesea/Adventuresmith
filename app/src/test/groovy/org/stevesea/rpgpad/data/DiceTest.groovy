@@ -27,10 +27,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Advantage
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Disadvantage
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller3d6
 
 import static org.mockito.Matchers.any
 import static org.mockito.Mockito.when
@@ -74,25 +70,25 @@ class DiceTest {
 
     @Test
     void testDiceRoller3d6() {
-        AbstractGenerator generator = new DiceRoller3d6()
+        AbstractGenerator generator = DiceRoller.generators.get('3d6')
         generator.shuffler = shuffler
         Assert.assertEquals("<strong><small>3d6</small></strong> : 3 <small>[1, 1, 1]</small>", generator.generate())
     }
     @Test
     void testDiceRoller1d20() {
-        AbstractGenerator generator = new DiceRoller1d20()
+        AbstractGenerator generator = DiceRoller.generators.get('1d20')
         generator.shuffler = shuffler
         Assert.assertEquals("<strong><small>1d20</small></strong> : 1", generator.generate())
     }
     @Test
     public void testDiceRoller1d20adv() {
-        AbstractGenerator generator = new DiceRoller1d20Advantage()
+        AbstractGenerator generator = DiceRoller.generators.get('1d20adv')
         generator.shuffler = shuffler
         Assert.assertEquals("<strong><small>1d20 adv</small></strong> : 1 <small>[1, 1]</small>", generator.generate())
     }
     @Test
     public void testDiceRoller1d20disadv() {
-        AbstractGenerator generator = new DiceRoller1d20Disadvantage()
+        AbstractGenerator generator = DiceRoller.generators.get('1d20adv')
         generator.shuffler = shuffler
         Assert.assertEquals("<strong><small>1d20 disadv</small></strong> : 1 <small>[1, 1]</small>", generator.generate())
     }

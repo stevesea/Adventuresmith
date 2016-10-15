@@ -293,6 +293,7 @@ public class MainActivity extends AppCompatActivity
 
         buttons.clear()
         buttons.addAll(DatasetButton.getButtonsForDataset(key))
+        buttonsAdapter.notifyDataSetChanged()
 
         results.clear()
         if (key == Dataset.None) {
@@ -304,6 +305,5 @@ public class MainActivity extends AppCompatActivity
             )
         }
         resultsAdapter.notifyDataSetChanged()
-        buttonsAdapter.notifyDataSetChanged()
     }
 }

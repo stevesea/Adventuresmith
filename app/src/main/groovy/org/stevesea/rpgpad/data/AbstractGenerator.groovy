@@ -33,6 +33,10 @@ public abstract class AbstractGenerator {
         this
     }
 
+    Shuffler getShuffler() {
+        return shuffler;
+    }
+
     def pick(Collection<?> items) {
         return shuffler.pick(items)
     }

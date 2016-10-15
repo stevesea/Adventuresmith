@@ -20,18 +20,7 @@ package org.stevesea.rpgpad
 
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d10
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d100
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d12
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Advantage
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d20Disadvantage
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d30
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d6
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller1d8
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller2d6
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller3d6
-import org.stevesea.rpgpad.data.dice_roller.DiceRoller4d4
+import org.stevesea.rpgpad.data.DiceRoller
 import org.stevesea.rpgpad.data.fourth_page.FourthPageArtifact
 import org.stevesea.rpgpad.data.fourth_page.FourthPageCity
 import org.stevesea.rpgpad.data.fourth_page.FourthPageDungeon
@@ -107,18 +96,18 @@ public enum DatasetButton {
     MrAfflictions(Dataset.MazeRats, MazeRatsAfflictions.class, R.string.MrAfflictions),
     MrPotionEffects(Dataset.MazeRats, MazeRatsPotionEffects.class, R.string.MrPotionEffects),
 
-    Dr1d6(Dataset.DiceRoller, DiceRoller1d6.class, R.string.dice_roller_1d6),
-    Dr1d8(Dataset.DiceRoller, DiceRoller1d8.class, R.string.dice_roller_1d8),
-    Dr1d10(Dataset.DiceRoller, DiceRoller1d10.class, R.string.dice_roller_1d10),
-    Dr1d12(Dataset.DiceRoller, DiceRoller1d12.class, R.string.dice_roller_1d12),
-    Dr1d20(Dataset.DiceRoller, DiceRoller1d20.class, R.string.dice_roller_1d20),
-    Dr1d30(Dataset.DiceRoller, DiceRoller1d30.class, R.string.dice_roller_1d30),
-    Dr1d100(Dataset.DiceRoller, DiceRoller1d100.class, R.string.dice_roller_1d100),
-    Dr2d20Adv(Dataset.DiceRoller, DiceRoller1d20Advantage.class, R.string.dice_roller_2d20_adv),
-    Dr2d20Disadv(Dataset.DiceRoller, DiceRoller1d20Disadvantage.class, R.string.dice_roller_2d20_disadv),
-    Dr2d6(Dataset.DiceRoller, DiceRoller2d6.class, R.string.dice_roller_2d6),
-    Dr3d6(Dataset.DiceRoller, DiceRoller3d6.class, R.string.dice_roller_3d6),
-    Dr4d4(Dataset.DiceRoller, DiceRoller4d4.class, R.string.dice_roller_4d4),
+    Dr1d6(Dataset.DiceRoller, DiceRoller.generators.get('1d6'), R.string.dice_roller_1d6),
+    Dr1d8(Dataset.DiceRoller, DiceRoller.generators.get('1d8'), R.string.dice_roller_1d8),
+    Dr1d10(Dataset.DiceRoller, DiceRoller.generators.get('1d10'), R.string.dice_roller_1d10),
+    Dr1d12(Dataset.DiceRoller, DiceRoller.generators.get('1d12'), R.string.dice_roller_1d12),
+    Dr1d20(Dataset.DiceRoller, DiceRoller.generators.get('1d20'), R.string.dice_roller_1d20),
+    Dr1d30(Dataset.DiceRoller, DiceRoller.generators.get('1d30'), R.string.dice_roller_1d30),
+    Dr1d100(Dataset.DiceRoller, DiceRoller.generators.get('1d100'), R.string.dice_roller_1d100),
+    Dr2d20Adv(Dataset.DiceRoller, DiceRoller.generators.get('1d20adv'), R.string.dice_roller_2d20_adv),
+    Dr2d20Disadv(Dataset.DiceRoller, DiceRoller.generators.get('1d20disadv'), R.string.dice_roller_2d20_disadv),
+    Dr2d6(Dataset.DiceRoller, DiceRoller.generators.get('2d6'), R.string.dice_roller_2d6),
+    Dr3d6(Dataset.DiceRoller, DiceRoller.generators.get('3d6'), R.string.dice_roller_3d6),
+    Dr4d4(Dataset.DiceRoller, DiceRoller.generators.get('4d4'), R.string.dice_roller_4d4),
 
 
     FpArtifacts(Dataset.TheFourthPage, FourthPageArtifact.class, R.string.fourth_page_artifact),
@@ -129,12 +118,16 @@ public enum DatasetButton {
 
     int stringResourceId
     Dataset dataset
-    Class<? extends AbstractGenerator> clz
+    AbstractGenerator generator
 
     DatasetButton(Dataset dataset, Class<? extends AbstractGenerator> clz, int stringResourceId) {
+        this(dataset, clz.newInstance(), stringResourceId)
+    }
+
+    DatasetButton(Dataset dataset, AbstractGenerator obj, int stringResourceId) {
         this.stringResourceId = stringResourceId
         this.dataset = dataset
-        this.clz = clz
+        this.generator = obj
     }
 
     static Collection<DatasetButton> getButtonsForDataset(Dataset dset) {
@@ -145,7 +138,6 @@ public enum DatasetButton {
     }
 
     String generate() {
-        final AbstractGenerator generator = clz.newInstance()
         return generator.generate()
     }
 }
