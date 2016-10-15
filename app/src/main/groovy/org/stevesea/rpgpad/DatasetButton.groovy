@@ -34,10 +34,6 @@ import org.stevesea.rpgpad.data.maze_rats.MazeRatsMagic
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsMonsters
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsPotionEffects
 import org.stevesea.rpgpad.data.perilous_wilds.PwCreature
-import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureBeast
-import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHuman
-import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureHumanoid
-import org.stevesea.rpgpad.data.perilous_wilds.PwCreatureMonster
 import org.stevesea.rpgpad.data.perilous_wilds.PwDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
@@ -83,10 +79,10 @@ public enum DatasetButton {
     PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPCUrban.class, R.string.PwNPCUrban),
 
     PerilousCreature(Dataset.ThePerilousWildsCreature, PwCreature.class, R.string.PwCreature),
-    PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreatureBeast.class, R.string.PwCreatureBeast),
-    PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreatureHuman.class, R.string.PwCreatureHuman),
-    PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreatureHumanoid.class, R.string.PwCreatureHumanoid),
-    PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreatureMonster.class, R.string.PwCreatureMonster),
+    PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreature.generators.get('beast'), R.string.PwCreatureBeast),
+    PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreature.generators.get('human'), R.string.PwCreatureHuman),
+    PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreature.generators.get('humanoid'), R.string.PwCreatureHumanoid),
+    PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreature.generators.get('monster'), R.string.PwCreatureMonster),
 
 
     MrCharacters(Dataset.MazeRats, MazeRatsCharacter.class, R.string.MrCharacters),

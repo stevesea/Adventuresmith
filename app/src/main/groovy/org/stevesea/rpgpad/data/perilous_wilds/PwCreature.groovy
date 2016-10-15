@@ -27,6 +27,34 @@ import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwCreature extends AbstractGenerator {
+    static Map<String, PwCreature> generators = [
+            'beast' : new PwCreature() {
+                @Override
+                String generate() {
+                    getCreature().get(1)
+                }
+            },
+            'human' : new PwCreature() {
+                @Override
+                String generate() {
+                    getCreature().get(5)
+                }
+            },
+            'humanoid' : new PwCreature() {
+                @Override
+                String generate() {
+                    getCreature().get(7)
+                }
+            },
+            'monster' : new PwCreature() {
+                @Override
+                String generate() {
+                    getCreature().get(9)
+                }
+            },
+            ]
+
+
     PwDetails pwDetails = new PwDetails()
     PwNPC pwNPC = new PwNPC()
 
@@ -212,18 +240,6 @@ ${strong('Monster')} -- ${small('Give every monster life!')}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${ -> pwDetails.pickOddity()}
 <br/>&nbsp;&nbsp;&nbsp;${ssem('Tags:')} ${ -> pwDetails.pickTag()}\
 """)
-    String genBeast() {
-        creature.get(1)
-    }
-    String genHuman() {
-        creature.get(5)
-    }
-    String genHumanoid() {
-        creature.get(7)
-    }
-    String genMonster() {
-        creature.get(9)
-    }
 
     @Override
     String generate() {
