@@ -29,7 +29,7 @@ import org.stevesea.rpgpad.data.Shuffler
 class PwTreasure extends AbstractGenerator{
 
 
-    static Map<String, PwTreasure> generators = [
+    public static Map<String, PwTreasure> generators = [
             'item': new PwTreasure() {
                 @Override
                 String generate() {

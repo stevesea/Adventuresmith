@@ -22,6 +22,7 @@ package org.stevesea.rpgpad.data
 
 import groovy.transform.CompileStatic;
 
+// TODO: this can be cleaned up. we're creating copies of each entry
 @CompileStatic
 class RangeMap extends TreeMap<Integer, Object> {
     RangeMap with(IntRange range, Object obj) {

@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         buttonGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                String btnTxt = getString(buttons.getAt(position).getStringResourceId())
+                String btnTxt = getString(buttons.getAt(position).stringResourceId)
                 if (btnTxt.length() <= 6) {
                     return btnSpanShort
                 }

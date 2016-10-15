@@ -55,8 +55,8 @@ class ButtonsAdapter extends RecyclerView.Adapter<ViewHolder> {
             void onClick(View v) {
                 mainActivity.generateButtonPressed(btn)
                 Answers.getInstance().logCustom(new CustomEvent("Generated Result")
-                        .putCustomAttribute("Dataset", btn.getDataset().name())
-                        .putCustomAttribute("Button", btn.getDataset().name() + '.' + btnText)
+                        .putCustomAttribute("Dataset", btn.dataset.name())
+                        .putCustomAttribute("Button", btn.dataset.name() + '.' + btnText)
                 )
             }
         })

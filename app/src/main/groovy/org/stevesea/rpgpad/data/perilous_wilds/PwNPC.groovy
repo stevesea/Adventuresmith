@@ -28,7 +28,7 @@ import org.stevesea.rpgpad.data.Shuffler
 @CompileStatic
 class PwNPC extends AbstractGenerator {
 
-    static Map<String, PwNPC> generators = [
+    public static Map<String, PwNPC> generators = [
             'rural': new PwNPC() {
                 @Override
                 String generate() {

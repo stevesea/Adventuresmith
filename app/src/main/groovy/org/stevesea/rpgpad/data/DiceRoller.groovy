@@ -21,7 +21,7 @@
 package org.stevesea.rpgpad.data
 
 class DiceRoller {
-    static Map<String, AbstractGenerator> generators = [
+    public static Map<String, AbstractGenerator> generators = [
             '1d6':  new AbstractGenerator() {
                 @Override
                 String generate() {

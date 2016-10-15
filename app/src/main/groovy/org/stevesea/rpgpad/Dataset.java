@@ -16,11 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.stevesea.rpgpad
+package org.stevesea.rpgpad;
 
-import groovy.transform.CompileStatic
-
-@CompileStatic
 public enum Dataset {
     // TODO: get rid of enums, is bad android practice http://guides.codepath.com/android/Replacing-Enums-with-Enumerated-Annotations
     None(R.string.nav_thanks, R.id.nav_thanks),
@@ -35,14 +32,19 @@ public enum Dataset {
     DiceRoller(R.string.dice_roller, R.id.nav_dice)
     ;
 
-    int stringResourceId
-    int menuNavId
+    public final int stringResourceId;
+    public final int menuNavId;
 
     Dataset(int stringResourceId, int menuNavId) {
-        this.stringResourceId = stringResourceId
-        this.menuNavId = menuNavId
+        this.stringResourceId = stringResourceId;
+        this.menuNavId = menuNavId;
     }
     static Dataset lookupDatasetForNavItem(int navItem) {
-        return values().grep{((Dataset)it).menuNavId == navItem}[0]
+        for (Dataset dataset: values()) {
+            if (dataset.menuNavId == navItem) {
+                return dataset;
+            }
+        }
+        return None;
     }
 }

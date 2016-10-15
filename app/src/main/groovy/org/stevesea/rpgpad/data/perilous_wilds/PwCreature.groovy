@@ -27,7 +27,7 @@ import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwCreature extends AbstractGenerator {
-    static Map<String, PwCreature> generators = [
+    public static Map<String, PwCreature> generators = [
             'beast' : new PwCreature() {
                 @Override
                 String generate() {
