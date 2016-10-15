@@ -41,7 +41,7 @@ public abstract class AbstractGenerator {
     }
 
     def pick(String diceStr, RangeMap map) {
-        return map.pick(Dice.dice(diceStr, shuffler.random))
+        map.get(roll(diceStr))
     }
 
     def pick(String diceStr, Collection<?> items) {
@@ -50,6 +50,9 @@ public abstract class AbstractGenerator {
 
     Dice dice(String diceStr) {
         return shuffler.dice(diceStr)
+    }
+    Dice dice(int numDice, int numSides) {
+        return shuffler.dice(numDice, numSides)
     }
 
     Collection<?> pickN(Collection<?> items, int num) {
@@ -69,14 +72,6 @@ public abstract class AbstractGenerator {
     }
 
     abstract String generate()
-
-    String[] generate(int num) {
-        def strings = []
-        num.times {
-            strings << generate()
-        }
-        return strings as String[]
-    }
 
     String strong(Object input) {
         return "<strong>${input}</strong>"

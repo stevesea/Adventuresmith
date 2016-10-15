@@ -57,16 +57,16 @@ class PwDungeon extends AbstractGenerator{
 
         @Override
         public String toString() {
-            return "${name()}: themes ${theme} (${themeStr}) Areas ${areaLimit} (${areaLimitStr})"
+            name()
         }
     }
 
     // size, themes, areas* (total common and unique)
     RangeMap sizeMap = new RangeMap()
-            .with(1..3, dungeon_size.Small.name())
-            .with(4..9, dungeon_size.Medium.name())
-            .with(10..11, dungeon_size.Large.name())
-            .with(12, dungeon_size.Huge.name())
+            .with(1..3, dungeon_size.Small)
+            .with(4..9, dungeon_size.Medium)
+            .with(10..11, dungeon_size.Large)
+            .with(12, dungeon_size.Huge)
     RangeMap dungeon_ruination = new RangeMap()
             .with(1, 'arcane disaster')
             .with(2, 'damnation/curse')

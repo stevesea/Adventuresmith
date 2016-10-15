@@ -22,23 +22,33 @@ package org.stevesea.rpgpad.data
 
 import groovy.transform.CompileStatic;
 
-// TODO: this can be cleaned up. we're creating copies of each entry
+// this isn't space-efficient, but it has a nice property of having a proportional
+// amount of values
 @CompileStatic
 class RangeMap extends TreeMap<Integer, Object> {
+    Set<IntRange> ranges = new HashSet<>();
     RangeMap with(IntRange range, Object obj) {
+        for (IntRange ir: ranges) {
+            if (ir.contains(range.first()) || ir.contains(range.last())) {
+                throw new IllegalArgumentException("map already includes the given range!")
+            }
+        }
+        ranges.add(range)
         range.each{ i -> put(i, obj)}
         return this
     }
     RangeMap with(Integer i, Object obj) {
+        for (IntRange ir: ranges) {
+            if (ir.contains(i)) {
+                throw new IllegalArgumentException("map already includes the given range!")
+            }
+        }
+        ranges.add(i..i)
         put(i, obj)
         return this
     }
 
     Object get(Integer key) {
         return super.get(Math.min(key, lastKey()))
-    }
-
-    Object pick(Dice dice) {
-        return get(dice.roll())
     }
 }

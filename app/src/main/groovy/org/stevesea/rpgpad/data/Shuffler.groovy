@@ -37,16 +37,17 @@ class Shuffler {
     }
 
     def pick(Dice dice, Collection<?> items) {
-        // ensure our index is within the acceptable range for the collection
-        int index = Math.min(
-                dice.roll() - 1, // dice are 1-based, list indexes are 0-based so subtract 1
-                items.size() - 1
-        )
-        return items.getAt(index)
+        // use mod to ensure our index is within the acceptable range for the collection
+        // dice are 1-based, list indexes are 0-based so subtract 1
+        return items.getAt(dice.roll() % items.size() - 1)
     }
 
     Dice dice(String diceStr) {
         return Dice.dice(diceStr, random)
+    }
+
+    Dice dice(int numDice, int numSides) {
+        return Dice.dice(numDice, numSides, random)
     }
 
     def pick(String diceStr, Collection<?> items) {
