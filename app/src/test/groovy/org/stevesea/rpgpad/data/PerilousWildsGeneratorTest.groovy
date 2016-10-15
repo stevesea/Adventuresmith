@@ -30,13 +30,13 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwDetails
 import org.stevesea.rpgpad.data.perilous_wilds.PwDiscovery
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeonDiscoveryAndDanger
-import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
+import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
-import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded2Bonus
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any
@@ -205,7 +205,7 @@ A few coins, 2d8 or so
 <br/>
 <br/><strong>damage die - D12 + 2d4</strong>
 <br/>Several coins, about 4d10
-<br/>&nbsp;&nbsp;<small>[4]</small>""", new PwTreasureGuarded2Bonus().withShuffler(shuffler).generate())
+<br/>&nbsp;&nbsp;<small>[4]</small>""", PwTreasureGuarded.gg.get('2bonus').withShuffler(shuffler).generate())
     }
 
     @Test

@@ -88,7 +88,7 @@ class DiceTest {
     }
     @Test
     public void testDiceRoller1d20disadv() {
-        AbstractGenerator generator = DiceRoller.generators.get('1d20adv')
+        AbstractGenerator generator = DiceRoller.generators.get('1d20disadv')
         generator.shuffler = shuffler
         Assert.assertEquals("<strong><small>1d20 disadv</small></strong> : 1 <small>[1, 1]</small>", generator.generate())
     }
