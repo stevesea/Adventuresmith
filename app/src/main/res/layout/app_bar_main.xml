@@ -63,11 +63,10 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
-                android:minHeight="80dp"/>
+                android:minHeight="100dp"/>
 
             <RelativeLayout
-                android:minHeight="40dp"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <!-- Toolbar is the actual app bar with text and the action items -->
@@ -75,23 +74,16 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:layout_scrollFlags="scroll|enterAlways"
                     android:theme="@style/AppTheme.AppBarOverlay"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-                <RelativeLayout
-                    app:layout_scrollFlags="scroll|enterAlways"
+                <android.support.v7.widget.RecyclerView
                     android:layout_below="@id/toolbar"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/recycler_buttons"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <android.support.v7.widget.RecyclerView
-                        app:layout_scrollFlags="scroll|enterAlways"
-                        android:layout_centerVertical="true"
-                        android:id="@+id/recycler_buttons"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    />
             </RelativeLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
