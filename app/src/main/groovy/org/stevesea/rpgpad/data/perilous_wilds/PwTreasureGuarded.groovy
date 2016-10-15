@@ -25,6 +25,21 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class PwTreasureGuarded extends PwTreasure {
 
+    static Map<String, PwTreasureGuarded> gg = [
+            '1bonus': new PwTreasureGuarded() {
+                @Override
+                String generate() {
+                    return generateForBonus(1)
+                }
+            },
+            '2bonus': new PwTreasureGuarded() {
+                @Override
+                String generate() {
+                    return generateForBonus(2)
+                }
+            },
+            ]
+
     @Override
     String generate() {
         generateForBonus(0)

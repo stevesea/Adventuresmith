@@ -27,6 +27,29 @@ import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class PwTreasure extends AbstractGenerator{
+
+
+    static Map<String, PwTreasure> generators = [
+            'item': new PwTreasure() {
+                @Override
+                String generate() {
+                    return pick(getItem())
+                }
+            },
+            'unguarded': new PwTreasure() {
+                @Override
+                String generate() {
+                    List<Integer> rolls = [ roll('1d6'), roll('1d6') ]
+                    Integer rollMin = Collections.min(rolls)
+                    if (rollMin.equals(6)) {
+                        // if not double-sixes, use smaller roll
+                        return getTreasure().getAt(rollMin)
+                    } else {
+                        return getTreasure().getAt(roll('3d6'))
+                    }
+                }
+            },
+            ]
     PwDetails pwDetails = new PwDetails()
     @Override
     AbstractGenerator withShuffler(Shuffler shuff) {

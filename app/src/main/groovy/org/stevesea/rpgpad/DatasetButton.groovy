@@ -43,11 +43,8 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
+import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded
-import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded1Bonus
-import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded2Bonus
-import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureItem
-import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureUnguarded
 
 @CompileStatic
 public enum DatasetButton {
@@ -65,10 +62,10 @@ public enum DatasetButton {
     PerilousRegions(Dataset.ThePerilousWildsNames, PwRegion.class, R.string.PwRegions),
 
     PerilousTreasureGuarded(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.class, R.string.PwTreasureGuarded),
-    PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded1Bonus.class, R.string.PwTreasureGuarded1),
-    PerilousTreasureGuarded2(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded2Bonus.class, R.string.PwTreasureGuarded2),
-    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasureUnguarded.class, R.string.PwTreasureUnguarded),
-    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasureItem.class, R.string.PwTreasureItem),
+    PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.gg.get('1bonus'), R.string.PwTreasureGuarded1),
+    PerilousTreasureGuarded2(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.gg.get('2bonus'), R.string.PwTreasureGuarded2),
+    PerilousTreasureUnguarded(Dataset.ThePerilousWildsTreasure, PwTreasure.generators.get('unguarded'), R.string.PwTreasureUnguarded),
+    PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasure.generators.get('item'), R.string.PwTreasureItem),
 
     PerilousNPC(Dataset.ThePerilousWildsNPC, PwNPC.class, R.string.PwNPC),
     PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPC.generators.get('wilderness'), R.string.PwNPCWilderness),
