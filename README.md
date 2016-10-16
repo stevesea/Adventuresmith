@@ -23,13 +23,13 @@ This is an Android application which randomly generates configurable things for 
     * Development tasks during beta
         * polish UI
         * fix bugs and enhancements (usability, formatting) things brought up during beta
-        * figure out less generic name than 'RPG-Pad'
+        * ~~figure out less generic name than 'RPG-Pad'~~
 * **1.0** Publish on Google Play
     * ~~register as developer~~
     * publish
     * create GitHub web page for the project (separate from the source page)
 * **2.0** More content, easier to maintain content
-    * rather than Groovy GStrings & closures, use a templating engine
+    * ~~rather than Groovy GStrings & closures, use a templating engine~~
     * make application more data-driven, and easier for other people to submit content
     * get suggestions from beta users and G+ community for new random generator content
 * **Future**
