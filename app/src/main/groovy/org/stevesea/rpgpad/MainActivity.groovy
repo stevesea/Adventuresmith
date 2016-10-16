@@ -36,6 +36,8 @@ import android.text.Spanned
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.arasthel.swissknife.SwissKnife
+import com.arasthel.swissknife.annotations.InjectView
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import groovy.transform.CompileStatic
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity
     private static final String DATASET_CURRENT = MainActivity.class.name + '.dataset_current'
     private static final String BUTTON_CURRENT = MainActivity.class.name + '.button_current'
 
+    @InjectView(R.id.recycler_buttons)
     RecyclerView recyclerButtons
+    @InjectView(R.id.recycler_results)
     RecyclerView recyclerResults
 
     ArrayList<String> results;
@@ -60,15 +64,19 @@ public class MainActivity extends AppCompatActivity
     Dataset datasetCurrent
     DatasetButton buttonCurrent
 
+    @InjectView(R.id.toolbar)
     Toolbar toolbar
 
+    @InjectView(R.id.drawer_layout)
     DrawerLayout drawer;
 
+    @InjectView(R.id.nav_view)
     NavigationView navigationView
 
     ResultsAdapter resultsAdapter
     ButtonsAdapter buttonsAdapter
 
+    @InjectView(R.id.fab_again)
     FloatingActionButton fab
 
     @Override
@@ -77,15 +85,8 @@ public class MainActivity extends AppCompatActivity
 
         contentView = R.layout.activity_main
 
-        navigationView = findViewById(R.id.nav_view) as NavigationView
-        drawer = findViewById(R.id.drawer_layout) as DrawerLayout
-        toolbar = findViewById(R.id.toolbar) as Toolbar
+        SwissKnife.inject(this);
 
-        recyclerResults = findViewById(R.id.recycler_results) as RecyclerView
-        recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
-
-
-        fab = findViewById(R.id.fab_again) as FloatingActionButton
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             void onClick(View v) {
