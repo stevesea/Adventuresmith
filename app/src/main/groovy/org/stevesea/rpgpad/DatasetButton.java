@@ -18,6 +18,8 @@
  */
 package org.stevesea.rpgpad;
 
+import android.support.annotation.StringRes;
+
 import org.stevesea.rpgpad.data.AbstractGenerator;
 import org.stevesea.rpgpad.data.DiceRoller;
 import org.stevesea.rpgpad.data.fourth_page.FourthPageArtifact;
@@ -112,7 +114,7 @@ public enum DatasetButton {
     public final Dataset dataset;
     public final AbstractGenerator generator;
 
-    DatasetButton(Dataset dataset, AbstractGenerator obj, int stringResourceId) {
+    DatasetButton(Dataset dataset, AbstractGenerator obj, @StringRes  int stringResourceId) {
         this.stringResourceId = stringResourceId;
         this.dataset = dataset;
         this.generator = obj;

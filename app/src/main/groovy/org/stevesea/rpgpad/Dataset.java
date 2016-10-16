@@ -18,6 +18,9 @@
  */
 package org.stevesea.rpgpad;
 
+import android.support.annotation.IdRes;
+import android.support.annotation.StringRes;
+
 public enum Dataset {
     // TODO: get rid of enums, is bad android practice http://guides.codepath.com/android/Replacing-Enums-with-Enumerated-Annotations
     None(R.string.nav_thanks, R.id.nav_thanks),
@@ -35,7 +38,7 @@ public enum Dataset {
     public final int stringResourceId;
     public final int menuNavId;
 
-    Dataset(int stringResourceId, int menuNavId) {
+    Dataset(@StringRes int stringResourceId, @IdRes int menuNavId) {
         this.stringResourceId = stringResourceId;
         this.menuNavId = menuNavId;
     }
