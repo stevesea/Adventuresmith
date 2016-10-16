@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
@@ -80,9 +78,6 @@ android {
         exclude 'META-INF/services/org.codehaus.groovy.runtime.ExtensionModule'
         exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
     }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 }
 
 androidGroovy {
@@ -145,7 +140,6 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 // APT doesn't know to make these directories for tests. Force them to
