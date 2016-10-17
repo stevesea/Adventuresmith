@@ -169,7 +169,7 @@ class PerilousWildsGeneratorTest {
         assertEquals("""\
 <strong>Unnatural Entity</strong>
 <br/>
-<br/>haunt/wisp
+<br/><strong><small>Undead</small></strong> - haunt/wisp
 <br/>
 <br/><strong><small>Ability:</small></strong> bless/curse
 <br/><strong><small>Activity:</small></strong> laying trap/ambush
@@ -220,7 +220,7 @@ A few coins, 2d8 or so
 <br/><strong><small>Ruination:</small></strong> arcane disaster
 <br/>
 <br/><strong>Themes:</strong>
-<br/>&nbsp;&nbsp;rot/decay&nbsp;&#x25A2""", new PwDungeon().withShuffler(shuffler).generate())
+<br/>&nbsp;&nbsp;rot/decay: &nbsp;O""", new PwDungeon().withShuffler(shuffler).generate())
     }
 
     @Test

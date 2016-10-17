@@ -15,7 +15,7 @@ class RpgPadDataTest {
 
     @Test
     void verifyButtonsFotF() {
-        Assert.assertEquals([DatasetButton.FreebooterSpells, DatasetButton.FreebooterTraits],
+        Assert.assertEquals([DatasetButton.FreebooterChars, DatasetButton.FreebooterSpells, DatasetButton.FreebooterTraits],
                 DatasetButton.getButtonsForDataset(Dataset.FreebootersOnTheFrontier))
     }
 
