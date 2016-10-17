@@ -23,16 +23,12 @@
 
     <item
         android:drawable="@color/colorPrimaryLightLight"/>
-    <item>
-        <bitmap
-            android:gravity="fill"
-            android:src="@drawable/peacock_wings_anjou_bible_naples_ca1340"/>
-    </item>
 
+    <item android:gravity="bottom|center"
+          android:drawable="@drawable/ic_sea_serpent"/>
     <!--
-    <item android:gravity="center"
-          android:height="100dp"
-          android:width="100dp"
+    <item android:gravity="top|center"
+          android:top="50dp"
           android:drawable="@drawable/ic_ouroboros"/>
--->
+          -->
 </layer-list>
