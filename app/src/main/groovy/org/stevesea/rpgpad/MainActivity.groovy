@@ -117,12 +117,18 @@ public class MainActivity extends AppCompatActivity
 
         final int btnSpanShort = getResources().getInteger(R.integer.buttonSpanShort)
         final int btnSpanRegular = getResources().getInteger(R.integer.buttonSpanRegular)
+        final int btnSpanLong = getResources().getInteger(R.integer.buttonSpanLong)
         buttonGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 String btnTxt = getString(buttons.getAt(position).stringResourceId)
-                if (btnTxt.length() <= 6) {
+                List<Integer> words = btnTxt.tokenize().collect{it.length()}
+                Integer longest = words.max()
+
+                if (longest <= 6) {
                     return btnSpanShort
+                } else if (longest >= 11) {
+                    return btnSpanLong
                 }
                 else {
                     return btnSpanRegular
