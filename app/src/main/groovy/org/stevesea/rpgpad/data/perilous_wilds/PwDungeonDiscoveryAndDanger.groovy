@@ -79,9 +79,9 @@ class PwDungeonDiscoveryAndDanger extends AbstractGenerator{
 
     //A starting point: extrapolate, embellish, integrate.
     RangeMap discovery = new RangeMap()
-            .with(1..3, "${ -> pick(discovery_dressing)}")
-            .with(4..9, "${ -> pick(discovery_feature)}")
-            .with(10..12, "${ -> pick(discovery_find)}")
+            .with(1..3, "dressing: ${ -> pick(discovery_dressing)}")
+            .with(4..9, "feature: ${ -> pick(discovery_feature)}")
+            .with(10..12, "find: ${ -> pick(discovery_find)}")
 
     RangeMap danger_trap = new RangeMap()
             .with(1, 'alarm')
@@ -124,14 +124,18 @@ class PwDungeonDiscoveryAndDanger extends AbstractGenerator{
             .with(12, 'dark god')
     // if they would notice, show signs of an approaching threat
     RangeMap danger = new RangeMap()
-            .with(1..4, "${ -> pick(danger_trap)}")
+            .with(1..4, "trap: ${ -> pick(danger_trap)}")
             .with(5..11, """\
-${ -> pick(pwCreature.creature_no_tags)} : ${ -> pick(danger_creature)}
-<br/>&nbsp;&nbsp;${ssem('Alignment:')} ${-> pwDetails.pickAlignment()}
-<br/>&nbsp;&nbsp;${ssem('Disposition:')} ${-> pwDetails.pickDisposition()}
-<br/>&nbsp;&nbsp;${ssem('No. Appearing:')} ${-> pwDetails.pickNumberAppearing()}
+creature: ${ -> pick(pwCreature.creature_no_tags)} + ${ -> pick(danger_creature)}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Alignment:')} ${-> pwDetails.pickAlignment()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Disposition:')} ${-> pwDetails.pickDisposition()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('No. Appearing:')} ${-> pwDetails.pickNumberAppearing()}
 """)
-            .with(12, "${ -> pick(danger_entity)}")
+            .with(12, """\
+entity: ${ -> pick(danger_entity)}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Alignment:')} ${-> pwDetails.pickAlignment()}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;${ssem('Disposition:')} ${-> pwDetails.pickDisposition()}
+""")
 
     RangeMap area_type_and_contents = new RangeMap()
             .with(1, """\
@@ -149,6 +153,7 @@ ${strong('Area Type:')} Common [Unthemed]
 <br/>
 <br/>${strong('Contents:')}
 <br/>&nbsp;&nbsp;${ -> pick(discovery)}
+<br/>
 <br/>&nbsp;&nbsp;${ -> pick(danger)}""")
             .with(5..6, """\
 ${strong('Area Type:')} Common [Unthemed]
@@ -165,6 +170,7 @@ ${strong('Area Type:')} Common [Themed]
 <br/>
 <br/>${strong('Contents:')}
 <br/>&nbsp;&nbsp;${ -> pick(discovery)}
+<br/>
 <br/>&nbsp;&nbsp;${ -> pick(danger)}""")
             .with(9, """\
 ${strong('Area Type:')} Common [Themed]
@@ -181,6 +187,7 @@ ${strong('Area Type:')} Unique [Themed]
 <br/>
 <br/>${strong('Contents:')}
 <br/>&nbsp;&nbsp;${ -> pick(discovery)}
+<br/>
 <br/>&nbsp;&nbsp;${ -> pick(danger)}""")
             .with(12, """\
 ${strong('Area Type:')} Unique [Themed]

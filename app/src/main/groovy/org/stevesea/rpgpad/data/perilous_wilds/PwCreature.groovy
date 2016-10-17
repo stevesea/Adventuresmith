@@ -137,7 +137,7 @@ class PwCreature extends AbstractGenerator {
 
     RangeMap monster_unusual = new RangeMap()
             .with(1..3, 'plant/fungus')
-            .with(4..5, "Undead Human <small/>[${ -> pick(pwDetails.undead)}]</small>")
+            .with(4..5, "Undead Human <small>[${ -> pick(pwDetails.undead)}]</small>")
             .with(6, "Undead Humanoid  <small>[${ -> pick(pwDetails.undead)} + ${ -> pick(humanoid)}]</small>")
             .with(7..8, "${ -> pickN(beast,2).join(' + ')}")
             .with(9..10, "${ -> pick(beast) } + ${ -> pwDetails.pickAbility()}")
@@ -156,22 +156,22 @@ class PwCreature extends AbstractGenerator {
             .with(12, "${ -> pick(monster_rare)} + dragon")
     RangeMap monster = new RangeMap()
             .with(1..7, "${ -> pick(monster_unusual)}")
-            .with(8..10, "${ -> pick(monster_rare)}")
-            .with(11..12, "${ -> pick(monster_legendary)}")
+            .with(8..10, "${ -> pick(monster_rare)} ${em('(rare)')}")
+            .with(11..12, "${ -> pick(monster_legendary)} ${em('(legendary)')}")
 
     RangeMap unnatural_entity = new RangeMap()
             .with(1..8, """\
-${ -> pick(pwDetails.undead)}\
+${ss('Undead:')} ${ -> pick(pwDetails.undead)}\
 """)
             .with(9..11, """\
-${ -> pick(pwDetails.planar)}
+${ss('Planar:')} ${ -> pick(pwDetails.planar)}
 <br/>
 <br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
 <br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
             .with(12, """\
-${ -> pick(pwDetails.divine)}
+${ss('Divine:')} ${ -> pick(pwDetails.divine)}
 <br/>
 <br/>${ss('Aspect:')} ${ -> pwDetails.pickAspect()}
 <br/>${ss('Element:')} ${ -> pwDetails.pickElement()}

@@ -79,7 +79,7 @@ class PwDanger extends AbstractGenerator {
 
     RangeMap unnatural_entity = new RangeMap()
             .with(1..8, """\
-${ -> pick(undead)}
+${ss('Undead')} - ${ -> pick(undead)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -87,7 +87,7 @@ ${ -> pick(undead)}
 <br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}\
 """)
             .with(9..11, """\
-${ -> pick(planar)}
+${ss('Planar')} - ${ -> pick(planar)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -98,7 +98,7 @@ ${ -> pick(planar)}
 <br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
 """)
             .with(12, """\
-${ -> pick(divine)}
+${ss('Divine')} - ${ -> pick(divine)}
 <br/>
 <br/>${ss('Ability:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
@@ -111,16 +111,16 @@ ${ -> pick(divine)}
 """)
     RangeMap hazard = new RangeMap()
             .with(1..2, """\
-${ -> pick(hazard_unnatural)}
+${ss('Unnatural')} - ${ -> pick(hazard_unnatural)}
 <br/>
 <br/>${ss('Aspect:')} ${ -> pwDetails.pickAbility()}
 <br/>${ss('Visbility:')} ${ -> pwDetails.pickVisibility()}\
 """)
             .with(3..10, """\
-${ -> pick(hazard_natural)}
+${ss('Natural')} - ${ -> pick(hazard_natural)}
 """)
             .with(11..12, """\
-${ -> pick(hazard_trap)}
+${ss('Trap')} - ${ -> pick(hazard_trap)}
 <br/>
 <br/>${ss('Aspect:')} ${-> pwDetails.pickAbility()}
 <br/>${ss('Visbility:')} ${-> pwDetails.pickVisibility()}\

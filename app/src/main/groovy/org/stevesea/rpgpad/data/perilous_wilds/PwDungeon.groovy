@@ -151,7 +151,7 @@ class PwDungeon extends AbstractGenerator{
 
         def countdowns = []
         numThemes.times{
-            countdowns.add('&#x25A2')
+            countdowns.add('O')
         }
         def countdownsStr = countdowns.join('&nbsp;')
 
@@ -165,7 +165,7 @@ ${strong('Dungeon')}
 <br/>${ss('Ruination:')} ${ -> pick(dungeon_ruination)}
 <br/>
 <br/>${strong('Themes:')}
-<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).collect{ it.toString() + '&nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
+<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).collect{ it.toString() + ': &nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
 """
     }
 }
