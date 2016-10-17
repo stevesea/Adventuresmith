@@ -77,13 +77,21 @@
                     android:theme="@style/AppTheme.AppBarOverlay"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-                <android.support.v7.widget.RecyclerView
+                <!-- this nested relativelayout is so we can center the
+                buttons vertically, within the space below the toolbar-->
+                <RelativeLayout
                     android:layout_below="@id/toolbar"
-                    android:layout_centerVertical="true"
-                    android:id="@+id/recycler_buttons"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/recycler_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </RelativeLayout>
             </RelativeLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
