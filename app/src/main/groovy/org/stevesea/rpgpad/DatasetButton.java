@@ -26,6 +26,7 @@ import org.stevesea.rpgpad.data.fourth_page.FourthPageArtifact;
 import org.stevesea.rpgpad.data.fourth_page.FourthPageCity;
 import org.stevesea.rpgpad.data.fourth_page.FourthPageDungeon;
 import org.stevesea.rpgpad.data.fourth_page.FourthPageMonster;
+import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFCharacters;
 import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFSpells;
 import org.stevesea.rpgpad.data.freebooters_on_the_frontier.FotFTraits;
 import org.stevesea.rpgpad.data.maze_rats.MazeRatsAfflictions;
@@ -52,6 +53,7 @@ import java.util.Collection;
 import java.util.List;
 
 public enum DatasetButton {
+    FreebooterChars(Dataset.FreebootersOnTheFrontier, new FotFCharacters(),  R.string.FotFChars),
     FreebooterSpells(Dataset.FreebootersOnTheFrontier, new FotFSpells(),  R.string.FotFSpells),
     FreebooterTraits(Dataset.FreebootersOnTheFrontier, new FotFTraits(), R.string.FotFTraits),
 
