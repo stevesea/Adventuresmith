@@ -42,6 +42,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon;
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeonDiscoveryAndDanger;
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower;
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC;
+import org.stevesea.rpgpad.data.perilous_wilds.PwNames;
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace;
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion;
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading;
@@ -66,6 +67,10 @@ public enum DatasetButton {
     PerilousNPCFollower(Dataset.ThePerilousWildsNames, new PwFollower(), R.string.PwNPCFollower),
     PerilousPlaces(Dataset.ThePerilousWildsNames, new PwPlace(),  R.string.PwPlaces),
     PerilousRegions(Dataset.ThePerilousWildsNames, new PwRegion(), R.string.PwRegions),
+    PerilousNames1(Dataset.ThePerilousWildsNames, PwNames.generators.get("Arpad"), R.string.PwNameArpad),
+    PerilousNames2(Dataset.ThePerilousWildsNames, PwNames.generators.get("Oloru"), R.string.PwNameOloru),
+    PerilousNames3(Dataset.ThePerilousWildsNames, PwNames.generators.get("Valkoina"), R.string.PwNameValkoina),
+    PerilousNames4(Dataset.ThePerilousWildsNames, PwNames.generators.get("Tamanarugan"), R.string.PwNameTamanarugan),
 
     PerilousTreasureGuarded(Dataset.ThePerilousWildsTreasure, new PwTreasureGuarded(), R.string.PwTreasureGuarded),
     PerilousTreasureGuarded1(Dataset.ThePerilousWildsTreasure, PwTreasureGuarded.gg.get("1bonus"), R.string.PwTreasureGuarded1),
@@ -74,9 +79,9 @@ public enum DatasetButton {
     PerilousTreasureItem(Dataset.ThePerilousWildsTreasure, PwTreasure.generators.get("item"), R.string.PwTreasureItem),
 
     PerilousNPC(Dataset.ThePerilousWildsNPC, new PwNPC(), R.string.PwNPC),
-    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPC.generators.get("wilderness"), R.string.PwNPCWilderness),
     PerilousNPCRural(Dataset.ThePerilousWildsNPC, PwNPC.generators.get("rural"), R.string.PwNPCRural),
     PerilousNPCUrban(Dataset.ThePerilousWildsNPC, PwNPC.generators.get("urban"), R.string.PwNPCUrban),
+    PerilousNPCWilderness(Dataset.ThePerilousWildsNPC, PwNPC.generators.get("wilderness"), R.string.PwNPCWilderness),
 
     PerilousCreature(Dataset.ThePerilousWildsCreature, new PwCreature(), R.string.PwCreature),
     PerilousCreatureB(Dataset.ThePerilousWildsCreature, PwCreature.generators.get("beast"), R.string.PwCreatureBeast),

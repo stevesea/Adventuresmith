@@ -52,6 +52,10 @@
     <string name="PwSteading">Steading</string>
     <string name="PwDungeon">Dungeon</string>
     <string name="PwNPCFollower">Follower</string>
+    <string name="PwNameValkoina">Valkoina</string>
+    <string name="PwNameTamanarugan">Tamanarugan</string>
+    <string name="PwNameArpad">Arpad</string>
+    <string name="PwNameOloru">Oloru</string>
 
     <string name="PwTreasureUnguarded">Unguarded Treasure</string>
     <string name="PwTreasureItem">Item</string>
