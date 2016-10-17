@@ -25,7 +25,7 @@
         android:drawable="@color/colorPrimaryLightLight"/>
     <item>
         <bitmap
-            android:gravity="clip_horizontal"
+            android:gravity="fill"
             android:src="@drawable/peacock_wings_anjou_bible_naples_ca1340"/>
     </item>
 
