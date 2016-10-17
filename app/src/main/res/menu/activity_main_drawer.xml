@@ -28,38 +28,24 @@
             </group>
         </menu>
     </item>
-    <item android:title="@string/maze_rats"
-        >
-        <menu>
-            <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
-                <item
-                    android:id="@+id/nav_mr"
-                    android:icon="@drawable/ic_nfc_black_24dp"
-                    android:title="@string/maze_rats"/>
-            </group>
-        </menu>
-    </item>
-    <item android:title="@string/freebooters_on_the_frontier"
-        >
-        <menu>
-            <group android:checkableBehavior="single" android:id="@+id/nav_fotf_group">
-                <item
-                    android:id="@+id/nav_fotf"
-                    android:icon="@drawable/ic_map_black_24dp"
-                    android:title="@string/freebooters_on_the_frontier"/>
-            </group>
-        </menu>
-    </item>
-    <item android:title="@string/fourth_page">
-        <menu>
-            <group android:checkableBehavior="single" android:id="@+id/nav_fourth_page_group">
-                <item
-                    android:id="@+id/nav_fourth_page"
-                    android:icon="@drawable/ic_terrain_black_24dp"
-                    android:title="@string/fourth_page"/>
-            </group>
-        </menu>
-    </item>
+    <group android:checkableBehavior="single" android:id="@+id/nav_mr_group">
+        <item
+            android:id="@+id/nav_mr"
+            android:icon="@drawable/ic_nfc_black_24dp"
+            android:title="@string/maze_rats"/>
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/nav_fotf_group">
+        <item
+            android:id="@+id/nav_fotf"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/freebooters_on_the_frontier"/>
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/nav_fourth_page_group">
+        <item
+            android:id="@+id/nav_fourth_page"
+            android:icon="@drawable/ic_terrain_black_24dp"
+            android:title="@string/fourth_page"/>
+    </group>
 
     <item android:title="@string/nav_misc">
         <menu>
