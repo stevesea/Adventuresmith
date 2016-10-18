@@ -802,7 +802,7 @@ ${ss('Virtues:')} ${ -> pickN(FotFTraits.virtues, 3).join(', ')}
 <br/>${ss('Wisdom:')} ${roll('3d6')}&nbsp;&nbsp;&nbsp;${ss('Intelligence:')} ${roll('3d6')}
 <br/>${ss('Luck:')} ${roll('3d6')}
 <br/>
-<br/>${ss('Appearance:')} ${pickN(appearances.get(playbook), 3).join(', ')}
+<br/>${ss('Appearance:')} ${pickN(appearances.get(playbook), roll('1d2+1')).join(', ')}
 <br/>
 <br/>${virtues_vices.get(alignment)}
 <br/>

@@ -399,8 +399,8 @@ Whistle\
                 [
                         forename: pick(forenames),
                         surname: pick(surnames),
-                        personality2: pickN(personalities,2).join(', '),
-                        appearance2: pickN(appearances,2).join(', '),
+                        personality2: pickN(personalities,roll('1d2+1')).join(', '),
+                        appearance2: pickN(appearances,roll('1d2+1')).join(', '),
                         weapon: pickN(weapons, 2).join(', '),
                         equip: pickN(equipment, 3).join(', '),
                         str: roll('3d6'),
