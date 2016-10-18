@@ -93,6 +93,6 @@
     <string name="dice_roller_1d20">1d20</string>
     <string name="dice_roller_1d30">1d30</string>
     <string name="dice_roller_1d100">1d100</string>
-    <string name="dice_roller_2d20_adv">2d20 (adv)</string>
-    <string name="dice_roller_2d20_disadv">2d20 (disadv)</string>
+    <string name="dice_roller_1d20_adv">1d20 (adv)</string>
+    <string name="dice_roller_1d20_disadv">1d20 (disadv)</string>
 </resources>
