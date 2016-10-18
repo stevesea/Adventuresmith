@@ -11,6 +11,7 @@ This is an Android application which randomly generates configurable things for 
 * Perilous Wilds, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
 * Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
 * Maze Rats 0.1, by Ben Milton. http://questingblog.com/maze-rats/
+* Stars Without Number, by Kevin Crawford / Sine Nomine Publishing http://www.sinenomine-pub.com/
 
 ## Roadmap
 

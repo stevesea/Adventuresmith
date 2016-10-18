@@ -34,7 +34,7 @@
         <cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
         Creative Commons Attribution 3.0 Unported License.
         <br/>
-        <br/>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a>
+        <br/>To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
 
         <h5>Sine Nomine Publishing</h5>
         <cite>Stars Without Number</cite> written by  Kevin Crawford. The content reproduced here is
@@ -60,5 +60,10 @@
         <ul>
         </ul>]]>
     </string>
-    <string name="welcome_msg"><![CDATA[<h3>Welcome!</h3> <br/><br/>Select a category to begin.<br/><br/>]]></string>
+    <string name="welcome_msg"><![CDATA[
+    <h3>Welcome!</h3>
+    <p>Select a category to begin.</p>
+    <br/>
+    <p>To report problems or request enhancements, please visit <br/>https://github.com/stevesea/RPGpad</p>
+    ]]></string>
 </resources>
