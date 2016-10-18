@@ -48,10 +48,12 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwRegion;
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading;
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure;
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded;
+import org.stevesea.rpgpad.data.stars_without_number.Culture;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAlien;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal;
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld;
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation;
+import org.stevesea.rpgpad.data.stars_without_number.SWNnames;
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc;
 
 import java.util.ArrayList;
@@ -94,13 +96,21 @@ public enum DatasetButton {
     PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreature.generators.get("humanoid"), R.string.PwCreatureHumanoid),
     PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreature.generators.get("monster"), R.string.PwCreatureMonster),
 
-    SwnWorld(Dataset.SWN, new SWNWorld(), R.string.swn_world),
-    SwnAlien(Dataset.SWN, new SWNAlien(), R.string.swn_alien),
-    SwnAnimal(Dataset.SWN, new SWNAnimal(), R.string.swn_animal),
-    SwnNpc(Dataset.SWN, new SWNnpc(), R.string.swn_npc),
-    SwnCorporation(Dataset.SWN, new SWNcorporation(), R.string.swn_corporation),
+    SwnWorld(Dataset.SWNGen, new SWNWorld(), R.string.swn_world),
+    SwnAlien(Dataset.SWNGen, new SWNAlien(), R.string.swn_alien),
+    SwnAnimal(Dataset.SWNGen, new SWNAnimal(), R.string.swn_animal),
+    SwnNpc(Dataset.SWNQuick, new SWNnpc(), R.string.swn_npc),
+    SwnCorporation(Dataset.SWNQuick, new SWNcorporation(), R.string.swn_corporation),
+    SwnNamesA(Dataset.SWNNames, SWNnames.generators.get(Culture.Arabic), R.string.swn_names_arabic),
+    SwnNamesC(Dataset.SWNNames, SWNnames.generators.get(Culture.Chinese), R.string.swn_names_chinese),
+    SwnNamesE(Dataset.SWNNames, SWNnames.generators.get(Culture.English), R.string.swn_names_english),
+    SwnNamesI(Dataset.SWNNames, SWNnames.generators.get(Culture.Indian), R.string.swn_names_indian),
+    SwnNamesJ(Dataset.SWNNames, SWNnames.generators.get(Culture.Japanese), R.string.swn_names_japanese),
+    SwnNamesN(Dataset.SWNNames, SWNnames.generators.get(Culture.Nigerian), R.string.swn_names_nigerian),
+    SwnNamesR(Dataset.SWNNames, SWNnames.generators.get(Culture.Russian), R.string.swn_names_russian),
+    SwnNamesS(Dataset.SWNNames, SWNnames.generators.get(Culture.Spanish), R.string.swn_names_spanish),
     // TODO: adventure seed
-    // TODO: factoin, religion, heresies, political parties, architecture, starships
+    // TODO: faction, religion, heresies, political parties, architecture, starships
     //
 
 

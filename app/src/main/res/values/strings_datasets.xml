@@ -23,7 +23,11 @@
     <string name="maze_rats">Maze Rats</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
     <string name="fourth_page">The Fourth Page</string>
+
     <string name="swn">Stars Without Number</string>
+    <string name="swn_names">Names</string>
+    <string name="swn_quickgen">NPCs, Corporations, Religions…</string>
+    <string name="swn_gen">Aliens, Animals, Worlds…</string>
 
     <string name="nav_thanks">Attribution &amp; Thanks</string>
 
@@ -94,6 +98,14 @@
     <string name="swn_political">Political Party</string>
     <string name="swn_architecture">Architecture</string>
     <string name="swn_room_dressing">Room Dressing</string>
+    <string name="swn_names_arabic">Arabic</string>
+    <string name="swn_names_chinese">Chinese</string>
+    <string name="swn_names_english">English</string>
+    <string name="swn_names_indian">Indian</string>
+    <string name="swn_names_japanese">Japanese</string>
+    <string name="swn_names_nigerian">Nigerian</string>
+    <string name="swn_names_russian">Russian</string>
+    <string name="swn_names_spanish">Spanish</string>
 
     <string name="dice_roller_2d6">2d6</string>
     <string name="dice_roller_3d6">3d6</string>

@@ -145,8 +145,7 @@ Xenotech
             .with(32..37, 'They have high-level political connections')
             .with(38..43, 'Rumored cover-up of a massive industrial accident')
             .with(44..49, 'Stodgy and very conservative in their business plans')
-            //TODO: 50..53 is missing from rulebook... pick something interesting
-            .with(50..53, 'unknown')
+            .with(50..53, "${ -> pick('1d49', rumors)}") // entries 50-53 missing from table. just make it pick the lower half of entries
             .with(54..59, 'The company’s owner is dangerously insane')
             .with(60..64, 'Rumored ties to a eugenics cult')
             .with(65..70, 'Said to have a cache of pretech equipment')

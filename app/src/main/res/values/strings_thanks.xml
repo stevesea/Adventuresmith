@@ -60,10 +60,10 @@
                 <li>&nbsp;Liz Christensen</li>
                 <li>&nbsp;Camilla Nash</li>
                 <li>&nbsp;Kate Moir</li>
-                <li>&nbsp;... add more here ...</li>
+                <li>&nbsp;… add more here …</li>
         <ul>
-        </ul>]]>
-    </string>
+        </ul>
+    ]]></string>
     <string name="welcome_msg"><![CDATA[
     <h3>Welcome!</h3>
     <p>Select a category to begin.</p>

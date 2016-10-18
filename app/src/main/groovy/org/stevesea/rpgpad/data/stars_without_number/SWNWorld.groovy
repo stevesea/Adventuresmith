@@ -23,10 +23,20 @@ package org.stevesea.rpgpad.data.stars_without_number
 import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
-import org.stevesea.rpgpad.data.RangeMap;
+import org.stevesea.rpgpad.data.RangeMap
+import org.stevesea.rpgpad.data.Shuffler
 
 @CompileStatic
 class SWNWorld extends AbstractGenerator {
+
+    SWNnames names = new SWNnames()
+
+    @Override
+    AbstractGenerator withShuffler(Shuffler shuff) {
+        super.withShuffler(shuff)
+        names.withShuffler(shuff)
+        this
+    }
 
     RangeMap atmospheres = new RangeMap()
             .with(2, 'Corrosive')
@@ -138,7 +148,7 @@ Heavy Gravity\
 
 
     String template =  '''\
-<strong>World</strong>
+<strong>World</strong> - {{name}}
 <br/><strong><small>Atmosphere:</small></strong> {{atmosphere}}
 <br/><strong><small>Temperature:</small></strong> {{temperature}}
 <br/><strong><small>Biosphere:</small></strong> {{biosphere}}
@@ -151,6 +161,7 @@ Heavy Gravity\
     String generate() {
         Mustache.compiler().compile(template).execute(
                 [
+                        name: names.getPlaceName(),
                         atmosphere: pick('2d6', atmospheres),
                         temperature: pick('2d6', temperatures),
                         biosphere: pick('2d6', biospheres),

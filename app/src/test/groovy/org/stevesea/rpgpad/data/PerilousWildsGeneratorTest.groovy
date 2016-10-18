@@ -32,6 +32,7 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwDungeon
 import org.stevesea.rpgpad.data.perilous_wilds.PwDungeonDiscoveryAndDanger
 import org.stevesea.rpgpad.data.perilous_wilds.PwFollower
 import org.stevesea.rpgpad.data.perilous_wilds.PwNPC
+import org.stevesea.rpgpad.data.perilous_wilds.PwNames
 import org.stevesea.rpgpad.data.perilous_wilds.PwPlace
 import org.stevesea.rpgpad.data.perilous_wilds.PwRegion
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading
@@ -234,15 +235,17 @@ A few coins, 2d8 or so
                 new PwDungeon(),
                 new PwDungeonDiscoveryAndDanger(),
                 new PwFollower(),
+                new PwNames(),
                 new PwNPC(),
                 new PwPlace(),
                 new PwRegion(),
                 new PwSteading(),
                 new PwTreasure(),
+                new PwTreasureGuarded(),
                 ]
         gens.each { gen ->
             //println "################"
-            10.times {
+            100.times {
                 //println "-------"
                 /*println*/ gen.generate()
             }

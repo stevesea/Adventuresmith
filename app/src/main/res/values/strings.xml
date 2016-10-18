@@ -13,6 +13,6 @@
     <string name="cleared_results_msg">Results cleared.</string>
     <string name="action_share">Share…</string>
     <string name="action_clear">Clear</string>
-    <string name="nav_misc">Misc</string>
+    <string name="nav_other">Other</string>
 
 </resources>
