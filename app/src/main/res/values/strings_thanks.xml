@@ -22,24 +22,28 @@
     <string name="content_attribution"><![CDATA[
         <h1>Attribution - Content</h1>
 
-        This application uses content from the following sources.
+        <p>This application uses content from the following sources.</p>
+
         <h5>Jason Lutes</h5>
-        <cite>&nbsp;The Perilous Wilds</cite>
+        &nbsp;<cite>The Perilous Wilds</cite>
         <br/><cite>&nbsp;Freebooters on the Frontier</cite>
+        <br/>&nbsp;http://lampblackandbrimstone.blogspot.com/
 
         <h5>Ben Milton</h5>
-        <cite>&nbsp;Maze Rats 0.1</cite>
+        &nbsp;<cite>Maze Rats 0.1</cite>
+        <br/>&nbsp;http://questingblog.com/maze-rats/
 
         <h5>Mike Riverso</h5>
-        <cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
+        <p>&nbsp;<cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
         Creative Commons Attribution 3.0 Unported License.
         <br/>
         <br/>To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
+        </p>
 
         <h5>Sine Nomine Publishing</h5>
-        <cite>Stars Without Number</cite> written by  Kevin Crawford. The content reproduced here is
+        &nbsp;<cite>Stars Without Number</cite> written by  Kevin Crawford. The content reproduced here is
         from the free version of the rulebook.
-        <br/>
+        <br/>http://www.sinenomine-pub.com/
         ]]>
     </string>
 
