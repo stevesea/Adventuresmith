@@ -21,10 +21,18 @@
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:drawable="@color/grey100"/>
+    <item>
+        <shape>
+            <size android:height="500dp" android:width="500dp"/>
+            <solid android:color="@color/grey100"/>
+        </shape>
+    </item>
 
     <item android:gravity="center"
+          android:right="@dimen/activity_vertical_margin"
+          android:left="@dimen/activity_vertical_margin"
+          android:top="@dimen/activity_vertical_margin"
+          android:bottom="@dimen/activity_vertical_margin"
           android:drawable="@drawable/ic_anvil_impact_splash"/>
     <!--
     <item android:gravity="top|center"
