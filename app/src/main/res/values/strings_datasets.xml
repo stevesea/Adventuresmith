@@ -23,6 +23,7 @@
     <string name="maze_rats">Maze Rats</string>
     <string name="freebooters_on_the_frontier">Freebooters on the Frontier</string>
     <string name="fourth_page">The Fourth Page</string>
+    <string name="swn">Stars Without Number</string>
 
     <string name="nav_thanks">Attribution &amp; Thanks</string>
 
@@ -82,6 +83,10 @@
     <string name="MrMagic">Spells</string>
     <string name="MrMonsters">Monsters</string>
     <string name="MrPotionEffects">Potion Effects</string>
+
+    <string name="swn_world">World</string>
+    <string name="swn_alien">Alien</string>
+    <string name="swn_animal">Animal</string>
 
     <string name="dice_roller_2d6">2d6</string>
     <string name="dice_roller_3d6">3d6</string>

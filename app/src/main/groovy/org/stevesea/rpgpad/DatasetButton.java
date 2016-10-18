@@ -48,6 +48,9 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwRegion;
 import org.stevesea.rpgpad.data.perilous_wilds.PwSteading;
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasure;
 import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded;
+import org.stevesea.rpgpad.data.stars_without_number.SWNAlien;
+import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal;
+import org.stevesea.rpgpad.data.stars_without_number.SWNWorld;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -88,6 +91,12 @@ public enum DatasetButton {
     PerilousCreatureHuman(Dataset.ThePerilousWildsCreature, PwCreature.generators.get("human"), R.string.PwCreatureHuman),
     PerilousCreatureHumanoid(Dataset.ThePerilousWildsCreature, PwCreature.generators.get("humanoid"), R.string.PwCreatureHumanoid),
     PerilousCreatureMonster(Dataset.ThePerilousWildsCreature, PwCreature.generators.get("monster"), R.string.PwCreatureMonster),
+
+    SwnWorld(Dataset.SWN, new SWNWorld(), R.string.swn_world),
+    SwnAlien(Dataset.SWN, new SWNAlien(), R.string.swn_alien),
+    SwnAnimal(Dataset.SWN, new SWNAnimal(), R.string.swn_animal),
+    // TODO: adventure seed
+    // TODO:
 
 
     MrCharacters(Dataset.MazeRats, new MazeRatsCharacter(), R.string.MrCharacters),
