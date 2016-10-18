@@ -20,25 +20,38 @@
 
 <resources>
     <string name="content_attribution"><![CDATA[
-        <h3>Attribution</h3>
-        <h4>Content</h4>
-        This application uses content produced by the following individuals
+        <h1>Attribution - Content</h1>
+
+        This application uses content produced by the following individuals.
         <h5>Jason Lutes</h5>
-        <em>&nbsp;The Perilous Wilds</em>
-        <br/><em>&nbsp;Freebooters of the Frontier</em>
+        <cite>&nbsp;The Perilous Wilds</cite>
+        <br/><cite>&nbsp;Freebooters on the Frontier</cite>
+
         <h5>Ben Milton</h5>
-        <em>&nbsp;Maze Rats</em>
+        <cite>&nbsp;Maze Rats 0.1</cite>
+
         <h5>Mike Riverso</h5>
-        <em>&nbsp;the Fourth Page</em> generators for World of Dungeons.
-        <br/>Licensed under the Creative Commons Attribution 3.0 Unported License.
-        To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
-        <h4>Artwork</h4>
+        <cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
+        Creative Commons Attribution 3.0 Unported License.
+        <br/>
+        <br/>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a>
+        ]]>
+    </string>
+
+    <string name="content_artwork"><![CDATA[
+        <h1>Attribution - Artwork</h1>
         This application uses icons made by Lorc. Available on http://game-icons.net
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[
-        <h3>Thanks</h3>
-        TBD: list people here that contributed time, and helped during development: testing, ideas, etc
+        <h1>Thanks</h1>
+        People who helped during development: testing, ideas, encouragement, etc
+        <ul>
+                <li>&nbsp;Brian Christensen</li>
+                <li>&nbsp;Liz Christensen</li>
+                <li>&nbsp;Camilla Nash</li>
+                <li>&nbsp;Kate Moir</li>
+                <li>&nbsp;... add more here ...</li>
         <ul>
         </ul>]]>
     </string>

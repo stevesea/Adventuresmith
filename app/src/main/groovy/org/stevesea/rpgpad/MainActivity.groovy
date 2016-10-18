@@ -305,7 +305,8 @@ public class MainActivity extends AppCompatActivity
         results.clear()
         if (key == Dataset.None) {
             resultsAdd(0, getString(R.string.content_attribution))
-            resultsAdd(1, getString(R.string.content_thanks))
+            resultsAdd(1, getString(R.string.content_artwork))
+            resultsAdd(2, getString(R.string.content_thanks))
         } else {
             Answers.getInstance().logCustom(new CustomEvent("Selected Dataset")
                     .putCustomAttribute("Dataset", key.name())
