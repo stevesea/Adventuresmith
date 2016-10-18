@@ -22,7 +22,7 @@
     <string name="content_attribution"><![CDATA[
         <h1>Attribution - Content</h1>
 
-        This application uses content from
+        This application uses content from the following sources.
         <h5>Jason Lutes</h5>
         <cite>&nbsp;The Perilous Wilds</cite>
         <br/><cite>&nbsp;Freebooters on the Frontier</cite>
@@ -37,8 +37,8 @@
         <br/>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a>
 
         <h5>Sine Nomine Publishing</h5>
-        <cite>Stars Without Number</cite> is a sci-fi retroclone. The content reproduced here is from
-        the free version of the rulebook.
+        <cite>Stars Without Number</cite> written by  Kevin Crawford. The content reproduced here is
+        from the free version of the rulebook.
         <br/>
         ]]>
     </string>

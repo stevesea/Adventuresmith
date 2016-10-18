@@ -51,6 +51,8 @@ import org.stevesea.rpgpad.data.perilous_wilds.PwTreasureGuarded;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAlien;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal;
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld;
+import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation;
+import org.stevesea.rpgpad.data.stars_without_number.SWNnpc;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -95,8 +97,11 @@ public enum DatasetButton {
     SwnWorld(Dataset.SWN, new SWNWorld(), R.string.swn_world),
     SwnAlien(Dataset.SWN, new SWNAlien(), R.string.swn_alien),
     SwnAnimal(Dataset.SWN, new SWNAnimal(), R.string.swn_animal),
+    SwnNpc(Dataset.SWN, new SWNnpc(), R.string.swn_npc),
+    SwnCorporation(Dataset.SWN, new SWNcorporation(), R.string.swn_corporation),
     // TODO: adventure seed
-    // TODO:
+    // TODO: factoin, religion, heresies, political parties, architecture, starships
+    //
 
 
     MrCharacters(Dataset.MazeRats, new MazeRatsCharacter(), R.string.MrCharacters),

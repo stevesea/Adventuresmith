@@ -87,6 +87,13 @@
     <string name="swn_world">World</string>
     <string name="swn_alien">Alien</string>
     <string name="swn_animal">Animal</string>
+    <string name="swn_npc">NPC</string>
+    <string name="swn_corporation">Corporation</string>
+    <string name="swn_religion">Religion</string>
+    <string name="swn_heresies">Heresies</string>
+    <string name="swn_political">Political Party</string>
+    <string name="swn_architecture">Architecture</string>
+    <string name="swn_room_dressing">Room Dressing</string>
 
     <string name="dice_roller_2d6">2d6</string>
     <string name="dice_roller_3d6">3d6</string>
