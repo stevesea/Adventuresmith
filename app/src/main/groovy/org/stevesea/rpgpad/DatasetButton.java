@@ -53,6 +53,7 @@ import org.stevesea.rpgpad.data.stars_without_number.SWNAlien;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal;
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld;
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation;
+import org.stevesea.rpgpad.data.stars_without_number.SWNheresy;
 import org.stevesea.rpgpad.data.stars_without_number.SWNnames;
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc;
 import org.stevesea.rpgpad.data.stars_without_number.SWNreligion;
@@ -104,6 +105,7 @@ public enum DatasetButton {
     SwnNpc(Dataset.SWNQuick, new SWNnpc(), R.string.swn_npc),
     SwnCorporation(Dataset.SWNQuick, new SWNcorporation(), R.string.swn_corporation),
     SwnReligion(Dataset.SWNQuick, new SWNreligion(), R.string.swn_religion),
+    SwnHeresy(Dataset.SWNQuick, new SWNheresy(), R.string.swn_heresies),
 
     SwnNamesA(Dataset.SWNNames, SWNnames.generators.get(Culture.Arabic), R.string.swn_names_arabic),
     SwnNamesC(Dataset.SWNNames, SWNnames.generators.get(Culture.Chinese), R.string.swn_names_chinese),

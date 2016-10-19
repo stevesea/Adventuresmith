@@ -25,6 +25,7 @@ import org.stevesea.rpgpad.data.stars_without_number.SWNAlien
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation
+import org.stevesea.rpgpad.data.stars_without_number.SWNheresy
 import org.stevesea.rpgpad.data.stars_without_number.SWNnames
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc
 import org.stevesea.rpgpad.data.stars_without_number.SWNreligion
@@ -39,6 +40,7 @@ class SWNTest {
                 new SWNAlien(),
                 new SWNAnimal(),
                 new SWNcorporation(),
+                new SWNheresy(),
                 new SWNnames(),
                 new SWNnpc(),
                 new SWNreligion(),
