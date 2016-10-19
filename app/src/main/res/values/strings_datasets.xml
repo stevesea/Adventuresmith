@@ -91,6 +91,7 @@
     <string name="swn_world">World</string>
     <string name="swn_alien">Alien</string>
     <string name="swn_animal">Animal</string>
+    <string name="swn_faction">Faction</string>
     <string name="swn_npc">NPC</string>
     <string name="swn_corporation">Corporation</string>
     <string name="swn_religion">Religion</string>
