@@ -52,6 +52,7 @@ import org.stevesea.rpgpad.data.stars_without_number.Culture;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAlien;
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal;
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld;
+import org.stevesea.rpgpad.data.stars_without_number.SWNadventure_seed;
 import org.stevesea.rpgpad.data.stars_without_number.SWNarchitecture;
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation;
 import org.stevesea.rpgpad.data.stars_without_number.SWNheresy;
@@ -112,6 +113,7 @@ public enum DatasetButton {
     SwnPolitical(Dataset.SWNQuick, new SWNpolitical_party(), R.string.swn_political),
     SwnArch(Dataset.SWNQuick, new SWNarchitecture(), R.string.swn_architecture),
     SwnRoom(Dataset.SWNQuick, new SWNroom_dressing(), R.string.swn_room_dressing),
+    SwnAdv(Dataset.SWNQuick, new SWNadventure_seed(), R.string.swn_adv_seed),
 
     SwnNamesA(Dataset.SWNNames, SWNnames.generators.get(Culture.Arabic), R.string.swn_names_arabic),
     SwnNamesC(Dataset.SWNNames, SWNnames.generators.get(Culture.Chinese), R.string.swn_names_chinese),
@@ -122,7 +124,7 @@ public enum DatasetButton {
     SwnNamesR(Dataset.SWNNames, SWNnames.generators.get(Culture.Russian), R.string.swn_names_russian),
     SwnNamesS(Dataset.SWNNames, SWNnames.generators.get(Culture.Spanish), R.string.swn_names_spanish),
     // TODO: adventure seed
-    // TODO: faction, religion, heresies, political parties, architecture, starships
+    // TODO: faction, starships
     //
 
     MrCharacters(Dataset.MazeRats, new MazeRatsCharacter(), R.string.MrCharacters),

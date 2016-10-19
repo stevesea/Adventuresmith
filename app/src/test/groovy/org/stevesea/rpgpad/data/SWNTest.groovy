@@ -24,6 +24,7 @@ import org.junit.Test
 import org.stevesea.rpgpad.data.stars_without_number.SWNAlien
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld
+import org.stevesea.rpgpad.data.stars_without_number.SWNadventure_seed
 import org.stevesea.rpgpad.data.stars_without_number.SWNarchitecture
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation
 import org.stevesea.rpgpad.data.stars_without_number.SWNheresy
@@ -42,6 +43,7 @@ class SWNTest {
         def gens = [
                 new SWNAlien(),
                 new SWNAnimal(),
+                new SWNadventure_seed(),
                 new SWNarchitecture(),
                 new SWNcorporation(),
                 new SWNheresy(),

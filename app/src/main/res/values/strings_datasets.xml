@@ -98,6 +98,8 @@
     <string name="swn_political">Political Party</string>
     <string name="swn_architecture">Architecture</string>
     <string name="swn_room_dressing">Room &amp; Features</string>
+    <string name="swn_adv_seed">Adventure Seed</string>
+
     <string name="swn_names_arabic">Arabic</string>
     <string name="swn_names_chinese">Chinese</string>
     <string name="swn_names_english">English</string>
