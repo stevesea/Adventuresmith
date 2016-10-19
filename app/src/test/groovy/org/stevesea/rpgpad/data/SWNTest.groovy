@@ -24,10 +24,12 @@ import org.junit.Test
 import org.stevesea.rpgpad.data.stars_without_number.SWNAlien
 import org.stevesea.rpgpad.data.stars_without_number.SWNAnimal
 import org.stevesea.rpgpad.data.stars_without_number.SWNWorld
+import org.stevesea.rpgpad.data.stars_without_number.SWNarchitecture
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation
 import org.stevesea.rpgpad.data.stars_without_number.SWNheresy
 import org.stevesea.rpgpad.data.stars_without_number.SWNnames
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc
+import org.stevesea.rpgpad.data.stars_without_number.SWNpolitical_party
 import org.stevesea.rpgpad.data.stars_without_number.SWNreligion
 
 class SWNTest {
@@ -39,10 +41,12 @@ class SWNTest {
         def gens = [
                 new SWNAlien(),
                 new SWNAnimal(),
+                new SWNarchitecture(),
                 new SWNcorporation(),
                 new SWNheresy(),
                 new SWNnames(),
                 new SWNnpc(),
+                new SWNpolitical_party(),
                 new SWNreligion(),
                 new SWNWorld(),
         ]

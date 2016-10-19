@@ -100,7 +100,7 @@ Forbidden the use of certain technology\
 <br/>&nbsp;&nbsp;${pick(attitude)}
 <br/>
 <br/><strong><small>Quirks:</small></strong>
-<br/>&nbsp;&nbsp;${pickN(attitude, roll('1d2+1')).join('<br/>&nbsp;&nbsp')}
+<br/>&nbsp;&nbsp;${pickN(quirks, roll('1d2+1')).join('<br/>&nbsp;&nbsp;')}
 """
     }
 }
