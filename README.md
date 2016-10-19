@@ -6,46 +6,9 @@
 [![Build Status](https://travis-ci.org/stevesea/Adventuresmith.svg?branch=master)](https://travis-ci.org/stevesea/Adventuresmith)
 
 This is an Android application for randomly generating elements for tabletop RPGs (names, spells,
-items, monsters, characters, etc). The application uses content produced by the following individuals:
+items, monsters, characters, etc).
 
-* Perilous Wilds, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
-* Freebooters on the Frontier, by Jason Lutes. http://lampblackandbrimstone.blogspot.com/
-* Maze Rats 0.1, by Ben Milton. http://questingblog.com/maze-rats/
-* Stars Without Number, by Kevin Crawford / Sine Nomine Publishing http://www.sinenomine-pub.com/
-
-## Beta
-
-I haven't published the app on Google Play yet. To get the application during the beta phase, go to
-this link to Crashlytics' Beta: https://betas.to/guJ4ZNqt
-
-The link will take you to a sign up page where you enter your email. You'll receive an email with a
-link to download the Crashlytics Beta app.
-
-Once Beta is installed, it'll give you an interface to download my app. Beta downloads my app and
-then it should take you to the typical APK install screen where you can choose whether to accept the
-install and be shown the permissions the app is requesting.
-
-## Goals
-
-* Teach myself mobile development
-* I'm interested generating randomized RPG sandbox content using
-  * complex random tables that involve a handful of dice and multiple interrelated tables (Perilous Wilds is a good example).
-  * evocative, interesting random table entries.
-
-* I'm not particularly interested in turning this app into a general-purpose random-generator engine --
-  I don't plan to implement 20+ variations of name-generation tables
-
-## Other random generators with the same/similar content
-
-https://perilous-wilds.geekwire.net/region
-
-http://www.random-generator.com/index.php?title=Category:Dungeon_World
-
-http://www.random-generator.com/index.php?title=Category:Stars_Without_Number
-
-http://swn.emichron.com/ (https://github.com/nhr/swn)
-
-https://github.com/orffen/swn/
+See https://stevesea.github.io/Adventuresmith/ for content attribution and screenshots.
 
 ## Screenshots
 
