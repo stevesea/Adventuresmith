@@ -25,8 +25,7 @@ import org.stevesea.rpgpad.data.AbstractGenerator
 
 @CompileStatic
 class SWNfaction extends AbstractGenerator {
-    List<String> room_dressing = [
-]
+    String faction=
     """
 minor:
   stats:
@@ -192,7 +191,7 @@ goals
 
     """
 
-    """
+    String rules = """
 
 hit points: max based on force/cunning/wealth
 
@@ -210,6 +209,6 @@ assets
     """
 
     String generate () {
-        pick(room_dressing)
+        "unimplemented"
     }
 }
