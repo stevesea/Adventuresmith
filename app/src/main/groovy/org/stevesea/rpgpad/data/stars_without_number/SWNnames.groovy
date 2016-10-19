@@ -1123,6 +1123,7 @@ Zumeta\
         pick(culture_names.get(culture).get('PlaceName'))
     }
 
+    // TODO: there are interesting culture-specific naming rules in the SWN resources, follow them?
     String generate(@Culture String culture) {
         """\
 <strong>Culture</strong> - ${culture}

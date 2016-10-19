@@ -55,6 +55,7 @@ import org.stevesea.rpgpad.data.stars_without_number.SWNWorld;
 import org.stevesea.rpgpad.data.stars_without_number.SWNcorporation;
 import org.stevesea.rpgpad.data.stars_without_number.SWNnames;
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc;
+import org.stevesea.rpgpad.data.stars_without_number.SWNreligion;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -99,8 +100,11 @@ public enum DatasetButton {
     SwnWorld(Dataset.SWNGen, new SWNWorld(), R.string.swn_world),
     SwnAlien(Dataset.SWNGen, new SWNAlien(), R.string.swn_alien),
     SwnAnimal(Dataset.SWNGen, new SWNAnimal(), R.string.swn_animal),
+
     SwnNpc(Dataset.SWNQuick, new SWNnpc(), R.string.swn_npc),
     SwnCorporation(Dataset.SWNQuick, new SWNcorporation(), R.string.swn_corporation),
+    SwnReligion(Dataset.SWNQuick, new SWNreligion(), R.string.swn_religion),
+
     SwnNamesA(Dataset.SWNNames, SWNnames.generators.get(Culture.Arabic), R.string.swn_names_arabic),
     SwnNamesC(Dataset.SWNNames, SWNnames.generators.get(Culture.Chinese), R.string.swn_names_chinese),
     SwnNamesE(Dataset.SWNNames, SWNnames.generators.get(Culture.English), R.string.swn_names_english),
@@ -112,7 +116,6 @@ public enum DatasetButton {
     // TODO: adventure seed
     // TODO: faction, religion, heresies, political parties, architecture, starships
     //
-
 
     MrCharacters(Dataset.MazeRats, new MazeRatsCharacter(), R.string.MrCharacters),
     MrMonsters(Dataset.MazeRats, new MazeRatsMonsters(), R.string.MrMonsters),
