@@ -59,6 +59,7 @@ import org.stevesea.rpgpad.data.stars_without_number.SWNnames;
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc;
 import org.stevesea.rpgpad.data.stars_without_number.SWNpolitical_party;
 import org.stevesea.rpgpad.data.stars_without_number.SWNreligion;
+import org.stevesea.rpgpad.data.stars_without_number.SWNroom_dressing;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -110,6 +111,7 @@ public enum DatasetButton {
     SwnHeresy(Dataset.SWNQuick, new SWNheresy(), R.string.swn_heresies),
     SwnPolitical(Dataset.SWNQuick, new SWNpolitical_party(), R.string.swn_political),
     SwnArch(Dataset.SWNQuick, new SWNarchitecture(), R.string.swn_architecture),
+    SwnRoom(Dataset.SWNQuick, new SWNroom_dressing(), R.string.swn_room_dressing),
 
     SwnNamesA(Dataset.SWNNames, SWNnames.generators.get(Culture.Arabic), R.string.swn_names_arabic),
     SwnNamesC(Dataset.SWNNames, SWNnames.generators.get(Culture.Chinese), R.string.swn_names_chinese),

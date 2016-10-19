@@ -31,6 +31,7 @@ import org.stevesea.rpgpad.data.stars_without_number.SWNnames
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc
 import org.stevesea.rpgpad.data.stars_without_number.SWNpolitical_party
 import org.stevesea.rpgpad.data.stars_without_number.SWNreligion
+import org.stevesea.rpgpad.data.stars_without_number.SWNroom_dressing
 
 class SWNTest {
 
@@ -48,6 +49,7 @@ class SWNTest {
                 new SWNnpc(),
                 new SWNpolitical_party(),
                 new SWNreligion(),
+                new SWNroom_dressing(),
                 new SWNWorld(),
         ]
         gens.each { gen ->

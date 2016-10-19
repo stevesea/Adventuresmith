@@ -43,10 +43,9 @@ http://www.random-generator.com/index.php?title=Category:Dungeon_World
 
 http://www.random-generator.com/index.php?title=Category:Stars_Without_Number
 
-https://github.com/nhr/swn
+http://swn.emichron.com/ (https://github.com/nhr/swn)
 
 https://github.com/orffen/swn/
-
 
 ## Screenshots
 

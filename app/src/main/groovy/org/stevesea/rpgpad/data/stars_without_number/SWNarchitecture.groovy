@@ -84,7 +84,7 @@ Monumental arches
 Keyhole arches
 Inflexed arches
 Flat arches
-Corbelled arches
+Corbelled arches\
 """.readLines(),
 ]
     List<String> misc = """\
@@ -97,7 +97,7 @@ Open plazas
 Elevated walkways
 Monoliths or standing stones
 Meandering pathways
-Climbing vegetation
+Climbing vegetation\
 """.readLines()
 
 
