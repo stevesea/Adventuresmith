@@ -3,6 +3,10 @@
 #
 
 general:
+    branches:
+        only:
+            - master
+
     artifacts:
         - /home/ubuntu/RPGpad/app/build/outputs/apk/
 
