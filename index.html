@@ -1,48 +1,70 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Adventuresmith by stevesea</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Adventuresmith</h1>
-      <h2 class="project-tagline">An Android app for a few of my favorite tabletop RPG random tables</h2>
-      <a href="https://github.com/stevesea/Adventuresmith" class="btn">View on GitHub</a>
-      <a href="https://github.com/stevesea/Adventuresmith/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/stevesea/Adventuresmith/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/stevesea/Adventuresmith">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/stevesea/Adventuresmith/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/stevesea/Adventuresmith/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <section class="main-content">
-      <h1>
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Adventuresmith</h1>
+          <p>Some of my favorite tabletop RPG random tables (for Android)</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/stevesea">stevesea</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
 <a id="adventuresmith" class="anchor" href="#adventuresmith" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adventuresmith</h1>
 
 <p>This is an Android app for randomly generating elements for tabletop RPGs (names, spells,
 items, monsters, characters, etc). </p>
 
-<p>I'm not particularly interested in turning this app into a general-purpose 
-random-generator engine -- I don't plan to implement 20+ variations of name-generation tables. 
-I'm interested in more complicated random generation involving multiple dice, interrelated 
+<p>I'm not planning to turn this into a general-purpose random table engine. But, I am 
+interested in complicated random generation involving multiple dice, interrelated 
 results from multiple tables, etc.</p>
 
-<p>Bugs? Feature Requests? Give me feedback here: <a href="https://github.com/stevesea/Adventuresmith/issues">https://github.com/stevesea/Adventuresmith/issues</a></p>
+<p>Bugs? Feature Requests? You can provide feedback here: <a href="https://github.com/stevesea/Adventuresmith/issues">https://github.com/stevesea/Adventuresmith/issues</a></p>
 
 <h2>
-<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloads</h2>
+<a id="downloads-beta" class="anchor" href="#downloads-beta" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloads (Beta)</h2>
 
-<p>I haven't published the app on Google Play yet. To get a copy of the application, go to this link: <a href="https://betas.to/guJ4ZNqt">https://betas.to/guJ4ZNqt</a></p>
+<p>I haven't published the app on Google Play yet. To get a copy of the application, follow this link: <a href="https://betas.to/guJ4ZNqt">https://betas.to/guJ4ZNqt</a></p>
 
-<p>The link will take you to a sign up page where you enter your email. You'll receive an email with a
-link to download the Crashlytics Beta app.</p>
+<p>That link will take you to a sign up page where you enter your email. You'll receive an email with a
+link to download the Crashlytics Beta app. (you'll need to open the link on your Android phone, using
+Chrome as your browser)</p>
 
-<p>Once Beta is installed, it'll give you an interface to download my app. Beta downloads my app and
-then it should take you to the typical APK install screen where you can choose whether to accept the
+<p>Once Beta is installed, it'll give you an interface to download Adventuresmith. Beta will download the 
+app and then it should take you to the typical APK install screen where you can choose whether to accept the
 install and be shown the permissions the app is requesting.</p>
+
+<p>As I fix bugs and implement features, you'll be notified when i publish new beta versions and can choose to 
+install them or not.</p>
 
 <h2>
 <a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h2>
@@ -145,15 +167,10 @@ install and be shown the permissions the app is requesting.</p>
 <p>This application uses icons made by Lorc. Available on <a href="http://game-icons.net">http://game-icons.net</a></p>
 
 <p>TODO: enter attribution for public domain images</p>
+      </section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/stevesea/Adventuresmith">Adventuresmith</a> is maintained by <a href="https://github.com/stevesea">stevesea</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
