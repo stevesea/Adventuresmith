@@ -220,16 +220,16 @@ fl y above the surface of the planet. Perhaps they remain stationary, or perhaps
         friends: 'Maintenance tech in need of help, City defense force pilot, Meteorological researcher'.tokenize(','),
         complications: 'Sudden storms, Drastic altitude loss, Rival city attacks, Vital machinery breaks down'.tokenize(','),
         things: 'Precious refi ned atmospheric gases, Pretech grav engine plans, Meteorological codex predicting future storms'.tokenize(','),
-        places: 'Underside of the city, Th e one calm place on the planet’s surface, Catwalks stretching over unimaginable gulfs below.'.tokenize(',')
+        places: 'Underside of the city, The one calm place on the planet’s surface, Catwalks stretching over unimaginable gulfs below.'.tokenize(',')
 ),
 'Forbidden Tech' : new WorldTag(
         flavor: '''Some group on this planet fabricates or uses maltech. Unbraked AIs doomed to metastasize into insanity, nation-destroying nanowarfare particles,
-slow-burn DNA corruptives, genetically engineered slaves, or something worse still. Th e planet’s larger population may or may not be aware of the
+slow-burn DNA corruptives, genetically engineered slaves, or something worse still. The planet’s larger population may or may not be aware of the
 danger in their midst.''',
         enemies: 'Mad scientist, Maltech buyer from off world, Security enforcer'.tokenize(','),
         friends: 'Victim of maltech, Perimeter agent, Investigative reporter, Conventional arms merchant'.tokenize(','),
-        complications: 'Th e maltech is being fabricated by an unbraked AI, Th e government depends on revenue from maltech sales to off worlders, Citizens insist that it’s not really maltech'.tokenize(','),
-        things: 'Maltech research data, Th e maltech itself, Precious pretech equipment used to create it'.tokenize(','),
+        complications: 'The maltech is being fabricated by an unbraked AI, The government depends on revenue from maltech sales to off worlders, Citizens insist that it’s not really maltech'.tokenize(','),
+        things: 'Maltech research data, The maltech itself, Precious pretech equipment used to create it'.tokenize(','),
         places: 'Horrific laboratory, Hellscape sculpted by the maltech’s use, Government building meeting room'.tokenize(',')
 ),
 
@@ -238,13 +238,13 @@ danger in their midst.''',
 reason, they are willing to negotiate and deal honestly with strangers, and appear to lack the worst impulses of their fellows.''',
                     enemies: 'Driven hater of all their kind, Internal malcontent bent on creating confl ict, Secret master who seeks to lure trust'.tokenize(','),
                     friends: 'Well-meaning bug-eyed monster, Principled eugenics cultist, Suspicious investigator'.tokenize(','),
-                    complications: 'Th e group actually is as harmless and benevolent as they seem, Th e group off ers a vital service at the cost of moral compromise, Th e group still feels bonds of affi liation with their hostile brethren'.tokenize(','),
+                    complications: 'The group actually is as harmless and benevolent as they seem, The group off ers a vital service at the cost of moral compromise, The group still feels bonds of affi liation with their hostile brethren'.tokenize(','),
                     things: 'Forbidden xenotech, Eugenic biotech template, Evidence to convince others of their kind that they are right'.tokenize(','),
                     places: 'Repurposed maltech laboratory, Alien conclave building, Widely-feared starship interior'.tokenize(',')
             ),
 'Freak Geology' : new WorldTag(
-        flavor: '''Th e geology or geography of this world is simply freakish. Perhaps it’s composed entirely of enormous mountain ranges, or regular bands of land
-and sea, or the mineral structures all fragment into perfect cubes. Th e locals have learned to deal with it and their culture will be shaped by its
+        flavor: '''The geology or geography of this world is simply freakish. Perhaps it’s composed entirely of enormous mountain ranges, or regular bands of land
+and sea, or the mineral structures all fragment into perfect cubes. The locals have learned to deal with it and their culture will be shaped by its
 requirements.''',
         enemies: 'Crank xenogeologist, Cultist who believes it the work of aliens'.tokenize(','),
         friends: 'Research scientist, Prospector, Artist'.tokenize(','),
@@ -253,13 +253,13 @@ requirements.''',
         places: 'Atop a bizarre geological formation, Tourist resort catering to off worlders'.tokenize(',')
 ),
 'Freak Weather' : new WorldTag(
-        flavor: '''Th e planet is plagued with some sort of bizarre or hazardous weather pattern. Perhaps city-fl attening storms regularly scourge the surface, or the
+        flavor: '''The planet is plagued with some sort of bizarre or hazardous weather pattern. Perhaps city-fl attening storms regularly scourge the surface, or the
 world’s sun never pierces its thick banks of clouds.''',
         enemies: 'Criminal using the weather as a cover, Weather cultists convinced the off worlders are responsible for some disaster, Native predators dependent on the weather'.tokenize(','),
         friends: 'Meteorological researcher, Holodoc crew wanting shots of the weather'.tokenize(','),
-        complications: 'Th e weather itself, Malfunctioning pretech terraforming engines that cause the weather'.tokenize(','),
+        complications: 'The weather itself, Malfunctioning pretech terraforming engines that cause the weather'.tokenize(','),
         things: 'Wind-scoured deposits of precious minerals, Holorecords of a spectacularly and rare weather pattern, Naturallysculpted objects of intricate beauty'.tokenize(','),
-        places: 'Eye of the storm, Th e one sunlit place, Terraforming control room'.tokenize(',')
+        places: 'Eye of the storm, The one sunlit place, Terraforming control room'.tokenize(',')
 ),
 'Gold Rush' : new WorldTag(
         flavor: '''Gold, silver, and other conventional precious minerals are common and cheap now that asteroid mining is practical for most worlds. But some
@@ -267,7 +267,7 @@ minerals and compounds remain precious and rare, and this world has recently bee
 sector have come to strike it rich.''',
         enemies: 'Paranoid prospector, Aspiring mining tycoon, Rapacious merchant'.tokenize(','),
         friends: 'Claim-jumped miner, Native alien, Curious tourist'.tokenize(','),
-        complications: 'The strike is a hoax, The strike is of a dangerous toxic substance, Export of the mineral is prohibited by the planetary government, Th e native aliens live around the strike’s location'.tokenize(','),
+        complications: 'The strike is a hoax, The strike is of a dangerous toxic substance, Export of the mineral is prohibited by the planetary government, The native aliens live around the strike’s location'.tokenize(','),
         things: 'Cases of the refi ned element, Pretech mining equipment, A dead prospector’s claim deed'.tokenize(','),
         places: 'Secret mine, Native alien village, Processing plant, Boom town'.tokenize(',')
 ),
@@ -275,19 +275,19 @@ sector have come to strike it rich.''',
         flavor: '''For whatever reason, this world’s populace has a burning hatred for the inhabitants of a neighboring system. Perhaps this world was colonized by
 exiles, or there was a recent interstellar war, or ideas of racial or religious superiority have fanned the hatred. Regardless of the cause, the locals view
 their neighbor and any sympathizers with loathing.''',
-        enemies: 'Native convinced that the off worlders are agents of Th em, Cynical politician in need of scapegoats'.tokenize(','),
+        enemies: 'Native convinced that the off worlders are agents of Them, Cynical politician in need of scapegoats'.tokenize(','),
         friends: 'Intelligence agent needing catspaws, Holodoc producers needing “an inside look”'.tokenize(','),
-        complications: 'Th e characters are wearing or using items from the hated world, Th e characters are known to have done business there, Th e characters “look like” the hated others'.tokenize(','),
-        things: 'Proof of Th eir evildoing, Reward for turning in enemy agents, Relic stolen by Th em years ago'.tokenize(','),
+        complications: 'The characters are wearing or using items from the hated world, The characters are known to have done business there, The characters “look like” the hated others'.tokenize(','),
+        things: 'Proof of Their evildoing, Reward for turning in enemy agents, Relic stolen by Them years ago'.tokenize(','),
         places: 'War crimes museum, Atrocity site, Captured, decommissioned spaceship kept as a trophy'.tokenize(',')
 ),
 'Heavy Industry' : new WorldTag(
         flavor: '''With interstellar transport so limited in the bulk it can move, worlds have to be largely self-suffi cient in industry. Some worlds are more suffi cient
 than others, however, and this planet has a thriving manufacturing sector capable of producing large amounts of goods appropriate to its tech level.
-Th e locals may enjoy a correspondingly higher lifestyle, or the products might be devoted towards vast projects for the aggrandizement of the rulers.''',
+The locals may enjoy a correspondingly higher lifestyle, or the products might be devoted towards vast projects for the aggrandizement of the rulers.''',
         enemies: 'Tycoon monopolist, Industrial spy, Malcontent revolutionary'.tokenize(','),
         friends: 'Aspiring entrepreneur, Worker union leader, Ambitious inventor'.tokenize(','),
-        complications: 'Th e factories are toxic, Th e resources extractable at their tech level are running out, Th e masses require the factory output for survival, Th e industries’ major output is being obsoleted by off world tech'.tokenize(','),
+        complications: 'The factories are toxic, The resources extractable at their tech level are running out, The masses require the factory output for survival, The industries’ major output is being obsoleted by off world tech'.tokenize(','),
         things: 'Confidential industrial data, Secret union membership lists, Ownership shares in an industrial complex'.tokenize(','),
         places: 'Factory floor, Union meeting hall, Toxic waste dump, R&D complex'.tokenize(',')
 ),
@@ -296,12 +296,12 @@ Th e locals may enjoy a correspondingly higher lifestyle, or the products might 
 off world. Major mining eff orts are necessary to extract the minerals, and many natives work in the industry.''',
         enemies: 'Mine boss, Tunnel saboteur, Subterranean predators'.tokenize(','),
         friends: 'Hermit prospector, Off world investor, Miner’s union representative'.tokenize(','),
-        complications: 'Th e refi nery equipment breaks down, Tunnel collapse, Silicate life forms growing in the miners’ lungs'.tokenize(','),
-        things: 'Th e mother lode, Smuggled case of refi ned mineral, Faked crystalline mineral samples'.tokenize(','),
+        complications: 'The refi nery equipment breaks down, Tunnel collapse, Silicate life forms growing in the miners’ lungs'.tokenize(','),
+        things: 'The mother lode, Smuggled case of refi ned mineral, Faked crystalline mineral samples'.tokenize(','),
         places: 'Vertical mine face, Tailing piles, Roaring smelting complex'.tokenize(',')
 ),
 'Hostile Biosphere' : new WorldTag(
-        flavor: '''Th e world is teeming with life, and it hates humans. Perhaps the life is xenoallergenic, forcing fi lter masks and tailored antiallergens for survival. It
+        flavor: '''The world is teeming with life, and it hates humans. Perhaps the life is xenoallergenic, forcing fi lter masks and tailored antiallergens for survival. It
 could be the native predators are huge and fearless, or the toxic fl ora ruthlessly outcompetes earth crops.''',
         enemies: 'Local fauna, Nature cultist, Native aliens, Callous labor overseer'.tokenize(','),
         friends: 'Xenobiologist, Tourist on safari, Grizzled local guide'.tokenize(','),
@@ -310,31 +310,31 @@ could be the native predators are huge and fearless, or the toxic fl ora ruthles
         places: 'Deceptively peaceful glade, Steaming polychrome jungle, Nightfall when surrounded by Th ings'.tokenize(',')
 ),
 'Hostile Space' : new WorldTag(
-        flavor: '''Th e system in which the world exists is a dangerous neighborhood. Something about the system is perilous to inhabitants, either through meteor
+        flavor: '''The system in which the world exists is a dangerous neighborhood. Something about the system is perilous to inhabitants, either through meteor
 swarms, stellar radiation, hostile aliens in the asteroid belt, or periodic comet clouds''',
         enemies: 'Alien raid leader, Meteor-launching terrorists, Paranoid local leader'.tokenize(','),
         friends: 'Astronomic researcher, Local defense commander, Early warning monitor agent'.tokenize(','),
-        complications: 'Th e natives believe the danger is divine chastisement, Th e natives blame outworlders for the danger, Th e native elite profi t from the danger in some way'.tokenize(','),
+        complications: 'The natives believe the danger is divine chastisement, The natives blame outworlders for the danger, The native elite profi t from the danger in some way'.tokenize(','),
         things: 'Early warning of a raid or impact, Abandoned riches in a disaster zone, Key to a secure bunker'.tokenize(','),
         places: 'City watching an approaching asteroid, Village burnt in an alien raid, Massive ancient crater'.tokenize(',')
 ),
 'Local Specialty' : new WorldTag(
-        flavor: '''Th e world may be sophisticated or barely capable of steam engines, but either way it produces something rare and precious to the wider galaxy. It
+        flavor: '''The world may be sophisticated or barely capable of steam engines, but either way it produces something rare and precious to the wider galaxy. It
 might be some pharmaceutical extract produced by a secret recipe, a remarkably popular cultural product, or even gengineered humans uniquely
 suited for certain work.''',
         enemies: 'Monopolist, Off worlder seeking prohibition of the specialty, Native who views the specialty as sacred'.tokenize(','),
         friends: 'Spy searching for the source, Artisan seeking protection, Exporter with problems'.tokenize(','),
-        complications: 'Th e specialty is repugnant in nature, Th e crafters refuse to sell to off worlders, Th e specialty is made in a remote, dangerous place, Th e crafters don’t want to make the specialty any more'.tokenize(','),
-        things: 'The specialty itself, Th e secret recipe, Sample of a new improved variety'.tokenize(','),
+        complications: 'The specialty is repugnant in nature, The crafters refuse to sell to off worlders, The specialty is made in a remote, dangerous place, The crafters don’t want to make the specialty any more'.tokenize(','),
+        things: 'The specialty itself, The secret recipe, Sample of a new improved variety'.tokenize(','),
         places: 'Secret manufactory, Hidden cache, Artistic competition for best artisan'.tokenize(',')
 ),
 'Local Tech' : new WorldTag(
-        flavor: '''Th e locals can create a particular example of extremely high tech, possibly even something that exceeds pretech standards. Th ey may use unique local
+        flavor: '''The locals can create a particular example of extremely high tech, possibly even something that exceeds pretech standards. They may use unique local
 resources to do so, or have stumbled on a narrow scientifi c breakthrough, or still have a functional experimental manufactory.''',
         enemies: 'Keeper of the tech, Off world industrialist, Automated defenses that suddenly come alive, Native alien mentors'.tokenize(','),
         friends: 'Curious off world scientist, Eager tech buyer, Native in need of technical help'.tokenize(','),
-        complications: 'Th e tech is unreliable, Th e tech only works on this world, Th e tech has poorly-understood side eff ects, Th e tech is alien in nature.'.tokenize(','),
-        things: 'Th e tech itself, An unclaimed payment for a large shipment, Th e secret blueprints for its construction, An ancient alien R&D database'.tokenize(','),
+        complications: 'The tech is unreliable, The tech only works on this world, The tech has poorly-understood side eff ects, The tech is alien in nature.'.tokenize(','),
+        things: 'The tech itself, An unclaimed payment for a large shipment, The secret blueprints for its construction, An ancient alien R&D database'.tokenize(','),
         places: 'Alien factory, Lethal R&D center, Tech brokerage vault'.tokenize(',')
 ),
 'Major Spaceyard' : new WorldTag(
@@ -343,59 +343,59 @@ major spaceyard facility, either inherited from before the Silence or painstakin
 hulls, and do so more quickly and cheaply than its neighbors''',
         enemies: 'Enemy saboteur, Industrial spy, Scheming construction tycoon, Aspiring ship hijacker'.tokenize(','),
         friends: 'Captain stuck in drydock, Maintenance chief, Mad innovator'.tokenize(','),
-        complications: 'Th e spaceyard is an alien relic, Th e spaceyard is burning out from overuse, Th e spaceyard is alive, Th e spaceyard relies on maltech to function'.tokenize(','),
+        complications: 'The spaceyard is an alien relic, The spaceyard is burning out from overuse, The spaceyard is alive, The spaceyard relies on maltech to function'.tokenize(','),
         things: 'Intellectual property-locked pretech blueprints, Override keys for activating old pretech facilities, A purchased but unclaimed spaceship.'.tokenize(','),
         places: 'Hidden shipyard bay, Surface of a partially-completed ship, Ship scrap graveyard'.tokenize(',')
 ),
 'Minimal Contact' : new WorldTag(
-        flavor: '''Th e locals refuse most contact with off worlders. Only a small, quarantined treaty port is provided for off world trade, and ships can expect an
+        flavor: '''The locals refuse most contact with off worlders. Only a small, quarantined treaty port is provided for off world trade, and ships can expect an
 exhaustive search for contraband. Local governments may be trying to keep the very existence of interstellar trade a secret from their populations, or
 they may simply consider off worlders too dangerous or repugnant to be allowed among the population.''',
         enemies: 'Customs offi cial, Xenophobic natives, Existing merchant who doesn’t like competition'.tokenize(','),
         friends: 'Aspiring tourist, Anthropological researcher, Off world thief, Religious missionary'.tokenize(','),
-        complications: 'Th e locals carry a disease harmless to them and lethal to outsiders, Th e locals hide dark purposes from off worlders, Th e locals have something desperately needed but won’t bring it into the treaty port'.tokenize(','),
+        complications: 'The locals carry a disease harmless to them and lethal to outsiders, The locals hide dark purposes from off worlders, The locals have something desperately needed but won’t bring it into the treaty port'.tokenize(','),
         things: 'Contraband trade goods, Security perimeter codes, Black market local products'.tokenize(','),
         places: 'Treaty port bar, Black market zone, Secret smuggler landing site'.tokenize(',')
 ),
 'Misandry/Misogyny' : new WorldTag(
-        flavor: '''Th e culture on this world holds a particular gender in contempt. Members of that gender are not permitted positions of formal power, and may
+        flavor: '''The culture on this world holds a particular gender in contempt. Members of that gender are not permitted positions of formal power, and may
 be restricted in their movements and activities. Some worlds may go so far as to scorn both traditional genders, using gengineering techniques to
 hybridize or alter conventional human biology''',
         enemies: 'Cultural fundamentalist, Cultural missionary to outworlders'.tokenize(','),
         friends: 'Oppressed native, Research scientist, Off world emancipationist, Local reformer'.tokenize(','),
-        complications: 'Th e oppressed gender is restive against the customs, Th e oppressed gender largely supports the customs, Th e customs relate to some physical quality of the world, Th e oppressed gender has had maltech gengineering done to “tame” them.'.tokenize(','),
+        complications: 'The oppressed gender is restive against the customs, The oppressed gender largely supports the customs, The customs relate to some physical quality of the world, The oppressed gender has had maltech gengineering done to “tame” them.'.tokenize(','),
         things: 'Aerosol reversion formula for undoing gengineered docility, Hidden history of the world, Pretech gengineering equipment'.tokenize(','),
         places: 'Shrine to the virtues of the favored gender, Security center for controlling the oppressed, Gengineering lab'.tokenize(',')
 ),
 'Oceanic World' : new WorldTag(
-        flavor: '''Th e world is entirely or almost entirely covered with liquid water. Habitations might be fl oating cities, or might cling precariously to the few rocky
+        flavor: '''The world is entirely or almost entirely covered with liquid water. Habitations might be fl oating cities, or might cling precariously to the few rocky
 atolls jutting up from the waves, or are planted as bubbles on promontories deep beneath the stormy surface. Survival depends on aquaculture.
 Planets with inedible alien life rely on gengineered Terran sea crops.''',
         enemies: 'Pirate raider, Violent “salvager” gang, Tentacled sea monster'.tokenize(','),
         friends: 'Daredevil fi sherman, Sea hermit, Sapient native life'.tokenize(','),
-        complications: 'Th e liquid fl ux confuses grav engines too badly for them to function on this world, Sea is corrosive or toxic, Th e seas are wracked by regular storms'.tokenize(','),
+        complications: 'The liquid fl ux confuses grav engines too badly for them to function on this world, Sea is corrosive or toxic, The seas are wracked by regular storms'.tokenize(','),
         things: 'Buried pirate treasure, Location of enormous schools of fi sh, Pretech water purifi cation equipment'.tokenize(','),
-        places: 'Th e only island on the planet, Floating spaceport, Deck of a storm-swept ship, Undersea bubble city'.tokenize(',')
+        places: 'The only island on the planet, Floating spaceport, Deck of a storm-swept ship, Undersea bubble city'.tokenize(',')
 ),
 'Out of Contact' : new WorldTag(
-        flavor: '''Th e natives have been entirely out of contact with the greater galaxy for centuries or longer. Perhaps the original colonists were seeking to hide from
+        flavor: '''The natives have been entirely out of contact with the greater galaxy for centuries or longer. Perhaps the original colonists were seeking to hide from
 the rest of the universe, or the Silence destroyed any means of communication. It may have been so long that human origins on other worlds have
-regressed into a topic for legends. Th e players might be on the fi rst off world ship to land since the First Wave of colonization a thousand years ago.''',
+regressed into a topic for legends. The players might be on the fi rst off world ship to land since the First Wave of colonization a thousand years ago.''',
         enemies: 'Fearful local ruler, Zealous native cleric, Sinister power that has kept the world isolated'.tokenize(','),
         friends: 'Scheming native noble, Heretical theologian, UFO cultist native'.tokenize(','),
-        complications: 'Automatic defenses fi re on ships that try to take off , Th e natives want to stay out of contact, Th e natives are highly vulnerable to off world diseases, Th e native language is completely unlike any known to the group'.tokenize(','),
+        complications: 'Automatic defenses fi re on ships that try to take off , The natives want to stay out of contact, The natives are highly vulnerable to off world diseases, The native language is completely unlike any known to the group'.tokenize(','),
         things: 'Ancient pretech equipment, Terran relic brought from Earth, Logs of the original colonists'.tokenize(','),
         places: 'Long-lost colonial landing site, Court of the local ruler, Ancient defense battery controls'.tokenize(',')
 ),
 'Outpost World' : new WorldTag(
-        flavor: '''Th e world is only a tiny outpost of human habitation planted by an off world corporation or government. Perhaps the staff is there to serve as a
-refueling and repair stop for passing ships, or to oversee an automated mining and refi nery complex. Th ey might be there to study ancient ruins, or
-simply serve as a listening and monitoring post for traffi c through the system. Th e outpost is likely well-equipped with defenses against casual piracy.''',
+        flavor: '''The world is only a tiny outpost of human habitation planted by an off world corporation or government. Perhaps the staff is there to serve as a
+refueling and repair stop for passing ships, or to oversee an automated mining and refi nery complex. They might be there to study ancient ruins, or
+simply serve as a listening and monitoring post for traffi c through the system. The outpost is likely well-equipped with defenses against casual piracy.''',
         enemies: 'Space-mad outpost staff er, Outpost commander who wants it to stay undiscovered, Undercover saboteur'.tokenize(','),
         friends: 'Lonely staff er, Fixated researcher, Overtaxed maintenance chief'.tokenize(','),
-        complications: 'Th e alien ruin defense systems are waking up, Atmospheric disturbances trap the group inside the outpost for a month, Pirates raid the outpost, Th e crew have become converts to a strange set of beliefs'.tokenize(','),
+        complications: 'The alien ruin defense systems are waking up, Atmospheric disturbances trap the group inside the outpost for a month, Pirates raid the outpost, The crew have become converts to a strange set of beliefs'.tokenize(','),
         things: 'Alien relics, Vital scientifi c data, Secret corporate exploitation plans'.tokenize(','),
-        places: 'Grimy recreation room, Refueling station, Th e only building on the planet, A “starport” of swept bare rock.'.tokenize(',')
+        places: 'Grimy recreation room, Refueling station, The only building on the planet, A “starport” of swept bare rock.'.tokenize(',')
 ),
 'Perimeter Agency' : new WorldTag(
         flavor: '''Before the Silence, the Perimeter was a Terran-sponsored organization charged with rooting out use of maltech- technology banned in human space
@@ -404,233 +404,278 @@ Perimeter hunted down experimenters with a great indiff erence to planetary laws
 managed to hold on to their mission, though modern Perimeter agents often fi nd more work as conventional spies and intelligence operatives.''',
         enemies: 'Renegade Agency Director, Maltech researcher, Paranoid intelligence chief'.tokenize(','),
         friends: 'Agent in need of help, Support staff er, “Unjustly” targeted researcher'.tokenize(','),
-        complications: 'Th e local Agency has gone rogue and now uses maltech, Th e Agency archives have been compromised, Th e Agency has been targeted by a maltech-using organization, Th e Agency’s existence is unknown to the locals'.tokenize(','),
+        complications: 'The local Agency has gone rogue and now uses maltech, The Agency archives have been compromised, The Agency has been targeted by a maltech-using organization, The Agency’s existence is unknown to the locals'.tokenize(','),
         things: 'Agency maltech research archives, Agency pretech spec-ops gear, File of blackmail on local politicians'.tokenize(','),
         places: 'Interrogation room, Smoky bar, Maltech laboratory, Secret Agency base'.tokenize(',')
 ),
 'Pilgrimage Site' : new WorldTag(
-        flavor: '''Th e world is noted for an important spiritual or historical location, and might be the sector headquarters for a widespread religion or political
-movement. Th e site attracts wealthy pilgrims from throughout nearby space, and those with the money necessary to manage interstellar travel can
-be quite generous to the site and its keepers. Th e locals tend to be fi ercely protective of the place and its reputation, and some places may forbid the
+        flavor: '''The world is noted for an important spiritual or historical location, and might be the sector headquarters for a widespread religion or political
+movement. The site attracts wealthy pilgrims from throughout nearby space, and those with the money necessary to manage interstellar travel can
+be quite generous to the site and its keepers. The locals tend to be fi ercely protective of the place and its reputation, and some places may forbid the
 entrance of those not suitably pious or devout.''',
         enemies: 'Saboteur devoted to a rival belief, Bitter reformer who resents the current leadership, Swindler conning the pilgrims'.tokenize(','),
         friends: 'Protector of the holy site, Naive off worlder pilgrim, Outsider wanting to learn the sanctum’s inner secrets'.tokenize(','),
-        complications: 'Th e site is actually a fake, Th e site is run by corrupt and venal keepers, A natural disaster threatens the site'.tokenize(','),
+        complications: 'The site is actually a fake, The site is run by corrupt and venal keepers, A natural disaster threatens the site'.tokenize(','),
         things: 'Ancient relic guarded at the site, Proof of the site’s inauthenticity, Precious off ering from a pilgrim'.tokenize(','),
         places: 'Incense-scented sanctum, Teeming crowd of pilgrims, Imposing holy structure'.tokenize(',')
 ),
 'Police State' : new WorldTag(
-        flavor: '''Th e world is a totalitarian police state. Any sign of disloyalty to the planet’s rulers is punished severely, and suspicion riddles society. Some worlds
+        flavor: '''The world is a totalitarian police state. Any sign of disloyalty to the planet’s rulers is punished severely, and suspicion riddles society. Some worlds
 might operate by Soviet-style informers and indoctrination, while more technically sophisticated worlds might rely on omnipresent cameras or braked
 AI “guardian angels”. Outworlders are apt to be treated as a necessary evil at best, and “disappeared” if they become troublesome''',
         enemies: 'Secret police chief, Scapegoating offi cial, Treacherous native informer'.tokenize(','),
         friends: 'Rebel leader, Off world agitator, Imprisoned victim, Crime boss'.tokenize(','),
-        complications: 'Th e natives largely believe in the righteousness of the state, Th e police state is automated and its “rulers” can’t shut it off , Th e leaders foment a pogrom against “off worlder spies”.'.tokenize(','),
+        complications: 'The natives largely believe in the righteousness of the state, The police state is automated and its “rulers” can’t shut it off , The leaders foment a pogrom against “off worlder spies”.'.tokenize(','),
         things: 'List of police informers, Wealth taken from “enemies of the state”, Dear Leader’s private stash'.tokenize(','),
         places: 'Military parade, Gulag, Gray concrete housing block, Surveillance center'.tokenize(',')
 ),
 'Preceptor Archive' : new WorldTag(
-        flavor: '''Th e Preceptors of the Great Archive were a pre-Silence organization devoted to ensuring the dissemination of human culture, history, and basic
+        flavor: '''The Preceptors of the Great Archive were a pre-Silence organization devoted to ensuring the dissemination of human culture, history, and basic
 technology to frontier worlds that risked losing this information during the human expansion. Most frontier planets had an Archive where natives
 could learn useful technical skills in addition to human history and art. Th ose Archives that managed to survive the Silence now strive to send their
 missionaries of knowledge to new worlds in need of their lore.''',
         enemies: 'Luddite native, Off world Merchant who wants the natives kept ignorant, Religious zealot, Corrupted First Speaker who wants to keep a monopoly on learning'.tokenize(','),
         friends: 'Preceptor Adept missionary, Off world scholar, Reluctant student, Roving Preceptor Adept'.tokenize(','),
-        complications: 'Th e local Archive has taken a very religious and mystical attitude toward their teaching, Th e Archive has maintained some replicable pretech science, Th e Archive has been corrupted and their teaching is incorrect'.tokenize(','),
+        complications: 'The local Archive has taken a very religious and mystical attitude toward their teaching, The Archive has maintained some replicable pretech science, The Archive has been corrupted and their teaching is incorrect'.tokenize(','),
         things: 'Lost Archive database, Ancient pretech teaching equipment, Hidden cache of theologically unacceptable tech'.tokenize(','),
         places: 'Archive lecture hall, Experimental laboratory, Student-local riot'.tokenize(',')
 ),
 'Pretech Cultists' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The capacities of human science before the Silence vastly outmatch the technology available since the Scream. The jump gates alone were capable
+of crossing hundreds of light years in a moment, and they were just one example of the results won by blending psychic artifi ce with pretech science.
+Some worlds outright worship the artifacts of their ancestors, seeing in them the work of more enlightened and perfect humanity. These cultists may
+or may not understand the operation or replication of these devices, but they seek and guard them jealously.''',
+        enemies: 'Cult leader, Artifact supplier, Pretech smuggler'.tokenize(','),
+        friends: 'Off world scientist, Robbed collector, Cult heretic'.tokenize(','),
+        complications: 'The cultists can actually replicate certain forms of pretech, The cultists abhor use of the devices as “presumption on the holy”, The cultists mistake the party’s belongings for pretech'.tokenize(','),
+        things: 'Pretech artifacts both functional and broken, Religious-jargon laced pretech replication techniques, Waylaid payment for pretech artifacts'.tokenize(','),
+        places: 'Shrine to nonfunctional pretech, Smuggler’s den, Public procession showing a prized artifact'.tokenize(',')
 ),
 'Primitive Aliens' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world is populated by a large number of sapient aliens that have yet to develop advanced technology. The human colonists may have a friendly or
+hostile relationship with the aliens, but a certain intrinsic tension is likely. Small human colonies might have been enslaved or otherwise subjugated.''',
+        enemies: 'Hostile alien chief, Human fi rebrand, Dangerous local predator, Alien religious zealot'.tokenize(','),
+        friends: 'Colonist leader, Peace-faction alien chief, Planetary frontiersman, Xenoresearcher'.tokenize(','),
+        complications: 'The alien numbers are huge and can overwhelm the humans whenever they so choose, One group is trying to use the other to kill their political opponents, The aliens are incomprehensibly strange, One side commits an atrocity'.tokenize(','),
+        things: 'Alien religious icon, Ancient alien-human treaty, Alien technology'.tokenize(','),
+        places: 'Alien village, Fortifi ed human settlement, Massacre site'.tokenize(',')
 ),
 'Psionics Fear' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The locals are terrifi ed of psychics. Perhaps their history is studded with feral psychics who went on murderous rampages, or perhaps they simply nurse
+an unreasoning terror of those “mutant freaks”. Psychics demonstrate their powers at risk of their lives.''',
+        enemies: 'Mental purity investigator, Suspicious zealot, Witch-fi nder'.tokenize(','),
+        friends: 'Hidden psychic, Off worlder psychic trapped here, Off world educator'.tokenize(','),
+        complications: 'Psychic potential is much more common here, Some tech is mistaken as psitech, Natives believe certain rituals and customs can protect them from psychic powers'.tokenize(','),
+        things: 'Hidden psitech cache, Possessions of convicted psychics, Reward for turning in a psychic'.tokenize(','),
+        places: 'Inquisitorial chamber, Lynching site, Museum of psychic atrocities'.tokenize(',')
 ),
 'Psionics Worship' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''These natives view psionic powers as a visible gift of god or sign of superiority. If the world has a functional psychic training academy, psychics occupy
+almost all major positions of power and are considered the natural and proper rulers of the world. If the world lacks training facilities, it is likely a
+hodgepodge of demented cults, wiTheach one dedicated to a marginally-coherent feral prophet and their psychopathic ravings.''',
+        enemies: 'Psychic inquisitor, Haughty mind-noble, Psychic slaver, Feral prophet'.tokenize(','),
+        friends: 'Off worlder psychic researcher, Native rebel, Off world employer seeking psychics'.tokenize(','),
+        complications: 'The psychic training is imperfect, and the psychics all show signifi cant mental illness, The psychics have developed a unique discipline, The will of a psychic is law, Psychics in the party are forcibly kidnapped for “enlightening”.'.tokenize(','),
+        things: 'Ancient psitech, Valuable psychic research records, Permission for psychic training'.tokenize(','),
+        places: 'Psitech-imbued council chamber, Temple to the mind, Sanitarium-prison for feral psychics'.tokenize(',')
 ),
 'Psionics Academy' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Th is world is one of the few that have managed to redevelop the basics of psychic training. Without this education, a potential psychic is doomed to
+either madness or death unless they refrain from using their abilities. Psionic academies are rare enough that off worlders are often sent there to study
+by wealthy patrons. The secrets of psychic mentorship, the protocols and techniques that allow a psychic to successfully train another, are carefully
+guarded at these academies. Most are closely affi liated with the planetary government.''',
+        enemies: 'Corrupt psychic instructor, Renegade student, Mad psychic researcher, Resentful townie'.tokenize(','),
+        friends: 'Off world researcher, Aspiring student, Wealthy tourist'.tokenize(','),
+        complications: 'The academy curriculum kills a signifi cant percentage of students, The faculty use students as research subjects, The students are indoctrinated as sleeper agents, The local natives hate the academy, The academy is part of a religion.'.tokenize(','),
+        things: 'Secretly developed psitech, A runaway psychic mentor, Psychic research prize'.tokenize(','),
+        places: 'Training grounds, Experimental laboratory, School library, Campus hangout'.tokenize(',')
 ),
 'Quarantined World' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world is under a quarantine, and space travel to and from it is strictly forbidden. Th is may be enforced by massive ground batteries that burn
+any interlopers from the planet’s sky, or it may be that a neighboring world runs a persistent blockade.''',
+        enemies: 'Defense installation commander, Suspicious patrol leader, Crazed asteroid hermit'.tokenize(','),
+        friends: 'Relative of a person trapped on the world, Humanitarian relief offi cial, Treasure hunter'.tokenize(','),
+        complications: 'The natives want to remain isolated, The quarantine is enforced by an ancient alien installation, The world is rife with maltech abominations, The blockade is meant to starve everyone on the barren world.'.tokenize(','),
+        things: 'Defense grid key, Bribe for getting someone out, Abandoned alien tech'.tokenize(','),
+        places: 'Bridge of a blockading ship, Defense installation control room, Refugee camp'.tokenize(',')
 ),
 'Radioactive World' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Whether due to a legacy of atomic warfare unhindered by nuke snuff ers or a simple profusion of radioactive elements, this world glows in the dark.
+Even heavy vacc suits can fi lter only so much of the radiation, and most natives suff er a wide variety of cancers, mutations and other illnesses without
+the protection of advanced medical treatments.''',
+        enemies: 'Bitter mutant, Relic warlord, Desperate would-be escapee'.tokenize(','),
+        friends: 'Reckless prospector, Off world scavenger, Biogenetic variety seeker'.tokenize(','),
+        complications: 'The radioactivity is steadily growing worse, The planet’s medical resources break down, The radioactivity has inexplicable eff ects on living creatures, The radioactivity is the product of a malfunctioning pretech manufactory.'.tokenize(','),
+        things: 'Ancient atomic weaponry, Pretech anti-radioactivity drugs, Untainted water supply'.tokenize(','),
+        places: 'Mutant-infested ruins, Scorched glass plain, Wilderness of bizarre native life, Glowing barrens'.tokenize(',')
 ),
 'Regional Hegemon' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Th is world has the technological sophistication, natural resources, and determined polity necessary to be a regional hegemon for the sector. Nearby
+worlds are likely either directly subservient to it or tack carefully to avoid its anger. It may even be the capital of a small stellar empire.''',
+        enemies: 'Ambitious general, Colonial offi cial, Contemptuous noble'.tokenize(','),
+        friends: 'Diplomat, Off world ambassador, Foreign spy'.tokenize(','),
+        complications: 'The hegemon’s infl uence is all that’s keeping a murderous war from breaking out on nearby worlds, The hegemon is decaying and losing its control, The government is riddled with spies, The hegemon is genuinely benign'.tokenize(','),
+        things: 'Diplomatic carte blanche, Deed to an off world estate, Foreign aid grant'.tokenize(','),
+        places: 'Palace or seat of government, Salon teeming with spies, Protest rally, Military base'.tokenize(',')
 ),
 'Restrictive Laws' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''A myriad of laws, customs, and rules constrain the inhabitants of this world, and even acts that are completely permissible elsewhere are punished
+severely here. The locals may provide lists of these laws to off worlders, but few non-natives can hope to master all the important intricacies.''',
+        enemies: 'Law enforcement offi cer, Outraged native, Native lawyer specializing in peeling off worlders, Paid snitch'.tokenize(','),
+        friends: 'Frustrated off worlder, Repressed native, Reforming crusader'.tokenize(','),
+        complications: 'The laws change regularly in patterns only natives understand, The laws forbid some action vital to the party, The laws forbid the simple existence of some party members, The laws are secret to off worlders'.tokenize(','),
+        things: 'Complete legal codex, Writ of diplomatic immunity, Fine collection vault contents'.tokenize(','),
+        places: 'Courtroom, Mob scene of outraged locals, Legislative chamber, Police station'.tokenize(',')
 ),
 'Rigid Culture' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The local culture is extremely rigid. Certain forms of behavior and belief are absolutely mandated, and any deviation from these principles is
+punished, or else society may be strongly stratifi ed by birth with limited prospects for change. Anything which threatens the existing social order is
+feared and shunned.''',
+        enemies: 'Rigid reactionary, Wary ruler, Regime ideologue, Off ended potentate'.tokenize(','),
+        friends: 'Revolutionary agitator, Ambitious peasant, Frustrated merchant'.tokenize(','),
+        complications: 'The cultural patterns are enforced by technological aids, The culture is run by a secret cabal of manipulators, The culture has explicit religious sanction, The culture evolved due to important necessities that have since been forgotten'.tokenize(','),
+        things: 'Precious traditional regalia, Peasant tribute, Opulent treasures of the ruling class'.tokenize(','),
+        places: 'Time-worn palace, Low-caste slums, Bandit den, Reformist temple'.tokenize(',')
 ),
 'Seagoing Cities' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Either the world is entirely water or else the land is simply too dangerous for most humans. Human settlement on this world consists of a number of
+fl oating cities that follow the currents and the fi sh.''',
+        enemies: 'Pirate city lord, Mer-human raider chieftain, Hostile landsman noble, Enemy city saboteur'.tokenize(','),
+        friends: 'City navigator, Scout captain, Curious mer-human'.tokenize(','),
+        complications: 'The seas are not water, The fi sh schools have vanished and the city faces starvation, Terrible storms drive the city into the glacial regions, Suicide ships ram the city’s hull'.tokenize(','),
+        things: 'Giant pearls with mysterious chemical properties, Buried treasure, Vital repair materials'.tokenize(','),
+        places: 'Bridge of the city, Storm-tossed sea, A bridge fashioned of many small boats.'.tokenize(',')
 ),
 'Sealed Menace' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Something on this planet has the potential to create enormous havoc for the inhabitants if it is not kept safely contained by its keepers. Whether a
+massive seismic fault line suppressed by pretech terraforming technology, a disease that has to be quarantined within hours of discovery, or an ancient
+alien relic that requires regular upkeep in order to prevent planetary catastrophe, the menace is a constant shadow on the populace.''',
+        enemies: 'Hostile outsider bent on freeing the menace, Misguided fool who thinks he can use it, Reckless researcher who thinks he can fi x it'.tokenize(','),
+        friends: 'Keeper of the menace, Student of its nature, Victim of the menace'.tokenize(','),
+        complications: 'The menace would bring great wealth along with destruction, The menace is intelligent, The natives don’t all believe in the menace'.tokenize(','),
+        things: 'A key to unlock the menace, A precious byproduct of the menace, The secret of the menace’s true nature'.tokenize(','),
+        places: 'Guarded fortress containing the menace, Monitoring station, Scene of a prior outbreak of the menace'.tokenize(',')
 ),
+            'Secret Masters' : new WorldTag(
+                    flavor: '''The world is actually run by a hidden cabal, acting through their catspaws in the visible government. For one reason or another, this group fi nds it
+imperative that they not be identifi ed by outsiders, and in some cases even the planet’s own government may not realize that they’re actually being
+manipulated by hidden masters.''',
+                    enemies: 'An agent of the cabal, Government offi cial who wants no questions asked, Willfully blinded local'.tokenize(','),
+                    friends: 'Paranoid conspiracy theorist, Machiavellian gamesman within the cabal, Interstellar investigator'.tokenize(','),
+                    complications: 'The secret masters have a benign reason for wanting secrecy, The cabal fi ghts openly amongst itself, The cabal is recruiting new members'.tokenize(','),
+                    things: 'A dossier of secrets on a government offi cial, A briefcase of unmarked credit notes, The identity of a cabal member'.tokenize(','),
+                    places: 'Smoke-fi lled room, Shadowy alleyway, Secret underground bunker'.tokenize(',')
+            ),
 'Sectarians' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world is torn by violent disagreement between sectarians of a particular faith. Each views the other as a damnable heresy in need of extirpation.
+Local government may be able to keep open war from breaking out, but the poisonous hatred divides communities. The nature of the faith may be
+religious, or it may be based on some secular ideology.''',
+        enemies: 'Paranoid believer, Native convinced the party is working for the other side, Absolutist ruler'.tokenize(','),
+        friends: 'Reformist clergy, Local peacekeeping offi cial, Off world missionary, Exhausted ruler'.tokenize(','),
+        complications: 'The confl ict has more than two sides, The sectarians hate each other for multiple reasons, The sectarians must cooperate or else life on this world is imperiled, The sectarians hate outsiders more than they hate each other, The diff erences in sects are incomprehensible to an outsider'.tokenize(','),
+        things: 'Ancient holy book, Incontrovertible proof, Off ering to a local holy man'.tokenize(','),
+        places: 'Sectarian battlefi eld, Crusading temple, Philosopher’s salon, Bitterly divided village'.tokenize(',')
 ),
 'Seismic Instability' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
-),
-'Secret Masters' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The local land masses are remarkably unstable, and regular earthquakes rack the surface. Local construction is either advanced enough to sway and
+move with the vibrations or primitive enough that it is easily rebuilt. Severe volcanic activity may be part of the instability.''',
+        enemies: 'Earthquake cultist, Hermit seismologist, Burrowing native life form, Earthquake-inducing saboteur'.tokenize(','),
+        friends: 'Experimental construction fi rm owner, Adventurous volcanologist, Geothermal prospector'.tokenize(','),
+        complications: 'The earthquakes are caused by malfunctioning pretech terraformers, They’re caused by alien technology, They’re restrained by alien technology that is being plundered by off worlders, The earthquakes are used to generate enormous amounts of energy.'.tokenize(','),
+        things: 'Earthquake generator, Earthquake suppressor, Mineral formed at the core of the world, Earthquake-proof building schematics'.tokenize(','),
+        places: 'Volcanic caldera, Village during an earthquake, Mud slide, Earthquake opening superheated steam fi ssures'.tokenize(',')
 ),
 'Theocracy' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The planet is ruled by the priesthood of the predominant religion or ideology. The rest of the locals may or may not be terribly pious, but the clergy
+have the necessary military strength, popular support or control of resources to maintain their rule. Alternative faiths or incompatible ideologies are
+likely to be both illegal and socially unacceptable.''',
+        enemies: 'Decadent priest-ruler, Zealous inquisitor, Relentless proselytizer, True Believer'.tokenize(','),
+        friends: 'Heretic, Off world theologian, Atheistic merchant, Desperate commoner'.tokenize(','),
+        complications: 'The theocracy actually works well, The theocracy is decadent and hated by the common folk, The theocracy is divided into mutually hostile sects, The theocracy is led by aliens'.tokenize(','),
+        things: 'Precious holy text, Martyr’s bones, Secret church records, Ancient church treasures'.tokenize(','),
+        places: 'Glorious temple, Austere monastery, Academy for ideological indoctrination, Decadent pleasure-cathedral'.tokenize(',')
 ),
 'Tomb World' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Tomb worlds are planets that were once inhabited by humans before the Silence. The sudden collapse of the jump gate network and the inability
+to bring in the massive food supplies required by the planet resulted in starvation, warfare, and death. Most tomb worlds are naturally hostile to
+human habitation and could not raise suffi cient crops to maintain life. The few hydroponic facilities were usually destroyed in the fi ghting, and all
+that is left now are ruins, bones, and silence.''',
+        enemies: 'Demented survivor tribe chieftain, Avaricious scavenger, Automated defense system, Native predator'.tokenize(','),
+        friends: 'Scavenger Fleet captain, Archaeologist, Salvaging historian'.tokenize(','),
+        complications: 'The ruins are full of booby-traps left by the fi nal inhabitants, The world’s atmosphere quickly degrades anything in an opened building, A handful of desperate natives survived the Silence, The structures are unstable and collapsing'.tokenize(','),
+        things: 'Lost pretech equipment, Psitech caches, Stores of unused munitions, Ancient historical documents'.tokenize(','),
+        places: 'Crumbling hive-city, City square carpeted in bones, Ruined hydroponic facility, Cannibal tribe’s lair, Dead orbital jump gate'.tokenize(',')
 ),
 'Trade Hub' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Th is world is a major crossroads for local interstellar trade. It is well-positioned at the nexus of several short-drill trade routes, and has facilities for
+easy transfer of valuable cargoes and the fueling and repairing of starships. The natives are accustomed to outsiders, and a polyglot mass of people
+from every nearby world can be found trading here.''',
+        enemies: 'Cheating merchant, Th ieving dockworker, Commercial spy, Corrupt customs offi cial'.tokenize(','),
+        friends: 'Rich tourist, Hardscrabble free trader, Merchant prince in need of catspaws, Friendly spaceport urchin'.tokenize(','),
+        complications: 'An outworlder faction schemes to seize the trade hub, Saboteurs seek to blow up a rival’s warehouses, Enemies are blockading the trade routes, Pirates lace the hub with spies'.tokenize(','),
+        things: 'Voucher for a warehouse’s contents, Insider trading information, Case of precious off world pharmaceuticals, Box of legitimate tax stamps indicating customs dues have been paid.'.tokenize(','),
+        places: 'Raucous bazaar, Elegant restaurant, Spaceport teeming with activity, Foggy street lined with warehouses'.tokenize(',')
 ),
 'Tyranny' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The local government is brutal and indiff erent to the will of the people. Laws may or may not exist, but the only one that matters is the whim of the
+rulers on any given day. Their minions swagger through the streets while the common folk live in terror of their appetites. The only people who stay
+wealthy are friends and servants of the ruling class.''',
+        enemies: 'Debauched autocrat, Sneering bully-boy, Soulless government offi cial, Occupying army offi cer'.tokenize(','),
+        friends: 'Conspiring rebel, Oppressed merchant, Desperate peasant, Inspiring religious leader'.tokenize(','),
+        complications: 'The tyrant rules with vastly superior technology, The tyrant is a fi gurehead for a cabal of powerful men and women, The people are resigned to their suff ering, The tyrant is hostile to “meddlesome outworlders”.'.tokenize(','),
+        things: 'Plundered wealth, Beautiful toys of the elite, Regalia of rulership'.tokenize(','),
+        places: 'Impoverished village, Protest rally massacre, Decadent palace, Religious hospital for the indigent'.tokenize(',')
 ),
 'Unbraked AI' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Artifi cial intelligences are costly and diffi cult to create, requiring a careful sequence of “growth stages” in order to bring them to sentience before
+artificial limits on cognition speed and learning development are installed. These “brakes” prevent runaway cognition metastasis, wherein an AI
+begins to rapidly contemplate certain subjects in increasingly baroque fashion, until they become completely crazed by rational human standards.
+Th is world has one such “unbraked AI” on it, probably with a witting or unwitting corps of servants. Unbraked AIs are quite insane, but they learn
+and reason with a speed impossible for humans, and can demonstrate a truly distressing subtlety at times.''',
+        enemies: 'AI Cultist, Maltech researcher, Government offi cial dependent on the AI'.tokenize(','),
+        friends: 'Perimeter agent, AI researcher, Braked AI'.tokenize(','),
+        complications: 'The AI’s presence is unknown to the locals, The locals depend on the AI for some vital service, The AI appears to be harmless, The AI has fi xated on the group’s ship’s computer, The AI wants transport off world'.tokenize(','),
+        things: 'The room-sized AI core itself, Maltech research fi les, Perfectly tabulated blackmail on government offi cials, Pretech computer circuitry'.tokenize(','),
+        places: 'Municipal computing banks, Cult compound, Repair center, Ancient hardcopy library'.tokenize(',')
 ),
 'Warlords' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world is plagued by warlords. Numerous powerful men and women control private armies suffi ciently strong to cow whatever local government
+may exist. On the lands they claim, their word is law. Most spend their time oppressing their own subjects and murderously pillaging those of their
+neighbors. Most like to wrap themselves in the mantle of ideology, religious fervor, or an ostensibly legitimate right to rule.''',
+        enemies: 'Warlord, Avaricious lieutenant, Expensive assassin, Aspiring minion'.tokenize(','),
+        friends: 'Vengeful commoner, Government military offi cer, Humanitarian aid offi cial, Village priest'.tokenize(','),
+        complications: 'The warlords are willing to cooperate to fi ght mutual threats, The warlords favor specifi c religions or races over others, The warlords are using substantially more sophisticated tech than others, Some of the warlords are better rulers than the government'.tokenize(','),
+        things: 'Weapons cache, Buried plunder, A warlord’s personal battle harness, Captured merchant shipping'.tokenize(','),
+        places: 'Gory battlefi eld, Burnt-out village, Barbaric warlord palace, Squalid refugee camp'.tokenize(',')
 ),
 'Xenophiles' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The natives of this world are fast friends with a particular alien race. The aliens may have saved the planet at some point in the past, or awed the
+locals with superior tech or impressive cultural qualities. The aliens might even be the ruling class on the planet.''',
+        enemies: 'Off world xenophobe, Suspicious alien leader, Xenocultural imperialist'.tokenize(','),
+        friends: 'Benevolent alien, Native malcontent, Gone-native off worlder'.tokenize(','),
+        complications: 'The enthusiasm is due to alien psionics or tech, The enthusiasm is based on a lie, The aliens strongly dislike their “groupies”, The aliens feel obliged to rule humanity for its own good, Humans badly misunderstand the aliens'.tokenize(','),
+        things: 'Hybrid alien-human tech, Exotic alien crafts, Sophisticated xenolinguistic and xenocultural research data'.tokenize(','),
+        places: 'Alien district, Alien-infl uenced human home, Cultural festival celebrating alien artist'.tokenize(',')
 ),
 'Xenophobes' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The natives are intensely averse to dealings with outworlders. Whether through cultural revulsion, fear of tech contamination, or a genuine
+immunodefi ciency, the locals shun foreigners from off world and refuse to have anything to do with them beyond the bare necessities of contact. Trade
+may or may not exist on this world, but if it does, it is almost certainly conducted by a caste of untouchables and outcasts''',
+        enemies: 'Revulsed local ruler, Native convinced some wrong was done to him, Cynical demagogue'.tokenize(','),
+        friends: 'Curious native, Exiled former ruler, Local desperately seeking outworlder help'.tokenize(','),
+        complications: 'The natives are symptomless carriers of a contagious and dangerous disease, The natives are exceptionally vulnerable to off world diseases, The natives require elaborate purifi cation rituals after speaking to an off worlder or touching them, The local ruler has forbidden any mercantile dealings with outworlders'.tokenize(','),
+        things: 'Jealously-guarded precious relic, Local product under export ban, Esoteric local technology'.tokenize(','),
+        places: 'Sealed treaty port, Public ritual not open to outsiders, Outcaste slum home'.tokenize(',')
 ),
 'Zombies' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Th is menace may not take the form of shambling corpses, but some disease, alien artifact, or crazed local practice produces men and women with
+habits similar to those of murderous cannibal undead. These outbreaks may be regular elements in local society, either provoked by some malevolent
+creators or the consequence of some local condition.''',
+        enemies: 'Soulless maltech biotechnology cult, Sinister governmental agent, Crazed zombie cultist'.tokenize(','),
+        friends: 'Survivor of an outbreak, Doctor searching for a cure, Rebel against the secret malefactors'.tokenize(','),
+        complications: 'The zombies retain human intelligence, The zombies can be cured, The process is voluntary among devotees, The condition is infectious'.tokenize(','),
+        things: 'Cure for the condition, Alien artifact that causes it, Details of the cult’s conversion process'.tokenize(','),
+        places: 'House with boarded-up windows, Dead city, Fortifi ed bunker that was overrun from within'.tokenize(',')
 ),
     ]
     List<String> world_tags = """\
