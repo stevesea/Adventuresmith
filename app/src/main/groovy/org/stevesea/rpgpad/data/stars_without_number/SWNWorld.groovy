@@ -728,20 +728,53 @@ creators or the consequence of some local condition.''',
         // pick a name from the 1st culture in list
         String worldName = names.getPlaceName(cultures[0])
 
+        int atmoRoll = roll('2d6')
+        int tempRoll = roll('2d6')
+        int bioRoll = roll('2d6')
+        int popRoll = roll('2d6')
+        int techRoll = roll('2d6')
+
+        if (atmoRoll.equals(4)) {
+            // airless/thin. pick either frozen/burning
+            tempRoll = pick([2,12]) as int
+        }
+        if (!((3..11).contains(tempRoll))) {
+            // world is frozen or burning. force biosphere to remnants/microbes
+            bioRoll = pick([2,3]) as int
+        }
+        if ([2,12].contains(tempRoll)) {
+            // world is frozen/burning. force pop to failed colony/outpost
+            popRoll = pick([2, 3, 3]) as int
+        } else if ((1..5).contains(bioRoll)) {
+            // very limiting biosphere
+            popRoll = pick([2, 3, 3, 4,4, 5, 5]) as int
+        } else if ((9..10).contains(bioRoll)) {
+            // biosphere is there, but unfriendly
+            popRoll = Math.max((int)popRoll, 8)
+        } else if ((6..12).contains(bioRoll)) {
+            popRoll = Math.min(popRoll, 3)
+        }
+        String atomosphere = atmospheres.get(atmoRoll)
+        String temp = temperatures.get(tempRoll)
+        String biosphere = biospheres.get(bioRoll)
+
+        String population = populations.get(popRoll)
+        String techlev = techlevels.get(techRoll)
+
         """\
 <h3>World</h3>
 <h4>Physical Attributes</h4>
-<p><strong><small>Atmosphere:</small></strong> ${pick('2d6', atmospheres)}
-<br/><strong><small>Temperature:</small></strong> ${pick('2d6', temperatures)}
-<br/><strong><small>Biosphere:</small></strong> ${pick('2d6', biospheres)}
+<p><strong><small>Atmosphere:</small></strong> ${atomosphere}
+<br/><strong><small>Temperature:</small></strong> ${temp}
+<br/><strong><small>Biosphere:</small></strong> ${biosphere}
 </p>
 <h4>Cultural Attributes</h4>
 <p>
 <strong><small>Name:</small></strong> ${worldName}
 <br/><strong><small>Cultures:</small></strong> ${cultures.join(', ')}
 </p>
-<p><strong><small>Population:</small></strong> ${pick('2d6', populations)}
-<br/><strong><small>Tech Level:</small></strong> ${pick('2d6', techlevels)}
+<p><strong><small>Population:</small></strong> ${population}
+<br/><strong><small>Tech Level:</small></strong> ${techlev}
 </p>
 <h4>World Tags:</h4>
 ${generateWorldTags()}
