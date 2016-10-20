@@ -94,7 +94,9 @@ class SWNWorld extends AbstractGenerator {
     }
     Map<String, WorldTag> tagMap = [
             'Abandoned Colony': new WorldTag(
-                    flavor: '''''',
+                    flavor: '''The world once hosted a colony, whether human or otherwise, until some crisis or natural disaster drove the inhabitants away or killed them off . The
+colony might have been mercantile in nature, an expedition to extract valuable local resources, or it might have been a reclusive cabal of zealots. The
+remains of the colony are usually in ruins, and might still be dangerous from the aftermath of whatever destroyed it in the fi rst place.''',
                     enemies: 'Crazed survivors, Ruthless plunderers of the ruins, Automated defense system'.tokenize(','),
                     friends: 'Inquisitive stellar archaeologist, Heir to the colony’s property, Local wanting the place cleaned out'.tokenize(','),
                     complications: 'The local government wants the ruins to remain a secret, The locals claim ownership of it, The colony is crumbling and dangerous to navigate'.tokenize(','),
@@ -102,100 +104,114 @@ class SWNWorld extends AbstractGenerator {
                     places: 'Decaying habitation block, Vine-covered town square, Structure buried by an ancient landslide'.tokenize(','),
             ),
 'Alien Ruins' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world has significant alien ruins present. The locals may or may not permit others to investigate the ruins, and may make it difficult to remove
+any objects of value without substantial payment.''',
+        enemies: 'Customs inspector, Worshipper of the ruins, Hidden alien survivor'.tokenize(','),
+        friends: 'Curious scholar, Avaricious local resident, Interstellar smuggler'.tokenize(','),
+        complications: 'Traps in the ruins, Remote location, Paranoid customs officials'.tokenize(','),
+        things: 'Precious alien artifacts, Objects left with the remains of a prior unsuccessful expedition, Untranslated alien texts, Untouched hidden ruins'.tokenize(','),
+        places: 'Undersea ruin, Orbital ruin, Perfectly preserved alien building, Alien mausoleum'.tokenize(',')
 ),
 'Altered Humanity' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The humans on this world are visibly and drastically diff erent from normal humanity. They may have additional limbs, new sensory organs, or other
+significant changes. Were these from ancestral eugenic manipulation, or from environmental toxins?''',
+        enemies: 'Biochauvinist local, Local experimenter, Mentally unstable mutant'.tokenize(','),
+        friends: 'Local seeking a “cure”, Curious xenophiliac, Anthropological researcher'.tokenize(','),
+        complications: 'Alteration is contagious, Alteration is necessary for long-term survival, Locals fear and mistrust non-local humans'.tokenize(','),
+        things: 'Original pretech mutagenic equipment, Valuable biological byproduct from the mutants, “Cure” for the altered genes, Record of the original colonial genotypes'.tokenize(','),
+        places: 'Abandoned eugenics laboratory, An environment requiring the mutation for survival, A sacred site where the first local was transformed'.tokenize(',')
 ),
 'Area 51' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world’s government is fully aware of their local stellar neighbors, but the common populace has no idea about it- and the government means to
+keep it that way. Trade with government offi cials in remote locations is possible, but any attempt to clue the commoners in on the truth will be met
+with lethal reprisals.''',
+        enemies: 'Suspicious government minder, Free merchant who likes his local monopoly, Local who wants a specimen for dissection'.tokenize(','),
+        friends: 'Crusading off world investigator, Conspiracy-theorist local, Idealistic government reformer'.tokenize(','),
+        complications: 'The government has a good reason to keep the truth concealed, The government ruthlessly oppresses the natives, The government is actually composed of off worlders'.tokenize(','),
+        things: 'Elaborate spy devices, Memory erasure tech, Possessions of the last off worlder who decided to spread the truth'.tokenize(','),
+        places: 'Desert airfi eld, Deep subterranean bunker, Hidden mountain valley'.tokenize(',')
 ),
 'Badlands World' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Whatever the ostensible climate and atmosphere type, something horrible happened to this world. Biological, chemical, or nanotechnical weaponry
+has reduced it to a wretched hellscape''',
+        enemies: 'Mutated badlands fauna, Desperate local, Badlands raider chief'.tokenize(','),
+        friends: 'Native desperately wishing to escape the world, Scientist researching ecological repair methods, Ruin scavenger'.tokenize(','),
+        complications: 'Radioactivity, Bioweapon traces, Broken terrain, Sudden local plague'.tokenize(','),
+        things: 'Maltech research core, Functional pretech weaponry, An uncontaminated well'.tokenize(','),
+        places: 'Untouched oasis, Ruined city, Salt flat'.tokenize(',')
 ),
 'Bubble Cities' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Whether due to a lack of atmosphere or an uninhabitable climate, the world’s cities exist within domes or pressurized buildings. In such sealed
+environments, techniques of surveillance and control can grow baroque and extreme.''',
+        enemies: 'Native dreading outsider contamination, Saboteur from another bubble city, Local offi cial hostile to outsider ignorance of laws'.tokenize(','),
+        friends: 'Local rebel against the city officials, Maintenance chief in need of help, Surveyor seeking new building sites'.tokenize(','),
+        complications: 'Bubble rupture, Failing atmosphere reprocessor, Native revolt against offi cials, All-seeing surveillance cameras'.tokenize(','),
+        things: 'Pretech habitat technology, Valuable industrial products, Master key codes to a city’s security system'.tokenize(','),
+        places: 'City power core, Surface of the bubble, Hydroponics complex, Warren-like hab block'.tokenize(',')
 ),
 'Civil War' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world is currently torn between at least two opposing factions, all of which claim legitimacy. The war may be the result of a successful rebel
+uprising against tyranny, or it might just be the result of schemers who plan to be the new masters once the revolution is complete.''',
+        enemies: 'Faction commissar, Angry native, Conspiracy theorist who blames off worlders for the war, Deserter looking out for himself, Guerilla bandits'.tokenize(','),
+        friends: 'Faction loyalist seeking aid, Native caught in the crossfi re, Off worlder seeking passage off the planet'.tokenize(','),
+        complications: 'The front rolls over the group, Famine strikes, Bandit infestations'.tokenize(','),
+        things: 'Ammo dump, Military cache, Treasure buried for after the war, Secret war plans'.tokenize(','),
+        places: 'Battle front, Bombed-out town, Rear-area red light zone, Propaganda broadcast tower'.tokenize(',')
 ),
 'Cold War' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Two or more great powers control the planet, and they have a hostility to each other that’s just barely less than open warfare. The hostility might be
+ideological in nature, or it might revolve around control of some local resource.''',
+        enemies: 'Suspicious chief of intelligence, Native who thinks the outworlders are with the other side, Femme fatale'.tokenize(','),
+        friends: 'Apolitical information broker, Spy for the other side, Unjustly accused innocent, “He’s a bastard, but he’s our bastard” official'.tokenize(','),
+        complications: 'Police sweep, Low-level skirmishing, “Red scare”'.tokenize(','),
+        things: 'List of traitors in government, secret military plans, Huge cache of weapons built up in preparation for war'.tokenize(','),
+        places: 'Seedy bar in a neutral area, Political rally, Isolated area where fighting is underway'.tokenize(',')
 ),
 'Colonized Population' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''A neighboring world has successfully colonized this less-advanced or less-organized planet, and the natives aren’t happy about it. A puppet government
+may exist, but all real decisions are made by the local viceroy.''',
+        enemies: 'Suspicious security personnel, Off worlder-hating natives, Local crime boss preying on rich off worlders'.tokenize(','),
+        friends: 'Native resistance leader, Colonial offi cial seeking help, Native caught between the two sides'.tokenize(','),
+        complications: 'Natives won’t talk to off worlders, Colonial repression, Misunderstood local customs'.tokenize(','),
+        things: 'Relic of the resistance movement, List of collaborators, Precious substance extracted by colonial labor'.tokenize(','),
+        places: 'Deep wilderness resistance camp, City district off-limits to natives, Colonial labor site'.tokenize(',')
 ),
 'Desert World' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The world may have a breathable atmosphere and a human-tolerable temperature range, but it is an arid, stony waste outside of a few places made
+habitable by human eff ort. The deep wastes are largely unexplored and inhabited by outcasts and worse.''',
+        enemies: 'Raider chieftain, Crazed hermit, Angry isolationists, Paranoid mineral prospector, Strange desert beast'.tokenize(','),
+        friends: 'Native guide, Research biologist, Aspiring terraformer'.tokenize(','),
+        complications: 'Sandstorms, Water supply failure, Native warfare over water rights'.tokenize(','),
+        things: 'Enormous water reservoir, Map of hidden wells, Pretech rainmaking equipment'.tokenize(','),
+        places: 'Oasis, “The Empty Quarter” of the desert, Hidden underground cistern'.tokenize(',')
 ),
 'Eugenic Cult' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''Even in the days before the Silence, major improvement of the human genome always seemed to come with unacceptable side-eff ects. Some worlds
+host secret cults that perpetuate these improvements regardless of the cost, and a few planets have been taken over entirely by the cults.''',
+        enemies: 'Eugenic superiority fanatic, Mentally unstable homo superior, Mad eugenic scientist'.tokenize(','),
+        friends: 'Eugenic propagandist, Biotechnical investigator, Local seeking revenge on cult'.tokenize(','),
+        complications: 'The altered cultists look human, The locals are terrifi ed of any unusual physical appearance, The genetic modifi cationsand drawbacks- are contagious with long exposure'.tokenize(','),
+        things: 'Serum that induces the alteration, Elixir that reverses the alteration, Pretech biotechnical databanks, List of secret cult sympathizers'.tokenize(','),
+        places: 'Eugenic breeding pit, Isolated settlement of altered humans, Public place infi ltrated by cult sympathizers'.tokenize(',')
 ),
 'Exchange Consulate' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''The Exchange of Light once served as the largest, most trusted banking and diplomatic service in human space. Even after the Silence, some worlds
+retain a functioning Exchange Consulate where banking services and arbitration can be arranged.''',
+        enemies: 'Corrupt Exchange offi cial, Indebted native who thinks the players are Exchange agents, Exchange offi cial dunning the players for debts incurred'.tokenize(','),
+        friends: 'Consul in need of off world help, Local banker seeking to hurt his competition, Exchange diplomat'.tokenize(','),
+        complications: 'The local Consulate has been corrupted, the Consulate is cut off from its funds, A powerful debtor refuses to pay'.tokenize(','),
+        things: 'Exchange vault codes, Wealth hidden to conceal it from a bankruptcy judgment, Location of forgotten vault'.tokenize(','),
+        places: 'Consulate meeting chamber, Meeting site between fractious disputants, Exchange vault'.tokenize(',')
 ),
 'Feral World' : new WorldTag(
-        flavor: '''''',
-        enemies: ''.tokenize(','),
-        friends: ''.tokenize(','),
-        complications: ''.tokenize(','),
-        things: ''.tokenize(','),
-        places: ''.tokenize(',')
+        flavor: '''In the long, isolated night of the Silence, some worlds have experienced total moral and cultural collapse. Whatever remains has been twisted beyond
+recognition into assorted death cults, xenophobic fanaticism, horrific cultural practices, or other behavior unacceptable on more enlightened worlds.
+These worlds are almost invariably classed under Red trade codes.''',
+        enemies: 'Decadent noble, Mad cultist, Xenophobic local, Cannibal chief, Maltech researcher'.tokenize(','),
+        friends: 'Trapped outworlder, Aspiring reformer, Native wanting to avoid traditional flensing'.tokenize(','),
+        complications: 'Horrifi c local “celebration”, Inexplicable and repugnant social rules, Taboo zones and people'.tokenize(','),
+        things: 'Terribly misused piece of pretech, Wealth accumulated through brutal evildoing, Valuable possession owned by luckless outworlder victim'.tokenize(','),
+        places: 'Atrocity amphitheater, Traditional torture parlor, Ordinary location twisted into something terrible.'.tokenize(',')
 ),
 'Flying Cities' : new WorldTag(
         flavor: '''''',
