@@ -25,25 +25,24 @@
         <p>This application uses content from the following sources.</p>
 
         <h5>Jason Lutes</h5>
-        &nbsp;<cite>The Perilous Wilds</cite>
-        <br/><cite>&nbsp;Freebooters on the Frontier</cite>
-        <br/>&nbsp;http://lampblackandbrimstone.blogspot.com/
+        <cite>The Perilous Wilds</cite>
+        <br/><cite>Freebooters on the Frontier</cite>
+        <br/>http://lampblackandbrimstone.blogspot.com/
 
         <h5>Ben Milton</h5>
-        &nbsp;<cite>Maze Rats 0.1</cite>
-        <br/>&nbsp;http://questingblog.com/maze-rats/
+        <cite>Maze Rats 0.1</cite>
+        <br/>http://questingblog.com/maze-rats/
 
         <h5>Mike Riverso</h5>
-        <p>&nbsp;<cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
+        <p><cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
         Creative Commons Attribution 3.0 Unported License.
         <br/>
         <br/>To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
         </p>
 
-        <h5>Sine Nomine Publishing</h5>
-        &nbsp;<cite>Stars Without Number</cite> written by  Kevin Crawford. The content reproduced here is
-        from the free version of the rulebook.
-        <br/>http://www.sinenomine-pub.com/
+        <h5>Kevin Crawford / Sine Nomine Publishing</h5>
+        <cite>Stars Without Number</cite> written by  Kevin Crawford. The content reproduced here is
+        from the free version of the rulebook. http://www.sinenomine-pub.com/
         ]]>
     </string>
 
@@ -55,14 +54,7 @@
     <string name="content_thanks"><![CDATA[
         <h1>Thanks</h1>
         People who helped during development: testing, ideas, encouragement, etc
-        <ul>
-                <li>&nbsp;Brian Christensen</li>
-                <li>&nbsp;Liz Christensen</li>
-                <li>&nbsp;Camilla Nash</li>
-                <li>&nbsp;Kate Moir</li>
-                <li>&nbsp;… add more here …</li>
-        <ul>
-        </ul>
+        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, ....</p>
     ]]></string>
     <string name="welcome_msg"><![CDATA[
     <h3>Welcome!</h3>
