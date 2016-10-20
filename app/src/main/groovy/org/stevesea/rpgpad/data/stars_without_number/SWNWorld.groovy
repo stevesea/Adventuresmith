@@ -21,6 +21,7 @@
 package org.stevesea.rpgpad.data.stars_without_number
 
 import com.samskivert.mustache.Mustache
+import groovy.transform.Canonical
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.data.AbstractGenerator
 import org.stevesea.rpgpad.data.RangeMap
@@ -30,11 +31,13 @@ import org.stevesea.rpgpad.data.Shuffler
 class SWNWorld extends AbstractGenerator {
 
     SWNnames names = new SWNnames()
+    SWNpolitical_party political = new SWNpolitical_party()
 
     @Override
     AbstractGenerator withShuffler(Shuffler shuff) {
         super.withShuffler(shuff)
         names.withShuffler(shuff)
+        political.withShuffler(shuff)
         this
     }
 
@@ -80,6 +83,496 @@ class SWNWorld extends AbstractGenerator {
             .with(11, 'Tech level 4 with specialties or some surviving pretech.')
             .with(12, 'Tech level 5. Pretech, pre-Silence technology.')
 
+    @Canonical
+    public static class WorldTag {
+        String flavor
+        List<String> enemies
+        List<String> friends
+        List<String> complications
+        List<String> things
+        List<String> places
+    }
+    Map<String, WorldTag> tagMap = [
+            'Abandoned Colony': new WorldTag(
+                    flavor: '''''',
+                    enemies: 'Crazed survivors, Ruthless plunderers of the ruins, Automated defense system'.tokenize(','),
+                    friends: 'Inquisitive stellar archaeologist, Heir to the colony’s property, Local wanting the place cleaned out'.tokenize(','),
+                    complications: 'The local government wants the ruins to remain a secret, The locals claim ownership of it, The colony is crumbling and dangerous to navigate'.tokenize(','),
+                    things: 'Long-lost property deeds, Relic stolen by the colonists when they left, Historical record of the colonization attempt'.tokenize(','),
+                    places: 'Decaying habitation block, Vine-covered town square, Structure buried by an ancient landslide'.tokenize(','),
+            ),
+'Alien Ruins' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Altered Humanity' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Area 51' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Badlands World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Bubble Cities' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Civil War' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Cold War' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Colonized Population' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Desert World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Eugenic Cult' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Exchange Consulate' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Feral World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Flying Cities' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Forbidden Tech' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Freak Geology' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Freak Weather' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Friendly Foe' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Gold Rush' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Hatred' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Heavy Industry' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Heavy Mining' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Hostile Biosphere' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Hostile Space' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Local Specialty' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Local Tech' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Major Spaceyard' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Minimal Contact' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Misandry/Misogyny' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Oceanic World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Out of Contact' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Outpost World' : new WorldTag(
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Perimeter Agency' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Pilgrimage Site' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Police State' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Preceptor Archive' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Pretech Cultists' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Primitive Aliens' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Psionics Fear' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Psionics Worship' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Psionics Academy' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Quarantined World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Radioactive World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Regional Hegemon' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Restrictive Laws' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Rigid Culture' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Seagoing Cities' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Sealed Menace' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Sectarians' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Seismic Instability' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Secret Masters' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Theocracy' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Tomb World' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Trade Hub' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Tyranny' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Unbraked AI' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Warlords' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Xenophiles' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Xenophobes' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+'Zombies' : new WorldTag(
+        flavor: '''''',
+        enemies: ''.tokenize(','),
+        friends: ''.tokenize(','),
+        complications: ''.tokenize(','),
+        things: ''.tokenize(','),
+        places: ''.tokenize(',')
+),
+    ]
     List<String> world_tags = """\
 Abandoned Colony
 Alien Ruins
@@ -143,12 +636,13 @@ Xenophobes
 Zombies
 Artificial World
 Weak Gravity
-Heavy Gravity\
+Heavy Gravity
 """.readLines()
 
 
     String template =  '''\
 <strong>World</strong> - {{name}}
+<br/>
 <br/><strong><small>Atmosphere:</small></strong> {{atmosphere}}
 <br/><strong><small>Temperature:</small></strong> {{temperature}}
 <br/><strong><small>Biosphere:</small></strong> {{biosphere}}
@@ -156,18 +650,35 @@ Heavy Gravity\
 <br/><strong><small>Population:</small></strong> {{population}}
 <br/><strong><small>Tech Level:</small></strong> {{techlevel}}
 <br/>
-<br/><strong><small>World Tags:</small></strong> {{tags}}
+<br/><strong><small>World Tags:</small></strong>
+<br/>&nbsp;&nbsp;{{tags}}
+<br/>
+<br/><strong><small>Cultures:</small></strong> {{cultures}}
 '''
     String generate() {
+        // how many cultures are on the world?
+        int numCultures = pick(new RangeMap()
+                .with(1..3, 1)
+                .with(4..5, 2)
+                .with(6, 3)
+        ) as int
+
+        List<String> cultures = names.pickCultures(numCultures)
+        // pick a name from the 1st culture in list
+        String worldName = names.getPlaceName(cultures[0])
+
+        List<String> worldTags = pickN(world_tags, 2) as List<String>
+
         Mustache.compiler().compile(template).execute(
                 [
-                        name: names.getPlaceName(),
+                        name: worldName,
+                        cultures: cultures.join(', '),
                         atmosphere: pick('2d6', atmospheres),
                         temperature: pick('2d6', temperatures),
                         biosphere: pick('2d6', biospheres),
                         population: pick('2d6', populations),
                         techlevel: pick('2d6', techlevels),
-                        tags: pickN(world_tags, 2).join(', '),
+                        tags: worldTags.join('<br/>&nbsp;&nbsp; '),
                 ]
         )
     }

@@ -1114,6 +1114,10 @@ Zumeta\
         pick(culture_names.keySet())
     }
 
+    List<String> pickCultures(int n) {
+        pickN(culture_names.keySet(), n) as List<String>
+    }
+
     String getPlaceName() {
         // TODO: this assumes all cultures are equally weighted.
         getPlaceName(pickCulture())
