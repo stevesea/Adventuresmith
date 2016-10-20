@@ -129,7 +129,7 @@ Crystalline tissues
 Gas-sack body
 2d10 tentacles
 Gelatinous liquid body
-Radioactive fl esh
+Radioactive flesh
 Uses sonic attacks to stun prey
 Colony entity made up of numerous small animals
 Controlled by neural symbiont
