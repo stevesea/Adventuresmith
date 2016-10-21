@@ -22,7 +22,6 @@ package org.stevesea.adventuresmith
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import com.mikepenz.google_material_typeface_library.GoogleMaterial
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
@@ -44,8 +43,8 @@ public class Adventuresmith extends AppCompatActivity {
         setContentView(R.layout.activity_adventuresmith);
 
         // Handle Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -55,7 +54,7 @@ public class Adventuresmith extends AppCompatActivity {
 
         drawer = new DrawerBuilder()
                 .withActivity(this)
-                .withToolbar(toolbar)
+                //.withToolbar(toolbar)
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
