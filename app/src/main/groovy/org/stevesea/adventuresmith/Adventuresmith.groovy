@@ -21,14 +21,14 @@
 package org.stevesea.adventuresmith
 
 import android.os.Bundle
+import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.AppCompatActivity
-import com.mikepenz.google_material_typeface_library.GoogleMaterial
+import android.widget.ImageView
+import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
-import com.mikepenz.materialdrawer.model.ExpandableDrawerItem
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.R
 
@@ -42,6 +42,9 @@ public class Adventuresmith extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adventuresmith);
 
+        LayoutInflaterCompat.setFactory(getLayoutInflater(),
+                new IconicsLayoutInflater(getDelegate()));
+
         // Handle Toolbar
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -50,21 +53,19 @@ public class Adventuresmith extends AppCompatActivity {
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
                 .withSavedInstance(savedInstanceState)
+                .withHeaderBackground(R.drawable.pheonix)
+                .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 .build();
+
 
         drawer = new DrawerBuilder()
                 .withActivity(this)
+                .withHasStableIds(true)
                 //.withToolbar(toolbar)
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
-
-                .addDrawerItems(
-                new ExpandableDrawerItem().withName("Collapsable").withIcon(GoogleMaterial.Icon.gmd_collection_case_play).withIdentifier(19).withSelectable(false).withSubItems(
-                        new SecondaryDrawerItem().withName("CollapsableItem").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_8tracks).withIdentifier(2000),
-                        new SecondaryDrawerItem().withName("CollapsableItem 2").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_8tracks).withIdentifier(2001)
-                )
-        )
+                .withDrawerItems(DrawerItemData.createDrawerItems())
                 .build();
 
     }

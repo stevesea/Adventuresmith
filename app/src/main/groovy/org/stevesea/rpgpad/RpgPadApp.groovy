@@ -19,9 +19,11 @@
 package org.stevesea.rpgpad
 
 import android.app.Application
+import android.support.v4.view.LayoutInflaterCompat
 import com.arasthel.swissknife.annotations.OnBackground
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
+import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.squareup.leakcanary.LeakCanary
 import groovy.transform.CompileStatic
 import io.fabric.sdk.android.Fabric
