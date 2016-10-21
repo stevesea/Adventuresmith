@@ -27,6 +27,9 @@ import org.stevesea.rpgpad.data.RangeMap;
 
 @CompileStatic
 class SWNAlien extends AbstractGenerator {
+    // TODO: alien tech level
+    // TODO: their political status in the sector
+    // TODO: alien government motivatoin
     List<String> body_types = [
         'Humanlike',
         'Avian',
