@@ -84,7 +84,6 @@ Zaibatsu\
 """.readLines()
 
     List<String> businesses = """\
-business:
 Aeronautics
 Agriculture
 Art
@@ -159,13 +158,12 @@ Xenotech
 
 
     String template =  '''\
-<strong>Corporation</strong> - {{name}} {{organization}}
-<br/>
-<br/><strong><small>Businesses:</small></strong>
-<br/>&nbsp;&nbsp;{{business}}
-<br/>
-<br/><strong><small>Rumors:</small></strong>
-<br/>&nbsp;&nbsp;{{rumor}}\
+<h4>Corporation</h4>
+{{name}} {{organization}}
+<h5>Businesses:</h5>
+&nbsp;&nbsp;{{business}}
+<h5>Rumors:</h5>
+&nbsp;&nbsp;{{rumor}}\
 '''
     String generate() {
         Mustache.compiler().escapeHTML(false).compile(template).execute(
@@ -173,7 +171,7 @@ Xenotech
                         name: pick(names),
                         organization: pick(organizations),
                         business:  pickN(businesses, roll('1d3+1')).join('<br/>&nbsp;&nbsp;'),
-                        rumor: pickN(rumors, roll('1d4')).join('<br/>&nbsp;&nbsp;'),
+                        rumor: pickN(rumors, roll('1d3+1')).join('<br/>&nbsp;&nbsp;'),
                 ]
         )
     }

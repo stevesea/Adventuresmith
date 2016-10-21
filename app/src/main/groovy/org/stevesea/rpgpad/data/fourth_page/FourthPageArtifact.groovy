@@ -20,7 +20,6 @@
 
 package org.stevesea.rpgpad.data.fourth_page
 
-import com.samskivert.mustache.Mustache
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 class FourthPageArtifact extends AbstractGenerator {
@@ -129,21 +128,12 @@ You see and hear over vast distances.\
     String generate() {
         String originKey = pick(origins.keySet())
         String powerKey = pick(powers.keySet())
-
-        String template = '''\
-<strong>Origin:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{originKey}}</small></strong> - {{origin}}
-<br/>
-<br/><strong>Power:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{powerKey}}</small></strong> - {{power}}\
-'''
-        Mustache.compiler().compile(template).execute(
-                [
-                        powerKey: powerKey,
-                        originKey: originKey,
-                        power: pick(powers.get(powerKey)),
-                        origin: pick(origins.get(originKey)),
-                ]
-        )
+        """\
+<h4>Artifact</h4>
+<h5>Origin</h5>
+<strong><small>${originKey}</small></strong> - ${pick(origins.get(originKey))}
+<h5>Power</h5>
+<strong><small>${powerKey}</small></strong> - ${pick(powers.get(powerKey))}
+"""
     }
 }

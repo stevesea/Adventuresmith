@@ -108,9 +108,8 @@ Climbing vegetation\
         keys.each { it -> elements.add(pick(arch_elements.get(it)) as String)}
 
         """\
-<strong>Architectural Elements</strong>
-<br/>
-<br/>&nbsp;&nbsp;${elements.join('<br/>&nbsp;&nbsp;')}
+<h4>Architectural Elements</h4>
+&nbsp;&nbsp;${elements.join('<br/>&nbsp;&nbsp;')}
 <br/>&nbsp;&nbsp;${pickN(misc, roll('1d3')).join('<br/>&nbsp;&nbsp;')}
 """
     }

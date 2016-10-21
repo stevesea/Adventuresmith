@@ -20,7 +20,6 @@
 
 package org.stevesea.rpgpad.data.fourth_page
 
-import com.samskivert.mustache.Mustache
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 class FourthPageMonster extends AbstractGenerator {
@@ -132,20 +131,12 @@ They outnumber you.\
         String roleKey = pick(roles.keySet())
         String natureKey = pick(natures.keySet())
 
-        String template = '''\
-<strong>Nature:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{natureKey}}</small></strong> - {{nature}}
-<br/>
-<br/><strong>Role:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{roleKey}}</small></strong> - {{role}}\
-'''
-        Mustache.compiler().compile(template).execute(
-                [
-                        roleKey: roleKey,
-                        natureKey: natureKey,
-                        role: pick(roles.get(roleKey)),
-                        nature: pick(natures.get(natureKey)),
-                ]
-        )
+        """
+<h4>Monster</h4>
+<h5>Nature</h5>
+<strong><small>${natureKey}</small></strong> - ${pick(natures.get(natureKey))}
+<h5>Role</h5>
+<strong><small>${roleKey}</small></strong> - ${pick(roles.get(roleKey))}\
+"""
     }
 }

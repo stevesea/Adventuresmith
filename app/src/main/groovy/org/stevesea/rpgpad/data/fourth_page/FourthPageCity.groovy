@@ -20,7 +20,6 @@
 
 package org.stevesea.rpgpad.data.fourth_page
 
-import com.samskivert.mustache.Mustache
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 class FourthPageCity extends AbstractGenerator {
@@ -136,30 +135,16 @@ Racial tensions are running high.\
         String societyKey = pick(societies.keySet())
         String troubleKey = pick(troubles.keySet())
 
-        String template = '''\
-<strong>Feature:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{featureKey}}</small></strong> - {{feature}}
-<br/>
-<br/><strong>Population:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{populationKey}}</small></strong> - {{population}}
-<br/>
-<br/><strong>Society:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{societyKey}}</small></strong> - {{society}}
-<br/>
-<br/><strong>Trouble:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{troubleKey}}</small></strong> - {{trouble}}\
-'''
-        Mustache.compiler().compile(template).execute(
-                [
-                        featureKey: featureKey,
-                        populationKey: populationKey,
-                        societyKey: societyKey,
-                        troubleKey: troubleKey,
-                        feature: pick(features.get(featureKey)),
-                        population: pick(populations.get(populationKey)),
-                        society: pick(societies.get(societyKey)),
-                        trouble: pick(troubles.get(troubleKey)),
-                ]
-        )
+        """\
+<h4>City</h4>
+<h5>Feature</h5>
+<strong><small>${featureKey}</small></strong> - ${pick(features.get(featureKey))}
+<h5>Population<h5>
+<strong><small>${populationKey}</small></strong> - ${pick(populations.get(populationKey))}
+<h5>Society</h5>
+<strong><small>${societyKey}</small></strong> - ${pick(societies.get(societyKey))}
+<h5>Trouble</h5>
+<strong><small>${troubleKey}</small></strong> - ${pick(troubles.get(troubleKey))}\
+"""
     }
 }

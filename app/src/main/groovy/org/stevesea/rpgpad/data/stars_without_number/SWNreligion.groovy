@@ -69,13 +69,13 @@ class SWNreligion extends AbstractGenerator {
         // TODO: show titles?
         String origin = pick(origin_traditions.keySet())
         """\
-<strong>Religion</strong> &nbsp;&nbsp; <strong><small>Origin Tradition:</small></strong> ${origin}
-<br/>
-<br/><strong><small>Evolution:</small></strong>
-<br/>&nbsp;&nbsp;${pick(evolutions)}
-<br/>
-<br/><strong><small>Leadership:</small></strong>
-<br/>&nbsp;&nbsp;${pick(leaderships)}\
+<h4>Religion</h4>
+<h5>Origin Tradition</h5>
+${origin}
+<h5>Evolution:</h5>
+${pick(evolutions)}
+<h5>Leadership:</h5>
+${pick(leaderships)}\
 """
     }
 }

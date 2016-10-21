@@ -171,7 +171,7 @@ uprising against tyranny, or it might just be the result of schemers who plan to
                     flavor: '''Two or more great powers control the planet, and they have a hostility to each other that’s just barely less than open warfare. The hostility might be
 ideological in nature, or it might revolve around control of some local resource.''',
                     enemies: 'Suspicious chief of intelligence, Native who thinks the outworlders are with the other side, Femme fatale'.tokenize(',').collect { it.trim() },
-                    friends: 'Apolitical information broker, Spy for the other side, Unjustly accused innocent, “He’s a bastard, but he’s our bastard” official'.tokenize(',').collect { it.trim() },
+                    friends: ['Apolitical information broker','Spy for the other side','Unjustly accused innocent','“He’s a bastard, but he’s our bastard” official'],
                     complications: 'Police sweep, Low-level skirmishing, “Red scare”'.tokenize(',').collect { it.trim() },
                     things: 'List of traitors in government, secret military plans, Huge cache of weapons built up in preparation for war'.tokenize(',').collect { it.trim() },
                     places: 'Seedy bar in a neutral area, Political rally, Isolated area where fighting is underway'.tokenize(',').collect { it.trim() }
@@ -734,25 +734,33 @@ creators or the consequence of some local condition.''',
         int popRoll = roll('2d6')
         int techRoll = roll('2d6')
 
+        // adjust possible temps due to atmosphere
         if (atmoRoll.equals(4)) {
-            // airless/thin. pick either frozen/burning
+            // airless/thin. pick either frozen or burning
             tempRoll = pick([2,12]) as int
         }
-        if (!((3..11).contains(tempRoll))) {
-            // world is frozen or burning. force biosphere to remnants/microbes
-            bioRoll = pick([2,3]) as int
+
+        // adjust possible bios' according to atmos/temp
+        if ([2,12].contains(tempRoll)) {
+            // world is frozen or burning. force biosphere to remnants/microbes/none
+            bioRoll = Math.max(bioRoll, 5)
         }
+        // TODO: limit biosphere according to atmosphere?
+        if ((6..8).contains(bioRoll)) {
+            // initial roll said human biosphere, but...
+            if ([2, 3, 4, 11, 12].contains(atmoRoll)) {
+                // corrosive/tox/missing atmo
+                bioRoll = pick([2,3,4,4,5,5,5,9,9,9,10,10,11,12]) as int
+            }
+        }
+
+        // adjust possible pop according to biosphere
         if ([2,12].contains(tempRoll)) {
             // world is frozen/burning. force pop to failed colony/outpost
-            popRoll = pick([2, 3, 3]) as int
+            popRoll = roll('2d2')
         } else if ((1..5).contains(bioRoll)) {
             // very limiting biosphere
-            popRoll = pick([2, 3, 3, 4,4, 5, 5]) as int
-        } else if ((9..10).contains(bioRoll)) {
-            // biosphere is there, but unfriendly
-            popRoll = Math.max((int)popRoll, 8)
-        } else if ((6..12).contains(bioRoll)) {
-            popRoll = Math.min(popRoll, 3)
+            popRoll = roll('2d3')
         }
         String atomosphere = atmospheres.get(atmoRoll)
         String temp = temperatures.get(tempRoll)

@@ -785,8 +785,6 @@ ${ss('Virtues:')} ${ -> pickN(FotFTraits.virtues, 3).join(', ')}
 
     ]
 
-
-
     String generate() {
         def gender = pick(genders)
         def playbook = pick(playbooks)

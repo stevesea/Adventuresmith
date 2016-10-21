@@ -20,7 +20,6 @@
 
 package org.stevesea.rpgpad.data.fourth_page
 
-import com.samskivert.mustache.Mustache
 import org.stevesea.rpgpad.data.AbstractGenerator
 
 class FourthPageDungeon extends AbstractGenerator {
@@ -136,30 +135,16 @@ Something terrible has returned.\
         String trialKey = pick(trials.keySet())
         String secretKey = pick(secrets.keySet())
 
-        String template = '''\
-<strong>History:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{historyKey}}</small></strong> - {{history}}
-<br/>
-<br/><strong>Denizen:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{denizenKey}}</small></strong> - {{denizen}}
-<br/>
-<br/><strong>Trial:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{trialKey}}</small></strong> - {{trial}}
-<br/>
-<br/><strong>Secret:</strong>
-<br/>&nbsp;&nbsp;<strong><small>{{secretKey}}</small></strong> - {{secret}}\
-'''
-        Mustache.compiler().compile(template).execute(
-                [
-                        historyKey: historyKey,
-                        denizenKey: denizenKey,
-                        trialKey: trialKey,
-                        secretKey: secretKey,
-                        history: pick(histories.get(historyKey)),
-                        denizen: pick(denizens.get(denizenKey)),
-                        trial: pick(trials.get(trialKey)),
-                        secret: pick(secrets.get(secretKey)),
-                ]
-        )
+        """
+<h4>Dungeon</h4>
+<h5>History</h5>
+<strong><small>${historyKey}</small></strong> - ${pick(histories.get(historyKey))}
+<h5>Denizen</h5>
+<strong><small>${denizenKey}</small></strong> - ${pick(denizens.get(denizenKey))}
+<h5>Trial</h5>
+<strong><small>${trialKey}</small></strong> - ${pick(trials.get(trialKey))}
+<h5>Secret</h5>
+<strong><small>${secretKey}</small></strong> - ${pick(secrets.get(secretKey))}\
+"""
     }
 }

@@ -27,36 +27,36 @@ import org.stevesea.rpgpad.data.RangeMap;
 
 @CompileStatic
 class SWNAlien extends AbstractGenerator {
-    List<String> body_types = """\
-Humanlike
-Avian
-Reptilian
-Insectile
-Exotic
-Hybrid\
-""".readLines()
-    List<String> lenses = """\
-Collectivity
-Curiosity
-Despair
-Domination
-Faith
-Fear
-Gluttony
-Greed
-Hate
-Honor
-Journeying
-Joy
-Pacifism
-Pride
-Sagacity
-Subtlety
-Tradition
-Treachery
-Tribalism
-Wrath
-""".readLines()
+    List<String> body_types = [
+        'Humanlike',
+        'Avian',
+        'Reptilian',
+        'Insectile',
+        'Exotic',
+        'Hybrid',
+        ]
+    List<String> lenses = [
+        'Collectivity',
+        'Curiosity',
+        'Despair',
+        'Domination',
+        'Faith',
+        'Fear',
+        'Gluttony',
+        'Greed',
+        'Hate',
+        'Honor',
+        'Journeying',
+        'Joy',
+        'Pacifism',
+        'Pride',
+        'Sagacity',
+        'Subtlety',
+        'Tradition',
+        'Treachery',
+        'Tribalism',
+        'Wrath',
+        ]
     RangeMap social_structures = new RangeMap()
             .with(1,'Democratic')
             .with(2,'Monarchic')
@@ -68,8 +68,8 @@ Wrath
 
 
     String template =  '''\
-<strong>Alien</strong>
-<br/><strong><small>Body Type:</small></strong> {{body_type}}
+<h4>Alien</h4>
+<strong><small>Body Type:</small></strong> {{body_type}}
 <br/><strong><small>Lenses:</small></strong> {{lense}}
 <br/>
 <br/><strong><small>Social Structure:</small></strong> {{social_structure}}
@@ -85,9 +85,21 @@ Wrath
             num.times { result.add(pick('1d4', social_structures) as String)}
             structure = 'Multipolar: ' + result.join(', ')
         }
+        String body_type = pick(body_types)
+        if (body_type.equals('Hybrid')) {
+            Set<String> allExceptHybrid = new HashSet<>()
+            allExceptHybrid.addAll(body_types)
+            allExceptHybrid.remove('Hybrid')
+
+            // how many types is it a hybrid of?
+            int num = new RangeMap()
+                    .with(1..4, 2)
+                    .with(5..6, 3).get(roll('1d6')) as int
+            body_type = (pickN(allExceptHybrid, num) as List<String>).join(', ')
+        }
         Mustache.compiler().compile(template).execute(
                 [
-                        body_type: pick(body_types),
+                        body_type: body_type,
                         lense: pickN(lenses, roll('1d2+1')).join(', '),
                         social_structure: structure,
                 ]

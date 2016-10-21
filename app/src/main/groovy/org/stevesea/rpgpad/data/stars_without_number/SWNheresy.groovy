@@ -88,19 +88,15 @@ Forbidden the use of certain technology\
 
     String generate () {
         """\
-<strong>Heresy</strong>
-<br/>
-<br/><strong><small>Founder:</small></strong>
-<br/>&nbsp;&nbsp;${pick(founder)}
-<br/>
-<br/><strong><small>Major Heresy:</small></strong>
-<br/>&nbsp;&nbsp;${pick(major_heresy)}
-<br/>
-<br/><strong><small>Attitude towards orthodoxy:</small></strong>
-<br/>&nbsp;&nbsp;${pick(attitude)}
-<br/>
-<br/><strong><small>Quirks:</small></strong>
-<br/>&nbsp;&nbsp;${pickN(quirks, roll('1d2+1')).join('<br/>&nbsp;&nbsp;')}
+<h4>Heresy</h4>
+<h5>Founder</h5>
+${pick(founder)}
+<h5>Major Heresy:</h5>
+${pick(major_heresy)}
+<h5>Attitude towards orthodoxy</h5>
+${pick(attitude)}
+<h5>Quirks</h5>
+&nbsp;&nbsp;${pickN(quirks, roll('1d2+1')).join('<br/>&nbsp;&nbsp;')}
 """
     }
 }
