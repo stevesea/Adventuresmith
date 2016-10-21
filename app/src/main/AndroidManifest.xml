@@ -16,34 +16,41 @@
   ~
   ~ You should have received a copy of the GNU General Public License
   ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
-  -->
-
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.stevesea.rpgpad">
-    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".RpgPadApp"
         android:allowBackup="false"
         android:icon="@drawable/ic_anvil_impact"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="org.stevesea.rpgpad.RpgPadApp"
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name="org.stevesea.rpgpad.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="a06f7265a0865b0b844e031806968181d6056595" />
+            android:value="a06f7265a0865b0b844e031806968181d6056595"/>
+
+        <activity android:name="org.stevesea.adventuresmith.Adventuresmith">
+        </activity>
     </application>
+
 </manifest>
