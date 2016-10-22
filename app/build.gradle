@@ -121,12 +121,8 @@ dependencies {
     compile 'com.arasthel:swissknife:1.4.0'
 
     compile "com.android.support:appcompat-v7:$androidSupportVersion"
-    compile "com.android.support:design:$androidSupportVersion"
     compile "com.android.support:recyclerview-v7:$androidSupportVersion"
     compile "com.android.support:cardview-v7:$androidSupportVersion"
-
-    provided 'javax.annotation:jsr250-api:1.0'
-    compile 'javax.inject:javax.inject:1'
 
     compile('com.crashlytics.sdk.android:crashlytics:2.6.4@aar') {
         transitive = true;
