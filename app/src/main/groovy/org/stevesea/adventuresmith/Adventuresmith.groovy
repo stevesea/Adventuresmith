@@ -20,10 +20,25 @@
 
 package org.stevesea.adventuresmith
 
+import android.graphics.Color
 import android.os.Bundle
+import android.support.design.widget.CollapsingToolbarLayout
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
+import com.arasthel.swissknife.SwissKnife
+import com.arasthel.swissknife.annotations.InjectView
+import com.mikepenz.community_material_typeface_library.CommunityMaterial
+import com.mikepenz.fastadapter.FastAdapter
+import com.mikepenz.fastadapter.IAdapter
+import com.mikepenz.fastadapter.adapters.FastItemAdapter
+import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -37,17 +52,83 @@ public class Adventuresmith extends AppCompatActivity {
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar
+
+    @InjectView(R.id.recycler_buttons)
+    RecyclerView recyclerButtons
+    @InjectView(R.id.recycler_results)
+    RecyclerView recyclerResults
+
+
+    private FastItemAdapter<ButtonAdapterItem> buttonAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adventuresmith);
 
-        // Handle Toolbar
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        SwissKnife.inject(this);
+
+        setSupportActionBar(toolbar);
+
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("wooo!");
+
+        //create our FastAdapter which will manage everything
+        buttonAdapter = new FastItemAdapter<>();
+        buttonAdapter.withSelectable(false);
+        buttonAdapter.withPositionBasedStateManagement(false);
+
+        buttonAdapter.withOnClickListener(new FastAdapter.OnClickListener<ButtonAdapterItem>() {
+            @Override
+            public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
+                // run generator
+                //item.generator
+                //Toast.makeText(v.getContext(), (item).btnText.getText(v.getContext()), Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
+        recyclerButtons.setLayoutManager(new LinearLayoutManager(this));
+        recyclerButtons.setItemAnimator(new DefaultItemAnimator());
+        recyclerButtons.setAdapter(buttonAdapter);
+
+        GridLayoutManager buttonGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
+
+        final int btnSpanShort = getResources().getInteger(R.integer.buttonSpanShort)
+        final int btnSpanRegular = getResources().getInteger(R.integer.buttonSpanRegular)
+        final int btnSpanLong = getResources().getInteger(R.integer.buttonSpanLong)
+        buttonGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                ButtonAdapterItem item = buttonAdapter.getAdapterItem(position)
+                String btnTxt = getString(item.buttonData.id)
+                List<Integer> words = btnTxt.tokenize().collect{it.length()}
+                Integer longest = words.max()
+
+                if (longest <= 6) {
+                    return btnSpanShort
+                } else if (longest >= 11) {
+                    return btnSpanLong
+                }
+                else {
+                    return btnSpanRegular
+                }
+            }
+        } as GridLayoutManager.SpanSizeLookup
+
+        recyclerButtons.layoutManager = buttonGridLayoutMgr
+
+        // create items
+
+        //restore selections (this has to be done after the items were added
+        buttonAdapter.withSavedInstanceState(savedInstanceState);
+
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
+                .withCompactStyle(false)
                 .withTranslucentStatusBar(true)
                 .withSavedInstance(savedInstanceState)
                 .withHeaderBackground(R.drawable.pheonix)
@@ -74,13 +155,22 @@ public class Adventuresmith extends AppCompatActivity {
 
                         if (drawerItem) {
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
-
+                            buttonAdapter.clear()
+                            for (ButtonData bd : ButtonData.getButtonsForDrawerItem(diData.id)) {
+                                buttonAdapter.add(new ButtonAdapterItem().withButton(bd))
+                            }
                         }
                         return false
                     }
-                })
+                } as Drawer.OnDrawerItemClickListener)
                 .build();
 
+        fillFab()
+    }
+
+    private void fillFab() {
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_action_button);
+        fab.setImageDrawable(new IconicsDrawable(this, CommunityMaterial.Icon.cmd_plus_circle).actionBar().color(Color.WHITE));
     }
 
     @Override

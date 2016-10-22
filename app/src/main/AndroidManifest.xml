@@ -49,7 +49,8 @@
             android:name="io.fabric.ApiKey"
             android:value="a06f7265a0865b0b844e031806968181d6056595"/>
 
-        <activity android:name="org.stevesea.adventuresmith.Adventuresmith">
+        <activity android:name="org.stevesea.adventuresmith.Adventuresmith"
+                  android:theme="@style/MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus" >
         </activity>
     </application>
 
