@@ -67,7 +67,8 @@
                 android:fitsSystemWindows="true"
                 android:id="@+id/recycler_buttons"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 />
 
             <!-- As our statusBar is transparent below and content is moved behind our toolbar has to include the padding on top so we use this area -->
