@@ -195,9 +195,10 @@ public class Adventuresmith extends AppCompatActivity {
         drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withHasStableIds(true)
-                //.withToolbar(toolbar)
+                .withToolbar(toolbar)
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
                 .withSavedInstance(savedInstanceState)
+                .withActionBarDrawerToggleAnimated(true)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(DrawerItemData.createDrawerItems())
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
