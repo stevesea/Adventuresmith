@@ -21,14 +21,14 @@
 package org.stevesea.adventuresmith
 
 import android.os.Bundle
-import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.ImageView
-import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.R
 
@@ -41,9 +41,6 @@ public class Adventuresmith extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adventuresmith);
-
-        LayoutInflaterCompat.setFactory(getLayoutInflater(),
-                new IconicsLayoutInflater(getDelegate()));
 
         // Handle Toolbar
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -66,6 +63,22 @@ public class Adventuresmith extends AppCompatActivity {
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(DrawerItemData.createDrawerItems())
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        //check if the drawerItem is set.
+                        //there are different reasons for the drawerItem to be null
+                        //--> click on the header
+                        //--> click on the footer
+                        //those items don't contain a drawerItem
+
+                        if (drawerItem) {
+                            DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
+
+                        }
+                        return false
+                    }
+                })
                 .build();
 
     }

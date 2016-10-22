@@ -224,10 +224,10 @@ class DrawerItemData {
                         id: DrawerItemId.Attribution,
                         nameResourceId: R.string.nav_thanks,
                         drawDividerBefore: true,
-                        icon: CommunityMaterial.Icon.cmd_information));
+                        icon: CommunityMaterial.Icon.cmd_information_outline));
     }
 
-    static DrawerItemData getDrawerItemData(@DrawerItemId int id) {
+    static public DrawerItemData getDrawerItemData(@DrawerItemId int id) {
         items.get(id);
     }
 
