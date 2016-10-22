@@ -173,43 +173,15 @@ public class Adventuresmith extends AppCompatActivity {
         recyclerResults.itemAnimator = new DefaultItemAnimator()
         recyclerResults.adapter = resultAdapter
 
+        // TODO: restore not working -- no items restored
         //restore selections (this has to be done after the items were added
         buttonAdapter.withSavedInstanceState(savedInstanceState);
         resultAdapter.withSavedInstanceState(savedInstanceState);
 
-        resultsGridLayoutMgr
-
-        recyclerResults.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                if (dy > 0 ||dy<0 && recyclerButtons.isShown())
-                {
-                    recyclerButtons.hide();
-                }
-            }
-
-            @Override
-            void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-
-                super.onScrollStateChanged(recyclerView, newState);
-
-                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                {
-                    recyclerButtons.show();
-                }
-                recyclerResults.getScrollX()
-            }
-
-
-        })
-
-
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withCompactStyle(false)
-                .withTranslucentStatusBar(true)
+                .withTranslucentStatusBar(false)
                 .withSavedInstance(savedInstanceState)
                 .withHeaderBackground(R.drawable.pheonix)
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
@@ -219,10 +191,11 @@ public class Adventuresmith extends AppCompatActivity {
         drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withHasStableIds(true)
+                .withTranslucentStatusBar(false)
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .withSavedInstance(savedInstanceState)
-                .withActionBarDrawerToggleAnimated(true)
+                //.withActionBarDrawerToggleAnimated(true)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(DrawerItemData.createDrawerItems())
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {

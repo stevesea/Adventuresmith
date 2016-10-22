@@ -63,6 +63,15 @@
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />
 
+            <android.support.v7.widget.RecyclerView
+                android:fitsSystemWindows="false"
+                android:id="@+id/recycler_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:layout_marginTop="?attr/actionBarSize"
+                />
+
             <!-- As our statusBar is transparent below and content is moved behind our toolbar has to include the padding on top so we use this area -->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -87,13 +96,4 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
-    <android.support.v7.widget.RecyclerView
-        android:fitsSystemWindows="true"
-        android:id="@+id/recycler_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/toolbar"
-        app:layout_anchorGravity="bottom"
-        android:layout_gravity="bottom"
-        />
 </android.support.design.widget.CoordinatorLayout>
