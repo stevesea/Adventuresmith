@@ -177,6 +177,34 @@ public class Adventuresmith extends AppCompatActivity {
         buttonAdapter.withSavedInstanceState(savedInstanceState);
         resultAdapter.withSavedInstanceState(savedInstanceState);
 
+        resultsGridLayoutMgr
+
+        recyclerResults.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                if (dy > 0 ||dy<0 && recyclerButtons.isShown())
+                {
+                    recyclerButtons.hide();
+                }
+            }
+
+            @Override
+            void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                {
+                    recyclerButtons.show();
+                }
+                recyclerResults.getScrollX()
+            }
+
+
+        })
+
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
