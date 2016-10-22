@@ -47,7 +47,7 @@ class DrawerItemData {
     List<Integer> children = null
     int level = 1
     boolean selectable = true
-    boolean expanded = true
+    boolean expanded = false
 
     boolean drawDividerBefore = false
     boolean isSectionHeader = false
