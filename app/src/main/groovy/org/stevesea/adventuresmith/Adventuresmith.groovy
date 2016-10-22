@@ -27,7 +27,6 @@ import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -62,6 +61,7 @@ public class Adventuresmith extends AppCompatActivity {
 
 
     private FastItemAdapter<ButtonAdapterItem> buttonAdapter;
+    private FastItemAdapter<ResultAdapterItem> resultAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,16 +83,11 @@ public class Adventuresmith extends AppCompatActivity {
         buttonAdapter.withOnClickListener(new FastAdapter.OnClickListener<ButtonAdapterItem>() {
             @Override
             public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
-                // run generator
-                //item.generator
-                //Toast.makeText(v.getContext(), (item).btnText.getText(v.getContext()), Toast.LENGTH_LONG).show();
+                resultAdapter.add(0, new ResultAdapterItem().withResult(item.buttonData.generate()))
+                recyclerResults.scrollToPosition(0)
                 return false;
             }
         });
-
-        recyclerButtons.setLayoutManager(new LinearLayoutManager(this));
-        recyclerButtons.setItemAnimator(new DefaultItemAnimator());
-        recyclerButtons.setAdapter(buttonAdapter);
 
         GridLayoutManager buttonGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
 
@@ -119,11 +114,32 @@ public class Adventuresmith extends AppCompatActivity {
         } as GridLayoutManager.SpanSizeLookup
 
         recyclerButtons.layoutManager = buttonGridLayoutMgr
+        recyclerButtons.itemAnimator = new DefaultItemAnimator();
+        recyclerButtons.adapter = buttonAdapter;
 
-        // create items
+        resultAdapter = new FastItemAdapter<>()
+        resultAdapter.withSelectable(false)
+        resultAdapter.withPositionBasedStateManagement(false)
+        GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
+
+        final resultSpanLong = getResources().getInteger(R.integer.resultColsLongtext)
+        resultsGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                ResultAdapterItem item = resultAdapter.getAdapterItem(position)
+                if (item.htmlTxt.length() > 48)
+                    return resultSpanLong
+                else
+                    return 1
+            }
+        } as GridLayoutManager.SpanSizeLookup
+        recyclerResults.layoutManager = resultsGridLayoutMgr
+        recyclerResults.itemAnimator = new DefaultItemAnimator()
+        recyclerResults.adapter = resultAdapter
 
         //restore selections (this has to be done after the items were added
         buttonAdapter.withSavedInstanceState(savedInstanceState);
+        resultAdapter.withSavedInstanceState(savedInstanceState);
 
 
         headerResult = new AccountHeaderBuilder()
