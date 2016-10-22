@@ -214,15 +214,18 @@ public class Adventuresmith extends AppCompatActivity {
                             //resultsAdd(1, getString(R.string.content_artwork))
                             //resultsAdd(2, getString(R.string.content_thanks))
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
-                            resultAdapter.clear()
-                            buttonAdapter.clear()
-                            for (ButtonData bd : ButtonData.getButtonsForDrawerItem(diData.id)) {
-                                buttonAdapter.add(new ButtonAdapterItem().withButton(bd))
-                            }
 
-                            Answers.getInstance().logCustom(new CustomEvent("Selected Dataset")
-                                    .putCustomAttribute("Dataset", getString(diData.nameResourceId))
-                            )
+                            if (diData.selectable) {
+                                resultAdapter.clear()
+                                buttonAdapter.clear()
+                                for (ButtonData bd : ButtonData.getButtonsForDrawerItem(diData.id)) {
+                                    buttonAdapter.add(new ButtonAdapterItem().withButton(bd))
+                                }
+
+                                Answers.getInstance().logCustom(new CustomEvent("Selected Dataset")
+                                        .putCustomAttribute("Dataset", getString(diData.nameResourceId))
+                                )
+                            }
                         }
                         return false
                     }
