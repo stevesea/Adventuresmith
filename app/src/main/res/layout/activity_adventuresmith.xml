@@ -63,11 +63,6 @@
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="pin"
-                android:orientation="vertical">
 
 
                 <!-- As our statusBar is transparent below and content is moved behind our toolbar has to include the padding on top so we use this area -->
@@ -79,17 +74,8 @@
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-                <android.support.v7.widget.RecyclerView
-                    android:fitsSystemWindows="true"
-                    android:id="@+id/recycler_buttons"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:layout_collapseMode="parallax"
-                    />
-            </LinearLayout>
-
         </android.support.design.widget.CollapsingToolbarLayout>
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -102,15 +88,14 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
-    <!--
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|right|end" />
 
--->
+    <android.support.v7.widget.RecyclerView
+        android:fitsSystemWindows="true"
+        android:id="@+id/recycler_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/toolbar"
+        app:layout_anchorGravity="bottom"
+        android:layout_gravity="bottom"
+        />
 </android.support.design.widget.CoordinatorLayout>
