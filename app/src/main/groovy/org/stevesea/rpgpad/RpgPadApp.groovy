@@ -19,18 +19,17 @@
 package org.stevesea.rpgpad
 
 import android.app.Application
-import android.support.v4.view.LayoutInflaterCompat
 import com.arasthel.swissknife.annotations.OnBackground
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
-import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.squareup.leakcanary.LeakCanary
 import groovy.transform.CompileStatic
 import io.fabric.sdk.android.Fabric
+import org.stevesea.adventuresmith.ButtonData
+import org.stevesea.adventuresmith.DrawerItemId
 
 @CompileStatic
 public class RpgPadApp extends Application {
-    DatasetButton[] btns;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -55,6 +54,6 @@ public class RpgPadApp extends Application {
         // initializing all the groovy closure-heavy classes seems to take a long time. do that here
         // in a background thread spawned during app startup. Otherwise, the first time the user
         // picks an item in the nav drawer, there's seconds of unresponsiveness.
-        btns = DatasetButton.values()
+        ButtonData.getButtonsForDrawerItem(DrawerItemId.DiceRoller)
     }
 }

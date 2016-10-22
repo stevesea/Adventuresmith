@@ -30,6 +30,8 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import com.arasthel.swissknife.SwissKnife
@@ -79,7 +81,7 @@ public class Adventuresmith extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("wooo!");
+        collapsingToolbarLayout.setTitle("");
 
         //create our FastAdapter which will manage everything
         buttonAdapter = new FastItemAdapter<>();
@@ -209,6 +211,10 @@ public class Adventuresmith extends AppCompatActivity {
 
                         if (drawerItem) {
                             // TODO: handle attribution drawer item
+
+                            //resultsAdd(0, getString(R.string.content_attribution))
+                            //resultsAdd(1, getString(R.string.content_artwork))
+                            //resultsAdd(2, getString(R.string.content_thanks))
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
                             resultAdapter.clear()
                             buttonAdapter.clear()
@@ -231,6 +237,28 @@ public class Adventuresmith extends AppCompatActivity {
     private void fillFab() {
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_action_button);
         fab.setImageDrawable(new IconicsDrawable(this, CommunityMaterial.Icon.cmd_plus_circle).actionBar().color(Color.WHITE));
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.action_clear) {
+            resultAdapter.clear()
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
