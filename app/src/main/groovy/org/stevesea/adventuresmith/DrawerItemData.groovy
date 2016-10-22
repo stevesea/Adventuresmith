@@ -191,15 +191,18 @@ class DrawerItemData {
                         icon: CommunityMaterial.Icon.cmd_pencil,
                         level: 2,));
 
+        /*
         items.put(DrawerItemId.Other,
                 new DrawerItemData(
                         id: DrawerItemId.Other,
                         isSectionHeader: true,
                         nameResourceId: R.string.nav_other
                 ));
+                */
         items.put(DrawerItemId.MazeRats,
                 new DrawerItemData(
                         id: DrawerItemId.MazeRats,
+                        drawDividerBefore: true,
                         nameResourceId: R.string.maze_rats,
                         icon: CommunityMaterial.Icon.cmd_nfc_variant,));
         items.put(DrawerItemId.FourthPage,
