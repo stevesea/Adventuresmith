@@ -21,10 +21,8 @@
 package org.stevesea.adventuresmith
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
-import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
@@ -38,11 +36,9 @@ import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
-import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
-import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -196,7 +192,7 @@ public class Adventuresmith extends AppCompatActivity {
                 .withActivity(this)
                 .withHasStableIds(true)
                 .withToolbar(toolbar)
-                .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
+                .withAccountHeader(headerResult)
                 .withSavedInstance(savedInstanceState)
                 .withActionBarDrawerToggleAnimated(true)
                 .withShowDrawerOnFirstLaunch(true)
@@ -231,15 +227,7 @@ public class Adventuresmith extends AppCompatActivity {
                     }
                 } as Drawer.OnDrawerItemClickListener)
                 .build();
-
-        fillFab()
     }
-
-    private void fillFab() {
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_action_button);
-        fab.setImageDrawable(new IconicsDrawable(this, CommunityMaterial.Icon.cmd_plus_circle).actionBar().color(Color.WHITE));
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
