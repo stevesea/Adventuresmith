@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
@@ -33,6 +34,8 @@ import android.view.View
 import android.widget.ImageView
 import com.arasthel.swissknife.SwissKnife
 import com.arasthel.swissknife.annotations.InjectView
+import com.crashlytics.android.answers.Answers
+import com.crashlytics.android.answers.CustomEvent
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.IAdapter
@@ -48,6 +51,9 @@ import org.stevesea.rpgpad.R
 
 @CompileStatic
 public class Adventuresmith extends AppCompatActivity {
+
+    // TODO: enable result filtering
+
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
@@ -78,14 +84,20 @@ public class Adventuresmith extends AppCompatActivity {
         //create our FastAdapter which will manage everything
         buttonAdapter = new FastItemAdapter<>();
         buttonAdapter.withSelectable(false);
-        buttonAdapter.withPositionBasedStateManagement(false);
+        buttonAdapter.withPositionBasedStateManagement(true);
 
         buttonAdapter.withOnClickListener(new FastAdapter.OnClickListener<ButtonAdapterItem>() {
             @Override
             public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
                 resultAdapter.add(0, new ResultAdapterItem().withResult(item.buttonData.generate()))
                 recyclerResults.scrollToPosition(0)
-                return false;
+
+                String drawerItem = getString(DrawerItemData.getDrawerItemData(item.buttonData.drawerId).nameResourceId)
+                String btnText = getString(item.buttonData.id)
+                Answers.getInstance().logCustom(new CustomEvent("Generated Result")
+                        .putCustomAttribute("Dataset", drawerItem)
+                        .putCustomAttribute("Button", drawerItem + '.' + btnText))
+                return true;
             }
         });
 
@@ -119,9 +131,35 @@ public class Adventuresmith extends AppCompatActivity {
 
         resultAdapter = new FastItemAdapter<>()
         resultAdapter.withSelectable(false)
-        resultAdapter.withPositionBasedStateManagement(false)
-        GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
+        resultAdapter.withPositionBasedStateManagement(true)
+        resultAdapter.withOnLongClickListener(new FastAdapter.OnLongClickListener<ResultAdapterItem>() {
+            @Override
+            boolean onLongClick(View v, IAdapter<ResultAdapterItem> adapter, ResultAdapterItem item, int position) {
 
+                // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
+                // TODO: https://gist.github.com/mediavrog/5625602
+                /*
+                ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
+                ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
+                clipboard.setPrimaryClip(clipData)
+                */
+                //Snackbar.make(v, "Shared...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+
+                // TODO: this isn't workin'
+
+                Intent sIntent = new Intent()
+                sIntent.setAction(Intent.ACTION_SEND)
+                sIntent.setType("text/html")
+                //sIntent.putExtra(Intent.EXTRA_SUBJECT, "Look at what I generated with ${v.getContext().getString(R.string.app_name)}")
+                sIntent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
+                sIntent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
+                //sIntent.setClipData(clipData)
+                v.getContext().startActivity(Intent.createChooser(sIntent,
+                        v.getContext().getString(R.string.action_share)))
+            }
+        })
+
+        GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
         final resultSpanLong = getResources().getInteger(R.integer.resultColsLongtext)
         resultsGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -170,11 +208,17 @@ public class Adventuresmith extends AppCompatActivity {
                         //those items don't contain a drawerItem
 
                         if (drawerItem) {
+                            // TODO: handle attribution drawer item
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
+                            resultAdapter.clear()
                             buttonAdapter.clear()
                             for (ButtonData bd : ButtonData.getButtonsForDrawerItem(diData.id)) {
                                 buttonAdapter.add(new ButtonAdapterItem().withButton(bd))
                             }
+
+                            Answers.getInstance().logCustom(new CustomEvent("Selected Dataset")
+                                    .putCustomAttribute("Dataset", getString(diData.nameResourceId))
+                            )
                         }
                         return false
                     }
@@ -195,6 +239,8 @@ public class Adventuresmith extends AppCompatActivity {
         outState = drawer.saveInstanceState(outState);
         //add the values which need to be saved from the accountHeader to the bundle
         outState = headerResult.saveInstanceState(outState);
+        outState = buttonAdapter.saveInstanceState(outState)
+        outState = resultAdapter.saveInstanceState(outState);
         super.onSaveInstanceState(outState);
     }
 

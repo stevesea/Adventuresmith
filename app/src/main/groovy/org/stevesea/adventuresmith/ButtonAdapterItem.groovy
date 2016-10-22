@@ -61,7 +61,6 @@ class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ViewHolder> {
 
         // bind item's data to the view
         StringHolder.applyTo(btnText, viewHolder.btnText)
-        //viewHolder.btnCard.setOnClickListener() ???
     }
 
 
