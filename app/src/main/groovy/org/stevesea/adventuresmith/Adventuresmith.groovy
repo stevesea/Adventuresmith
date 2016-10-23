@@ -201,9 +201,6 @@ public class Adventuresmith extends AppCompatActivity {
                         //those items don't contain a drawerItem
 
                         if (drawerItem) {
-                            //resultsAdd(0, getString(R.string.content_attribution))
-                            //resultsAdd(1, getString(R.string.content_artwork))
-                            //resultsAdd(2, getString(R.string.content_thanks))
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
 
                             if (diData.id.equals(DrawerItemId.Attribution)) {

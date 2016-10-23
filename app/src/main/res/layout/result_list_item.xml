@@ -43,7 +43,6 @@
                 />
                 -->
             <TextView
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/result_list_item_text"
                 android:paddingBottom="8dp"
                 android:paddingTop="8dp"
