@@ -19,7 +19,6 @@
 package org.stevesea.rpgpad
 
 import android.app.Application
-import com.arasthel.swissknife.annotations.OnBackground
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
 import com.squareup.leakcanary.LeakCanary
@@ -49,7 +48,6 @@ public class RpgPadApp extends Application {
         initButtons()
     }
 
-    @OnBackground
     public void initButtons() {
         // initializing all the groovy closure-heavy classes seems to take a long time. do that here
         // in a background thread spawned during app startup. Otherwise, the first time the user

@@ -16,6 +16,7 @@ ext {
     groovyVersion = '2.4.7'
     androidSupportVersion = '24.2.0'
     junitVersion = '4.12'
+    AAVersion = '4.1.0'
 }
 
 android {
@@ -118,11 +119,12 @@ dependencies {
 
     compile 'com.samskivert:jmustache:1.13'
 
-    compile 'com.arasthel:swissknife:1.4.0'
-
     compile "com.android.support:appcompat-v7:$androidSupportVersion"
     compile "com.android.support:recyclerview-v7:$androidSupportVersion"
     compile "com.android.support:cardview-v7:$androidSupportVersion"
+
+    //apt "org.androidannotations:androidannotations:$AAVersion"
+    //compile "org.androidannotations:androidannotations-api:$AAVersion"
 
     compile('com.crashlytics.sdk.android:crashlytics:2.6.4@aar') {
         transitive = true;
