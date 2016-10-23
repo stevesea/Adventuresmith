@@ -18,39 +18,44 @@
  *
  */
 
-package org.stevesea.adventuresmith
+package org.stevesea.adventuresmith;
 
-import android.support.v7.widget.RecyclerView
-import android.view.View
-import android.widget.TextView
-import com.mikepenz.fastadapter.items.AbstractItem
-import com.mikepenz.fastadapter.utils.ViewHolderFactory
-import com.mikepenz.materialdrawer.holder.StringHolder
-import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.R
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+
+import com.mikepenz.fastadapter.items.AbstractItem;
+import com.mikepenz.fastadapter.utils.ViewHolderFactory;
+import com.mikepenz.materialdrawer.holder.StringHolder;
+
+import org.stevesea.rpgpad.R;
+
+import java.util.List;
+
+import groovy.transform.CompileStatic;
 
 @CompileStatic
-class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ViewHolder> {
+class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterItem.ViewHolder> {
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
     public StringHolder btnText;
-    public ButtonData buttonData
+    public ButtonData buttonData;
 
     ButtonAdapterItem withButton(ButtonData bd) {
-        btnText = new StringHolder(bd.id);
-        buttonData = bd
+        btnText = new StringHolder(bd.getId());
+        buttonData = bd;
         return this;
     }
 
     @Override
-    int getType() {
-        return R.id.btn_card
+    public int getType() {
+        return R.id.btn_card;
     }
 
     @Override
-    int getLayoutRes() {
-        return R.layout.button_grid_item
+    public int getLayoutRes() {
+        return R.layout.button_grid_item;
     }
 
     //The logic to bind your data to the view
@@ -60,7 +65,7 @@ class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ViewHolder> {
         super.bindView(viewHolder, payloads);
 
         // bind item's data to the view
-        StringHolder.applyTo(btnText, viewHolder.btnText)
+        StringHolder.applyTo(btnText, viewHolder.btnText);
     }
 
 
@@ -68,7 +73,7 @@ class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ViewHolder> {
         public TextView btnText;
 
         ViewHolder(View v) {
-            super(v)
+            super(v);
             btnText = (TextView) v.findViewById(R.id.btn_txt);
         }
     }
