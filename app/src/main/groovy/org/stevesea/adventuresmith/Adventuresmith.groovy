@@ -121,7 +121,9 @@ public class Adventuresmith extends AppCompatActivity {
         recyclerButtons.adapter = buttonAdapter;
 
         resultAdapter = new FastItemAdapter<>()
-        resultAdapter.withSelectable(false)
+        resultAdapter.withSelectable(true)
+        resultAdapter.withMultiSelect(true);
+        resultAdapter.withSelectOnLongClick(true);
         resultAdapter.withPositionBasedStateManagement(true)
         resultAdapter.withOnLongClickListener(new FastAdapter.OnLongClickListener<ResultAdapterItem>() {
             @Override
