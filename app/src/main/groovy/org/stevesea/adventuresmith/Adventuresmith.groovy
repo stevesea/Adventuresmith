@@ -32,8 +32,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import com.arasthel.swissknife.SwissKnife
-import com.arasthel.swissknife.annotations.InjectView
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import com.mikepenz.fastadapter.FastAdapter
@@ -50,19 +48,12 @@ import org.stevesea.rpgpad.R
 @CompileStatic
 public class Adventuresmith extends AppCompatActivity {
 
-    // TODO: enable result filtering
-
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
-    @InjectView(R.id.toolbar)
     Toolbar toolbar
-
-    @InjectView(R.id.recycler_buttons)
     RecyclerView recyclerButtons
-    @InjectView(R.id.recycler_results)
     RecyclerView recyclerResults
-
 
     private FastItemAdapter<ButtonAdapterItem> buttonAdapter;
     private FastItemAdapter<ResultAdapterItem> resultAdapter;
@@ -72,7 +63,9 @@ public class Adventuresmith extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adventuresmith);
 
-        SwissKnife.inject(this);
+        toolbar = findViewById(R.id.toolbar) as Toolbar
+        recyclerResults = findViewById(R.id.recycler_results) as RecyclerView
+        recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
 
         setSupportActionBar(toolbar);
 
@@ -208,8 +201,6 @@ public class Adventuresmith extends AppCompatActivity {
                         //those items don't contain a drawerItem
 
                         if (drawerItem) {
-                            // TODO: handle attribution drawer item
-
                             //resultsAdd(0, getString(R.string.content_attribution))
                             //resultsAdd(1, getString(R.string.content_artwork))
                             //resultsAdd(2, getString(R.string.content_thanks))
