@@ -18,48 +18,50 @@
  *
  */
 
-package org.stevesea.adventuresmith
+package org.stevesea.adventuresmith;
 
-import android.os.Build
-import android.support.v7.widget.RecyclerView
-import android.text.Html
-import android.text.Spanned
-import android.view.View
-import android.widget.TextView
-import com.mikepenz.fastadapter.items.AbstractItem
-import com.mikepenz.fastadapter.utils.ViewHolderFactory
-import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.R
+import android.os.Build;
+import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
+import android.view.View;
+import android.widget.TextView;
 
-@CompileStatic
-class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ViewHolder> {
+import com.mikepenz.fastadapter.items.AbstractItem;
+import com.mikepenz.fastadapter.utils.ViewHolderFactory;
+
+import org.stevesea.rpgpad.R;
+
+import java.util.List;
+
+class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterItem.ViewHolder> {
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
     static Spanned htmlStrToSpanned(String input) {
         if (Build.VERSION.SDK_INT >= 24 /*Build.VERSION_CODES.N*/) {
-            Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY)
+            return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY);
         } else {
-            Html.fromHtml(input);
+            return Html.fromHtml(input);
         }
     }
-    public String htmlTxt
-    public Spanned spannedText
+    public String htmlTxt;
+    public Spanned spannedText;
 
     ResultAdapterItem withResult(String txt) {
-        htmlTxt = txt
-        spannedText = htmlStrToSpanned(txt)
+        htmlTxt = txt;
+        spannedText = htmlStrToSpanned(txt);
         return this;
     }
 
     @Override
-    int getType() {
-        return R.id.result_card
+    public int getType() {
+        return R.id.result_card;
     }
 
     @Override
-    int getLayoutRes() {
-        return R.layout.result_list_item
+    public int getLayoutRes() {
+        return R.layout.result_list_item;
     }
 
     //The logic to bind your data to the view
@@ -69,7 +71,7 @@ class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ViewHolder> {
         super.bindView(viewHolder, payloads);
 
         // bind item's data to the view
-        viewHolder.itemText.text = spannedText
+        viewHolder.itemText.setText(spannedText);
     }
 
 
@@ -77,7 +79,7 @@ class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ViewHolder> {
         public TextView itemText;
 
         ViewHolder(View v) {
-            super(v)
+            super(v);
             itemText = (TextView) v.findViewById(R.id.result_list_item_text);
         }
     }

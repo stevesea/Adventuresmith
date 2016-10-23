@@ -137,6 +137,7 @@ dependencies {
 
     compile('com.mikepenz:materialdrawer:5.6.0@aar') {
         transitive = true
+        // note: this brings in fastadapter
     }
 
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
