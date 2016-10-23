@@ -42,7 +42,6 @@ import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
-import com.mikepenz.materialize.MaterializeBuilder
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.R
 
@@ -172,9 +171,6 @@ public class Adventuresmith extends AppCompatActivity {
         buttonAdapter.withSavedInstanceState(savedInstanceState);
         resultAdapter.withSavedInstanceState(savedInstanceState);
 
-        new MaterializeBuilder()
-            .withActivity(this);
-
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withCompactStyle(false)
@@ -209,6 +205,13 @@ public class Adventuresmith extends AppCompatActivity {
                             //resultsAdd(1, getString(R.string.content_artwork))
                             //resultsAdd(2, getString(R.string.content_thanks))
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
+
+                            if (diData.id.equals(DrawerItemId.Attribution)) {
+                                Intent intent = new Intent(Adventuresmith.this, AttributionActivity.class);
+                                Adventuresmith.this.startActivity(intent)
+
+                                return false
+                            }
 
                             getSupportActionBar().setTitle(diData.nameResourceId)
 

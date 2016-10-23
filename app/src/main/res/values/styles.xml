@@ -7,15 +7,15 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <!-- MaterialDrawer specific values -->
-        <item name="material_drawer_background">@color/colorPrimaryLightLight</item>
+        <item name="material_drawer_background">@color/md_white_1000</item>
         <item name="material_drawer_primary_text">@color/textPrimary</item>
         <item name="material_drawer_secondary_text">@color/textSecondary</item>
         <item name="material_drawer_hint_text">@color/textHint</item>
 
         <item name="material_drawer_divider">@color/divider</item>
 
-        <item name="material_drawer_selected">@color/colorPrimaryLight</item>
-        <item name="material_drawer_selected_text">@color/colorPrimaryDarkDark</item>
+        <item name="material_drawer_selected">@color/colorPrimaryLightLight</item>
+        <item name="material_drawer_selected_text">@color/colorPrimaryDark</item>
         <item name="material_drawer_header_selection_text">@color/material_drawer_dark_primary_text</item>
 
     </style>

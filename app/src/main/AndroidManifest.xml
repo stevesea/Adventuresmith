@@ -34,16 +34,20 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name="org.stevesea.adventuresmith.Adventuresmith" />
+        <activity android:name="org.stevesea.adventuresmith.Adventuresmith"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="a06f7265a0865b0b844e031806968181d6056595"/>
+
+        <activity android:name="org.stevesea.adventuresmith.AttributionActivity"
+            android:parentActivityName="org.stevesea.adventuresmith.Adventuresmith">
+        </activity>
     </application>
 
 </manifest>

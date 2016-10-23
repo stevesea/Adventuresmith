@@ -51,8 +51,3 @@
 -dontwarn org.codehaus.groovy.**
 -dontwarn groovy**
 
-
--keep class com.arasthel.swissknife.utils.Finder {
-  ** findView(android.app.Activity, java.lang.String, java.lang.String);
-  ** findView(android.view.View, java.lang.String, java.lang.String);
-}
