@@ -1,23 +1,21 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <!-- https://medium.com/google-developers/theming-with-appcompat-1a292b754b35#.sqiy67j0d -->
+    <style name="AppTheme" parent="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus">
+        <!-- ...and here we setting appcompat’s color theme attrs -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-
         <item name="colorAccent">@color/colorAccent</item>
 
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/colorPrimaryLightLight</item>
+        <item name="material_drawer_primary_text">@color/grey900</item>
+        <item name="material_drawer_secondary_text">@color/grey700</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
+        <item name="material_drawer_divider">@color/grey400</item>
+        <item name="material_drawer_selected">@color/colorPrimaryLight</item>
+        <item name="material_drawer_selected_text">@color/colorPrimaryDarkDark</item>
+        <item name="material_drawer_header_selection_text">@color/material_drawer_dark_primary_text</item>
 
-        <!--
-        <item name="colorButtonNormal">@color/colorPrimary</item>
-        colorControlNormal controls the ‘normal’ state of components such as an unselected EditText, and unselected Checkboxes and RadioButtons
-        colorControlActivated overrides colorAccent as the activated or checked state for Checkboxes and RadioButtons
-        colorControlHighlight controls the ripple coloring
-
-        http://stackoverflow.com/questions/26583780/where-can-i-find-the-default-styles-for-theme-appcompat-light
-        -->
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">

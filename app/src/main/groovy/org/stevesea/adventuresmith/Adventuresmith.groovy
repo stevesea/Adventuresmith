@@ -206,6 +206,8 @@ public class Adventuresmith extends AppCompatActivity {
                             //resultsAdd(2, getString(R.string.content_thanks))
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
 
+                            getSupportActionBar().setTitle(diData.nameResourceId)
+
                             if (diData.selectable) {
                                 resultAdapter.clear()
                                 buttonAdapter.clear()

@@ -39,9 +39,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="org.stevesea.adventuresmith.Adventuresmith"
-                  android:theme="@style/MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus" >
-        </activity>
+        <activity android:name="org.stevesea.adventuresmith.Adventuresmith" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
