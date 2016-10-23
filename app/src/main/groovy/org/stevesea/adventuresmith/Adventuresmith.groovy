@@ -42,6 +42,7 @@ import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
+import com.mikepenz.materialize.MaterializeBuilder
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.R
 
@@ -170,6 +171,9 @@ public class Adventuresmith extends AppCompatActivity {
         //restore selections (this has to be done after the items were added
         buttonAdapter.withSavedInstanceState(savedInstanceState);
         resultAdapter.withSavedInstanceState(savedInstanceState);
+
+        new MaterializeBuilder()
+            .withActivity(this);
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)

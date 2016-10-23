@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- brown -->
-    <color name="colorPrimary">@color/brown500</color>
-    <color name="colorPrimaryDark">@color/brown700</color>
-    <color name="colorPrimaryDarkDark">@color/brown900</color>
-    <color name="colorPrimaryLight">@color/brown100</color>
-    <color name="colorPrimaryLightLight">@color/brown050</color>
+    <color name="colorPrimary">@color/md_brown_500</color>
+    <color name="colorPrimaryDark">@color/md_brown_700</color>
+    <color name="colorPrimaryDarkDark">@color/md_brown_900</color>
+    <color name="colorPrimaryLight">@color/md_brown_100</color>
+    <color name="colorPrimaryLightLight">@color/md_brown_50</color>
 
     <!-- cyan -->
-    <color name="colorAccent">@color/cyan500</color>
-    <color name="colorAccentDark">@color/cyan700</color>
-    <color name="colorAccentDarkDark">@color/cyan900</color>
-    <color name="colorAccentLight">@color/cyan100</color>
-    <color name="colorAccentLightLight">@color/cyan050</color>
+    <color name="colorAccent">@color/md_cyan_500</color>
+    <color name="colorAccentDark">@color/md_cyan_700</color>
+    <color name="colorAccentDarkDark">@color/md_cyan_900</color>
+    <color name="colorAccentLight">@color/md_cyan_100</color>
+    <color name="colorAccentLightLight">@color/md_cyan_50</color>
 
     <!-- -->
-    <color name="textPrimary">@color/grey900</color>
-    <color name="textSecondary">@color/grey600</color>
+    <color name="textPrimary">@color/md_grey_900</color>
+    <color name="textSecondary">@color/md_grey_600</color>
+
+    <color name="textHint">@color/md_grey_400</color>
+
+    <color name="divider">@color/md_grey_400</color>
 
     <color name="resultCardBg">@color/colorPrimaryLightLight</color>
     <!--
@@ -32,72 +36,6 @@
 
     https://www.materialpalette.com/
     -->
-
-
-    <color name="white">#FFFFFF</color>
-    <color name="whiteT70">#B3FFFFFF</color>
-    <color name="blackT87">#DE000000</color>
-    <color name="blackT12">#1F000000</color>
-
-    <color name="grey050">#FAFAFA</color>
-    <color name="grey100">#F5F5F5</color>
-    <color name="grey200">#EEEEEE</color>
-    <color name="grey300">#E0E0E0</color>
-    <color name="grey400">#BDBDBD</color>
-    <color name="grey500">#9E9E9E</color>
-    <color name="grey600">#757575</color>
-    <color name="grey700">#616161</color>
-    <color name="grey800">#424242</color>
-    <color name="grey900">#212121</color>
-
-    <color name="red500">#F44336</color>
-    <color name="redA100">#FF8A80</color>
-    <color name="redA200">#FF5252</color>
-    <color name="pink500">#E91E63</color>
-    <color name="purple500">#9C27B0</color>
-    <color name="deepPurple500">#673AB7</color>
-    <color name="indigo500">#3F51B5</color>
-    <color name="blue500">#2196F3</color>
-    <color name="lightBlue500">#03A9F4</color>
-    <color name="lightBlueA700">#0091EA</color>
-
-    <color name="cyan050">#E0F7FA</color>
-    <color name="cyan100">#B2EBF2</color>
-    <color name="cyan200">#80DEEA</color>
-    <color name="cyan300">#4DD0E1</color>
-    <color name="cyan400">#26C6DA</color>
-    <color name="cyan500">#00BCD4</color>
-    <color name="cyan600">#00ACC1</color>
-    <color name="cyan700">#0097A7</color>
-    <color name="cyan800">#00838F</color>
-    <color name="cyan900">#006064</color>
-    <color name="cyanA100">#84FFFF</color>
-    <color name="cyanA200">#18FFFF</color>
-    <color name="cyanA400">#00E5FF</color>
-    <color name="cyanA700">#00B8D4</color>
-
-    <color name="teal50">#E0F2F1</color>
-    <color name="teal100">#B2DFDB</color>
-    <color name="teal500">#009688</color>
-    <color name="teal900">#004D40</color>
-    <color name="green500">#4CAF50</color>
-    <color name="greenA700">#00C853</color>
-    <color name="orange50">#FFF3E0</color>
-    <color name="orange100">#FFE0B2</color>
-    <color name="orange300">#FFB74D</color>
-    <color name="orange500">#FF9800</color>
-    <color name="orange700">#F57C00</color>
-
-    <color name="brown050">#EFEBE9</color>
-    <color name="brown100">#D7CCC8</color>
-    <color name="brown200">#BCAAA4</color>
-    <color name="brown300">#A1887F</color>
-    <color name="brown400">#8D6E63</color>
-    <color name="brown500">#795548</color>
-    <color name="brown600">#6D4C41</color>
-    <color name="brown700">#5D4037</color>
-    <color name="brown800">#4E342E</color>
-    <color name="brown900">#3E2723</color>
 
     <!-- http://ethanschoonover.com/solarized -->
     <color name="solarizedBase00">#657b83</color>

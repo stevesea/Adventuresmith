@@ -8,10 +8,12 @@
 
         <!-- MaterialDrawer specific values -->
         <item name="material_drawer_background">@color/colorPrimaryLightLight</item>
-        <item name="material_drawer_primary_text">@color/grey900</item>
-        <item name="material_drawer_secondary_text">@color/grey700</item>
-        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
-        <item name="material_drawer_divider">@color/grey400</item>
+        <item name="material_drawer_primary_text">@color/textPrimary</item>
+        <item name="material_drawer_secondary_text">@color/textSecondary</item>
+        <item name="material_drawer_hint_text">@color/textHint</item>
+
+        <item name="material_drawer_divider">@color/divider</item>
+
         <item name="material_drawer_selected">@color/colorPrimaryLight</item>
         <item name="material_drawer_selected_text">@color/colorPrimaryDarkDark</item>
         <item name="material_drawer_header_selection_text">@color/material_drawer_dark_primary_text</item>

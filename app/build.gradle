@@ -141,6 +141,7 @@ dependencies {
         transitive = true
         // note: this brings in fastadapter
     }
+    compile "com.mikepenz:materialize:1.0.0@aar"
 
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
