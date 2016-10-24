@@ -45,6 +45,7 @@ class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterIte
     ButtonAdapterItem withButton(ButtonData bd) {
         btnText = new StringHolder(bd.getId());
         buttonData = bd;
+        withIdentifier(bd.getId());
         return this;
     }
 
