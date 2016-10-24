@@ -110,7 +110,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                         .putCustomAttribute("Button", drawerItem + '.' + btnText))
                 return true;
             }
-        });
+        } as FastAdapter.OnClickListener<ButtonAdapterItem>);
 
         GridLayoutManager buttonGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.buttonCols))
 
