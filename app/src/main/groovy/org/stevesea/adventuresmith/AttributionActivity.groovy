@@ -57,6 +57,7 @@ public class AttributionActivity extends AppCompatActivity {
         new MaterializeBuilder()
                 .withActivity(this)
                 .withFullscreen(false)
+                .withStatusBarPadding(true)
                 .build();
 
         TextView textViewContent = (TextView) findViewById(R.id.attribution_txt_content)
