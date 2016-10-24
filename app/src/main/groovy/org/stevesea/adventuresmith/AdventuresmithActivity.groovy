@@ -155,8 +155,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 */
                 //Snackbar.make(v, "Shared...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
 
-                // TODO: this isn't workin'
-
                 Intent sIntent = new Intent()
                 sIntent.setAction(Intent.ACTION_SEND)
                 sIntent.setType("text/html")
@@ -167,7 +165,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 v.getContext().startActivity(Intent.createChooser(sIntent,
                         v.getContext().getString(R.string.action_share)))
             }
-        })
+        } as FastAdapter.OnLongClickListener<ResultAdapterItem>)
 
         //configure the itemAdapter
         resultAdapter.withFilterPredicate(new IItemAdapter.Predicate<ResultAdapterItem>() {
@@ -177,7 +175,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 //return false to keep it
                 return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase());
             }
-        });
+        } as IItemAdapter.Predicate<ResultAdapterItem>);
 
         resultAdapter.getItemAdapter().withItemFilterListener(this);
 
@@ -278,7 +276,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                     resultAdapter.filter(s);
                     return true;
                 }
-            });
+            } as SearchView.OnQueryTextListener);
         } else {
             menu.findItem(R.id.search).setVisible(false);
         }
