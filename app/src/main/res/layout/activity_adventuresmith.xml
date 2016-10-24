@@ -31,7 +31,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorPrimary"
-    tools:context="org.stevesea.adventuresmith.Adventuresmith"
+    tools:context="org.stevesea.adventuresmith.AdventuresmithActivity"
     >
 
     <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->

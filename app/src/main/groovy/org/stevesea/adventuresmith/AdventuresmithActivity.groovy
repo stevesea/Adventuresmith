@@ -21,22 +21,30 @@
 package org.stevesea.adventuresmith
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.SearchView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
+import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.IAdapter
+import com.mikepenz.fastadapter.IItemAdapter
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
+import com.mikepenz.fastadapter.adapters.ItemAdapter
+import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -46,8 +54,7 @@ import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.R
 
 @CompileStatic
-public class Adventuresmith extends AppCompatActivity {
-
+public class AdventuresmithActivity extends AppCompatActivity implements ItemAdapter.ItemFilterListener {
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
@@ -80,7 +87,8 @@ public class Adventuresmith extends AppCompatActivity {
         buttonAdapter.withOnClickListener(new FastAdapter.OnClickListener<ButtonAdapterItem>() {
             @Override
             public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
-                resultAdapter.add(0, new ResultAdapterItem().withResult(item.buttonData.generate()))
+                resultAdapter.add(0, new ResultAdapterItem()
+                        .withResult(item.buttonData.generate()))
                 recyclerResults.scrollToPosition(0)
 
                 String drawerItem = getString(DrawerItemData.getDrawerItemData(item.buttonData.drawerId).nameResourceId)
@@ -152,6 +160,18 @@ public class Adventuresmith extends AppCompatActivity {
             }
         })
 
+        //configure the itemAdapter
+        resultAdapter.withFilterPredicate(new IItemAdapter.Predicate<ResultAdapterItem>() {
+            @Override
+            public boolean filter(ResultAdapterItem item, CharSequence constraint) {
+                //return true if we should filter it out
+                //return false to keep it
+                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase());
+            }
+        });
+
+        resultAdapter.getItemAdapter().withItemFilterListener(this);
+
         GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
         final resultSpanLong = getResources().getInteger(R.integer.resultColsLongtext)
         resultsGridLayoutMgr.spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
@@ -206,8 +226,8 @@ public class Adventuresmith extends AppCompatActivity {
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
 
                             if (diData.id.equals(DrawerItemId.Attribution)) {
-                                Intent intent = new Intent(Adventuresmith.this, AttributionActivity.class);
-                                Adventuresmith.this.startActivity(intent)
+                                Intent intent = new Intent(AdventuresmithActivity.this, AttributionActivity.class);
+                                AdventuresmithActivity.this.startActivity(intent)
 
                                 return false
                             }
@@ -235,7 +255,32 @@ public class Adventuresmith extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+
+        //search icon
+        menu.findItem(R.id.action_clear).setIcon(new IconicsDrawable(this, CommunityMaterial.Icon.cmd_delete).color(Color.WHITE).actionBar());
+        menu.findItem(R.id.search).setIcon(new IconicsDrawable(this, CommunityMaterial.Icon.cmd_magnify).color(Color.WHITE).actionBar());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    resultAdapter.filter(s);
+                    return true;
+                }
+
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    resultAdapter.filter(s);
+                    return true;
+                }
+            });
+        } else {
+            menu.findItem(R.id.search).setVisible(false);
+        }
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -272,5 +317,12 @@ public class Adventuresmith extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+
+
+    @Override
+    public void itemsFiltered() {
+        Toast.makeText(this, "filtered items count: " + resultAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
     }
 }
