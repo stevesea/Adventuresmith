@@ -326,6 +326,10 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState)
 
+        // TODO: instead of doing this, we could just save current item. also, need to refactor
+        //  onclick handler to use method we could use to set the activity state. (rather than
+        // setting the drawer current selection, which seems to be problematic on on-click for
+        //  expando-items)
         List<ButtonAdapterItem> restoredButtons = savedInstanceState.getSerializable(BUNDLE_BUTTON_ITEMS) as ArrayList<ButtonAdapterItem>
         buttonAdapter.clear()
         buttonAdapter.add(restoredButtons)
