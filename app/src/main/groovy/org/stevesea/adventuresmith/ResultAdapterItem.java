@@ -21,6 +21,8 @@
 package org.stevesea.adventuresmith;
 
 import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spanned;
@@ -34,7 +36,7 @@ import org.stevesea.rpgpad.R;
 
 import java.util.List;
 
-class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterItem.ViewHolder> {
+class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterItem.ViewHolder> implements Parcelable {
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
@@ -110,4 +112,38 @@ class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterIte
     public ViewHolderFactory<? extends ViewHolder> getFactory() {
         return FACTORY;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.htmlTxt);
+        dest.writeInt(this.buttonId);
+        dest.writeLong(this.mIdentifier);
+    }
+
+    public ResultAdapterItem() {
+    }
+
+    protected ResultAdapterItem(Parcel in) {
+        this.htmlTxt = in.readString();
+        this.buttonId = in.readInt();
+        this.mIdentifier = in.readLong();
+        this.spannedText = htmlStrToSpanned(htmlTxt);
+    }
+
+    public static final Creator<ResultAdapterItem> CREATOR = new Creator<ResultAdapterItem>() {
+        @Override
+        public ResultAdapterItem createFromParcel(Parcel source) {
+            return new ResultAdapterItem(source);
+        }
+
+        @Override
+        public ResultAdapterItem[] newArray(int size) {
+            return new ResultAdapterItem[size];
+        }
+    };
 }
