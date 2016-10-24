@@ -96,6 +96,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
             public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
                 resultAdapter.add(0, new ResultAdapterItem()
                         .withResult(item.buttonData.generate())
+                        .withButtonId(item.buttonData.id)
                         .withIdentifier(resultIdGenerator.incrementAndGet()))
                 recyclerResults.scrollToPosition(0)
 

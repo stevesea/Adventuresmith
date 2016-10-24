@@ -47,10 +47,16 @@ class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterIte
     }
     public String htmlTxt;
     public Spanned spannedText;
+    // TODO: from the buttonId, we can lookup more info (maybe display icon/change background)
+    public int buttonId;
 
     ResultAdapterItem withResult(String txt) {
         htmlTxt = txt;
         spannedText = htmlStrToSpanned(txt);
+        return this;
+    }
+    ResultAdapterItem withButtonId(int buttonId) {
+        this.buttonId = buttonId;
         return this;
     }
 
