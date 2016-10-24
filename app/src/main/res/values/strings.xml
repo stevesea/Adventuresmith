@@ -14,5 +14,6 @@
     <string name="action_share">Share…</string>
     <string name="action_clear">Clear</string>
     <string name="nav_other">Other</string>
+    <string name="search_title">Search</string>
 
 </resources>
