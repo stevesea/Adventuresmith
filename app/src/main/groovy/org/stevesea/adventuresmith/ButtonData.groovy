@@ -67,7 +67,7 @@ import org.stevesea.rpgpad.data.stars_without_number.SWNnames
 import org.stevesea.rpgpad.data.stars_without_number.SWNnpc
 import org.stevesea.rpgpad.data.stars_without_number.SWNpolitical_party
 import org.stevesea.rpgpad.data.stars_without_number.SWNreligion
-import org.stevesea.rpgpad.data.stars_without_number.SWNroom_dressing;
+import org.stevesea.rpgpad.data.stars_without_number.SWNroom_dressing
 
 @CompileStatic
 @Canonical
@@ -497,4 +497,9 @@ class ButtonData {
     static ButtonData getButton(@ButtonId int id) {
         return buttons.get(id)
     }
+    static ButtonData getButton(long id) {
+        return buttons.get(id)
+    }
+
+
 }

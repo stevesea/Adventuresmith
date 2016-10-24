@@ -57,8 +57,8 @@ import java.util.concurrent.atomic.AtomicLong
 
 @CompileStatic
 public class AdventuresmithActivity extends AppCompatActivity implements ItemAdapter.ItemFilterListener {
-    private static final String BUNDLE_DRAWER_SELECTION = AdventuresmithActivity.class.name + ".drawer_selection"
     private static final String BUNDLE_RESULT_ITEMS = AdventuresmithActivity.class.name + '.result_items'
+    private static final String BUNDLE_BUTTON_ITEMS = AdventuresmithActivity.class.name + '.button_items'
 
     private static AtomicLong resultIdGenerator = new AtomicLong(0)
 
@@ -310,7 +310,9 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         outState = buttonAdapter.saveInstanceState(outState)
         outState = resultAdapter.saveInstanceState(outState);
 
-        outState.putLong(BUNDLE_DRAWER_SELECTION, drawer.getCurrentSelection())
+        ArrayList<ButtonAdapterItem> buttons = new ArrayList<>()
+        buttons.addAll(buttonAdapter.getAdapterItems())
+        outState.putSerializable(BUNDLE_BUTTON_ITEMS, buttons)
 
         ArrayList<ResultAdapterItem> results = new ArrayList<>()
         results.addAll(resultAdapter.getAdapterItems())
@@ -324,14 +326,13 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        // NOTE: setting the drawer selection will cause the drawer-on-click handler, which
-        // clears the results. so we set the selection first, prior to restoring the result list.
-        // this will also populate the buttons.
-        drawer.setSelection(savedInstanceState.getLong(BUNDLE_DRAWER_SELECTION))
+        List<ButtonAdapterItem> restoredButtons = savedInstanceState.getSerializable(BUNDLE_BUTTON_ITEMS) as ArrayList<ButtonAdapterItem>
+        buttonAdapter.clear()
+        buttonAdapter.add(restoredButtons)
 
-        List<ResultAdapterItem> restoredItems = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultAdapterItem>
+        List<ResultAdapterItem> restoredResults = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultAdapterItem>
         resultAdapter.clear()
-        resultAdapter.add(restoredItems)
+        resultAdapter.add(restoredResults)
 
         buttonAdapter.withSavedInstanceState(savedInstanceState)
         resultAdapter.withSavedInstanceState(savedInstanceState)

@@ -20,6 +20,8 @@
 
 package org.stevesea.adventuresmith;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -35,7 +37,7 @@ import java.util.List;
 import groovy.transform.CompileStatic;
 
 @CompileStatic
-class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterItem.ViewHolder> {
+class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterItem.ViewHolder> implements Parcelable {
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
@@ -99,4 +101,37 @@ class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterIte
     public ViewHolderFactory<? extends ViewHolder> getFactory() {
         return FACTORY;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(this.mIdentifier);
+    }
+
+    public ButtonAdapterItem() {
+    }
+
+    protected ButtonAdapterItem(Parcel in) {
+        this.mIdentifier = in.readLong();
+
+        this.buttonData = ButtonData.getButton(mIdentifier);
+        this.btnText = new StringHolder(buttonData.getId());
+    }
+
+    public static final Creator<ButtonAdapterItem> CREATOR = new Creator<ButtonAdapterItem>() {
+        @Override
+        public ButtonAdapterItem createFromParcel(Parcel source) {
+            return new ButtonAdapterItem(source);
+        }
+
+        @Override
+        public ButtonAdapterItem[] newArray(int size) {
+            return new ButtonAdapterItem[size];
+        }
+    };
 }
