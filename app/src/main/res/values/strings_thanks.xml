@@ -52,9 +52,10 @@
         <h1>Attribution - Artwork</h1>
 
         <h5>Imagery</h5>
-        TBD
+        TBD need to give attribution for public domain images from illuminated manuscripts
         <h5>Icons</h5>
-        This application uses icons made by Lorc. Available on http://game-icons.net
+        <p>This application uses icons made by Lorc (hammer/anvil). Available on http://game-icons.net</p>
+        <p>This application uses icons from https://materialdesignicons.com/ (all nav drawer icons)</p>
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[
