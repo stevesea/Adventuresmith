@@ -16,18 +16,19 @@
  * You should have received a copy of the GNU General Public License
  * along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.stevesea.rpgpad
+package org.stevesea.rpgpad;
 
-import android.app.Application
-import com.crashlytics.android.Crashlytics
-import com.crashlytics.android.core.CrashlyticsCore
-import com.squareup.leakcanary.LeakCanary
-import groovy.transform.CompileStatic
-import io.fabric.sdk.android.Fabric
-import org.stevesea.adventuresmith.ButtonData
-import org.stevesea.adventuresmith.DrawerItemId
+import android.app.Application;
 
-@CompileStatic
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
+import com.squareup.leakcanary.LeakCanary;
+
+import org.stevesea.adventuresmith.ButtonData;
+import org.stevesea.adventuresmith.DrawerItemId;
+
+import io.fabric.sdk.android.Fabric;
+
 public class RpgPadApp extends Application {
     @Override
     public void onCreate() {
@@ -43,15 +44,16 @@ public class RpgPadApp extends Application {
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
                 .core(new CrashlyticsCore.Builder()/*.disabled(BuildConfig.DEBUG)*/.build())
                 .build();
-        Fabric.with(this, crashlyticsKit)
+        Fabric.with(this, crashlyticsKit);
 
-        initButtons()
+        initButtons();
     }
 
     public void initButtons() {
+        // TODO: do this in background?!?
         // initializing all the groovy closure-heavy classes seems to take a long time. do that here
         // in a background thread spawned during app startup. Otherwise, the first time the user
         // picks an item in the nav drawer, there's seconds of unresponsiveness.
-        ButtonData.getButtonsForDrawerItem(DrawerItemId.DiceRoller)
+        ButtonData.getButtonsForDrawerItem(DrawerItemId.DiceRoller);
     }
 }

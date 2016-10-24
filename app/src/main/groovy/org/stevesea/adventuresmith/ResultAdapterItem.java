@@ -36,7 +36,7 @@ import org.stevesea.rpgpad.R;
 
 import java.util.List;
 
-class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterItem.ViewHolder> implements Parcelable {
+public class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterItem.ViewHolder> implements Parcelable {
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 

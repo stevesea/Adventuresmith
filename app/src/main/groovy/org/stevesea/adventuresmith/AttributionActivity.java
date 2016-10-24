@@ -18,17 +18,17 @@
  *
  */
 
-package org.stevesea.adventuresmith
+package org.stevesea.adventuresmith;
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
-import android.widget.TextView
-import com.mikepenz.materialize.MaterializeBuilder
-import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.R
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
-@CompileStatic
+import com.mikepenz.materialize.MaterializeBuilder;
+
+import org.stevesea.rpgpad.R;
+
 public class AttributionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,8 @@ public class AttributionActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle(R.string.app_name)
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true)
+        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //style our ui
         new MaterializeBuilder()
@@ -49,13 +49,13 @@ public class AttributionActivity extends AppCompatActivity {
                 .withStatusBarPadding(true)
                 .build();
 
-        TextView textViewContent = (TextView) findViewById(R.id.attribution_txt_content)
-        textViewContent.setText(ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_attribution)))
+        TextView textViewContent = (TextView) findViewById(R.id.attribution_txt_content);
+        textViewContent.setText(ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_attribution)));
 
-        TextView textViewArt = (TextView) findViewById(R.id.attribution_txt_artwork)
-        textViewArt.setText(ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_artwork)))
+        TextView textViewArt = (TextView) findViewById(R.id.attribution_txt_artwork);
+        textViewArt.setText(ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_artwork)));
 
-        TextView textViewThanks = (TextView) findViewById(R.id.attribution_txt_thanks)
-        textViewThanks.setText(ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_thanks)))
+        TextView textViewThanks = (TextView) findViewById(R.id.attribution_txt_thanks);
+        textViewThanks.setText(ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_thanks)));
     }
 }

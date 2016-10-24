@@ -18,18 +18,18 @@
  *
  */
 
-package org.stevesea.rpgpad
+package org.stevesea.rpgpad;
 
-import android.content.Intent
-import android.os.Bundle
-import android.support.annotation.Nullable
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import org.stevesea.adventuresmith.AdventuresmithActivity;
 
-class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState);
 
         Intent intent = new Intent(this, AdventuresmithActivity.class);
         startActivity(intent);

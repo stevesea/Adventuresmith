@@ -34,10 +34,7 @@ import org.stevesea.rpgpad.R;
 
 import java.util.List;
 
-import groovy.transform.CompileStatic;
-
-@CompileStatic
-class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterItem.ViewHolder> implements Parcelable {
+public class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterItem.ViewHolder> implements Parcelable {
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
