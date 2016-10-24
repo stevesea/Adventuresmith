@@ -23,6 +23,7 @@ package org.stevesea.adventuresmith
 import android.support.annotation.StringRes
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.typeface.IIcon
+import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.ExpandableDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
@@ -131,7 +132,7 @@ class DrawerItemData {
                 new DrawerItemData(
                         id: DrawerItemId.PwDiscoveriesAndDangers,
                         nameResourceId: R.string.perilous_wilds_explore,
-                        icon: CommunityMaterial.Icon.cmd_image,
+                        icon: CommunityMaterial.Icon.cmd_image_filter_hdr,
                         level: 2,
                 ));
         items.put(DrawerItemId.PwNPC,
@@ -144,7 +145,7 @@ class DrawerItemData {
                 new DrawerItemData(
                         id: DrawerItemId.PwCreature,
                         nameResourceId: R.string.perilous_wilds_creature,
-                        icon: CommunityMaterial.Icon.cmd_duck,
+                        icon: Ionicons.Icon.ion_ios_paw,
                         level: 2,));
         items.put(DrawerItemId.PwTreasure,
                 new DrawerItemData(
@@ -156,7 +157,7 @@ class DrawerItemData {
                 new DrawerItemData(
                         id: DrawerItemId.PwNames,
                         nameResourceId: R.string.perilous_wilds_names,
-                        icon: CommunityMaterial.Icon.cmd_castle,
+                        icon: CommunityMaterial.Icon.cmd_book_open_page_variant,
                         level: 2,));
 
         items.put(DrawerItemId.SwnHeader,
@@ -176,19 +177,19 @@ class DrawerItemData {
                 new DrawerItemData(
                         id: DrawerItemId.SwnGen,
                         nameResourceId: R.string.swn_gen,
-                        icon: CommunityMaterial.Icon.cmd_earth,
+                        icon: Ionicons.Icon.ion_planet,
                         level: 2,));
         items.put(DrawerItemId.SwnQuick,
                 new DrawerItemData(
                         id: DrawerItemId.SwnQuick,
                         nameResourceId: R.string.swn_quickgen,
-                        icon: CommunityMaterial.Icon.cmd_account_multiple,
+                        icon: Ionicons.Icon.ion_person_stalker,
                         level: 2,));
         items.put(DrawerItemId.SwnNames,
                 new DrawerItemData(
                         id: DrawerItemId.SwnNames,
                         nameResourceId: R.string.swn_names,
-                        icon: CommunityMaterial.Icon.cmd_pencil,
+                        icon: Ionicons.Icon.ion_edit,
                         level: 2,));
 
         /*
@@ -204,7 +205,7 @@ class DrawerItemData {
                         id: DrawerItemId.MazeRats,
                         drawDividerBefore: true,
                         nameResourceId: R.string.maze_rats,
-                        icon: CommunityMaterial.Icon.cmd_nfc_variant,));
+                        icon: CommunityMaterial.Icon.cmd_castle,));
         items.put(DrawerItemId.FourthPage,
                 new DrawerItemData(
                         id: DrawerItemId.FourthPage,
@@ -214,7 +215,7 @@ class DrawerItemData {
                 new DrawerItemData(
                         id: DrawerItemId.FotF,
                         nameResourceId: R.string.freebooters_on_the_frontier,
-                        icon: CommunityMaterial.Icon.cmd_map,));
+                        icon: Ionicons.Icon.ion_map,));
 
         items.put(DrawerItemId.DiceRoller,
                 new DrawerItemData(

@@ -135,7 +135,7 @@ dependencies {
     // https://github.com/mikepenz/Android-Iconics
     compile 'com.mikepenz:iconics-core:2.8.0@aar'
     compile 'com.mikepenz:community-material-typeface:1.5.54.2@aar'
-    //compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
+    compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
 
     compile('com.mikepenz:materialdrawer:5.6.0@aar') {
         transitive = true
