@@ -53,8 +53,15 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import groovy.transform.CompileStatic
 import org.stevesea.rpgpad.R
 
+import java.util.concurrent.atomic.AtomicLong
+
 @CompileStatic
 public class AdventuresmithActivity extends AppCompatActivity implements ItemAdapter.ItemFilterListener {
+    private static final String BUNDLE_DRAWER_SELECTION = AdventuresmithActivity.class.name + ".drawer_selection"
+    private static final String BUNDLE_RESULT_ITEMS = AdventuresmithActivity.class.name + '.result_items'
+
+    private static AtomicLong resultIdGenerator = new AtomicLong(0)
+
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
@@ -88,7 +95,8 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
             @Override
             public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
                 resultAdapter.add(0, new ResultAdapterItem()
-                        .withResult(item.buttonData.generate()))
+                        .withResult(item.buttonData.generate())
+                        .withIdentifier(resultIdGenerator.incrementAndGet()))
                 recyclerResults.scrollToPosition(0)
 
                 String drawerItem = getString(DrawerItemData.getDrawerItemData(item.buttonData.drawerId).nameResourceId)
@@ -188,11 +196,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         recyclerResults.itemAnimator = new DefaultItemAnimator()
         recyclerResults.adapter = resultAdapter
 
-        // TODO: restore not working -- no items restored
-        //restore selections (this has to be done after the items were added
-        buttonAdapter.withSavedInstanceState(savedInstanceState);
-        resultAdapter.withSavedInstanceState(savedInstanceState);
-
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withCompactStyle(false)
@@ -201,7 +204,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 .withHeaderBackground(R.drawable.pheonix)
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 .build();
-
 
         drawer = new DrawerBuilder()
                 .withActivity(this)
@@ -306,7 +308,32 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         outState = headerResult.saveInstanceState(outState);
         outState = buttonAdapter.saveInstanceState(outState)
         outState = resultAdapter.saveInstanceState(outState);
+
+        outState.putLong(BUNDLE_DRAWER_SELECTION, drawer.getCurrentSelection())
+
+        ArrayList<ResultAdapterItem> results = new ArrayList<>()
+        results.addAll(resultAdapter.getAdapterItems())
+
+        outState.putSerializable(BUNDLE_RESULT_ITEMS, results)
+
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        // NOTE: setting the drawer selection will cause the drawer-on-click handler, which
+        // clears the results. so we set the selection first, prior to restoring the result list.
+        // this will also populate the buttons.
+        drawer.setSelection(savedInstanceState.getLong(BUNDLE_DRAWER_SELECTION))
+
+        List<ResultAdapterItem> restoredItems = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultAdapterItem>
+        resultAdapter.clear()
+        resultAdapter.add(restoredItems)
+
+        buttonAdapter.withSavedInstanceState(savedInstanceState)
+        resultAdapter.withSavedInstanceState(savedInstanceState)
     }
 
     @Override
