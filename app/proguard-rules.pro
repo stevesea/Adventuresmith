@@ -51,3 +51,4 @@
 -dontwarn org.codehaus.groovy.**
 -dontwarn groovy**
 
+-keep class android.support.v7.widget.SearchView { *; }
