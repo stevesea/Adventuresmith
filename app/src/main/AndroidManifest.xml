@@ -25,7 +25,7 @@
     <application
         android:name=".RpgPadApp"
         android:allowBackup="false"
-        android:icon="@drawable/ic_anvil_impact"
+        android:icon="@mipmap/adventuresmith_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
