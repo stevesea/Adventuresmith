@@ -16,20 +16,10 @@ During game prep or in-game, if you have a choice of:
 
 or
 
-> *(example from the Perilous Wilds)*
->
-> **NPC: Urban**
->
-> **Occupation:** Criminal: lieutenant
-> **Activity:** building/excavating
-> **Alignment:** Evil
->
-> **Physical Appearance:** notable hair (wild, long, none, etc.)
-> **Personality:** cruel/belligerent/bully
-> **Quirk:** artistic/dreamer/delusional
+![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/npc_sample.png "sample NPC")
 
-the second gives you many more hooks to help you create an intriguing, memorable character
-for your players to interact with.
+the second gives you many more hooks to help you create a memorable character to interact with
+your players.
 
 I'm not planning to turn this into a general-purpose random table engine. But, I am
 interested in complicated random generation involving multiple dice, interrelated
