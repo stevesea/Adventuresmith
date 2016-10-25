@@ -5,12 +5,31 @@
 
 ## Overview
 
-This is an Android application for randomly generating elements for tabletop RPGs (names, spells,
-items, monsters, characters, etc).
-
-
 This is an Android app for randomly generating elements for tabletop RPGs (names, spells,
 items, monsters, characters, alien worlds, etc).
+
+Random tables are a great tool to provide a framework for improvisation.
+
+During game prep or in-game, if you have a choice of:
+
+> "you meet a person in the city, who are they?"
+
+or
+
+> *(example from the Perilous Wilds)*
+>
+> **NPC: Urban**
+>
+> **Occupation:** Criminal: lieutenant
+> **Activity:** building/excavating
+> **Alignment:** Evil
+>
+> **Physical Appearance:** notable hair (wild, long, none, etc.)
+> **Personality:** cruel/belligerent/bully
+> **Quirk:** artistic/dreamer/delusional
+
+the second gives you many more hooks to help you create an intriguing, memorable character
+for your players to interact with.
 
 I'm not planning to turn this into a general-purpose random table engine. But, I am
 interested in complicated random generation involving multiple dice, interrelated
@@ -18,11 +37,9 @@ results from multiple tables, etc.
 
 Bugs? Feature Requests? You can provide feedback here: https://github.com/stevesea/Adventuresmith/issues
 
-
 ## Downloads
 
 Google Play: https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith
-
 
 ## Screenshots
 
@@ -77,7 +94,6 @@ TODO: enter attribution for public domain images
 * AndroidIconics https://github.com/mikepenz/Android-Iconics
 * Crashlytics/Answers/Beta - https://fabric.io
 * LeakCanary https://github.com/square/leakcanary
-
 
 
 ## License
