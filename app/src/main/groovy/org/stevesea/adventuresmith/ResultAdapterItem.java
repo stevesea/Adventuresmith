@@ -32,8 +32,6 @@ import android.widget.TextView;
 import com.mikepenz.fastadapter.items.AbstractItem;
 import com.mikepenz.fastadapter.utils.ViewHolderFactory;
 
-import org.stevesea.rpgpad.R;
-
 import java.util.List;
 
 public class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAdapterItem.ViewHolder> implements Parcelable {

@@ -8,7 +8,7 @@ general:
             - master
 
     artifacts:
-        - /home/ubuntu/RPGpad/app/build/outputs/apk/
+        - /home/ubuntu/Adventuresmith/app/build/outputs/apk/
 
 machine:
     java:

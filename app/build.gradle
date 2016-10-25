@@ -22,7 +22,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "org.steavesea.rpgpad"
+        applicationId "org.steavesea.adventuresmith"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode androidGitVersion.code()
@@ -94,7 +94,7 @@ androidGroovy {
 sonarqube {
     properties {
         property "sonar.projectName", "RPG-Pad :: Simple Project :: Generate nonsense at push of a button!"
-        property "sonar.projectKey", "org.stevesea:rpgpad"
+        property "sonar.projectKey", "org.stevesea:adventuresmith"
 
         property "sonar.sourceEncoding","UTF-8"
         property "sonar.sources","."

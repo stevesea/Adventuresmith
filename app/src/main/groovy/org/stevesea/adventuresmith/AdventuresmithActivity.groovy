@@ -51,7 +51,6 @@ import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.R
 
 import java.util.concurrent.atomic.AtomicLong
 

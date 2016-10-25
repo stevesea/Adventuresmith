@@ -32,7 +32,6 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import groovy.transform.Canonical
 import groovy.transform.CompileStatic
-import org.stevesea.rpgpad.R
 
 @CompileStatic
 @Canonical

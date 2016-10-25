@@ -27,8 +27,6 @@ import android.widget.TextView;
 
 import com.mikepenz.materialize.MaterializeBuilder;
 
-import org.stevesea.rpgpad.R;
-
 public class AttributionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

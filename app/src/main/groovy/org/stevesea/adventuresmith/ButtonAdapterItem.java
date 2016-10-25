@@ -30,8 +30,6 @@ import com.mikepenz.fastadapter.items.AbstractItem;
 import com.mikepenz.fastadapter.utils.ViewHolderFactory;
 import com.mikepenz.materialdrawer.holder.StringHolder;
 
-import org.stevesea.rpgpad.R;
-
 import java.util.List;
 
 public class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAdapterItem.ViewHolder> implements Parcelable {

@@ -18,19 +18,19 @@
   ~ along with RPG-Pad.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.stevesea.rpgpad">
+          package="org.stevesea.adventuresmith">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name=".RpgPadApp"
+        android:name="org.stevesea.adventuresmith.AdventuresmithApp"
         android:allowBackup="false"
         android:icon="@mipmap/adventuresmith_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="org.stevesea.adventuresmith.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
