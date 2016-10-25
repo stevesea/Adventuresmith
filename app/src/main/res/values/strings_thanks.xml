@@ -66,7 +66,8 @@
     <string name="content_thanks"><![CDATA[
         <h1>Thanks</h1>
         People who helped during development: testing, ideas, encouragement, etc
-        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, ....</p>
+        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, …</p>
+        <p>James D`Amato, Kat Kuhl, and others at http://oneshotpodcast.com/ — thank you for re-invigorating my love of RPGs! </p>
     ]]></string>
     <string name="welcome_msg"><![CDATA[
     <h3>Welcome!</h3>
