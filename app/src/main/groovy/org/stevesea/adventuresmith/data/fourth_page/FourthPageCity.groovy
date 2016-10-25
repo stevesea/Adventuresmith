@@ -139,7 +139,7 @@ Racial tensions are running high.\
 <h4>City</h4>
 <h5>Feature</h5>
 <strong><small>${featureKey}</small></strong> - ${pick(features.get(featureKey))}
-<h5>Population<h5>
+<h5>Population</h5>
 <strong><small>${populationKey}</small></strong> - ${pick(populations.get(populationKey))}
 <h5>Society</h5>
 <strong><small>${societyKey}</small></strong> - ${pick(societies.get(societyKey))}
