@@ -24,6 +24,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
@@ -35,7 +36,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
@@ -64,6 +64,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
     private AccountHeader headerResult = null;
     private Drawer drawer = null;
 
+    AppBarLayout appBarLayout
     Toolbar toolbar
     RecyclerView recyclerButtons
     RecyclerView recyclerResults
@@ -77,6 +78,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         setContentView(R.layout.activity_adventuresmith);
 
         toolbar = findViewById(R.id.toolbar) as Toolbar
+        appBarLayout = findViewById(R.id.appbar) as AppBarLayout
         recyclerResults = findViewById(R.id.recycler_results) as RecyclerView
         recyclerButtons = findViewById(R.id.recycler_buttons) as RecyclerView
 
@@ -235,6 +237,9 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                             if (diData.selectable) {
                                 getSupportActionBar().setTitle(diData.nameResourceId)
 
+                                // when drawer item clicked, expand the collapsing bar.
+                                appBarLayout.setExpanded(true, true)
+
                                 resultAdapter.clear()
                                 buttonAdapter.clear()
                                 for (ButtonData bd : ButtonData.getButtonsForDrawerItem(diData.id)) {
@@ -266,16 +271,41 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 @Override
                 public boolean onQueryTextSubmit(String s) {
                     resultAdapter.filter(s);
+                    appBarLayout.setExpanded(false, false)
                     return true;
                 }
-
 
                 @Override
                 public boolean onQueryTextChange(String s) {
                     resultAdapter.filter(s);
+                    appBarLayout.setExpanded(false, false)
                     return true;
                 }
             } as SearchView.OnQueryTextListener);
+            /*
+            searchView.onSearchClickListener = new View.OnClickListener() {
+                @Override
+                void onClick(View v) {
+                    appBarLayout.setExpanded(false, true)
+                }
+            }
+            searchView.onCloseListener = new SearchView.OnCloseListener() {
+                @Override
+                boolean onClose() {
+                    appBarLayout.setExpanded(true, true)
+                    return false
+                }
+            }
+            */
+            /*
+            menu.findItem(R.id.search).onMenuItemClickListener = new MenuItem.OnMenuItemClickListener() {
+                @Override
+                boolean onMenuItemClick(MenuItem item) {
+                    appBarLayout.setExpanded(false, false)
+                    return false;
+                }
+            } as MenuItem.OnMenuItemClickListener
+            */
         } else {
             menu.findItem(R.id.search).setVisible(false);
         }
@@ -353,6 +383,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
 
     @Override
     public void itemsFiltered() {
-        Toast.makeText(this, "filtered items count: " + resultAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "filtered items count: " + resultAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
     }
 }
