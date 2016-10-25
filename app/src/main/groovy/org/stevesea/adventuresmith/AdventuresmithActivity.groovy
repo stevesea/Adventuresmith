@@ -201,6 +201,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 .withTranslucentStatusBar(false)
                 .withSavedInstance(savedInstanceState)
                 .withHeaderBackground(R.drawable.pheonix)
+                .withCompactStyle(false)
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 .build();
 
