@@ -10,18 +10,18 @@ items, monsters, characters, etc).
 
 
 This is an Android app for randomly generating elements for tabletop RPGs (names, spells,
-items, monsters, characters, alien worlds, etc). 
+items, monsters, characters, alien worlds, etc).
 
-I'm not planning to turn this into a general-purpose random table engine. But, I am 
-interested in complicated random generation involving multiple dice, interrelated 
+I'm not planning to turn this into a general-purpose random table engine. But, I am
+interested in complicated random generation involving multiple dice, interrelated
 results from multiple tables, etc.
 
 Bugs? Feature Requests? You can provide feedback here: https://github.com/stevesea/Adventuresmith/issues
 
 
-## Downloads (Beta)
+## Downloads
 
-Google Play beta: https://play.google.com/apps/testing/org.steavesea.adventuresmith
+Google Play: https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith
 
 
 ## Screenshots
@@ -76,7 +76,7 @@ TODO: enter attribution for public domain images
 * FastAdapter https://github.com/mikepenz/fastadapter
 * AndroidIconics https://github.com/mikepenz/Android-Iconics
 * Crashlytics/Answers/Beta - https://fabric.io
-* LeakCanary https://github.com/square/leakcanary 
+* LeakCanary https://github.com/square/leakcanary
 
 
 
