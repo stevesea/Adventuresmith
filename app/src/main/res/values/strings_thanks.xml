@@ -39,23 +39,28 @@
         <br/><cite>Maze Rats 0.1</cite>
 
         <h5>Mike Riverso</h5>
-        <p><cite>the Fourth Page</cite> generators for World of Dungeons. Licensed under the
-        Creative Commons Attribution 3.0 Unported License.
+        <p><cite>the Fourth Page</cite> generators for World of Dungeons.
         <br/>
-        <br/>To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
+        <br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
+        of this license, visit https://creativecommons.org/licenses/by/3.0/
         </p>
 
-        ]]>
+        ]]>s
     </string>
 
     <string name="content_artwork"><![CDATA[
         <h1>Attribution - Artwork</h1>
 
-        <h5>Imagery</h5>
-        TBD need to give attribution for public domain images from illuminated manuscripts
+        <h5>Brian Christensen</h5>
+        <p>Application launch icon and splash screen logo were created by Brian Christensen.
+        <br/>
+        <br/>Licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+        To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/</p>
         <h5>Icons</h5>
         <p>This application uses icons from https://materialdesignicons.com/</p>
         <p>This application uses icons from http://ionicons.com/</p>
+        <h5>Public Domain</h5>
+        <p>TBD need to give attribution for public domain images from illuminated manuscripts</p>
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[
