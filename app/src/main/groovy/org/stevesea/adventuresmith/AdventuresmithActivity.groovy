@@ -196,21 +196,19 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
-                .withCompactStyle(false)
-                .withTranslucentStatusBar(false)
                 .withSavedInstance(savedInstanceState)
-                .withHeaderBackground(R.drawable.pheonix)
-                .withCompactStyle(false)
+                .withHeaderBackground(R.drawable.header_graphic)
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 .build();
 
         drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withHasStableIds(true)
-                .withTranslucentStatusBar(false)
+                .withTranslucentStatusBar(true)
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .withSavedInstance(savedInstanceState)
+                //.withActionBarDrawerToggle(true)
                 //.withActionBarDrawerToggleAnimated(true)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(DrawerItemData.createDrawerItems())
@@ -233,9 +231,10 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                                 return false
                             }
 
-                            getSupportActionBar().setTitle(diData.nameResourceId)
 
                             if (diData.selectable) {
+                                getSupportActionBar().setTitle(diData.nameResourceId)
+
                                 resultAdapter.clear()
                                 buttonAdapter.clear()
                                 for (ButtonData bd : ButtonData.getButtonsForDrawerItem(diData.id)) {
