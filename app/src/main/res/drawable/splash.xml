@@ -21,15 +21,28 @@
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@color/md_brown_50"/>
+    <!--
+    <item android:gravity="center">
+        <shape>
+            <size android:height="1835dp" android:width="1835dp"/>
+            <solid android:color="@color/md_cyan_50"/>
+        </shape>
+    </item>
+    -->
+    <item
+        android:drawable="@drawable/ic_advsmth_splasha"
+        android:top="16dp"
+        android:bottom="16dp"/>
 
+    <!--
     <item android:gravity="center"
-
           android:right="@dimen/activity_vertical_margin"
           android:left="@dimen/activity_vertical_margin"
           android:top="@dimen/activity_vertical_margin"
           android:bottom="@dimen/activity_vertical_margin"
-          android:drawable="@drawable/ic_anvil_impact_splash"/>
+
+          android:drawable="@drawable/ic_advsmth_splasha"/>
+    -->
     <!--
     <item android:gravity="top|center"
           android:top="50dp"
