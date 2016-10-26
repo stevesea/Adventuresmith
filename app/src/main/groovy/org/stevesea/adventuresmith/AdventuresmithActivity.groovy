@@ -21,8 +21,6 @@
 package org.stevesea.adventuresmith
 
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -51,7 +49,6 @@ import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import groovy.transform.CompileStatic
 
@@ -90,7 +87,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("");
 
-        //create our FastAdapter which will manage everything
         buttonAdapter = new FastItemAdapter<>();
         buttonAdapter.withSelectable(false);
         buttonAdapter.withPositionBasedStateManagement(true);
@@ -212,15 +208,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 .build();
 
-        String versionName = "";
-        int versionCode = -1;
-        try {
-            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            versionName = packageInfo.versionName;
-            versionCode = packageInfo.versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-        }
-
         drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withHasStableIds(true)
@@ -232,14 +219,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                 //.withActionBarDrawerToggleAnimated(true)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(DrawerItemData.createDrawerItems())
-                //.addDrawerItems(new DividerDrawerItem())
-                .addDrawerItems(new SecondaryDrawerItem()
-                    .withIdentifier(DrawerItemId.VersionInfo)
-                    .withName("Version: ${versionName}")
-                    .withSelectable(false)
-                    .withIcon(CommunityMaterial.Icon.cmd_help)
-                    .withLevel(1)
-                )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -250,9 +229,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                         //those items don't contain a drawerItem
 
                         if (drawerItem) {
-                            if (drawerItem.getIdentifier() == DrawerItemId.VersionInfo) {
-                                return false;
-                            }
 
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
                             if (diData == null)
@@ -260,6 +236,11 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
 
                             if (diData.id.equals(DrawerItemId.Attribution)) {
                                 Intent intent = new Intent(AdventuresmithActivity.this, AttributionActivity.class);
+                                AdventuresmithActivity.this.startActivity(intent)
+
+                                return false
+                            } else if (diData.id.equals(DrawerItemId.About)) {
+                                Intent intent = new Intent(AdventuresmithActivity.this, AboutActivity.class);
                                 AdventuresmithActivity.this.startActivity(intent)
 
                                 return false

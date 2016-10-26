@@ -75,4 +75,22 @@
     <br/>
     <p>To report problems or request enhancements, please visit <br/>https://github.com/stevesea/Adventuresmith</p>
     ]]></string>
+
+    <string name="about_version"><![CDATA[
+    <strong>Version:</strong> %1$s (%2$d)
+    ]]></string>
+    <string name="about_app"><![CDATA[
+    <h3>Adventuresmith</h3>
+    <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
+    <p>If you find bugs, have suggestions, or want to help develop it, go to https://github.com/stevesea/Adventuresmith</p>
+    <h3>Thirdparty software</h3>
+    <ul>
+<li>MaterialDrawer https://github.com/mikepenz/MaterialDrawer</li>
+<li>FastAdapter https://github.com/mikepenz/fastadapter</li>
+<li>Android-Iconics https://github.com/mikepenz/Android-Iconics</li>
+<li>Crashlytics/Answers - https://fabric.io</li>
+<li>LeakCanary https://github.com/square/leakcanary</li>
+    </ul>
+    ]]></string>
+
 </resources>

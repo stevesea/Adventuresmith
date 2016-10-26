@@ -23,14 +23,14 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name="org.stevesea.adventuresmith.AdventuresmithApp"
+        android:name=".AdventuresmithApp"
         android:allowBackup="false"
         android:icon="@mipmap/adventuresmith_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="org.stevesea.adventuresmith.SplashActivity"
+            android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -39,14 +39,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="org.stevesea.adventuresmith.AdventuresmithActivity"/>
+        <activity android:name=".AdventuresmithActivity"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="a06f7265a0865b0b844e031806968181d6056595"/>
 
-        <activity android:name="org.stevesea.adventuresmith.AttributionActivity"
-            android:parentActivityName="org.stevesea.adventuresmith.AdventuresmithActivity">
+        <activity
+            android:name=".AttributionActivity"
+            android:parentActivityName=".AdventuresmithActivity">
+        </activity>
+        <activity android:name=".AboutActivity"
+                  android:parentActivityName=".AdventuresmithActivity">
         </activity>
     </application>
 

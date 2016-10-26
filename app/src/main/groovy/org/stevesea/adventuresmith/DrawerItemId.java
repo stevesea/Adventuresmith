@@ -43,7 +43,7 @@ import java.lang.annotation.RetentionPolicy;
         DrawerItemId.FotF,
         DrawerItemId.DiceRoller,
         DrawerItemId.Attribution,
-        DrawerItemId.VersionInfo,
+        DrawerItemId.About,
 })
 public @interface DrawerItemId {
 
@@ -65,9 +65,7 @@ public @interface DrawerItemId {
     int FotF = 3003;
     int DiceRoller = 3004;
 
-    int Attribution = 4000;
-
-
-    int VersionInfo = 9999;
+    int Attribution = 9998;
+    int About = 9999;
 
 }

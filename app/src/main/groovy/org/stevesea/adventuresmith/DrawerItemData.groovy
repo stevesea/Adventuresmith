@@ -53,6 +53,8 @@ class DrawerItemData {
     boolean drawDividerBefore = false
     boolean isSectionHeader = false
 
+    boolean isSecondary = false
+
     IDrawerItem createDrawerItem() {
         if (children != null) {
             ExpandableDrawerItem di = new ExpandableDrawerItem()
@@ -71,7 +73,7 @@ class DrawerItemData {
             }
             return di
 
-        } else if (level != 1) {
+        } else if (level != 1 || isSecondary) {
             IDrawerItem di = new SecondaryDrawerItem()
                 .withName(nameResourceId)
                 .withIcon(icon)
@@ -230,7 +232,15 @@ class DrawerItemData {
                         id: DrawerItemId.Attribution,
                         nameResourceId: R.string.nav_thanks,
                         drawDividerBefore: true,
+                        isSecondary: true,
                         icon: CommunityMaterial.Icon.cmd_information_outline));
+
+        items.put(DrawerItemId.About,
+                new DrawerItemData(
+                        id: DrawerItemId.About,
+                        nameResourceId: R.string.nav_about,
+                        isSecondary: true,
+                        icon: CommunityMaterial.Icon.cmd_help));
     }
 
     @Nullable
