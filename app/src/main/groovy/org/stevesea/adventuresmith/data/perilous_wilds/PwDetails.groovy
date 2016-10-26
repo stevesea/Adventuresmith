@@ -69,60 +69,59 @@ class PwDetails extends AbstractGenerator {
         return pick(diceStr, ability)
     }
 
-    RangeMap activity = new RangeMap()
-        .with(1, 'laying trap/ambush')
-        .with(2, 'fighting/at war')
-        .with(3, 'prowling/on patrol')
-        .with(4, 'hunting/foraging')
-        .with(5, 'eating/resting')
-        .with(6, 'crafting/praying')
-        .with(7, 'traveling/relocating')
-        .with(8, 'exploring/lost')
-        .with(9, 'returning home')
-        .with(10, 'building/excavating')
-        .with(11, 'sleeping')
-        .with(12, 'dying')
 
     String pickActivity(String diceStr = '1d12') {
+        RangeMap activity = new RangeMap()
+                .with(1, 'laying trap/ambush')
+                .with(2, 'fighting/at war')
+                .with(3, 'prowling/on patrol')
+                .with(4, 'hunting/foraging')
+                .with(5, 'eating/resting')
+                .with(6, 'crafting/praying')
+                .with(7, 'traveling/relocating')
+                .with(8, 'exploring/lost')
+                .with(9, 'returning home')
+                .with(10, 'building/excavating')
+                .with(11, 'sleeping')
+                .with(12, 'dying')
         return pick(diceStr, activity)
     }
 
-    RangeMap adjective = new RangeMap()
-            .with(1, 'slick/slimy')
-            .with(2, 'rough/hard/sharp')
-            .with(3, 'smooth/soft/dull')
-            .with(4, 'corroded/rusty')
-            .with(5, 'rotten/decaying')
-            .with(6, 'broken/brittle')
-            .with(7, 'stinking/smelly')
-            .with(8, 'weak/thin/drained')
-            .with(9, 'strong/fat/full')
-            .with(10, 'pale/poor/shallow')
-            .with(11, 'dark/rich/deep')
-            .with(12, 'colorful')
-
     String pickAdjective(String diceStr = '1d12') {
+        RangeMap adjective = new RangeMap()
+                .with(1, 'slick/slimy')
+                .with(2, 'rough/hard/sharp')
+                .with(3, 'smooth/soft/dull')
+                .with(4, 'corroded/rusty')
+                .with(5, 'rotten/decaying')
+                .with(6, 'broken/brittle')
+                .with(7, 'stinking/smelly')
+                .with(8, 'weak/thin/drained')
+                .with(9, 'strong/fat/full')
+                .with(10, 'pale/poor/shallow')
+                .with(11, 'dark/rich/deep')
+                .with(12, 'colorful')
         pick(diceStr, adjective)
     }
-    RangeMap age = new RangeMap()
-            .with(1, 'being born/built')
-            .with(2..4, 'young/recent')
-            .with(5..7, 'middle-aged')
-            .with(8..9, 'old')
-            .with(10..11, 'ancient')
-            .with(12, 'pre-historic')
 
     String pickAge(String diceStr = '1d12') {
+        RangeMap age = new RangeMap()
+                .with(1, 'being born/built')
+                .with(2..4, 'young/recent')
+                .with(5..7, 'middle-aged')
+                .with(8..9, 'old')
+                .with(10..11, 'ancient')
+                .with(12, 'pre-historic')
         pick(diceStr, age)
     }
 
-    RangeMap alignment = new RangeMap()
-            .with(1..2, 'Chaotic')
-            .with(3..4, 'Evil')
-            .with(5..8, 'Neutral')
-            .with(9..10, 'Good')
-            .with(11..12, 'Lawful')
     String pickAlignment(String diceStr = '1d12') {
+        RangeMap alignment = new RangeMap()
+                .with(1..2, 'Chaotic')
+                .with(3..4, 'Evil')
+                .with(5..8, 'Neutral')
+                .with(9..10, 'Good')
+                .with(11..12, 'Lawful')
         pick(diceStr, alignment)
     }
     RangeMap aspect = new RangeMap()
@@ -143,41 +142,39 @@ class PwDetails extends AbstractGenerator {
         pick(dice, aspect)
     }
 
-    RangeMap condition = new RangeMap()
-            .with(1, 'being built/born')
-            .with(2..4, 'intact/healthy/stable')
-            .with(5..7, 'occupied/active/alert')
-            .with(8..9, 'worn/tired/weak')
-            .with(10, 'vacant/lost')
-            .with(11, 'ruined/defiled/dying')
-            .with(12, 'disappeared/dead')
     String pickCondition(String dice='1d12') {
+        RangeMap condition = new RangeMap()
+                .with(1, 'being built/born')
+                .with(2..4, 'intact/healthy/stable')
+                .with(5..7, 'occupied/active/alert')
+                .with(8..9, 'worn/tired/weak')
+                .with(10, 'vacant/lost')
+                .with(11, 'ruined/defiled/dying')
+                .with(12, 'disappeared/dead')
         pick(dice, condition)
     }
 
-    RangeMap disposition = new RangeMap()
-            .with(1, 'attacking')
-            .with(2..4, 'hostile/aggressive')
-            .with(5..6, 'cautious/doubtful')
-            .with(7, 'fearful/fleeing')
-            .with(8..10, 'neutral')
-            .with(11, 'curious/hopeful')
-            .with(12, 'friendly')
 
     String pickDisposition(String dice='1d12') {
+        RangeMap disposition = new RangeMap()
+                .with(1, 'attacking')
+                .with(2..4, 'hostile/aggressive')
+                .with(5..6, 'cautious/doubtful')
+                .with(7, 'fearful/fleeing')
+                .with(8..10, 'neutral')
+                .with(11, 'curious/hopeful')
+                .with(12, 'friendly')
         pick(dice, disposition)
     }
 
-
-    RangeMap element = new RangeMap()
-            .with(1..2, 'air')
-            .with(3..4, 'earth')
-            .with(5..6, 'fire')
-            .with(7..8, 'water')
-            .with(9..10, 'life')
-            .with(11..12, 'death')
-
     String pickElement(String dice='1d12') {
+        RangeMap element = new RangeMap()
+                .with(1..2, 'air')
+                .with(3..4, 'earth')
+                .with(5..6, 'fire')
+                .with(7..8, 'water')
+                .with(9..10, 'life')
+                .with(11..12, 'death')
         pick(dice, element)
     }
     RangeMap feature = new RangeMap()
@@ -197,22 +194,22 @@ class PwDetails extends AbstractGenerator {
         pick(dice, feature)
     }
 
-    RangeMap magic_type = new RangeMap()
-            .with(1..2, 'divination')
-            .with(3..4, 'enchantment')
-            .with(5..6, 'evocation')
-            .with(7..8, 'illusion')
-            .with(9..10, 'necromancy')
-            .with(11..12, 'summoning')
     String pickMagicType(String dice='1d12') {
+        RangeMap magic_type = new RangeMap()
+                .with(1..2, 'divination')
+                .with(3..4, 'enchantment')
+                .with(5..6, 'evocation')
+                .with(7..8, 'illusion')
+                .with(9..10, 'necromancy')
+                .with(11..12, 'summoning')
         pick(dice, magic_type)
     }
-    RangeMap number_appearing = new RangeMap()
-            .with(1..4, 'Solitary (1)')
-            .with(5..9, "Group (1d6+2) [${ -> roll('1d6+2')}]")
-            .with(10..12, "Horde (4d6 per wave) [${ ->  roll('4d6')}]")
 
     String pickNumberAppearing(String dice='1d12') {
+        RangeMap number_appearing = new RangeMap()
+                .with(1..4, 'Solitary (1)')
+                .with(5..9, "Group (1d6+2) [${ -> roll('1d6+2')}]")
+                .with(10..12, "Horde (4d6 per wave) [${ ->  roll('4d6')}]")
         pick(dice, number_appearing)
     }
 
@@ -232,43 +229,43 @@ class PwDetails extends AbstractGenerator {
     String pickOddity(String dice = '1d12') {
         pick(dice, oddity)
     }
-
-    RangeMap orientation = new RangeMap()
-            .with(1..2, 'down/earthward')
-            .with(3, 'north')
-            .with(4, 'northeast')
-            .with(5, 'east')
-            .with(6, 'southeast')
-            .with(7, 'south')
-            .with(8, 'southwest')
-            .with(9, 'west')
-            .with(10, 'northwest')
-            .with(11..12, 'up/skyward')
     String pickOrientation(String dice = '1d12') {
+
+        RangeMap orientation = new RangeMap()
+                .with(1..2, 'down/earthward')
+                .with(3, 'north')
+                .with(4, 'northeast')
+                .with(5, 'east')
+                .with(6, 'southeast')
+                .with(7, 'south')
+                .with(8, 'southwest')
+                .with(9, 'west')
+                .with(10, 'northwest')
+                .with(11..12, 'up/skyward')
         pick(dice, orientation)
     }
-
-    RangeMap ruination = new RangeMap()
-            .with(1, 'arcane disaster')
-            .with(2, 'damnation/curse')
-            .with(3..4, 'earthquake/fire/flood')
-            .with(5..6, 'plague/famine/drought')
-            .with(7..8, 'overrun by monsters')
-            .with(9..10, 'war/invasion')
-            .with(11, 'depleted resources')
-            .with(12, 'better prospects elsewhere')
     String pickRuination(String dice = '1d12') {
+
+        RangeMap ruination = new RangeMap()
+                .with(1, 'arcane disaster')
+                .with(2, 'damnation/curse')
+                .with(3..4, 'earthquake/fire/flood')
+                .with(5..6, 'plague/famine/drought')
+                .with(7..8, 'overrun by monsters')
+                .with(9..10, 'war/invasion')
+                .with(11, 'depleted resources')
+                .with(12, 'better prospects elsewhere')
         pick(dice, ruination)
     }
 
-    RangeMap size = new RangeMap()
-            .with(1, 'Tiny')
-            .with(2..3, 'Small')
-            .with(4..9, 'medium-sized')
-            .with(10..11, 'Large')
-            .with(12, 'Huge')
 
     String pickSize(String dice = '1d12') {
+        RangeMap size = new RangeMap()
+                .with(1, 'Tiny')
+                .with(2..3, 'Small')
+                .with(4..9, 'medium-sized')
+                .with(10..11, 'Large')
+                .with(12, 'Huge')
         pick(dice, size)
     }
 
@@ -299,13 +296,14 @@ class PwDetails extends AbstractGenerator {
     String pickTerrain(String dice = '1d12') {
         pick(dice, terrain)
     }
-    RangeMap visibility = new RangeMap()
-            .with(1..2, 'buried/camouflaged/nigh invisible')
-            .with(3..6, 'partly covered/overgrown/hidden')
-            .with(7..9, 'obvious/in plain sight')
-            .with(10..11, 'visible at near distance')
-            .with(12, 'visible at great distance/focal point')
+
     String pickVisibility(String dice='1d12') {
+        RangeMap visibility = new RangeMap()
+                .with(1..2, 'buried/camouflaged/nigh invisible')
+                .with(3..6, 'partly covered/overgrown/hidden')
+                .with(7..9, 'obvious/in plain sight')
+                .with(10..11, 'visible at near distance')
+                .with(12, 'visible at great distance/focal point')
         pick(dice, visibility)
     }
 
