@@ -33,7 +33,6 @@ import org.stevesea.adventuresmith.data.fourth_page.FourthPageDungeon
 import org.stevesea.adventuresmith.data.fourth_page.FourthPageMonster
 import org.stevesea.adventuresmith.data.freebooters_on_the_frontier.FotFCharacters
 import org.stevesea.adventuresmith.data.freebooters_on_the_frontier.FotFSpells
-import org.stevesea.adventuresmith.data.freebooters_on_the_frontier.FotFTraits
 import org.stevesea.adventuresmith.data.maze_rats.MazeRatsAfflictions
 import org.stevesea.adventuresmith.data.maze_rats.MazeRatsCharacter
 import org.stevesea.adventuresmith.data.maze_rats.MazeRatsItems
@@ -114,11 +113,7 @@ class ButtonData {
                         drawerId: DrawerItemId.FotF,
                         generator: new FotFSpells(),
                 ),
-                new ButtonData(
-                        id: R.string.FotFTraits,
-                        drawerId: DrawerItemId.FotF,
-                        generator: new FotFTraits(),
-        ))
+        )
         addButtons(
                 new ButtonData(
                         id: R.string.PwDiscovery,

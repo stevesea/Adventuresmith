@@ -29,7 +29,6 @@ import java.lang.annotation.RetentionPolicy;
 @IntDef({
         R.string.FotFChars,
         R.string.FotFSpells,
-        R.string.FotFTraits,
 
         R.string.PwDiscovery,
         R.string.PwDanger,
