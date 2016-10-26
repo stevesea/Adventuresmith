@@ -103,7 +103,6 @@ Sulaiman
 Tabari\
 '''.readLines(),
                     PlaceName: '''\
-
 Adan
 Ahsa
 Andalus
