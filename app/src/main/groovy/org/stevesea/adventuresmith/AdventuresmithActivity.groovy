@@ -94,12 +94,16 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         buttonAdapter.withOnClickListener(new FastAdapter.OnClickListener<ButtonAdapterItem>() {
             @Override
             public boolean onClick(View v, IAdapter<ButtonAdapterItem> adapter, ButtonAdapterItem item, int position) {
+                if (item == null)
+                    return false
+                if (item.buttonData == null)
+                    return false
+
                 resultAdapter.add(0, new ResultAdapterItem()
                         .withResult(item.buttonData.generate())
                         .withButtonId(item.buttonData.id)
                         .withIdentifier(resultIdGenerator.incrementAndGet()))
                 recyclerResults.scrollToPosition(0)
-
 
                 def drawerItemData = DrawerItemData.getDrawerItemData(item.buttonData.drawerId)
                 if (drawerItemData) {
@@ -124,7 +128,12 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
             @Override
             public int getSpanSize(int position) {
                 ButtonAdapterItem item = buttonAdapter.getAdapterItem(position)
+                if (item == null || item.buttonData == null)
+                    return btnSpanRegular
+
                 String btnTxt = getString(item.buttonData.id)
+                if (btnTxt == null)
+                    return btnSpanRegular
                 List<Integer> words = btnTxt.tokenize().collect{it.length()}
                 Integer longest = words.max()
 
@@ -177,6 +186,8 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         resultAdapter.withFilterPredicate(new IItemAdapter.Predicate<ResultAdapterItem>() {
             @Override
             public boolean filter(ResultAdapterItem item, CharSequence constraint) {
+                if (item == null || item.spannedText == null || constraint == null)
+                    return false
                 //return true if we should filter it out
                 //return false to keep it
                 return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase());
@@ -191,7 +202,7 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
             @Override
             public int getSpanSize(int position) {
                 ResultAdapterItem item = resultAdapter.getAdapterItem(position)
-                if (item.htmlTxt.length() > 48)
+                if (item == null || item.htmlTxt.length() > 48)
                     return resultSpanLong
                 else
                     return 1
