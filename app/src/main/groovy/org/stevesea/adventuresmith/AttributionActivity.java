@@ -37,7 +37,7 @@ public class AttributionActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setTitle(R.string.nav_thanks);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //style our ui
