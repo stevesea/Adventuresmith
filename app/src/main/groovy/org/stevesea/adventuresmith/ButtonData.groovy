@@ -79,6 +79,7 @@ class ButtonData {
 
     AbstractGenerator generator
 
+    @NonNull
     String generate() {
         if (generator != null)
             generator.generate()
@@ -491,6 +492,7 @@ class ButtonData {
     static ButtonData getButton(@ButtonId int id) {
         return buttons.get(id)
     }
+    @Nullable
     static ButtonData getButton(long id) {
         return buttons.get(id)
     }

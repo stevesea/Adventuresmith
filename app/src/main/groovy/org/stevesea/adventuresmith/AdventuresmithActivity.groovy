@@ -104,12 +104,18 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                         .withIdentifier(resultIdGenerator.incrementAndGet()))
                 recyclerResults.scrollToPosition(0)
 
-                String drawerItem = getString(DrawerItemData.getDrawerItemData(item.buttonData.drawerId).nameResourceId)
-                String btnText = getString(item.buttonData.id)
-                Answers.getInstance().logCustom(new CustomEvent("Generated Result")
-                        .putCustomAttribute("Dataset", drawerItem)
-                        .putCustomAttribute("Button", drawerItem + '.' + btnText))
-                return true;
+
+                def drawerItemData = DrawerItemData.getDrawerItemData(item.buttonData.drawerId)
+                if (drawerItemData) {
+                    String drawerItem = getString(drawerItemData.nameResourceId)
+                    String btnText = getString(item.buttonData.id)
+                    Answers.getInstance().logCustom(new CustomEvent("Generated Result")
+                            .putCustomAttribute("Dataset", drawerItem)
+                            .putCustomAttribute("Button", drawerItem + '.' + btnText))
+                    return true;
+                } else {
+                    return false
+                }
             }
         } as FastAdapter.OnClickListener<ButtonAdapterItem>);
 
@@ -249,6 +255,8 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
                             }
 
                             DrawerItemData diData = DrawerItemData.getDrawerItemData(drawerItem.getIdentifier() as int)
+                            if (diData == null)
+                                return false
 
                             if (diData.id.equals(DrawerItemId.Attribution)) {
                                 Intent intent = new Intent(AdventuresmithActivity.this, AttributionActivity.class);

@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith
 
+import android.support.annotation.Nullable
 import android.support.annotation.StringRes
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.typeface.IIcon
@@ -61,7 +62,9 @@ class DrawerItemData {
                 .withSelectable(selectable)
                 .withIsExpanded(expanded)
             for (@DrawerItemId int child: children) {
-                di.withSubItems(getDrawerItemData(child).createDrawerItem())
+                def childItem = getDrawerItemData(child).createDrawerItem()
+                if (childItem)
+                    di.withSubItems(childItem)
             }
             if (descResourceId != null) {
                 di.withDescription(descResourceId)
@@ -230,6 +233,7 @@ class DrawerItemData {
                         icon: CommunityMaterial.Icon.cmd_information_outline));
     }
 
+    @Nullable
     static public DrawerItemData getDrawerItemData(@DrawerItemId int id) {
         items.get(id);
     }
