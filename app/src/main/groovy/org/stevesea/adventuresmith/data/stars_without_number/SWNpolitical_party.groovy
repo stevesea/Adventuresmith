@@ -43,7 +43,7 @@ class SWNpolitical_party extends AbstractGenerator {
             '<em>Socialist:</em> the market should be harnessed to ensure a state-determined minimal standard of living for all',
             '<em>Communist:</em> the state should control the economy, disbursing its products according to need and determined efficiency',
     ]
-    List<String> important_issues = """\
+    List<String> important_issues = '''\
 Poverty among the group's membership
 Social hostility to the group's membership
 Immigration and immigrants
@@ -56,8 +56,8 @@ Governmental reform
 Secession
 Foreign relations
 Wealth redistribution\
-""".readLines()
-    List<String> name1 = """\
+'''.readLines()
+    List<String> name1 = '''\
 People's
 Freedom
 National
@@ -100,9 +100,9 @@ Western
 Eastern
 Ascendant
 Upward\
-""".readLines()
+'''.readLines()
 
-    List<String> name2 = """\
+    List<String> name2 = '''\
 Front
 Party
 Faction
@@ -123,20 +123,18 @@ Fellowship
 Guild
 Federation
 Alliance\
-""".readLines()
+'''.readLines()
 
     String generate () {
         """\
-<strong>Political Party</strong> - ${pick(name1)} ${pick(name2)}
-<br/>
-<br/><strong><small>Leadership:</small></strong>
-<br/>&nbsp;&nbsp;${pick(leadership)}
-<br/>
-<br/><strong><small>Economic Policy:</small></strong>
-<br/>&nbsp;&nbsp;${pick(economic_policy)}
-<br/>
-<br/><strong><small>Important Issues:</small></strong>
-<br/>&nbsp;&nbsp;${pickN(important_issues, roll('1d2+1')).join('<br/>&nbsp;&nbsp;')}
+<h4>Political Party</h4>
+${pick(name1)} ${pick(name2)}
+<h5>Leadership:</h5>
+${pick(leadership)}</p>
+<h5>Economic Policy:</h5>
+${pick(economic_policy)}
+<h5>Important Issues:</h5>
+&nbsp;&nbsp;${pickN(important_issues, roll('1d2+1')).join('<br/>&nbsp;&nbsp;')}
 """
     }
 }
