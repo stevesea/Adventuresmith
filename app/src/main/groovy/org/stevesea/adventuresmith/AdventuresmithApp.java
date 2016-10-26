@@ -19,9 +19,7 @@
  */
 package org.stevesea.adventuresmith;
 
-import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
@@ -29,7 +27,7 @@ import com.squareup.leakcanary.LeakCanary;
 
 import io.fabric.sdk.android.Fabric;
 
-public class AdventuresmithApp extends Application {
+public class AdventuresmithApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -46,12 +44,6 @@ public class AdventuresmithApp extends Application {
         Fabric.with(this, crashlyticsKit);
 
         initButtons();
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
     }
 
     public void initButtons() {
