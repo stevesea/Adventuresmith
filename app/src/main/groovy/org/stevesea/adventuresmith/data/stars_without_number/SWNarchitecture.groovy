@@ -91,7 +91,7 @@ Corbelled arches\
 Canals and pools
 Balconies and overlooks
 Subterranean structures
-Ansence or profusion of windows
+Absence or profusion of windows
 Walled or enclosed courtyards
 Open plazas
 Elevated walkways
