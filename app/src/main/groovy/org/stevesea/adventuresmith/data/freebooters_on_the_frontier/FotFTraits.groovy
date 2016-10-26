@@ -19,133 +19,114 @@
 
 package org.stevesea.adventuresmith.data.freebooters_on_the_frontier
 
-import com.samskivert.mustache.Mustache
 import groovy.transform.CompileStatic
-import org.stevesea.adventuresmith.data.AbstractGenerator
 
 @CompileStatic
-class FotFTraits extends AbstractGenerator {
-    static final List<String> virtues = """\
-Ambitious
-Benevolent
-Bold
-Brave
-Charitable
-Chaste
-Cautious
-Compassionate
-Confident
-Considerate
-Cooperative
-Courteous
-Creative
-Curious
-Daring
-Defiant
-Dependable
-Determined
-Disciplined
-Enthusiastic
-Fair
-Focused
-Forgiving
-Friendly
-Frugal
-Funny
-Generous
-Gregarious
-Helpful
-Honest
-Honorable
-Hopeful
-Humble
-Idealistic
-Just
-Kind
-Loving
-Loyal
-Merciful
-Orderly
-Patient
-Persistent
-Pious
-Resourceful
-Respectful
-Responsible
-Selfless
-Steadfast
-Tactful
-Tolerant\
-""".readLines()
+class FotFTraits {
+    static final List<String> virtues = [
+            'Ambitious',
+            'Benevolent',
+            'Bold',
+            'Brave',
+            'Charitable',
+            'Chaste',
+            'Cautious',
+            'Compassionate',
+            'Confident',
+            'Considerate',
+            'Cooperative',
+            'Courteous',
+            'Creative',
+            'Curious',
+            'Daring',
+            'Defiant',
+            'Dependable',
+            'Determined',
+            'Disciplined',
+            'Enthusiastic',
+            'Fair',
+            'Focused',
+            'Forgiving',
+            'Friendly',
+            'Frugal',
+            'Funny',
+            'Generous',
+            'Gregarious',
+            'Helpful',
+            'Honest',
+            'Honorable',
+            'Hopeful',
+            'Humble',
+            'Idealistic',
+            'Just',
+            'Kind',
+            'Loving',
+            'Loyal',
+            'Merciful',
+            'Orderly',
+            'Patient',
+            'Persistent',
+            'Pious',
+            'Resourceful',
+            'Respectful',
+            'Responsible',
+            'Selfless',
+            'Steadfast',
+            'Tactful',
+            'Tolerant',
+    ]
 
-    static final List<String> vices = """\
-Addict
-Aggressive
-Alcoholic
-Antagonistic
-Arrogant
-Boastful
-Cheater
-Covetous
-Cowardly
-Cruel
-Decadent
-Deceitful
-Disloyal
-Doubtful
-Egotistical
-Envious
-Gluttonous
-Greedy
-Hasty
-Hedonist
-Impatient
-Inflexible
-Irritable
-Lazy
-Lewd
-Liar
-Lustful
-Mad
-Malicious
-Manipulative
-Merciless
-Moody
-Murderous
-Obsessive
-Petulant
-Prejudiced
-Reckless
-Resentful
-Rude
-Ruthless
-Self-pitying
-Selfish
-Snobbish
-Stingy
-Stubborn
-Vain
-Vengeful
-Wasteful
-Wrathful
-Zealous\
-""".readLines()
-
-    String getTemplate() {
-        '''\
-<strong>Virtue:</strong> {{virtue}}
-<br/>
-<br/><strong>Vice:</strong> {{vice}}\
-'''
-    }
-
-    @Override
-    String generate() {
-        Mustache.compiler().compile(getTemplate()).execute(
-                [
-                        'virtue': pick(virtues),
-                        'vice':pick(vices)
-                ])
-    }
+    static final List<String> vices = [
+            'Addict',
+            'Aggressive',
+            'Alcoholic',
+            'Antagonistic',
+            'Arrogant',
+            'Boastful',
+            'Cheater',
+            'Covetous',
+            'Cowardly',
+            'Cruel',
+            'Decadent',
+            'Deceitful',
+            'Disloyal',
+            'Doubtful',
+            'Egotistical',
+            'Envious',
+            'Gluttonous',
+            'Greedy',
+            'Hasty',
+            'Hedonist',
+            'Impatient',
+            'Inflexible',
+            'Irritable',
+            'Lazy',
+            'Lewd',
+            'Liar',
+            'Lustful',
+            'Mad',
+            'Malicious',
+            'Manipulative',
+            'Merciless',
+            'Moody',
+            'Murderous',
+            'Obsessive',
+            'Petulant',
+            'Prejudiced',
+            'Reckless',
+            'Resentful',
+            'Rude',
+            'Ruthless',
+            'Self-pitying',
+            'Selfish',
+            'Snobbish',
+            'Stingy',
+            'Stubborn',
+            'Vain',
+            'Vengeful',
+            'Wasteful',
+            'Wrathful',
+            'Zealous',
+    ]
 
 }

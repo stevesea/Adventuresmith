@@ -757,6 +757,7 @@ widow’s peak\
 """.readLines(),
     ]
 
+    // TODO: do something w/ hit die?
     // hit die
     // mu d4
     // thief d6
