@@ -115,7 +115,10 @@ public class ButtonAdapterItem extends AbstractItem<ButtonAdapterItem, ButtonAda
         this.mIdentifier = in.readLong();
 
         this.buttonData = ButtonData.getButton(mIdentifier);
-        this.btnText = new StringHolder(buttonData.getId());
+        if (buttonData != null)
+            this.btnText = new StringHolder(buttonData.getId());
+        else
+            this.btnText = new StringHolder("unknown problem");
     }
 
     public static final Creator<ButtonAdapterItem> CREATOR = new Creator<ButtonAdapterItem>() {
