@@ -21,6 +21,12 @@ or
 the second gives you many more hooks to help you create a memorable character to interact with
 your players.
 
+Or, if you decide your party encounters a humanoid in the woods...
+
+![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/asthmatic_half_orc_bandit.png "sample NPC")
+
+... what could be finer than an asthmatic half-orc bandit, laying a trap.
+
 I'm not planning to turn this into a general-purpose random table engine. But, I am
 interested in complicated random generation involving multiple dice, interrelated
 results from multiple tables, etc.
