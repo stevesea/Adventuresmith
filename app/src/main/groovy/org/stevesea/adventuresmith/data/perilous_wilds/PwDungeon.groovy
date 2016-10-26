@@ -38,10 +38,10 @@ class PwDungeon extends AbstractGenerator{
     }
 
     static enum dungeon_size {
-        Small(2, '1d4',  6, '1d6+2'),
-        Medium(3, '1d6', 6, '2d6+4'),
-        Large(4, '1d6+1',6, '3d6+6'),
-        Huge(5, '1d6+2', 6, '4d6+10');
+        Small(2, '1d4', 6, '1d6+2'),
+        Medium(3, '1d6', 12, '2d6+4'),
+        Large(4, '1d6+1', 16, '3d6+6'),
+        Huge(5, '1d6+2', 24, '4d6+10');
 
         int theme
         String themeStr
@@ -146,8 +146,8 @@ class PwDungeon extends AbstractGenerator{
     String generate() {
         String dsizeStr = (String)pick('1d12', sizeMap)
         def dsize = dungeon_size.valueOf(dsizeStr)
-        int numThemes = roll(dsize.themeStr)
-        int numAreas = roll(dsize.areaLimitStr)
+        int numThemes = dsize.theme
+        int numAreas = dsize.areaLimit
 
         def countdowns = []
         numThemes.times{
@@ -158,14 +158,14 @@ class PwDungeon extends AbstractGenerator{
         return """\
 ${strong('Dungeon')}
 <br/>
-<br/>${ss('Size:')} ${dsizeStr} &nbsp;&nbsp;&nbsp;&nbsp;${ss('Area Limit:')} ${numAreas}
-<br/>${ss('Builder:')} ${ -> pick(foundation_builder)}
-<br/>${ss('Function:')} ${ -> pick(foundation_function)}
+<br/>${ss('Size:')} ${dsizeStr} &nbsp;&nbsp;&nbsp;&nbsp;${ss('Area Limit:')} ${numAreas} <small>[${dsize.areaLimitStr}]</small>
+<br/>${ss('Builder:')} ${pick(foundation_builder)}
+<br/>${ss('Function:')} ${pick(foundation_function)}
 <br/>
-<br/>${ss('Ruination:')} ${ -> pick(dungeon_ruination)}
+<br/>${ss('Ruination:')} ${pick(dungeon_ruination)}
 <br/>
-<br/>${strong('Themes:')}
-<br/>&nbsp;&nbsp;${ -> pickN(theme, numThemes).collect{ it.toString() + ': &nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
+<br/>${strong('Themes:')} <small>[${dsize.theme} or ${dsize.themeStr}]</small>
+<br/>&nbsp;&nbsp;${pickN(theme, numThemes).collect{ it.toString() + ': &nbsp;' + countdownsStr}.join("<br/>&nbsp;&nbsp;")}\
 """
     }
 }
