@@ -39,12 +39,6 @@ class PwDiscovery extends AbstractGenerator {
         this
     }
 
-
-    @Override
-    String generate() {
-        pick(discovery)
-    }
-
     RangeMap arcane = new RangeMap()
             .with(1..2, 'residue')
             .with(3..5, 'blight')
@@ -62,25 +56,6 @@ class PwDiscovery extends AbstractGenerator {
             .with(7..9, 'hallowed place')
             .with(10..11, 'watched place')
             .with(12, 'presence')
-    RangeMap unnaturalFeature = new RangeMap()
-            .with(1..9, """\
-${strong('Arcane')}
-<br/>${ -> pick(arcane)}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>${ss('Magic Type:')} ${ -> pwDetails.pickMagicType()}\
-""")
-            .with(10..11, """\
-${strong('Planar')}
-<br/>${ -> pick(planar)}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>${ss('Element:')} ${ -> pwDetails.pickElement()}\
-""")
-            .with(12, """\
-${strong('Divine')}
-<br/>${ -> pick(divine)}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>${ss('Aspect:')} ${ -> pwDetails.pickAspect()}\
-""")
     RangeMap lair = new RangeMap()
             .with(1..3, 'burrow')
             .with(4..7, 'cave/tunnels')
@@ -116,35 +91,6 @@ ${strong('Divine')}
             .with(7..9, 'timber/stone')
             .with(10..11, 'ore (copper, iron, etc.)')
             .with(12, 'precious metal/gems')
-    RangeMap naturalFeature = new RangeMap()
-            .with(1..2, """\
-${strong('Lair')}
-<br/>${ -> pick(lair)}
-<br/>${ss('Creature responsible:')} ${ -> pick(pwCreature.creature_no_tags)}
-<br/>${ss('Visibility:')} ${ -> pwDetails.pickVisibility()}\
-""")
-            .with(3..4, """\
-${strong('Obstacle')}
-<br/>${ -> pick(obstacle)}\
-""")
-            .with(5..7, """\
-${strong('Terrain Change')}
-<br/>${ -> pick(terrain_change)}\
-""")
-            .with(8..9, """\
-${strong('Water Feature')}
-<br/>${ -> pick(water_feature)}\
-""")
-            .with(10..11, """\
-${strong('Landmark')}
-<br/>${ -> pick(landmark)}\
-""")
-            .with(12, """\
-${strong('Resource')}
-<br/>${ -> pick(resource)}
-<br/>${ss('Size:')} ${-> pwDetails.pickSize()}
-<br/>${ss('Visibility:')} ${-> pwDetails.pickVisibility()}\
-""")
     RangeMap tracks_spoor = new RangeMap()
             .with(1..3, 'faint/unclear')
             .with(4..6, 'definite/clear')
@@ -164,23 +110,6 @@ ${strong('Resource')}
             .with(6..7, 'map')
             .with(8..9, 'food/supplies')
             .with(10..12, 'treasure (see TREASURE)')
-    RangeMap evidence = new RangeMap()
-            .with(1..6, """\
-${strong('Tracks/Spoor')}
-<br/>${ -> pick(tracks_spoor)}
-<br/>${ss('Age:')} ${-> pwDetails.pickAge()}
-<br/>${ss('Creature responsible:')} ${-> pick(pwCreature.creature_no_tags)}\
-""")
-            .with(7..10,  """\
-${strong('Remains/Debris')}
-<br/>${ -> pick(remains_debris)}
-<br/>${ss('Age:')} ${-> pwDetails.pickAge()}
-<br/>${ss('Visibility:')} ${-> pwDetails.pickVisibility()}\
-""")
-            .with(11..12, """\
-${strong('Stash/Cache')}
-<br/>${ -> pick(stash_cache)}
-""")
     RangeMap enigmatic = new RangeMap()
             .with(1..4, 'earthworks')
             .with(5..8, 'megalith')
@@ -205,71 +134,148 @@ ${strong('Stash/Cache')}
             .with(7..9, 'shrine')
             .with(10..11, 'temple/retreat')
             .with(12, 'great temple')
-    RangeMap ruin = new RangeMap()
-            .with(1..2, "${ -> pick('1d6+6', infrastructure)}")
-            .with(3..4, "${ -> pick('1d8+4', dwelling)}")
-            .with(5..6, "${ -> pick('1d8+4', burial_religious)}")
-            .with(7..8, "${ -> pwSteading.generate('1d10+2')}")
-            .with(9..12, '(roll DUNGEON)')
-    RangeMap structure = new RangeMap()
-            .with(1, """\
-${strong('Enigmatic')}
-<br/>${ -> pick(enigmatic)}
-<br/>${ss('Age:')} ${-> pwDetails.pickAge('1d8+4')}
-<br/>${ss('Size:')} ${-> pwDetails.pickSize('1d8+4')}
+
+    @Override
+    String generate() {
+
+        RangeMap unnaturalFeature = new RangeMap()
+                .with(1..9, """\
+${strong('Arcane')}
+<br/>${pick(arcane)}
+<br/>${ss('Alignment:')} ${pwDetails.pickAlignment()}
+<br/>${ss('Magic Type:')} ${pwDetails.pickMagicType()}\
+""")
+                .with(10..11, """\
+${strong('Planar')}
+<br/>${pick(planar)}
+<br/>${ss('Alignment:')} ${pwDetails.pickAlignment()}
+<br/>${ss('Element:')} ${pwDetails.pickElement()}\
+""")
+                .with(12, """\
+${strong('Divine')}
+<br/>${pick(divine)}
+<br/>${ss('Alignment:')} ${pwDetails.pickAlignment()}
+<br/>${ss('Aspect:')} ${pwDetails.pickAspect()}\
+""")
+
+        RangeMap naturalFeature = new RangeMap()
+                .with(1..2, """\
+${strong('Lair')}
+<br/>${pick(lair)}
+<br/>${ss('Creature responsible:')} ${pick(pwCreature.creature_no_tags)}
+<br/>${ss('Visibility:')} ${pwDetails.pickVisibility()}\
+""")
+                .with(3..4, """\
+${strong('Obstacle')}
+<br/>${pick(obstacle)}\
+""")
+                .with(5..7, """\
+${strong('Terrain Change')}
+<br/>${pick(terrain_change)}\
+""")
+                .with(8..9, """\
+${strong('Water Feature')}
+<br/>${pick(water_feature)}\
+""")
+                .with(10..11, """\
+${strong('Landmark')}
+<br/>${pick(landmark)}\
+""")
+                .with(12, """\
+${strong('Resource')}
+<br/>${pick(resource)}
+<br/>${ss('Size:')} ${-> pwDetails.pickSize()}
 <br/>${ss('Visibility:')} ${-> pwDetails.pickVisibility()}\
 """)
-            .with(2..3, """\
+
+        RangeMap evidence = new RangeMap()
+                .with(1..6, """\
+${strong('Tracks/Spoor')}
+<br/>${pick(tracks_spoor)}
+<br/>${ss('Age:')} ${-> pwDetails.pickAge()}
+<br/>${ss('Creature responsible:')} ${-> pick(pwCreature.creature_no_tags)}\
+""")
+                .with(7..10,  """\
+${strong('Remains/Debris')}
+<br/>${pick(remains_debris)}
+<br/>${ss('Age:')} ${-> pwDetails.pickAge()}
+<br/>${ss('Visibility:')} ${-> pwDetails.pickVisibility()}\
+""")
+                .with(11..12, """\
+${strong('Stash/Cache')}
+<br/>${pick(stash_cache)}
+""")
+
+        RangeMap ruin = new RangeMap()
+                .with(1..2, "${pick('1d6+6', infrastructure)}")
+                .with(3..4, "${pick('1d8+4', dwelling)}")
+                .with(5..6, "${pick('1d8+4', burial_religious)}")
+                .with(7..8, "${pwSteading.generate('1d10+2')}")
+                .with(9..12, '(roll DUNGEON)')
+
+
+        RangeMap structure = new RangeMap()
+                .with(1, """\
+${strong('Enigmatic')}
+<br/>${pick(enigmatic)}
+<br/>${ss('Age:')} ${pwDetails.pickAge('1d8+4')}
+<br/>${ss('Size:')} ${pwDetails.pickSize('1d8+4')}
+<br/>${ss('Visibility:')} ${pwDetails.pickVisibility()}\
+""")
+                .with(2..3, """\
 ${strong('Infrastructure')}
-<br/>${ -> pick(infrastructure)}
-<br/>${ss('Creature responsible:')} ${-> pick('1d4+4', pwCreature.creature_no_tags)}\
+<br/>${pick(infrastructure)}
+<br/>${ss('Creature responsible:')} ${pick('1d4+4', pwCreature.creature_no_tags)}\
 """)
-            .with(4, """\
+                .with(4, """\
 ${strong('Dwelling')}
-<br/>${ -> pick(dwelling)}
+<br/>${pick(dwelling)}
 <br/>${ss('Creature responsible:')} ${-> pick('1d4+4', pwCreature.creature_no_tags)}\
 """)
-            .with(5..6, """\
+                .with(5..6, """\
 ${strong('Burial/Religious')}
-<br/>${ -> pick(dwelling)}
+<br/>${pick(dwelling)}
 <br/>${ss('Creature responsible:')} ${-> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${ss('Alignment:')} ${-> pwDetails.pickAlignment()}
 <br/>${ss('Aspect:')} ${-> pwDetails.pickAspect()}\
 """)
-            .with(7..8, "${ -> pwSteading.generate()}")
-            .with(9..12, """\
+                .with(7..8, "${pwSteading.generate()}")
+                .with(9..12, """\
 ${strong('Ruin')}
-<br/>${ -> pick(ruin)}
+<br/>${pick(ruin)}
 <br/>${ss('Creature responsible:')} ${-> pick('1d4+4', pwCreature.creature_no_tags)}
 <br/>${ss('Age:')} ${-> pwDetails.pickAge('1d8+4')}
 <br/>${ss('Ruination:')} ${-> pwDetails.pickRuination()}
 <br/>${ss('Visibility:')} ${-> pwDetails.pickVisibility()}\
 """)
-    RangeMap discovery = new RangeMap()
-            .with(1, """\
-${strong('Unnatural Feature')} -- ${small('How does it affect its surroundings?')}
-<br/>
-<br/>${ -> pick(unnaturalFeature)}\
-""")
-            .with(2..4, """\
-${strong('Natural Feature')} -- ${small('Describe how they notice it and what sets it apart.')}
-<br/>
-<br/>${ -> pick(naturalFeature)}\
-""")
-            .with(5..6, """\
-${strong('Evidence')} -- ${small('Consider the implications and be ready for them to take the bait.')}
-<br/>
-<br/>${ -> pick(evidence)}\
-""")
-            .with(7..8, """\
-${strong('Creature')} -- ${small('Not an immediate threat, but might become one.')}
-<br/>
-<br/>${ -> pwCreature.generate()}\
-""")
-            .with(9..12, """\
-${strong('Structure')} -- ${small('Who built it? Is it connected to anything else they made nearby?')}
-<br/>
-<br/>${ -> pick(structure)}\
-""")
 
+            RangeMap discovery = new RangeMap()
+                    .with(1, """\
+        ${strong('Unnatural Feature')} -- ${small('How does it affect its surroundings?')}
+        <br/>
+        <br/>${pick(unnaturalFeature)}\
+        """)
+                    .with(2..4, """\
+        ${strong('Natural Feature')} -- ${small('Describe how they notice it and what sets it apart.')}
+        <br/>
+        <br/>${pick(naturalFeature)}\
+        """)
+                    .with(5..6, """\
+        ${strong('Evidence')} -- ${small('Consider the implications and be ready for them to take the bait.')}
+        <br/>
+        <br/>${pick(evidence)}\
+        """)
+                    .with(7..8, """\
+        ${strong('Creature')} -- ${small('Not an immediate threat, but might become one.')}
+        <br/>
+        <br/>${pwCreature.generate()}\
+        """)
+                    .with(9..12, """\
+        ${strong('Structure')} -- ${small('Who built it? Is it connected to anything else they made nearby?')}
+        <br/>
+        <br/>${pick(structure)}\
+        """)
+
+        pick(discovery)
+    }
 }
