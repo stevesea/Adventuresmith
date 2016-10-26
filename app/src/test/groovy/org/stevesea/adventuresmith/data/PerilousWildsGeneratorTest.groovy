@@ -214,14 +214,14 @@ A few coins, 2d8 or so
         assertEquals("""\
 <strong>Dungeon</strong>
 <br/>
-<br/><strong><small>Size:</small></strong> Small &nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Area Limit:</small></strong> 3
+<br/><strong><small>Size:</small></strong> Small &nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Area Limit:</small></strong> 6 <small>[1d6+2]</small>
 <br/><strong><small>Builder:</small></strong> aliens/precursors
 <br/><strong><small>Function:</small></strong> source/portal
 <br/>
 <br/><strong><small>Ruination:</small></strong> arcane disaster
 <br/>
-<br/><strong>Themes:</strong>
-<br/>&nbsp;&nbsp;rot/decay: &nbsp;O""", new PwDungeon().withShuffler(shuffler).generate())
+<br/><strong>Themes:</strong> <small>[2 or 1d4]</small>
+<br/>&nbsp;&nbsp;rot/decay: &nbsp;O&nbsp;O<br/>&nbsp;&nbsp;rot/decay: &nbsp;O&nbsp;O""", new PwDungeon().withShuffler(shuffler).generate())
     }
 
     @Test

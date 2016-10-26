@@ -31,25 +31,25 @@ class PwCreature extends AbstractGenerator {
             'beast' : new PwCreature() {
                 @Override
                 String generate() {
-                    getCreature().get(1)
+                    getCreature(1)
                 }
             },
             'human' : new PwCreature() {
                 @Override
                 String generate() {
-                    getCreature().get(5)
+                    getCreature(5)
                 }
             },
             'humanoid' : new PwCreature() {
                 @Override
                 String generate() {
-                    getCreature().get(7)
+                    getCreature(7)
                 }
             },
             'monster' : new PwCreature() {
                 @Override
                 String generate() {
-                    getCreature().get(9)
+                    getCreature(9)
                 }
             },
             ]
@@ -185,64 +185,71 @@ ${ss('Divine:')} ${ -> pick(pwDetails.divine)}
             .with(7..8, "${ -> pick(humanoid)}")
             .with(9..12, "${ -> pick(monster)}")
 
-    RangeMap creature = new RangeMap()
-            .with(1..4, """\
-${strong('Beast')} -- ${small('Start with a real-world creature, then put a spin on it.')}
-<br/>
-<br/>${ -> pick(beast)}
-<br/>
-<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
-<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
-<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-<br/>${ss('Size:')} ${ -> pwDetails.pickSize()}\
-""")
-            .with(5..6, """\
-${strong('Human')}
-<br/>
-<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
-<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-<br/>
-<br/>${ss('Occupation:')} ${ -> pick(pwNPC.occupation)}
-<br/>${ -> pwNPC.genSingleTrait()}\
-""")
-            .with(7..8, """\
-${strong('Humanoid')} -- ${small('If you roll a classic fantasy species, adapt it to your setting')}
-<br/>
-<br/>${ -> pick(humanoid)}
-<br/>
-<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}
-<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
-<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-<br/>
-<br/>${ss('Occupation:')} ${ -> pick(pwNPC.occupation)}
-<br/>${ss('Trait:')} ${ -> pwNPC.genSingleTrait()}\
-""")
-            .with(9..12, """\
-${strong('Monster')} -- ${small('Give every monster life!')}
-<br/>
-<br/>${ -> pick(monster)}
-<br/>
-<br/>${ss('Activity:')} ${ -> pwDetails.pickActivity()}
-<br/>${ss('Alignment:')} ${ -> pwDetails.pickAlignment()}&nbsp;&nbsp;${ss('Size:')} ${ -> pwDetails.pickSize()}
-<br/>${ss('Disposition:')} ${ -> pwDetails.pickDisposition()}
-<br/>${ss('No. Appearing:')} ${ -> pwDetails.pickNumberAppearing()}
-<br/>
-<br/>${strong('Optional:')}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${ -> pwDetails.pickAbility()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${ -> pwDetails.pickAdjective()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${ -> pwDetails.pickAge()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${ -> pwDetails.pickAspect()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Condition:')} ${ -> pwDetails.pickCondition()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Feature:')} ${ -> pwDetails.pickFeature()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${ -> pwDetails.pickOddity()}
-<br/>&nbsp;&nbsp;&nbsp;${ssem('Tags:')} ${ -> pwDetails.pickTag()}\
-""")
 
     @Override
     String generate() {
-        pick(creature)
+        getCreature(roll('1d12'))
     }
+
+    String getCreature(int roll) {
+
+        RangeMap creature = new RangeMap()
+                .with(1..4, """\
+${strong('Beast')} -- ${small('Start with a real-world creature, then put a spin on it.')}
+<br/>
+<br/>${pick(beast)}
+<br/>
+<br/>${ss('Activity:')} ${pwDetails.pickActivity()}
+<br/>${ss('Disposition:')} ${pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${pwDetails.pickNumberAppearing()}
+<br/>${ss('Size:')} ${pwDetails.pickSize()}\
+""")
+                .with(5..6, """\
+${strong('Human')}
+<br/>
+<br/>${ss('Activity:')} ${pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${pwDetails.pickAlignment()}
+<br/>${ss('Disposition:')} ${pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${pwDetails.pickNumberAppearing()}
+<br/>
+<br/>${ss('Occupation:')} ${pick(pwNPC.occupation)}
+<br/>${pwNPC.genSingleTrait()}\
+""")
+                .with(7..8, """\
+${strong('Humanoid')} -- ${small('If you roll a classic fantasy species, adapt it to your setting')}
+<br/>
+<br/>${pick(humanoid)}
+<br/>
+<br/>${ss('Activity:')} ${pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${pwDetails.pickAlignment()}
+<br/>${ss('Disposition:')} ${pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${pwDetails.pickNumberAppearing()}
+<br/>
+<br/>${ss('Occupation:')} ${pick(pwNPC.occupation)}
+<br/>${pwNPC.genSingleTrait()}\
+""")
+                .with(9..12, """\
+${strong('Monster')} -- ${small('Give every monster life!')}
+<br/>
+<br/>${pick(monster)}
+<br/>
+<br/>${ss('Activity:')} ${pwDetails.pickActivity()}
+<br/>${ss('Alignment:')} ${pwDetails.pickAlignment()}&nbsp;&nbsp;${ss('Size:')} ${pwDetails.pickSize()}
+<br/>${ss('Disposition:')} ${pwDetails.pickDisposition()}
+<br/>${ss('No. Appearing:')} ${pwDetails.pickNumberAppearing()}
+<br/>
+<br/>${strong('Optional:')}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Ability:')} ${pwDetails.pickAbility()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Adjective:')} ${pwDetails.pickAdjective()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Age:')} ${pwDetails.pickAge()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Aspect:')} ${pwDetails.pickAspect()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Condition:')} ${pwDetails.pickCondition()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Feature:')} ${pwDetails.pickFeature()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Oddity:')} ${pwDetails.pickOddity()}
+<br/>&nbsp;&nbsp;&nbsp;${ssem('Tags:')} ${pwDetails.pickTag()}\
+""")
+        creature.get(roll)
+    }
+
+
 }

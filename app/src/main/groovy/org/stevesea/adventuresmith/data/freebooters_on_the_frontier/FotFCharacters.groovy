@@ -793,7 +793,7 @@ ${ss('Virtues:')} ${ -> pickN(FotFTraits.virtues, 3).join(', ')}
         def alignment = pick(alignments.get(playbook))
 
         """\
-<strong>${playbook}</strong> - ${pick(names.get(heritage).get(gender))} ${if (playbook == 'Magic-User') '(Wizname: ' + pick(FotFSpells.name_1stparts) + pick(FotFSpells.name_2ndparts) + ')' else ''}
+<strong>${playbook}</strong> - ${pick(names.get(heritage).get(gender))}${if (playbook == 'Magic-User') '(Wizname: ' + pick(FotFSpells.name_1stparts) + pick(FotFSpells.name_2ndparts) + ')' else ''}
 <br/>${heritage}  ${gender} (${alignment})
 <br/>
 <br/>${ss('Strength:')} ${roll('3d6')}&nbsp;&nbsp;${ss('Dexterity:')} ${roll('3d6')}
@@ -807,7 +807,7 @@ ${ss('Virtues:')} ${ -> pickN(FotFTraits.virtues, 3).join(', ')}
 <br/>
 <br/>${ss('Gear:')}
 <br/>&nbsp;&nbsp;${pick(gear1.get(playbook))}
-<br/>&nbsp;&nbsp;${pick(gear2.get(playbook))}
+<br/>&nbsp;&nbsp;${pick(gear2.get(playbook))}\
 """
     }
 

@@ -249,32 +249,32 @@ ${strong('Ruin')}
 <br/>${ss('Visibility:')} ${-> pwDetails.pickVisibility()}\
 """)
 
-            RangeMap discovery = new RangeMap()
-                    .with(1, """\
-        ${strong('Unnatural Feature')} -- ${small('How does it affect its surroundings?')}
-        <br/>
-        <br/>${pick(unnaturalFeature)}\
-        """)
-                    .with(2..4, """\
-        ${strong('Natural Feature')} -- ${small('Describe how they notice it and what sets it apart.')}
-        <br/>
-        <br/>${pick(naturalFeature)}\
-        """)
-                    .with(5..6, """\
-        ${strong('Evidence')} -- ${small('Consider the implications and be ready for them to take the bait.')}
-        <br/>
-        <br/>${pick(evidence)}\
-        """)
-                    .with(7..8, """\
-        ${strong('Creature')} -- ${small('Not an immediate threat, but might become one.')}
-        <br/>
-        <br/>${pwCreature.generate()}\
-        """)
-                    .with(9..12, """\
-        ${strong('Structure')} -- ${small('Who built it? Is it connected to anything else they made nearby?')}
-        <br/>
-        <br/>${pick(structure)}\
-        """)
+    RangeMap discovery = new RangeMap()
+            .with(1, """\
+${strong('Unnatural Feature')} -- ${small('How does it affect its surroundings?')}
+<br/>
+<br/>${pick(unnaturalFeature)}\
+""")
+            .with(2..4, """\
+${strong('Natural Feature')} -- ${small('Describe how they notice it and what sets it apart.')}
+<br/>
+<br/>${pick(naturalFeature)}\
+""")
+            .with(5..6, """\
+${strong('Evidence')} -- ${small('Consider the implications and be ready for them to take the bait.')}
+<br/>
+<br/>${pick(evidence)}\
+""")
+            .with(7..8, """\
+${strong('Creature')} -- ${small('Not an immediate threat, but might become one.')}
+<br/>
+<br/>${pwCreature.generate()}\
+""")
+            .with(9..12, """\
+${strong('Structure')} -- ${small('Who built it? Is it connected to anything else they made nearby?')}
+<br/>
+<br/>${pick(structure)}\
+""")
 
         pick(discovery)
     }

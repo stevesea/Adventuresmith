@@ -25,8 +25,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
+import org.stevesea.adventuresmith.data.freebooters_on_the_frontier.FotFCharacters
 import org.stevesea.adventuresmith.data.freebooters_on_the_frontier.FotFSpells
-import org.stevesea.adventuresmith.data.freebooters_on_the_frontier.FotFTraits
 
 import static org.junit.Assert.assertEquals
 import static org.mockito.Matchers.any
@@ -54,9 +54,22 @@ class FotFGeneratorTest {
         assertEquals("Acid Armor", new FotFSpells().withShuffler(shuffler).generate())
 
         assertEquals("""\
-<strong>Virtue:</strong> Ambitious
+<strong>Fighter</strong> - Athelan
+<br/>Human  male (Evil)
 <br/>
-<br/><strong>Vice:</strong> Addict\
-""", new FotFTraits().withShuffler(shuffler).generate())
+<br/><strong><small>Strength:</small></strong> 3&nbsp;&nbsp;<strong><small>Dexterity:</small></strong> 3
+<br/><strong><small>Charisma:</small></strong> 3&nbsp;&nbsp;<strong><small>Constitution:</small></strong> 3
+<br/><strong><small>Wisdom:</small></strong> 3&nbsp;&nbsp;&nbsp;<strong><small>Intelligence:</small></strong> 3
+<br/><strong><small>Luck:</small></strong> 3
+<br/>
+<br/><strong><small>Appearance:</small></strong> big mouth, big mustache
+<br/>
+<br/><strong><small>Vices:</small></strong> Aggressive, Alcoholic, Antagonistic
+
+<br/>
+<br/><strong><small>Gear:</small></strong>
+<br/>&nbsp;&nbsp;Leather armor
+<br/>&nbsp;&nbsp;Healing potion\
+""", new FotFCharacters().withShuffler(shuffler).generate())
     }
 }
