@@ -403,8 +403,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         }
     }
 
-
-
     @Override
     public void itemsFiltered() {
         //Toast.makeText(this, "filtered items count: " + resultAdapter.getItemCount(), Toast.LENGTH_SHORT).show();

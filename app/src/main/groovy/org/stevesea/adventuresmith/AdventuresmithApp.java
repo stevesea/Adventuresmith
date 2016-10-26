@@ -20,6 +20,8 @@
 package org.stevesea.adventuresmith;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
@@ -37,14 +39,19 @@ public class AdventuresmithApp extends Application {
             return;
         }
         LeakCanary.install(this);
-        //Stetho.initializeWithDefaults(this);
-        // Set up Crashlytics, disabled for debug builds
+
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
-                .core(new CrashlyticsCore.Builder()/*.disabled(BuildConfig.DEBUG)*/.build())
+                .core(new CrashlyticsCore.Builder().build())
                 .build();
         Fabric.with(this, crashlyticsKit);
 
         initButtons();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public void initButtons() {
