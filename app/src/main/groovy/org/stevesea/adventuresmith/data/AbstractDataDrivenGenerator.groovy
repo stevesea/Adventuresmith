@@ -30,6 +30,11 @@ import java.nio.charset.StandardCharsets
 
 @CompileStatic
 abstract class AbstractDataDrivenGenerator extends AbstractGenerator {
+
+    //def static cache = { @RawRes id ->
+    //}.memoizeAtMost(15)
+
+
     Charset charset = StandardCharsets.UTF_8
     JsonSlurper slurper = new JsonSlurper()
     Context context

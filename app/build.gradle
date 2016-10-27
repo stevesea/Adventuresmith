@@ -166,6 +166,9 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    testCompile "org.robolectric:robolectric:3.0"
+    testCompile "org.robolectric:shadows-multidex:3.0"
 }
 
 // APT doesn't know to make these directories for tests. Force them to
