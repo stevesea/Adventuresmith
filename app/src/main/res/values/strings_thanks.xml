@@ -51,8 +51,13 @@
     <string name="content_artwork"><![CDATA[
         <h1>Attribution - Artwork</h1>
 
-        <h5>Brian Christensen</h5>
-        <p>Application launch icon, splash screen logo, and nav-drawer-header logo were created by Brian Christensen. License TBD</p>
+        <h5>Adventuresmith Art</h5>
+        <p>Application launch icon, splash screen logo, and nav-drawer-header logo were created by Brian Todd Christensen.
+        <br/>
+        <br/>Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License, available at http://creativecommons.org/licenses/by-sa/4.0
+        <br/>
+        <br/>Based on work at https://stevesea.github.io/Adventuresmith/
+        <br/>Permissions beyond the scope of this license may be available at http://briantchristensen.com/Adventuresmith</p>
         <h5>Icons</h5>
         <p>This application uses icons from https://materialdesignicons.com/</p>
         <p>This application uses icons from http://ionicons.com/</p>
@@ -80,8 +85,8 @@
     <h3>Adventuresmith</h3>
     <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
     <p>If you find bugs, have suggestions, or want to help develop it, go to https://github.com/stevesea/Adventuresmith</p>
-    <h3>Thirdparty software</h3>
-
+    <h3>Thirdparty software libraries</h3>
+    <p>Adventuresmith makes use of the following software libraries</p>
 <p>MaterialDrawer https://github.com/mikepenz/MaterialDrawer</p>
 <p>FastAdapter https://github.com/mikepenz/fastadapter</p>
 <p>Android-Iconics https://github.com/mikepenz/Android-Iconics</p>
