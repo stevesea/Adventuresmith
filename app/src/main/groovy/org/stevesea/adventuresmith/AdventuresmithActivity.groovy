@@ -50,7 +50,6 @@ import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
-import groovy.json.JsonSlurper
 import groovy.transform.CompileStatic
 
 import java.util.concurrent.atomic.AtomicLong
@@ -199,8 +198,8 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
         // http://stackoverflow.com/questions/28960898/getting-context-in-androidtestcase-or-instrumentationtestcase-in-android-studio
         // http://wiebe-elsinga.com/blog/whats-new-in-android-testing/
         // https://developer.android.com/training/testing/unit-testing/local-unit-tests.html
-        def slurper = new JsonSlurper()
-        def result = slurper.parse(getResources().openRawResource(R.raw.fotf))
+        //def slurper = new JsonSlurper()
+        //def result = slurper.parse(getResources().openRawResource(R.raw.fotf))
 
 
         resultAdapter.getItemAdapter().withItemFilterListener(this);
