@@ -1,0 +1,89 @@
+---
+name: Artifact
+input:
+  origins:
+    Holy:
+    - It's been lost for centuries.
+    - It once belonged to a dark god.
+    - It was made for a holy quest.
+    - It's faithful to you and your cause.
+    - You must prove yourself to it.
+    - They want it back.
+    Magic:
+    - It's covered in mysterious runes.
+    - It's powered by a trapped soul.
+    - You must speak the proper words.
+    - It's charges are running low.
+    - It's a piece of something bigger.
+    - The focus crystal needs replacing.
+    Masterwork:
+    - It was forged by dwarven blacksmiths.
+    - Elven weavers put years into its making.
+    - No demon lord fights without one.
+    - It's infused with a drop of dragon blood.
+    - It's in mint condition.
+    - It's the best a human could do.
+    Natural:
+    - It breathes and pulses in your hand.
+    - It requires sustenance.
+    - It bonds to your flesh.
+    - It's starting its metamorphosis.
+    - It glows in the dark.
+    - It followed you home.
+    Otherworldly:
+    - It's decidedly non-euclidean.
+    - It's silicon-based life.
+    - It hurts to look at it.
+    - It's goopy.
+    - It's bigger on the inside.
+    - It's made from meteoric iron.
+    Technological:
+    - Its gears click and whiz.
+    - It jams at the worst times.
+    - Sparks fly in all directions.
+    - It's a one-of-a-kind prototype.
+    - It leaks acid all over you.
+    - It needs reloading after every use.
+  powers:
+    Blessing:
+    - You see visions of the future.
+    - You move unseen.
+    - You've had fantastic luck lately.
+    - You sense lies and deception.
+    - Disease cannot touch you.
+    - Dark entities fear you.
+    Curse:
+    - You're plagued by terrible nightmares.
+    - You've been polymorphed.
+    - Your thoughts are not your own.
+    - You've lost your voice.
+    - You're aging rapidly.
+    - The stink just won't wash off.
+    Enhancement:
+    - You have the might of the giants.
+    - You're as agile as the wind.
+    - You feel healthier than ever.
+    - Your mind is filled with knowledge.
+    - Your senses are heightened.
+    - Your charm is irresistible.
+    Force:
+    - It shoots gouts of flame.
+    - You shock your foes with lightning.
+    - The wind obeys your call.
+    - Thunderous sound blasts your enemies.
+    - You control illusory phantasms.
+    - You freeze your target in place.
+    Protection:
+    - You are immune to the elements.
+    - You skin is as hard as stone.
+    - It cloaks you in shadow.
+    - It fights at your side.
+    - You're as steady as a mountain.
+    - It heals your wounds.
+    Utility:
+    - It provides a brilliant light.
+    - You can command simple beasts.
+    - You breathe water as if it were air.
+    - You can teleport short distances.
+    - You understand foreign languages.
+    - You see and hear over vast distances.

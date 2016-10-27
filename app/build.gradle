@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
@@ -141,8 +142,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile "junit:junit:$junitVersion"
-    testCompile 'org.mockito:mockito-core:1.10.19'
 
     compile 'com.samskivert:jmustache:1.13'
 
@@ -161,9 +160,9 @@ dependencies {
     compile 'com.mikepenz:community-material-typeface:1.5.54.2@aar'
     compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
 
+    // note: this brings in fastadapter
     compile('com.mikepenz:materialdrawer:5.6.0@aar') {
         transitive = true
-        // note: this brings in fastadapter
     }
     compile "com.mikepenz:materialize:1.0.0@aar"
 
@@ -171,8 +170,11 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
-    testCompile "org.robolectric:robolectric:3.0"
-    testCompile "org.robolectric:shadows-multidex:3.0"
+    testCompile "junit:junit:$junitVersion"
+    testCompile 'org.mockito:mockito-core:1.10.19'
+    testCompile "org.robolectric:robolectric:$robolectric_version"
+    testCompile "org.robolectric:shadows-multidex:$robolectric_version"
+    //testCompile "org.robolectric:shadows-support-v4:3.0"
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
