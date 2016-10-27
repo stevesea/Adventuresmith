@@ -3,6 +3,7 @@ apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
 apply plugin: 'io.fabric'
+//apply plugin: 'easyrelease'
 
 apply from: "$rootDir/gradle/signing.gradle"
 
