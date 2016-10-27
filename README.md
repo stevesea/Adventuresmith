@@ -87,13 +87,13 @@ http://www.sinenomine-pub.com/
 TODO: enter attribution for public domain images
 
 ## Software
+
+### License
+Adventuresmith source code is licensed under [GNU General Public License, version 3 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0).
+
+### 3rd party Software Libraries
 * MaterialDrawer https://github.com/mikepenz/MaterialDrawer
 * FastAdapter https://github.com/mikepenz/fastadapter
 * AndroidIconics https://github.com/mikepenz/Android-Iconics
 * Crashlytics/Answers/Beta - https://fabric.io
 * LeakCanary https://github.com/square/leakcanary
-
-
-## License
-This project is licensed under [GNU General Public License, version 3 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0).
-
