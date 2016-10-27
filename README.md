@@ -61,6 +61,24 @@ https://github.com/orffen/swn/
 
 # Attribution
 
+## Artwork
+
+### Adventuresmith Art
+Application launch icon, splash screen logo, and nav-drawer-header logo were created by Brian Todd Christensen.
+
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License, available at http://creativecommons.org/licenses/by-sa/4.0
+Based on work at https://stevesea.github.io/Adventuresmith/
+Permissions beyond the scope of this license may be available at http://briantchristensen.com/Adventuresmith
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Adventuresmith Art</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="briantchristensen.com/Adventuresmith" property="cc:attributionName" rel="cc:attributionURL">Brian Todd Christensen</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://stevesea.github.io/Adventuresmith/" rel="dct:source">https://stevesea.github.io/Adventuresmith/</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="briantchristensen.com/Adventuresmith" rel="cc:morePermissions">briantchristensen.com/Adventuresmith</a>
+
+### Icons
+* This application uses icons from https://materialdesignicons.com/
+* This application uses icons from http://ionicons.com/
+
+### Public Domain
+TODO: enter attribution for public domain images
+
 ## Content
 Adventuresmith uses content from the following sources:
 
@@ -79,12 +97,6 @@ http://www.sinenomine-pub.com/
 ### Mike Riverso
 * the Fourth Page generators for World of Dungeons. Licensed under the Creative Commons Attribute 3.0 Unported License. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
 
-## Artwork
-* launch icon, application logo created by Brian Christensen. License TBD
-* This application uses icons from https://materialdesignicons.com/
-* This application uses icons from http://ionicons.com/
-
-TODO: enter attribution for public domain images
 
 ## Software
 
