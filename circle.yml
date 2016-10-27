@@ -34,7 +34,7 @@ dependencies:
 # TODO: https://github.com/circleci/EspressoSample/blob/master/circle.yml
 test:
     override:
-        - (./gradlew test -PdisablePreDex):
+        - (./gradlew testDevDebugUnitTest -PdisablePreDex):
             timeout: 1200
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
