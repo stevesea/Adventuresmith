@@ -55,17 +55,17 @@
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="true"
                 >
-                    <TextView
-                        android:id="@+id/attribution_txt_content"
-                        android:text="Content!"
-                        android:paddingBottom="8dp"
-                        android:paddingTop="8dp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
-                        android:textSize="@dimen/resultListFontSize"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autoLink="web"/>
+                <TextView
+                    android:id="@+id/attribution_txt_artwork"
+                    android:text="Artwork!"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:textSize="@dimen/resultListFontSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"/>
 
             </android.support.v7.widget.CardView>
 
@@ -78,17 +78,17 @@
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="true"
                 >
-                <TextView
-                    android:id="@+id/attribution_txt_artwork"
-                    android:text="Artwork!"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:textSize="@dimen/resultListFontSize"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="web"/>
+                    <TextView
+                        android:id="@+id/attribution_txt_content"
+                        android:text="Content!"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:textSize="@dimen/resultListFontSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"/>
 
             </android.support.v7.widget.CardView>
 
