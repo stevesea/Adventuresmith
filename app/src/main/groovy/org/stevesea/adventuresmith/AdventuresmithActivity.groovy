@@ -194,14 +194,6 @@ public class AdventuresmithActivity extends AppCompatActivity implements ItemAda
             }
         } as IItemAdapter.Predicate<ResultAdapterItem>);
 
-
-        // http://stackoverflow.com/questions/28960898/getting-context-in-androidtestcase-or-instrumentationtestcase-in-android-studio
-        // http://wiebe-elsinga.com/blog/whats-new-in-android-testing/
-        // https://developer.android.com/training/testing/unit-testing/local-unit-tests.html
-        //def slurper = new JsonSlurper()
-        //def result = slurper.parse(getResources().openRawResource(R.raw.fotf))
-
-
         resultAdapter.getItemAdapter().withItemFilterListener(this);
 
         GridLayoutManager resultsGridLayoutMgr = new GridLayoutManager(this, getResources().getInteger(R.integer.resultCols))
