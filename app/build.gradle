@@ -83,10 +83,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-    dexOptions {
-       javaMaxHeapSize '2G'
-    }
-
     lintOptions {
         textReport true
         textOutput 'stdout'
