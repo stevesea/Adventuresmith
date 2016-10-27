@@ -82,6 +82,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
+    dexOptions {
+       javaMaxHeapSize '2G'
+    }
+
     lintOptions {
         textReport true
         textOutput 'stdout'
@@ -92,6 +96,8 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/services/org.codehaus.groovy.runtime.ExtensionModule'
         exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
+        exclude 'META-INF/groovy-release-info.properties'
+        exclude 'META-INF/LICENSE'
     }
 }
 
@@ -125,6 +131,10 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
 
     compile "org.codehaus.groovy:groovy:$groovyVersion:grooid"
+    // the following dependency is necessary if you want JSON support
+    compile ("org.codehaus.groovy:groovy-json:$groovyVersion") {
+        exclude group: 'org.codehaus.groovy'
+    }
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
