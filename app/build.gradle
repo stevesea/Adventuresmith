@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'groovyx.android'
 apply plugin: 'com.neenbedankt.android-apt' // must be after groovy plugin
 apply plugin: "org.sonarqube"
@@ -96,6 +97,9 @@ android {
         exclude 'META-INF/groovy-release-info.properties'
         exclude 'META-INF/LICENSE'
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 androidGroovy {
@@ -169,6 +173,11 @@ dependencies {
 
     testCompile "org.robolectric:robolectric:3.0"
     testCompile "org.robolectric:shadows-multidex:3.0"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 }
 
 // APT doesn't know to make these directories for tests. Force them to
@@ -183,7 +192,6 @@ afterEvaluate {
     }
     tasks.getByName('mockableAndroidJar').finalizedBy(createAptTestDirs)
 }
-
 
 tasks.withType(Test) {
     testLogging {
