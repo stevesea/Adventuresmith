@@ -15,7 +15,7 @@ machine:
         version: oraclejdk8
     environment:
         ANDROID_HOME: /usr/local/android-sdk-linux
-        GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+        GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx3096m -XX:+HeapDumpOnOutOfMemoryError"'
 
 dependencies:
     override:
@@ -28,13 +28,13 @@ dependencies:
         - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
         - echo y | android update sdk --no-ui --all --filter "extra-android-support"
         - chmod +x gradlew
-        - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
+        - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies --console=plain
 
 # TODO: http://surajms.com/2016/01/setting-up-android-build-on-circleci/
 # TODO: https://github.com/circleci/EspressoSample/blob/master/circle.yml
 test:
     override:
-        - (./gradlew build):
+        - (./gradlew build --console=plain -PdisablePreDex):
             timeout: 1200
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
