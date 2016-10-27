@@ -38,6 +38,7 @@ public class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAda
     //the static ViewHolderFactory which will be used to generate the ViewHolder for this Item
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
+    @SuppressWarnings("deprecation")
     static Spanned htmlStrToSpanned(String input) {
         if (Build.VERSION.SDK_INT >= 24 /*Build.VERSION_CODES.N*/) {
             return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY);
