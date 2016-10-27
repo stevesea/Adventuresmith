@@ -39,7 +39,7 @@ public class AdventuresmithApp extends MultiDexApplication {
         LeakCanary.install(this);
 
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
-                .core(new CrashlyticsCore.Builder().build())
+                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
                 .build();
         Fabric.with(this, crashlyticsKit);
 
