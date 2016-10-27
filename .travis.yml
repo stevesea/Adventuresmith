@@ -26,7 +26,7 @@ android:
 
 before_install:
   - chmod +x gradlew
-script: ./gradlew buildDevDebug -PdisablePreDex
+script: ./gradlew test
 
 
 before_cache:
