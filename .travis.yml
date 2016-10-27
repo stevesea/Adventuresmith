@@ -26,7 +26,7 @@ android:
 
 before_install:
   - chmod +x gradlew
-script: ./gradlew test assembleDebug
+script: ./gradlew build
 
 
 before_cache:

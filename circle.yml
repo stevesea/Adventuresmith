@@ -34,8 +34,8 @@ dependencies:
 # TODO: https://github.com/circleci/EspressoSample/blob/master/circle.yml
 test:
     override:
-        - (./gradlew test assembleDebug -PdisablePreDex):
-            timeout: 360
+        - (./gradlew build):
+            timeout: 1200
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
         - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
