@@ -73,12 +73,14 @@ class FpArtifactLoader :
     // TODO: Having trouble with reified generic. feels like we should be able to stick
     //  this in base class
     val cached : FourthPageArtifactInputDto by lazy {
+        val clazz = FourthPageArtifactInputDto::class.java
+        
         open(resId).bufferedReader(charset).use {
-            MapperProvider.getReader().readValue<FourthPageArtifactInputDto>(it)
+            MapperProvider.mapper.readValue(it, clazz)
         }
     }
 
-    override fun getResource() : FourthPageArtifactInputDto{
+    override fun load(): FourthPageArtifactInputDto {
         return cached
     }
 }

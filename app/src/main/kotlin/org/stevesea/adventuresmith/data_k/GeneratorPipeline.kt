@@ -64,19 +64,13 @@ object ContextProvider {
 }
 
 // TODO: this holds a copy of the output object in the field. is that bad?
-abstract class RawResourceLoader<out T>(
+abstract class RawResourceLoader<T>(
         @RawRes val resId: Int,
         val charset: Charset = StandardCharsets.UTF_8)
 : DataLoadingStrategy<T>
 {
     fun open(@RawRes resId: Int): InputStream {
         return ContextProvider.context!!.resources.openRawResource(resId)
-    }
-
-    abstract fun getResource() : T
-
-    override fun load(): T {
-        return getResource()
     }
 }
 
