@@ -1,4 +1,8 @@
 ---
+config:
+  header: Artifact
+  origin_header: Origin
+  power_header: Power
 origins:
   Holy:
   - It's been lost for centuries.

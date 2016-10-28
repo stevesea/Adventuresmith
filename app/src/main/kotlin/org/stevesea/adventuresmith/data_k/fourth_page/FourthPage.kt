@@ -24,8 +24,8 @@ import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.data_k.*
 import org.stevesea.adventuresmith.html_builder.*
 
-
-data class FourthPageArtifactInputDto(val origins: Map<String,List<String>>, val powers: Map<String,List<String>>)
+/*
+seems neat... but let's do for different class
 data class FourthPageArtifactDto(val map: Map<String,String>){
     val origin: String by map
     val pow: String by map
@@ -33,32 +33,43 @@ data class FourthPageArtifactDto(val map: Map<String,String>){
     val powVal: String by map
 }
 
-class FpArtifactGenerator(val shuffler: Shuffler<String>) : GeneratorTransformStrategy<FourthPageArtifactInputDto, FourthPageArtifactDto> {
-    override fun transform(inDto: FourthPageArtifactInputDto): FourthPageArtifactDto {
-        val okey = shuffler.pick(inDto.origins.keys)
-        val pkey = shuffler.pick(inDto.powers.keys)
+usage:
         return FourthPageArtifactDto(mapOf(
                 "origin" to okey,
                 "originVal" to shuffler.pick(inDto.origins[okey]!!),
                 "pow" to pkey,
                 "powVal" to shuffler.pick(inDto.powers[pkey]!!)
         ))
+*/
+
+data class FourthPageArtifactConfigDto(val header: String, val origin_header: String, val power_header: String)
+data class FourthPageArtifactInputDto(val config: FourthPageArtifactConfigDto, val origins: Map<String,List<String>>, val powers: Map<String,List<String>>)
+data class FourthPageArtifactDto(val origin: Pair<String,String>, val power: Pair<String, String>)
+
+class FpArtifactGenerator(val shuffler: Shuffler<String>) : GeneratorTransformStrategy<FourthPageArtifactInputDto, FourthPageArtifactDto> {
+    override fun transform(inDto: FourthPageArtifactInputDto): FourthPageArtifactDto {
+        val okey = shuffler.pick(inDto.origins.keys)
+        val pkey = shuffler.pick(inDto.powers.keys)
+        return FourthPageArtifactDto(
+                Pair(okey, shuffler.pick(inDto.origins.getOrElse(okey) {listOf("not found")})),
+                Pair(pkey, shuffler.pick(inDto.powers.getOrElse(pkey) {listOf("not found")}))
+        )
     }
 }
-class FpArtifactView : ViewTransformStrategy<FourthPageArtifactDto, HTML> {
-    override fun transform(outData: FourthPageArtifactDto): HTML {
+class FpArtifactView : ViewTransformStrategy<FourthPageArtifactInputDto, FourthPageArtifactDto, HTML> {
+    override fun transform(inData: FourthPageArtifactInputDto, outData: FourthPageArtifactDto): HTML {
         return html {
             body {
-                h4 { + "Artifact" } // TODO: read headings from strings
-                h5 { + "Origin"}
+                h4 { + inData.config.header } // TODO: read headings from strings
+                h5 { + inData.config.origin_header}
                 p {
-                    strong { small { + outData.origin } }
-                    + "- ${outData.originVal}"
+                    strong { small { + outData.origin.first } }
+                    + "- ${outData.origin.second}"
                 }
-                h5 { + "Power"}
+                h5 { + inData.config.power_header}
                 p {
-                    strong { small { + outData.pow } }
-                    + "- ${outData.powVal}"
+                    strong { small { + outData.power.first } }
+                    + "- ${outData.power.second}"
                 }
             }
         }
