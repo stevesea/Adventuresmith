@@ -41,8 +41,8 @@ class FpArtifactGenerator(val shuffler: Shuffler<String>) : GeneratorTransformSt
         return FourthPageArtifactDto(mapOf(
                 "origin" to okey,
                 "originVal" to shuffler.pick(inDto.origins[okey]!!),
-                "power" to pkey,
-                "powerVal" to shuffler.pick(inDto.origins[pkey]!!)
+                "pow" to pkey,
+                "powVal" to shuffler.pick(inDto.powers[pkey]!!)
         ))
     }
 }
