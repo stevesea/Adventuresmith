@@ -32,7 +32,8 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.stevesea.adventuresmith.AdventuresmithApp
 import org.stevesea.adventuresmith.BuildConfig
-import org.stevesea.adventuresmith.R
+import org.stevesea.adventuresmith.data_k.ContextProvider
+import org.stevesea.adventuresmith.data_k.fourth_page.FourthPageArtifactPipeline
 // http://stackoverflow.com/questions/28960898/getting-context-in-androidtestcase-or-instrumentationtestcase-in-android-studio
 // http://wiebe-elsinga.com/blog/whats-new-in-android-testing/
 // https://developer.android.com/training/testing/unit-testing/local-unit-tests.html
@@ -47,58 +48,15 @@ import org.stevesea.adventuresmith.R
 class DataDrivenTest {
     Context context
 
-    static class ArtifactInputData {
-        Map<String,List<String>> origins
-        Map<String,List<String>> powers
-    }
-    static class ArtifactOutputData {
-        KV origin
-        KV power
-    }
-    static class KV {
-        String key
-        String val
-    }
-
-    static class MyGen extends AbstractDataDrivenGenerator {
-        MyGen() {
-            rawResId = R.raw.fourth_page_artifact
-        }
-
-        ArtifactOutputData pick() {
-            def input = parseResource() as ArtifactInputData
-
-            String originKey = pick(input.origins.keySet())
-            String powerKey = pick(input.powers.keySet())
-            new ArtifactOutputData(
-                    origin: new KV(key: originKey, val: pick(input.origins.get(originKey)) as String),
-                    power: new KV(key: powerKey, val: pick(input.powers.get(powerKey)) as String)
-            )
-        }
-
-        @Override
-        String generate() {
-            def out = pick()
-            """\
-<h4>Artifact</h4>
-<h5>Origin</h5>
-<strong><small>${out.origin.key}</small></strong> - ${out.origin.val}
-<h5>Power</h5>
-<strong><small>${out.power.key}</small></strong> - ${out.power.val}
-"""
-
-        }
-    }
-
     @Before
     void setup() {
         context = RuntimeEnvironment.application
+        ContextProvider.context = context
     }
 
     @Test
-    void testslurp() {
-        def gen = new MyGen()
-                .withContext(context)
+    void testLoader() {
+        def gen = new FourthPageArtifactPipeline()
 
         Assert.assertEquals("asdf", gen.generate())
 

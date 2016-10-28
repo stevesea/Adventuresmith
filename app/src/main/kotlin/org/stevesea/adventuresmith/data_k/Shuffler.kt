@@ -23,22 +23,22 @@ package org.stevesea.adventuresmith.data_k
 import java.util.*
 
 class Shuffler<T> (val random: java.util.Random = java.security.SecureRandom()) {
-    fun pick(items: List<T>) : T {
+    fun pick(items: Collection<T>) : T {
         return items.elementAt(random.nextInt(items.size))
     }
 
-    fun pick(dice: Dice, items: List<T>): T {
+    fun pick(dice: Dice, items: Collection<T>): T {
         // use mod to ensure our index is within the acceptable range for the collection
         // dice are 1-based, list indexes are 0-based so subtract 1
         return items.elementAt(dice.roll() % items.size - 1)
     }
 
-    fun pick(diceStr: String, items: List<T>) : T = pick(dice(diceStr), items)
+    fun pick(diceStr: String, items: Collection<T>) : T = pick(dice(diceStr), items)
 
     // create a dice object w/ the same Random instance as the shuffler
     fun dice(diceStr: String) : Dice = Dice.create(diceStr, random)
 
-    fun pickN(items: List<T>, num: Int) : List<T> {
+    fun pickN(items: Collection<T>, num: Int) : Collection<T> {
         val localItems = items.toMutableList()
         Collections.shuffle(localItems)
         return localItems.take(num)
