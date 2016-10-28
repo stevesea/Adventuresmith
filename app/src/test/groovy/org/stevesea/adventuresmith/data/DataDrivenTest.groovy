@@ -34,6 +34,10 @@ import org.stevesea.adventuresmith.AdventuresmithApp
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.data_k.ContextProvider
 import org.stevesea.adventuresmith.data_k.fourth_page.FourthPageArtifactPipeline
+
+import static org.mockito.Mockito.mock
+import static org.mockito.Mockito.when
+
 // http://stackoverflow.com/questions/28960898/getting-context-in-androidtestcase-or-instrumentationtestcase-in-android-studio
 // http://wiebe-elsinga.com/blog/whats-new-in-android-testing/
 // https://developer.android.com/training/testing/unit-testing/local-unit-tests.html
@@ -52,13 +56,47 @@ class DataDrivenTest {
     void setup() {
         context = RuntimeEnvironment.application
         ContextProvider.context = context
+
     }
 
     @Test
     void testLoader() {
-        def gen = new FourthPageArtifactPipeline()
+        def mockRandom = mock(Random.class)
+        when(mockRandom.nextInt()).thenReturn(1)
+        def shuffler = new org.stevesea.adventuresmith.data_k.Shuffler<String>(mockRandom)
+        def gen = new FourthPageArtifactPipeline(shuffler)
 
-        Assert.assertEquals("asdf", gen.generate())
+        Assert.assertEquals("""\
+<html>
+  <body>
+    <h4>
+      Artifact
+    </h4>
+    <h5>
+      Origin
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Holy
+        </small>
+      </strong>
+      - It's been lost for centuries.
+    </p>
+    <h5>
+      Power
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Blessing
+        </small>
+      </strong>
+      - You see visions of the future.
+    </p>
+  </body>
+</html>
+""", gen.generate())
 
     }
 

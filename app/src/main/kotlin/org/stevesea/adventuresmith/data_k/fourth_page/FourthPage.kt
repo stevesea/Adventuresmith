@@ -23,7 +23,6 @@ package org.stevesea.adventuresmith.data_k.fourth_page
 import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.data_k.*
 import org.stevesea.adventuresmith.html_builder.*
-import java.nio.charset.*
 
 
 data class FourthPageArtifactInputDto(val origins: Map<String,List<String>>, val powers: Map<String,List<String>>)
@@ -46,8 +45,8 @@ class FpArtifactGenerator(val shuffler: Shuffler<String>) : GeneratorTransformSt
         ))
     }
 }
-class FpArtifactView : ViewTransformStrategy<FourthPageArtifactDto, String> {
-    override fun transform(outData: FourthPageArtifactDto): String {
+class FpArtifactView : ViewTransformStrategy<FourthPageArtifactDto, HTML> {
+    override fun transform(outData: FourthPageArtifactDto): HTML {
         return html {
             body {
                 h4 { + "Artifact" } // TODO: read headings from strings
@@ -62,24 +61,18 @@ class FpArtifactView : ViewTransformStrategy<FourthPageArtifactDto, String> {
                     + "- ${outData.powVal}"
                 }
             }
-        }.toString()
+        }
     }
 }
 
-class FpArtifactLoader :
-        RawResourceLoader<FourthPageArtifactInputDto>(
-                R.raw.fourth_page_artifact, StandardCharsets.UTF_8) {
-
-    // TODO: Having trouble with reified generic. feels like we should be able to stick
-    //  this in base class
-
+class FpArtifactLoader : DataLoadingStrategy<FourthPageArtifactInputDto>{
     override fun load(): FourthPageArtifactInputDto {
-        return deserialize(FourthPageArtifactInputDto::class.java)
+        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_artifact, FourthPageArtifactInputDto::class.java)
     }
 }
 
 class FourthPageArtifactPipeline(val shuffler: Shuffler<String> = Shuffler()) : GeneratorPipeline
-    <FourthPageArtifactInputDto, FourthPageArtifactDto, String>(
+    <FourthPageArtifactInputDto, FourthPageArtifactDto, HTML>(
         FpArtifactLoader(),
         FpArtifactGenerator(shuffler),
         FpArtifactView()

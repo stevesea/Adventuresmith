@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.data_k
 
 import android.content.*
 import android.support.annotation.*
+import android.support.v4.util.*
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
@@ -63,17 +64,29 @@ object ContextProvider {
     var context: Context? = null
 }
 
-// TODO: this holds a copy of the output object in the field. is that bad?
-abstract class RawResourceLoader<T>(
-        @RawRes val resId: Int,
-        val charset: Charset = StandardCharsets.UTF_8)
-: DataLoadingStrategy<T>
+object RawResourceDeserializer
 {
-    fun open(@RawRes resId: Int): InputStream {
+    val maxSize = 16
+
+    val cache: LruCache<Int, Any> = LruCache(maxSize)
+
+    private fun open(@RawRes resId: Int): InputStream {
         return ContextProvider.context!!.resources.openRawResource(resId)
     }
 
-    fun deserialize(clazz: Class<T>): T {
+    @Suppress("UNCHECKED_CAST")
+    fun <T> cachedDeserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
+        synchronized(cache) {
+            var result = cache.get(resId)
+            if (result == null) {
+                result = deserialize(resId, clazz, charset)
+                cache.put(resId, result)
+            }
+            return result as T
+        }
+    }
+
+    fun <T> deserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
         return open(resId).bufferedReader(charset).use {
             MapperProvider.mapper.readValue(it, clazz)
         }
@@ -86,18 +99,26 @@ object StringResourceLoader {
     }
 }
 
+interface Generator {
+    fun generate() : String
+}
+
 open class GeneratorPipeline<
         TInputDto,
         TOutputDto,
         out ViewData>(
         val loadingStrat : DataLoadingStrategy<TInputDto>,
         val generatorStrat: GeneratorTransformStrategy<TInputDto, TOutputDto>,
-        val viewStrat: ViewTransformStrategy<TOutputDto, ViewData>) {
+        val viewStrat: ViewTransformStrategy<TOutputDto, ViewData>) : Generator {
 
-    fun generate() : ViewData {
+    fun generateView() : ViewData {
         val input = loadingStrat.load()
         val output = generatorStrat.transform(input)
         val viewOutput = viewStrat.transform(output)
         return viewOutput
+    }
+
+    override fun generate(): String {
+        return generateView().toString()
     }
 }
