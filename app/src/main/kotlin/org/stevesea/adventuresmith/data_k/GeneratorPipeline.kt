@@ -72,6 +72,12 @@ abstract class RawResourceLoader<T>(
     fun open(@RawRes resId: Int): InputStream {
         return ContextProvider.context!!.resources.openRawResource(resId)
     }
+
+    fun deserialize(clazz: Class<T>): T {
+        return open(resId).bufferedReader(charset).use {
+            MapperProvider.mapper.readValue(it, clazz)
+        }
+    }
 }
 
 object StringResourceLoader {
