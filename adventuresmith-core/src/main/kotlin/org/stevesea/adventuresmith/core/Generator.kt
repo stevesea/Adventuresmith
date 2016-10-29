@@ -53,6 +53,6 @@ open class GeneratorLTV<
     }
 
     override fun generate(locale: Locale): String {
-        return generateView(locale).toString()
+        return generateView(locale).toString().trim()
     }
 }

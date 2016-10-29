@@ -18,18 +18,21 @@
  *
  */
 
-package org.stevesea.adventuresmith.core
+package org.stevesea.adventuresmith.core.fotf
 
 import org.junit.*
-import org.stevesea.adventuresmith.core.fotf.*
+import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-class GeneratorTest {
+class FotfGeneratorTest : BaseGeneratorTest() {
+    @Before
+    fun setup() {
+        init()
+    }
 
     @Test
     fun doit() {
-        Assert.assertEquals("asdf", FotfSpellGenerator(Shuffler()).generate(Locale.ENGLISH))
+        Assert.assertEquals("Acid Arrow", FotfSpellGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
     }
-
 }
 

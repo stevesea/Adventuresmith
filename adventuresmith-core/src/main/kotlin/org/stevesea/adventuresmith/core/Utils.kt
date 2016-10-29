@@ -105,30 +105,40 @@ object LocaleAwareResourceFinder {
 }
 
 /**
- *
+ * possibly premature optimization
+ *    - i'm going to assume loading file resource, and deserializing into a DTO
+ *      is a not-insignificant performance hit. Cache results
  */
 object CachingResourceDeserializer
 {
     val maxSize = 100L
 
-    val cache : Cache<URL, Any> = CacheBuilder.newBuilder()
+    val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
             .maximumSize(maxSize)
             .expireAfterAccess(5, TimeUnit.MINUTES)
             .build()
 
     @Suppress("UNCHECKED_CAST")
-    fun <T> deserialize(url: URL, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
+    fun <T> deserialize(clazz: Class<T>,
+                        resource_prefix : String,
+                        locale: Locale,
+                        charset: Charset = StandardCharsets.UTF_8): T {
+        val key = Triple(clazz.`package`.name, resource_prefix, locale)
         synchronized(cache) {
-            val result = cache.get(url, object : Callable<T> {
+            val result = cache.get(key, object : Callable<T> {
                 override fun call(): T {
-                    return uncached_deserialize(url, clazz, charset)
+                    return uncached_deserialize(clazz, resource_prefix, locale, charset)
                 }
             })
             return result as T
         }
     }
 
-    private fun <T> uncached_deserialize(url: URL, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
+    private fun <T> uncached_deserialize(clazz: Class<T>,
+                                         resource_prefix : String,
+                                         locale: Locale,
+                                         charset: Charset): T {
+        val url = LocaleAwareResourceFinder.find(resource_prefix,locale,clazz)
         val str = Resources.toString(url, charset)
         return MapperProvider.getReader().forType(clazz).readValue(str)
     }

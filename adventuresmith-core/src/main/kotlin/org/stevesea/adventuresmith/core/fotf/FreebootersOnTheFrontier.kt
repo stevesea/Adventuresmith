@@ -21,7 +21,6 @@
 package org.stevesea.adventuresmith.core.fotf
 
 import org.stevesea.adventuresmith.core.*
-import java.net.*
 import java.util.*
 
 
@@ -30,9 +29,7 @@ import java.util.*
 data class FotfSpellWizardNamesDto(val part1: List<String>,
                                    val part2: List<String>) {
     companion object Resource {
-        fun getResource(locale: Locale): URL {
-            return LocaleAwareResourceFinder.find("wizard_names", locale, FotfSpellWizardNamesDto::class.java)
-        }
+        val resource_prefix = "wizard_names"
     }
 }
 
@@ -41,9 +38,7 @@ data class FotfSpellDto(val name_templates: List<String>,
                         val forms: List<String>,
                         val adjectives: List<String>){
     companion object Resource {
-        fun getResource(locale: Locale): URL {
-            return LocaleAwareResourceFinder.find("spells", locale, FotfSpellWizardNamesDto::class.java)
-        }
+        val resource_prefix = "spells"
     }
 }
 
@@ -83,11 +78,14 @@ class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
     override fun load(locale: Locale): FotfSpellDtoBundle {
         return FotfSpellDtoBundle(
                 spellDto = CachingResourceDeserializer.deserialize(
-                        FotfSpellDto.getResource(locale),
-                        FotfSpellDto::class.java),
+                        FotfSpellDto::class.java,
+                        FotfSpellDto.resource_prefix,
+                        locale),
                 wizNameDto = CachingResourceDeserializer.deserialize(
-                        FotfSpellWizardNamesDto.getResource(locale),
-                        FotfSpellWizardNamesDto::class.java))
+                        FotfSpellWizardNamesDto::class.java,
+                        FotfSpellWizardNamesDto.resource_prefix,
+                        locale)
+        )
     }
 }
 

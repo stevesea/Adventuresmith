@@ -31,7 +31,7 @@ data class FpArtifactDto(val config: FpArtifactConfigDto,
                          val origins: Map<String,List<String>>,
                          val powers: Map<String,List<String>>) {
     companion object Resource {
-        val resource = FpArtifactDto::class.java.getResource("artifact.yml")
+        val resource_prefix = "artifact"
     }
 }
 data class FpArtifactModel(val config: FpArtifactConfigDto,
@@ -46,7 +46,7 @@ data class FpMonsterDto(val config: FpMonsterConfigDto,
                         val natures: Map<String,List<String>>,
                         val roles: Map<String,List<String>>){
     companion object Resource {
-        val resource = FpMonsterDto::class.java.getResource("monster.yml")
+        val resource_prefix = "monster"
     }
 }
 data class FpMonsterModel(val config: FpMonsterConfigDto,
@@ -65,7 +65,7 @@ data class FpCityDto(val config: FpCityConfigDto,
                      val societies: Map<String,List<String>>,
                      val troubles: Map<String,List<String>>){
     companion object Resource {
-        val resource = FpCityDto::class.java.getResource("org/stevesea/adventuresmith/core/fp/city.yml")
+        val resource_prefix = "city"
     }
 }
 data class FpCityModel(val config: FpCityConfigDto,
@@ -86,7 +86,7 @@ data class FpDungeonDto(val config: FpDungeonConfigDto,
                         val trials: Map<String,List<String>>,
                         val secrets: Map<String,List<String>>){
     companion object Resource {
-        val resource = FpDungeonDto::class.java.getResource("org/stevesea/adventuresmith/core/fp/dungeon.yml")
+        val resource_prefix = "dungeon"
     }
 }
 data class FpDungeonModel(val config: FpDungeonConfigDto,
@@ -237,23 +237,35 @@ class FpDungeonView : ViewStrategy<FpDungeonModel, HTML> {
 
 class FpArtifactDtoLoader : DtoLoadingStrategy<FpArtifactDto> {
     override fun load(locale: Locale): FpArtifactDto {
-        return CachingResourceDeserializer.deserialize(FpArtifactDto.resource, FpArtifactDto::class.java)
+        return CachingResourceDeserializer.deserialize(
+                FpArtifactDto::class.java,
+                FpArtifactDto.resource_prefix,
+                locale)
     }
 }
 
 class FpCityDtoLoader : DtoLoadingStrategy<FpCityDto> {
     override fun load(locale: Locale): FpCityDto {
-        return CachingResourceDeserializer.deserialize(FpCityDto.resource, FpCityDto::class.java)
+        return CachingResourceDeserializer.deserialize(
+                FpCityDto::class.java,
+                FpCityDto.resource_prefix,
+                locale)
     }
 }
 class FpDungeonDtoLoader : DtoLoadingStrategy<FpDungeonDto> {
     override fun load(locale: Locale): FpDungeonDto {
-        return CachingResourceDeserializer.deserialize(FpCityDto.resource, FpDungeonDto::class.java)
+        return CachingResourceDeserializer.deserialize(
+                FpDungeonDto::class.java,
+                FpDungeonDto.resource_prefix,
+                locale)
     }
 }
 class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
     override fun load(locale: Locale): FpMonsterDto {
-        return CachingResourceDeserializer.deserialize(FpCityDto.resource, FpMonsterDto::class.java)
+        return CachingResourceDeserializer.deserialize(
+                FpMonsterDto::class.java,
+                FpMonsterDto.resource_prefix,
+                locale)
     }
 }
 
