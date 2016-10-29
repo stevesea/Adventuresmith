@@ -18,31 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.data.stars_without_number;
+package org.stevesea.adventuresmith.core;
 
-import android.support.annotation.StringDef;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
-@Retention(RetentionPolicy.SOURCE)
-@StringDef({
-        Culture.Arabic,
-        Culture.Chinese,
-        Culture.English,
-        Culture.Indian,
-        Culture.Japanese,
-        Culture.Nigerian,
-        Culture.Russian,
-        Culture.Spanish,
-})
-public @interface Culture {
-    String Arabic = "Arabic";
-    String Chinese = "Chinese";
-    String English = "English";
-    String Indian = "Indian";
-    String Japanese = "Japanese";
-    String Nigerian = "Nigerian";
-    String Russian = "Russian";
-    String Spanish = "Spanish";
+public class MyClass {
 }

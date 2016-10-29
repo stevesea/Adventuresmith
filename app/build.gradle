@@ -116,7 +116,7 @@ androidGroovy {
 
 sonarqube {
     properties {
-        property "sonar.projectName", "RPG-Pad :: Simple Project :: Generate nonsense at push of a button!"
+        property "sonar.projectName", "Adventuresmith :: Simple Project :: Generate nonsense at push of a button!"
         property "sonar.projectKey", "org.stevesea:adventuresmith"
 
         property "sonar.sourceEncoding","UTF-8"
