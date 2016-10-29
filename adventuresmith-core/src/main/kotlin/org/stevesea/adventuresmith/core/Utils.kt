@@ -65,7 +65,13 @@ object ResourceFinder {
         //ButtonLabel_en
         //ButtonLabel
         val defaultLocale = Locale.getDefault()
-        val lnames = linkedSetOf(
+        // constructs a list like
+        //    _fr_CA
+        //    _fr
+        //    _en_US
+        //    _en
+        //    <emptystring>
+        val locale_suffixes = linkedSetOf(
                 String.format("_%s_%s_%s", locale.language, locale.country, locale.variant),
                 String.format("_%s_%s", locale.language, locale.country),
                 String.format("_%s", locale.language),
@@ -74,51 +80,24 @@ object ResourceFinder {
                 String.format("_%s", defaultLocale.language),
                 ""
         )
-        val lnames2 = lnames.filter { !it.endsWith("_")}
-        val fnames = lnames2.map { String.format("%s%s%s", name, it, ext)}
-
-        return fnames
+        // if any of the locales didn't have country/variant, the list will have things like
+        //   _en__ or _en_ , remove them
+        val suffixes_sanitized = locale_suffixes.filter { !it.endsWith("_")}
+        // for all those left, append name as prefix, ext as suffix
+        return suffixes_sanitized.map { String.format("%s%s%s", name, it, ext)}
     }
-    /*
-    fun <T> butts(name: String, clazz: Class<T>): URL{
-        val loader = MoreObjects.firstNonNull(
-                Thread.currentThread().contextClassLoader,
-                clazz.classLoader
-        )
-        val maybes : List<URL?> = listOf(
-                loader.getResource(name),
-                ClassLoader.getSystemResource(name),
-                clazz.getResource(name)
-        )
-        return maybes.filterNotNull().first()
-    }
-    */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
         val fnames_precendence_order = locale_names(name, locale, ext)
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
-/*
-        val nullableList: List<URL?> = mutableListOf(
-                clazz.getResource(name + ".yml")
-
-                Thread.currentThread().getContextClassLoader().getResource(name),
-                Thread.currentThread().getContextClassLoader().getResource("/org/stevesea/adventuresmith/core/" + name),
-                Thread.currentThread().getContextClassLoader().getResource("org/stevesea/adventuresmith/core/" + name),
-                Thread.currentThread().getContextClassLoader().getResource("/org/stevesea/adventuresmith/core/" + name),
-                Thread.currentThread().getContextClassLoader().getResource("/org/stevesea/adventuresmith/core/" + name)
-
-                //Resources.getResource(FotfSpellWizardNamesDto::class.java, "wizard_names.yml"),
-        )
-        val foundList: List<URL> = nullableList.filterNotNull()
-        */
-        //FotfSpellWizardNamesDto::class.java.getClassLoader().getResource("wizard_names.yml")
-        //if (foundList.isEmpty())
-        //    return Resources.getResource("org/stevesea/adventuresmith/core/" + name)
         return foundList.first()
     }
 
 }
 
+/**
+ *
+ */
 object CachingResourceDeserializer
 {
     val maxSize = 100L

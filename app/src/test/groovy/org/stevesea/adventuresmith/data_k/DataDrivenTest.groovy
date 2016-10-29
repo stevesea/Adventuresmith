@@ -32,6 +32,12 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.stevesea.adventuresmith.AdventuresmithApp
 import org.stevesea.adventuresmith.BuildConfig
+import org.stevesea.adventuresmith.core.Shuffler
+import org.stevesea.adventuresmith.core.fotf.FotfSpellGenerator
+import org.stevesea.adventuresmith.core.fp.FourthPageArtifactGenerator
+import org.stevesea.adventuresmith.core.fp.FourthPageCityGenerator
+import org.stevesea.adventuresmith.core.fp.FourthPageDungeonGenerator
+import org.stevesea.adventuresmith.core.fp.FourthPageMonsterGenerator
 
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
@@ -92,7 +98,7 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""", new FourthPageArtifactGenerator(shuffler).generate())
+""", new FourthPageArtifactGenerator(shuffler).generate(Locale.ENGLISH))
     }
 
     @Test
@@ -149,7 +155,7 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""", new FourthPageDungeonGenerator(shuffler).generate())
+""", new FourthPageDungeonGenerator(shuffler).generate(Locale.ENGLISH))
     }
 
     @Test
@@ -206,7 +212,7 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""",  new FourthPageCityGenerator(shuffler).generate())
+""",  new FourthPageCityGenerator(shuffler).generate(Locale.ENGLISH))
 
     }
 
@@ -242,13 +248,12 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""",  new FourthPageMonsterGenerator(shuffler).generate())
+""",  new FourthPageMonsterGenerator(shuffler).generate(Locale.ENGLISH))
 
     }
 
-
     @Test
     void testFotfSpell() {
-        Assert.assertEquals("Acid Arrow",  new FotfSpellGenerator(shuffler).generate())
+        Assert.assertEquals("Acid Arrow",  new FotfSpellGenerator(shuffler).generate(Locale.ENGLISH))
     }
 }

@@ -21,6 +21,24 @@
 apply plugin: 'java'
 apply plugin: "kotlin"
 
+// http://stackoverflow.com/questions/24870464/android-studio-with-java-library-module-unable-to-load-test-resources
+sourceSets {
+    test {
+        output.resourcesDir = output.classesDir
+    }
+}
+//https://code.google.com/p/android/issues/detail?id=64887
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/test/resources"
+    into "${buildDir}/classes/test"
+}
+processTestResources.dependsOn copyTestResources
+task copyMainResources(type: Copy) {
+    from "${projectDir}/src/main/resources"
+    into "${buildDir}/classes/main"
+}
+copyTestResources.dependsOn copyMainResources
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 

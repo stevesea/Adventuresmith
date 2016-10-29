@@ -26,11 +26,9 @@ import java.util.*
 
 class GeneratorTest {
 
-
     @Test
     fun doit() {
         Assert.assertEquals("asdf", FotfSpellGenerator(Shuffler()).generate(Locale.ENGLISH))
-
     }
 
 }
