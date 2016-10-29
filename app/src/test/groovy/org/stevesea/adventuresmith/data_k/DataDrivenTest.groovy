@@ -92,7 +92,7 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""", new FourthPageArtifactPipeline(shuffler).generate())
+""", new FourthPageArtifactGenerator(shuffler).generate())
     }
 
     @Test
@@ -149,7 +149,7 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""", new FourthPageDungeonPipeline(shuffler).generate())
+""", new FourthPageDungeonGenerator(shuffler).generate())
     }
 
     @Test
@@ -206,7 +206,7 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""",  new FourthPageCityPipeline(shuffler).generate())
+""",  new FourthPageCityGenerator(shuffler).generate())
 
     }
 
@@ -242,13 +242,13 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""",  new FourthPageMonsterPipeline(shuffler).generate())
+""",  new FourthPageMonsterGenerator(shuffler).generate())
 
     }
 
 
     @Test
     void testFotfSpell() {
-        Assert.assertEquals("Acid Spray",  new FotfSpellPipeline(shuffler).generate())
+        Assert.assertEquals("Acid Arrow",  new FotfSpellGenerator(shuffler).generate())
     }
 }

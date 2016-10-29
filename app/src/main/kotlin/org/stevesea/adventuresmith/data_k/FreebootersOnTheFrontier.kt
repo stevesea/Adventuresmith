@@ -79,7 +79,7 @@ class FotfSpellView : ViewStrategy<FotfSpellModel, String> {
     }
 }
 
-class FotfSpellPipeline(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FotfSpellDtoBundle, FotfSpellModel, String>(
+class FotfSpellGenerator(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FotfSpellDtoBundle, FotfSpellModel, String>(
         FotfSpellDtoLoader(),
         FotfSpellModelGenerator(shuffler),
         FotfSpellView()
