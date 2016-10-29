@@ -23,45 +23,27 @@ package org.stevesea.adventuresmith.data_k
 import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.html_builder.*
 
-/*
-seems neat... but let's do for different class
-data class FpArtifactDto(val map: Map<String,String>){
-    val origin: String by map
-    val pow: String by map
-    val originVal: String by map
-    val powVal: String by map
-}
-
-usage:
-        return FpArtifactDto(mapOf(
-                "origin" to okey,
-                "originVal" to shuffler.pick(inDto.origins[okey]!!),
-                "pow" to pkey,
-                "powVal" to shuffler.pick(inDto.powers[pkey]!!)
-        ))
-*/
-
 data class FpArtifactHeaders(val main: String,
                              val origin: String,
                              val pow: String)
 data class FpArtifactConfigDto(val headers: FpArtifactHeaders)
-data class FpArtifactInputDto(val config: FpArtifactConfigDto,
-                              val origins: Map<String,List<String>>,
-                              val powers: Map<String,List<String>>)
 data class FpArtifactDto(val config: FpArtifactConfigDto,
-                         val origin: Pair<String,String>,
-                         val power: Pair<String, String>)
+                         val origins: Map<String,List<String>>,
+                         val powers: Map<String,List<String>>)
+data class FpArtifactModel(val config: FpArtifactConfigDto,
+                           val origin: Pair<String,String>,
+                           val power: Pair<String, String>)
 
 data class FpMonsterHeaders(val main: String,
                              val nature: String,
                              val role: String)
 data class FpMonsterConfigDto(val headers: FpMonsterHeaders)
-data class FpMonsterInputDto(val config: FpMonsterConfigDto,
-                             val natures: Map<String,List<String>>,
-                             val roles: Map<String,List<String>>)
 data class FpMonsterDto(val config: FpMonsterConfigDto,
-                        val nature: Pair<String,String>,
-                        val role: Pair<String, String>)
+                        val natures: Map<String,List<String>>,
+                        val roles: Map<String,List<String>>)
+data class FpMonsterModel(val config: FpMonsterConfigDto,
+                          val nature: Pair<String,String>,
+                          val role: Pair<String, String>)
 
 data class FpCityHeaders(val main: String,
                          val feature: String,
@@ -69,16 +51,16 @@ data class FpCityHeaders(val main: String,
                          val society: String,
                          val trouble: String)
 data class FpCityConfigDto(val headers: FpCityHeaders)
-data class FpCityInputDto(val config: FpCityConfigDto,
-                          val features: Map<String,List<String>>,
-                          val populations: Map<String,List<String>>,
-                          val societies: Map<String,List<String>>,
-                          val troubles: Map<String,List<String>>)
 data class FpCityDto(val config: FpCityConfigDto,
-                     val feature: Pair<String,String>,
-                     val population: Pair<String,String>,
-                     val society: Pair<String,String>,
-                     val trouble: Pair<String, String>)
+                     val features: Map<String,List<String>>,
+                     val populations: Map<String,List<String>>,
+                     val societies: Map<String,List<String>>,
+                     val troubles: Map<String,List<String>>)
+data class FpCityModel(val config: FpCityConfigDto,
+                       val feature: Pair<String,String>,
+                       val population: Pair<String,String>,
+                       val society: Pair<String,String>,
+                       val trouble: Pair<String, String>)
 
 data class FpDungeonHeaders(val main: String,
                          val history: String,
@@ -86,200 +68,200 @@ data class FpDungeonHeaders(val main: String,
                          val trial: String,
                          val secret: String)
 data class FpDungeonConfigDto(val headers: FpDungeonHeaders)
-data class FpDungeonInputDto(val config: FpDungeonConfigDto,
-                             val histories: Map<String,List<String>>,
-                             val denizens: Map<String,List<String>>,
-                             val trials: Map<String,List<String>>,
-                             val secrets: Map<String,List<String>>)
 data class FpDungeonDto(val config: FpDungeonConfigDto,
-                        val history: Pair<String,String>,
-                        val denizen: Pair<String,String>,
-                        val trial: Pair<String,String>,
-                        val secret: Pair<String, String>)
+                        val histories: Map<String,List<String>>,
+                        val denizens: Map<String,List<String>>,
+                        val trials: Map<String,List<String>>,
+                        val secrets: Map<String,List<String>>)
+data class FpDungeonModel(val config: FpDungeonConfigDto,
+                          val history: Pair<String,String>,
+                          val denizen: Pair<String,String>,
+                          val trial: Pair<String,String>,
+                          val secret: Pair<String, String>)
 
-class FpArtifactGenerator(val shuffler: Shuffler) :  GeneratorTransformStrategy<FpArtifactInputDto, FpArtifactDto> {
-    override fun transform(inDto: FpArtifactInputDto): FpArtifactDto {
-        return FpArtifactDto(
-                config = inDto.config,
-                origin = shuffler.pickPairFromMapofLists(inDto.origins),
-                power = shuffler.pickPairFromMapofLists(inDto.powers)
+class FpArtifactModelGenerator(val shuffler: Shuffler) :  ModelGeneratorStrategy<FpArtifactDto, FpArtifactModel> {
+    override fun transform(dto: FpArtifactDto): FpArtifactModel {
+        return FpArtifactModel(
+                config = dto.config,
+                origin = shuffler.pickPairFromMapofLists(dto.origins),
+                power = shuffler.pickPairFromMapofLists(dto.powers)
         )
     }
 }
 
-class FpMonsterGenerator(val shuffler: Shuffler) : GeneratorTransformStrategy<FpMonsterInputDto, FpMonsterDto> {
-    override fun transform(inDto: FpMonsterInputDto): FpMonsterDto {
-        return FpMonsterDto(
-                config = inDto.config,
-                nature = shuffler.pickPairFromMapofLists(inDto.natures),
-                role = shuffler.pickPairFromMapofLists(inDto.roles))
+class FpMonsterModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpMonsterDto, FpMonsterModel> {
+    override fun transform(dto: FpMonsterDto): FpMonsterModel {
+        return FpMonsterModel(
+                config = dto.config,
+                nature = shuffler.pickPairFromMapofLists(dto.natures),
+                role = shuffler.pickPairFromMapofLists(dto.roles))
     }
 }
-class FpCityGenerator(val shuffler: Shuffler) : GeneratorTransformStrategy<FpCityInputDto, FpCityDto> {
-    override fun transform(inDto: FpCityInputDto): FpCityDto {
-        return FpCityDto(
-                config = inDto.config,
-                feature = shuffler.pickPairFromMapofLists(inDto.features),
-                population = shuffler.pickPairFromMapofLists(inDto.populations),
-                society = shuffler.pickPairFromMapofLists(inDto.societies),
-                trouble = shuffler.pickPairFromMapofLists(inDto.troubles)
+class FpCityModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpCityDto, FpCityModel> {
+    override fun transform(dto: FpCityDto): FpCityModel {
+        return FpCityModel(
+                config = dto.config,
+                feature = shuffler.pickPairFromMapofLists(dto.features),
+                population = shuffler.pickPairFromMapofLists(dto.populations),
+                society = shuffler.pickPairFromMapofLists(dto.societies),
+                trouble = shuffler.pickPairFromMapofLists(dto.troubles)
         )
     }
 }
 
-class FpDungeonGenerator(val shuffler: Shuffler) : GeneratorTransformStrategy<FpDungeonInputDto, FpDungeonDto> {
-    override fun transform(inDto: FpDungeonInputDto): FpDungeonDto {
-        return FpDungeonDto(
-                config = inDto.config,
-                history = shuffler.pickPairFromMapofLists(inDto.histories),
-                denizen = shuffler.pickPairFromMapofLists(inDto.denizens),
-                trial = shuffler.pickPairFromMapofLists(inDto.trials),
-                secret = shuffler.pickPairFromMapofLists(inDto.secrets)
+class FpDungeonModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpDungeonDto, FpDungeonModel> {
+    override fun transform(dto: FpDungeonDto): FpDungeonModel {
+        return FpDungeonModel(
+                config = dto.config,
+                history = shuffler.pickPairFromMapofLists(dto.histories),
+                denizen = shuffler.pickPairFromMapofLists(dto.denizens),
+                trial = shuffler.pickPairFromMapofLists(dto.trials),
+                secret = shuffler.pickPairFromMapofLists(dto.secrets)
         )
     }
 }
-class FpArtifactView : ViewTransformStrategy<FpArtifactDto, HTML> {
-    override fun transform(outData: FpArtifactDto): HTML {
+class FpArtifactView : ViewStrategy<FpArtifactModel, HTML> {
+    override fun transform(model: FpArtifactModel): HTML {
         return html {
             body {
-                h4 { + outData.config.headers.main }
-                h5 { + outData.config.headers.origin }
+                h4 { + model.config.headers.main }
+                h5 { + model.config.headers.origin }
                 p {
-                    strong { small { + outData.origin.first } }
-                    + "- ${outData.origin.second}"
+                    strong { small { + model.origin.first } }
+                    + "- ${model.origin.second}"
                 }
-                h5 { + outData.config.headers.pow }
+                h5 { + model.config.headers.pow }
                 p {
-                    strong { small { + outData.power.first } }
-                    + "- ${outData.power.second}"
+                    strong { small { + model.power.first } }
+                    + "- ${model.power.second}"
                 }
             }
         }
     }
 }
 
-class FpMonsterView : ViewTransformStrategy<FpMonsterDto, HTML> {
-    override fun transform(outData: FpMonsterDto): HTML {
+class FpMonsterViewTransformer : ViewStrategy<FpMonsterModel, HTML> {
+    override fun transform(model: FpMonsterModel): HTML {
         return html {
             body {
-                h4 { + outData.config.headers.main }
-                h5 { + outData.config.headers.nature }
+                h4 { + model.config.headers.main }
+                h5 { + model.config.headers.nature }
                 p {
-                    strong { small { + outData.nature.first } }
-                    + "- ${outData.nature.second}"
+                    strong { small { + model.nature.first } }
+                    + "- ${model.nature.second}"
                 }
-                h5 { + outData.config.headers.role }
+                h5 { + model.config.headers.role }
                 p {
-                    strong { small { + outData.role.first } }
-                    + "- ${outData.role.second}"
+                    strong { small { + model.role.first } }
+                    + "- ${model.role.second}"
                 }
             }
         }
     }
 }
-class FpCityView : ViewTransformStrategy<FpCityDto, HTML> {
-    override fun transform(outData: FpCityDto): HTML {
+class FpCityView : ViewStrategy<FpCityModel, HTML> {
+    override fun transform(model: FpCityModel): HTML {
         return html {
             body {
-                h4 { + outData.config.headers.main }
-                h5 { + outData.config.headers.feature }
+                h4 { + model.config.headers.main }
+                h5 { + model.config.headers.feature }
                 p {
-                    strong { small { + outData.feature.first } }
-                    + "- ${outData.feature.second}"
+                    strong { small { + model.feature.first } }
+                    + "- ${model.feature.second}"
                 }
-                h5 { + outData.config.headers.population }
+                h5 { + model.config.headers.population }
                 p {
-                    strong { small { + outData.population.first } }
-                    + "- ${outData.population.second}"
+                    strong { small { + model.population.first } }
+                    + "- ${model.population.second}"
                 }
-                h5 { + outData.config.headers.society }
+                h5 { + model.config.headers.society }
                 p {
-                    strong { small { + outData.society.first } }
-                    + "- ${outData.society.second}"
+                    strong { small { + model.society.first } }
+                    + "- ${model.society.second}"
                 }
-                h5 { + outData.config.headers.trouble }
+                h5 { + model.config.headers.trouble }
                 p {
-                    strong { small { + outData.trouble.first } }
-                    + "- ${outData.trouble.second}"
-                }
-            }
-        }
-    }
-}
-
-class FpDungeonView : ViewTransformStrategy<FpDungeonDto, HTML> {
-    override fun transform(outData: FpDungeonDto): HTML {
-        return html {
-            body {
-                h4 { + outData.config.headers.main }
-                h5 { + outData.config.headers.history }
-                p {
-                    strong { small { + outData.history.first } }
-                    + "- ${outData.history.second}"
-                }
-                h5 { + outData.config.headers.denizen }
-                p {
-                    strong { small { + outData.denizen.first } }
-                    + "- ${outData.denizen.second}"
-                }
-                h5 { + outData.config.headers.trial }
-                p {
-                    strong { small { + outData.trial.first } }
-                    + "- ${outData.trial.second}"
-                }
-                h5 { + outData.config.headers.secret }
-                p {
-                    strong { small { + outData.secret.first } }
-                    + "- ${outData.secret.second}"
+                    strong { small { + model.trouble.first } }
+                    + "- ${model.trouble.second}"
                 }
             }
         }
     }
 }
 
-class FpArtifactLoader : DataLoadingStrategy<FpArtifactInputDto> {
-    override fun load(): FpArtifactInputDto {
-        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_artifact, FpArtifactInputDto::class.java)
+class FpDungeonView : ViewStrategy<FpDungeonModel, HTML> {
+    override fun transform(model: FpDungeonModel): HTML {
+        return html {
+            body {
+                h4 { + model.config.headers.main }
+                h5 { + model.config.headers.history }
+                p {
+                    strong { small { + model.history.first } }
+                    + "- ${model.history.second}"
+                }
+                h5 { + model.config.headers.denizen }
+                p {
+                    strong { small { + model.denizen.first } }
+                    + "- ${model.denizen.second}"
+                }
+                h5 { + model.config.headers.trial }
+                p {
+                    strong { small { + model.trial.first } }
+                    + "- ${model.trial.second}"
+                }
+                h5 { + model.config.headers.secret }
+                p {
+                    strong { small { + model.secret.first } }
+                    + "- ${model.secret.second}"
+                }
+            }
+        }
     }
 }
 
-class FpCityLoader : DataLoadingStrategy<FpCityInputDto> {
-    override fun load(): FpCityInputDto {
-        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_city, FpCityInputDto::class.java)
-    }
-}
-class FpDungeonLoader : DataLoadingStrategy<FpDungeonInputDto> {
-    override fun load(): FpDungeonInputDto {
-        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_dungeon, FpDungeonInputDto::class.java)
-    }
-}
-class FpMonsterLoader : DataLoadingStrategy<FpMonsterInputDto> {
-    override fun load(): FpMonsterInputDto {
-        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_monster, FpMonsterInputDto::class.java)
+class FpArtifactDtoLoader : DtoLoadingStrategy<FpArtifactDto> {
+    override fun load(): FpArtifactDto {
+        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_artifact, FpArtifactDto::class.java)
     }
 }
 
-class FourthPageArtifactPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpArtifactInputDto, FpArtifactDto, HTML>(
-        FpArtifactLoader(),
-        FpArtifactGenerator(shuffler),
+class FpCityDtoLoader : DtoLoadingStrategy<FpCityDto> {
+    override fun load(): FpCityDto {
+        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_city, FpCityDto::class.java)
+    }
+}
+class FpDungeonDtoLoader : DtoLoadingStrategy<FpDungeonDto> {
+    override fun load(): FpDungeonDto {
+        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_dungeon, FpDungeonDto::class.java)
+    }
+}
+class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
+    override fun load(): FpMonsterDto {
+        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_monster, FpMonsterDto::class.java)
+    }
+}
+
+class FourthPageArtifactPipeline(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpArtifactDto, FpArtifactModel, HTML>(
+        FpArtifactDtoLoader(),
+        FpArtifactModelGenerator(shuffler),
         FpArtifactView()
 )
 
-class FourthPageCityPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpCityInputDto, FpCityDto, HTML>(
-        FpCityLoader(),
-        FpCityGenerator(shuffler),
+class FourthPageCityPipeline(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpCityDto, FpCityModel, HTML>(
+        FpCityDtoLoader(),
+        FpCityModelGenerator(shuffler),
         FpCityView()
 )
 
-class FourthPageDungeonPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpDungeonInputDto, FpDungeonDto, HTML>(
-        FpDungeonLoader(),
-        FpDungeonGenerator(shuffler),
+class FourthPageDungeonPipeline(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpDungeonDto, FpDungeonModel, HTML>(
+        FpDungeonDtoLoader(),
+        FpDungeonModelGenerator(shuffler),
         FpDungeonView()
 )
-class FourthPageMonsterPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpMonsterInputDto, FpMonsterDto, HTML>(
-        FpMonsterLoader(),
-        FpMonsterGenerator(shuffler),
-        FpMonsterView()
+class FourthPageMonsterPipeline(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpMonsterDto, FpMonsterModel, HTML>(
+        FpMonsterDtoLoader(),
+        FpMonsterModelGenerator(shuffler),
+        FpMonsterViewTransformer()
 )
 
 

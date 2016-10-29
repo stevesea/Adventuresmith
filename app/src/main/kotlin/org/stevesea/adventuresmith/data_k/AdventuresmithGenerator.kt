@@ -29,26 +29,23 @@ import com.fasterxml.jackson.module.kotlin.*
 import java.io.*
 import java.nio.charset.*
 
-// TODO: https://github.com/mcxiaoke/kotlin-koi
+// TODO: seems like long-term, having all this generation happen in a Jar library would make this
+//  much easier to share among different client GUIs.
 
-// TODO: use strategy pattern for different components of generator pipeline
-// https://github.com/dbacinski/Design-Patterns-In-Kotlin#strategy
-// https://github.com/dbacinski/Design-Patterns-In-Kotlin#strategy
+// TODO: use chain-of-responsibility to pick which generator to use? http://www.oodesign.com/chain-of-responsibility-pattern.html
 
-// TODO: look here for fancy view idea  https://kotlinlang.org/docs/reference/type-safe-builders.html
+// TODO: https://github.com/mcxiaoke/kotlin-koi (android)
 
-interface DataLoadingStrategy<out TInputDto> {
-    fun load() : TInputDto
+
+// replaces elements of String with entries from the given map
+// any keys from map in source string which match %{key} will be substituted with val
+fun inefficientStrSubstitutor(inputStr: String, replacements: Map<String,String>) : String {
+    var result = inputStr
+    for (e in replacements.entries) {
+        result = result.replace("%{${e.key}}", e.value )
+    }
+    return result
 }
-
-interface GeneratorTransformStrategy<in TInputDto, out TOutputDto> {
-    fun transform(inDto: TInputDto) : TOutputDto
-}
-
-interface ViewTransformStrategy<in TOutputDto, out ViewData> {
-    fun transform(outData: TOutputDto) : ViewData
-}
-
 
 object MapperProvider {
     val mapper: ObjectMapper by lazy {
@@ -64,7 +61,7 @@ object ContextProvider {
     var context: Context? = null
 }
 
-object RawResourceDeserializer
+object CachingRawResourceDeserializer
 {
     val maxSize = 16
 
@@ -75,18 +72,18 @@ object RawResourceDeserializer
     }
 
     @Suppress("UNCHECKED_CAST")
-    fun <T> cachedDeserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
+    fun <T> deserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
         synchronized(cache) {
             var result = cache.get(resId)
             if (result == null) {
-                result = deserialize(resId, clazz, charset)
+                result = uncached_deserialize(resId, clazz, charset)
                 cache.put(resId, result)
             }
             return result as T
         }
     }
 
-    fun <T> deserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
+    private fun <T> uncached_deserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
         return open(resId).bufferedReader(charset).use {
             MapperProvider.getReader().forType(clazz).readValue(it)
         }
@@ -103,17 +100,28 @@ interface Generator {
     fun generate() : String
 }
 
-open class GeneratorPipeline<
-        TInputDto,
-        TOutputDto,
-        out ViewData>(
-        val loadingStrat : DataLoadingStrategy<TInputDto>,
-        val generatorStrat: GeneratorTransformStrategy<TInputDto, TOutputDto>,
-        val viewStrat: ViewTransformStrategy<TOutputDto, ViewData>) : Generator {
+interface DtoLoadingStrategy<out TDto> {
+    fun load() : TDto
+}
 
-    fun generateView() : ViewData {
+interface ModelGeneratorStrategy<in TDto, out TModel> {
+    fun transform(dto: TDto) : TModel
+}
+
+interface ViewStrategy<in TModel, out TView> {
+    fun transform(model: TModel) : TView
+}
+open class GeneratorLTV<
+        TDto,
+        TModel,
+        out TView>(
+        val loadingStrat : DtoLoadingStrategy<TDto>,
+        val modelGeneratorStrat: ModelGeneratorStrategy<TDto, TModel>,
+        val viewStrat: ViewStrategy<TModel, TView>) : Generator {
+
+    fun generateView() : TView {
         val input = loadingStrat.load()
-        val output = generatorStrat.transform(input)
+        val output = modelGeneratorStrat.transform(input)
         val viewOutput = viewStrat.transform(output)
         return viewOutput
     }
@@ -122,5 +130,3 @@ open class GeneratorPipeline<
         return generateView().toString()
     }
 }
-
-// TODO: use chain-of-responsibility to pick which generator to use? http://www.oodesign.com/chain-of-responsibility-pattern.html

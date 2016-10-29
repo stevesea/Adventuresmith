@@ -245,4 +245,10 @@ class DataDrivenTest {
 """,  new FourthPageMonsterPipeline(shuffler).generate())
 
     }
+
+
+    @Test
+    void testFotfSpell() {
+        Assert.assertEquals("Acid Spray",  new FotfSpellPipeline(shuffler).generate())
+    }
 }
