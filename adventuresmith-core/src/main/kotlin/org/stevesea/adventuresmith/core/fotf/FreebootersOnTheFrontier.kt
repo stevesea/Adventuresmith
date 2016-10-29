@@ -31,7 +31,7 @@ data class FotfSpellWizardNamesDto(val part1: List<String>,
                                    val part2: List<String>) {
     companion object Resource {
         fun getResource(locale: Locale): URL {
-            return ResourceFinder.find("wizard_names", locale, FotfSpellWizardNamesDto::class.java)
+            return LocaleAwareResourceFinder.find("wizard_names", locale, FotfSpellWizardNamesDto::class.java)
         }
     }
 }
@@ -42,7 +42,7 @@ data class FotfSpellDto(val name_templates: List<String>,
                         val adjectives: List<String>){
     companion object Resource {
         fun getResource(locale: Locale): URL {
-            return ResourceFinder.find("spells", locale, FotfSpellWizardNamesDto::class.java)
+            return LocaleAwareResourceFinder.find("spells", locale, FotfSpellWizardNamesDto::class.java)
         }
     }
 }

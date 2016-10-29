@@ -51,19 +51,25 @@ object MapperProvider {
 }
 
 
-object ResourceFinder {
+/**
+ * attempts to find things similar to a ResourceBundle
+ *
+ * If a ResourceBundle class for the specified Locale does not exist, getBundle tries to
+ * find the closest match. For example, if ButtonLabel_fr_CA_UNIX is the desired class and
+ * the default Locale is en_US, getBundle will look for classes in the following order:
+ *
+ *
+ *   ButtonLabel_fr_CA_UNIX
+ *   ButtonLabel_fr_CA
+ *   ButtonLabel_fr
+ *   ButtonLabel_en_US
+ *   ButtonLabel_en
+ *   ButtonLabel
+ */
+object LocaleAwareResourceFinder {
     private fun locale_names(name: String, locale: Locale, ext: String) : List<String> {
-        // look for things like resource bundle:
-        // If a ResourceBundle class for the specified Locale does not exist, getBundle tries to
-        // find the closest match. For example, if ButtonLabel_fr_CA_UNIX is the desired class and
-        // the default Locale is en_US, getBundle will look for classes in the following order:
+        // look for things similar to a resource bundle:
 
-        //ButtonLabel_fr_CA_UNIX
-        //ButtonLabel_fr_CA
-        //ButtonLabel_fr
-        //ButtonLabel_en_US
-        //ButtonLabel_en
-        //ButtonLabel
         val defaultLocale = Locale.getDefault()
         // constructs a list like
         //    _fr_CA
@@ -86,13 +92,16 @@ object ResourceFinder {
         // for all those left, append name as prefix, ext as suffix
         return suffixes_sanitized.map { String.format("%s%s%s", name, it, ext)}
     }
+
+    /**
+     * our resources are going to be YaML
+     */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
         val fnames_precendence_order = locale_names(name, locale, ext)
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
         return foundList.first()
     }
-
 }
 
 /**
