@@ -40,7 +40,7 @@ class Shuffler (val random: java.util.Random = java.security.SecureRandom()) {
 
     fun <T> pickN(items: Collection<T>, num: Int) : Collection<T> {
         val localItems = items.toMutableList()
-        Collections.shuffle(localItems)
+        Collections.shuffle(localItems, random)
         return localItems.take(num)
     }
 
