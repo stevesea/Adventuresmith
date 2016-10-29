@@ -97,57 +97,44 @@ data class FpDungeonDto(val config: FpDungeonConfigDto,
                         val trial: Pair<String,String>,
                         val secret: Pair<String, String>)
 
-class FpArtifactGenerator(val shuffler: Shuffler<String>) : GeneratorTransformStrategy<FpArtifactInputDto, FpArtifactDto> {
+class FpArtifactGenerator(val shuffler: Shuffler) :  GeneratorTransformStrategy<FpArtifactInputDto, FpArtifactDto> {
     override fun transform(inDto: FpArtifactInputDto): FpArtifactDto {
-        val okey = shuffler.pick(inDto.origins.keys)
-        val pkey = shuffler.pick(inDto.powers.keys)
         return FpArtifactDto(
                 config = inDto.config,
-                origin = Pair(okey, shuffler.pick(inDto.origins.getOrElse(okey) {listOf("not found")})),
-                power = Pair(pkey, shuffler.pick(inDto.powers.getOrElse(pkey) {listOf("not found")}))
+                origin = shuffler.pickPairFromMapofLists(inDto.origins),
+                power = shuffler.pickPairFromMapofLists(inDto.powers)
         )
     }
 }
 
-class FpMonsterGenerator(val shuffler: Shuffler<String>) : GeneratorTransformStrategy<FpMonsterInputDto, FpMonsterDto> {
+class FpMonsterGenerator(val shuffler: Shuffler) : GeneratorTransformStrategy<FpMonsterInputDto, FpMonsterDto> {
     override fun transform(inDto: FpMonsterInputDto): FpMonsterDto {
-        val okey = shuffler.pick(inDto.natures.keys)
-        val pkey = shuffler.pick(inDto.roles.keys)
         return FpMonsterDto(
                 config = inDto.config,
-                nature = Pair(okey, shuffler.pick(inDto.natures.getOrElse(okey) {listOf("not found")})),
-                role = Pair(pkey, shuffler.pick(inDto.roles.getOrElse(pkey) {listOf("not found")}))
-        )
+                nature = shuffler.pickPairFromMapofLists(inDto.natures),
+                role = shuffler.pickPairFromMapofLists(inDto.roles))
     }
 }
-class FpCityGenerator(val shuffler: Shuffler<String>) : GeneratorTransformStrategy<FpCityInputDto, FpCityDto> {
+class FpCityGenerator(val shuffler: Shuffler) : GeneratorTransformStrategy<FpCityInputDto, FpCityDto> {
     override fun transform(inDto: FpCityInputDto): FpCityDto {
-        val fkey = shuffler.pick(inDto.features.keys)
-        val pkey = shuffler.pick(inDto.populations.keys)
-        val skey = shuffler.pick(inDto.societies.keys)
-        val tkey = shuffler.pick(inDto.troubles.keys)
         return FpCityDto(
                 config = inDto.config,
-                feature = Pair(fkey, shuffler.pick(inDto.features.getOrElse(fkey) {listOf("not found")})),
-                population = Pair(pkey, shuffler.pick(inDto.populations.getOrElse(pkey) {listOf("not found")})),
-                society = Pair(skey, shuffler.pick(inDto.societies.getOrElse(skey) {listOf("not found")})),
-                trouble = Pair(tkey, shuffler.pick(inDto.troubles.getOrElse(tkey) {listOf("not found")}))
+                feature = shuffler.pickPairFromMapofLists(inDto.features),
+                population = shuffler.pickPairFromMapofLists(inDto.populations),
+                society = shuffler.pickPairFromMapofLists(inDto.societies),
+                trouble = shuffler.pickPairFromMapofLists(inDto.troubles)
         )
     }
 }
 
-class FpDungeonGenerator(val shuffler: Shuffler<String>) : GeneratorTransformStrategy<FpDungeonInputDto, FpDungeonDto> {
+class FpDungeonGenerator(val shuffler: Shuffler) : GeneratorTransformStrategy<FpDungeonInputDto, FpDungeonDto> {
     override fun transform(inDto: FpDungeonInputDto): FpDungeonDto {
-        val fkey = shuffler.pick(inDto.histories.keys)
-        val pkey = shuffler.pick(inDto.denizens.keys)
-        val skey = shuffler.pick(inDto.trials.keys)
-        val tkey = shuffler.pick(inDto.secrets.keys)
         return FpDungeonDto(
                 config = inDto.config,
-                history = Pair(fkey, shuffler.pick(inDto.histories.getOrElse(fkey) {listOf("not found")})),
-                denizen = Pair(pkey, shuffler.pick(inDto.denizens.getOrElse(pkey) {listOf("not found")})),
-                trial = Pair(skey, shuffler.pick(inDto.trials.getOrElse(skey) {listOf("not found")})),
-                secret = Pair(tkey, shuffler.pick(inDto.secrets.getOrElse(tkey) {listOf("not found")}))
+                history = shuffler.pickPairFromMapofLists(inDto.histories),
+                denizen = shuffler.pickPairFromMapofLists(inDto.denizens),
+                trial = shuffler.pickPairFromMapofLists(inDto.trials),
+                secret = shuffler.pickPairFromMapofLists(inDto.secrets)
         )
     }
 }
@@ -268,28 +255,28 @@ class FpDungeonLoader : DataLoadingStrategy<FpDungeonInputDto> {
 }
 class FpMonsterLoader : DataLoadingStrategy<FpMonsterInputDto> {
     override fun load(): FpMonsterInputDto {
-        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_dungeon, FpMonsterInputDto::class.java)
+        return RawResourceDeserializer.cachedDeserialize(R.raw.fourth_page_monster, FpMonsterInputDto::class.java)
     }
 }
 
-class FourthPageArtifactPipeline(val shuffler: Shuffler<String> = Shuffler()) : GeneratorPipeline<FpArtifactInputDto, FpArtifactDto, HTML>(
+class FourthPageArtifactPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpArtifactInputDto, FpArtifactDto, HTML>(
         FpArtifactLoader(),
         FpArtifactGenerator(shuffler),
         FpArtifactView()
 )
 
-class FourthPageCityPipeline(val shuffler: Shuffler<String> = Shuffler()) : GeneratorPipeline<FpCityInputDto, FpCityDto, HTML>(
+class FourthPageCityPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpCityInputDto, FpCityDto, HTML>(
         FpCityLoader(),
         FpCityGenerator(shuffler),
         FpCityView()
 )
 
-class FourthPageDungeonPipeline(val shuffler: Shuffler<String> = Shuffler()) : GeneratorPipeline<FpDungeonInputDto, FpDungeonDto, HTML>(
+class FourthPageDungeonPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpDungeonInputDto, FpDungeonDto, HTML>(
         FpDungeonLoader(),
         FpDungeonGenerator(shuffler),
         FpDungeonView()
 )
-class FourthPageMonsterPipeline(val shuffler: Shuffler<String> = Shuffler()) : GeneratorPipeline<FpMonsterInputDto, FpMonsterDto, HTML>(
+class FourthPageMonsterPipeline(val shuffler: Shuffler = Shuffler()) : GeneratorPipeline<FpMonsterInputDto, FpMonsterDto, HTML>(
         FpMonsterLoader(),
         FpMonsterGenerator(shuffler),
         FpMonsterView()

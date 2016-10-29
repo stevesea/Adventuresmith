@@ -88,7 +88,7 @@ object RawResourceDeserializer
 
     fun <T> deserialize(@RawRes resId: Int, clazz: Class<T>, charset: Charset = StandardCharsets.UTF_8): T {
         return open(resId).bufferedReader(charset).use {
-            MapperProvider.mapper.readValue(it, clazz)
+            MapperProvider.getReader().forType(clazz).readValue(it)
         }
     }
 }

@@ -48,7 +48,7 @@ import static org.mockito.Mockito.when
 @CompileStatic
 class DataDrivenTest {
     Context context
-    Shuffler<String> shuffler
+    Shuffler shuffler
 
     @Before
     void setup() {
@@ -56,14 +56,12 @@ class DataDrivenTest {
         ContextProvider.context = context
         def mockRandom = mock(Random.class)
         when(mockRandom.nextInt()).thenReturn(1)
-        shuffler = new Shuffler<String>(mockRandom)
+        shuffler = new Shuffler(mockRandom)
 
     }
 
     @Test
     void testFpArtifact() {
-        def gen = new FourthPageArtifactPipeline(shuffler)
-
         Assert.assertEquals("""\
 <html>
   <body>
@@ -94,15 +92,68 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""", gen.generate())
-
+""", new FourthPageArtifactPipeline(shuffler).generate())
     }
 
+    @Test
+    void testFpDungeon() {
+        Assert.assertEquals("""\
+<html>
+  <body>
+    <h4>
+      Dungeon
+    </h4>
+    <h5>
+      History
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Builder
+        </small>
+      </strong>
+      - The walls show signs of dwarven craftsmanship.
+    </p>
+    <h5>
+      Denizen
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Community
+        </small>
+      </strong>
+      - It's a perfect hideout for the outlaws.
+    </p>
+    <h5>
+      Trial
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Dilemma
+        </small>
+      </strong>
+      - She's just a child.
+    </p>
+    <h5>
+      Secret
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Cache
+        </small>
+      </strong>
+      - The library is full of ancient texts.
+    </p>
+  </body>
+</html>
+""", new FourthPageDungeonPipeline(shuffler).generate())
+    }
 
     @Test
     void testFpCity() {
-        def gen = new FourthPageCityPipeline(shuffler)
-
         Assert.assertEquals("""\
 <html>
   <body>
@@ -155,7 +206,43 @@ class DataDrivenTest {
     </p>
   </body>
 </html>
-""", gen.generate())
+""",  new FourthPageCityPipeline(shuffler).generate())
+
+    }
+
+    @Test
+    void testFpMonster() {
+        Assert.assertEquals("""\
+<html>
+  <body>
+    <h4>
+      Monster
+    </h4>
+    <h5>
+      Nature
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Animal and Plant
+        </small>
+      </strong>
+      - Its barbs are filled with poison.
+    </p>
+    <h5>
+      Role
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Artillery
+        </small>
+      </strong>
+      - They shoot at you from cover.
+    </p>
+  </body>
+</html>
+""",  new FourthPageMonsterPipeline(shuffler).generate())
 
     }
 }

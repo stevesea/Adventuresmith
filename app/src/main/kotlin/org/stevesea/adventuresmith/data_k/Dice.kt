@@ -20,15 +20,15 @@
 
 package org.stevesea.adventuresmith.data_k
 
-import java.security.SecureRandom
+import java.security.*
 import java.util.*
 
 class Dice(val nSides: Int = 1,
            val nDice: Int = 6,
            val modifier: Int = 0,
-           private val random: Random = SecureRandom()) : Rollable<Int> {
+           private val random: Random = SecureRandom()) {
 
-    override fun roll(): Int {
+    fun roll(): Int {
         var sum = 0
         for (i in 1..nDice) {
             sum += random.nextInt(nSides) + 1  // plus1 because nextInt is zero-based
@@ -36,7 +36,7 @@ class Dice(val nSides: Int = 1,
         return sum + modifier
     }
 
-    override fun rollN(n: Int): List<Int> {
+    fun rollN(n: Int): List<Int> {
         var result: MutableList<Int> = mutableListOf()
         for (i in 1..n) {
             result.add(roll())
