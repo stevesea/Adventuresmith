@@ -18,10 +18,10 @@
  *
  */
 
-package org.stevesea.adventuresmith.data_k
+package org.stevesea.adventuresmith.core.fp
 
-import org.stevesea.adventuresmith.*
-import org.stevesea.adventuresmith.html_builder.*
+import org.stevesea.adventuresmith.core.*
+import java.util.*
 
 data class FpArtifactHeaders(val main: String,
                              val origin: String,
@@ -29,18 +29,26 @@ data class FpArtifactHeaders(val main: String,
 data class FpArtifactConfigDto(val headers: FpArtifactHeaders)
 data class FpArtifactDto(val config: FpArtifactConfigDto,
                          val origins: Map<String,List<String>>,
-                         val powers: Map<String,List<String>>)
+                         val powers: Map<String,List<String>>) {
+    companion object Resource {
+        val resource = FpArtifactDto::class.java.getResource("artifact.yml")
+    }
+}
 data class FpArtifactModel(val config: FpArtifactConfigDto,
                            val origin: Pair<String,String>,
                            val power: Pair<String, String>)
 
 data class FpMonsterHeaders(val main: String,
-                             val nature: String,
-                             val role: String)
+                            val nature: String,
+                            val role: String)
 data class FpMonsterConfigDto(val headers: FpMonsterHeaders)
 data class FpMonsterDto(val config: FpMonsterConfigDto,
                         val natures: Map<String,List<String>>,
-                        val roles: Map<String,List<String>>)
+                        val roles: Map<String,List<String>>){
+    companion object Resource {
+        val resource = FpMonsterDto::class.java.getResource("monster.yml")
+    }
+}
 data class FpMonsterModel(val config: FpMonsterConfigDto,
                           val nature: Pair<String,String>,
                           val role: Pair<String, String>)
@@ -55,7 +63,11 @@ data class FpCityDto(val config: FpCityConfigDto,
                      val features: Map<String,List<String>>,
                      val populations: Map<String,List<String>>,
                      val societies: Map<String,List<String>>,
-                     val troubles: Map<String,List<String>>)
+                     val troubles: Map<String,List<String>>){
+    companion object Resource {
+        val resource = FpCityDto::class.java.getResource("org/stevesea/adventuresmith/core/fp/city.yml")
+    }
+}
 data class FpCityModel(val config: FpCityConfigDto,
                        val feature: Pair<String,String>,
                        val population: Pair<String,String>,
@@ -63,23 +75,27 @@ data class FpCityModel(val config: FpCityConfigDto,
                        val trouble: Pair<String, String>)
 
 data class FpDungeonHeaders(val main: String,
-                         val history: String,
-                         val denizen: String,
-                         val trial: String,
-                         val secret: String)
+                            val history: String,
+                            val denizen: String,
+                            val trial: String,
+                            val secret: String)
 data class FpDungeonConfigDto(val headers: FpDungeonHeaders)
 data class FpDungeonDto(val config: FpDungeonConfigDto,
                         val histories: Map<String,List<String>>,
                         val denizens: Map<String,List<String>>,
                         val trials: Map<String,List<String>>,
-                        val secrets: Map<String,List<String>>)
+                        val secrets: Map<String,List<String>>){
+    companion object Resource {
+        val resource = FpDungeonDto::class.java.getResource("org/stevesea/adventuresmith/core/fp/dungeon.yml")
+    }
+}
 data class FpDungeonModel(val config: FpDungeonConfigDto,
                           val history: Pair<String,String>,
                           val denizen: Pair<String,String>,
                           val trial: Pair<String,String>,
                           val secret: Pair<String, String>)
 
-class FpArtifactModelGenerator(val shuffler: Shuffler) :  ModelGeneratorStrategy<FpArtifactDto, FpArtifactModel> {
+class FpArtifactModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpArtifactDto, FpArtifactModel> {
     override fun transform(dto: FpArtifactDto): FpArtifactModel {
         return FpArtifactModel(
                 config = dto.config,
@@ -220,24 +236,24 @@ class FpDungeonView : ViewStrategy<FpDungeonModel, HTML> {
 }
 
 class FpArtifactDtoLoader : DtoLoadingStrategy<FpArtifactDto> {
-    override fun load(): FpArtifactDto {
-        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_artifact, FpArtifactDto::class.java)
+    override fun load(locale: Locale): FpArtifactDto {
+        return CachingResourceDeserializer.deserialize(FpArtifactDto.resource, FpArtifactDto::class.java)
     }
 }
 
 class FpCityDtoLoader : DtoLoadingStrategy<FpCityDto> {
-    override fun load(): FpCityDto {
-        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_city, FpCityDto::class.java)
+    override fun load(locale: Locale): FpCityDto {
+        return CachingResourceDeserializer.deserialize(FpCityDto.resource, FpCityDto::class.java)
     }
 }
 class FpDungeonDtoLoader : DtoLoadingStrategy<FpDungeonDto> {
-    override fun load(): FpDungeonDto {
-        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_dungeon, FpDungeonDto::class.java)
+    override fun load(locale: Locale): FpDungeonDto {
+        return CachingResourceDeserializer.deserialize(FpCityDto.resource, FpDungeonDto::class.java)
     }
 }
 class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
-    override fun load(): FpMonsterDto {
-        return CachingRawResourceDeserializer.deserialize(R.raw.fourth_page_monster, FpMonsterDto::class.java)
+    override fun load(locale: Locale): FpMonsterDto {
+        return CachingResourceDeserializer.deserialize(FpCityDto.resource, FpMonsterDto::class.java)
     }
 }
 

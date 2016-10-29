@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.html_builder
+package org.stevesea.adventuresmith.core
 
 // this is mostly taken from https://kotlinlang.org/docs/reference/type-safe-builders.html
 

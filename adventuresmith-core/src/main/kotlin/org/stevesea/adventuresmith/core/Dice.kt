@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.data_k
+package org.stevesea.adventuresmith.core
 
 import java.security.*
 import java.util.*

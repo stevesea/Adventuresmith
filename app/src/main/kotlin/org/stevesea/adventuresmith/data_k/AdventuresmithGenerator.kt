@@ -23,39 +23,14 @@ package org.stevesea.adventuresmith.data_k
 import android.content.*
 import android.support.annotation.*
 import android.support.v4.util.*
-import com.fasterxml.jackson.databind.*
-import com.fasterxml.jackson.dataformat.yaml.*
-import com.fasterxml.jackson.module.kotlin.*
+import org.stevesea.adventuresmith.core.*
 import java.io.*
 import java.nio.charset.*
 
 // TODO: seems like long-term, having all this generation happen in a Jar library would make this
 //  much easier to share among different client GUIs.
 
-// TODO: use chain-of-responsibility to pick which generator to use? http://www.oodesign.com/chain-of-responsibility-pattern.html
 
-// TODO: https://github.com/mcxiaoke/kotlin-koi (android)
-
-
-// replaces elements of String with entries from the given map
-// any keys from map in source string which match %{key} will be substituted with val
-fun inefficientStrSubstitutor(inputStr: String, replacements: Map<String,String>) : String {
-    var result = inputStr
-    for (e in replacements.entries) {
-        result = result.replace("%{${e.key}}", e.value )
-    }
-    return result
-}
-
-object MapperProvider {
-    val mapper: ObjectMapper by lazy {
-        ObjectMapper(YAMLFactory())
-                .registerKotlinModule()
-    }
-
-    fun getReader() : ObjectReader = mapper.reader()
-    fun getWriter() : ObjectWriter = mapper.writer()
-}
 
 object ContextProvider {
     var context: Context? = null
@@ -93,40 +68,5 @@ object CachingRawResourceDeserializer
 object StringResourceLoader {
     fun get(@StringRes resId: Int) {
         ContextProvider.context!!.resources.getString(resId)
-    }
-}
-
-interface Generator {
-    fun generate() : String
-}
-
-interface DtoLoadingStrategy<out TDto> {
-    fun load() : TDto
-}
-
-interface ModelGeneratorStrategy<in TDto, out TModel> {
-    fun transform(dto: TDto) : TModel
-}
-
-interface ViewStrategy<in TModel, out TView> {
-    fun transform(model: TModel) : TView
-}
-open class GeneratorLTV<
-        TDto,
-        TModel,
-        out TView>(
-        val loadingStrat : DtoLoadingStrategy<TDto>,
-        val modelGeneratorStrat: ModelGeneratorStrategy<TDto, TModel>,
-        val viewStrat: ViewStrategy<TModel, TView>) : Generator {
-
-    fun generateView() : TView {
-        val input = loadingStrat.load()
-        val output = modelGeneratorStrat.transform(input)
-        val viewOutput = viewStrat.transform(output)
-        return viewOutput
-    }
-
-    override fun generate(): String {
-        return generateView().toString()
     }
 }

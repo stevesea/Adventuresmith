@@ -18,20 +18,34 @@
  *
  */
 
-package org.stevesea.adventuresmith.data_k
+package org.stevesea.adventuresmith.core.fotf
 
-import org.stevesea.adventuresmith.*
+import org.stevesea.adventuresmith.core.*
+import java.net.*
+import java.util.*
 
 
 // names live in a different YaML, since I expect most translators aren't going to want to
 // explicitly
 data class FotfSpellWizardNamesDto(val part1: List<String>,
-                                   val part2: List<String>)
+                                   val part2: List<String>) {
+    companion object Resource {
+        fun getResource(locale: Locale): URL {
+            return ResourceFinder.find("wizard_names", locale, FotfSpellWizardNamesDto::class.java)
+        }
+    }
+}
 
 data class FotfSpellDto(val name_templates: List<String>,
                         val elements: List<String>,
                         val forms: List<String>,
-                        val adjectives: List<String>)
+                        val adjectives: List<String>){
+    companion object Resource {
+        fun getResource(locale: Locale): URL {
+            return ResourceFinder.find("spells", locale, FotfSpellWizardNamesDto::class.java)
+        }
+    }
+}
 
 // the inputbundle is the combined data from two separate resource reads
 data class FotfSpellDtoBundle(val spellDto: FotfSpellDto,
@@ -66,10 +80,14 @@ class FotfSpellModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<F
 }
 
 class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
-    override fun load(): FotfSpellDtoBundle {
+    override fun load(locale: Locale): FotfSpellDtoBundle {
         return FotfSpellDtoBundle(
-                spellDto = CachingRawResourceDeserializer.deserialize(R.raw.freebooters_on_the_frontier_spells, FotfSpellDto::class.java),
-                wizNameDto = CachingRawResourceDeserializer.deserialize(R.raw.freebooters_on_the_frontier_wizard_names, FotfSpellWizardNamesDto::class.java))
+                spellDto = CachingResourceDeserializer.deserialize(
+                        FotfSpellDto.getResource(locale),
+                        FotfSpellDto::class.java),
+                wizNameDto = CachingResourceDeserializer.deserialize(
+                        FotfSpellWizardNamesDto.getResource(locale),
+                        FotfSpellWizardNamesDto::class.java))
     }
 }
 

@@ -19,9 +19,29 @@
  */
 
 apply plugin: 'java'
+apply plugin: "kotlin"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+
+    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
+
+    compile group: 'com.google.guava', name: 'guava', version: '19.0'
+    //compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.2.4.Final'
+
+    testCompile "junit:junit:$junit_version"
+    testCompile "org.mockito:mockito-core:$mockito_version"
+}
+repositories {
+    mavenCentral()
 }
 
 sourceCompatibility = "1.7"

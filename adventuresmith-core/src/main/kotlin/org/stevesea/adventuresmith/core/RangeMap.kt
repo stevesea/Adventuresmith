@@ -18,19 +18,19 @@
  *
  */
 
-package org.stevesea.adventuresmith.data_k
+package org.stevesea.adventuresmith.core
 
-import java.security.SecureRandom
+import java.security.*
 import java.util.*
 
 class RangeMap<T>(
         val delegate: TreeMap<Int, T> = TreeMap<Int, T>()
-    ) : Map<Int, T> by delegate {
+) : Map<Int, T> by delegate {
 
     val ranges: MutableSet<IntRange> = mutableSetOf()
     init {
         for (i in delegate.keys) {
-           ranges.add(IntRange(i,i))
+            ranges.add(IntRange(i,i))
         }
     }
 

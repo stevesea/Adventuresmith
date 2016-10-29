@@ -27,6 +27,10 @@ import com.squareup.leakcanary.LeakCanary;
 
 import io.fabric.sdk.android.Fabric;
 
+// TODO: use chain-of-responsibility to pick which generator to use? http://www.oodesign.com/chain-of-responsibility-pattern.html
+
+// TODO: https://github.com/mcxiaoke/kotlin-koi (android)
+
 public class AdventuresmithApp extends MultiDexApplication {
     @Override
     public void onCreate() {

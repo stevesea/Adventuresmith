@@ -18,7 +18,6 @@ androidGitVersion {
 ext {
     groovyVersion = '2.4.7'
     androidSupportVersion = '24.2.0'
-    junitVersion = '4.12'
 }
 
 android {
@@ -130,6 +129,7 @@ sonarqube {
 }
 
 dependencies {
+    compile project(':adventuresmith-core')
     compile 'com.android.support:multidex:1.0.1'
 
     compile "org.codehaus.groovy:groovy:$groovyVersion:grooid"
@@ -170,8 +170,8 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
-    testCompile "junit:junit:$junitVersion"
-    testCompile 'org.mockito:mockito-core:1.10.19'
+    testCompile "junit:junit:$junit_version"
+    testCompile "org.mockito:mockito-core:$mockito_version"
     testCompile "org.robolectric:robolectric:$robolectric_version"
     testCompile "org.robolectric:shadows-multidex:$robolectric_version"
     //testCompile "org.robolectric:shadows-support-v4:3.0"

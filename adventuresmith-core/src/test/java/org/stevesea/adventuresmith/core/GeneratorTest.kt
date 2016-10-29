@@ -18,7 +18,20 @@
  *
  */
 
-package org.stevesea.adventuresmith.core;
+package org.stevesea.adventuresmith.core
 
-public class MyClass {
+import org.junit.*
+import org.stevesea.adventuresmith.core.fotf.*
+import java.util.*
+
+class GeneratorTest {
+
+
+    @Test
+    fun doit() {
+        Assert.assertEquals("asdf", FotfSpellGenerator(Shuffler()).generate(Locale.ENGLISH))
+
+    }
+
 }
+
