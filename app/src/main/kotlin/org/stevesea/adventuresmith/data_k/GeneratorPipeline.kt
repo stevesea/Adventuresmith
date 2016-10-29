@@ -45,8 +45,8 @@ interface GeneratorTransformStrategy<in TInputDto, out TOutputDto> {
     fun transform(inDto: TInputDto) : TOutputDto
 }
 
-interface ViewTransformStrategy<in TInputDto, in TOutputDto, out ViewData> {
-    fun transform(inData: TInputDto, outData: TOutputDto) : ViewData
+interface ViewTransformStrategy<in TOutputDto, out ViewData> {
+    fun transform(outData: TOutputDto) : ViewData
 }
 
 
@@ -109,12 +109,12 @@ open class GeneratorPipeline<
         out ViewData>(
         val loadingStrat : DataLoadingStrategy<TInputDto>,
         val generatorStrat: GeneratorTransformStrategy<TInputDto, TOutputDto>,
-        val viewStrat: ViewTransformStrategy<TInputDto, TOutputDto, ViewData>) : Generator {
+        val viewStrat: ViewTransformStrategy<TOutputDto, ViewData>) : Generator {
 
     fun generateView() : ViewData {
         val input = loadingStrat.load()
         val output = generatorStrat.transform(input)
-        val viewOutput = viewStrat.transform(input, output)
+        val viewOutput = viewStrat.transform(output)
         return viewOutput
     }
 

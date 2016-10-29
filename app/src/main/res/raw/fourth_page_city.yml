@@ -1,4 +1,11 @@
 ---
+config:
+  headers:
+    main: City
+    feature: Feature
+    population: Population
+    society: Society
+    trouble: Trouble
 features:
   District :
   - The garrison is a well-oiled machine.

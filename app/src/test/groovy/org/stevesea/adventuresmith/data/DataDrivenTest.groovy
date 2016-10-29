@@ -34,6 +34,7 @@ import org.stevesea.adventuresmith.AdventuresmithApp
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.data_k.ContextProvider
 import org.stevesea.adventuresmith.data_k.fourth_page.FourthPageArtifactPipeline
+import org.stevesea.adventuresmith.data_k.fourth_page.FourthPageCityPipeline
 
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
@@ -60,7 +61,7 @@ class DataDrivenTest {
     }
 
     @Test
-    void testLoader() {
+    void testFpArtifact() {
         def mockRandom = mock(Random.class)
         when(mockRandom.nextInt()).thenReturn(1)
         def shuffler = new org.stevesea.adventuresmith.data_k.Shuffler<String>(mockRandom)
@@ -101,4 +102,66 @@ class DataDrivenTest {
     }
 
 
+    @Test
+    void testFpCity() {
+        def mockRandom = mock(Random.class)
+        when(mockRandom.nextInt()).thenReturn(1)
+        def shuffler = new org.stevesea.adventuresmith.data_k.Shuffler<String>(mockRandom)
+        def gen = new FourthPageCityPipeline(shuffler)
+
+        Assert.assertEquals("""\
+<html>
+  <body>
+    <h4>
+      City
+    </h4>
+    <h5>
+      Feature
+    </h5>
+    <p>
+      <strong>
+        <small>
+          District
+        </small>
+      </strong>
+      - The garrison is a well-oiled machine.
+    </p>
+    <h5>
+      Population
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Attitude
+        </small>
+      </strong>
+      - They want you gone as soon as possible.
+    </p>
+    <h5>
+      Society
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Faith
+        </small>
+      </strong>
+      - Your heathen ways will not be tolerated.
+    </p>
+    <h5>
+      Trouble
+    </h5>
+    <p>
+      <strong>
+        <small>
+          Rumour
+        </small>
+      </strong>
+      - There's treasure in those caves!
+    </p>
+  </body>
+</html>
+""", gen.generate())
+
+    }
 }
