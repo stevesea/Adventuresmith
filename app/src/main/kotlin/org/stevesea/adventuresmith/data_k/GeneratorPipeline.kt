@@ -122,3 +122,5 @@ open class GeneratorPipeline<
         return generateView().toString()
     }
 }
+
+// TODO: use chain-of-responsibility to pick which generator to use? http://www.oodesign.com/chain-of-responsibility-pattern.html

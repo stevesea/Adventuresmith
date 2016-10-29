@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.data
+package org.stevesea.adventuresmith.data_k
 
 import android.content.Context
 import android.os.Build
@@ -32,13 +32,9 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.stevesea.adventuresmith.AdventuresmithApp
 import org.stevesea.adventuresmith.BuildConfig
-import org.stevesea.adventuresmith.data_k.ContextProvider
-import org.stevesea.adventuresmith.data_k.fourth_page.FourthPageArtifactPipeline
-import org.stevesea.adventuresmith.data_k.fourth_page.FourthPageCityPipeline
 
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
-
 // http://stackoverflow.com/questions/28960898/getting-context-in-androidtestcase-or-instrumentationtestcase-in-android-studio
 // http://wiebe-elsinga.com/blog/whats-new-in-android-testing/
 // https://developer.android.com/training/testing/unit-testing/local-unit-tests.html
@@ -52,19 +48,20 @@ import static org.mockito.Mockito.when
 @CompileStatic
 class DataDrivenTest {
     Context context
+    Shuffler<String> shuffler
 
     @Before
     void setup() {
         context = RuntimeEnvironment.application
         ContextProvider.context = context
+        def mockRandom = mock(Random.class)
+        when(mockRandom.nextInt()).thenReturn(1)
+        shuffler = new Shuffler<String>(mockRandom)
 
     }
 
     @Test
     void testFpArtifact() {
-        def mockRandom = mock(Random.class)
-        when(mockRandom.nextInt()).thenReturn(1)
-        def shuffler = new org.stevesea.adventuresmith.data_k.Shuffler<String>(mockRandom)
         def gen = new FourthPageArtifactPipeline(shuffler)
 
         Assert.assertEquals("""\
@@ -104,9 +101,6 @@ class DataDrivenTest {
 
     @Test
     void testFpCity() {
-        def mockRandom = mock(Random.class)
-        when(mockRandom.nextInt()).thenReturn(1)
-        def shuffler = new org.stevesea.adventuresmith.data_k.Shuffler<String>(mockRandom)
         def gen = new FourthPageCityPipeline(shuffler)
 
         Assert.assertEquals("""\
