@@ -79,9 +79,23 @@ object ResourceFinder {
 
         return fnames
     }
+    /*
+    fun <T> butts(name: String, clazz: Class<T>): URL{
+        val loader = MoreObjects.firstNonNull(
+                Thread.currentThread().contextClassLoader,
+                clazz.classLoader
+        )
+        val maybes : List<URL?> = listOf(
+                loader.getResource(name),
+                ClassLoader.getSystemResource(name),
+                clazz.getResource(name)
+        )
+        return maybes.filterNotNull().first()
+    }
+    */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
-        val lnames = locale_names(name, locale, ext)
-        val urls = lnames.map { it -> clazz.getResource(it) }
+        val fnames_precendence_order = locale_names(name, locale, ext)
+        val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
 /*
         val nullableList: List<URL?> = mutableListOf(
