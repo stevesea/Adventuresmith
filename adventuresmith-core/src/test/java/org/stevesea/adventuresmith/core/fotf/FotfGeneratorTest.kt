@@ -31,8 +31,22 @@ class FotfGeneratorTest : BaseGeneratorTest() {
     }
 
     @Test
-    fun doit() {
+    fun spell_english() {
         Assert.assertEquals("Acid Arrow", FotfSpellGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
     }
+    @Test
+    fun spell_french() {
+        Assert.assertEquals("Flèche Omniscient", FotfSpellGenerator(lockedShuffler!!).generate(Locale.FRANCE))
+    }
+    @Test
+    fun exerciser() {
+        for(i in 1..50) {
+            println(FotfSpellGenerator().generate(Locale.ENGLISH))
+        }
+        for(i in 1..50) {
+            println(FotfSpellGenerator().generate(Locale.FRANCE))
+        }
+    }
+
 }
 

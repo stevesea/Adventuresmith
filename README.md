@@ -86,6 +86,10 @@ http://lampblackandbrimstone.blogspot.com/
 * the Perilous Wilds
 * Freebooters on the Frontier
 
+#### Antoine Pempie
+French translation of Freebooters on the Frontier, released under Creative Commons
+Attribution - ShareAlike 3.0 Unported license.
+
 ### Kevin Crawford / Sine Nomine Publishing
 http://www.sinenomine-pub.com/
 * Stars Without Number - content is from the free version of the SWN rule book
