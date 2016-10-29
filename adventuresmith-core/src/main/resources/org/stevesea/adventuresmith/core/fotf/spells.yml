@@ -22,6 +22,10 @@ name_templates:
 - "%{adjective} %{form1} of %{name_part1}%{name_part2}"
 - "%{adjective} %{element} of %{name_part1}%{name_part2}"
 
+# translations must contain the following lists:
+#  elements
+#  forms
+#  adjectives
 elements:
 - Acid
 - Aether
