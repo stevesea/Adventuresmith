@@ -1,0 +1,421 @@
+---
+# TODO: should this be spells_fr_FR?
+# name templates may use the following keywords
+#  %{element}
+#  %{form1}
+#  %{form2} (will not be same as form1)
+#  %{adjective}
+#  %{name_part1}
+#  %{name_part2}
+name_templates:
+- "%{form1} %{adjective}"
+- "%{element} %{adjective}"
+- "%{form1} de/des/de de'l%{element}"
+- "%{form1} du/de la %{form2} ${adjective}"
+- "%{form1} du/de la %{element} ${adjective}"
+- "%{form1} %{adjective} de %{name_part1}%{name_part2}"
+- "%{element} %{adjective} de %{name_part1}%{name_part2}"
+- "%{form1} de %{element} de %{name_part1}%{name_part2}"
+
+#
+Armure Acide Omniscient
+Flèche Éther Clairvoyant
+Aura Air Arcanique
+Fléau Colère Grisant
+Bête Cendre Liant
+Lame Avarice Noir
+Explosion Équilibre Flamboyant
+Bénédiction Rouille Aveuglant
+Blob Sang Sanglant
+Sang Os Brillant
+Carreau Os (pluriel) Cacophonique
+Lien Soufre Céruléen
+Faveur Argile Dissimulateur
+Cerveau Nuage Troublant
+Éclat Cuivre Dévorant
+Appel Cosmos Écarlate
+Charme Ténèbre Maudit
+Cercle Mort Sombre
+Griffe Tromperie Déviant
+Cape Désespoir Délicat
+Cone Désespoir Démoniaque
+Couronne Dimension Dévastateur
+Cube Ruine Endiablé
+Coupe Poussière Diminuant
+Malédiction Terre Épuisant
+Dague Braise Étrange
+Fléchette Énergie Stimulant
+Démon Envie Éclairant
+Désordre Peur Ensorcelant
+Porte Feu Empêtrant
+Oeil Brume Enveloppant
+Yeux Force Erratique
+Visage Furie Maléfique
+Croc Gloire Insoutenable
+Festin Gloutonerie Grandissant
+Doigt Or Extraplanaire
+Fissure Cupidité Terrifiant
+Poing Haine Enfllammé
+Barrière Horreur Flottant
+Regard Santé Givrant
+Clameur Chaleur Scintillant
+Globe Histoire Dansant
+Golem Espoir Aidant
+Gardien Glace Entravant
+Guide Fer Glacé
+Apparence Justice Illusoire
+Halo Connaissance Incroyable
+Marteau Plomb Inéluctable
+Main Mensonge Ingénieux
+Coeur Vie Immédiat
+Heaume Lumière Revigorant
+Corne Foudre Invisible
+Verrou Savoir Invulnérable
+Manteau Amour Libérateur
+Marque Envie A rendre fou
+Mémoire Metal Magnifique
+Esprit Puissance Chamaré
+Bouche Brume Puissant
+Nez Lune Excellentissime
+Serment Boue Omnipotent
+Oracle Nature Suintant
+Motif Huile Penultième
+Familier Douleur Pestilentiel
+Pilier Perception Perçant
+Poche Plan Empoisonné
+Portail Plante Prismatique
+Pyramide Poison Rageant
+Rayon Vif-Argent Rajeunissant
+Rune Révulsion Restorateur
+Hurlement Pourriture Hurlant
+Sceau Sel Sensible
+Sentinelle Ombre Chatoyant
+Serviteur Vision Brillant
+Hampe Argent Sliencieux
+Bouclier Fumée Endormi
+Sigle Terre Lent
+Signe Âme Fumant
+Chant Âmes du Sorcier
+Lance Chants Mystérieux
+Sort Esprit Stupéfiant
+Sphère Etoiles Terrible
+Spray Vapeur Assoifé
+Bâton Acier Tonitruant
+Tempête Pierre Interdimensionnel
+Frappe Tempête Transmutateur
+Epée Soleil Ultime
+Vrille Terreur Incontrôlable
+Langue Temps Inaperçu
+Dent Trésor Inarrêtable
+Piège Vérité Infatigable
+Voile Vanité Vengeur
+Parole Venin Contrariant
+Mur Vigueur Violent
+Protection Vide Violet
+Vague Eau Viridien
+Arme Volonté Vorace
+Tissu Vent Affaiblissant
+Murmure Sagesse Blanc
+Ailes Bois Merveilleux
+Mot Jeunesse Jaune
+elements:
+- Acid
+- Aether
+- Air
+- Anger
+- Ash
+- Avarice
+- Balance
+- Blight
+- Blood
+- Bone
+- Bones
+- Brimstone
+- Clay
+- Cloud
+- Copper
+- Cosmos
+- Dark
+- Death
+- Deceit
+- Despair
+- Dimension
+- Doom
+- Dust
+- Earth
+- Ember
+- Energy
+- Envy
+- Fear
+- Fire
+- Fog
+- Force
+- Fury
+- Glory
+- Gluttony
+- Gold
+- Greed
+- Hate
+- Hatred
+- Health
+- Heat
+- History
+- Hope
+- Ice Iron
+- Justice
+- Knowledge
+- Lead
+- Lies
+- Life
+- Light
+- Lightning
+- Lore
+- Love
+- Lust
+- Metal
+- Might
+- Mist
+- Moon
+- Mud
+- Nature
+- Oil
+- Pain
+- Perception
+- Plane
+- Plant
+- Poison
+- Quicksilver
+- Revulsion
+- Rot
+- Salt
+- Shadow
+- Sight
+- Silver
+- Smoke
+- Soil
+- Soul
+- Souls
+- Sound
+- Spirit
+- Stars
+- Steam
+- Steel
+- Stone
+- Storm
+- Sun
+- Terror
+- Time
+- Treasure
+- Truth
+- Vanity
+- Venom
+- Vigor
+- Void
+- Water
+- Will
+- Wind
+- Wisdom
+- Wood
+- Youth
+forms:
+- Armor
+- Arrow
+- Aura
+- Bane
+- Beast
+- Blade
+- Blast
+- Blessing
+- Blob
+- Blood
+- Bolt
+- Bond
+- Boon
+- Brain
+- Burst
+- Call
+- Charm
+- Circle
+- Claw
+- Cloak
+- Cone
+- Crown
+- Cube
+- Cup
+- Curse
+- Dagger
+- Dart
+- Demon
+- Disturbance
+- Door
+- Eye
+- Eyes
+- Face
+- Fang
+- Feast
+- Finger
+- Fissure
+- Fist
+- Gate
+- Gaze
+- Glamour
+- Globe
+- Golem
+- Guard
+- Guide
+- Guise
+- Halo
+- Hammer
+- Hand
+- Heart
+- Helm
+- Horn
+- Lock
+- Mantle
+- Mark
+- Memory
+- Mind
+- Mouth
+- Noose
+- Oath
+- Oracle
+- Pattern
+- Pet
+- Pillar
+- Pocket
+- Portal
+- Pyramid
+- Ray
+- Rune
+- Scream
+- Seal
+- Sentinel
+- Servant
+- Shaft
+- Shield
+- Sigil
+- Sign
+- Song
+- Spear
+- Spell
+- Sphere
+- Spray
+- Staff
+- Storm
+- Strike
+- Sword
+- Tendril
+- Tongue
+- Tooth
+- Trap
+- Veil
+- Voice
+- Wall
+- Ward
+- Wave
+- Weapon
+- Weave
+- Whisper
+- Wings
+- Word
+adjectives:
+- All-Knowing
+- All-Seeing
+- Arcane
+- Befuddling
+- Binding
+- Black
+- Blazing
+- Blinding
+- Bloody
+- Bright
+- Cacophonous
+- Cerulean
+- Concealing
+- Confusing
+- Consuming
+- Crimson
+- Damnable
+- Dark
+- Deflecting
+- Delicate
+- Demonic
+- Devastating
+- Devilish
+- Diminishing
+- Draining
+- Eldritch
+- Empowering
+- Enlightening
+- Ensorcelling
+- Entangling
+- Enveloping
+- Erratic
+- Evil
+- Excruciating
+- Expanding
+- Extra-Planar
+- Fearsome
+- Flaming
+- Floating
+- Freezing
+- Glittering
+- Gyrating
+- Helpful
+- Hindering
+- Icy
+- Illusory
+- Incredible
+- Inescapable
+- Ingenious
+- Instant
+- Invigorating
+- Invisible
+- Invulnerable
+- Liberating
+- Maddening
+- Magnificent
+- Many-Colored
+- Mighty
+- Most-Excellent
+- Omnipotent
+- Oozing
+- Penultimate
+- Pestilential
+- Piercing
+- Poisonous
+- Prismatic
+- Raging
+- Rejuvenating
+- Restorative
+- Screaming
+- Sensitive
+- Shimmering
+- Shining
+- Silent
+- Sleeping
+- Slow
+- Smoking
+- Sorcerer’s
+- Strange
+- Stupefying
+- Terrible
+- Thirsty
+- Thundering
+- Trans-Dimensional
+- Transmuting
+- Ultimate
+- Uncontrollable
+- Unseen
+- Unstoppable
+- Untiring
+- Vengeful
+- Vexing
+- Violent
+- Violet
+- Viridian
+- Voracious
+- Weakening
+- White
+- Wondrous
+- Yellow
