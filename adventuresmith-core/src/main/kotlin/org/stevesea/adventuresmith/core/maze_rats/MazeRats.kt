@@ -273,7 +273,7 @@ class MrCharacterGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrCh
 
 class MrCharacterView : ViewStrategy<MrCharacterModel, HTML> {
     override fun transform(model: MrCharacterModel): HTML {
-        html {
+        return html {
             body {
                 p {
                     strong { small { model.config.headers.name } }
