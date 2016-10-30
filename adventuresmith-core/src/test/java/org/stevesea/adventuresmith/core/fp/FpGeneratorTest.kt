@@ -215,5 +215,15 @@ class FpGeneratorTest : BaseGeneratorTest() {
 """.trim(),  FourthPageMonsterGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
 
     }
+
+    @Test
+    fun exerciser() {
+        for(i in 1..10) {
+            println(FourthPageArtifactGenerator().generate(Locale.ENGLISH))
+            println(FourthPageCityGenerator().generate(Locale.ENGLISH))
+            println(FourthPageDungeonGenerator().generate(Locale.ENGLISH))
+            println(FourthPageMonsterGenerator().generate(Locale.ENGLISH))
+        }
+    }
 }
 
