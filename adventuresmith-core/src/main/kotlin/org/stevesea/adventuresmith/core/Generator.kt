@@ -40,7 +40,7 @@ interface ViewStrategy<in TModel, out TView> {
 
 // TODO: how does library advertise which generators exist, and how does client call 'em?
 // TODO: need to do this entire chain? Or should the library only be supplying the model?
-open class GeneratorLTV<
+open class BaseGenerator<
         TDto,
         TModel,
         out TView>(
@@ -59,3 +59,34 @@ open class GeneratorLTV<
         return generateView(locale).toString().trim()
     }
 }
+
+// if all you need is just to load a YaML that's a single list
+interface SimpleListLoader {
+    fun load(locale: Locale) : List<String>
+}
+open class BaseSimpleGenerator (
+        val listLoader : SimpleListLoader,
+        val shuffler: Shuffler = Shuffler()) : Generator {
+    override fun generate(locale: Locale): String {
+        return shuffler.pick(listLoader.load(locale))
+    }
+}
+
+
+data class TemplateMapModel(val template: String,
+                        val map: Map<String,String>)
+
+class ApplyTemplateView: ViewStrategy<TemplateMapModel, String> {
+    override fun transform(model: TemplateMapModel): String {
+        return inefficientStrSubstitutor(model.template, model.map)
+    }
+}
+
+/*
+data class FotfSpellModel(val template: String, val map: Map<String,String>) {
+    //neat... but we don't need these names
+    val element: String by map
+    val form1: String by map
+}
+    */
+

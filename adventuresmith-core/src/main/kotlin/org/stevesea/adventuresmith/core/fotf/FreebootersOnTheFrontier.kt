@@ -46,21 +46,11 @@ data class FotfSpellDto(val name_templates: List<String>,
 data class FotfSpellDtoBundle(val spellDto: FotfSpellDto,
                               val wizNameDto: FotfSpellWizardNamesDto)
 
-data class FotfSpellModel(val template: String, val map: Map<String,String>) {
-    /* neat... but we don't need these names
-    val element: String by map
-    val form1: String by map
-    val form2: String by map
-    val adjective: String  by map
-    val name_part1: String by map
-    val name_part2: String by map
-    */
-}
 
-class FotfSpellModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FotfSpellDtoBundle, FotfSpellModel> {
-    override fun transform(dto: FotfSpellDtoBundle): FotfSpellModel {
+class FotfSpellMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FotfSpellDtoBundle, TemplateMapModel> {
+    override fun transform(dto: FotfSpellDtoBundle): TemplateMapModel {
         val forms = shuffler.pickN(dto.spellDto.forms, 2)
-        return FotfSpellModel(
+        return TemplateMapModel(
                 template = shuffler.pick(dto.spellDto.name_templates),
                 map = mapOf(
                         "element" to shuffler.pick(dto.spellDto.elements),
@@ -89,15 +79,9 @@ class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
     }
 }
 
-class FotfSpellView : ViewStrategy<FotfSpellModel, String> {
-    override fun transform(model: FotfSpellModel): String {
-        return inefficientStrSubstitutor(model.template, model.map)
-    }
-}
-
-class FotfSpellGenerator(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FotfSpellDtoBundle, FotfSpellModel, String>(
+class FotfSpellGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FotfSpellDtoBundle, TemplateMapModel, String>(
         FotfSpellDtoLoader(),
-        FotfSpellModelGenerator(shuffler),
-        FotfSpellView()
+        FotfSpellMapGenerator(shuffler),
+        ApplyTemplateView()
 )
 

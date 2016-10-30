@@ -1,4 +1,5 @@
 ---
+# effect/form/element come form magic tables
 templates:
 - "%{element} %{creature}"
 - "%{effect} %{element} %{creature}"

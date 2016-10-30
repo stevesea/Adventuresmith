@@ -269,24 +269,24 @@ class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
     }
 }
 
-class FourthPageArtifactGenerator(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpArtifactDto, FpArtifactModel, HTML>(
+class FourthPageArtifactGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpArtifactDto, FpArtifactModel, HTML>(
         FpArtifactDtoLoader(),
         FpArtifactModelGenerator(shuffler),
         FpArtifactView()
 )
 
-class FourthPageCityGenerator(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpCityDto, FpCityModel, HTML>(
+class FourthPageCityGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpCityDto, FpCityModel, HTML>(
         FpCityDtoLoader(),
         FpCityModelGenerator(shuffler),
         FpCityView()
 )
 
-class FourthPageDungeonGenerator(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpDungeonDto, FpDungeonModel, HTML>(
+class FourthPageDungeonGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpDungeonDto, FpDungeonModel, HTML>(
         FpDungeonDtoLoader(),
         FpDungeonModelGenerator(shuffler),
         FpDungeonView()
 )
-class FourthPageMonsterGenerator(shuffler: Shuffler = Shuffler()) : GeneratorLTV<FpMonsterDto, FpMonsterModel, HTML>(
+class FourthPageMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpMonsterDto, FpMonsterModel, HTML>(
         FpMonsterDtoLoader(),
         FpMonsterModelGenerator(shuffler),
         FpMonsterViewTransformer()
