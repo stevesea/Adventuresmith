@@ -45,7 +45,8 @@ class Dice(val nSides: Int = 1,
     }
 
     override fun toString(): String {
-        return "${nDice}d${nSides}+${modifier}"
+        val modstr = if (modifier == 0) "" else "+${modifier}"
+        return "${nDice}d${nSides}${modstr}"
     }
 
     companion object Factory {
@@ -54,9 +55,9 @@ class Dice(val nSides: Int = 1,
             val indD = diceStr.indexOf('d')
 
             return Dice(
-                    nDice = diceStr.substring(0..indD).toInt(),
-                    nSides = diceStr.substring((indD+1)..(if (indPlus == -1) diceStr.length else indPlus)).toInt(),
-                    modifier = if (indPlus == -1) 0 else diceStr.substring((indPlus+1)..(diceStr.length)).toInt(),
+                    nDice = diceStr.substring(0..(indD-1)).toInt(),
+                    nSides = diceStr.substring((indD+1)..(if (indPlus == -1) diceStr.length else indPlus) - 1).toInt(),
+                    modifier = if (indPlus == -1) 0 else diceStr.substring((indPlus+1)..(diceStr.length-1)).toInt(),
                     random = random
             )
         }
