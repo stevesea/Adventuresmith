@@ -47,7 +47,7 @@ data class MrMagicDto(val templates: List<String>,
 data class MrCreaturesDto(val templates: List<String>,
                           val creatures: List<String>){
     companion object Resource {
-        val resource_prefix = "magic"
+        val resource_prefix = "monsters"
     }
 }
 
@@ -57,12 +57,11 @@ data class MrCreatureBundleDto(val magicDto: MrMagicDto,
 data class MrItemsDto(val templates: List<String>,
                       val items: List<String>){
     companion object Resource {
-        val resource_prefix = "magic"
+        val resource_prefix = "items"
     }
 }
 
-data class MrItemBundleDto(val itemDto: MrItemsDto,
-                           val magicDto: MrMagicDto)
+data class MrItemBundleDto(val magicDto: MrMagicDto, val itemDto: MrItemsDto)
 
 data class MrNamesDto(val surnames: List<String>,
                       val forenames: List<String>){
@@ -89,7 +88,7 @@ data class MrCharactersDto(val config: MrCharacterConfigDto,
                            val weapons: List<String>,
                            val equipment: List<String>){
     companion object Resource {
-        val resource_prefix = "names"
+        val resource_prefix = "characters"
     }
 }
 data class MrCharacterBundleDto(val characterDto: MrCharactersDto,
@@ -200,7 +199,7 @@ class MrCreatureMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<Mr
         val creatures = shuffler.pickN(dto.creatureDto.creatures, 2)
         val m = mutableMapOf(
                 "creature1" to creatures.elementAt(0),
-                "creature1" to creatures.elementAt(1)
+                "creature2" to creatures.elementAt(1)
         )
         m.putAll(magicMapHelper(shuffler, dto.magicDto))
         return TemplateMapModel(
