@@ -110,4 +110,15 @@ class MazeRatsTest {
         """.trim(), MrCharacterGenerator(GeneratorTest.getShuffler()).generate())
     }
 
+    @Test
+    fun exerciser() {
+        for(i in 1..50) {
+            for (g in listOf(MrItemGenerator(), MrAfflictionsGenerator(), MrPotionEffectsGenerator(),
+                    MrCreatureGenerator(), MrMagicGenerator())) {
+                println(g.generate())
+            }
+        }
+
+    }
+
 }
