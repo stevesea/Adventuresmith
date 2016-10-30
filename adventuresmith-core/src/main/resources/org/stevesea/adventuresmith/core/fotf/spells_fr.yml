@@ -3,7 +3,7 @@
 name_templates:
 - "%{form1} %{adjective}"
 - "%{element} %{adjective}"
-- "%{form1} de/des/de de'l %{element}"
+- "%{form1} de/des/de de l'%{element}"
 - "%{form1} du/de la %{form2} %{adjective}"
 - "%{form1} du/de la %{element} %{adjective}"
 - "%{form1} %{adjective} de %{name_part1}%{name_part2}"
