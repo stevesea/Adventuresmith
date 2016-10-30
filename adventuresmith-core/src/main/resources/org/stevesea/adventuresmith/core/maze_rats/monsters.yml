@@ -1,0 +1,110 @@
+---
+templates:
+- "%{element} %{creature}"
+- "%{effect} %{element} %{creature}"
+- "%{effect} %{creature}"
+- "%{form} %{creature}"
+- "%{creature1} %{creature2}"
+- "%{effect} %{creature1} %{creature2}"
+creatures:
+- Ant
+- Ape
+- Badger
+- Bat
+- Bear
+- Beaver
+- Bee
+- Beetle
+- Boar
+- Bulldog
+- Butterfly
+- Camel
+- Cat
+- Centipede
+- Chameleon
+- Cobra
+- Cockroach
+- Constrictor
+- Cougar
+- Cow
+- Coyote
+- Crab
+- Crane
+- Cricket
+- Crocodile
+- Crow
+- Cuckoo
+- Donkey
+- Dragonfly
+- Duck
+- Eagle
+- Eel
+- Elephant
+- Elk
+- Falcon
+- Ferret
+- Firefly
+- Fox
+- Frog
+- Goat
+- Goose
+- Hare
+- Hart
+- Hawk
+- Hedgehog
+- Hornet
+- Horse
+- Hound
+- Hummingbird
+- Jackal
+- Jellyfish
+- Leech
+- Lion
+- Locust
+- Lynx
+- Mantis
+- Mastodon
+- Mockingbird
+- Mole
+- Monkey
+- Moose
+- Moth
+- Mouse
+- Mule
+- Octopus
+- Otter
+- Owl
+- Ox
+- Panther
+- Pig
+- Pony
+- Porcupine
+- Possum
+- Rabbit
+- Raccoon
+- Rat
+- Reindeer
+- Rooster
+- Salamander
+- Scorpion
+- Seal
+- Shark
+- Sheep
+- Slug
+- Snail
+- Sparrow
+- Spider
+- Squid
+- Squirrel
+- Tiger
+- Toad
+- Turtle
+- Viper
+- Vulture
+- Walrus
+- Weasel
+- Whale
+- Wolf
+- Wolverine
+- Worm
+

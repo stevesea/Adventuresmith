@@ -37,6 +37,9 @@ interface ModelGeneratorStrategy<in TDto, out TModel> {
 interface ViewStrategy<in TModel, out TView> {
     fun transform(model: TModel) : TView
 }
+
+// TODO: how does library advertise which generators exist, and how does client call 'em?
+// TODO: need to do this entire chain? Or should the library only be supplying the model?
 open class GeneratorLTV<
         TDto,
         TModel,
