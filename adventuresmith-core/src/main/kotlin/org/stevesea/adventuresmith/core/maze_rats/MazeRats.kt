@@ -44,15 +44,15 @@ data class MrMagicDto(val templates: List<String>,
     }
 }
 
-data class MrCreaturesDto(val templates: List<String>,
+data class MrMonstersDto(val templates: List<String>,
                           val creatures: List<String>){
     companion object Resource {
         val resource_prefix = "monsters"
     }
 }
 
-data class MrCreatureBundleDto(val magicDto: MrMagicDto,
-                               val creatureDto: MrCreaturesDto)
+data class MrMonsterBundleDto(val magicDto: MrMagicDto,
+                               val creatureDto: MrMonstersDto)
 
 data class MrItemsDto(val templates: List<String>,
                       val items: List<String>){
@@ -134,16 +134,16 @@ class MrCharacterBundleDtoLoader: DtoLoadingStrategy<MrCharacterBundleDto> {
     }
 }
 
-class MrCreatureBundleDtoLoader: DtoLoadingStrategy<MrCreatureBundleDto> {
-    override fun load(locale: Locale): MrCreatureBundleDto {
-        return MrCreatureBundleDto(
+class MrMonsterBundleDtoLoader: DtoLoadingStrategy<MrMonsterBundleDto> {
+    override fun load(locale: Locale): MrMonsterBundleDto {
+        return MrMonsterBundleDto(
                 magicDto = CachingResourceDeserializer.deserialize(
                         MrMagicDto::class.java,
                         MrMagicDto.resource_prefix,
                         locale),
                 creatureDto = CachingResourceDeserializer.deserialize(
-                        MrCreaturesDto::class.java,
-                        MrCreaturesDto.resource_prefix,
+                        MrMonstersDto::class.java,
+                        MrMonstersDto.resource_prefix,
                         locale))
     }
 }
@@ -193,8 +193,8 @@ class MrItemMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrItem
     }
 }
 
-class MrCreatureMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrCreatureBundleDto, TemplateMapModel> {
-    override fun transform(dto: MrCreatureBundleDto): TemplateMapModel {
+class MrMonsterMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrMonsterBundleDto, TemplateMapModel> {
+    override fun transform(dto: MrMonsterBundleDto): TemplateMapModel {
         val creatures = shuffler.pickN(dto.creatureDto.creatures, 2)
         val m = mutableMapOf(
                 "creature1" to creatures.elementAt(0),
@@ -227,9 +227,9 @@ class MrItemGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrItemBun
         ApplyTemplateView()
 )
 
-class MrCreatureGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrCreatureBundleDto, TemplateMapModel, String>(
-        MrCreatureBundleDtoLoader(),
-        MrCreatureMapGenerator(shuffler),
+class MrMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMonsterBundleDto, TemplateMapModel, String>(
+        MrMonsterBundleDtoLoader(),
+        MrMonsterMapGenerator(shuffler),
         ApplyTemplateView()
 )
 

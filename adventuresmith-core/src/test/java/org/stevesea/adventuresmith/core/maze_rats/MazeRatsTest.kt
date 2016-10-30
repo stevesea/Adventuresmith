@@ -56,10 +56,10 @@ class MazeRatsTest {
     }
     @Test
     fun creature() {
-        Assert.assertEquals("Accelerating Assassin Ant", MrCreatureGenerator(GeneratorTest.getShuffler()).generate())
-        Assert.assertEquals("Ant Badger", MrCreatureGenerator(GeneratorTest.getShuffler(4)).generate())
-        Assert.assertEquals("Attracting Ant", MrCreatureGenerator(GeneratorTest.getShuffler(2)).generate())
-        Assert.assertEquals("Binding Ant Badger", MrCreatureGenerator(GeneratorTest.getShuffler(5)).generate())
+        Assert.assertEquals("Accelerating Assassin Ant", MrMonsterGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("Ant Badger", MrMonsterGenerator(GeneratorTest.getShuffler(4)).generate())
+        Assert.assertEquals("Attracting Ant", MrMonsterGenerator(GeneratorTest.getShuffler(2)).generate())
+        Assert.assertEquals("Binding Ant Badger", MrMonsterGenerator(GeneratorTest.getShuffler(5)).generate())
     }
     @Test
     fun char() {
@@ -114,7 +114,7 @@ class MazeRatsTest {
     fun exerciser() {
         for(i in 1..50) {
             for (g in listOf(MrItemGenerator(), MrAfflictionsGenerator(), MrPotionEffectsGenerator(),
-                    MrCreatureGenerator(), MrMagicGenerator())) {
+                    MrMonsterGenerator(), MrMagicGenerator())) {
                 println(g.generate())
             }
         }
