@@ -64,50 +64,56 @@ class MazeRatsTest {
     @Test
     fun char() {
         Assert.assertEquals("""
-        <html>
+<html>
   <body>
     <p>
       <strong>
         <small>
+          Name
         </small>
       </strong>
-      Balthazar Beetleman
+      Adelaide Barrow
     </p>
     <p>
       <small>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STR: 3 DEX: 3 WIL: 3 &nbsp;&nbsp;&nbsp;&nbsp;HP: 1
       </small>
     </p>
     <p>
       <strong>
         <small>
+          Personality
         </small>
       </strong>
-      Arrogant, Boastful, Bored
+      Avant-Garde, Boastful
     </p>
     <p>
       <strong>
         <small>
+          Appearance
         </small>
       </strong>
-      Acid Scars, Boney hands, Braided Hair
+      Battle Scars, Boney hands
     </p>
     <p>
       <strong>
         <small>
+          Weapons
         </small>
       </strong>
-      Ancient Spear (d6), Battered Halberd (d8)
+      Arming Sword (d6), Battered Halberd (d8)
     </p>
     <p>
       <strong>
         <small>
+          Equipment
         </small>
       </strong>
-      Acid, Antitoxin, Armor
+      Animal Scent, Antitoxin, Armor
     </p>
   </body>
 </html>
-        """.trim(), MrCharacterGenerator(GeneratorTest.getShuffler()).generate())
+        """.trim(), MrCharacterGenerator(GeneratorTest.getShuffler(0)).generate())
     }
 
     @Test

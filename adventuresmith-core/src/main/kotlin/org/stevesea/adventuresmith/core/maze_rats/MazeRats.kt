@@ -274,28 +274,28 @@ class MrCharacterView : ViewStrategy<MrCharacterModel, HTML> {
         return html {
             body {
                 p {
-                    strong { small { model.config.headers.name } }
+                    strong { small { + model.config.headers.name } }
                     + model.name
                 }
                 p {
                     small {
-                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STR: ${model.str} DEX: ${model.dex} WIL: ${model.wil} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${model.hp}"
+                        + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STR: ${model.str} DEX: ${model.dex} WIL: ${model.wil} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${model.hp}"
                     }
                 }
                 p {
-                    strong { small { model.config.headers.personality } }
+                    strong { small { + model.config.headers.personality } }
                     + model.personalities.joinToString(", ")
                 }
                 p {
-                    strong { small { model.config.headers.appearance } }
+                    strong { small { + model.config.headers.appearance } }
                     + model.appearances.joinToString(", ")
                 }
                 p {
-                    strong { small { model.config.headers.weapons } }
+                    strong { small { + model.config.headers.weapons } }
                     + model.weapons.joinToString(", ")
                 }
                 p {
-                    strong { small { model.config.headers.equipment } }
+                    strong { small { + model.config.headers.equipment } }
                     + model.equipment.joinToString(", ")
                 }
             }
