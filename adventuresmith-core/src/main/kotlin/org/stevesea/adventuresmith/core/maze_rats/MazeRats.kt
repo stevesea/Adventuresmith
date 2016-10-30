@@ -82,7 +82,6 @@ data class MrCharacterHeaderDto(val name: String,
                                 val abilities: MrCharAbilitiesDto)
 data class MrCharacterConfigDto(val headers: MrCharacterHeaderDto)
 data class MrCharactersDto(val config: MrCharacterConfigDto,
-                           val surnames: List<String>,
                            val personalities: List<String>,
                            val appearances: List<String>,
                            val weapons: List<String>,
