@@ -1,10 +1,10 @@
 ---
 # effect/form/element come form magic tables
 templates:
-- "%{element} %{creature}"
-- "%{effect} %{element} %{creature}"
-- "%{effect} %{creature}"
-- "%{form} %{creature}"
+- "%{element} %{creature1}"
+- "%{effect} %{element} %{creature1}"
+- "%{effect} %{creature1}"
+- "%{form} %{creature1}"
 - "%{creature1} %{creature2}"
 - "%{effect} %{creature1} %{creature2}"
 creatures:
