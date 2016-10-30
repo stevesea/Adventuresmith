@@ -23,14 +23,12 @@ package org.stevesea.adventuresmith.core
 import com.nhaarman.mockito_kotlin.*
 import java.util.*
 
-open class BaseGeneratorTest {
+object GeneratorTest {
 
-    var lockedShuffler : Shuffler? = null
-
-    fun init() {
+    fun getShuffler(mockRandomVal : Int = 1) : Shuffler {
         val mockRandom : Random = mock()
-        com.nhaarman.mockito_kotlin.whenever(mockRandom.nextInt()).thenReturn(1)
+        com.nhaarman.mockito_kotlin.whenever(mockRandom.nextInt(any())).thenReturn(mockRandomVal)
 
-        lockedShuffler = Shuffler(mockRandom)
+        return Shuffler(mockRandom)
     }
 }

@@ -24,19 +24,22 @@ import org.junit.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-class FotfGeneratorTest : BaseGeneratorTest() {
-    @Before
-    fun setup() {
-        init()
-    }
-
+class FotfGeneratorTest {
     @Test
     fun spell_english() {
-        Assert.assertEquals("Acid Arrow", FotfSpellGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
+        Assert.assertEquals("All-Seeing Armor", FotfSpellGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
+        Assert.assertEquals("Armor of Black Avarice", FotfSpellGenerator(GeneratorTest.getShuffler(5)).generate(Locale.ENGLISH))
+        Assert.assertEquals("Armor of Bolcas", FotfSpellGenerator(GeneratorTest.getShuffler(10)).generate(Locale.ENGLISH))
+        Assert.assertEquals("Concealing Armor of Canderol", FotfSpellGenerator(GeneratorTest.getShuffler(12)).generate(Locale.ENGLISH))
+        Assert.assertEquals("Armor of Anger", FotfSpellGenerator(GeneratorTest.getShuffler(3)).generate(Locale.ENGLISH))
     }
     @Test
     fun spell_french() {
-        Assert.assertEquals("Flèche Omniscient", FotfSpellGenerator(lockedShuffler!!).generate(Locale.FRANCE))
+        Assert.assertEquals("Éther Clairvoyant", FotfSpellGenerator(GeneratorTest.getShuffler()).generate(Locale.FRANCE))
+        Assert.assertEquals("Armure de/des/de de l'Air", FotfSpellGenerator(GeneratorTest.getShuffler(2)).generate(Locale.FRANCE))
+        Assert.assertEquals("Armure du/de la Aura Grisant", FotfSpellGenerator(GeneratorTest.getShuffler(3)).generate(Locale.FRANCE))
+        Assert.assertEquals("Équilibre Flamboyant de Asmoasta", FotfSpellGenerator(GeneratorTest.getShuffler(6)).generate(Locale.FRANCE))
+        Assert.assertEquals("Armure de Rouille de Bahabalia", FotfSpellGenerator(GeneratorTest.getShuffler(7)).generate(Locale.FRANCE))
     }
     @Test
     fun exerciser() {

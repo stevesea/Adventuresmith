@@ -24,35 +24,46 @@ import org.junit.*
 import org.stevesea.adventuresmith.core.*
 
 
-class MazeRatsTest : BaseGeneratorTest() {
-    @Before
-    fun setup() {
-        init()
-    }
+class MazeRatsTest {
 
     @Test
     fun affliction() {
-        Assert.assertEquals("Ages backwards", MrAfflictionsGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Always honest", MrAfflictionsGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("Bleeds seawater", MrAfflictionsGenerator(GeneratorTest.getShuffler(4)).generate())
+        Assert.assertEquals("Caveman speech", MrAfflictionsGenerator(GeneratorTest.getShuffler(8)).generate())
+        Assert.assertEquals("Inner meltdown", MrAfflictionsGenerator(GeneratorTest.getShuffler(16)).generate())
     }
     @Test
     fun potion_effects() {
-        Assert.assertEquals("1-hour vampirism", MrPotionEffectsGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Alter face", MrPotionEffectsGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("Anti-gravity", MrPotionEffectsGenerator(GeneratorTest.getShuffler(4)).generate())
+        Assert.assertEquals("Blurry outlines", MrPotionEffectsGenerator(GeneratorTest.getShuffler(8)).generate())
+        Assert.assertEquals("Control element", MrPotionEffectsGenerator(GeneratorTest.getShuffler(16)).generate())
     }
     @Test
     fun magic() {
-        Assert.assertEquals("Arc Acid", MrMagicGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Accelerating Aether", MrMagicGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("Amber of Beacon", MrMagicGenerator(GeneratorTest.getShuffler(4)).generate())
+        Assert.assertEquals("Attracting Aura", MrMagicGenerator(GeneratorTest.getShuffler(2)).generate())
+        Assert.assertEquals("Ash of Binding Beam", MrMagicGenerator(GeneratorTest.getShuffler(5)).generate())
     }
     @Test
     fun item() {
-        Assert.assertEquals("Arc Amulet", MrItemGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Accelerating Arrow", MrItemGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("Bell of Bewildering Beacon", MrItemGenerator(GeneratorTest.getShuffler(4)).generate())
+        Assert.assertEquals("Attracting Aura Arrowhead", MrItemGenerator(GeneratorTest.getShuffler(2)).generate())
+        Assert.assertEquals("Ash Belt", MrItemGenerator(GeneratorTest.getShuffler(5)).generate())
     }
     @Test
     fun creature() {
-        Assert.assertEquals("Arc Ape", MrCreatureGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Accelerating Assassin Ant", MrCreatureGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("Ant Badger", MrCreatureGenerator(GeneratorTest.getShuffler(4)).generate())
+        Assert.assertEquals("Attracting Ant", MrCreatureGenerator(GeneratorTest.getShuffler(2)).generate())
+        Assert.assertEquals("Binding Ant Badger", MrCreatureGenerator(GeneratorTest.getShuffler(5)).generate())
     }
     @Test
     fun char() {
-        Assert.assertEquals("asdf", MrCharacterGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("asdf", MrCharacterGenerator(GeneratorTest.getShuffler()).generate())
     }
 
 }

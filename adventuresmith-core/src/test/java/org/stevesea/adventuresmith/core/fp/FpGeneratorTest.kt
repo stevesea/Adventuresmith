@@ -24,11 +24,7 @@ import org.junit.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-class FpGeneratorTest : BaseGeneratorTest() {
-    @Before
-    fun setup() {
-        init()
-    }
+class FpGeneratorTest {
 
     @Test
     fun testFpArtifact() {
@@ -44,10 +40,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Holy
+          Magic
         </small>
       </strong>
-      - It's been lost for centuries.
+      - It's powered by a trapped soul.
     </p>
     <h5>
       Power
@@ -55,14 +51,14 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Blessing
+          Curse
         </small>
       </strong>
-      - You see visions of the future.
+      - You've been polymorphed.
     </p>
   </body>
 </html>
-""".trim(), FourthPageArtifactGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
+""".trim(), FourthPageArtifactGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
     }
 
     @Test
@@ -79,10 +75,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Builder
+          Downfall
         </small>
       </strong>
-      - The walls show signs of dwarven craftsmanship.
+      - The war left the land in ruins.
     </p>
     <h5>
       Denizen
@@ -90,10 +86,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Community
+          Creature
         </small>
       </strong>
-      - It's a perfect hideout for the outlaws.
+      - A dragon has made this its lair.
     </p>
     <h5>
       Trial
@@ -101,10 +97,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Dilemma
+          Hazard
         </small>
       </strong>
-      - She's just a child.
+      - The air is filled with poison spores.
     </p>
     <h5>
       Secret
@@ -112,14 +108,14 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Cache
+          Lore
         </small>
       </strong>
-      - The library is full of ancient texts.
+      - There's something strange about this map.
     </p>
   </body>
 </html>
-""".trim(), FourthPageDungeonGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
+""".trim(), FourthPageDungeonGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
     }
 
     @Test
@@ -136,10 +132,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          District
+          Resource
         </small>
       </strong>
-      - The garrison is a well-oiled machine.
+      - There's good hunting here.
     </p>
     <h5>
       Population
@@ -147,10 +143,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Attitude
+          Caste
         </small>
       </strong>
-      - They want you gone as soon as possible.
+      - You never know what the mages are up to.
     </p>
     <h5>
       Society
@@ -158,10 +154,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Faith
+          Guild
         </small>
       </strong>
-      - Your heathen ways will not be tolerated.
+      - There's no honour amongst these thieves.
     </p>
     <h5>
       Trouble
@@ -169,14 +165,14 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Rumour
+          Threat
         </small>
       </strong>
-      - There's treasure in those caves!
+      - The sick have been quarantined.
     </p>
   </body>
 </html>
-""".trim(),  FourthPageCityGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
+""".trim(),  FourthPageCityGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
 
     }
 
@@ -194,10 +190,10 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Animal and Plant
+          Construct
         </small>
       </strong>
-      - Its barbs are filled with poison.
+      - They repair their own injuries.
     </p>
     <h5>
       Role
@@ -205,14 +201,14 @@ class FpGeneratorTest : BaseGeneratorTest() {
     <p>
       <strong>
         <small>
-          Artillery
+          Brute
         </small>
       </strong>
-      - They shoot at you from cover.
+      - It gets in your way.
     </p>
   </body>
 </html>
-""".trim(),  FourthPageMonsterGenerator(lockedShuffler!!).generate(Locale.ENGLISH))
+""".trim(),  FourthPageMonsterGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
 
     }
 
