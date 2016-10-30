@@ -34,7 +34,7 @@ Astral travel
 Blink
 Blurry outlines
 Body-swap
-Chamaeleon skin
+Chameleon skin
 Charm
 Clairaudience
 Clairvoyance
