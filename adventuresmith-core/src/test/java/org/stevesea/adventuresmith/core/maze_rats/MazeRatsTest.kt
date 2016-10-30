@@ -63,7 +63,51 @@ class MazeRatsTest {
     }
     @Test
     fun char() {
-        Assert.assertEquals("asdf", MrCharacterGenerator(GeneratorTest.getShuffler()).generate())
+        Assert.assertEquals("""
+        <html>
+  <body>
+    <p>
+      <strong>
+        <small>
+        </small>
+      </strong>
+      Balthazar Beetleman
+    </p>
+    <p>
+      <small>
+      </small>
+    </p>
+    <p>
+      <strong>
+        <small>
+        </small>
+      </strong>
+      Arrogant, Boastful, Bored
+    </p>
+    <p>
+      <strong>
+        <small>
+        </small>
+      </strong>
+      Acid Scars, Boney hands, Braided Hair
+    </p>
+    <p>
+      <strong>
+        <small>
+        </small>
+      </strong>
+      Ancient Spear (d6), Battered Halberd (d8)
+    </p>
+    <p>
+      <strong>
+        <small>
+        </small>
+      </strong>
+      Acid, Antitoxin, Armor
+    </p>
+  </body>
+</html>
+        """.trim(), MrCharacterGenerator(GeneratorTest.getShuffler()).generate())
     }
 
 }
