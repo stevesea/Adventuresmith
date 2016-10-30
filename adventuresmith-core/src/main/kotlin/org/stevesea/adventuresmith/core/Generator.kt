@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.google.common.base.*
 import java.util.*
 
 interface Generator {
@@ -78,7 +79,10 @@ data class TemplateMapModel(val template: String,
 
 class ApplyTemplateView: ViewStrategy<TemplateMapModel, String> {
     override fun transform(model: TemplateMapModel): String {
-        return inefficientStrSubstitutor(model.template, model.map)
+        val result = inefficientStrSubstitutor(model.template, model.map)
+        // throw an exception if any keywords weren't replaced
+        Preconditions.checkArgument(!result.contains("%{"), "unreplaced keywords: '%s'", result)
+        return result
     }
 }
 
