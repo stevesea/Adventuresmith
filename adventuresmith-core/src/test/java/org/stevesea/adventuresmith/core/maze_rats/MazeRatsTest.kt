@@ -44,11 +44,11 @@ class MazeRatsTest : BaseGeneratorTest() {
     }
     @Test
     fun item() {
-        Assert.assertEquals("asdf", MrItemGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Arc Amulet", MrItemGenerator(lockedShuffler!!).generate())
     }
     @Test
     fun creature() {
-        Assert.assertEquals("asdf", MrCreatureGenerator(lockedShuffler!!).generate())
+        Assert.assertEquals("Arc Ape", MrCreatureGenerator(lockedShuffler!!).generate())
     }
     @Test
     fun char() {
