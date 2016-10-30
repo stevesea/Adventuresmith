@@ -1,5 +1,13 @@
 ---
 # TODO: should this be spells_fr_FR?
+
+# name templates may use the following keywords
+#  %{element}
+#  %{form1}
+#  %{form2} (will not be same as form1)
+#  %{adjective}
+#  %{name_part1}
+#  %{name_part2}
 name_templates:
 - "%{form1} %{adjective}"
 - "%{element} %{adjective}"
@@ -10,6 +18,10 @@ name_templates:
 - "%{element} %{adjective} de %{name_part1}%{name_part2}"
 - "%{form1} de %{element} de %{name_part1}%{name_part2}"
 
+# all translations must contain the following lists:
+#  elements
+#  forms
+#  adjectives
 forms:
 - Armure
 - Flèche
