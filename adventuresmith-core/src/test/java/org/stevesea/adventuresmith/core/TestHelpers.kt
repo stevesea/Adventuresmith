@@ -24,11 +24,13 @@ import com.nhaarman.mockito_kotlin.*
 import java.util.*
 
 object GeneratorTest {
-
-    fun getShuffler(mockRandomVal : Int = 1) : Shuffler {
+    fun getMockRandom(mockRandomVal: Int = 1) : Random {
         val mockRandom : Random = mock()
         com.nhaarman.mockito_kotlin.whenever(mockRandom.nextInt(any())).thenReturn(mockRandomVal)
+        return mockRandom
+    }
 
-        return Shuffler(mockRandom)
+    fun getShuffler(mockRandomVal : Int = 1) : Shuffler {
+        return Shuffler(getMockRandom(mockRandomVal))
     }
 }
