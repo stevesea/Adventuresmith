@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.core.maze_rats
 
+import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
@@ -208,42 +209,6 @@ class MrMonsterMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrM
     }
 }
 
-class MrAfflictionsGenerator(shuffler: Shuffler = Shuffler()) : BaseSimpleGenerator(
-        MrAfflictionsDtoLoader(), shuffler
-)
-
-class MrPotionEffectsGenerator(shuffler: Shuffler = Shuffler()) : BaseSimpleGenerator(
-        MrPotionEffectsDtoLoader(), shuffler
-)
-
-class MrMagicModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMagicDto, TemplateMapModel>(
-        MrMagicDtoLoader(),
-        MrMagicMapGenerator(shuffler)
-)
-class MrMagicGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<TemplateMapModel, String>(
-        MrMagicModelGenerator(shuffler),
-        ApplyTemplateView()
-)
-class MrItemModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrItemBundleDto, TemplateMapModel>(
-        MrItemBundleDtoLoader(),
-        MrItemMapGenerator(shuffler)
-)
-class MrItemGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<TemplateMapModel, String>(
-        MrItemModelGenerator(shuffler),
-        ApplyTemplateView()
-)
-
-class MrMonsterModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMonsterBundleDto, TemplateMapModel>(
-        MrMonsterBundleDtoLoader(),
-        MrMonsterMapGenerator(shuffler)
-)
-class MrMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<TemplateMapModel, String>(
-        MrMonsterModelGenerator(shuffler),
-        ApplyTemplateView()
-)
-
-
-
 data class MrCharacterModel(val config: MrCharacterConfigDto,
                             val name: String,
                             val str: Int,
@@ -271,15 +236,6 @@ class MrCharGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrCharact
         )
     }
 }
-
-class MrCharacterModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrCharacterBundleDto, MrCharacterModel>(
-        MrCharacterBundleDtoLoader(),
-        MrCharGenerator(shuffler)
-)
-class MrCharacterGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<MrCharacterModel, HTML>(
-        MrCharacterModelGenerator(shuffler),
-        MrCharacterView()
-)
 
 class MrCharacterView : ViewStrategy<MrCharacterModel, HTML> {
     override fun transform(model: MrCharacterModel): HTML {
@@ -314,4 +270,83 @@ class MrCharacterView : ViewStrategy<MrCharacterModel, HTML> {
         }
 
     }
+}
+
+val mrModule = Kodein.Module {
+    bind<ModelGenerator<MrCharacterModel>>() with provider {
+        BaseGenerator<MrCharacterBundleDto, MrCharacterModel>(
+                MrCharacterBundleDtoLoader(),
+                MrCharGenerator(instance()))
+    }
+    bind<Generator>(MrConstants.CHAR) with singleton {
+        BaseGeneratorWithView<MrCharacterModel, HTML>(
+                instance(),
+                MrCharacterView())
+    }
+
+
+    bind<ModelGenerator<TemplateMapModel>>(MrConstants.MONSTER) with provider {
+        BaseGenerator<MrMonsterBundleDto, TemplateMapModel>(
+                MrMonsterBundleDtoLoader(),
+                MrMonsterMapGenerator(instance()))
+    }
+    bind<Generator>(MrConstants.MONSTER) with provider {
+        BaseGeneratorWithView<TemplateMapModel, String>(
+                instance(MrConstants.MONSTER),
+                ApplyTemplateView())
+    }
+
+
+    bind<ModelGenerator<TemplateMapModel>>(MrConstants.ITEM) with provider {
+        BaseGenerator<MrItemBundleDto, TemplateMapModel>(
+                MrItemBundleDtoLoader(),
+                MrItemMapGenerator(instance()))
+    }
+    bind<Generator>(MrConstants.ITEM) with provider {
+        BaseGeneratorWithView<TemplateMapModel, String>(
+                instance(MrConstants.ITEM),
+                ApplyTemplateView())
+    }
+
+
+    bind<ModelGenerator<TemplateMapModel>>(MrConstants.MAGIC) with provider {
+        BaseGenerator<MrMagicDto, TemplateMapModel>(
+                MrMagicDtoLoader(),
+                MrMagicMapGenerator(instance()))
+    }
+    bind<Generator>(MrConstants.MAGIC) with provider {
+        BaseGeneratorWithView<TemplateMapModel, String>(
+                instance(MrConstants.MAGIC),
+                ApplyTemplateView())
+    }
+
+    bind<Generator>(MrConstants.POTION_EFFECTS) with provider {
+        BaseSimpleGenerator (
+                MrPotionEffectsDtoLoader(), instance()
+        )
+    }
+
+    bind<Generator>(MrConstants.AFFLICTIONS) with provider {
+        BaseSimpleGenerator (
+                MrAfflictionsDtoLoader(), instance()
+        )
+    }
+
+
+    bind<List<String>>(MrConstants.GROUP) with singleton {
+        listOf(
+                MrConstants.AFFLICTIONS
+        )
+    }
+}
+
+object MrConstants {
+    val GROUP = "mr"
+
+    val AFFLICTIONS = "${GROUP}.afflictions"
+    val POTION_EFFECTS = "${GROUP}.potion_effects"
+    val ITEM = "${GROUP}.item"
+    val MAGIC = "${GROUP}.magic"
+    val MONSTER = "${GROUP}.monster"
+    val CHAR = "${GROUP}.char"
 }

@@ -27,27 +27,27 @@ import java.util.*
 class FotfGeneratorTest {
     @Test
     fun spell_english() {
-        Assert.assertEquals("All-Seeing Armor", FotfSpellGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
-        Assert.assertEquals("Armor of Black Avarice", FotfSpellGenerator(GeneratorTest.getShuffler(5)).generate(Locale.ENGLISH))
-        Assert.assertEquals("Armor of Bolcas", FotfSpellGenerator(GeneratorTest.getShuffler(10)).generate(Locale.ENGLISH))
-        Assert.assertEquals("Concealing Armor of Canderol", FotfSpellGenerator(GeneratorTest.getShuffler(12)).generate(Locale.ENGLISH))
-        Assert.assertEquals("Armor of Anger", FotfSpellGenerator(GeneratorTest.getShuffler(3)).generate(Locale.ENGLISH))
+        Assert.assertEquals("All-Seeing Armor", getGenerator(FotfConstants.SPELLS,1).generate(Locale.ENGLISH))
+        Assert.assertEquals("Armor of Black Avarice", getGenerator(FotfConstants.SPELLS,5).generate(Locale.ENGLISH))
+        Assert.assertEquals("Armor of Bolcas", getGenerator(FotfConstants.SPELLS,10).generate(Locale.ENGLISH))
+        Assert.assertEquals("Concealing Armor of Canderol", getGenerator(FotfConstants.SPELLS,12).generate(Locale.ENGLISH))
+        Assert.assertEquals("Armor of Anger", getGenerator(FotfConstants.SPELLS,3).generate(Locale.ENGLISH))
     }
     @Test
     fun spell_french() {
-        Assert.assertEquals("Éther Clairvoyant", FotfSpellGenerator(GeneratorTest.getShuffler()).generate(Locale.FRANCE))
-        Assert.assertEquals("Armure de/des/de de l'Air", FotfSpellGenerator(GeneratorTest.getShuffler(2)).generate(Locale.FRANCE))
-        Assert.assertEquals("Armure du/de la Aura Grisant", FotfSpellGenerator(GeneratorTest.getShuffler(3)).generate(Locale.FRANCE))
-        Assert.assertEquals("Équilibre Flamboyant de Asmoasta", FotfSpellGenerator(GeneratorTest.getShuffler(6)).generate(Locale.FRANCE))
-        Assert.assertEquals("Armure de Rouille de Bahabalia", FotfSpellGenerator(GeneratorTest.getShuffler(7)).generate(Locale.FRANCE))
+        Assert.assertEquals("Éther Clairvoyant", getGenerator(FotfConstants.SPELLS,1).generate(Locale.FRANCE))
+        Assert.assertEquals("Armure de/des/de de l'Air", getGenerator(FotfConstants.SPELLS,2).generate(Locale.FRANCE))
+        Assert.assertEquals("Armure du/de la Aura Grisant", getGenerator(FotfConstants.SPELLS,3).generate(Locale.FRANCE))
+        Assert.assertEquals("Équilibre Flamboyant de Asmoasta", getGenerator(FotfConstants.SPELLS,6).generate(Locale.FRANCE))
+        Assert.assertEquals("Armure de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS,7).generate(Locale.FRANCE))
     }
     @Test
     fun exerciser() {
         for(i in 1..50) {
-            println(FotfSpellGenerator().generate(Locale.ENGLISH))
+            println(getGenerator(FotfConstants.SPELLS).generate(Locale.ENGLISH))
         }
         for(i in 1..50) {
-            println(FotfSpellGenerator().generate(Locale.FRANCE))
+            println(getGenerator(FotfConstants.SPELLS).generate(Locale.FRANCE))
         }
     }
 

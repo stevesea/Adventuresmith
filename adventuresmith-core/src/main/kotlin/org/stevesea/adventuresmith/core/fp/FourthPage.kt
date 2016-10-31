@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.core.fp
 
+import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
@@ -269,41 +270,76 @@ class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
     }
 }
 
-class FourthPageArtifactModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpArtifactDto, FpArtifactModel>(
-        FpArtifactDtoLoader(),
-        FpArtifactModelGenerator(shuffler)
-)
-class FourthPageArtifactGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpArtifactModel, HTML>(
-        FourthPageArtifactModelGenerator(shuffler),
-        FpArtifactView()
-)
+val fpModule = Kodein.Module {
+    bind<ModelGenerator<FpArtifactModel>>() with provider {
+        BaseGenerator<FpArtifactDto, FpArtifactModel>(
+                FpArtifactDtoLoader(),
+                FpArtifactModelGenerator(instance())
+        )
+    }
+    bind<ModelGenerator<FpMonsterModel>>() with provider {
+        BaseGenerator<FpMonsterDto, FpMonsterModel>(
+            FpMonsterDtoLoader(),
+            FpMonsterModelGenerator(instance())
+        )
+    }
+    bind<ModelGenerator<FpDungeonModel>>() with provider {
+        BaseGenerator<FpDungeonDto, FpDungeonModel>(
+                FpDungeonDtoLoader(),
+                FpDungeonModelGenerator(instance())
+        )
+    }
+    bind<ModelGenerator<FpCityModel>>() with provider {
+        BaseGenerator<FpCityDto, FpCityModel>(
+                FpCityDtoLoader(),
+                FpCityModelGenerator(instance())
+        )
+    }
 
-class FourthPageCityModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpCityDto, FpCityModel>(
-        FpCityDtoLoader(),
-        FpCityModelGenerator(shuffler)
-)
+    bind<Generator>("fp.monster") with provider {
+        BaseGeneratorWithView<FpMonsterModel, HTML>(
+                instance(),
+                FpMonsterViewTransformer()
+        )
+    }
+    bind<Generator>("fp.dungeon") with provider {
+        BaseGeneratorWithView<FpDungeonModel, HTML>(
+                instance(),
+                FpDungeonView()
+        )
+    }
+    bind<Generator>("fp.city") with provider {
+        BaseGeneratorWithView<FpCityModel, HTML>(
+                instance(),
+                FpCityView()
+        )
+    }
+    bind<Generator>("fp.artifact") with provider {
+        BaseGeneratorWithView<FpArtifactModel, HTML>(
+                instance(),
+                FpArtifactView()
+        )
+    }
 
-class FourthPageCityGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpCityModel, HTML>(
-        FourthPageCityModelGenerator(shuffler),
-        FpCityView()
-)
 
-class FourthPageDungeonModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpDungeonDto, FpDungeonModel>(
-        FpDungeonDtoLoader(),
-        FpDungeonModelGenerator(shuffler)
-)
-class FourthPageDungeonGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpDungeonModel, HTML>(
-        FourthPageDungeonModelGenerator(shuffler),
-        FpDungeonView()
-)
-class FourthPageMonsterModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpMonsterDto, FpMonsterModel>(
-        FpMonsterDtoLoader(),
-        FpMonsterModelGenerator(shuffler)
-)
-class FourthPageMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpMonsterModel, HTML>(
-        FourthPageMonsterModelGenerator(shuffler),
-        FpMonsterViewTransformer()
-)
+    bind<List<String>>(FpConstants.GROUP) with singleton {
+        listOf(
+                FpConstants.MONSTER,
+                FpConstants.DUNGEON,
+                FpConstants.CITY,
+                FpConstants.ARTIFACT
+        )
+    }
+}
+
+object FpConstants {
+    val GROUP = "fp"
+
+    val MONSTER = "${GROUP}.monster"
+    val DUNGEON = "${GROUP}.dungeon"
+    val CITY = "${GROUP}.city"
+    val ARTIFACT = "${GROUP}.artifact"
+}
 
 
 

@@ -58,7 +58,7 @@ class FpGeneratorTest {
     </p>
   </body>
 </html>
-""".trim(), FourthPageArtifactGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
+""".trim(), getGenerator(FpConstants.ARTIFACT, 1).generate(Locale.ENGLISH))
     }
 
     @Test
@@ -115,7 +115,7 @@ class FpGeneratorTest {
     </p>
   </body>
 </html>
-""".trim(), FourthPageDungeonGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
+""".trim(), getGenerator(FpConstants.DUNGEON, 1).generate(Locale.ENGLISH))
     }
 
     @Test
@@ -172,7 +172,7 @@ class FpGeneratorTest {
     </p>
   </body>
 </html>
-""".trim(),  FourthPageCityGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
+""".trim(),  getGenerator(FpConstants.CITY, 1).generate(Locale.ENGLISH))
 
     }
 
@@ -208,17 +208,21 @@ class FpGeneratorTest {
     </p>
   </body>
 </html>
-""".trim(),  FourthPageMonsterGenerator(GeneratorTest.getShuffler()).generate(Locale.ENGLISH))
+""".trim(),  getGenerator(FpConstants.MONSTER, 1).generate(Locale.ENGLISH))
 
     }
 
     @Test
     fun exerciser() {
         for(i in 1..10) {
-            println(FourthPageArtifactGenerator().generate(Locale.ENGLISH))
-            println(FourthPageCityGenerator().generate(Locale.ENGLISH))
-            println(FourthPageDungeonGenerator().generate(Locale.ENGLISH))
-            println(FourthPageMonsterGenerator().generate(Locale.ENGLISH))
+            for (g in listOf(
+                    FpConstants.ARTIFACT,
+                    FpConstants.CITY,
+                    FpConstants.DUNGEON,
+                    FpConstants.MONSTER
+            )) {
+                println(getGenerator(g).generate(Locale.ENGLISH))
+            }
         }
     }
 }

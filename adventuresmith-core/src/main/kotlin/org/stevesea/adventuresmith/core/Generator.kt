@@ -20,8 +20,35 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.github.salomonbrys.kodein.*
+
+
 import com.google.common.base.*
+import org.stevesea.adventuresmith.core.fotf.*
+import org.stevesea.adventuresmith.core.fp.*
+import org.stevesea.adventuresmith.core.maze_rats.*
 import java.util.*
+
+val utilModule = Kodein.Module {
+    bind<Shuffler>() with singleton { Shuffler() }
+}
+
+object AdventureSmithConstants {
+    val GENERATORS = "generators"
+}
+val generatorModules = Kodein.Module {
+    import(fotfModule)
+    import(fpModule)
+    import(mrModule)
+
+    bind<List<String>>(AdventureSmithConstants.GENERATORS) with provider {
+        val res : MutableList<String> = mutableListOf()
+        res.addAll(instance(FotfConstants.GROUP))
+        res.addAll(instance(MrConstants.GROUP))
+        res.addAll(instance(FpConstants.GROUP))
+        res
+    }
+}
 
 interface Generator {
     fun generate(locale: Locale = Locale.ENGLISH) : String

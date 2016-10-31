@@ -20,17 +20,24 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.github.salomonbrys.kodein.*
 import com.nhaarman.mockito_kotlin.*
+import java.security.*
 import java.util.*
 
-object GeneratorTest {
-    fun getMockRandom(mockRandomVal: Int = 1) : Random {
-        val mockRandom : Random = mock()
-        com.nhaarman.mockito_kotlin.whenever(mockRandom.nextInt(any())).thenReturn(mockRandomVal)
-        return mockRandom
-    }
+fun getMockRandom(mockRandomVal: Int = 1) : Random {
+    val mockRandom : Random = mock()
+    com.nhaarman.mockito_kotlin.whenever(mockRandom.nextInt(any())).thenReturn(mockRandomVal)
+    return mockRandom
+}
 
-    fun getShuffler(mockRandomVal : Int = 1) : Shuffler {
-        return Shuffler(getMockRandom(mockRandomVal))
-    }
+fun getKodein(random: Random) = Kodein {
+    import(generatorModules)
+    bind<Shuffler>() with instance(Shuffler(random))
+}
+
+fun getGenerator(genName: String, mockRandomVal: Int = -1) : Generator{
+    if (mockRandomVal < 0)
+        return getKodein(SecureRandom()).instance(genName)
+    return getKodein(getMockRandom(mockRandomVal)).instance(genName)
 }

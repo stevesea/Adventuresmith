@@ -25,7 +25,7 @@ import org.junit.*
 class DiceTest {
     @Test
     fun testStringParsingModifier() {
-        val d = Dice.create("2d20+4", GeneratorTest.getMockRandom(0))
+        val d = Dice.create("2d20+4", getMockRandom(0))
         Assert.assertEquals(2, d.nDice)
         Assert.assertEquals(20, d.nSides)
         Assert.assertEquals(4, d.modifier)
@@ -36,7 +36,7 @@ class DiceTest {
 
     @Test
     fun testStringParsing() {
-        val d = Dice.create("34d12", GeneratorTest.getMockRandom(0))
+        val d = Dice.create("34d12", getMockRandom(0))
         Assert.assertEquals(34, d.nDice)
         Assert.assertEquals(12, d.nSides)
         Assert.assertEquals(0, d.modifier)

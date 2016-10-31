@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.core.fotf
 
+import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
@@ -45,7 +46,6 @@ data class FotfSpellDto(val name_templates: List<String>,
 // the inputbundle is the combined data from two separate resource reads
 data class FotfSpellDtoBundle(val spellDto: FotfSpellDto,
                               val wizNameDto: FotfSpellWizardNamesDto)
-
 
 class FotfSpellMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FotfSpellDtoBundle, TemplateMapModel> {
     override fun transform(dto: FotfSpellDtoBundle): TemplateMapModel {
@@ -79,16 +79,28 @@ class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
     }
 }
 
-class FotfSpellModelGen(shuffler: Shuffler = Shuffler()) :
+val fotfModule = Kodein.Module {
+    bind<ModelGenerator<TemplateMapModel>>(FotfConstants.SPELLS) with provider {
         BaseGenerator<FotfSpellDtoBundle, TemplateMapModel> (
                 loadingStrat = FotfSpellDtoLoader(),
-                modelGeneratorStrat = FotfSpellMapGenerator(shuffler)
-)
-
-class FotfSpellGenerator(shuffler: Shuffler = Shuffler()) :
+                modelGeneratorStrat = FotfSpellMapGenerator(instance())
+        )
+    }
+    bind<Generator>(FotfConstants.SPELLS) with singleton {
         BaseGeneratorWithView<TemplateMapModel, String> (
-        modelGen = FotfSpellModelGen(shuffler),
-        viewTransform = ApplyTemplateView()
-)
+                modelGen = instance(FotfConstants.SPELLS),
+                viewTransform = ApplyTemplateView()
+        )
+    }
 
 
+    bind<List<String>>(FotfConstants.GROUP) with singleton {
+        listOf(FotfConstants.SPELLS)
+    }
+}
+
+object FotfConstants {
+    val GROUP = "fotf"
+
+    val SPELLS = "${GROUP}.spell"
+}
