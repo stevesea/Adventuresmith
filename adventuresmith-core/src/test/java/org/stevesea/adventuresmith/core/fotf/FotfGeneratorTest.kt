@@ -22,14 +22,16 @@ package org.stevesea.adventuresmith.core.fotf
 
 import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
-import org.hibernate.validator.constraints.*
 import org.junit.*
 import org.stevesea.adventuresmith.core.*
 import java.security.*
 import java.util.*
 
+
 data class RangeMapVal(val range: IntRange, val value: String)
-data class PlaybooksDto(@NotEmpty val playbooks: List<RangeMapVal>)
+data class PlaybooksDto( val playbooks: List<RangeMapVal>,
+                         val playbooks2: List<List<String>>,
+                         val playbooks3: RangeMap)
 
 class FotfGeneratorTest {
     @Test
@@ -48,8 +50,16 @@ playbooks:
 - range: {start: 4, end: 6}
   value: asdfasdf2
 - {range: {start: 7, end: 10} , value: asdfasdf3}
+playbooks2:
+- [1..3, Human]
+- [4..6, asdfasdf]
+- [7..8, asdfasdfasdf]
+playbooks3:
+- 1..3, Human
+- 1..3, halfling
+- 4..6, asdfasdf
+- "4..6, asdfasdf : string with colon"
         """
-
 
         val dto : PlaybooksDto = reader.forType(PlaybooksDto::class.java).readValue(input)
 

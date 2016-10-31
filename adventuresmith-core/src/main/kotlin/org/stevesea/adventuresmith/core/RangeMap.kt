@@ -20,11 +20,53 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.fasterxml.jackson.core.*
+import com.fasterxml.jackson.databind.*
+import com.fasterxml.jackson.databind.annotation.*
+import com.fasterxml.jackson.databind.deser.std.*
 import java.util.*
 
-class RangeMap<T>(
-        val delegate: TreeMap<Int, T> = TreeMap<Int, T>()
-) : Map<Int, T> by delegate {
+/**
+ * this assumes the incoming data is a list of strings. each string needs to be parsed and applied
+ * to the rangemap that'll be returned by the deserializer
+ */
+class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
+    override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): RangeMap {
+        if (p == null)
+            throw JsonMappingException(p, "null parser received")
+        val jsonNode : JsonNode = p.codec.readTree(p)
+
+        // TODO : is there better way to handle these sorts of errors than throwing?
+        //    seems like this could be source of subtle crashes (especially as locales are added)
+        //    if we just throw all the time.
+        if (!jsonNode.isArray) {
+            throw JsonMappingException(p, "RangeMap data must be an array of strings")
+        }
+
+        val result = RangeMap()
+
+        for (v in jsonNode) {
+            if (!v.isTextual)
+                continue
+
+            val str = v.asText()
+
+            val indComma = str.indexOf(",")
+            val rangeStr = str.substring(0..(indComma-1))
+            val valStr = str.substring((indComma+1)..(str.length-1))
+
+
+
+        }
+
+        return result
+    }
+}
+
+@JsonDeserialize(using = RangeMapDeserializer::class)
+class RangeMap(
+        val delegate: TreeMap<Int, String> = TreeMap<Int, String>()
+) : Map<Int, String> by delegate {
 
     val ranges: MutableSet<IntRange> = mutableSetOf()
 
@@ -34,7 +76,7 @@ class RangeMap<T>(
         }
     }
 
-    fun with(newRange: IntRange, value: T) : RangeMap<T> {
+    fun with(newRange: IntRange, value: String) : RangeMap {
         for (range in ranges) {
             if (!range.intersect(newRange).isEmpty()) {
                 throw IllegalArgumentException("Invalid range -- already included")
@@ -47,11 +89,11 @@ class RangeMap<T>(
         return  this
     }
 
-    fun with(k: Int, value: T) : RangeMap<T> {
+    fun with(k: Int, value: String) : RangeMap {
         return with(k..k, value)
     }
 
-    fun pick(k: Int) : T {
+    fun pick(k: Int) : String {
         val v = delegate.get(k % delegate.size - 1)
         if (v == null)
             return delegate.lastEntry().value
@@ -59,7 +101,7 @@ class RangeMap<T>(
             return v
     }
 
-    fun pick(dice: Dice) : T {
+    fun pick(dice: Dice) : String {
         return pick(dice.roll())
     }
 }
