@@ -23,17 +23,13 @@ package org.stevesea.adventuresmith.core
 import com.github.salomonbrys.kodein.*
 import java.util.*
 
-data class DiceDef(val nSides: Int = 1,
-                   val nDice: Int = 6,
-                   val modifier: Int = 0) {
-
-}
 
 class Dice(val nSides: Int = 1,
            val nDice: Int = 6,
            val modifier: Int = 0,
            override val kodein: Kodein) : KodeinAware {
     val random : Random = instance()
+
     fun roll(): Int {
         var sum = 0
         for (i in 1..nDice) {
@@ -43,7 +39,7 @@ class Dice(val nSides: Int = 1,
     }
 
     fun rollN(n: Int): List<Int> {
-        var result: MutableList<Int> = mutableListOf()
+        val result: MutableList<Int> = mutableListOf()
         for (i in 1..n) {
             result.add(roll())
         }
@@ -55,6 +51,10 @@ class Dice(val nSides: Int = 1,
         return "${nDice}d${nSides}${modstr}"
     }
 }
+
+data class DiceDef(val nSides: Int = 1,
+                   val nDice: Int = 6,
+                   val modifier: Int = 0)
 
 fun diceStrToDef(diceStr: String) : DiceDef {
     val indPlus = diceStr.indexOf('+')

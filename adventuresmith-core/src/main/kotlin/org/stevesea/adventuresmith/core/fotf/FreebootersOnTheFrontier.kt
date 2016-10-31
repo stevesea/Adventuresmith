@@ -66,14 +66,15 @@ class FotfSpellMapGenerator(override val kodein: Kodein) : ModelGeneratorStrateg
     }
 }
 
-class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
+class FotfSpellDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfSpellDtoBundle>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): FotfSpellDtoBundle {
         return FotfSpellDtoBundle(
-                spellDto = CachingResourceDeserializer.deserialize(
+                spellDto = resourceDeserializer.deserialize(
                         FotfSpellDto::class.java,
                         FotfSpellDto.resource_prefix,
                         locale),
-                wizNameDto = CachingResourceDeserializer.deserialize(
+                wizNameDto = resourceDeserializer.deserialize(
                         FotfSpellWizardNamesDto::class.java,
                         FotfSpellWizardNamesDto.resource_prefix,
                         locale)
@@ -84,7 +85,7 @@ class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
 val fotfModule = Kodein.Module {
     bind<ModelGenerator<TemplateMapModel>>(FotfConstants.SPELLS) with provider {
         BaseGenerator<FotfSpellDtoBundle, TemplateMapModel> (
-                loadingStrat = FotfSpellDtoLoader(),
+                loadingStrat = FotfSpellDtoLoader(kodein),
                 modelGeneratorStrat = FotfSpellMapGenerator(kodein)
         )
     }

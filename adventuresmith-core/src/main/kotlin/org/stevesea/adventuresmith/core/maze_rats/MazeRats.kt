@@ -95,68 +95,74 @@ data class MrCharacterBundleDto(val characterDto: MrCharactersDto,
                                 val namesDto: MrNamesDto)
 
 
-class MrAfflictionsDtoLoader:  SimpleListLoader {
+class MrAfflictionsDtoLoader(override val kodein: Kodein) :  SimpleListLoader , KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale) : List<String> {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 MrAfflictionsDto::class.java,
                 MrAfflictionsDto.resource_prefix,
                 locale).afflictions
     }
 }
 
-class MrPotionEffectsDtoLoader: SimpleListLoader {
+class MrPotionEffectsDtoLoader(override val kodein: Kodein) : SimpleListLoader , KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): List<String> {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 MrPotionEffectsDto::class.java,
                 MrPotionEffectsDto.resource_prefix,
                 locale).potion_effects
     }
 }
 
-class MrMagicDtoLoader: DtoLoadingStrategy<MrMagicDto> {
+class MrMagicDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<MrMagicDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): MrMagicDto {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 MrMagicDto::class.java,
                 MrMagicDto.resource_prefix,
                 locale)
     }
 }
-class MrCharacterBundleDtoLoader: DtoLoadingStrategy<MrCharacterBundleDto> {
+class MrCharacterBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrCharacterBundleDto> , KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): MrCharacterBundleDto {
         return MrCharacterBundleDto(
-                characterDto = CachingResourceDeserializer.deserialize(
+                characterDto = resourceDeserializer.deserialize(
                         MrCharactersDto::class.java,
                         MrCharactersDto.resource_prefix,
                         locale),
-                namesDto = CachingResourceDeserializer.deserialize(
+                namesDto = resourceDeserializer.deserialize(
                         MrNamesDto::class.java,
                         MrNamesDto.resource_prefix,
                         locale))
     }
 }
 
-class MrMonsterBundleDtoLoader: DtoLoadingStrategy<MrMonsterBundleDto> {
+class MrMonsterBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrMonsterBundleDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): MrMonsterBundleDto {
         return MrMonsterBundleDto(
-                magicDto = CachingResourceDeserializer.deserialize(
+                magicDto = resourceDeserializer.deserialize(
                         MrMagicDto::class.java,
                         MrMagicDto.resource_prefix,
                         locale),
-                creatureDto = CachingResourceDeserializer.deserialize(
+                creatureDto = resourceDeserializer.deserialize(
                         MrMonstersDto::class.java,
                         MrMonstersDto.resource_prefix,
                         locale))
     }
 }
 
-class MrItemBundleDtoLoader: DtoLoadingStrategy<MrItemBundleDto> {
+class MrItemBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrItemBundleDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): MrItemBundleDto {
         return MrItemBundleDto(
-                magicDto = CachingResourceDeserializer.deserialize(
+                magicDto = resourceDeserializer.deserialize(
                         MrMagicDto::class.java,
                         MrMagicDto.resource_prefix,
                         locale),
-                itemDto = CachingResourceDeserializer.deserialize(
+                itemDto = resourceDeserializer.deserialize(
                         MrItemsDto::class.java,
                         MrItemsDto.resource_prefix,
                         locale))
@@ -284,7 +290,7 @@ class MrCharacterView : ViewStrategy<MrCharacterModel, HTML> {
 val mrModule = Kodein.Module {
     bind<ModelGenerator<MrCharacterModel>>() with provider {
         BaseGenerator<MrCharacterBundleDto, MrCharacterModel>(
-                MrCharacterBundleDtoLoader(),
+                MrCharacterBundleDtoLoader(kodein),
                 MrCharGenerator(kodein))
     }
     bind<Generator>(MrConstants.CHAR) with singleton {
@@ -296,7 +302,7 @@ val mrModule = Kodein.Module {
 
     bind<ModelGenerator<TemplateMapModel>>(MrConstants.MONSTER) with provider {
         BaseGenerator<MrMonsterBundleDto, TemplateMapModel>(
-                MrMonsterBundleDtoLoader(),
+                MrMonsterBundleDtoLoader(kodein),
                 MrMonsterMapGenerator(kodein))
     }
     bind<Generator>(MrConstants.MONSTER) with provider {
@@ -308,7 +314,7 @@ val mrModule = Kodein.Module {
 
     bind<ModelGenerator<TemplateMapModel>>(MrConstants.ITEM) with provider {
         BaseGenerator<MrItemBundleDto, TemplateMapModel>(
-                MrItemBundleDtoLoader(),
+                MrItemBundleDtoLoader(kodein),
                 MrItemMapGenerator(kodein))
     }
     bind<Generator>(MrConstants.ITEM) with provider {
@@ -320,7 +326,7 @@ val mrModule = Kodein.Module {
 
     bind<ModelGenerator<TemplateMapModel>>(MrConstants.MAGIC) with provider {
         BaseGenerator<MrMagicDto, TemplateMapModel>(
-                MrMagicDtoLoader(),
+                MrMagicDtoLoader(kodein),
                 MrMagicMapGenerator(kodein))
     }
     bind<Generator>(MrConstants.MAGIC) with provider {
@@ -330,11 +336,11 @@ val mrModule = Kodein.Module {
     }
 
     bind<Generator>(MrConstants.POTION_EFFECTS) with provider {
-        BaseSimpleGenerator (MrPotionEffectsDtoLoader(), kodein)
+        BaseSimpleGenerator (MrPotionEffectsDtoLoader(kodein), kodein)
     }
 
     bind<Generator>(MrConstants.AFFLICTIONS) with provider {
-        BaseSimpleGenerator(MrAfflictionsDtoLoader(), kodein)
+        BaseSimpleGenerator(MrAfflictionsDtoLoader(kodein), kodein)
     }
 
 

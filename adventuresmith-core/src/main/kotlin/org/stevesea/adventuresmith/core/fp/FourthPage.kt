@@ -244,34 +244,38 @@ class FpDungeonView : ViewStrategy<FpDungeonModel, HTML> {
     }
 }
 
-class FpArtifactDtoLoader : DtoLoadingStrategy<FpArtifactDto> {
+class FpArtifactDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FpArtifactDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): FpArtifactDto {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 FpArtifactDto::class.java,
                 FpArtifactDto.resource_prefix,
                 locale)
     }
 }
 
-class FpCityDtoLoader : DtoLoadingStrategy<FpCityDto> {
+class FpCityDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FpCityDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): FpCityDto {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 FpCityDto::class.java,
                 FpCityDto.resource_prefix,
                 locale)
     }
 }
-class FpDungeonDtoLoader : DtoLoadingStrategy<FpDungeonDto> {
+class FpDungeonDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FpDungeonDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): FpDungeonDto {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 FpDungeonDto::class.java,
                 FpDungeonDto.resource_prefix,
                 locale)
     }
 }
-class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
+class FpMonsterDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FpMonsterDto>,KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): FpMonsterDto {
-        return CachingResourceDeserializer.deserialize(
+        return resourceDeserializer.deserialize(
                 FpMonsterDto::class.java,
                 FpMonsterDto.resource_prefix,
                 locale)
@@ -281,25 +285,25 @@ class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
 val fpModule = Kodein.Module {
     bind<ModelGenerator<FpArtifactModel>>() with provider {
         BaseGenerator<FpArtifactDto, FpArtifactModel>(
-                FpArtifactDtoLoader(),
+                FpArtifactDtoLoader(kodein),
                 FpArtifactModelGenerator(kodein)
         )
     }
     bind<ModelGenerator<FpMonsterModel>>() with provider {
         BaseGenerator<FpMonsterDto, FpMonsterModel>(
-            FpMonsterDtoLoader(),
+            FpMonsterDtoLoader(kodein),
             FpMonsterModelGenerator(kodein)
         )
     }
     bind<ModelGenerator<FpDungeonModel>>() with provider {
         BaseGenerator<FpDungeonDto, FpDungeonModel>(
-                FpDungeonDtoLoader(),
+                FpDungeonDtoLoader(kodein),
                 FpDungeonModelGenerator(kodein)
         )
     }
     bind<ModelGenerator<FpCityModel>>() with provider {
         BaseGenerator<FpCityDto, FpCityModel>(
-                FpCityDtoLoader(),
+                FpCityDtoLoader(kodein),
                 FpCityModelGenerator(kodein)
         )
     }

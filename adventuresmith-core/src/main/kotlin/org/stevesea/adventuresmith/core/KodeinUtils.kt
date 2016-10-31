@@ -43,6 +43,8 @@ val randModule = Kodein.Module {
 }
 
 val generatorModules = Kodein.Module {
+    import(utilModule)
+
     import(fotfModule)
     import(fpModule)
     import(mrModule)

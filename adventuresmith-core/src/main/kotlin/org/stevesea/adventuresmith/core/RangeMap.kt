@@ -27,6 +27,7 @@ class RangeMap<T>(
 ) : Map<Int, T> by delegate {
 
     val ranges: MutableSet<IntRange> = mutableSetOf()
+
     init {
         for (i in delegate.keys) {
             ranges.add(IntRange(i,i))
@@ -58,13 +59,7 @@ class RangeMap<T>(
             return v
     }
 
-    /*
     fun pick(dice: Dice) : T {
         return pick(dice.roll())
     }
-
-    fun pick(diceStr: String) : T {
-        return pick(Dice.roll(diceStr))
-    }
-    */
 }

@@ -23,12 +23,31 @@ package org.stevesea.adventuresmith.core
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
+import com.github.salomonbrys.kodein.*
 import com.google.common.cache.*
 import com.google.common.io.*
 import java.net.*
 import java.nio.charset.*
 import java.util.*
 import java.util.concurrent.*
+
+val utilModule = Kodein.Module {
+    bind() from singleton { ObjectMapper(YAMLFactory())
+            .registerKotlinModule() }
+    bind() from provider {
+        val mapper: ObjectMapper = instance()
+        mapper.reader()
+    }
+    bind() from provider {
+        val mapper: ObjectMapper = instance()
+        mapper.writer()
+    }
+
+    bind() from singleton {
+        CachingResourceDeserializer(kodein)
+    }
+}
+
 
 // replaces elements of String with entries from the given map
 // any keys from map in source string which match %{key} will be substituted with val
@@ -39,17 +58,6 @@ fun inefficientStrSubstitutor(inputStr: String, replacements: Map<String,String>
     }
     return result
 }
-
-object MapperProvider {
-    val mapper: ObjectMapper by lazy {
-        ObjectMapper(YAMLFactory())
-                .registerKotlinModule()
-    }
-
-    fun getReader() : ObjectReader = mapper.reader()
-    fun getWriter() : ObjectWriter = mapper.writer()
-}
-
 
 /**
  * attempts to find things similar to a ResourceBundle
@@ -109,8 +117,9 @@ object LocaleAwareResourceFinder {
  *    - i'm going to assume loading file resource, and deserializing into a DTO
  *      is a not-insignificant performance hit. Cache results
  */
-object CachingResourceDeserializer
+class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
+    val objectReader : ObjectReader = instance()
     val maxSize = 100L
 
     val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
@@ -140,6 +149,6 @@ object CachingResourceDeserializer
                                          charset: Charset): T {
         val url = LocaleAwareResourceFinder.find(resource_prefix,locale,clazz)
         val str = Resources.toString(url, charset)
-        return MapperProvider.getReader().forType(clazz).readValue(str)
+        return objectReader.forType(clazz).readValue(str)
     }
 }
