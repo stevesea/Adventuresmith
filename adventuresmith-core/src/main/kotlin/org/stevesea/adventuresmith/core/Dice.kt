@@ -20,14 +20,20 @@
 
 package org.stevesea.adventuresmith.core
 
-import java.security.*
+import com.github.salomonbrys.kodein.*
 import java.util.*
+
+data class DiceDef(val nSides: Int = 1,
+                   val nDice: Int = 6,
+                   val modifier: Int = 0) {
+
+}
 
 class Dice(val nSides: Int = 1,
            val nDice: Int = 6,
            val modifier: Int = 0,
-           private val random: Random = SecureRandom()) {
-
+           override val kodein: Kodein) : KodeinAware {
+    val random : Random = instance()
     fun roll(): Int {
         var sum = 0
         for (i in 1..nDice) {
@@ -48,26 +54,16 @@ class Dice(val nSides: Int = 1,
         val modstr = if (modifier == 0) "" else "+${modifier}"
         return "${nDice}d${nSides}${modstr}"
     }
-
-    companion object Factory {
-        fun create(diceStr: String, random: Random = SecureRandom()): Dice {
-            val indPlus = diceStr.indexOf('+')
-            val indD = diceStr.indexOf('d')
-
-            return Dice(
-                    nDice = diceStr.substring(0..(indD-1)).toInt(),
-                    nSides = diceStr.substring((indD+1)..(if (indPlus == -1) diceStr.length else indPlus) - 1).toInt(),
-                    modifier = if (indPlus == -1) 0 else diceStr.substring((indPlus+1)..(diceStr.length-1)).toInt(),
-                    random = random
-            )
-        }
-
-        fun roll(diceStr: String, random: Random = SecureRandom()) : Int {
-            return create(diceStr, random).roll()
-        }
-
-        fun rollN(n: Int, diceStr: String, random: Random = SecureRandom()) : List<Int> {
-            return create(diceStr, random).rollN(n)
-        }
-    }
 }
+
+fun diceStrToDef(diceStr: String) : DiceDef {
+    val indPlus = diceStr.indexOf('+')
+    val indD = diceStr.indexOf('d')
+
+    return DiceDef(
+            nDice = diceStr.substring(0..(indD-1)).toInt(),
+            nSides = diceStr.substring((indD+1)..(if (indPlus == -1) diceStr.length else indPlus) - 1).toInt(),
+            modifier = if (indPlus == -1) 0 else diceStr.substring((indPlus+1)..(diceStr.length-1)).toInt()
+    )
+}
+

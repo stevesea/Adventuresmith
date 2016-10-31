@@ -20,9 +20,13 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.github.salomonbrys.kodein.*
 import java.util.*
 
-class Shuffler (val random: java.util.Random = java.security.SecureRandom()) {
+class Shuffler(override val kodein: Kodein): KodeinAware {
+    val random: Random = instance()
+    val diceFactory : (String) -> Dice = factory()
+
     fun <T> pick(items: Collection<T>) : T {
         return items.elementAt(random.nextInt(items.size))
     }
@@ -35,8 +39,7 @@ class Shuffler (val random: java.util.Random = java.security.SecureRandom()) {
 
     fun <T> pick(diceStr: String, items: Collection<T>) : T = pick(dice(diceStr), items)
 
-    // create a dice object w/ the same Random instance as the shuffler
-    fun dice(diceStr: String) : Dice = Dice.create(diceStr, random)
+    fun dice(diceStr: String) : Dice = diceFactory.invoke(diceStr)
 
     fun <T> pickN(items: Collection<T>, num: Int) : Collection<T> {
         val localItems = items.toMutableList()

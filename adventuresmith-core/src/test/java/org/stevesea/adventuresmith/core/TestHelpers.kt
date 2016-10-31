@@ -27,13 +27,14 @@ import java.util.*
 
 fun getMockRandom(mockRandomVal: Int = 1) : Random {
     val mockRandom : Random = mock()
-    com.nhaarman.mockito_kotlin.whenever(mockRandom.nextInt(any())).thenReturn(mockRandomVal)
+    whenever(mockRandom.nextInt(any())).thenReturn(mockRandomVal)
     return mockRandom
 }
 
 fun getKodein(random: Random) = Kodein {
+    import(randModule)
     import(generatorModules)
-    bind<Shuffler>() with instance(Shuffler(random))
+    bind<Random>(overrides = true) with instance (random)
 }
 
 fun getGenerator(genName: String, mockRandomVal: Int = -1) : Generator{

@@ -47,7 +47,9 @@ data class FotfSpellDto(val name_templates: List<String>,
 data class FotfSpellDtoBundle(val spellDto: FotfSpellDto,
                               val wizNameDto: FotfSpellWizardNamesDto)
 
-class FotfSpellMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FotfSpellDtoBundle, TemplateMapModel> {
+class FotfSpellMapGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FotfSpellDtoBundle, TemplateMapModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: FotfSpellDtoBundle): TemplateMapModel {
         val forms = shuffler.pickN(dto.spellDto.forms, 2)
         return TemplateMapModel(
@@ -83,7 +85,7 @@ val fotfModule = Kodein.Module {
     bind<ModelGenerator<TemplateMapModel>>(FotfConstants.SPELLS) with provider {
         BaseGenerator<FotfSpellDtoBundle, TemplateMapModel> (
                 loadingStrat = FotfSpellDtoLoader(),
-                modelGeneratorStrat = FotfSpellMapGenerator(instance())
+                modelGeneratorStrat = FotfSpellMapGenerator(kodein)
         )
     }
     bind<Generator>(FotfConstants.SPELLS) with singleton {

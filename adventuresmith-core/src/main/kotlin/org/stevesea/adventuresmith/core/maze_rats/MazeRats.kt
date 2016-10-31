@@ -172,7 +172,9 @@ fun magicMapHelper(shuffler: Shuffler, dto: MrMagicDto) : Map<String, String> {
     )
 }
 
-class MrMagicMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrMagicDto, TemplateMapModel> {
+class MrMagicMapGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<MrMagicDto, TemplateMapModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: MrMagicDto): TemplateMapModel {
         return TemplateMapModel(
                 template = shuffler.pick(dto.templates),
@@ -181,7 +183,9 @@ class MrMagicMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrMag
     }
 }
 
-class MrItemMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrItemBundleDto, TemplateMapModel> {
+class MrItemMapGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<MrItemBundleDto, TemplateMapModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: MrItemBundleDto): TemplateMapModel {
         val m = mutableMapOf(
                 "item" to shuffler.pick(dto.itemDto.items)
@@ -194,7 +198,10 @@ class MrItemMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrItem
     }
 }
 
-class MrMonsterMapGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrMonsterBundleDto, TemplateMapModel> {
+class MrMonsterMapGenerator(override val kodein: Kodein) :
+        ModelGeneratorStrategy<MrMonsterBundleDto, TemplateMapModel>,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: MrMonsterBundleDto): TemplateMapModel {
         val creatures = shuffler.pickN(dto.creatureDto.creatures, 2)
         val m = mutableMapOf(
@@ -220,7 +227,9 @@ data class MrCharacterModel(val config: MrCharacterConfigDto,
                             val weapons: Collection<String>,
                             val equipment: Collection<String>)
 
-class MrCharGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrCharacterBundleDto, MrCharacterModel> {
+class MrCharGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<MrCharacterBundleDto, MrCharacterModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: MrCharacterBundleDto): MrCharacterModel {
         return MrCharacterModel(
                 config = dto.characterDto.config,
@@ -276,7 +285,7 @@ val mrModule = Kodein.Module {
     bind<ModelGenerator<MrCharacterModel>>() with provider {
         BaseGenerator<MrCharacterBundleDto, MrCharacterModel>(
                 MrCharacterBundleDtoLoader(),
-                MrCharGenerator(instance()))
+                MrCharGenerator(kodein))
     }
     bind<Generator>(MrConstants.CHAR) with singleton {
         BaseGeneratorWithView<MrCharacterModel, HTML>(
@@ -288,7 +297,7 @@ val mrModule = Kodein.Module {
     bind<ModelGenerator<TemplateMapModel>>(MrConstants.MONSTER) with provider {
         BaseGenerator<MrMonsterBundleDto, TemplateMapModel>(
                 MrMonsterBundleDtoLoader(),
-                MrMonsterMapGenerator(instance()))
+                MrMonsterMapGenerator(kodein))
     }
     bind<Generator>(MrConstants.MONSTER) with provider {
         BaseGeneratorWithView<TemplateMapModel, String>(
@@ -300,7 +309,7 @@ val mrModule = Kodein.Module {
     bind<ModelGenerator<TemplateMapModel>>(MrConstants.ITEM) with provider {
         BaseGenerator<MrItemBundleDto, TemplateMapModel>(
                 MrItemBundleDtoLoader(),
-                MrItemMapGenerator(instance()))
+                MrItemMapGenerator(kodein))
     }
     bind<Generator>(MrConstants.ITEM) with provider {
         BaseGeneratorWithView<TemplateMapModel, String>(
@@ -312,7 +321,7 @@ val mrModule = Kodein.Module {
     bind<ModelGenerator<TemplateMapModel>>(MrConstants.MAGIC) with provider {
         BaseGenerator<MrMagicDto, TemplateMapModel>(
                 MrMagicDtoLoader(),
-                MrMagicMapGenerator(instance()))
+                MrMagicMapGenerator(kodein))
     }
     bind<Generator>(MrConstants.MAGIC) with provider {
         BaseGeneratorWithView<TemplateMapModel, String>(
@@ -321,15 +330,11 @@ val mrModule = Kodein.Module {
     }
 
     bind<Generator>(MrConstants.POTION_EFFECTS) with provider {
-        BaseSimpleGenerator (
-                MrPotionEffectsDtoLoader(), instance()
-        )
+        BaseSimpleGenerator (MrPotionEffectsDtoLoader(), kodein)
     }
 
     bind<Generator>(MrConstants.AFFLICTIONS) with provider {
-        BaseSimpleGenerator (
-                MrAfflictionsDtoLoader(), instance()
-        )
+        BaseSimpleGenerator(MrAfflictionsDtoLoader(), kodein)
     }
 
 

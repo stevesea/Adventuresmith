@@ -20,12 +20,23 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.github.salomonbrys.kodein.*
 import org.junit.*
 
 class DiceTest {
+
+    fun getDiceFactory(): (String) -> Dice {
+        val kodein = getKodein(getMockRandom(0))
+        val diceFactory :  (String) -> Dice = kodein.factory()
+
+        return diceFactory
+    }
+
     @Test
     fun testStringParsingModifier() {
-        val d = Dice.create("2d20+4", getMockRandom(0))
+
+
+        val d = getDiceFactory().invoke("2d20+4")
         Assert.assertEquals(2, d.nDice)
         Assert.assertEquals(20, d.nSides)
         Assert.assertEquals(4, d.modifier)
@@ -36,7 +47,7 @@ class DiceTest {
 
     @Test
     fun testStringParsing() {
-        val d = Dice.create("34d12", getMockRandom(0))
+        val d = getDiceFactory().invoke("34d12")
         Assert.assertEquals(34, d.nDice)
         Assert.assertEquals(12, d.nSides)
         Assert.assertEquals(0, d.modifier)

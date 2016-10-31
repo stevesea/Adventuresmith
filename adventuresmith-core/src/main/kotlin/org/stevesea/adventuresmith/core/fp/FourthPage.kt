@@ -96,7 +96,9 @@ data class FpDungeonModel(val config: FpDungeonConfigDto,
                           val trial: Pair<String,String>,
                           val secret: Pair<String, String>)
 
-class FpArtifactModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpArtifactDto, FpArtifactModel> {
+class FpArtifactModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FpArtifactDto, FpArtifactModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: FpArtifactDto): FpArtifactModel {
         return FpArtifactModel(
                 config = dto.config,
@@ -106,7 +108,9 @@ class FpArtifactModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<
     }
 }
 
-class FpMonsterModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpMonsterDto, FpMonsterModel> {
+class FpMonsterModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FpMonsterDto, FpMonsterModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: FpMonsterDto): FpMonsterModel {
         return FpMonsterModel(
                 config = dto.config,
@@ -114,7 +118,9 @@ class FpMonsterModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<F
                 role = shuffler.pickPairFromMapofLists(dto.roles))
     }
 }
-class FpCityModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpCityDto, FpCityModel> {
+class FpCityModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FpCityDto, FpCityModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: FpCityDto): FpCityModel {
         return FpCityModel(
                 config = dto.config,
@@ -126,7 +132,9 @@ class FpCityModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpCi
     }
 }
 
-class FpDungeonModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<FpDungeonDto, FpDungeonModel> {
+class FpDungeonModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FpDungeonDto, FpDungeonModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun transform(dto: FpDungeonDto): FpDungeonModel {
         return FpDungeonModel(
                 config = dto.config,
@@ -274,25 +282,25 @@ val fpModule = Kodein.Module {
     bind<ModelGenerator<FpArtifactModel>>() with provider {
         BaseGenerator<FpArtifactDto, FpArtifactModel>(
                 FpArtifactDtoLoader(),
-                FpArtifactModelGenerator(instance())
+                FpArtifactModelGenerator(kodein)
         )
     }
     bind<ModelGenerator<FpMonsterModel>>() with provider {
         BaseGenerator<FpMonsterDto, FpMonsterModel>(
             FpMonsterDtoLoader(),
-            FpMonsterModelGenerator(instance())
+            FpMonsterModelGenerator(kodein)
         )
     }
     bind<ModelGenerator<FpDungeonModel>>() with provider {
         BaseGenerator<FpDungeonDto, FpDungeonModel>(
                 FpDungeonDtoLoader(),
-                FpDungeonModelGenerator(instance())
+                FpDungeonModelGenerator(kodein)
         )
     }
     bind<ModelGenerator<FpCityModel>>() with provider {
         BaseGenerator<FpCityDto, FpCityModel>(
                 FpCityDtoLoader(),
-                FpCityModelGenerator(instance())
+                FpCityModelGenerator(kodein)
         )
     }
 

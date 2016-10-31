@@ -20,7 +20,6 @@
 
 package org.stevesea.adventuresmith.core
 
-import java.security.*
 import java.util.*
 
 class RangeMap<T>(
@@ -59,11 +58,13 @@ class RangeMap<T>(
             return v
     }
 
+    /*
     fun pick(dice: Dice) : T {
         return pick(dice.roll())
     }
 
-    fun pick(diceStr: String, random: Random = SecureRandom()) : T {
-        return pick(Dice.roll(diceStr, random))
+    fun pick(diceStr: String) : T {
+        return pick(Dice.roll(diceStr))
     }
+    */
 }

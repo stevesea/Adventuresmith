@@ -20,35 +20,11 @@
 
 package org.stevesea.adventuresmith.core
 
+
 import com.github.salomonbrys.kodein.*
-
-
 import com.google.common.base.*
-import org.stevesea.adventuresmith.core.fotf.*
-import org.stevesea.adventuresmith.core.fp.*
-import org.stevesea.adventuresmith.core.maze_rats.*
 import java.util.*
 
-val utilModule = Kodein.Module {
-    bind<Shuffler>() with singleton { Shuffler() }
-}
-
-object AdventureSmithConstants {
-    val GENERATORS = "generators"
-}
-val generatorModules = Kodein.Module {
-    import(fotfModule)
-    import(fpModule)
-    import(mrModule)
-
-    bind<List<String>>(AdventureSmithConstants.GENERATORS) with provider {
-        val res : MutableList<String> = mutableListOf()
-        res.addAll(instance(FotfConstants.GROUP))
-        res.addAll(instance(MrConstants.GROUP))
-        res.addAll(instance(FpConstants.GROUP))
-        res
-    }
-}
 
 interface Generator {
     fun generate(locale: Locale = Locale.ENGLISH) : String
@@ -117,7 +93,8 @@ interface SimpleListLoader {
 }
 open class BaseSimpleGenerator (
         val listLoader : SimpleListLoader,
-        val shuffler: Shuffler = Shuffler()) : Generator {
+        override val kodein: Kodein) : Generator, KodeinAware {
+    val shuffler : Shuffler = instance()
     override fun generate(locale: Locale): String {
         return shuffler.pick(listLoader.load(locale))
     }
@@ -136,11 +113,4 @@ class ApplyTemplateView: ViewStrategy<TemplateMapModel, String> {
     }
 }
 
-/*
-data class FotfSpellModel(val template: String, val map: Map<String,String>) {
-    //neat... but we don't need these names
-    val element: String by map
-    val form1: String by map
-}
-    */
 
