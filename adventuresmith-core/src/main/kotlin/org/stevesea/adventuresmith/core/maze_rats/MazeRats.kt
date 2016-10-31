@@ -216,20 +216,29 @@ class MrPotionEffectsGenerator(shuffler: Shuffler = Shuffler()) : BaseSimpleGene
         MrPotionEffectsDtoLoader(), shuffler
 )
 
-class MrMagicGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMagicDto, TemplateMapModel, String>(
+class MrMagicModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMagicDto, TemplateMapModel>(
         MrMagicDtoLoader(),
-        MrMagicMapGenerator(shuffler),
+        MrMagicMapGenerator(shuffler)
+)
+class MrMagicGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<TemplateMapModel, String>(
+        MrMagicModelGenerator(shuffler),
         ApplyTemplateView()
 )
-class MrItemGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrItemBundleDto, TemplateMapModel, String>(
+class MrItemModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrItemBundleDto, TemplateMapModel>(
         MrItemBundleDtoLoader(),
-        MrItemMapGenerator(shuffler),
+        MrItemMapGenerator(shuffler)
+)
+class MrItemGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<TemplateMapModel, String>(
+        MrItemModelGenerator(shuffler),
         ApplyTemplateView()
 )
 
-class MrMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMonsterBundleDto, TemplateMapModel, String>(
+class MrMonsterModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrMonsterBundleDto, TemplateMapModel>(
         MrMonsterBundleDtoLoader(),
-        MrMonsterMapGenerator(shuffler),
+        MrMonsterMapGenerator(shuffler)
+)
+class MrMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<TemplateMapModel, String>(
+        MrMonsterModelGenerator(shuffler),
         ApplyTemplateView()
 )
 
@@ -246,7 +255,7 @@ data class MrCharacterModel(val config: MrCharacterConfigDto,
                             val weapons: Collection<String>,
                             val equipment: Collection<String>)
 
-class MrCharacterModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrCharacterBundleDto, MrCharacterModel> {
+class MrCharGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy<MrCharacterBundleDto, MrCharacterModel> {
     override fun transform(dto: MrCharacterBundleDto): MrCharacterModel {
         return MrCharacterModel(
                 config = dto.characterDto.config,
@@ -263,8 +272,11 @@ class MrCharacterModelGenerator(val shuffler: Shuffler) : ModelGeneratorStrategy
     }
 }
 
-class MrCharacterGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrCharacterBundleDto, MrCharacterModel, HTML>(
+class MrCharacterModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<MrCharacterBundleDto, MrCharacterModel>(
         MrCharacterBundleDtoLoader(),
+        MrCharGenerator(shuffler)
+)
+class MrCharacterGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<MrCharacterModel, HTML>(
         MrCharacterModelGenerator(shuffler),
         MrCharacterView()
 )

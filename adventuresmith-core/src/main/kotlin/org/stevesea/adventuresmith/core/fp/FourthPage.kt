@@ -269,26 +269,39 @@ class FpMonsterDtoLoader : DtoLoadingStrategy<FpMonsterDto> {
     }
 }
 
-class FourthPageArtifactGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpArtifactDto, FpArtifactModel, HTML>(
+class FourthPageArtifactModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpArtifactDto, FpArtifactModel>(
         FpArtifactDtoLoader(),
-        FpArtifactModelGenerator(shuffler),
+        FpArtifactModelGenerator(shuffler)
+)
+class FourthPageArtifactGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpArtifactModel, HTML>(
+        FourthPageArtifactModelGenerator(shuffler),
         FpArtifactView()
 )
 
-class FourthPageCityGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpCityDto, FpCityModel, HTML>(
+class FourthPageCityModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpCityDto, FpCityModel>(
         FpCityDtoLoader(),
-        FpCityModelGenerator(shuffler),
+        FpCityModelGenerator(shuffler)
+)
+
+class FourthPageCityGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpCityModel, HTML>(
+        FourthPageCityModelGenerator(shuffler),
         FpCityView()
 )
 
-class FourthPageDungeonGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpDungeonDto, FpDungeonModel, HTML>(
+class FourthPageDungeonModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpDungeonDto, FpDungeonModel>(
         FpDungeonDtoLoader(),
-        FpDungeonModelGenerator(shuffler),
+        FpDungeonModelGenerator(shuffler)
+)
+class FourthPageDungeonGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpDungeonModel, HTML>(
+        FourthPageDungeonModelGenerator(shuffler),
         FpDungeonView()
 )
-class FourthPageMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpMonsterDto, FpMonsterModel, HTML>(
+class FourthPageMonsterModelGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FpMonsterDto, FpMonsterModel>(
         FpMonsterDtoLoader(),
-        FpMonsterModelGenerator(shuffler),
+        FpMonsterModelGenerator(shuffler)
+)
+class FourthPageMonsterGenerator(shuffler: Shuffler = Shuffler()) : BaseGeneratorWithView<FpMonsterModel, HTML>(
+        FourthPageMonsterModelGenerator(shuffler),
         FpMonsterViewTransformer()
 )
 

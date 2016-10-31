@@ -176,6 +176,7 @@ dependencies {
     testCompile "org.robolectric:shadows-multidex:$robolectric_version"
     //testCompile "org.robolectric:shadows-support-v4:3.0"
 
+    compile 'com.github.salomonbrys.kodein:kodein-android:3.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"

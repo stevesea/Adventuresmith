@@ -79,9 +79,16 @@ class FotfSpellDtoLoader : DtoLoadingStrategy<FotfSpellDtoBundle> {
     }
 }
 
-class FotfSpellGenerator(shuffler: Shuffler = Shuffler()) : BaseGenerator<FotfSpellDtoBundle, TemplateMapModel, String>(
-        FotfSpellDtoLoader(),
-        FotfSpellMapGenerator(shuffler),
-        ApplyTemplateView()
+class FotfSpellModelGen(shuffler: Shuffler = Shuffler()) :
+        BaseGenerator<FotfSpellDtoBundle, TemplateMapModel> (
+                loadingStrat = FotfSpellDtoLoader(),
+                modelGeneratorStrat = FotfSpellMapGenerator(shuffler)
 )
+
+class FotfSpellGenerator(shuffler: Shuffler = Shuffler()) :
+        BaseGeneratorWithView<TemplateMapModel, String> (
+        modelGen = FotfSpellModelGen(shuffler),
+        viewTransform = ApplyTemplateView()
+)
+
 

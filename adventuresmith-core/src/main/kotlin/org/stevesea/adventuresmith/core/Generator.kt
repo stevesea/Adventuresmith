@@ -26,6 +26,9 @@ import java.util.*
 interface Generator {
     fun generate(locale: Locale = Locale.ENGLISH) : String
 }
+interface ModelGenerator<T> {
+    fun generate(locale: Locale = Locale.ENGLISH) : T
+}
 
 interface DtoLoadingStrategy<out TDto> {
     fun load(locale: Locale) : TDto
@@ -41,7 +44,7 @@ interface ViewStrategy<in TModel, out TView> {
 
 // TODO: how does library advertise which generators exist, and how does client call 'em?
 // TODO: need to do this entire chain? Or should the library only be supplying the model?
-open class BaseGenerator<
+open class BaseGeneratorOld<
         TDto,
         TModel,
         out TView>(
@@ -58,6 +61,26 @@ open class BaseGenerator<
 
     override fun generate(locale: Locale): String {
         return generateView(locale).toString().trim()
+    }
+}
+
+open class BaseGenerator<
+        TDto,
+        TModel>(
+        val loadingStrat : DtoLoadingStrategy<TDto>,
+        val modelGeneratorStrat: ModelGeneratorStrategy<TDto, TModel>) : ModelGenerator<TModel> {
+    override fun generate(locale: Locale): TModel {
+        val input = loadingStrat.load(locale)
+        val output = modelGeneratorStrat.transform(input)
+        return output
+    }
+}
+
+open class BaseGeneratorWithView<TModel, TView>(
+        val modelGen: ModelGenerator<TModel>,
+        val viewTransform: ViewStrategy<TModel, TView>) : Generator {
+    override fun generate(locale: Locale): String {
+        return viewTransform.transform(modelGen.generate(locale)).toString().trim()
     }
 }
 
