@@ -1,0 +1,26 @@
+---
+config:
+  genders:
+    male: Male
+    female: Female
+  heritages:
+    human: Human
+    halfling: Halfling
+    dwarf: Dwarf
+    elf: Elf
+  playbooks:
+    fighter: Fighter
+    thief: Thief
+    cleric: Cleric
+    magic-user: Magic-User
+  alignments:
+    evil: Evil
+    chaotic: Chaotic
+    neutral: Neutral
+    lawful: Lawful
+    good: Good
+playbooks:
+- start: 1
+  end: 7
+  val: Human
+- { start: 8 , end: 10 , val: Halfling }

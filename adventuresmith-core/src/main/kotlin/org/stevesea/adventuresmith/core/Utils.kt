@@ -30,6 +30,7 @@ import java.net.*
 import java.nio.charset.*
 import java.util.*
 import java.util.concurrent.*
+import javax.validation.*
 
 val utilModule = Kodein.Module {
     bind() from singleton { ObjectMapper(YAMLFactory())
@@ -46,8 +47,15 @@ val utilModule = Kodein.Module {
     bind() from singleton {
         CachingResourceDeserializer(kodein)
     }
-}
 
+    bind() from singleton {
+        Validation.buildDefaultValidatorFactory()
+    }
+    bind() from provider {
+        val valFactory: ValidatorFactory = instance()
+        valFactory.validator
+    }
+}
 
 // replaces elements of String with entries from the given map
 // any keys from map in source string which match %{key} will be substituted with val
@@ -120,6 +128,7 @@ object LocaleAwareResourceFinder {
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
     val objectReader : ObjectReader = instance()
+    val validator : Validator = instance()
     val maxSize = 100L
 
     val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
@@ -143,12 +152,21 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
         }
     }
 
+    private fun <T> validate(obj: T) : T {
+        val constraintViolations = validator.validate(obj)
+        if (constraintViolations.size > 0)
+            throw ConstraintViolationException(constraintViolations)
+        return obj
+    }
+
     private fun <T> uncached_deserialize(clazz: Class<T>,
                                          resource_prefix : String,
                                          locale: Locale,
                                          charset: Charset): T {
         val url = LocaleAwareResourceFinder.find(resource_prefix,locale,clazz)
         val str = Resources.toString(url, charset)
-        return objectReader.forType(clazz).readValue(str)
+        val result: T = objectReader.forType(clazz).readValue(str)
+
+        return validate(result)
     }
 }

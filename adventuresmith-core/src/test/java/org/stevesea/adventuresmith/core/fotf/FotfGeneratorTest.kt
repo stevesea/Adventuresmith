@@ -20,11 +20,45 @@
 
 package org.stevesea.adventuresmith.core.fotf
 
+import com.fasterxml.jackson.databind.*
+import com.github.salomonbrys.kodein.*
+import org.hibernate.validator.constraints.*
 import org.junit.*
 import org.stevesea.adventuresmith.core.*
+import java.security.*
 import java.util.*
 
+data class RangeMapVal(val range: IntRange, val value: String)
+data class PlaybooksDto(@NotEmpty val playbooks: List<RangeMapVal>)
+
 class FotfGeneratorTest {
+    @Test
+    fun yaml_parser_test() {
+
+        val kodein = getKodein(SecureRandom())
+        val reader : ObjectReader = kodein.instance()
+
+        val input = """
+---
+playbooks:
+- range:
+    start: 1
+    end: 3
+  value: asdfasdf1
+- range: {start: 4, end: 6}
+  value: asdfasdf2
+- {range: {start: 7, end: 10} , value: asdfasdf3}
+        """
+
+
+        val dto : PlaybooksDto = reader.forType(PlaybooksDto::class.java).readValue(input)
+
+        Assert.assertEquals(3, dto.playbooks.size)
+        Assert.assertEquals(1..3, dto.playbooks.get(0).range)
+        Assert.assertEquals(4..6, dto.playbooks.get(1).range)
+        Assert.assertEquals(7..10, dto.playbooks.get(2).range)
+
+    }
     @Test
     fun spell_english() {
         Assert.assertEquals("All-Seeing Armor", getGenerator(FotfConstants.SPELLS,1).generate(Locale.ENGLISH))

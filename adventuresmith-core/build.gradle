@@ -54,7 +54,10 @@ dependencies {
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 
     compile group: 'com.google.guava', name: 'guava', version: '19.0'
-    //compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.2.4.Final'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.2.4.Final'
+    // required for hibernate validation. if inside web app container, probably already there.
+    // maybe make this just a testCompile dependency?
+    compile group: 'javax.el', name: 'javax.el-api', version: '2.2.5'
 
     testCompile "junit:junit:$junit_version"
     testCompile "org.mockito:mockito-core:$mockito_version"
