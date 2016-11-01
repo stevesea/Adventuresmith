@@ -1,0 +1,282 @@
+---
+config:
+  genders:
+    male: Masculin
+    female: Féminin
+  heritages:
+    human: Humain
+    halfling: Halfelin
+    dwarf: Nain
+    elf: Elfe
+  playbooks:
+    fighter: Guerrier
+    thief: Voleur
+    cleric: Clerc
+    magic-user: Lanceur de Sorts
+  alignments:
+    evil: Mauvais
+    chaotic: Chaotique
+    neutral: Neutre
+    lawful: Loyal
+    good: Bon
+  headers:
+    virtues_vices: Vertus & Vices
+    playbook: Playbook
+    name_heritage: Nom & Héritage
+    appearance: Apparence
+    gear: Équipement
+    abilities: Caractéristiques
+  abilities:
+    - Force
+    - Dextérité
+    - Charisme
+    - Constitution
+    - Sagesse
+    - Intelligence
+    - Chance
+
+gear:
+  thief:
+    -
+      - 1..2, Couteau
+      - 3..4, Dague
+      - 5..6, Épée courte
+    -
+      - 1..2, 3 Dagues de lancer
+      - 3..4, Fronde
+      - 5..6, Arc court
+  magic-user:
+    -
+      - 1..2, Baguette magique
+      - 3..5, Bâton magique
+      - 6, Orbe arcanique
+    -
+      - 1..2, Sac de livres
+      - 3, Dague
+      - 4, Potion de soins
+      - 5..6, Composants de sorts
+  cleric:
+    -
+      - 1..2, Bâton
+      - 3..4, Masse
+      - 5..6, Marteau de guerre
+    -
+      - 1..2, Bouclier
+      - 3..4, Armure de cuir
+      - 5..6, Cotte de mailles
+  fighter:
+    -
+      - 1, Armure de cuir
+      - 2..5, Cotte de mailles
+      - 6, Armure d’écailles
+    -
+      - 1, Potion de soin
+      - 2, Bouclier
+      - 3, Herbes et cataplasmes
+      - 4, Antidote
+      - 5, Rations
+      - 6, Matériel d’aventurier
+
+appearances:
+  fighter:
+  - grands pieds
+  - grande bouche
+  - longue moustache
+  - nez distinctif
+  - cheveux nattés
+  - nez cassé
+  - mâchoire carrée
+  - yeux clairs
+  - menton fendu
+  - dents croches
+  - cheveux bouclés
+  - peau matte
+  - voix grave
+  - crasseux
+  - boucles d’oreille
+  - dents écartées
+  - bouc
+  - bandeau
+  - pommettes saillantes
+  - hirsute
+  - mâchoire large
+  - grandes oreilles
+  - grandes mains
+  - grosse tête
+  - longues jambes
+  - cheveux emmêlés
+  - oreille manquante
+  - borgne
+  - doigts manquants
+  - édenté
+  - bottes distinctives
+  - heaume distinctif
+  - bonne posture
+  - peau grêlée
+  - voix rauque
+  - joues roses
+  - sandales
+  - cicatrices
+  - tatouages
+  - crâne rasé
+  - odorant
+  - souriant
+  - strabique
+  - regard intense
+  - mal rasé
+  - tatouages
+  - renfrogné
+  - propre sur soi
+  - juvénile
+  thief:
+  - nez cassé
+  - poils sur le menton
+  - rasé de près
+  - yeux clairs
+  - dents croches
+  - cheveux bouclés
+  - matte de peau
+  - voix grave
+  - défiguré
+  - débraillé
+  - dents écartées
+  - émacié
+  - bouc
+  - hirsute
+  - encapuchonné
+  - boiteux
+  - petite bouche
+  - longs doigts
+  - cheveux emmêlés
+  - borgne
+  - doigt manquant
+  - édenté
+  - yeux plissés
+  - chausses distinctives
+  - gants distinctifs
+  - coiffe distinctive
+  - nez distinctif
+  - surocclusion
+  - pâle
+  - moustache fine
+  - bonne posture
+  - peau grêlée
+  - menton pointu
+  - mauvaise posture
+  - voix rauque
+  - haillons
+  - yeux injectés
+  - cicatrices
+  - strabique
+  - petites mains
+  - odorant
+  - louche
+  - mal rasé
+  - tatouages
+  - renfrogné
+  - pouilleux
+  - propre sur soi
+  - voix douce
+  - calvitie naissante
+  cleric:
+  - grands pieds
+  - regard foudroyant
+  - sourcils broussailleux
+  - couronne
+  - rasé de près
+  - yeux clairs
+  - fossette au menton
+  - dents croches
+  - cheveux bouclés
+  - pellicules
+  - matte de peau
+  - crasseux
+  - boucles d’oreilles
+  - émacié
+  - bouc
+  - grisonnant
+  - bandeau
+  - costaud
+  - front haut
+  - hirsute
+  - encapuchonné
+  - grandes mains
+  - longue barbe
+  - édenté
+  - coiffé d’une mitre
+  - heaume distinctif
+  - nez distinctif
+  - atours distinctifs
+  - pâle
+  - bonne posture
+  - parfumé
+  - regard perçant
+  - peau grêlée
+  - joues roses
+  - cicatrices
+  - crâne rasé
+  - regard joyeux
+  - odorant
+  - souriant
+  - menton carré
+  - épaules carrées
+  - marques étranges
+  - mal rasé
+  - tatouages
+  - voix tonitruante
+  - tonsure
+  - pouilleux
+  - verrues
+  - propre sur soi
+  magic-user:
+  - brûlures acides
+  - agé
+  - chauve
+  - dents noircies
+  - voix tonitruante
+  - brûlûres
+  - sourcils broussailleux
+  - poils au menton
+  - dents croches
+  - cheveux bouclés
+  - matte de peau
+  - défiguré
+  - langue fourchue
+  - émacié
+  - regard éclatant
+  - mains noueuses
+  - bouc
+  - grisonnant
+  - air défait
+  - imberbe
+  - bandeau
+  - pommettes saillantes
+  - front haut
+  - encapuchonné
+  - boiteux
+  - longue barbe
+  - ongles longs
+  - cheveux longs
+  - yeux vairons
+  - édenté
+  - pas de sourcils
+  - nez distinctif
+  - robes distinctives
+  - peau grasse
+  - pâle
+  - peau grêlée
+  - chapeau pointu
+  - mauvaise posture
+  - voix rauque
+  - cicatrices
+  - mains squelettiques
+  - calotte
+  - odorant
+  - marques étranges
+  - cernes prononcées
+  - tatouages
+  - pouilleux
+  - verrues
+  - cheveux blancs
+  - calvitie naissante
+
