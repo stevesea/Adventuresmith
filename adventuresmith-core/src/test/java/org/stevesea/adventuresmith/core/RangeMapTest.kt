@@ -39,7 +39,7 @@ class RangeMapTest {
         val input = """
 ---
 playbooks:
-- 1..3, Human
+- 2..3, Human
 - >
   4..6, This is a multiline
   string and it will be very awesomely
@@ -57,7 +57,9 @@ playbooks:
         Assert.assertEquals(5, dto.playbooks.size)
         Assert.assertEquals(15, dto.playbooks.maxKey)
 
-        Assert.assertEquals("Human", dto.playbooks.select(1))
+        Assert.assertEquals(IntRange(2,15), dto.playbooks.keyRange())
+
+        Assert.assertEquals("Human", dto.playbooks.select(2))
 
         Assert.assertEquals("""
             This is a multiline string and it will be very awesomely confusing

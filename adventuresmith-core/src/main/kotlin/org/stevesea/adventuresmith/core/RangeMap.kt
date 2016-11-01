@@ -104,8 +104,9 @@ class RangeMap(
         for (i in delegate.keys) {
             ranges.add(IntRange(i,i))
         }
-        if (delegate.keys.size > 0)
+        if (delegate.keys.size > 0) {
             maxKey = delegate.lastKey()
+        }
     }
 
     fun with(newRange: IntRange, value: String) : RangeMap {
@@ -132,5 +133,9 @@ class RangeMap(
 
     fun select(dice: Dice) : String {
         return select(dice.roll())
+    }
+
+    fun keyRange() : IntRange {
+        return IntRange(delegate.firstKey(), maxKey)
     }
 }
