@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import org.junit.*
+import java.security.*
 import java.util.*
 
 
@@ -29,9 +30,9 @@ class Exerciser {
 
     @Test
     fun exerciser() {
-        val kodein = getKodein(getMockRandom(0))
+        val kodein = getKodein(SecureRandom())
 
-        val gennames = kodein.instance<List<String>>(AdventureSmithConstants.GENERATORS)
+        val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
                 for (i in 1..5) {

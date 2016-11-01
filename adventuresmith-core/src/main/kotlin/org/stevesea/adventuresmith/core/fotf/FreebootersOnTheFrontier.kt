@@ -34,7 +34,7 @@ data class FotfSpellWizardNamesDto(val part1: List<String>,
     }
 }
 
-data class FotfCharNames(val heritageToGenderNames: Map<String,Map<String, List<String>>>) {
+data class FotfCharNames(val names: Map<String,Map<String, List<String>>>) {
     companion object Resource {
         val resource_prefix = "char_names"
     }
@@ -51,7 +51,8 @@ data class FotfCharNoTrans(val playbooks: RangeMap,
         val resource_prefix = "char_no_translate"
     }
 }
-data class FotfCharConfigDto(val genders: Map<String, String>,
+data class FotfCharConfigDto(val headers: Map<String, String>,
+                             val genders: Map<String, String>,
                              val heritages: Map<String, String>,
                              val playbooks: Map<String, String>,
                              val alignments: Map<String, String>)
@@ -178,7 +179,7 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
                 heritage = heritage,
                 alignment = alignment,
                 abilRolls = shuffler.dice("3d6").rollN(7),
-                name = shuffler.pick(dto.names.heritageToGenderNames.get(heritage)?.get(gender)),
+                name = shuffler.pick(dto.names.names.get(heritage)?.get(gender)),
                 appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.dice("1d2+1").roll()),
                 virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) {0}),
                 vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) {0}),
@@ -206,7 +207,7 @@ val fotfModule = Kodein.Module {
                 modelGeneratorStrat = FotfSpellMapGenerator(kodein)
         )
     }
-    bind<Generator>(FotfConstants.SPELLS) with singleton {
+    bind<Generator>(FotfConstants.SPELLS) with provider {
         BaseGeneratorWithView<TemplateMapModel, String> (
                 modelGen = instance(FotfConstants.SPELLS),
                 viewTransform = ApplyTemplateView()
@@ -219,7 +220,7 @@ val fotfModule = Kodein.Module {
                 modelGeneratorStrat = FotfCharModelGenerator(kodein)
         )
     }
-    bind<Generator>(FotfConstants.CHARS) with singleton {
+    bind<Generator>(FotfConstants.CHARS) with provider {
         BaseGeneratorWithView<FotfCharModel, HTML> (
                 modelGen = instance(),
                 viewTransform = FotfCharacterView()

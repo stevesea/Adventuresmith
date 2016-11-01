@@ -34,6 +34,7 @@ class FotfGeneratorTest {
         Assert.assertEquals("Concealing Armor of Canderol", getGenerator(FotfConstants.SPELLS,12).generate(Locale.ENGLISH))
         Assert.assertEquals("Armor of Anger", getGenerator(FotfConstants.SPELLS,3).generate(Locale.ENGLISH))
     }
+
     @Test
     fun spell_french() {
         Assert.assertEquals("Éther Clairvoyant", getGenerator(FotfConstants.SPELLS,1).generate(Locale.FRANCE))
@@ -42,15 +43,15 @@ class FotfGeneratorTest {
         Assert.assertEquals("Équilibre Flamboyant de Asmoasta", getGenerator(FotfConstants.SPELLS,6).generate(Locale.FRANCE))
         Assert.assertEquals("Armure de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS,7).generate(Locale.FRANCE))
     }
+
     @Test
-    fun exerciser() {
-        for(i in 1..50) {
-            println(getGenerator(FotfConstants.SPELLS).generate(Locale.ENGLISH))
-        }
-        for(i in 1..50) {
-            println(getGenerator(FotfConstants.SPELLS).generate(Locale.FRANCE))
-        }
+    fun char_english() {
+        Assert.assertEquals("All-Seeing Armor", getGenerator(FotfConstants.CHARS,1).generate(Locale.ENGLISH))
+
     }
+
+
+
 
 }
 

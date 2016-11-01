@@ -1,8 +1,4 @@
 ---
-config:
-  headers:
-    virtues: Vertus
-    vices: Vices
 virtues:
 - Ambitieux
 - Bienveillant

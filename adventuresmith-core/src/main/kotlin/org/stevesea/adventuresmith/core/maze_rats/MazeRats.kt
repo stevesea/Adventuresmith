@@ -293,7 +293,7 @@ val mrModule = Kodein.Module {
                 MrCharacterBundleDtoLoader(kodein),
                 MrCharGenerator(kodein))
     }
-    bind<Generator>(MrConstants.CHAR) with singleton {
+    bind<Generator>(MrConstants.CHAR) with provider {
         BaseGeneratorWithView<MrCharacterModel, HTML>(
                 instance(),
                 MrCharacterView())
@@ -348,7 +348,6 @@ val mrModule = Kodein.Module {
         listOf(
                 MrConstants.AFFLICTIONS,
                 MrConstants.CHAR,
-                MrConstants.GROUP,
                 MrConstants.ITEM,
                 MrConstants.MAGIC,
                 MrConstants.MONSTER,
