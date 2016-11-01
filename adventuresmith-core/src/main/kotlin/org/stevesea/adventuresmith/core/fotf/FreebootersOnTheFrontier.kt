@@ -205,18 +205,16 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
         return html {
             body {
                 h4 {
-                    + model.config.headers.playbook
-                }
-                p {
-                    + model.config.playbooks.getOrElse(model.playbook){"invalid playbook"}
+                    + "${model.config.headers.playbook} - ${model.playbook}"
                 }
                 h5 {
                     + model.config.headers.name_heritage
                 }
                 p {
                     + model.name
+                    em { + model.gender }
                     br {}
-                    + "${model.heritage} ${model.gender} ${model.alignment}"
+                    + "${model.heritage} ${model.alignment}"
                 }
                 h5 {
                     + model.config.headers.abilities

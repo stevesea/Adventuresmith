@@ -50,19 +50,19 @@ class FotfGeneratorTest {
 <html>
   <body>
     <h4>
-      Playbook
+      Playbook - Fighter
     </h4>
-    <p>
-      invalid playbook
-    </p>
     <h5>
       Name & Heritage
     </h5>
     <p>
       Alodia
+      <em>
+        Female
+      </em>
       <br>
       </br>
-      Human Female Evil
+      Human Evil
     </p>
     <h5>
       Abilities
