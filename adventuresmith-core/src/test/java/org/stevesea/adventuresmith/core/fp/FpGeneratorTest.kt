@@ -212,18 +212,5 @@ class FpGeneratorTest {
 
     }
 
-    @Test
-    fun exerciser() {
-        for(i in 1..10) {
-            for (g in listOf(
-                    FpConstants.ARTIFACT,
-                    FpConstants.CITY,
-                    FpConstants.DUNGEON,
-                    FpConstants.MONSTER
-            )) {
-                println(getGenerator(g).generate(Locale.ENGLISH))
-            }
-        }
-    }
 }
 

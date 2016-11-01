@@ -346,7 +346,13 @@ val mrModule = Kodein.Module {
 
     bind<List<String>>(MrConstants.GROUP) with singleton {
         listOf(
-                MrConstants.AFFLICTIONS
+                MrConstants.AFFLICTIONS,
+                MrConstants.CHAR,
+                MrConstants.GROUP,
+                MrConstants.ITEM,
+                MrConstants.MAGIC,
+                MrConstants.MONSTER,
+                MrConstants.POTION_EFFECTS
         )
     }
 }

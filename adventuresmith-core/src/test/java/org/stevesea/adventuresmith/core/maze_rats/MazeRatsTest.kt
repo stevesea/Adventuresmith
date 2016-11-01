@@ -115,6 +115,4 @@ class MazeRatsTest {
 </html>
         """.trim(), getGenerator(MrConstants.CHAR, 0).generate())
     }
-
-
 }
