@@ -20,9 +20,20 @@ config:
     lawful: Lawful
     good: Good
   headers:
-    virtues: Virtues
-    vices: Vices
-
+    virtues_vices: Virtues & Vices
+    playbook: Playbook
+    name_heritage: Name & Heritage
+    appearance: Appearance
+    gear: Gear
+    abilities: Abilities
+  abilities:
+    - Strength
+    - Dexterity
+    - Charisma
+    - Constitution
+    - Wisdom
+    - Intelligence
+    - Luck
 
 gear:
   thief:

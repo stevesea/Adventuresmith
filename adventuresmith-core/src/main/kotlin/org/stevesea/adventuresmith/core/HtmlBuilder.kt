@@ -101,6 +101,7 @@ abstract class BodyTag(name: String) : TagWithText(name) {
         val a = initTag(A(), init)
         a.href = href
     }
+    fun br(init: Br.() -> Unit) = initTag(Br(), init)
 }
 
 class Body() : BodyTag("body")
@@ -115,6 +116,8 @@ class H3() : BodyTag("h3")
 class H4() : BodyTag("h4")
 class H5() : BodyTag("h5")
 class H6() : BodyTag("h6")
+
+class Br() : Tag("br")
 
 class A() : BodyTag("a") {
     public var href: String

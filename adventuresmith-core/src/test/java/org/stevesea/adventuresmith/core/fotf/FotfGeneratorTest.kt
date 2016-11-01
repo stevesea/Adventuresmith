@@ -46,7 +46,53 @@ class FotfGeneratorTest {
 
     @Test
     fun char_english() {
-        Assert.assertEquals("All-Seeing Armor", getGenerator(FotfConstants.CHARS,1).generate(Locale.ENGLISH))
+        Assert.assertEquals("""
+<html>
+  <body>
+    <h4>
+      Playbook
+    </h4>
+    <p>
+      invalid playbook
+    </p>
+    <h5>
+      Name & Heritage
+    </h5>
+    <p>
+      Alodia
+      <br>
+      </br>
+      Human Female Evil
+    </p>
+    <h5>
+      Abilities
+    </h5>
+    <p>
+      Strength: 6&nbsp;&nbsp;Dexterity: 6
+      <br>
+      </br>
+      Charisma: 6&nbsp;&nbsp;Constitution: 6
+      <br>
+      </br>
+      Wisdom: 6&nbsp;&nbsp;Intelligence: 6
+      <br>
+      </br>
+      Luck: 6
+    </p>
+    <h5>
+      Virtues & Vices
+    </h5>
+    <p>
+      Addict<br/>Alcoholic<br/>Antagonistic
+    </p>
+    <h5>
+      Gear
+    </h5>
+    <p>
+      Chainmail<br/>Shield
+    </p>
+  </body>
+</html>""".trim(), getGenerator(FotfConstants.CHARS,1).generate(Locale.ENGLISH))
 
     }
 
