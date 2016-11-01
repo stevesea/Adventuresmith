@@ -69,11 +69,11 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
             val words = rangeStr.split("..", limit = 2)
             if (words.size != 2) {
                 // if no '..', must be a single int
-                val i = rangeStr.toInt()
+                val i = rangeStr.trim().toInt()
                 return IntRange(i,i)
             }
-            val start = words[0].toInt()
-            val end = words[1].toInt()
+            val start = words[0].trim().toInt()
+            val end = words[1].trim().toInt()
             return IntRange(start,end)
         } catch (e: NumberFormatException) {
             throw JsonMappingException(p, "bad format for range : '%s'. Must be <Start>..<End> or <Int>. %s".format(rangeStr, e.message))

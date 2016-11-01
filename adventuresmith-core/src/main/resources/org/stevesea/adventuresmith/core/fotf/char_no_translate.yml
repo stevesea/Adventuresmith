@@ -1,0 +1,78 @@
+---
+# this file shouldn't be translated -- it'll hold all the keys we'll use
+# to look up information in the other maps.
+
+playbooks:
+- 1..6, fighter
+- 7..9, thief
+- 10..11, cleric
+- 12, magic-user
+
+genders:
+- male
+- female
+
+hitdie:
+  magic-user: d4
+  thief: d6
+  cleric: d8
+  fighter: d10
+
+heritages:
+  thief:
+    - 1..7, human
+    - 8..10, halfling
+    - 11, dwarf
+    - 12, elf
+  magic-user:
+    - 1..8, human
+    - 9, halfling
+    - 10, dwarf
+    - 11..12, elf
+  cleric:
+    - 1..7, human
+    - 8, halfling
+    - 9..11, dwarf
+    - 12, elf
+  fighter:
+    - 1..7, human
+    - 8, halfling
+    - 9..11, dwarf
+    - 12, elf
+
+alignments:
+  thief:
+    - 1..2, evil
+    - 3..6, chaotic
+    - 7..10, neutral
+    - 11..12, good
+  magic-user:
+    - 1..3, evil
+    - 4..8, chaotic
+    - 9..12, good
+  cleric:
+    - 1..3, evil
+    - 4..5, chaotic
+    - 6..7, neutral
+    - 8..9, lawful
+    - 10..12, good
+  fighter:
+    - 1..2, evil
+    - 3..4, chaotic
+    - 5..8, neutral
+    - 9..10, lawful
+    - 11..12, good
+
+virtues:
+  evil: 0
+  chaotic: 1
+  neutral: 1
+  lawful: 2
+  good: 3
+
+vices:
+  evil: 3
+  chaotic: 2
+  neutral: 1
+  lawful: 1
+  good: 0

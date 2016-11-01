@@ -116,22 +116,5 @@ class MazeRatsTest {
         """.trim(), getGenerator(MrConstants.CHAR, 0).generate())
     }
 
-    @Test
-    fun exerciser() {
-        for(i in 1..50) {
-            for (g in listOf(
-                    MrConstants.AFFLICTIONS,
-                    MrConstants.POTION_EFFECTS,
-                    MrConstants.ITEM,
-                    MrConstants.MAGIC,
-                    MrConstants.MONSTER,
-                    MrConstants.CHAR
-            )
-            ) {
-                println(getGenerator(g).generate())
-            }
-        }
-
-    }
 
 }

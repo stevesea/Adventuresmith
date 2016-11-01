@@ -34,6 +34,48 @@ data class FotfSpellWizardNamesDto(val part1: List<String>,
     }
 }
 
+data class FotfCharNames(val heritageToGenderNames: Map<String,Map<String, List<String>>>) {
+    companion object Resource {
+        val resource_prefix = "char_names"
+    }
+}
+data class FotfCharNoTrans(val playbooks: RangeMap,
+                           val hitdie: Map<String,String>,
+                           val heritages: Map<String, RangeMap>,
+                           val alignments: Map<String, RangeMap>,
+                           val virtues: Map<String, Int>,
+                           val vices: Map<String, Int>,
+                           val genders: List<String>
+                           ) {
+    companion object Resource {
+        val resource_prefix = "char_no_translate"
+    }
+}
+data class FotfCharConfigDto(val genders: Map<String, String>,
+                             val heritages: Map<String, String>,
+                             val playbooks: Map<String, String>,
+                             val alignments: Map<String, String>)
+data class FotfCharDto(val config: FotfCharConfigDto,
+                       val gear: Map<String, List<RangeMap>>,
+                       val appearances: Map<String, List<String>>
+                       ){
+    companion object Resource {
+        val resource_prefix = "char"
+    }
+}
+data class FotfTraitsDto(val virtues: List<String>,
+                         val vices:List<String>) {
+    companion object Resource {
+        val resource_prefix = "traits"
+    }
+}
+
+data class FotfCharBundleDto(val char: FotfCharDto,
+                             val charSetup: FotfCharNoTrans,
+                             val names: FotfCharNames,
+                             val wizNames: FotfSpellWizardNamesDto,
+                             val traits: FotfTraitsDto)
+
 data class FotfSpellDto(val name_templates: List<String>,
                         val elements: List<String>,
                         val forms: List<String>,
@@ -82,6 +124,81 @@ class FotfSpellDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfS
     }
 }
 
+class FotfCharDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfCharBundleDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
+    override fun load(locale: Locale): FotfCharBundleDto {
+        return FotfCharBundleDto(
+                wizNames = resourceDeserializer.deserialize(
+                        FotfSpellWizardNamesDto::class.java,
+                        FotfSpellWizardNamesDto.resource_prefix,
+                        locale),
+                names = resourceDeserializer.deserialize(
+                        FotfCharNames::class.java,
+                        FotfCharNames.resource_prefix,
+                        locale),
+                char = resourceDeserializer.deserialize(
+                        FotfCharDto::class.java,
+                        FotfCharDto.resource_prefix,
+                        locale),
+                charSetup = resourceDeserializer.deserialize(
+                        FotfCharNoTrans::class.java,
+                        FotfCharNoTrans.resource_prefix,
+                        locale),
+                traits = resourceDeserializer.deserialize(
+                        FotfTraitsDto::class.java,
+                        FotfTraitsDto.resource_prefix,
+                        locale)
+        )
+    }
+}
+
+data class FotfCharModel(val config: FotfCharConfigDto,
+                         val gender: String,
+                         val playbook: String,
+                         val heritage: String,
+                         val alignment: String,
+                         val name: String,
+                         val abilRolls: List<Int>,
+                         val appearances: Collection<String>,
+                         val virtues: Collection<String>,
+                         val vices: Collection<String>,
+                         val gear: Collection<String>?)
+class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FotfCharBundleDto, FotfCharModel> ,
+        KodeinAware {
+    val shuffler : Shuffler = instance()
+    override fun transform(dto: FotfCharBundleDto): FotfCharModel {
+        val gender = shuffler.pick(dto.charSetup.genders)
+        val playbook = shuffler.pick(dto.charSetup.playbooks)
+        val heritage = shuffler.pick(dto.charSetup.heritages.get(playbook))
+        val alignment = shuffler.pick(dto.charSetup.alignments.get(playbook))
+        return FotfCharModel(
+                config = dto.char.config,
+                gender = gender,
+                playbook = playbook,
+                heritage = heritage,
+                alignment = alignment,
+                abilRolls = shuffler.dice("3d6").rollN(7),
+                name = shuffler.pick(dto.names.heritageToGenderNames.get(heritage)?.get(gender)),
+                appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.dice("1d2+1").roll()),
+                virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) {0}),
+                vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) {0}),
+                gear = dto.char.gear.get(playbook)?.map { shuffler.pick(it)}
+        )
+    }
+}
+
+class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
+    override fun transform(model: FotfCharModel): HTML {
+        return html {
+            body {
+                p {
+                    + model.toString()
+                }
+            }
+        }
+    }
+}
+
 val fotfModule = Kodein.Module {
     bind<ModelGenerator<TemplateMapModel>>(FotfConstants.SPELLS) with provider {
         BaseGenerator<FotfSpellDtoBundle, TemplateMapModel> (
@@ -96,9 +213,25 @@ val fotfModule = Kodein.Module {
         )
     }
 
+    bind<ModelGenerator<FotfCharModel>>() with provider {
+        BaseGenerator<FotfCharBundleDto, FotfCharModel> (
+                loadingStrat = FotfCharDtoLoader(kodein),
+                modelGeneratorStrat = FotfCharModelGenerator(kodein)
+        )
+    }
+    bind<Generator>(FotfConstants.CHARS) with singleton {
+        BaseGeneratorWithView<FotfCharModel, HTML> (
+                modelGen = instance(),
+                viewTransform = FotfCharacterView()
+        )
+    }
+
 
     bind<List<String>>(FotfConstants.GROUP) with singleton {
-        listOf(FotfConstants.SPELLS)
+        listOf(
+                FotfConstants.SPELLS,
+                FotfConstants.CHARS
+        )
     }
 }
 
@@ -106,4 +239,5 @@ object FotfConstants {
     val GROUP = "fotf"
 
     val SPELLS = "${GROUP}.spell"
+    val CHARS = "${GROUP}.chars"
 }

@@ -27,28 +27,36 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
     val random: Random = instance()
     val diceFactory : (String) -> Dice = factory()
 
-    fun <T> pick(items: Collection<T>) : T {
-        return items.elementAt(random.nextInt(items.size))
+    fun <T> pick(items: Collection<T>?) : T {
+        return items!!.elementAt(random.nextInt(items.size))
+    }
+    fun pick(rmap: RangeMap?) : String {
+        val sel = pick(rmap!!.keyRange().toList())
+        return rmap.select(sel)
+    }
+    fun pickN(rmap: RangeMap?, num: Int) : List<String> {
+        val selN = pickN(rmap!!.keyRange().toList(), num)
+        return selN.map { rmap.select(it)}
     }
 
-    fun <T> pick(dice: Dice, items: Collection<T>): T {
+    fun <T> pick(dice: Dice, items: Collection<T>?): T {
         // use mod to ensure our index is within the acceptable range for the collection
         // dice are 1-based, list indexes are 0-based so subtract 1
-        return items.elementAt(dice.roll() % items.size - 1)
+        return items!!.elementAt(dice.roll() % items.size - 1)
     }
 
-    fun <T> pick(diceStr: String, items: Collection<T>) : T = pick(dice(diceStr), items)
+    fun <T> pick(diceStr: String, items: Collection<T>?) : T = pick(dice(diceStr), items)
 
     fun dice(diceStr: String) : Dice = diceFactory.invoke(diceStr)
 
-    fun <T> pickN(items: Collection<T>, num: Int) : Collection<T> {
-        val localItems = items.toMutableList()
+    fun <T> pickN(items: Collection<T>?, num: Int) : Collection<T> {
+        val localItems = items!!.toMutableList()
         Collections.shuffle(localItems, random)
         return localItems.take(num)
     }
 
-    fun pickPairFromMapofLists(m: Map<String,Collection<String>>) : Pair<String, String> {
-        val k = pick(m.keys)
+    fun pickPairFromMapofLists(m: Map<String,Collection<String>>?) : Pair<String, String> {
+        val k = pick(m!!.keys)
         return Pair(k, pick(m.getOrElse(k) {listOf("not found")}))
     }
 }
