@@ -50,30 +50,62 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
                 continue
 
             val str = v.asText()
+            val words = str.split(",", limit = 2)
 
-            val indComma = str.indexOf(",")
-            val rangeStr = str.substring(0..(indComma-1))
-            val valStr = str.substring((indComma+1)..(str.length-1))
+            if (words.size != 2) {
+                throw JsonMappingException(p, "bad format for RangeMap input: '%s'. Must be <range>,<val>".format(str))
+            }
 
+            val rangeStr = words[0]
 
-
+            result.with(strToIntRange(p, rangeStr), words[1].trim())
         }
 
         return result
     }
+
+    fun strToIntRange(p: JsonParser,rangeStr: String) : IntRange {
+        try {
+            val words = rangeStr.split("..", limit = 2)
+            if (words.size != 2) {
+                // if no '..', must be a single int
+                val i = rangeStr.toInt()
+                return IntRange(i,i)
+            }
+            val start = words[0].toInt()
+            val end = words[1].toInt()
+            return IntRange(start,end)
+        } catch (e: NumberFormatException) {
+            throw JsonMappingException(p, "bad format for range : '%s'. Must be <Start>..<End> or <Int>. %s".format(rangeStr, e.message))
+        }
+    }
 }
 
+/**
+ * a RangeMap is a map meant to hold entries like
+ *    1..2 optionA
+ *    3..4 optionB
+ *    5..9 optionC
+ *    10 optionD
+ *
+ * This implementation assumes that
+ *  - there are no holes in the range (does not enforce this)
+ *  - there are no overlaps in the range (enforces this)
+ */
 @JsonDeserialize(using = RangeMapDeserializer::class)
 class RangeMap(
         val delegate: TreeMap<Int, String> = TreeMap<Int, String>()
 ) : Map<Int, String> by delegate {
 
+    var maxKey : Int = -1
     val ranges: MutableSet<IntRange> = mutableSetOf()
 
     init {
         for (i in delegate.keys) {
             ranges.add(IntRange(i,i))
         }
+        if (delegate.keys.size > 0)
+            maxKey = delegate.lastKey()
     }
 
     fun with(newRange: IntRange, value: String) : RangeMap {
@@ -83,25 +115,22 @@ class RangeMap(
             }
         }
         ranges.add(newRange)
-        for (k in newRange) {
-            delegate.put(k, value)
-        }
-        return  this
+
+        delegate.put(newRange.start, value)
+        maxKey = Math.max(newRange.endInclusive, maxKey)
+
+        return this
     }
 
     fun with(k: Int, value: String) : RangeMap {
         return with(k..k, value)
     }
 
-    fun pick(k: Int) : String {
-        val v = delegate.get(k % delegate.size - 1)
-        if (v == null)
-            return delegate.lastEntry().value
-        else
-            return v
+    fun select(k: Int) : String {
+        return delegate.floorEntry(k).value
     }
 
-    fun pick(dice: Dice) : String {
-        return pick(dice.roll())
+    fun select(dice: Dice) : String {
+        return select(dice.roll())
     }
 }
