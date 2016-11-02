@@ -23,7 +23,6 @@ package org.stevesea.adventuresmith.core
 import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
 import org.junit.*
-import java.security.*
 
 
 data class PlaybooksDto( val playbooks: RangeMap)
@@ -33,33 +32,35 @@ class RangeMapTest {
     @Test
     fun testDeserializer() {
 
-        val kodein = getKodein(SecureRandom())
+        val kodein = getKodein(getMockRandom())
         val reader : ObjectReader = kodein.instance()
 
         val input = """
----
-playbooks:
-- 2..3, Human
-- >
-  4..6, This is a multiline
-  string and it will be very awesomely
-  confusing
+        ---
+        playbooks:
+        - 2..3, Human
+        - >
+          4..6, This is a multiline
+          string and it will be very awesomely
+          confusing
 
-  to use.
-- "7..10, Halfling : string with colon"
-- 11, non-range ints are a-ok
-- 12..15, max of RangeMap will be max of highest range
-
-        """
+          to use.
+        - "7..10, Halfling : string with colon"
+        - 11, non-range ints are a-ok
+        - 12..15, max of RangeMap will be max of highest range
+        - missing range means +1 to last range
+        - 17..20, huzzah
+        """.trimIndent()
 
         val dto : PlaybooksDto = reader.forType(PlaybooksDto::class.java).readValue(input)
 
-        Assert.assertEquals(5, dto.playbooks.size)
-        Assert.assertEquals(15, dto.playbooks.maxKey)
+        Assert.assertEquals(7, dto.playbooks.size)
+        Assert.assertEquals(20, dto.playbooks.maxKey)
 
-        Assert.assertEquals(IntRange(2,15), dto.playbooks.keyRange())
+        Assert.assertEquals(IntRange(2,20), dto.playbooks.keyRange())
 
         Assert.assertEquals("Human", dto.playbooks.select(2))
+        Assert.assertEquals("missing range means +1 to last range", dto.playbooks.select(16))
 
         Assert.assertEquals("""
             This is a multiline string and it will be very awesomely confusing

@@ -23,6 +23,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import com.google.common.base.*
+import com.samskivert.mustache.*
 import java.util.*
 
 
@@ -43,28 +44,6 @@ interface ModelGeneratorStrategy<in TDto, out TModel> {
 
 interface ViewStrategy<in TModel, out TView> {
     fun transform(model: TModel) : TView
-}
-
-// TODO: how does library advertise which generators exist, and how does client call 'em?
-// TODO: need to do this entire chain? Or should the library only be supplying the model?
-open class BaseGeneratorOld<
-        TDto,
-        TModel,
-        out TView>(
-        val loadingStrat : DtoLoadingStrategy<TDto>,
-        val modelGeneratorStrat: ModelGeneratorStrategy<TDto, TModel>,
-        val viewStrat: ViewStrategy<TModel, TView>) : Generator {
-
-    fun generateView(locale: Locale) : TView {
-        val input = loadingStrat.load(locale)
-        val output = modelGeneratorStrat.transform(input)
-        val viewOutput = viewStrat.transform(output)
-        return viewOutput
-    }
-
-    override fun generate(locale: Locale): String {
-        return generateView(locale).toString().trim()
-    }
 }
 
 open class BaseGenerator<
@@ -113,4 +92,54 @@ class ApplyTemplateView: ViewStrategy<TemplateMapModel, String> {
     }
 }
 
+data class DataDrivenGenDto(val templates: RangeMap,
+                            val tables: Map<String, RangeMap>)
 
+class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: Kodein) : DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
+    override fun load(locale: Locale): DataDrivenGenDto {
+        return resourceDeserializer.deserialize(
+                DataDrivenGenDto::class.java,
+                resource_prefix,
+                locale
+        )
+    }
+}
+
+class DataDrivenGenerator(
+        val resource_prefix: String,
+        override val kodein: Kodein) : Generator, KodeinAware {
+    val shuffler : Shuffler = instance()
+    val loaderFactory : (String) -> DataDrivenGenDtoLoader = factory()
+    val loader = loaderFactory.invoke(resource_prefix)
+
+    override fun generate(locale: Locale): String {
+        val dto = loader.load(locale)
+        val template = shuffler.pick(dto.templates)
+        val generatedModel = processDto(dto)
+
+        return processTemplate(template, generatedModel)
+    }
+    fun processDto(dto: DataDrivenGenDto) : Map<String, String> {
+        val result : MutableMap<String,String> = mutableMapOf()
+        for (k in dto.tables.keys) {
+            result.put(k, shuffler.pick(dto.tables[k]))
+        }
+        return result
+    }
+    fun processTemplate(template : String, model: Map<String, String>) : String {
+        // use jmustache & lambdas?
+        // https://github.com/samskivert/jmustache
+        // also, look into anchors https://github.com/FasterXML/jackson-dataformat-yaml/issues/3
+
+        return Mustache.compiler()
+                .escapeHTML(false)
+                .withFormatter( object : Mustache.Formatter {
+                    override fun format(value: Any?): String {
+                        return value.toString()
+                    }
+                })
+                .compile(template)
+                .execute(model)
+    }
+}
