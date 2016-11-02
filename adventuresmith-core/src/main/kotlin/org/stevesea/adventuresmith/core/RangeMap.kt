@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.fasterxml.jackson.annotation.*
 import com.fasterxml.jackson.core.*
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.databind.annotation.*
@@ -29,6 +30,19 @@ import java.util.*
 /**
  * this assumes the incoming data is a list of strings. each string needs to be parsed and applied
  * to the rangemap that'll be returned by the deserializer
+ *
+ * the RangeMap deserializer can deserialize YaML that looks like:
+ *  rmap:
+ *      - 1..2, value1
+ *      - 3..4, value2
+ *
+ *  rmap:
+ *      - value1
+ *      - value1
+ *      - value2
+ *      - value2
+ *
+ *  (the above two are synonymous
  */
 class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): RangeMap {
@@ -45,6 +59,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
 
         val result = RangeMap()
 
+        var itemNum = 1
         for (v in jsonNode) {
             if (!v.isTextual)
                 continue
@@ -52,15 +67,17 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
             val str = v.asText()
             val words = str.split(",", limit = 2)
 
-            if (words.size != 2) {
-                throw JsonMappingException(p, "bad format for RangeMap input: '%s'. Must be <range>,<val>".format(str))
+            if (words.size == 2) {
+                val rangeStr = words[0]
+                val itemRange = strToIntRange(p, rangeStr)
+                result.with(itemRange, words[1].trim())
+                // next item num is at end of the latest range
+                itemNum = itemRange.endInclusive + 1
+            } else {
+                result.with(itemNum, words[0])
+                itemNum++
             }
-
-            val rangeStr = words[0]
-
-            result.with(strToIntRange(p, rangeStr), words[1].trim())
         }
-
         return result
     }
 
@@ -92,6 +109,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
  *  - there are no holes in the range (does not enforce this)
  *  - there are no overlaps in the range (enforces this)
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator::class, property="@id")
 @JsonDeserialize(using = RangeMapDeserializer::class)
 class RangeMap(
         val delegate: TreeMap<Int, String> = TreeMap<Int, String>()
