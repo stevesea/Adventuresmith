@@ -28,20 +28,20 @@ import java.util.*
 class FotfGeneratorTest {
     @Test
     fun spell_english() {
-        Assert.assertEquals("All-Seeing Armor", getGenerator(FotfConstants.SPELLS,1).generate(Locale.ENGLISH))
-        Assert.assertEquals("Armor of Black Avarice", getGenerator(FotfConstants.SPELLS,5).generate(Locale.ENGLISH))
-        Assert.assertEquals("Armor of Bolcas", getGenerator(FotfConstants.SPELLS,10).generate(Locale.ENGLISH))
-        Assert.assertEquals("Concealing Armor of Canderol", getGenerator(FotfConstants.SPELLS,12).generate(Locale.ENGLISH))
-        Assert.assertEquals("Armor of Anger", getGenerator(FotfConstants.SPELLS,3).generate(Locale.ENGLISH))
+        Assert.assertEquals("All-Seeing Arrow", getGenerator(FotfConstants.SPELLS,1).generate(Locale.ENGLISH))
+        Assert.assertEquals("Blade of Black Avarice", getGenerator(FotfConstants.SPELLS,5).generate(Locale.ENGLISH))
+        Assert.assertEquals("Bolt of Bolcas", getGenerator(FotfConstants.SPELLS,10).generate(Locale.ENGLISH))
+        Assert.assertEquals("Concealing Boon of Canderol", getGenerator(FotfConstants.SPELLS,12).generate(Locale.ENGLISH))
+        Assert.assertEquals("Bane of Anger", getGenerator(FotfConstants.SPELLS,3).generate(Locale.ENGLISH))
     }
 
     @Test
     fun spell_french() {
         Assert.assertEquals("Éther Clairvoyant", getGenerator(FotfConstants.SPELLS,1).generate(Locale.FRANCE))
-        Assert.assertEquals("Armure de/des/de de l'Air", getGenerator(FotfConstants.SPELLS,2).generate(Locale.FRANCE))
-        Assert.assertEquals("Armure du/de la Aura Grisant", getGenerator(FotfConstants.SPELLS,3).generate(Locale.FRANCE))
+        Assert.assertEquals("Aura de/des/de de l'Air", getGenerator(FotfConstants.SPELLS,2).generate(Locale.FRANCE))
+        Assert.assertEquals("Fléau du/de la Fléau Grisant", getGenerator(FotfConstants.SPELLS,3).generate(Locale.FRANCE))
         Assert.assertEquals("Équilibre Flamboyant de Asmoasta", getGenerator(FotfConstants.SPELLS,6).generate(Locale.FRANCE))
-        Assert.assertEquals("Armure de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS,7).generate(Locale.FRANCE))
+        Assert.assertEquals("Bénédiction de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS,7).generate(Locale.FRANCE))
     }
 
     @Test

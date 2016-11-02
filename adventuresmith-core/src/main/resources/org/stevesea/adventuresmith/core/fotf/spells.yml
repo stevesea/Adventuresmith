@@ -1,329 +1,322 @@
 ---
-# name templates may use the following keywords
-#  %{element}
-#  %{form1}
-#  %{form2} (will not be same as form1)
-#  %{adjective}
-#  %{name_part1}
-#  %{name_part2}
-name_templates:
-- "%{element} %{form1}"
-- "%{adjective} %{form1}"
-- "%{adjective} %{element}"
-- "%{form1} of %{element}"
-- "%{form1} of the %{adjective} %{form2}"
-- "%{form1} of %{adjective} %{element}"
-- "%{name_part1}%{name_part2}’s %{adjective} %{form1}"
-- "%{name_part1}%{name_part2}’s %{adjective} %{element}"
-- "%{name_part1}%{name_part2}’s %{form1} of %{element}"
-- "%{name_part1}%{name_part2}’s %{element} %{form1}"
-- "%{form1} of %{name_part1}%{name_part2}"
-- "%{element} %{form1} of %{name_part1}%{name_part2}"
-- "%{adjective} %{form1} of %{name_part1}%{name_part2}"
-- "%{adjective} %{element} of %{name_part1}%{name_part2}"
+templates:
+- "{{element}} {{form}}"
+- "{{adjective}} {{form}}"
+- "{{adjective}} {{element}}"
+- "{{form}} of {{element}}"
+- "{{form}} of the {{adjective}} {{form}}"
+- "{{form}} of {{adjective}} {{element}}"
+- "{{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}’s {{adjective}} {{form}}"
+- "{{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}’s {{adjective}} {{element}}"
+- "{{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}’s {{form}} of {{element}}"
+- "{{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}’s {{element}} {{form}}"
+- "{{form}} of {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
+- "{{element}} {{form}} of {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
+- "{{adjective}} {{form}} of {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
+- "{{adjective}} {{element}} of {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
 
-# translations must contain the following lists:
-#  elements
-#  forms
-#  adjectives
-elements:
-- Acid
-- Aether
-- Air
-- Anger
-- Ash
-- Avarice
-- Balance
-- Blight
-- Blood
-- Bone
-- Bones
-- Brimstone
-- Clay
-- Cloud
-- Copper
-- Cosmos
-- Dark
-- Death
-- Deceit
-- Despair
-- Dimension
-- Doom
-- Dust
-- Earth
-- Ember
-- Energy
-- Envy
-- Fear
-- Fire
-- Fog
-- Force
-- Fury
-- Glory
-- Gluttony
-- Gold
-- Greed
-- Hate
-- Hatred
-- Health
-- Heat
-- History
-- Hope
-- Ice Iron
-- Justice
-- Knowledge
-- Lead
-- Lies
-- Life
-- Light
-- Lightning
-- Lore
-- Love
-- Lust
-- Metal
-- Might
-- Mist
-- Moon
-- Mud
-- Nature
-- Oil
-- Pain
-- Perception
-- Plane
-- Plant
-- Poison
-- Quicksilver
-- Revulsion
-- Rot
-- Salt
-- Shadow
-- Sight
-- Silver
-- Smoke
-- Soil
-- Soul
-- Souls
-- Sound
-- Spirit
-- Stars
-- Steam
-- Steel
-- Stone
-- Storm
-- Sun
-- Terror
-- Time
-- Treasure
-- Truth
-- Vanity
-- Venom
-- Vigor
-- Void
-- Water
-- Will
-- Wind
-- Wisdom
-- Wood
-- Youth
-forms:
-- Armor
-- Arrow
-- Aura
-- Bane
-- Beast
-- Blade
-- Blast
-- Blessing
-- Blob
-- Blood
-- Bolt
-- Bond
-- Boon
-- Brain
-- Burst
-- Call
-- Charm
-- Circle
-- Claw
-- Cloak
-- Cone
-- Crown
-- Cube
-- Cup
-- Curse
-- Dagger
-- Dart
-- Demon
-- Disturbance
-- Door
-- Eye
-- Eyes
-- Face
-- Fang
-- Feast
-- Finger
-- Fissure
-- Fist
-- Gate
-- Gaze
-- Glamour
-- Globe
-- Golem
-- Guard
-- Guide
-- Guise
-- Halo
-- Hammer
-- Hand
-- Heart
-- Helm
-- Horn
-- Lock
-- Mantle
-- Mark
-- Memory
-- Mind
-- Mouth
-- Noose
-- Oath
-- Oracle
-- Pattern
-- Pet
-- Pillar
-- Pocket
-- Portal
-- Pyramid
-- Ray
-- Rune
-- Scream
-- Seal
-- Sentinel
-- Servant
-- Shaft
-- Shield
-- Sigil
-- Sign
-- Song
-- Spear
-- Spell
-- Sphere
-- Spray
-- Staff
-- Storm
-- Strike
-- Sword
-- Tendril
-- Tongue
-- Tooth
-- Trap
-- Veil
-- Voice
-- Wall
-- Ward
-- Wave
-- Weapon
-- Weave
-- Whisper
-- Wings
-- Word
-adjectives:
-- All-Knowing
-- All-Seeing
-- Arcane
-- Befuddling
-- Binding
-- Black
-- Blazing
-- Blinding
-- Bloody
-- Bright
-- Cacophonous
-- Cerulean
-- Concealing
-- Confusing
-- Consuming
-- Crimson
-- Damnable
-- Dark
-- Deflecting
-- Delicate
-- Demonic
-- Devastating
-- Devilish
-- Diminishing
-- Draining
-- Eldritch
-- Empowering
-- Enlightening
-- Ensorcelling
-- Entangling
-- Enveloping
-- Erratic
-- Evil
-- Excruciating
-- Expanding
-- Extra-Planar
-- Fearsome
-- Flaming
-- Floating
-- Freezing
-- Glittering
-- Gyrating
-- Helpful
-- Hindering
-- Icy
-- Illusory
-- Incredible
-- Inescapable
-- Ingenious
-- Instant
-- Invigorating
-- Invisible
-- Invulnerable
-- Liberating
-- Maddening
-- Magnificent
-- Many-Colored
-- Mighty
-- Most-Excellent
-- Omnipotent
-- Oozing
-- Penultimate
-- Pestilential
-- Piercing
-- Poisonous
-- Prismatic
-- Raging
-- Rejuvenating
-- Restorative
-- Screaming
-- Sensitive
-- Shimmering
-- Shining
-- Silent
-- Sleeping
-- Slow
-- Smoking
-- Sorcerer’s
-- Strange
-- Stupefying
-- Terrible
-- Thirsty
-- Thundering
-- Trans-Dimensional
-- Transmuting
-- Ultimate
-- Uncontrollable
-- Unseen
-- Unstoppable
-- Untiring
-- Vengeful
-- Vexing
-- Violent
-- Violet
-- Viridian
-- Voracious
-- Weakening
-- White
-- Wondrous
-- Yellow
+merge_sibling_tables:
+- wizard_names
+
+tables:
+  element:
+  - Acid
+  - Aether
+  - Air
+  - Anger
+  - Ash
+  - Avarice
+  - Balance
+  - Blight
+  - Blood
+  - Bone
+  - Bones
+  - Brimstone
+  - Clay
+  - Cloud
+  - Copper
+  - Cosmos
+  - Dark
+  - Death
+  - Deceit
+  - Despair
+  - Dimension
+  - Doom
+  - Dust
+  - Earth
+  - Ember
+  - Energy
+  - Envy
+  - Fear
+  - Fire
+  - Fog
+  - Force
+  - Fury
+  - Glory
+  - Gluttony
+  - Gold
+  - Greed
+  - Hate
+  - Hatred
+  - Health
+  - Heat
+  - History
+  - Hope
+  - Ice Iron
+  - Justice
+  - Knowledge
+  - Lead
+  - Lies
+  - Life
+  - Light
+  - Lightning
+  - Lore
+  - Love
+  - Lust
+  - Metal
+  - Might
+  - Mist
+  - Moon
+  - Mud
+  - Nature
+  - Oil
+  - Pain
+  - Perception
+  - Plane
+  - Plant
+  - Poison
+  - Quicksilver
+  - Revulsion
+  - Rot
+  - Salt
+  - Shadow
+  - Sight
+  - Silver
+  - Smoke
+  - Soil
+  - Soul
+  - Souls
+  - Sound
+  - Spirit
+  - Stars
+  - Steam
+  - Steel
+  - Stone
+  - Storm
+  - Sun
+  - Terror
+  - Time
+  - Treasure
+  - Truth
+  - Vanity
+  - Venom
+  - Vigor
+  - Void
+  - Water
+  - Will
+  - Wind
+  - Wisdom
+  - Wood
+  - Youth
+  form:
+  - Armor
+  - Arrow
+  - Aura
+  - Bane
+  - Beast
+  - Blade
+  - Blast
+  - Blessing
+  - Blob
+  - Blood
+  - Bolt
+  - Bond
+  - Boon
+  - Brain
+  - Burst
+  - Call
+  - Charm
+  - Circle
+  - Claw
+  - Cloak
+  - Cone
+  - Crown
+  - Cube
+  - Cup
+  - Curse
+  - Dagger
+  - Dart
+  - Demon
+  - Disturbance
+  - Door
+  - Eye
+  - Eyes
+  - Face
+  - Fang
+  - Feast
+  - Finger
+  - Fissure
+  - Fist
+  - Gate
+  - Gaze
+  - Glamour
+  - Globe
+  - Golem
+  - Guard
+  - Guide
+  - Guise
+  - Halo
+  - Hammer
+  - Hand
+  - Heart
+  - Helm
+  - Horn
+  - Lock
+  - Mantle
+  - Mark
+  - Memory
+  - Mind
+  - Mouth
+  - Noose
+  - Oath
+  - Oracle
+  - Pattern
+  - Pet
+  - Pillar
+  - Pocket
+  - Portal
+  - Pyramid
+  - Ray
+  - Rune
+  - Scream
+  - Seal
+  - Sentinel
+  - Servant
+  - Shaft
+  - Shield
+  - Sigil
+  - Sign
+  - Song
+  - Spear
+  - Spell
+  - Sphere
+  - Spray
+  - Staff
+  - Storm
+  - Strike
+  - Sword
+  - Tendril
+  - Tongue
+  - Tooth
+  - Trap
+  - Veil
+  - Voice
+  - Wall
+  - Ward
+  - Wave
+  - Weapon
+  - Weave
+  - Whisper
+  - Wings
+  - Word
+  adjective:
+  - All-Knowing
+  - All-Seeing
+  - Arcane
+  - Befuddling
+  - Binding
+  - Black
+  - Blazing
+  - Blinding
+  - Bloody
+  - Bright
+  - Cacophonous
+  - Cerulean
+  - Concealing
+  - Confusing
+  - Consuming
+  - Crimson
+  - Damnable
+  - Dark
+  - Deflecting
+  - Delicate
+  - Demonic
+  - Devastating
+  - Devilish
+  - Diminishing
+  - Draining
+  - Eldritch
+  - Empowering
+  - Enlightening
+  - Ensorcelling
+  - Entangling
+  - Enveloping
+  - Erratic
+  - Evil
+  - Excruciating
+  - Expanding
+  - Extra-Planar
+  - Fearsome
+  - Flaming
+  - Floating
+  - Freezing
+  - Glittering
+  - Gyrating
+  - Helpful
+  - Hindering
+  - Icy
+  - Illusory
+  - Incredible
+  - Inescapable
+  - Ingenious
+  - Instant
+  - Invigorating
+  - Invisible
+  - Invulnerable
+  - Liberating
+  - Maddening
+  - Magnificent
+  - Many-Colored
+  - Mighty
+  - Most-Excellent
+  - Omnipotent
+  - Oozing
+  - Penultimate
+  - Pestilential
+  - Piercing
+  - Poisonous
+  - Prismatic
+  - Raging
+  - Rejuvenating
+  - Restorative
+  - Screaming
+  - Sensitive
+  - Shimmering
+  - Shining
+  - Silent
+  - Sleeping
+  - Slow
+  - Smoking
+  - Sorcerer’s
+  - Strange
+  - Stupefying
+  - Terrible
+  - Thirsty
+  - Thundering
+  - Trans-Dimensional
+  - Transmuting
+  - Ultimate
+  - Uncontrollable
+  - Unseen
+  - Unstoppable
+  - Untiring
+  - Vengeful
+  - Vexing
+  - Violent
+  - Violet
+  - Viridian
+  - Voracious
+  - Weakening
+  - White
+  - Wondrous
+  - Yellow

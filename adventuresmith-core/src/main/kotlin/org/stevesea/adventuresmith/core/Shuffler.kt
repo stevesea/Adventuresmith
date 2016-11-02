@@ -33,11 +33,13 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
         return items!!.elementAt(random.nextInt(items.size) % items.size)
     }
     fun pick(rmap: RangeMap?) : String {
-        val sel = pick(rmap!!.keyRange().toList())
+        val itemsInds = rmap!!.keyRange().toList()
+        val sel = pick(itemsInds)
         return rmap.select(sel)
     }
     fun pickN(rmap: RangeMap?, num: Int) : List<String> {
-        val selN = pickN(rmap!!.keyRange().toList(), num)
+        val itemsInds = rmap!!.keyRange().toList()
+        val selN = pickN(itemsInds, num)
         return selN.map { rmap.select(it)}
     }
 

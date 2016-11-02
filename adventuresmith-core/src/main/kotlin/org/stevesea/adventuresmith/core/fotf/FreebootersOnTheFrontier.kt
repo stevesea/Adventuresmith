@@ -25,15 +25,6 @@ import org.stevesea.adventuresmith.core.*
 import java.util.*
 
 
-// names live in a different YaML, since I expect most translators aren't going to want to
-// explicitly
-data class FotfSpellWizardNamesDto(val part1: List<String>,
-                                   val part2: List<String>) {
-    companion object Resource {
-        val resource_prefix = "wizard_names"
-    }
-}
-
 data class FotfCharNames(val names: Map<String,Map<String, List<String>>>) {
     companion object Resource {
         val resource_prefix = "char_names"
@@ -81,65 +72,13 @@ data class FotfTraitsDto(val virtues: List<String>,
 data class FotfCharBundleDto(val char: FotfCharDto,
                              val charSetup: FotfCharNoTrans,
                              val names: FotfCharNames,
-                             val wizNames: FotfSpellWizardNamesDto,
                              val traits: FotfTraitsDto)
 
-data class FotfSpellDto(val name_templates: List<String>,
-                        val elements: List<String>,
-                        val forms: List<String>,
-                        val adjectives: List<String>){
-    companion object Resource {
-        val resource_prefix = "spells"
-    }
-}
-
-// the inputbundle is the combined data from two separate resource reads
-data class FotfSpellDtoBundle(val spellDto: FotfSpellDto,
-                              val wizNameDto: FotfSpellWizardNamesDto)
-
-class FotfSpellMapGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FotfSpellDtoBundle, TemplateMapModel> ,
-        KodeinAware {
-    val shuffler : Shuffler = instance()
-    override fun transform(dto: FotfSpellDtoBundle): TemplateMapModel {
-        val forms = shuffler.pickN(dto.spellDto.forms, 2)
-        return TemplateMapModel(
-                template = shuffler.pick(dto.spellDto.name_templates),
-                map = mapOf(
-                        "element" to shuffler.pick(dto.spellDto.elements),
-                        "adjective" to shuffler.pick(dto.spellDto.adjectives),
-                        "name_part1" to shuffler.pick(dto.wizNameDto.part1),
-                        "name_part2" to shuffler.pick(dto.wizNameDto.part2),
-                        "form1" to forms.elementAt(0),
-                        "form2" to forms.elementAt(1)
-                )
-        )
-    }
-}
-
-class FotfSpellDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfSpellDtoBundle>, KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale): FotfSpellDtoBundle {
-        return FotfSpellDtoBundle(
-                spellDto = resourceDeserializer.deserialize(
-                        FotfSpellDto::class.java,
-                        FotfSpellDto.resource_prefix,
-                        locale),
-                wizNameDto = resourceDeserializer.deserialize(
-                        FotfSpellWizardNamesDto::class.java,
-                        FotfSpellWizardNamesDto.resource_prefix,
-                        locale)
-        )
-    }
-}
 
 class FotfCharDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfCharBundleDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): FotfCharBundleDto {
         return FotfCharBundleDto(
-                wizNames = resourceDeserializer.deserialize(
-                        FotfSpellWizardNamesDto::class.java,
-                        FotfSpellWizardNamesDto.resource_prefix,
-                        locale),
                 names = resourceDeserializer.deserialize(
                         FotfCharNames::class.java,
                         FotfCharNames.resource_prefix,
@@ -166,7 +105,6 @@ data class FotfCharModel(val config: FotfCharConfigDto,
                          val heritage: String,
                          val alignment: String,
                          val name: String,
-                         val wizname: String,
                          val abilRolls: List<Int>,
                          val appearances: Collection<String>,
                          val virtues: Collection<String>,
@@ -180,7 +118,6 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
         val playbook = shuffler.pick(dto.charSetup.playbooks)
         val heritage = shuffler.pick(dto.charSetup.heritages.get(playbook))
         val alignment = shuffler.pick(dto.charSetup.alignments.get(playbook))
-        val wizname = shuffler.pick(dto.wizNames.part1) + shuffler.pick(dto.wizNames.part2)
         val name = shuffler.pick(dto.names.names.get(heritage)?.get(gender))
         return FotfCharModel(
                 config = dto.char.config,
@@ -190,7 +127,6 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
                 alignment = dto.char.config.alignments.get(alignment)!!,
                 abilRolls = shuffler.dice("3d6").rollN(dto.char.config.abilities.size),
                 name = name,
-                wizname = wizname,
                 appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.dice("1d2+1").roll()),
                 virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) {0}),
                 vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) {0}),
@@ -246,18 +182,6 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
 }
 
 val fotfModule = Kodein.Module {
-    bind<ModelGenerator<TemplateMapModel>>(FotfConstants.SPELLS) with provider {
-        BaseGenerator<FotfSpellDtoBundle, TemplateMapModel> (
-                loadingStrat = FotfSpellDtoLoader(kodein),
-                modelGeneratorStrat = FotfSpellMapGenerator(kodein)
-        )
-    }
-    bind<Generator>(FotfConstants.SPELLS) with provider {
-        BaseGeneratorWithView<TemplateMapModel, String> (
-                modelGen = instance(FotfConstants.SPELLS),
-                viewTransform = ApplyTemplateView()
-        )
-    }
 
     bind<ModelGenerator<FotfCharModel>>() with provider {
         BaseGenerator<FotfCharBundleDto, FotfCharModel> (
@@ -270,6 +194,14 @@ val fotfModule = Kodein.Module {
                 modelGen = instance(),
                 viewTransform = FotfCharacterView()
         )
+    }
+
+    listOf(
+            FotfConstants.SPELLS
+    ).forEach {
+        bind<Generator>(it) with provider {
+            DataDrivenGenerator(it, kodein)
+        }
     }
 
 
