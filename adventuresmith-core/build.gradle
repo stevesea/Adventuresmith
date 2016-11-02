@@ -59,6 +59,8 @@ dependencies {
     // maybe make this just a testCompile dependency?
     compile group: 'javax.el', name: 'javax.el-api', version: '2.2.5'
 
+    compile 'com.samskivert:jmustache:1.13'
+
     testCompile "junit:junit:$junit_version"
     testCompile "org.mockito:mockito-core:$mockito_version"
     testCompile "com.nhaarman:mockito-kotlin:0.10.0"
