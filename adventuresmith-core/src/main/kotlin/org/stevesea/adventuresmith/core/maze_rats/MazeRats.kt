@@ -24,17 +24,6 @@ import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-data class MrAfflictionsDto(val afflictions: List<String>) {
-    companion object Resource {
-        val resource_prefix = "afflictions"
-    }
-}
-
-data class MrPotionEffectsDto(val potion_effects: List<String>) {
-    companion object Resource {
-        val resource_prefix = "potion_effects"
-    }
-}
 
 data class MrMagicDto(val templates: List<String>,
                       val effects: List<String>,
@@ -94,26 +83,6 @@ data class MrCharactersDto(val config: MrCharacterConfigDto,
 data class MrCharacterBundleDto(val characterDto: MrCharactersDto,
                                 val namesDto: MrNamesDto)
 
-
-class MrAfflictionsDtoLoader(override val kodein: Kodein) :  SimpleListLoader , KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale) : List<String> {
-        return resourceDeserializer.deserialize(
-                MrAfflictionsDto::class.java,
-                MrAfflictionsDto.resource_prefix,
-                locale).afflictions
-    }
-}
-
-class MrPotionEffectsDtoLoader(override val kodein: Kodein) : SimpleListLoader , KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale): List<String> {
-        return resourceDeserializer.deserialize(
-                MrPotionEffectsDto::class.java,
-                MrPotionEffectsDto.resource_prefix,
-                locale).potion_effects
-    }
-}
 
 class MrMagicDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<MrMagicDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
@@ -336,13 +305,12 @@ val mrModule = Kodein.Module {
     }
 
     bind<Generator>(MrConstants.POTION_EFFECTS) with provider {
-        BaseSimpleGenerator (MrPotionEffectsDtoLoader(kodein), kodein)
+        DataDrivenGenerator(MrConstants.POTION_EFFECTS, kodein)
     }
 
     bind<Generator>(MrConstants.AFFLICTIONS) with provider {
-        BaseSimpleGenerator(MrAfflictionsDtoLoader(kodein), kodein)
+        DataDrivenGenerator(MrConstants.AFFLICTIONS, kodein)
     }
-
 
     bind<List<String>>(MrConstants.GROUP) with singleton {
         listOf(

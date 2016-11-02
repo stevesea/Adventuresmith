@@ -28,7 +28,9 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
     val diceFactory : (String) -> Dice = factory()
 
     fun <T> pick(items: Collection<T>?) : T {
-        return items!!.elementAt(random.nextInt(items.size))
+        // use modulo because the randomizer might be a mock that's been setup to do something dumb
+        // and returns greater than the # of items in list
+        return items!!.elementAt(random.nextInt(items.size) % items.size)
     }
     fun pick(rmap: RangeMap?) : String {
         val sel = pick(rmap!!.keyRange().toList())

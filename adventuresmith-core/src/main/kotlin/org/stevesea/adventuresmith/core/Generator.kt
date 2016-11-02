@@ -132,14 +132,18 @@ class DataDrivenGenerator(
         // https://github.com/samskivert/jmustache
         // also, look into anchors https://github.com/FasterXML/jackson-dataformat-yaml/issues/3
 
-        return Mustache.compiler()
-                .escapeHTML(false)
-                .withFormatter( object : Mustache.Formatter {
-                    override fun format(value: Any?): String {
-                        return value.toString()
-                    }
-                })
-                .compile(template)
-                .execute(model)
+        try {
+            return Mustache.compiler()
+                    .escapeHTML(false)
+                    .withFormatter(object : Mustache.Formatter {
+                        override fun format(value: Any?): String {
+                            return value.toString()
+                        }
+                    })
+                    .compile(template)
+                    .execute(model)
+        } catch (ex: MustacheException) {
+            return "problem running generator ${resource_prefix}: ${ex.message}"
+        }
     }
 }
