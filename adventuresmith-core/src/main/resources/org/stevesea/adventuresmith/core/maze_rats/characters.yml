@@ -1,4 +1,9 @@
 ---
+# keywords in templates must appear as keys in the tables map of this
+# file (or any other 'sibling' files in this same directory
+#
+# exceptions:
+#   dice: most standard 1-item dice work.
 templates:
 - >
   Name: {{forename}} {{surname}}
@@ -13,6 +18,7 @@ templates:
 
   Equipment: {{equipment}}, {{equipment}}, {{equipment}}
 
+# a list of other tables located next to this file that should be loaded
 merge_sibling_tables:
 - names
 

@@ -165,6 +165,10 @@ class DataDrivenGenerator(
                         }
                     })
                     .withLoader(object: Mustache.TemplateLoader {
+                        // TODO: use this, not the stdDice map. just do it this way, and force people
+                        //      to do {{> dice: 1d24}}
+                        //      that way, can have non-'dice' keywords. example: 
+                        //            {{> pickN: forms, 3}}
                         // TODO: is this abusing partials? (to use them to run a 'special' function?
                         // instead, could add N styles of dice to the context
                         override fun getTemplate(name: String?): Reader {
