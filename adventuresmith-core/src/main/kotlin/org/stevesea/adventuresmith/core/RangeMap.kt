@@ -69,12 +69,18 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
 
             if (words.size == 2) {
                 val rangeStr = words[0]
-                val itemRange = strToIntRange(p, rangeStr)
-                result.with(itemRange, words[1].trim())
+                try {
+                    val itemRange = strToIntRange(p, rangeStr)
+                    result.with(itemRange, words[1].trim())
+                    itemNum = itemRange.endInclusive + 1
+                } catch (e: Exception) {
+                    //some problem parsing the range. just turn the whole thing into a single item
+                    result.with(itemNum, str)
+                    itemNum++
+                }
                 // next item num is at end of the latest range
-                itemNum = itemRange.endInclusive + 1
             } else {
-                result.with(itemNum, words[0])
+                result.with(itemNum, str)
                 itemNum++
             }
         }

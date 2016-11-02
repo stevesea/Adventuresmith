@@ -176,6 +176,7 @@ class DataDrivenGenerator(
                     })
                     .compile(template)
                     .execute(model)
+                    .trim()
         } catch (ex: MustacheException) {
             return "problem running generator ${resource_prefix}: ${ex.message}"
         }

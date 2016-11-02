@@ -64,55 +64,12 @@ class MazeRatsTest {
     @Test
     fun char() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <p>
-      <strong>
-        <small>
-          Name
-        </small>
-      </strong>
-      Adelaide Barrow
-    </p>
-    <p>
-      <small>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STR: 3 DEX: 3 WIL: 3 &nbsp;&nbsp;&nbsp;&nbsp;HP: 1
-      </small>
-    </p>
-    <p>
-      <strong>
-        <small>
-          Personality
-        </small>
-      </strong>
-      Avant-Garde, Boastful
-    </p>
-    <p>
-      <strong>
-        <small>
-          Appearance
-        </small>
-      </strong>
-      Battle Scars, Boney hands
-    </p>
-    <p>
-      <strong>
-        <small>
-          Weapons
-        </small>
-      </strong>
-      Arming Sword (d6), Battered Halberd (d8)
-    </p>
-    <p>
-      <strong>
-        <small>
-          Equipment
-        </small>
-      </strong>
-      Animal Scent, Antitoxin, Armor
-    </p>
-  </body>
-</html>
-        """.trim(), getGenerator(MrConstants.CHAR, 0).generate())
+        Name: Adelaide Barrow
+        STR: 3 DEX: 3 WIL: 3  HP: 1
+        Appearance: Acid Scars, Acid Scars
+        Personality: Arrogant, Arrogant
+        Weapons: Ancient Spear (d6), Ancient Spear (d6)
+        Equipment: Acid, Acid, Acid
+        """.trimIndent().trim(), getGenerator(MrConstants.CHAR, 0).generate())
     }
 }

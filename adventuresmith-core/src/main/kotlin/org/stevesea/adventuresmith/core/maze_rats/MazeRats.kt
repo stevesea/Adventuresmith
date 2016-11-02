@@ -24,132 +24,12 @@ import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-data class MrNamesDto(val surnames: List<String>,
-                      val forenames: List<String>){
-    companion object Resource {
-        val resource_prefix = "names"
-    }
-}
-
-data class MrCharAbilitiesDto(val str: String,
-                              val dex: String,
-                              val wil: String,
-                              val hp: String)
-data class MrCharacterHeaderDto(val name: String,
-                                val personality: String,
-                                val appearance: String,
-                                val weapons: String,
-                                val equipment: String,
-                                val abilities: MrCharAbilitiesDto)
-data class MrCharacterConfigDto(val headers: MrCharacterHeaderDto)
-data class MrCharactersDto(val config: MrCharacterConfigDto,
-                           val personalities: List<String>,
-                           val appearances: List<String>,
-                           val weapons: List<String>,
-                           val equipment: List<String>){
-    companion object Resource {
-        val resource_prefix = "characters"
-    }
-}
-data class MrCharacterBundleDto(val characterDto: MrCharactersDto,
-                                val namesDto: MrNamesDto)
-
-
-class MrCharacterBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrCharacterBundleDto> , KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale): MrCharacterBundleDto {
-        return MrCharacterBundleDto(
-                characterDto = resourceDeserializer.deserialize(
-                        MrCharactersDto::class.java,
-                        MrCharactersDto.resource_prefix,
-                        locale),
-                namesDto = resourceDeserializer.deserialize(
-                        MrNamesDto::class.java,
-                        MrNamesDto.resource_prefix,
-                        locale))
-    }
-}
-
-data class MrCharacterModel(val config: MrCharacterConfigDto,
-                            val name: String,
-                            val str: Int,
-                            val dex: Int,
-                            val wil: Int,
-                            val hp: Int,
-                            val personalities: Collection<String>,
-                            val appearances: Collection<String>,
-                            val weapons: Collection<String>,
-                            val equipment: Collection<String>)
-
-class MrCharGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<MrCharacterBundleDto, MrCharacterModel> ,
-        KodeinAware {
-    val shuffler : Shuffler = instance()
-    override fun transform(dto: MrCharacterBundleDto): MrCharacterModel {
-        return MrCharacterModel(
-                config = dto.characterDto.config,
-                name = "${shuffler.pick(dto.namesDto.forenames)} ${shuffler.pick(dto.namesDto.surnames)}",
-                str = shuffler.dice("3d6").roll(),
-                dex = shuffler.dice("3d6").roll(),
-                wil = shuffler.dice("3d6").roll(),
-                hp = shuffler.dice("1d6").roll(),
-                personalities = shuffler.pickN(dto.characterDto.personalities, shuffler.dice("1d2+1").roll()),
-                appearances = shuffler.pickN(dto.characterDto.appearances, shuffler.dice("1d2+1").roll()),
-                weapons = shuffler.pickN(dto.characterDto.weapons, 2),
-                equipment = shuffler.pickN(dto.characterDto.equipment, 3)
-        )
-    }
-}
-
-class MrCharacterView : ViewStrategy<MrCharacterModel, HTML> {
-    override fun transform(model: MrCharacterModel): HTML {
-        return html {
-            body {
-                p {
-                    strong { small { + model.config.headers.name } }
-                    + model.name
-                }
-                p {
-                    small {
-                        + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STR: ${model.str} DEX: ${model.dex} WIL: ${model.wil} &nbsp;&nbsp;&nbsp;&nbsp;HP: ${model.hp}"
-                    }
-                }
-                p {
-                    strong { small { + model.config.headers.personality } }
-                    + model.personalities.joinToString(", ")
-                }
-                p {
-                    strong { small { + model.config.headers.appearance } }
-                    + model.appearances.joinToString(", ")
-                }
-                p {
-                    strong { small { + model.config.headers.weapons } }
-                    + model.weapons.joinToString(", ")
-                }
-                p {
-                    strong { small { + model.config.headers.equipment } }
-                    + model.equipment.joinToString(", ")
-                }
-            }
-        }
-
-    }
-}
-
 val mrModule = Kodein.Module {
-    bind<ModelGenerator<MrCharacterModel>>() with provider {
-        BaseGenerator<MrCharacterBundleDto, MrCharacterModel>(
-                MrCharacterBundleDtoLoader(kodein),
-                MrCharGenerator(kodein))
-    }
-    bind<Generator>(MrConstants.CHAR) with provider {
-        BaseGeneratorWithView<MrCharacterModel, HTML>(
-                instance(),
-                MrCharacterView())
-    }
 
     listOf(
             MrConstants.MONSTER,
             MrConstants.ITEM,
+            MrConstants.CHAR,
             MrConstants.MAGIC,
             MrConstants.POTION_EFFECTS,
             MrConstants.AFFLICTIONS
@@ -179,5 +59,5 @@ object MrConstants {
     val ITEM = "${GROUP}/items"
     val MAGIC = "${GROUP}/magic"
     val MONSTER = "${GROUP}/monsters"
-    val CHAR = "${GROUP}/char"
+    val CHAR = "${GROUP}/characters"
 }
