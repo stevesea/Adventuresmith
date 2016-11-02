@@ -282,8 +282,8 @@ val fotfModule = Kodein.Module {
 }
 
 object FotfConstants {
-    val GROUP = "fotf"
+    val GROUP = getFinalPackageName(this.javaClass)
 
-    val SPELLS = "${GROUP}.spell"
-    val CHARS = "${GROUP}.chars"
+    val SPELLS = "${GROUP}/spells"
+    val CHARS = "${GROUP}/chars"
 }

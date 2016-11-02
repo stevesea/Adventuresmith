@@ -308,25 +308,25 @@ val fpModule = Kodein.Module {
         )
     }
 
-    bind<Generator>("fp.monster") with provider {
+    bind<Generator>(FpConstants.MONSTER) with provider {
         BaseGeneratorWithView<FpMonsterModel, HTML>(
                 instance(),
                 FpMonsterViewTransformer()
         )
     }
-    bind<Generator>("fp.dungeon") with provider {
+    bind<Generator>(FpConstants.DUNGEON) with provider {
         BaseGeneratorWithView<FpDungeonModel, HTML>(
                 instance(),
                 FpDungeonView()
         )
     }
-    bind<Generator>("fp.city") with provider {
+    bind<Generator>(FpConstants.CITY) with provider {
         BaseGeneratorWithView<FpCityModel, HTML>(
                 instance(),
                 FpCityView()
         )
     }
-    bind<Generator>("fp.artifact") with provider {
+    bind<Generator>(FpConstants.ARTIFACT) with provider {
         BaseGeneratorWithView<FpArtifactModel, HTML>(
                 instance(),
                 FpArtifactView()
@@ -345,12 +345,12 @@ val fpModule = Kodein.Module {
 }
 
 object FpConstants {
-    val GROUP = "fp"
+    val GROUP = getFinalPackageName(this.javaClass)
 
-    val MONSTER = "${GROUP}.monster"
-    val DUNGEON = "${GROUP}.dungeon"
-    val CITY = "${GROUP}.city"
-    val ARTIFACT = "${GROUP}.artifact"
+    val DUNGEON = "${GROUP}/dungeon"
+    val CITY = "${GROUP}/city"
+    val ARTIFACT = "${GROUP}/artifact"
+    val MONSTER = "${GROUP}/monster"
 }
 
 

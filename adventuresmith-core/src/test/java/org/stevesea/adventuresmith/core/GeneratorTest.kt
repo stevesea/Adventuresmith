@@ -28,7 +28,7 @@ class GeneratorTest {
     val input = """
         ---
         # tables is a map of RangeMaps
-        # - the keys of the tables map become fields you can use in the template(s).
+        # - each key of the tables map become fields you can use in the template(s).
         # - each time the field is referenced in the template, the table[field] will be picked from
         tables:
             effect:

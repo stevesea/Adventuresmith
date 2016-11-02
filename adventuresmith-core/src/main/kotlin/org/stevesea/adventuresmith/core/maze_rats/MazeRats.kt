@@ -357,12 +357,12 @@ val mrModule = Kodein.Module {
 }
 
 object MrConstants {
-    val GROUP = "mr"
+    val GROUP = getFinalPackageName(this.javaClass)
 
-    val AFFLICTIONS = "${GROUP}.afflictions"
-    val POTION_EFFECTS = "${GROUP}.potion_effects"
-    val ITEM = "${GROUP}.item"
-    val MAGIC = "${GROUP}.magic"
-    val MONSTER = "${GROUP}.monster"
-    val CHAR = "${GROUP}.char"
+    val AFFLICTIONS = "${GROUP}/afflictions"
+    val POTION_EFFECTS = "${GROUP}/potion_effects"
+    val ITEM = "${GROUP}/item"
+    val MAGIC = "${GROUP}/magic"
+    val MONSTER = "${GROUP}/monster"
+    val CHAR = "${GROUP}/char"
 }

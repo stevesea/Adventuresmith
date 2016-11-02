@@ -67,6 +67,11 @@ fun inefficientStrSubstitutor(inputStr: String, replacements: Map<String,String>
     return result
 }
 
+fun getFinalPackageName(clz : Class<Any> ) : String {
+    val words = clz.`package`.name.split(".")
+    return words[words.size - 1 ]
+}
+
 /**
  * attempts to find things similar to a ResourceBundle
  *
