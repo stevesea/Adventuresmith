@@ -56,10 +56,10 @@ class MazeRatsTest {
     }
     @Test
     fun monster() {
-        Assert.assertEquals("Accelerating Assassin Ant", getGenerator(MrConstants.MONSTER, 1).generate())
-        Assert.assertEquals("Ant Badger", getGenerator(MrConstants.MONSTER, 4).generate())
-        Assert.assertEquals("Attracting Ant", getGenerator(MrConstants.MONSTER, 2).generate())
-        Assert.assertEquals("Binding Ant Badger", getGenerator(MrConstants.MONSTER, 5).generate())
+        Assert.assertEquals("Accelerating Assassin Ape", getGenerator(MrConstants.MONSTER, 1).generate())
+        Assert.assertEquals("Bear Bear", getGenerator(MrConstants.MONSTER, 4).generate())
+        Assert.assertEquals("Attracting Badger", getGenerator(MrConstants.MONSTER, 2).generate())
+        Assert.assertEquals("Binding Beaver Beaver", getGenerator(MrConstants.MONSTER, 5).generate())
     }
     @Test
     fun char() {

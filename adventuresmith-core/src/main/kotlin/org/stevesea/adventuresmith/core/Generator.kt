@@ -24,6 +24,8 @@ package org.stevesea.adventuresmith.core
 import com.github.salomonbrys.kodein.*
 import com.google.common.base.*
 import com.samskivert.mustache.*
+import java.io.*
+import java.text.*
 import java.util.*
 
 
@@ -93,9 +95,12 @@ class ApplyTemplateView: ViewStrategy<TemplateMapModel, String> {
 }
 
 data class DataDrivenGenDto(val templates: RangeMap,
-                            val tables: Map<String, RangeMap>)
+                            val tables: Map<String, RangeMap>,
+                            val merge_sibling_tables: List<String>?,
+                            val dice: List<String>?)
 
-class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: Kodein) : DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
+class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: Kodein)
+: DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
     val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): DataDrivenGenDto {
         return resourceDeserializer.deserialize(
@@ -111,33 +116,62 @@ class DataDrivenGenerator(
         override val kodein: Kodein) : Generator, KodeinAware {
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoLoader = factory()
-    val loader = loaderFactory.invoke(resource_prefix)
-
+    val stdDiceMap = listOf(
+            "1d4", "1d6","1d8", "1d10", "1d12", "1d20", "1d30", "1d100",
+            "3d6", "4d4").map { it to shuffler.dice(it)}.toMap()
     override fun generate(locale: Locale): String {
-        val dto = loader.load(locale)
+        val dto = loaderFactory.invoke(resource_prefix).load(locale)
         val template = shuffler.pick(dto.templates)
-        val generatedModel = processDto(dto)
+        val generatedModel = createContext(dto, locale)
 
-        return processTemplate(template, generatedModel)
+        return processTemplate(template, generatedModel, locale)
     }
-    fun processDto(dto: DataDrivenGenDto) : Map<String, String> {
-        val result : MutableMap<String,String> = mutableMapOf()
-        for (k in dto.tables.keys) {
-            result.put(k, shuffler.pick(dto.tables[k]))
+    fun createContext(dto: DataDrivenGenDto, locale: Locale) : Map<String, Any> {
+        val result : MutableMap<String,Any> = mutableMapOf()
+        dto.merge_sibling_tables?.let {
+            for (sibling in dto.merge_sibling_tables.reversed()) {
+                val sibling_resource = resource_prefix.replaceAfterLast("/", sibling)
+                val loader = loaderFactory.invoke(sibling_resource)
+
+                val sibling_dto = loader.load(locale)
+                result.putAll(sibling_dto.tables)
+            }
+        }
+        result.putAll(dto.tables)
+        result.putAll(stdDiceMap)
+        dto.dice?.let {
+            for (dstr in dto.dice) {
+                result.put(dstr, shuffler.dice(dstr))
+            }
         }
         return result
     }
-    fun processTemplate(template : String, model: Map<String, String>) : String {
+    fun processTemplate(template: String, model: Map<String, Any>, locale: Locale) : String {
         // use jmustache & lambdas?
         // https://github.com/samskivert/jmustache
         // also, look into anchors https://github.com/FasterXML/jackson-dataformat-yaml/issues/3
 
+        val nf = NumberFormat.getInstance(locale)
         try {
             return Mustache.compiler()
                     .escapeHTML(false)
                     .withFormatter(object : Mustache.Formatter {
                         override fun format(value: Any?): String {
+                            if (value is RangeMap)
+                                return shuffler.pick(value)
+                            if (value is Dice)
+                                return nf.format(value.roll())
                             return value.toString()
+                        }
+                    })
+                    .withLoader(object: Mustache.TemplateLoader {
+                        // TODO: is this abusing partials? (to use them to run a 'special' function?
+                        // instead, could add N styles of dice to the context
+                        override fun getTemplate(name: String?): Reader {
+                            if (name == null)
+                                return StringReader("null")
+                            // assume all partials (e.g. {{>name}} is diceStr
+                            return StringReader(nf.format(shuffler.dice(name).roll()))
                         }
                     })
                     .compile(template)

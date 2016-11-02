@@ -25,7 +25,10 @@ import org.junit.*
 import java.security.*
 import java.util.*
 
+// TODO: every time add a translation, add its locale here.
 
+// this test doesn't actually do any verification, but it does run all the generators a bunch of
+// times in a bunch of locales to try and smoke out any NPEs or other exceptions
 class Exerciser {
 
     @Test
@@ -35,8 +38,8 @@ class Exerciser {
         val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
-                for (i in 1..5) {
-                    println(kodein.instance<Generator>(g).generate(locale))
+                for (i in 1..50) {
+                    kodein.instance<Generator>(g).generate(locale)
                 }
             }
         }

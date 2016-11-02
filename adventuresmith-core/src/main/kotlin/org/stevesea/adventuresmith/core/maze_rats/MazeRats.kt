@@ -24,35 +24,6 @@ import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-
-data class MrMagicDto(val templates: List<String>,
-                      val effects: List<String>,
-                      val forms: List<String>,
-                      val elements: List<String>){
-    companion object Resource {
-        val resource_prefix = "magic"
-    }
-}
-
-data class MrMonstersDto(val templates: List<String>,
-                          val creatures: List<String>){
-    companion object Resource {
-        val resource_prefix = "monsters"
-    }
-}
-
-data class MrMonsterBundleDto(val magicDto: MrMagicDto,
-                               val creatureDto: MrMonstersDto)
-
-data class MrItemsDto(val templates: List<String>,
-                      val items: List<String>){
-    companion object Resource {
-        val resource_prefix = "items"
-    }
-}
-
-data class MrItemBundleDto(val magicDto: MrMagicDto, val itemDto: MrItemsDto)
-
 data class MrNamesDto(val surnames: List<String>,
                       val forenames: List<String>){
     companion object Resource {
@@ -84,15 +55,6 @@ data class MrCharacterBundleDto(val characterDto: MrCharactersDto,
                                 val namesDto: MrNamesDto)
 
 
-class MrMagicDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<MrMagicDto>, KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale): MrMagicDto {
-        return resourceDeserializer.deserialize(
-                MrMagicDto::class.java,
-                MrMagicDto.resource_prefix,
-                locale)
-    }
-}
 class MrCharacterBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrCharacterBundleDto> , KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): MrCharacterBundleDto {
@@ -105,89 +67,6 @@ class MrCharacterBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrateg
                         MrNamesDto::class.java,
                         MrNamesDto.resource_prefix,
                         locale))
-    }
-}
-
-class MrMonsterBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrMonsterBundleDto>, KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale): MrMonsterBundleDto {
-        return MrMonsterBundleDto(
-                magicDto = resourceDeserializer.deserialize(
-                        MrMagicDto::class.java,
-                        MrMagicDto.resource_prefix,
-                        locale),
-                creatureDto = resourceDeserializer.deserialize(
-                        MrMonstersDto::class.java,
-                        MrMonstersDto.resource_prefix,
-                        locale))
-    }
-}
-
-class MrItemBundleDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<MrItemBundleDto>, KodeinAware {
-    val resourceDeserializer: CachingResourceDeserializer = instance()
-    override fun load(locale: Locale): MrItemBundleDto {
-        return MrItemBundleDto(
-                magicDto = resourceDeserializer.deserialize(
-                        MrMagicDto::class.java,
-                        MrMagicDto.resource_prefix,
-                        locale),
-                itemDto = resourceDeserializer.deserialize(
-                        MrItemsDto::class.java,
-                        MrItemsDto.resource_prefix,
-                        locale))
-    }
-}
-
-
-fun magicMapHelper(shuffler: Shuffler, dto: MrMagicDto) : Map<String, String> {
-    return mapOf(
-            "element" to shuffler.pick(dto.elements),
-            "effect" to shuffler.pick(dto.effects),
-            "form" to shuffler.pick(dto.forms)
-    )
-}
-
-class MrMagicMapGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<MrMagicDto, TemplateMapModel> ,
-        KodeinAware {
-    val shuffler : Shuffler = instance()
-    override fun transform(dto: MrMagicDto): TemplateMapModel {
-        return TemplateMapModel(
-                template = shuffler.pick(dto.templates),
-                map = magicMapHelper(shuffler, dto)
-        )
-    }
-}
-
-class MrItemMapGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<MrItemBundleDto, TemplateMapModel> ,
-        KodeinAware {
-    val shuffler : Shuffler = instance()
-    override fun transform(dto: MrItemBundleDto): TemplateMapModel {
-        val m = mutableMapOf(
-                "item" to shuffler.pick(dto.itemDto.items)
-        )
-        m.putAll(magicMapHelper(shuffler, dto.magicDto))
-        return TemplateMapModel(
-                template = shuffler.pick(dto.itemDto.templates),
-                map = m
-        )
-    }
-}
-
-class MrMonsterMapGenerator(override val kodein: Kodein) :
-        ModelGeneratorStrategy<MrMonsterBundleDto, TemplateMapModel>,
-        KodeinAware {
-    val shuffler : Shuffler = instance()
-    override fun transform(dto: MrMonsterBundleDto): TemplateMapModel {
-        val creatures = shuffler.pickN(dto.creatureDto.creatures, 2)
-        val m = mutableMapOf(
-                "creature1" to creatures.elementAt(0),
-                "creature2" to creatures.elementAt(1)
-        )
-        m.putAll(magicMapHelper(shuffler, dto.magicDto))
-        return TemplateMapModel(
-                template = shuffler.pick(dto.creatureDto.templates),
-                map = m
-        )
     }
 }
 
@@ -268,48 +147,16 @@ val mrModule = Kodein.Module {
                 MrCharacterView())
     }
 
-
-    bind<ModelGenerator<TemplateMapModel>>(MrConstants.MONSTER) with provider {
-        BaseGenerator<MrMonsterBundleDto, TemplateMapModel>(
-                MrMonsterBundleDtoLoader(kodein),
-                MrMonsterMapGenerator(kodein))
-    }
-    bind<Generator>(MrConstants.MONSTER) with provider {
-        BaseGeneratorWithView<TemplateMapModel, String>(
-                instance(MrConstants.MONSTER),
-                ApplyTemplateView())
-    }
-
-
-    bind<ModelGenerator<TemplateMapModel>>(MrConstants.ITEM) with provider {
-        BaseGenerator<MrItemBundleDto, TemplateMapModel>(
-                MrItemBundleDtoLoader(kodein),
-                MrItemMapGenerator(kodein))
-    }
-    bind<Generator>(MrConstants.ITEM) with provider {
-        BaseGeneratorWithView<TemplateMapModel, String>(
-                instance(MrConstants.ITEM),
-                ApplyTemplateView())
-    }
-
-
-    bind<ModelGenerator<TemplateMapModel>>(MrConstants.MAGIC) with provider {
-        BaseGenerator<MrMagicDto, TemplateMapModel>(
-                MrMagicDtoLoader(kodein),
-                MrMagicMapGenerator(kodein))
-    }
-    bind<Generator>(MrConstants.MAGIC) with provider {
-        BaseGeneratorWithView<TemplateMapModel, String>(
-                instance(MrConstants.MAGIC),
-                ApplyTemplateView())
-    }
-
-    bind<Generator>(MrConstants.POTION_EFFECTS) with provider {
-        DataDrivenGenerator(MrConstants.POTION_EFFECTS, kodein)
-    }
-
-    bind<Generator>(MrConstants.AFFLICTIONS) with provider {
-        DataDrivenGenerator(MrConstants.AFFLICTIONS, kodein)
+    listOf(
+            MrConstants.MONSTER,
+            MrConstants.ITEM,
+            MrConstants.MAGIC,
+            MrConstants.POTION_EFFECTS,
+            MrConstants.AFFLICTIONS
+    ).forEach {
+        bind<Generator>(it) with provider {
+            DataDrivenGenerator(it, kodein)
+        }
     }
 
     bind<List<String>>(MrConstants.GROUP) with singleton {
@@ -329,8 +176,8 @@ object MrConstants {
 
     val AFFLICTIONS = "${GROUP}/afflictions"
     val POTION_EFFECTS = "${GROUP}/potion_effects"
-    val ITEM = "${GROUP}/item"
+    val ITEM = "${GROUP}/items"
     val MAGIC = "${GROUP}/magic"
-    val MONSTER = "${GROUP}/monster"
+    val MONSTER = "${GROUP}/monsters"
     val CHAR = "${GROUP}/char"
 }

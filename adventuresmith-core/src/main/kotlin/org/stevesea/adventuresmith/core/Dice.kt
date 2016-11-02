@@ -57,13 +57,21 @@ data class DiceDef(val nSides: Int = 1,
                    val modifier: Int = 0)
 
 fun diceStrToDef(diceStr: String) : DiceDef {
-    val indPlus = diceStr.indexOf('+')
-    val indD = diceStr.indexOf('d')
+    val trimmed = diceStr.trim()
+    val indPlus = trimmed.indexOf('+')
+    val indD = trimmed.indexOf('d')
 
-    return DiceDef(
-            nDice = diceStr.substring(0..(indD-1)).toInt(),
-            nSides = diceStr.substring((indD+1)..(if (indPlus == -1) diceStr.length else indPlus) - 1).toInt(),
-            modifier = if (indPlus == -1) 0 else diceStr.substring((indPlus+1)..(diceStr.length-1)).toInt()
-    )
+    // TODO: throw? maybe should just log and return a 1d1 or something
+    if (indD == -1) throw IllegalArgumentException("invalid dice string: '$trimmed'")
+
+    try {
+        return DiceDef(
+                nDice = trimmed.substring(0..(indD - 1)).toInt(),
+                nSides = trimmed.substring((indD + 1)..(if (indPlus == -1) trimmed.length else indPlus) - 1).toInt(),
+                modifier = if (indPlus == -1) 0 else trimmed.substring((indPlus + 1)..(trimmed.length - 1)).toInt()
+        )
+    } catch (ex: Exception) {
+        throw IllegalArgumentException("invalid dice string: '$trimmed' : ${ex.message}")
+    }
 }
 

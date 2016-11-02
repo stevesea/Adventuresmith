@@ -121,6 +121,9 @@ object LocaleAwareResourceFinder {
         val fnames_precendence_order = locale_names(name, locale, ext)
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
+        if (foundList.size == 0) {
+            throw IllegalArgumentException("Unable to find any resources matching $name. Tried: $fnames_precendence_order ")
+        }
         return foundList.first()
     }
 }
@@ -141,6 +144,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
             .expireAfterAccess(5, TimeUnit.MINUTES)
             .build()
 
+    // TODO: make this return nullable
     @Suppress("UNCHECKED_CAST")
     fun <T> deserialize(clazz: Class<T>,
                         resource_prefix : String,
