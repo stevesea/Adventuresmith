@@ -85,18 +85,21 @@ class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: K
 }
 
 // TODO: does jmustache handle recursive interpolation? Need to write test to experiment.
-// TODO: pass in the loader to the ctor? that'd make it easier to to mock for tests
 class DataDrivenGenerator(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoLoader = factory()
     override fun generate(locale: Locale): String {
-        val dto = loaderFactory.invoke(resource_prefix).load(locale)
-        val template = shuffler.pick(dto.templates)
-        val generatedModel = createContext(dto, locale)
+        try {
+            val dto = loaderFactory.invoke(resource_prefix).load(locale)
+            val template = shuffler.pick(dto.templates)
+            val generatedModel = createContext(dto, locale)
 
-        return processTemplate(template, generatedModel, locale)
+            return processTemplate(template, generatedModel, locale)
+        } catch (ex: Exception) {
+            return "error running generator ${resource_prefix}: ${ex.message}"
+        }
     }
     fun createContext(dto: DataDrivenGenDto, locale: Locale) : Map<String, Any> {
         val result : MutableMap<String,Any> = mutableMapOf()
@@ -123,37 +126,33 @@ class DataDrivenGenerator(
         // also, look into anchors https://github.com/FasterXML/jackson-dataformat-yaml/issues/3
 
         val nf = NumberFormat.getInstance(locale)
-        try {
-            return Mustache.compiler()
-                    .escapeHTML(false)
-                    .withFormatter(object : Mustache.Formatter {
-                        override fun format(value: Any?): String {
-                            if (value is RangeMap)
-                                return shuffler.pick(value)
-                            if (value is Dice)
-                                return nf.format(value.roll())
-                            return value.toString()
-                        }
-                    })
-                    .withLoader(object: Mustache.TemplateLoader {
-                        // TODO: use this, not the stdDice map. just do it this way, and force people
-                        //      to do {{> dice: 1d24}}
-                        //      that way, can have non-'dice' keywords. example:
-                        //            {{> pickN: forms, 3}}
-                        // TODO: is this abusing partials? (to use them to run a 'special' function?
-                        // instead, could add N styles of dice to the context
-                        override fun getTemplate(name: String?): Reader {
-                            if (name == null)
-                                return StringReader("null")
-                            // assume all partials (e.g. {{>name}} is diceStr
-                            return StringReader(nf.format(shuffler.dice(name).roll()))
-                        }
-                    })
-                    .compile(template)
-                    .execute(context)
-                    .trim()
-        } catch (ex: MustacheException) {
-            return "problem running generator ${resource_prefix}: ${ex.message}"
-        }
+        return Mustache.compiler()
+                .escapeHTML(false)
+                .withFormatter(object : Mustache.Formatter {
+                    override fun format(value: Any?): String {
+                        if (value is RangeMap)
+                            return shuffler.pick(value)
+                        if (value is Dice)
+                            return nf.format(value.roll())
+                        return value.toString()
+                    }
+                })
+                .withLoader(object: Mustache.TemplateLoader {
+                    // TODO: use this, not the stdDice map. just do it this way, and force people
+                    //      to do {{> dice: 1d24}}
+                    //      that way, can have non-'dice' keywords. example:
+                    //            {{> pickN: forms, 3}}
+                    // TODO: is this abusing partials? (to use them to run a 'special' function?
+                    // instead, could add N styles of dice to the context
+                    override fun getTemplate(name: String?): Reader {
+                        if (name == null)
+                            return StringReader("null")
+                        // assume all partials (e.g. {{>name}} is diceStr
+                        return StringReader(nf.format(shuffler.dice(name).roll()))
+                    }
+                })
+                .compile(template)
+                .execute(context)
+                .trim()
     }
 }
