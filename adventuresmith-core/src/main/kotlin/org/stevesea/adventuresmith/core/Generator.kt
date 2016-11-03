@@ -67,6 +67,11 @@ open class BaseGeneratorWithView<TModel, TView>(
     }
 }
 
+// TODO: seems like we should read data about generators too
+//    bind to same resource_prefix and generator, but make it not part of generator
+data class DataDrivenGenMetaDto(val name: String,
+                                val tags: List<String>?,
+                                val desc: String)
 data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>,
                             val include_tables: List<String>?,
@@ -105,9 +110,8 @@ class DataDrivenGenerator(
         dto.include_tables?.let {
             for (sibling in dto.include_tables.reversed()) {
                 val sibling_resource = resource_prefix.replaceAfterLast("/", sibling)
-                val loader = loaderFactory.invoke(sibling_resource)
 
-                val sibling_dto = loader.load(locale)
+                val sibling_dto = loaderFactory.invoke(sibling_resource).load(locale)
                 result.putAll(sibling_dto.tables)
             }
         }
