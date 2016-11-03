@@ -12,7 +12,7 @@ templates:
 - "{{form}} de {{element}} de {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
 
 
-merge_sibling_tables:
+include_tables:
 - wizard_names
 
 tables:

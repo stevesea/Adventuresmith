@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import org.junit.*
+import org.stevesea.adventuresmith.core.fotf.*
 import java.security.*
 import java.util.*
 
@@ -35,11 +36,19 @@ class Exerciser {
     fun exerciser() {
         val kodein = getKodein(SecureRandom())
 
+        // selective output some to console
+        val enablePrinting = setOf(FotfConstants.SPELLS)
+
         val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {
+            val generator_instance = kodein.instance<Generator>(g)
+
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
                 for (i in 1..50) {
-                    kodein.instance<Generator>(g).generate(locale)
+                    if (enablePrinting.contains(g))
+                        println(generator_instance.generate(locale))
+                    else
+                        generator_instance.generate(locale)
                 }
             }
         }

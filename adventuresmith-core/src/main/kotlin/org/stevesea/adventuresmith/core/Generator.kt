@@ -22,7 +22,6 @@ package org.stevesea.adventuresmith.core
 
 
 import com.github.salomonbrys.kodein.*
-import com.google.common.base.*
 import com.samskivert.mustache.*
 import java.io.*
 import java.text.*
@@ -68,35 +67,9 @@ open class BaseGeneratorWithView<TModel, TView>(
     }
 }
 
-// if all you need is just to load a YaML that's a single list
-interface SimpleListLoader {
-    fun load(locale: Locale) : List<String>
-}
-open class BaseSimpleGenerator (
-        val listLoader : SimpleListLoader,
-        override val kodein: Kodein) : Generator, KodeinAware {
-    val shuffler : Shuffler = instance()
-    override fun generate(locale: Locale): String {
-        return shuffler.pick(listLoader.load(locale))
-    }
-}
-
-
-data class TemplateMapModel(val template: String,
-                        val map: Map<String,String>)
-
-class ApplyTemplateView: ViewStrategy<TemplateMapModel, String> {
-    override fun transform(model: TemplateMapModel): String {
-        val result = inefficientStrSubstitutor(model.template, model.map)
-        // throw an exception if any keywords weren't replaced
-        Preconditions.checkArgument(!result.contains("%{"), "unreplaced keywords: '%s'", result)
-        return result
-    }
-}
-
-data class DataDrivenGenDto(val templates: RangeMap,
+data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>,
-                            val merge_sibling_tables: List<String>?,
+                            val include_tables: List<String>?,
                             val dice: List<String>?)
 
 class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: Kodein)
@@ -111,14 +84,13 @@ class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: K
     }
 }
 
+// TODO: does jmustache handle recursive interpolation? Need to write test to experiment.
+// TODO: pass in the loader to the ctor? that'd make it easier to to mock for tests
 class DataDrivenGenerator(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoLoader = factory()
-    val stdDiceMap = listOf(
-            "1d4", "1d6","1d8", "1d10", "1d12", "1d20", "1d30", "1d100",
-            "3d6", "4d4").map { it to shuffler.dice(it)}.toMap()
     override fun generate(locale: Locale): String {
         val dto = loaderFactory.invoke(resource_prefix).load(locale)
         val template = shuffler.pick(dto.templates)
@@ -128,8 +100,8 @@ class DataDrivenGenerator(
     }
     fun createContext(dto: DataDrivenGenDto, locale: Locale) : Map<String, Any> {
         val result : MutableMap<String,Any> = mutableMapOf()
-        dto.merge_sibling_tables?.let {
-            for (sibling in dto.merge_sibling_tables.reversed()) {
+        dto.include_tables?.let {
+            for (sibling in dto.include_tables.reversed()) {
                 val sibling_resource = resource_prefix.replaceAfterLast("/", sibling)
                 val loader = loaderFactory.invoke(sibling_resource)
 
@@ -138,7 +110,6 @@ class DataDrivenGenerator(
             }
         }
         result.putAll(dto.tables)
-        result.putAll(stdDiceMap)
         dto.dice?.let {
             for (dstr in dto.dice) {
                 result.put(dstr, shuffler.dice(dstr))
@@ -146,7 +117,7 @@ class DataDrivenGenerator(
         }
         return result
     }
-    fun processTemplate(template: String, model: Map<String, Any>, locale: Locale) : String {
+    fun processTemplate(template: String, context: Map<String, Any>, locale: Locale) : String {
         // use jmustache & lambdas?
         // https://github.com/samskivert/jmustache
         // also, look into anchors https://github.com/FasterXML/jackson-dataformat-yaml/issues/3
@@ -167,7 +138,7 @@ class DataDrivenGenerator(
                     .withLoader(object: Mustache.TemplateLoader {
                         // TODO: use this, not the stdDice map. just do it this way, and force people
                         //      to do {{> dice: 1d24}}
-                        //      that way, can have non-'dice' keywords. example: 
+                        //      that way, can have non-'dice' keywords. example:
                         //            {{> pickN: forms, 3}}
                         // TODO: is this abusing partials? (to use them to run a 'special' function?
                         // instead, could add N styles of dice to the context
@@ -179,7 +150,7 @@ class DataDrivenGenerator(
                         }
                     })
                     .compile(template)
-                    .execute(model)
+                    .execute(context)
                     .trim()
         } catch (ex: MustacheException) {
             return "problem running generator ${resource_prefix}: ${ex.message}"

@@ -7,7 +7,7 @@ templates:
 - "{{creature}} {{creature}}"
 - "{{effect}} {{creature}} {{creature}}"
 
-merge_sibling_tables:
+include_tables:
 - magic
 
 tables:

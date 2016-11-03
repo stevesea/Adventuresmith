@@ -15,7 +15,7 @@ templates:
 - "{{adjective}} {{form}} of {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
 - "{{adjective}} {{element}} of {{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
 
-merge_sibling_tables:
+include_tables:
 - wizard_names
 
 tables:

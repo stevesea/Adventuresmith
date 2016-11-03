@@ -7,7 +7,7 @@ templates:
 - "{{item}} of {{effect}} {{element}}"
 - "{{form}} {{item}}"
 
-merge_sibling_tables:
+include_tables:
 - magic
 
 tables:

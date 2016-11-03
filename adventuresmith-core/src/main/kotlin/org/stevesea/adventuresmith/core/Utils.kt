@@ -57,16 +57,6 @@ val utilModule = Kodein.Module {
     }
 }
 
-// replaces elements of String with entries from the given map
-// any keys from map in source string which match %{key} will be substituted with val
-fun inefficientStrSubstitutor(inputStr: String, replacements: Map<String,String>) : String {
-    var result = inputStr
-    for (e in replacements.entries) {
-        result = result.replace("%{${e.key}}", e.value )
-    }
-    return result
-}
-
 fun getFinalPackageName(clz : Class<Any> ) : String {
     val words = clz.`package`.name.split(".")
     return words[words.size - 1 ]
