@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.core.fp
+package org.stevesea.adventuresmith.core.fourth_page
 
 import org.junit.*
 import org.stevesea.adventuresmith.core.*

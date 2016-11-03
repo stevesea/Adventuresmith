@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.core.fotf
+package org.stevesea.adventuresmith.core.freebooters_on_the_frontier
 
 import org.junit.*
 import org.stevesea.adventuresmith.core.*

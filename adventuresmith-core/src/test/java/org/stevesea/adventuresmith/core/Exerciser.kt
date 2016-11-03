@@ -22,7 +22,8 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import org.junit.*
-import org.stevesea.adventuresmith.core.fotf.*
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import java.security.*
 import java.util.*
 

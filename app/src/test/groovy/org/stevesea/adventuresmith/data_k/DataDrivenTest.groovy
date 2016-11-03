@@ -33,11 +33,11 @@ import org.robolectric.annotation.Config
 import org.stevesea.adventuresmith.AdventuresmithApp
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.Shuffler
-import org.stevesea.adventuresmith.core.fotf.FotfSpellGenerator
-import org.stevesea.adventuresmith.core.fp.FourthPageArtifactGenerator
-import org.stevesea.adventuresmith.core.fp.FourthPageCityGenerator
-import org.stevesea.adventuresmith.core.fp.FourthPageDungeonGenerator
-import org.stevesea.adventuresmith.core.fp.FourthPageMonsterGenerator
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.FotfSpellGenerator
+import org.stevesea.adventuresmith.core.fourth_page.FourthPageArtifactGenerator
+import org.stevesea.adventuresmith.core.fourth_page.FourthPageCityGenerator
+import org.stevesea.adventuresmith.core.fourth_page.FourthPageDungeonGenerator
+import org.stevesea.adventuresmith.core.fourth_page.FourthPageMonsterGenerator
 
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when

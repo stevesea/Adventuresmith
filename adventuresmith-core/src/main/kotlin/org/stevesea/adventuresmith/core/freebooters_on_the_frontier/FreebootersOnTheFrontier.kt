@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.core.fotf
+package org.stevesea.adventuresmith.core.freebooters_on_the_frontier
 
 import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
@@ -110,7 +110,7 @@ data class FotfCharModel(val config: FotfCharConfigDto,
                          val virtues: Collection<String>,
                          val vices: Collection<String>,
                          val gear: Collection<String>)
-class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FotfCharBundleDto, FotfCharModel> ,
+class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FotfCharBundleDto, FotfCharModel>,
         KodeinAware {
     val shuffler : Shuffler = instance()
     override fun transform(dto: FotfCharBundleDto): FotfCharModel {
@@ -184,13 +184,13 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
 val fotfModule = Kodein.Module {
 
     bind<ModelGenerator<FotfCharModel>>() with provider {
-        BaseGenerator<FotfCharBundleDto, FotfCharModel> (
+        BaseGenerator<FotfCharBundleDto, FotfCharModel>(
                 loadingStrat = FotfCharDtoLoader(kodein),
                 modelGeneratorStrat = FotfCharModelGenerator(kodein)
         )
     }
     bind<Generator>(FotfConstants.CHARS) with provider {
-        BaseGeneratorWithView<FotfCharModel, HTML> (
+        BaseGeneratorWithView<FotfCharModel, HTML>(
                 modelGen = instance(),
                 viewTransform = FotfCharacterView()
         )
