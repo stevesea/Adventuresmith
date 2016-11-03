@@ -51,12 +51,14 @@ val generatorModules = Kodein.Module {
     import(fotfModule)
     import(fpModule)
     import(mrModule)
+    import(diceModule)
 
     bind<Set<String>>(AdventureSmithConstants.GENERATORS) with provider {
         val res : MutableSet<String> = TreeSet<String>()
         res.addAll(instance<List<String>>(FotfConstants.GROUP))
         res.addAll(instance<List<String>>(MrConstants.GROUP))
         res.addAll(instance<List<String>>(FpConstants.GROUP))
+        res.addAll(instance<List<String>>(DiceConstants.GROUP))
         res
     }
 }

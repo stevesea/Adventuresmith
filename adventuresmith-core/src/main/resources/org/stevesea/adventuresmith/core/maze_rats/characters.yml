@@ -31,7 +31,8 @@ templates:
 
   Equipment: {{equipment}}, {{equipment}}, {{equipment}}
 
-# a list of other tables located next to this file that should be loaded
+# a list of other input data files that should be loaded into the context.
+# they _must_ be located next to this file
 include_tables:
 - names
 

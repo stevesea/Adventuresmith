@@ -84,7 +84,6 @@ class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: K
     }
 }
 
-// TODO: does jmustache handle recursive interpolation? Need to write test to experiment.
 class DataDrivenGenerator(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
@@ -143,7 +142,6 @@ class DataDrivenGenerator(
                     //      that way, can have non-'dice' keywords. example:
                     //            {{> pickN: forms, 3}}
                     // TODO: is this abusing partials? (to use them to run a 'special' function?
-                    // instead, could add N styles of dice to the context
                     override fun getTemplate(name: String?): Reader {
                         if (name == null)
                             return StringReader("null")

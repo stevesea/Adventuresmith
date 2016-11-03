@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
+import java.text.*
 import java.util.*
 
 
@@ -29,6 +30,8 @@ class Dice(val nSides: Int = 1,
            val modifier: Int = 0,
            override val kodein: Kodein) : KodeinAware {
     val random : Random = instance()
+
+    constructor(dd : DiceDef, kodein: Kodein) : this(dd.nSides, dd.nDice, dd.modifier, kodein)
 
     fun roll(): Int {
         var sum = 0
@@ -75,3 +78,80 @@ fun diceStrToDef(diceStr: String) : DiceDef {
     }
 }
 
+
+object DiceConstants {
+    val GROUP = "dice"
+
+    val regularDice = listOf("1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100")
+    val sums = listOf("2d6", "3d6","4d4")
+
+    val d20adv = "1d20adv"
+    val d20disadv = "1d20disadv"
+
+}
+
+val diceModule = Kodein.Module {
+    // simple rolls
+    for (d in DiceConstants.regularDice) {
+        bind<Generator>(d) with provider {
+            object: Generator {
+                val dice = Dice(diceStrToDef(d), kodein)
+                override fun generate(locale: Locale): String {
+                    val nf = NumberFormat.getInstance(locale)
+                    return "${d}: ${nf.format(dice.roll())}"
+                }
+            }
+        }
+    }
+    // multiple dice, and i want to show individual dice rolls
+    for (d in DiceConstants.sums) {
+        bind<Generator>(d) with provider {
+            object: Generator {
+                val dd = diceStrToDef(d)
+                val dice = Dice(dd.nSides, 1, 0, kodein)
+                override fun generate(locale: Locale): String {
+                    val nf = NumberFormat.getInstance(locale)
+                    val rolls = dice.rollN(dd.nDice)
+                    val sum = rolls.sum()
+                    return "${d}: ${nf.format(sum)} <small>${rolls}</small>"
+                }
+            }
+        }
+    }
+
+    bind<Generator>(DiceConstants.d20adv) with provider {
+        object: Generator {
+            val dice = Dice(diceStrToDef("1d20"), kodein)
+            override fun generate(locale: Locale): String {
+                val nf = NumberFormat.getInstance(locale)
+                val rolls = dice.rollN(2)
+                val best = rolls.max()
+                return "${DiceConstants.d20adv}: ${nf.format(best)} <small>${rolls}</small>"
+            }
+        }
+    }
+
+    bind<Generator>(DiceConstants.d20disadv) with provider {
+        object: Generator {
+            val dice = Dice(diceStrToDef("1d20"), kodein)
+            override fun generate(locale: Locale): String {
+                val nf = NumberFormat.getInstance(locale)
+                val rolls = dice.rollN(2)
+                val worst = rolls.min()
+                return "${DiceConstants.d20disadv}: ${nf.format(worst)} <small>${rolls}</small>"
+            }
+        }
+    }
+
+    bind<List<String>>(DiceConstants.GROUP) with singleton {
+        listOf(
+                DiceConstants.regularDice,
+                DiceConstants.sums,
+                listOf(
+                        DiceConstants.d20adv,
+                        DiceConstants.d20disadv
+                )
+        ).flatten()
+    }
+
+}
