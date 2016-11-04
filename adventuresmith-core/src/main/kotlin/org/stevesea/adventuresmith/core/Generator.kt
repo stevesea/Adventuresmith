@@ -23,6 +23,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import com.samskivert.mustache.*
+import mu.*
 import java.io.*
 import java.util.*
 
@@ -93,61 +94,67 @@ class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, overrid
 class DataDrivenGenerator(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
+    companion object : KLogging()
+
+    val mustacheHelper : MustacheHelper = instance()
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun generate(locale: Locale): String {
         //try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
             val template = shuffler.pick(dto.templates)
-            val generatedModel = createContext(dto, locale)
+            val dtosForContext = findIncludedResources(dto, locale)
 
-            return processTemplate(template, generatedModel)
+            return mustacheHelper.processTemplate(template,
+                    mustacheHelper.createContext(dtosForContext))
         //} catch (ex: Exception) {
         //    return "error running generator ${resource_prefix}: ${ex.toString()}"
         //}
     }
-    fun createContext(dto: DataDrivenGenDto, locale: Locale) : Map<String, Any> {
-        val result : MutableMap<String,Any> = mutableMapOf()
+    fun findIncludedResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
+        val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
+
         dto.include_tables?.let {
-            for (sibling in dto.include_tables.reversed()) {
+            for (sibling in dto.include_tables) {
                 val sibling_resource = if (resource_prefix.contains("/"))
                     resource_prefix.replaceAfterLast("/", sibling)
                 else
                     sibling
+                val d = loaderFactory.invoke(sibling_resource).load(locale)
+                results.add(d)
+                results.addAll(findIncludedResources(d, locale))
+            }
+        }
+        return results
+    }
+}
 
-                val sibling_dto = loaderFactory.invoke(sibling_resource).load(locale)
-                sibling_dto.tables?.let {
-                    result.putAll(sibling_dto.tables)
-                }
-                sibling_dto.nested_tables?.let {
-                    result.putAll(sibling_dto.nested_tables)
-                }
-                sibling_dto.dice?.let {
-                    for (dstr in sibling_dto.dice) {
-                        result.put(dstr, shuffler.dice(dstr))
-                    }
-                }
-                sibling_dto.definitions?.let {
-                    result.putAll(sibling_dto.definitions)
+class MustacheHelper(override val kodein: Kodein) : KodeinAware {
+    companion object : KLogging()
+
+    val shuffler : Shuffler = instance()
+
+    fun createContext(dtos: List<DataDrivenGenDto>) : Map<String, Any> {
+        val result : MutableMap<String,Any> = mutableMapOf()
+        for (d in dtos.reversed()) {
+            d.tables?.let {
+                result.putAll(d.tables)
+            }
+            d.nested_tables?.let {
+                result.putAll(d.nested_tables)
+            }
+            d.dice?.let {
+                for (dstr in d.dice) {
+                    result.put(dstr, shuffler.dice(dstr))
                 }
             }
-        }
-        dto.tables?.let {
-            result.putAll(dto.tables)
-        }
-        dto.nested_tables?.let {
-            result.putAll(dto.nested_tables)
-        }
-        dto.dice?.let {
-            for (dstr in dto.dice) {
-                result.put(dstr, shuffler.dice(dstr))
+            d.definitions?.let {
+                result.putAll(d.definitions)
             }
-        }
-        dto.definitions?.let {
-            result.putAll(dto.definitions)
         }
         return result
     }
+
     fun processTemplate(template: String, context: Map<String, Any>) : String {
         return Mustache.compiler()
                 .escapeHTML(false)
@@ -181,5 +188,5 @@ class DataDrivenGenerator(
                 .execute(context)
                 .trim()
     }
-    companion object
 }
+

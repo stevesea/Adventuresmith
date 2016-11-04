@@ -44,6 +44,10 @@ val randModule = Kodein.Module {
     bind<DataDrivenGenDtoCachingResourceLoader>() with factory { resource_prefix: String ->
         DataDrivenGenDtoCachingResourceLoader(resource_prefix, kodein)
     }
+    bind<MustacheHelper>() with provider {
+        MustacheHelper(kodein)
+    }
+
 }
 
 val generatorModules = Kodein.Module {

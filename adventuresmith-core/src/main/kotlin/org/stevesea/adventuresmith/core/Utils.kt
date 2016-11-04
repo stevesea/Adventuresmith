@@ -121,7 +121,7 @@ object LocaleAwareResourceFinder {
 /**
  * possibly premature optimization
  *    - i'm going to assume loading file resource, and deserializing into a DTO
- *      is a not-insignificant performance hit. Cache results
+ *      is a not-insignificant performance hit. This class caches recently accessed DTOs
  */
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
