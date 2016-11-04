@@ -37,11 +37,13 @@ class SwnTest {
         Assert.assertEquals("""
         <h4>Religion</h4>
         <h5>Origin Tradition</h5>
-        Paganism
+        Judaism
         <h5>Evolution</h5>
-        New holy book; someone in the faith's past penned or discovered a text that is now taken to be holy writ and the expressed will of the divine.
+        Schism; the faith's beliefs are actually almost identical to those of the majority of its origin tradition, save for a few minor points of vital interest to theologians and no practical difference whatsoever to believers. This does not prevent a burning resentment towards the parent faith.
         <h5>Leadership</h5>
-        Patriarch/Matriarch; a single leader determines doctrine for the entire religion, possibly in consultation wiht other clerics.
-        """.trimIndent().trim(), getGenerator(SwnConstants.RELIGION, 0).generate())
+        No hierarchy; Each region governs itself via [Council]
+        """.trimIndent().trim(), getGenerator(SwnConstants.RELIGION, 5).generate())
+        // picked 5 for Random because that'll exercise one of the options that'll send us
+        // through another pass of the template processor
     }
 }

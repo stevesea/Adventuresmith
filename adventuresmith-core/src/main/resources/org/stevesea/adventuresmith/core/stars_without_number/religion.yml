@@ -40,7 +40,7 @@ tables:
   - "1..2, Patriarch/Matriarch; a single leader determines doctrine for the entire religion, possibly in consultation wiht other clerics."
   - "3..4, Council; a group of the oldest and most revered clergy determine the course of the faith."
   - "5, Democracy; every member has an equal voice in matters of faith, with doctrine usually decided at regular church-wide councils."
-  - "6, No hierarchy; Each region governs itself via {{leadership_short}}"
+  - "6, No hierarchy; Each region governs itself via [{{leadership_short}}]"
 
   origin:
   - Paganism
