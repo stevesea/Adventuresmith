@@ -41,9 +41,11 @@ object SwnConstants {
 
     val ROOM_DRESSING = "${GROUP}/room_dressing"
     val RELIGION = "${GROUP}/religion"
+    val ADV_SEED = "${GROUP}/adventure_seed"
 
     val generators = listOf(
             ROOM_DRESSING,
-            RELIGION
+            RELIGION,
+            ADV_SEED
     )
 }
