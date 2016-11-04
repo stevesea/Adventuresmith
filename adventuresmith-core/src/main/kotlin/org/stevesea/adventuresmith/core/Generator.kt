@@ -78,7 +78,7 @@ data class DataDrivenGenDto(val templates: RangeMap?,
                             val dice: List<String>?,
                             val nested_tables : Map<String, Map<String, RangeMap>>?)
 
-class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: Kodein)
+class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, override val kodein: Kodein)
 : DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
     val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): DataDrivenGenDto {
@@ -94,7 +94,7 @@ class DataDrivenGenerator(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
     val shuffler : Shuffler = instance()
-    val loaderFactory : (String) -> DataDrivenGenDtoLoader = factory()
+    val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun generate(locale: Locale): String {
         try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)

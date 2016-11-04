@@ -40,8 +40,8 @@ val randModule = Kodein.Module {
         val dd = diceStrToDef(diceStr)
         Dice(dd.nSides, dd.nDice, dd.modifier, kodein)
     }
-    bind<DataDrivenGenDtoLoader>() with factory { resource_prefix: String ->
-        DataDrivenGenDtoLoader(resource_prefix, kodein)
+    bind<DataDrivenGenDtoCachingResourceLoader>() with factory { resource_prefix: String ->
+        DataDrivenGenDtoCachingResourceLoader(resource_prefix, kodein)
     }
 }
 
