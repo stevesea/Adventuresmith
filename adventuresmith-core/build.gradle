@@ -61,8 +61,8 @@ dependencies {
 
     compile 'com.samskivert:jmustache:1.13'
 
-    //compile 'microutils:kotlin.logging:1.2.1'
-    //compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
+    compile 'microutils:kotlin.logging:1.2.1'
+    compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
 
     testCompile "junit:junit:$junit_version"
     testCompile "org.mockito:mockito-core:$mockito_version"

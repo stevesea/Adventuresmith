@@ -52,10 +52,16 @@ class GeneratorTest {
             - "{{effect}} {{form}}"
             - "{{adjective}} {{form}}"
             - 4..6, Templates can also have range prefixes
+        nested_tables:
+            ntable1:
+                ntable1subA:
+                - ntsA
+                - ntsB
+                - 3..6, ntsC
         """.trimIndent()
 
     @Test
-    fun readFancyYaml() {
+    fun verifyRangeMapDeserialization() {
 
         val kodein = getKodein(getMockRandom())
         val reader : ObjectReader = kodein.instance()
@@ -68,7 +74,7 @@ class GeneratorTest {
     }
 
     @Test
-    fun experimental() {
+    fun verifyGeneratoryBasics() {
         val testKey = "test_resource"
         val base = getKodein(getMockRandom())
         val testKodein = Kodein {
@@ -87,6 +93,11 @@ class GeneratorTest {
         sibling_table: ts_val2
         nested_table: subtableB - subtB_val2
         nested_table: subtA_val2
+
+        asdfasdf, asdfasf2, asfdasdf3
+        asdfasdfasdfasf2asfdasdf3
+
+        objval1objval2objval3
         """.trimIndent().trim(), g.generate(Locale.US))
     }
 }

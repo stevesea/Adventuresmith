@@ -24,7 +24,6 @@ package org.stevesea.adventuresmith.core
 import com.github.salomonbrys.kodein.*
 import com.samskivert.mustache.*
 import java.io.*
-import java.text.*
 import java.util.*
 
 
@@ -76,7 +75,8 @@ data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>?,
                             val include_tables: List<String>?,
                             val dice: List<String>?,
-                            val nested_tables : Map<String, Map<String, RangeMap>>?)
+                            val nested_tables : Map<String, Map<String, RangeMap>>?,
+                            val definitions: Map<String, Any>?)
 
 class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, override val kodein: Kodein)
 : DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
@@ -96,15 +96,15 @@ class DataDrivenGenerator(
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun generate(locale: Locale): String {
-        try {
+        //try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
             val template = shuffler.pick(dto.templates)
             val generatedModel = createContext(dto, locale)
 
-            return processTemplate(template, generatedModel, locale)
-        } catch (ex: Exception) {
-            return "error running generator ${resource_prefix}: ${ex.toString()}"
-        }
+            return processTemplate(template, generatedModel)
+        //} catch (ex: Exception) {
+        //    return "error running generator ${resource_prefix}: ${ex.toString()}"
+        //}
     }
     fun createContext(dto: DataDrivenGenDto, locale: Locale) : Map<String, Any> {
         val result : MutableMap<String,Any> = mutableMapOf()
@@ -127,6 +127,9 @@ class DataDrivenGenerator(
                         result.put(dstr, shuffler.dice(dstr))
                     }
                 }
+                sibling_dto.definitions?.let {
+                    result.putAll(sibling_dto.definitions)
+                }
             }
         }
         dto.tables?.let {
@@ -140,14 +143,12 @@ class DataDrivenGenerator(
                 result.put(dstr, shuffler.dice(dstr))
             }
         }
+        dto.definitions?.let {
+            result.putAll(dto.definitions)
+        }
         return result
     }
-    fun processTemplate(template: String, context: Map<String, Any>, locale: Locale) : String {
-        // use jmustache & lambdas?
-        // https://github.com/samskivert/jmustache
-        // also, look into anchors https://github.com/FasterXML/jackson-dataformat-yaml/issues/3
-
-        val nf = NumberFormat.getInstance(locale)
+    fun processTemplate(template: String, context: Map<String, Any>) : String {
         return Mustache.compiler()
                 .escapeHTML(false)
                 .withFormatter(object : Mustache.Formatter {
@@ -155,7 +156,7 @@ class DataDrivenGenerator(
                         if (value is RangeMap) {
                             return shuffler.pick(value)
                         } else if (value is Dice) {
-                            return nf.format(value.roll())
+                            return value.roll().toString()
                         } else if (value is Map<*, *>) {
                             val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
                             return "${p.first} - ${p.second}"
@@ -173,11 +174,12 @@ class DataDrivenGenerator(
                         if (name == null)
                             return StringReader("null")
                         // assume all partials (e.g. {{>name}} is diceStr
-                        return StringReader(nf.format(shuffler.dice(name).roll()))
+                        return StringReader(shuffler.dice(name).roll().toString())
                     }
                 })
                 .compile(template)
                 .execute(context)
                 .trim()
     }
+    companion object
 }

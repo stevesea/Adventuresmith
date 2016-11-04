@@ -18,40 +18,32 @@
  *
  */
 
-package org.stevesea.adventuresmith.core.maze_rats
+package org.stevesea.adventuresmith.core.stars_without_number
 
 import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 
-val mrModule = Kodein.Module {
+val swnModule = Kodein.Module {
 
-    MrConstants.generators.forEach {
+    SwnConstants.generators.forEach {
         bind<Generator>(it) with provider {
             DataDrivenGenerator(it, kodein)
         }
     }
 
-    bind<List<String>>(MrConstants.GROUP) with singleton {
-        MrConstants.generators
+    bind<List<String>>(SwnConstants.GROUP) with singleton {
+        SwnConstants.generators
     }
 }
 
-object MrConstants {
+object SwnConstants {
     val GROUP = getFinalPackageName(this.javaClass)
 
-    val AFFLICTIONS = "${GROUP}/afflictions"
-    val POTION_EFFECTS = "${GROUP}/potion_effects"
-    val ITEM = "${GROUP}/items"
-    val MAGIC = "${GROUP}/magic"
-    val MONSTER = "${GROUP}/monsters"
-    val CHAR = "${GROUP}/characters"
+    val ROOM_DRESSING = "${GROUP}/room_dressing"
+    val RELIGION = "${GROUP}/religion"
 
     val generators = listOf(
-            MONSTER,
-            ITEM,
-            CHAR,
-            MAGIC,
-            POTION_EFFECTS,
-            AFFLICTIONS
+            ROOM_DRESSING,
+            RELIGION
     )
 }

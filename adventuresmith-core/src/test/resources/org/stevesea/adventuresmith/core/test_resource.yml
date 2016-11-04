@@ -1,14 +1,32 @@
 templates:
-- >
+- |
   table1: {{table1}}
-
   table2: {{table2}}
-
   sibling_table: {{sibling_table}}
-
   nested_table: {{subtable1}}
-
   nested_table: {{subtable1.subtableA}}
+
+  {{#a_list}}{{^-first}}, {{/-first}}{{this}}{{/a_list}}
+  {{#a_list}}{{.}}{{/a_list}}
+
+  {{#a_list_of_objs}}{{val}}{{/a_list_of_objs}}
+
+definitions:
+  a_list:
+  - asdfasdf
+  - asdfasf2
+  - asfdasdf3
+  a_list_of_objs:
+  - id: objid1
+    val: objval1
+  - id: objid2
+    val: objval2
+  - id: objid3
+    val: objval3
+  a_map:
+    mapkey1: mapval1
+    mapkey2: mapval2
+    mapkey3: mapval3
 
 include_tables:
 - test_sibling
