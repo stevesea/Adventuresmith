@@ -152,6 +152,7 @@ class MustacheHelper(override val kodein: Kodein) : KodeinAware {
                 result.putAll(d.definitions)
             }
         }
+        // TODO: apply lambdas to context
         return result
     }
 
