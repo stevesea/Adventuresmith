@@ -6,7 +6,7 @@ templates:
   table3: {{table3}}   # recursive reference, tab3's string is a key to point at tab2
 
   sibling_table: {{sibling_table}}      # direct dependency
-  sibling_table2: {{sibling_table2}}    # transitive dependency
+  sibling_table2: {{sibling_table2}}    # transitive dependency (brought in by sibling_table)
 
   nested_table: {{subtable1}}           # selecting a key that's a Map<String,RangeMap> results in pair selection
   nested_table: {{subtable1.subtableA}} # selecting nested table works just like selecting a any RangeMap

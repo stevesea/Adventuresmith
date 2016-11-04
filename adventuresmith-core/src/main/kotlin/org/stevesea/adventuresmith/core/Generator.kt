@@ -159,6 +159,10 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                 //      that way, can have non-'dice' keywords. example:
                 //            {{> pickN: forms, 3}}
                 // TODO: is this abusing partials? (to use them to run a 'special' function?
+                //
+                // TODO: how complicated do want language to get?
+                //    http://sargunvohra.me/cakeparse/
+                //    https://github.com/jparsec/jparsec/wiki/Overview
                 override fun getTemplate(name: String?): Reader {
                     if (name == null)
                         return StringReader("null")
@@ -194,12 +198,25 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
         // templates are only read from the first DTO
         result.put("template", shuffler.pick(dtos[0].templates))
 
-        // TODO: apply lambdas to context
+        // TODO: apply lambdas to context?
+
+        /*
+        val lambdas = mapOf(
+                "pick" to Mustache.Lambda { fragment, writer ->
+                    val key = fragment.execute()
+                    writer.write(key)
+                }
+        )
+        result.putAll(lambdas)
+        */
+
 
         return result
     }
 
     fun processTemplate(context: Map<String, Any>) : String {
+
+
         var template = context["template"].toString()
 
         var count = 0;

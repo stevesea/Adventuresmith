@@ -94,7 +94,7 @@ class GeneratorTest {
         table3: t2_valB   # recursive reference, tab3's string is a key to point at tab2
 
         sibling_table: ts_val2      # direct dependency
-        sibling_table2: ts2_val2    # transitive dependency
+        sibling_table2: ts2_val2    # transitive dependency (brought in by sibling_table)
 
         nested_table: subtableB - subtB_val2           # selecting a key that's a Map<String,RangeMap> results in pair selection
         nested_table: subtA_val2 # selecting nested table works just like selecting a any RangeMap
