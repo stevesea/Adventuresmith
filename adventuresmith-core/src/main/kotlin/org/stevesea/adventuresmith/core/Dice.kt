@@ -64,8 +64,12 @@ fun diceStrToDef(diceStr: String) : DiceDef {
     val indPlus = trimmed.indexOf('+')
     val indD = trimmed.indexOf('d')
 
-    // TODO: throw? maybe should just log and return a 1d1 or something
-    if (indD == -1) throw IllegalArgumentException("invalid dice string: '$trimmed'")
+    // TODO: throws NumberFormatException if not an int
+    if (indD == -1 && indPlus == -1) {
+        return DiceDef(nDice = 0,
+                nSides = 0,
+                modifier = diceStr.toInt())
+    }
 
     try {
         return DiceDef(

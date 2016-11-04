@@ -31,6 +31,11 @@ class SwnTest {
         Assert.assertEquals("Armory: locked gun cabinets, armor racks",
                 getGenerator(SwnConstants.ROOM_DRESSING, 0).generate())
     }
+    @Test
+    fun arch() {
+        Assert.assertEquals("Armory: locked gun cabinets, armor racks",
+                getGenerator(SwnConstants.ARCHITECTURE, 0).generate())
+    }
 
     @Test
     fun religion() {

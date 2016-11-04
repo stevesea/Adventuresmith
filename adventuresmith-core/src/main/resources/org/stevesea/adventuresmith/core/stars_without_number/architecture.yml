@@ -1,0 +1,89 @@
+---
+templates:
+- |
+  <h4>Architectural Elements</h4>
+
+  # pick 2-5 keys, select one from each
+  {{>pick: 1d4+1 keys}}
+  {{misc}}
+
+definitions:
+  keys:
+  - "{{towers}}"
+  - "{{foundations}}"
+  - "{{wall_decorations}}"
+  - "{{pillars}}"
+  - "{{arches}}"
+
+tables:
+  towers:
+  - Sharply pointed towers
+  - Squat towers
+  - Square, hexagonal, or oval towers
+  - Multi-branching towers
+  - Inverted towers, stretching underground
+  - Bulbous towers
+  - Flat-topped towers
+  - Multiple towers that merge into one
+  - Skeletal towers
+  - Twisted towers
+
+  foundations:
+  - Square foundations
+  - Hexagonal foundations
+  - Circular foundations
+  - Raised foundations
+  - Pillared foundations
+  - Sloped foundations
+  - Entrenched foundations
+  - Elongated rectangular foundations
+  - Triangular foundations
+  - Oval foundations
+
+  wall_decorations:
+  - Bas-relief on walls
+  - Painting on walls
+  - Mosaics on walls or floors
+  - Statues inset in wall niches
+  - Tiling on surfaces
+  - Carvings on walls
+  - Moldings on walls
+  - Paneling on walls
+  - Geometric designs on surfaces
+  - Featureless surfaces
+
+  pillars:
+  - Flying buttresses
+  - Smooth pillars
+  - Adorned pillars
+  - Raised embankments
+  - Pier buttresses
+  - Scroll buttresses
+  - False, decorative buttresses
+  - Pyramidal support piers
+  - Squared support piers
+  - Seeming lack of supports or buttresses
+
+  arches:
+  - Round arches
+  - Lancet arches
+  - Oriental arches
+  - Horseshoe arches
+  - Multifoil arches
+  - Monumental arches
+  - Keyhole arches
+  - Inflexed arches
+  - Flat arches
+  - Corbelled arches
+
+  misc:
+  - Canals and pools
+  - Balconies and overlooks
+  - Subterranean structures
+  - Absence or profusion of windows
+  - Walled or enclosed courtyards
+  - Open plazas
+  - Elevated walkways
+  - Monoliths or standing stones
+  - Meandering pathways
+  - Climbing vegetation

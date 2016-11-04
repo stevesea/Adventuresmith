@@ -131,45 +131,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
 
     val shuffler : Shuffler = instance()
 
-    val compiler = Mustache.compiler()
-            .escapeHTML(false)
-            .withFormatter(object : Mustache.Formatter {
-                // this method is called after jmustache locates {{key}} in the context.
-                // the context.key is passed to this method, and are given opportunity to
-                // do something special w/ the value
-                override fun format(value: Any?): String {
-                    if (value is RangeMap) {
-                        return shuffler.pick(value)
-                    } else if (value is Dice) {
-                        return value.roll().toString()
-                    } else if (value is Map<*, *>) {
-                        val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
-                        return "${p.first} - ${p.second}"
-                    }
-                    return value.toString()
-                }
-            })
-            .withLoader(object : Mustache.TemplateLoader {
-                // this method is called to evaluate Partials {{>subtmpl}}
-
-                // in mustache, this typically means loading a different file.
-
-                // TODO: use this, not the stdDice map. just do it this way, and force people
-                //      to do {{> dice: 1d24}}
-                //      that way, can have non-'dice' keywords. example:
-                //            {{> pickN: forms, 3}}
-                // TODO: is this abusing partials? (to use them to run a 'special' function?
-                //
-                // TODO: how complicated do want language to get?
-                //    http://sargunvohra.me/cakeparse/
-                //    https://github.com/jparsec/jparsec/wiki/Overview
-                override fun getTemplate(name: String?): Reader {
-                    if (name == null)
-                        return StringReader("null")
-                    // assume all partials (e.g. {{>name}} is diceStr
-                    return StringReader(shuffler.dice(name).roll().toString())
-                }
-            })
 
     fun process(dtos: List<DataDrivenGenDto>) : String {
         val context = mergeDtos(dtos)
@@ -216,6 +177,55 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
 
     fun processTemplate(context: Map<String, Any>) : String {
 
+        val compiler = Mustache.compiler()
+                .escapeHTML(false)
+                .withFormatter(object : Mustache.Formatter {
+                    // this method is called after jmustache locates {{key}} in the context.
+                    // the context.key is passed to this method, and are given opportunity to
+                    // do something special w/ the value
+                    override fun format(value: Any?): String {
+                        if (value is RangeMap) {
+                            return shuffler.pick(value)
+                        } else if (value is Dice) {
+                            return value.roll().toString()
+                        } else if (value is Map<*, *>) {
+                            val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
+                            return "${p.first} - ${p.second}"
+                        }
+                        return value.toString()
+                    }
+                })
+                .withLoader(object : Mustache.TemplateLoader {
+                    // this method is called to evaluate Partials {{>subtmpl}}
+
+                    // in mustache, this typically means loading a different file.
+
+                    // TODO: use this, not the stdDice map. just do it this way, and force people
+                    //      to do {{> dice: 1d24}}
+                    //      that way, can have non-'dice' keywords. example:
+                    //            {{> pickN: forms, 3}}
+                    // TODO: is this abusing partials? (to use them to run a 'special' function?
+                    //
+                    // TODO: how complicated do want language to get? need parsing?
+                    //    http://sargunvohra.me/cakeparse/
+                    //    https://github.com/jparsec/jparsec/wiki/Overview
+                    override fun getTemplate(name: String?): Reader {
+                        if (name == null)
+                            return StringReader("null")
+                        val words = name.trim().split(" ")
+                        if (words[0] == "pick:") {
+                            val n = shuffler.dice(words[1]).roll()
+                            val ctxtKey = words[2]
+                            val results = shuffler.pickN(context.get(ctxtKey), n)
+                            return StringReader(results.joinToString(", "))
+                        } else if (words[0] == "dice:") {
+                            return StringReader(shuffler.dice(words[1]).roll().toString())
+                        } else {
+                            return StringReader("unknown instruction: '${name}'")
+                        }
+
+                    }
+                })
 
         var template = context["template"].toString()
 

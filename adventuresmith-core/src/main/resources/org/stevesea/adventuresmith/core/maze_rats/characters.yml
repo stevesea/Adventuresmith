@@ -20,7 +20,7 @@
 templates:
 - |
   Name: {{forename}} {{surname}}
-  STR: {{3d6}} DEX: {{3d6}} WIL: {{3d6}}  HP: {{>1d6}}
+  STR: {{3d6}} DEX: {{3d6}} WIL: {{3d6}}  HP: {{> dice: 1d6}}
   Appearance: {{appearance}}, {{appearance}}
   Personality: {{personality}}, {{personality}}
   Weapons: {{weapon}}, {{weapon}}
@@ -35,11 +35,7 @@ include_tables:
 #   example:  {{3d6}}
 #
 # alternatively, you can use a partial
-#   example:  {{>1d6}}
-#
-#   TODO: partial syntax will probably change to something like:
-#       {{> dice: 1d6}}
-#       {{> pick 3 appearance ,}}
+#   example:  {{> dice: 1d6}}
 dice:
 - 3d6
 

@@ -42,6 +42,15 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
         val selN = pickN(itemsInds, num)
         return selN.map { rmap.select(it)}
     }
+    fun pickN(thing: Any?, num: Int) : List<String> {
+        if (thing is RangeMap) {
+            return pickN(thing, num)
+        } else if (thing is Collection<*>) {
+            return pickN(thing, num) as List<String>
+        } else {
+            return listOf("pickN failure!")
+        }
+    }
 
     fun <T> pick(dice: Dice, items: Collection<T>?): T {
         // use mod to ensure our index is within the acceptable range for the collection
