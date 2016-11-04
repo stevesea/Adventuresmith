@@ -2,9 +2,14 @@ templates:
 - |
   table1: {{table1}}
   table2: {{table2}}
-  sibling_table: {{sibling_table}}
-  nested_table: {{subtable1}}
-  nested_table: {{subtable1.subtableA}}
+
+  table3: {{table3}}   # recursive reference, tab3's string is a key to point at tab2
+
+  sibling_table: {{sibling_table}}      # direct dependency
+  sibling_table2: {{sibling_table2}}    # transitive dependency
+
+  nested_table: {{subtable1}}           # selecting a key that's a Map<String,RangeMap> results in pair selection
+  nested_table: {{subtable1.subtableA}} # selecting nested table works just like selecting a any RangeMap
 
   {{#a_list}}{{^-first}}, {{/-first}}{{this}}{{/a_list}}
   {{#a_list}}{{.}}{{/a_list}}
@@ -41,6 +46,9 @@ tables:
   - t2_valA
   - t2_valB
   - t2_valC
+
+  table3:
+  - "{{table2}}"
 
 nested_tables:
   subtable1:

@@ -68,7 +68,7 @@ open class BaseGeneratorWithView<TModel, TView>(
 }
 
 // TODO: seems like we should read data about generators too
-//    bind to same resource_prefix and generator, but make it not part of generator
+//    bind to same resource_prefix and generator, but make it not part of generator itself?
 data class DataDrivenGenMetaDto(val name: String,
                                 val tags: List<String>?,
                                 val desc: String)
@@ -96,22 +96,19 @@ class DataDrivenGenerator(
         override val kodein: Kodein) : Generator, KodeinAware {
     companion object : KLogging()
 
-    val mustacheHelper : MustacheHelper = instance()
+    val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun generate(locale: Locale): String {
         //try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
-            val template = shuffler.pick(dto.templates)
-            val dtosForContext = findIncludedResources(dto, locale)
 
-            return mustacheHelper.processTemplate(template,
-                    mustacheHelper.createContext(dtosForContext))
+            return templateProcessor.process(gatherDtoResources(dto, locale))
         //} catch (ex: Exception) {
         //    return "error running generator ${resource_prefix}: ${ex.toString()}"
         //}
     }
-    fun findIncludedResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
+    fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
         val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
 
         dto.include_tables?.let {
@@ -122,19 +119,61 @@ class DataDrivenGenerator(
                     sibling
                 val d = loaderFactory.invoke(sibling_resource).load(locale)
                 results.add(d)
-                results.addAll(findIncludedResources(d, locale))
+                results.addAll(gatherDtoResources(d, locale))
             }
         }
         return results
     }
 }
 
-class MustacheHelper(override val kodein: Kodein) : KodeinAware {
+class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware {
     companion object : KLogging()
 
     val shuffler : Shuffler = instance()
 
-    fun createContext(dtos: List<DataDrivenGenDto>) : Map<String, Any> {
+    val compiler = Mustache.compiler()
+            .escapeHTML(false)
+            .withFormatter(object : Mustache.Formatter {
+                // this method is called after jmustache locates {{key}} in the context.
+                // the context.key is passed to this method, and are given opportunity to
+                // do something special w/ the value
+                override fun format(value: Any?): String {
+                    if (value is RangeMap) {
+                        return shuffler.pick(value)
+                    } else if (value is Dice) {
+                        return value.roll().toString()
+                    } else if (value is Map<*, *>) {
+                        val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
+                        return "${p.first} - ${p.second}"
+                    }
+                    return value.toString()
+                }
+            })
+            .withLoader(object : Mustache.TemplateLoader {
+                // this method is called to evaluate Partials {{>subtmpl}}
+
+                // in mustache, this typically means loading a different file.
+
+                // TODO: use this, not the stdDice map. just do it this way, and force people
+                //      to do {{> dice: 1d24}}
+                //      that way, can have non-'dice' keywords. example:
+                //            {{> pickN: forms, 3}}
+                // TODO: is this abusing partials? (to use them to run a 'special' function?
+                override fun getTemplate(name: String?): Reader {
+                    if (name == null)
+                        return StringReader("null")
+                    // assume all partials (e.g. {{>name}} is diceStr
+                    return StringReader(shuffler.dice(name).roll().toString())
+                }
+            })
+
+    fun process(dtos: List<DataDrivenGenDto>) : String {
+        val context = mergeDtos(dtos)
+        return processTemplate(context)
+    }
+
+    fun mergeDtos(dtos: List<DataDrivenGenDto>) : Map<String, Any> {
+        // process the DTOs in reverse order, merging them together
         val result : MutableMap<String,Any> = mutableMapOf()
         for (d in dtos.reversed()) {
             d.tables?.let {
@@ -152,42 +191,34 @@ class MustacheHelper(override val kodein: Kodein) : KodeinAware {
                 result.putAll(d.definitions)
             }
         }
+        // templates are only read from the first DTO
+        result.put("template", shuffler.pick(dtos[0].templates))
+
         // TODO: apply lambdas to context
+
         return result
     }
 
-    fun processTemplate(template: String, context: Map<String, Any>) : String {
-        return Mustache.compiler()
-                .escapeHTML(false)
-                .withFormatter(object : Mustache.Formatter {
-                    override fun format(value: Any?): String {
-                        if (value is RangeMap) {
-                            return shuffler.pick(value)
-                        } else if (value is Dice) {
-                            return value.roll().toString()
-                        } else if (value is Map<*, *>) {
-                            val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
-                            return "${p.first} - ${p.second}"
-                        }
-                        return value.toString()
-                    }
-                })
-                .withLoader(object: Mustache.TemplateLoader {
-                    // TODO: use this, not the stdDice map. just do it this way, and force people
-                    //      to do {{> dice: 1d24}}
-                    //      that way, can have non-'dice' keywords. example:
-                    //            {{> pickN: forms, 3}}
-                    // TODO: is this abusing partials? (to use them to run a 'special' function?
-                    override fun getTemplate(name: String?): Reader {
-                        if (name == null)
-                            return StringReader("null")
-                        // assume all partials (e.g. {{>name}} is diceStr
-                        return StringReader(shuffler.dice(name).roll().toString())
-                    }
-                })
-                .compile(template)
-                .execute(context)
-                .trim()
+    fun processTemplate(context: Map<String, Any>) : String {
+        var template = context["template"].toString()
+
+        var count = 0;
+        do {
+            val result =  compiler
+                    .compile(template)
+                    .execute(context)
+                    .trim()
+            if (!result.contains("{{"))
+                return result
+
+            // don't let a template force us into infinite loop
+            if (count > 4)
+                return result
+
+            // do another iteration to re-process the result
+            template = result
+            count++
+        } while (true)
     }
 }
 

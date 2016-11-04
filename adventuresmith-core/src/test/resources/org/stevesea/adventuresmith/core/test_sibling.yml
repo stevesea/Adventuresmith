@@ -1,3 +1,8 @@
+---
+
+include_tables:
+- test_sibling2
+
 tables:
   sibling_table:
   - ts_val1

@@ -1,0 +1,6 @@
+---
+tables:
+  sibling_table2:
+  - ts2_val1
+  - ts2_val2
+  - ts2_val3

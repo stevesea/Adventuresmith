@@ -74,7 +74,7 @@ class GeneratorTest {
     }
 
     @Test
-    fun verifyGeneratoryBasics() {
+    fun verifyGeneratorBasics() {
         val testKey = "test_resource"
         val base = getKodein(getMockRandom())
         val testKodein = Kodein {
@@ -90,9 +90,14 @@ class GeneratorTest {
         Assert.assertEquals("""
         table1: t1_valB
         table2: t2_valB
-        sibling_table: ts_val2
-        nested_table: subtableB - subtB_val2
-        nested_table: subtA_val2
+
+        table3: t2_valB   # recursive reference, tab3's string is a key to point at tab2
+
+        sibling_table: ts_val2      # direct dependency
+        sibling_table2: ts2_val2    # transitive dependency
+
+        nested_table: subtableB - subtB_val2           # selecting a key that's a Map<String,RangeMap> results in pair selection
+        nested_table: subtA_val2 # selecting nested table works just like selecting a any RangeMap
 
         asdfasdf, asdfasf2, asfdasdf3
         asdfasdfasdfasf2asfdasdf3
