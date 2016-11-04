@@ -31,16 +31,16 @@ tables:
   - "Syncretism; The faith has merged many of its beliefs with another religion [{{origin}}].
     This faith has reconciled the major elements of both beliefs into its tradition."
 
-  leadership2:
-  - "1..2, - Each region governs itself via Patriarch/Matriarch"
-  - "3..4, - Each region governs itself via Council"
-  - "- Each region governs itself via Democracy"
-  - "- No regional hierarchy"
+  leadership_regional:
+  - "1..2, each region governs itself via Patriarch/Matriarch"
+  - "3..4, each region governs itself via Council"
+  - "each region governs itself via Democracy"
+  - "no regional hierarchy"
   leadership:
   - "1..2, Patriarch/Matriarch; a single leader determines doctrine for the entire religion, possibly in consultation wiht other clerics."
   - "3..4, Council; a group of the oldest and most revered clergy determine the course of the faith."
   - "5, Democracy; every member has an equal voice in matters of faith, with doctrine usually decided at regular church-wide councils."
-  - "6, No universal leadership {{leadership2}}"
+  - "6, No universal leadership; {{leadership_regional}}"
 
   origin:
   - Paganism

@@ -41,7 +41,7 @@ class SwnTest {
         <h5>Evolution</h5>
         Schism; the faith's beliefs are actually almost identical to those of the majority of its origin tradition, save for a few minor points of vital interest to theologians and no practical difference whatsoever to believers. This does not prevent a burning resentment towards the parent faith.
         <h5>Leadership</h5>
-        No universal leadership - No regional hierarchy
+        No universal leadership; no regional hierarchy
         """.trimIndent().trim(), getGenerator(SwnConstants.RELIGION, 5).generate())
         // picked 5 for Random because that'll exercise one of the options that'll send us
         // through another pass of the template processor
