@@ -63,4 +63,8 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
         val k = pick(m!!.keys)
         return Pair(k, pick(m.getOrElse(k) {listOf("not found")}))
     }
+    fun pickPairFromMapofRangeMaps(m: Map<String,RangeMap>?) : Pair<String, String> {
+        val k = pick(m!!.keys)
+        return Pair(k, pick(m[k]))
+    }
 }

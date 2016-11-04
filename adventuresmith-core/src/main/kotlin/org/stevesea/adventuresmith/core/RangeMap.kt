@@ -162,4 +162,9 @@ class RangeMap(
     fun keyRange() : IntRange {
         return IntRange(delegate.firstKey(), maxKey)
     }
+
+    override fun toString(): String {
+        return delegate.toString()
+    }
+
 }

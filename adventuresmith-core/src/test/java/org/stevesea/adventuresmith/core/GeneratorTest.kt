@@ -23,6 +23,7 @@ package org.stevesea.adventuresmith.core
 import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
 import org.junit.*
+import java.util.*
 
 class GeneratorTest {
     val input = """
@@ -64,6 +65,28 @@ class GeneratorTest {
         Assert.assertEquals(3, dto.tables.size)
         Assert.assertEquals(4, dto.templates!!.size)
         Assert.assertEquals(listOf("effect1", "effect2"),dto.tables.get("effect")!!.values.toList())
+    }
 
+    @Test
+    fun experimental() {
+        val testKey = "test_resource"
+        val base = getKodein(getMockRandom())
+        val testKodein = Kodein {
+            extend(base)
+
+            bind<Generator>(testKey) with provider {
+                DataDrivenGenerator(testKey, base)
+            }
+        }
+
+        val g : Generator = testKodein.instance(testKey)
+
+        Assert.assertEquals("""
+        table1: t1_valB
+        table2: t2_valB
+        sibling_table: ts_val2
+        nested_table: subtableB - subtB_val2
+        nested_table: subtA_val2
+        """.trimIndent().trim(), g.generate(Locale.US))
     }
 }

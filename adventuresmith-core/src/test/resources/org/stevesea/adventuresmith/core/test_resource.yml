@@ -1,0 +1,46 @@
+templates:
+- >
+  table1: {{table1}}
+
+  table2: {{table2}}
+
+  sibling_table: {{sibling_table}}
+
+  nested_table: {{subtable1}}
+
+  nested_table: {{subtable1.subtableA}}
+
+include_tables:
+- test_sibling
+
+tables:
+  table1:
+  - t1_valA
+  - t1_valB
+  - t1_valC
+
+  table2:
+  - t2_valA
+  - t2_valB
+  - t2_valC
+
+nested_tables:
+  subtable1:
+    subtableA:
+    - subtA_val1
+    - subtA_val2
+    - subtA_val3
+    subtableB:
+    - subtB_val1
+    - subtB_val2
+    - subtB_val3
+  subtable2:
+    subtableC:
+    - subtC_val1
+    - subtC_val2
+    - subtC_val3
+    subtableD:
+    - subtD_val1
+    - subtD_val2
+    - subtD_val3
+

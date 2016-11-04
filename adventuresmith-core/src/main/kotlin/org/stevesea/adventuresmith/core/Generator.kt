@@ -75,7 +75,8 @@ data class DataDrivenGenMetaDto(val name: String,
 data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>,
                             val include_tables: List<String>?,
-                            val dice: List<String>?)
+                            val dice: List<String>?,
+                            val nested_tables : Map<String, Map<String, RangeMap>>?)
 
 class DataDrivenGenDtoLoader(val resource_prefix: String, override val kodein: Kodein)
 : DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
@@ -102,20 +103,29 @@ class DataDrivenGenerator(
 
             return processTemplate(template, generatedModel, locale)
         } catch (ex: Exception) {
-            return "error running generator ${resource_prefix}: ${ex.message}"
+            return "error running generator ${resource_prefix}: ${ex.toString()}"
         }
     }
     fun createContext(dto: DataDrivenGenDto, locale: Locale) : Map<String, Any> {
         val result : MutableMap<String,Any> = mutableMapOf()
         dto.include_tables?.let {
             for (sibling in dto.include_tables.reversed()) {
-                val sibling_resource = resource_prefix.replaceAfterLast("/", sibling)
+                val sibling_resource = if (resource_prefix.contains("/"))
+                    resource_prefix.replaceAfterLast("/", sibling)
+                else
+                    sibling
 
                 val sibling_dto = loaderFactory.invoke(sibling_resource).load(locale)
                 result.putAll(sibling_dto.tables)
+                sibling_dto.nested_tables?.let {
+                    result.putAll(sibling_dto.nested_tables)
+                }
             }
         }
         result.putAll(dto.tables)
+        dto.nested_tables?.let {
+            result.putAll(dto.nested_tables)
+        }
         dto.dice?.let {
             for (dstr in dto.dice) {
                 result.put(dstr, shuffler.dice(dstr))
@@ -133,10 +143,14 @@ class DataDrivenGenerator(
                 .escapeHTML(false)
                 .withFormatter(object : Mustache.Formatter {
                     override fun format(value: Any?): String {
-                        if (value is RangeMap)
+                        if (value is RangeMap) {
                             return shuffler.pick(value)
-                        if (value is Dice)
+                        } else if (value is Dice) {
                             return nf.format(value.roll())
+                        } else if (value is Map<*, *>) {
+                            val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
+                            return "${p.first} - ${p.second}"
+                        }
                         return value.toString()
                     }
                 })
