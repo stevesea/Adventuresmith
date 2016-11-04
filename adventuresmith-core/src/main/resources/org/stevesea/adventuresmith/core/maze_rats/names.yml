@@ -1,6 +1,4 @@
 ---
-templates:
-- "{{forename}}{{surname}}"
 tables:
   forename:
   - Adelaide

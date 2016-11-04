@@ -1,6 +1,4 @@
 ---
-templates:
-- "{{wizname_part1}}{{maybe_apostrophe}}{{wizname_part2}}"
 tables:
   wizname_part1:
   - AAb
