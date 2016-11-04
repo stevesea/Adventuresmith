@@ -73,7 +73,7 @@ data class DataDrivenGenMetaDto(val name: String,
                                 val tags: List<String>?,
                                 val desc: String)
 data class DataDrivenGenDto(val templates: RangeMap?,
-                            val tables: Map<String, RangeMap>,
+                            val tables: Map<String, RangeMap>?,
                             val include_tables: List<String>?,
                             val dice: List<String>?,
                             val nested_tables : Map<String, Map<String, RangeMap>>?)
@@ -116,13 +116,22 @@ class DataDrivenGenerator(
                     sibling
 
                 val sibling_dto = loaderFactory.invoke(sibling_resource).load(locale)
-                result.putAll(sibling_dto.tables)
+                sibling_dto.tables?.let {
+                    result.putAll(sibling_dto.tables)
+                }
                 sibling_dto.nested_tables?.let {
                     result.putAll(sibling_dto.nested_tables)
                 }
+                sibling_dto.dice?.let {
+                    for (dstr in sibling_dto.dice) {
+                        result.put(dstr, shuffler.dice(dstr))
+                    }
+                }
             }
         }
-        result.putAll(dto.tables)
+        dto.tables?.let {
+            result.putAll(dto.tables)
+        }
         dto.nested_tables?.let {
             result.putAll(dto.nested_tables)
         }

@@ -26,28 +26,14 @@ import java.util.*
 
 val mrModule = Kodein.Module {
 
-    listOf(
-            MrConstants.MONSTER,
-            MrConstants.ITEM,
-            MrConstants.CHAR,
-            MrConstants.MAGIC,
-            MrConstants.POTION_EFFECTS,
-            MrConstants.AFFLICTIONS
-    ).forEach {
+    MrConstants.generators.forEach {
         bind<Generator>(it) with provider {
             DataDrivenGenerator(it, kodein)
         }
     }
 
     bind<List<String>>(MrConstants.GROUP) with singleton {
-        listOf(
-                MrConstants.AFFLICTIONS,
-                MrConstants.CHAR,
-                MrConstants.ITEM,
-                MrConstants.MAGIC,
-                MrConstants.MONSTER,
-                MrConstants.POTION_EFFECTS
-        )
+        MrConstants.generators
     }
 }
 
@@ -60,4 +46,13 @@ object MrConstants {
     val MAGIC = "${GROUP}/magic"
     val MONSTER = "${GROUP}/monsters"
     val CHAR = "${GROUP}/characters"
+
+    val generators = listOf(
+            MONSTER,
+            ITEM,
+            CHAR,
+            MAGIC,
+            POTION_EFFECTS,
+            AFFLICTIONS
+    )
 }

@@ -29,149 +29,41 @@ class FpGeneratorTest {
     @Test
     fun testFpArtifact() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <h4>
-      Artifact
-    </h4>
-    <h5>
-      Origin
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Magic
-        </small>
-      </strong>
-      - It's powered by a trapped soul.
-    </p>
-    <h5>
-      Power
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Curse
-        </small>
-      </strong>
-      - You've been polymorphed.
-    </p>
-  </body>
-</html>
+<h4>Artifact</h4>
+<h5>Origin</h5>
+Magic - It's powered by a trapped soul.
+<h5>Power</h5>
+Curse - You've been polymorphed.
 """.trim(), getGenerator(FpConstants.ARTIFACT, 1).generate(Locale.ENGLISH))
     }
 
     @Test
     fun testFpDungeon() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <h4>
-      Dungeon
-    </h4>
-    <h5>
-      History
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Downfall
-        </small>
-      </strong>
-      - The war left the land in ruins.
-    </p>
-    <h5>
-      Denizen
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Creature
-        </small>
-      </strong>
-      - A dragon has made this its lair.
-    </p>
-    <h5>
-      Trial
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Hazard
-        </small>
-      </strong>
-      - The air is filled with poison spores.
-    </p>
-    <h5>
-      Secret
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Lore
-        </small>
-      </strong>
-      - There's something strange about this map.
-    </p>
-  </body>
-</html>
+<h4>Dungeon</h4>
+<h5>History</h5>
+Downfall - The war left the land in ruins.
+<h5>Denizen</h5>
+Creature - A dragon has made this its lair.
+<h5>Trial</h5>
+Hazard - The air is filled with poison spores.
+<h5>Secret</h5>
+Lore - There's something strange about this map.
 """.trim(), getGenerator(FpConstants.DUNGEON, 1).generate(Locale.ENGLISH))
     }
 
     @Test
     fun testFpCity() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <h4>
-      City
-    </h4>
-    <h5>
-      Feature
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Resource
-        </small>
-      </strong>
-      - There's good hunting here.
-    </p>
-    <h5>
-      Population
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Caste
-        </small>
-      </strong>
-      - You never know what the mages are up to.
-    </p>
-    <h5>
-      Society
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Guild
-        </small>
-      </strong>
-      - There's no honour amongst these thieves.
-    </p>
-    <h5>
-      Trouble
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Threat
-        </small>
-      </strong>
-      - The sick have been quarantined.
-    </p>
-  </body>
-</html>
+<h4>City</h4>
+<h5>Feature</h5>
+Resource - There's good hunting here.
+<h5>Population</h5>
+Caste - You never know what the mages are up to.
+<h5>Society</h5>
+Guild - There's no honour amongst these thieves.
+<h5>Trouble</h5>
+Threat - The sick have been quarantined.
 """.trim(),  getGenerator(FpConstants.CITY, 1).generate(Locale.ENGLISH))
 
     }
@@ -179,35 +71,11 @@ class FpGeneratorTest {
     @Test
     fun testFpMonster() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <h4>
-      Monster
-    </h4>
-    <h5>
-      Nature
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Construct
-        </small>
-      </strong>
-      - They repair their own injuries.
-    </p>
-    <h5>
-      Role
-    </h5>
-    <p>
-      <strong>
-        <small>
-          Brute
-        </small>
-      </strong>
-      - It gets in your way.
-    </p>
-  </body>
-</html>
+<h4>Monster</h4>
+<h5>Nature</h5>
+Construct - They repair their own injuries.
+<h5>Role</h5>
+Brute - It gets in your way.
 """.trim(),  getGenerator(FpConstants.MONSTER, 1).generate(Locale.ENGLISH))
 
     }

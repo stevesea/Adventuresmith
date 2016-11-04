@@ -62,9 +62,9 @@ class GeneratorTest {
 
         val dto : DataDrivenGenDto = reader.forType(DataDrivenGenDto::class.java).readValue(input)
 
-        Assert.assertEquals(3, dto.tables.size)
+        Assert.assertEquals(3, dto.tables!!.size)
         Assert.assertEquals(4, dto.templates!!.size)
-        Assert.assertEquals(listOf("effect1", "effect2"),dto.tables.get("effect")!!.values.toList())
+        Assert.assertEquals(listOf("effect1", "effect2"),dto.tables!!.get("effect")!!.values.toList())
     }
 
     @Test

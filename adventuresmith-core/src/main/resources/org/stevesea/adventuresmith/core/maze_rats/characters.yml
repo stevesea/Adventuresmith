@@ -18,17 +18,12 @@
 #   Tables are _not_ merged.
 #
 templates:
-- >
+- |
   Name: {{forename}} {{surname}}
-
   STR: {{3d6}} DEX: {{3d6}} WIL: {{3d6}}  HP: {{>1d6}}
-
   Appearance: {{appearance}}, {{appearance}}
-
   Personality: {{personality}}, {{personality}}
-
   Weapons: {{weapon}}, {{weapon}}
-
   Equipment: {{equipment}}, {{equipment}}, {{equipment}}
 
 # a list of other input data files that should be loaded into the context.
