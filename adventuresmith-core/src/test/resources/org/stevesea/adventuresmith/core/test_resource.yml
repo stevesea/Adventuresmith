@@ -11,10 +11,19 @@ templates:
   nested_table: {{subtable1}}           # selecting a key that's a Map<String,RangeMap> results in pair selection
   nested_table: {{subtable1.subtableA}} # selecting nested table works just like selecting a any RangeMap
 
+  # we can also just have variables in 'definitions' map
   {{#a_list}}{{^-first}}, {{/-first}}{{this}}{{/a_list}}
-  {{#a_list}}{{.}}{{/a_list}}
 
   {{#a_list_of_objs}}{{val}}{{/a_list_of_objs}}
+
+  dice:
+  3d6: {{3d6}}
+  20d20+1: {{20d20+1}}
+  6d4: {{>6d4}}
+
+dice:
+- 3d6
+- 20d20+1
 
 definitions:
   a_list:

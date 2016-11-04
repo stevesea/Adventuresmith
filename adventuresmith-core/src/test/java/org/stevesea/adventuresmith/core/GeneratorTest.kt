@@ -76,7 +76,7 @@ class GeneratorTest {
     @Test
     fun verifyGeneratorBasics() {
         val testKey = "test_resource"
-        val base = getKodein(getMockRandom())
+        val base = getKodein(getMockRandom(0))
         val testKodein = Kodein {
             extend(base)
 
@@ -88,21 +88,26 @@ class GeneratorTest {
         val g : Generator = testKodein.instance(testKey)
 
         Assert.assertEquals("""
-        table1: t1_valB
-        table2: t2_valB
+        table1: t1_valA
+        table2: t2_valA
 
-        table3: t2_valB   # recursive reference, tab3's string is a key to point at tab2
+        table3: t2_valA   # recursive reference, tab3's string is a key to point at tab2
 
-        sibling_table: ts_val2      # direct dependency
-        sibling_table2: ts2_val2    # transitive dependency (brought in by sibling_table)
+        sibling_table: ts_val1      # direct dependency
+        sibling_table2: ts2_val1    # transitive dependency (brought in by sibling_table)
 
-        nested_table: subtableB - subtB_val2           # selecting a key that's a Map<String,RangeMap> results in pair selection
-        nested_table: subtA_val2 # selecting nested table works just like selecting a any RangeMap
+        nested_table: subtableA - subtA_val1           # selecting a key that's a Map<String,RangeMap> results in pair selection
+        nested_table: subtA_val1 # selecting nested table works just like selecting a any RangeMap
 
+        # we can also just have variables in 'definitions' map
         asdfasdf, asdfasf2, asfdasdf3
-        asdfasdfasdfasf2asfdasdf3
 
         objval1objval2objval3
+
+        dice:
+        3d6: 3
+        20d20+1: 21
+        6d4: 6
         """.trimIndent().trim(), g.generate(Locale.US))
     }
 }
