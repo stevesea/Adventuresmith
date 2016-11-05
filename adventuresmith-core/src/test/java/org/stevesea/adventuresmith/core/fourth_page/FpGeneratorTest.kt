@@ -31,7 +31,7 @@ class FpGeneratorTest {
         Assert.assertEquals("""
 <h4>Artifact</h4>
 <h5>Origin</h5>
-Magic - It's powered by a trapped soul.
+Masterwork - Elven weavers put years into its making.
 <h5>Power</h5>
 Curse - You've been polymorphed.
 """.trim(), getGenerator(FpConstants.ARTIFACT, 1).generate(Locale.ENGLISH))

@@ -7,8 +7,26 @@ templates:
   <h5>Power</h5>
   {{power}}
 
-nested_tables:
+tables:
   origin:
+  - "Holy - {{nested_origin.Holy}}"
+  - "Masterwork - {{nested_origin.Masterwork}}"
+  - "Magic - {{nested_origin.Magic}}"
+  - "Natural - {{nested_origin.Natural}}"
+  - "Otherworldly - {{nested_origin.Otherworldly}}"
+  - "Technological - {{nested_origin.Technological}}"
+  power:
+  - "Blessing - {{nested_power.Blessing}}"
+  - "Curse - {{nested_power.Curse}}"
+  - "Enhancement - {{nested_power.Enhancement}}"
+  - "Force - {{nested_power.Force}}"
+  - "Protection - {{nested_power.Protection}}"
+  - "Utility - {{nested_power.Utility}}"
+
+
+
+nested_tables:
+  nested_origin:
     Holy:
     - It's been lost for centuries.
     - It once belonged to a dark god.
@@ -51,7 +69,7 @@ nested_tables:
     - It's a one-of-a-kind prototype.
     - It leaks acid all over you.
     - It needs reloading after every use.
-  power:
+  nested_power:
     Blessing:
     - You see visions of the future.
     - You move unseen.

@@ -11,8 +11,26 @@ templates:
   <h5>Trouble</h5>
   {{trouble}}
 
-nested_tables:
+tables:
   feature:
+  - "District - {{nested_feature.District}}"
+  - "Resource - {{nested_feature.Resource}}"
+  - "Terrain - {{nested_feature.Terrain}}"
+  population:
+  - "Attitude - {{nested_population.Attitude}}"
+  - "Caste - {{nested_population.Caste}}"
+  - "Race - {{nested_population.Race}}"
+  society:
+  - "Faith - {{nested_society.Faith}}"
+  - "Guild - {{nested_society.Guild}}"
+  - "Ruler - {{nested_society.Ruler}}"
+  trouble:
+  - "Rumour - {{nested_trouble.Rumour}}"
+  - "Threat - {{nested_trouble.Threat}}"
+  - "Unrest - {{nested_trouble.Unrest}}"
+
+nested_tables:
+  nested_feature:
     District :
     - The garrison is a well-oiled machine.
     - The docks are bustling at all hours.
@@ -36,7 +54,7 @@ nested_tables:
     - There are more canals than roads.
     - It's a long walk up the smokey mountain.
 
-  population:
+  nested_population:
     Attitude :
     - They want you gone as soon as possible.
     - They've learned to fear adventurers.
@@ -59,7 +77,7 @@ nested_tables:
     - The golems outnumber the people.
     - Uh oh. Gnomes.
 
-  society:
+  nested_society:
     Faith :
     - Your heathen ways will not be tolerated.
     - There's a different temple on every corner.
@@ -82,7 +100,7 @@ nested_tables:
     - The mad wizard needs more test subjects.
     - No one's quite sure who's in charge.
 
-  trouble:
+  nested_trouble:
     Rumour :
     - "There's treasure in those caves!"
     - "The sewer's crawling with rat-men!"

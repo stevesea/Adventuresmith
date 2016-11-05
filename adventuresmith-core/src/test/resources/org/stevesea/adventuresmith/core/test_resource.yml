@@ -8,8 +8,13 @@ templates:
   sibling_table: {{sibling_table}}      # direct dependency
   sibling_table2: {{sibling_table2}}    # transitive dependency (brought in by sibling_table)
 
-  nested_table: {{subtable1}}           # selecting a key that's a Map<String,RangeMap> results in pair selection
   nested_table: {{subtable1.subtableA}} # selecting nested table works just like selecting a any RangeMap
+
+  # to randomly select a particular nested table, you might do something like the following
+  # the template is processed repeatedly until all {{'s are gone.
+  # (only up to five times). first pass through the processor, the table below will be
+  # selected, second pass it'll select items from the nested tables.
+  random pick of nested: {{nested_table_picker}}
 
   # we can also just have variables in 'definitions' map
   {{#a_list}}{{^-first}}, {{/-first}}{{this}}{{/a_list}}
@@ -55,6 +60,12 @@ tables:
   - t2_valA
   - t2_valB
   - t2_valC
+
+  nested_table_picker:
+  - "subtableA - {{subtable1.subtableA}}"
+  - "subtableB - {{subtable1.subtableB}}"
+  - "subtableC - {{subtable2.subtableC}}"
+  - "subtableD - {{subtable2.subtableD}}"
 
   table3:
   - "{{table2}}"

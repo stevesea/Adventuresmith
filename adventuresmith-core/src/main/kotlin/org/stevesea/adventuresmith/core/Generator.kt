@@ -188,9 +188,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             return shuffler.pick(value)
                         } else if (value is Dice) {
                             return value.roll().toString()
-                        } else if (value is Map<*, *>) {
-                            val p = shuffler.pickPairFromMapofRangeMaps(value as Map<String, RangeMap>?)
-                            return "${p.first} - ${p.second}"
                         }
                         return value.toString()
                     }

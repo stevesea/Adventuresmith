@@ -11,8 +11,26 @@ templates:
   <h5>Secret</h5>
   {{secret}}
 
-nested_tables:
+tables:
   history:
+  - "Builder - {{nested_history.Builder}}"
+  - "Downfall - {{nested_history.Downfall}}"
+  - "Purpose - {{nested_history.Purpose}}"
+  denizen:
+  - "Community - {{nested_denizen.Community}}"
+  - "Creature - {{nested_denizen.Creature}}"
+  - "Hermit - {{nested_denizen.Hermit}}"
+  trial:
+  - "Dilemma - {{nested_trial.Dilemma}}"
+  - "Hazard - {{nested_trial.Hazard}}"
+  - "Trap - {{nested_trial.Trap}}"
+  secret:
+  - "Cache - {{nested_secret.Cache}}"
+  - "Lore - {{nested_secret.Lore}}"
+  - "Revelation - {{nested_secret.Revelation}}"
+
+nested_tables:
+  nested_history:
     Builder:
     - The walls show signs of dwarven craftsmanship.
     - They were far more advanced than you.
@@ -34,7 +52,7 @@ nested_tables:
     - They sought protection from the storms.
     - This was once a hero's tomb.
     - The hatchery was carefully guarded.
-  denizen:
+  nested_denizen:
     Community:
     - It's a perfect hideout for the outlaws.
     - The cult must perform their rituals.
@@ -57,7 +75,7 @@ nested_tables:
     - The oracle would like a word with you.
     - The necromancer's soul is bound here.
 
-  trial:
+  nested_trial:
     Dilemma:
     - She's just a child.
     - You can only save one.
@@ -79,7 +97,7 @@ nested_tables:
     - This gauntlet was designed by a mad man.
     - The way out is blocked by a cave in.
     - That statue just moved.
-  secret:
+  nested_secret:
     Cache:
     - The library is full of ancient texts.
     - There's more gold here than you can carry.

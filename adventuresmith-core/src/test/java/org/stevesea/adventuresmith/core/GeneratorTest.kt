@@ -96,8 +96,13 @@ class GeneratorTest {
         sibling_table: ts_val1      # direct dependency
         sibling_table2: ts2_val1    # transitive dependency (brought in by sibling_table)
 
-        nested_table: subtableA - subtA_val1           # selecting a key that's a Map<String,RangeMap> results in pair selection
         nested_table: subtA_val1 # selecting nested table works just like selecting a any RangeMap
+
+        # to randomly select a particular nested table, you might do something like the following
+        # the template is processed repeatedly until all {{'s are gone.
+        # (only up to five times). first pass through the processor, the table below will be
+        # selected, second pass it'll select items from the nested tables.
+        random pick of nested: subtableA - subtA_val1
 
         # we can also just have variables in 'definitions' map
         asdfasdf, asdfasf2, asfdasdf3

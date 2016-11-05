@@ -6,10 +6,25 @@ templates:
   {{nature}}
   <h5>Role</h5>
   {{role}}
+tables:
+  nature:
+  - "Animal and Plant - {{nested_nature.AnimalAndPlant}}"
+  - "Construct - {{nested_nature.Construct}}"
+  - "Elemental - {{nested_nature.Elemental}}"
+  - "Humanoid - {{nested_nature.Humanoid}}"
+  - "MythicalBeast - {{nested_nature.MythicalBeast}}"
+  - "Undead - {{nested_nature.Undead}}"
+  role:
+  - "Artillery - {{nested_role.Artillery}}"
+  - "Brute - {{nested_role.Brute}}"
+  - "Controller - {{nested_role.Controller}}"
+  - "Leader - {{nested_role.Leader}}"
+  - "Lurker - {{nested_role.Lurker}}"
+  - "Soldier - {{nested_role.Soldier}}"
 
 nested_tables:
-  nature:
-    'Animal and Plant':
+  nested_nature:
+    AnimalAndPlant:
     - Its barbs are filled with poison.
     - You're entangled in its web.
     - They travel in packs.
@@ -37,7 +52,7 @@ nested_tables:
     - You've offended them.
     - They wield strange devices.
     - They're a motley crew.
-    'Mythical Beast':
+    MythicalBeast:
     - Its breath is worse than its bite.
     - It's greater than the sum of its parts.
     - You've encroached on its lair.
@@ -51,7 +66,7 @@ nested_tables:
     - They just won't stay down.
     - They carry terrible disease.
     - They phase through solid objects.
-  role:
+  nested_role:
     Artillery:
     - They shoot at you from cover.
     - You're caught in the blast radius.
