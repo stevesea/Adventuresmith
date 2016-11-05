@@ -1,0 +1,73 @@
+---
+templates:
+- |
+  <h4>Alien</h4>
+  <h5>Body Type</h5>
+  {{body_types}}
+  <h5>Lenses</h5>
+  {{>pickN: 1d2+1 lenses <br/>}}
+  <h5>Social Structure</h5>
+  {{social_structures}}
+
+
+tables:
+  hybrid:
+  - "1..4, {{>pickN: 2 body_types_except_hybrid <br/>}}"
+  - "5..6, {{>pickN: 3 body_types_except_hybrid <br/>}}"
+
+  body_types_except_hybrid:
+  - Humanlike
+  - Avian
+  - Reptilian
+  - Insectile
+  - Exotic
+  body_types:
+  - Humanlike
+  - Avian
+  - Reptilian
+  - Insectile
+  - Exotic
+  - "{{hybrid}}"
+
+  lenses:
+  - Collectivity
+  - Curiosity
+  - Despair
+  - Domination
+  - Faith
+  - Fear
+  - Gluttony
+  - Greed
+  - Hate
+  - Honor
+  - Journeying
+  - Joy
+  - Pacifism
+  - Pride
+  - Sagacity
+  - Subtlety
+  - Tradition
+  - Treachery
+  - Tribalism
+  - Wrath
+
+  multipolar:
+  - "1..2, {{>pickN: 2 social_structures_except_multipolar <br/>}}"
+  - "3..4, {{>pickN: 3 social_structures_except_multipolar <br/>}}"
+  - "5..6, {{>pickN: 4 social_structures_except_multipolar <br/>}}"
+
+  social_structures_except_multipolar:
+  - 1,Democratic
+  - 2,Monarchic
+  - 3,Tribal
+  - 4,Oligarchic
+  social_structures:
+  - 1,Democratic
+  - 2,Monarchic
+  - 3,Tribal
+  - 4,Oligarchic
+  - "5..6, {{multipolar}}"
+   # Roll 1d6; on a 1-2 it has two, 3-4 indicates three, and 5-6 indicates
+   # four. Roll on this table the requisite number of times to determine
+   # the nature of these organizations.
+

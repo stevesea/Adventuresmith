@@ -4,8 +4,8 @@ templates:
 - |
   <h4>Architectural Elements</h4>
 
-  {{>pick: 1d4+1 keys <br/>}}
-  {{misc}}
+  {{>pickN: 1d4+1 keys <br/>}}
+  <br/>{{misc}}
 
 definitions:
   keys:

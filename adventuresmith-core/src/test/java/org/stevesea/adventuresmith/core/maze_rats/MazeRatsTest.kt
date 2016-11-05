@@ -70,6 +70,6 @@ class MazeRatsTest {
         Personality: Arrogant, Arrogant
         Weapons: Ancient Spear (d6), Ancient Spear (d6)
         Equipment: Acid, Acid, Acid
-        """.trimIndent().trim(), getGenerator(MrConstants.CHAR, 0).generate())
+        """.trimIndent(), getGenerator(MrConstants.CHAR, 0).generate())
     }
 }

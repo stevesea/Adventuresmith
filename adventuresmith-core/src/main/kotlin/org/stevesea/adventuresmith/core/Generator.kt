@@ -210,7 +210,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                         if (name == null)
                             return StringReader("null")
                         val cmd_and_params = name.trim().split(" ", limit=2)
-                        if (cmd_and_params[0] == "pick:") {
+                        if (cmd_and_params[0] == "pickN:") {
                             val params = cmd_and_params[1].split(" ", limit=3)
 
                             // 1st param must be dice (includes int)

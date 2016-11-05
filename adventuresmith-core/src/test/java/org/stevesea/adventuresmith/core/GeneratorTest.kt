@@ -113,6 +113,6 @@ class GeneratorTest {
         3d6: 3
         20d20+1: 21
         6d4: 6
-        """.trimIndent().trim(), g.generate(Locale.US))
+        """.trimIndent(), g.generate(Locale.US))
     }
 }

@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.core.stars_without_number;
 
 import org.junit.*
 import org.stevesea.adventuresmith.core.*
+import java.util.*
 
 
 class SwnTest {
@@ -29,12 +30,16 @@ class SwnTest {
     @Test
     fun dressing() {
         Assert.assertEquals("Armory: locked gun cabinets, armor racks",
-                getGenerator(SwnConstants.ROOM_DRESSING, 0).generate())
+                getGenerator(SwnConstants.ROOM_DRESSING, 0).generate(Locale.US))
     }
     @Test
     fun arch() {
-        Assert.assertEquals("Armory: locked gun cabinets, armor racks",
-                getGenerator(SwnConstants.ARCHITECTURE, 0).generate())
+        Assert.assertEquals("""
+        <h4>Architectural Elements</h4>
+
+        Square foundations<br/>Bas-relief on walls
+        <br/>Canals and pools
+        """.trimIndent(), getGenerator(SwnConstants.ARCHITECTURE, 0).generate(Locale.US))
     }
 
     @Test
@@ -47,8 +52,21 @@ class SwnTest {
         Schism; the faith's beliefs are actually almost identical to those of the majority of its origin tradition, save for a few minor points of vital interest to theologians and no practical difference whatsoever to believers. This does not prevent a burning resentment towards the parent faith.
         <h5>Leadership</h5>
         No universal leadership; no regional hierarchy
-        """.trimIndent().trim(), getGenerator(SwnConstants.RELIGION, 5).generate())
+        """.trimIndent(), getGenerator(SwnConstants.RELIGION, 5).generate(Locale.US))
         // picked 5 for Random because that'll exercise one of the options that'll send us
         // through another pass of the template processor
+    }
+
+    @Test
+    fun alien() {
+        Assert.assertEquals("""
+        <h4>Alien</h4>
+        <h5>Body Type</h5>
+        Humanlike
+        <h5>Lenses</h5>
+        Curiosity<br/>Despair
+        <h5>Social Structure</h5>
+        Democratic
+        """.trimIndent(), getGenerator(SwnConstants.ALIEN, 0).generate(Locale.US))
     }
 }

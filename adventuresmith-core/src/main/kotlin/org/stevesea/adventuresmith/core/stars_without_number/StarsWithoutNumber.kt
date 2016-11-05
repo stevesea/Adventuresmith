@@ -39,15 +39,26 @@ val swnModule = Kodein.Module {
 object SwnConstants {
     val GROUP = getFinalPackageName(this.javaClass)
 
-    val ROOM_DRESSING = "${GROUP}/room_dressing"
-    val RELIGION = "${GROUP}/religion"
     val ADV_SEED = "${GROUP}/adventure_seed"
+    val ALIEN = "${GROUP}/alien"
     val ARCHITECTURE = "${GROUP}/architecture"
+    val RELIGION = "${GROUP}/religion"
+    val ROOM_DRESSING = "${GROUP}/room_dressing"
+
+    // alien
+    // animal
+    // corp
+    // heresy
+    // names
+    // npc
+    // political party
+    // world
 
     val generators = listOf(
-            ROOM_DRESSING,
-            RELIGION,
             ADV_SEED,
-            ARCHITECTURE
+            ALIEN,
+            ARCHITECTURE,
+            RELIGION,
+            ROOM_DRESSING
     )
 }
