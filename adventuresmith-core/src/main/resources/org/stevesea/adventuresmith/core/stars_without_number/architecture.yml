@@ -1,10 +1,10 @@
 ---
 templates:
+  # pick 2-5 keys, select one from each
 - |
   <h4>Architectural Elements</h4>
 
-  # pick 2-5 keys, select one from each
-  {{>pick: 1d4+1 keys}}
+  {{>pick: 1d4+1 keys <br/>}}
   {{misc}}
 
 definitions:

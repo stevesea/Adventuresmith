@@ -209,14 +209,22 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                     override fun getTemplate(name: String?): Reader {
                         if (name == null)
                             return StringReader("null")
-                        val words = name.trim().split(" ")
-                        if (words[0] == "pick:") {
-                            val n = shuffler.dice(words[1]).roll()
-                            val ctxtKey = words[2]
+                        val cmd_and_params = name.trim().split(" ", limit=2)
+                        if (cmd_and_params[0] == "pick:") {
+                            val params = cmd_and_params[1].split(" ", limit=3)
+
+                            // 1st param must be dice (includes int)
+                            val n = shuffler.dice(params[0]).roll()
+                            // 2nd param must be which key in context to load
+                            val ctxtKey = params[1]
                             val results = shuffler.pickN(context.get(ctxtKey), n)
-                            return StringReader(results.joinToString(", "))
-                        } else if (words[0] == "dice:") {
-                            return StringReader(shuffler.dice(words[1]).roll().toString())
+                            var delim = ", "
+                            if (params.size > 2) {
+                                delim = params[2]
+                            }
+                            return StringReader(results.joinToString(delim))
+                        } else if (cmd_and_params[0] == "dice:") {
+                            return StringReader(shuffler.dice(cmd_and_params[1]).roll().toString())
                         } else {
                             return StringReader("unknown instruction: '${name}'")
                         }
