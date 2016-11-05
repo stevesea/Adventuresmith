@@ -44,6 +44,59 @@ class FotfGeneratorTest {
         Assert.assertEquals("Bénédiction de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS,7).generate(Locale.FRANCE))
     }
 
+
+    @Test
+    fun char_french() {
+        Assert.assertEquals("""
+<html>
+  <body>
+    <h4>
+      Playbook - Guerrier
+    </h4>
+    <h5>
+      Nom & Héritage
+    </h5>
+    <p>
+      Alodia
+      <em>
+        Féminin
+      </em>
+      <br>
+      </br>
+      Humain Mauvais
+    </p>
+    <h5>
+      Caractéristiques
+    </h5>
+    <p>
+      Force: 6&nbsp;&nbsp;Dextérité: 6
+      <br>
+      </br>
+      Charisme: 6&nbsp;&nbsp;Constitution: 6
+      <br>
+      </br>
+      Sagesse: 6&nbsp;&nbsp;Intelligence: 6
+      <br>
+      </br>
+      Chance: 6
+    </p>
+    <h5>
+      Vertus & Vices
+    </h5>
+    <p>
+      Accro<br/>Alcoolique<br/>Hostile
+    </p>
+    <h5>
+      Équipement
+    </h5>
+    <p>
+      Cotte de mailles<br/>Bouclier
+    </p>
+  </body>
+</html>""".trim(), getGenerator(FotfConstants.CHARS,1).generate(Locale.FRANCE))
+
+    }
+
     @Test
     fun char_english() {
         Assert.assertEquals("""
