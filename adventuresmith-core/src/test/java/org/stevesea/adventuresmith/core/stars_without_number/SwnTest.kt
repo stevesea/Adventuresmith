@@ -210,31 +210,31 @@ class SwnTest {
               Enemies
             </h6>
             <p>
-              Worshipper of the ruins<br/>Hidden alien survivor<br/>Biochauvinist local<br/>Local experimenter
+              Worshipper of the ruins<br/>Hidden alien survivor
             </p>
             <h6>
               Friends
             </h6>
             <p>
-              Avaricious local resident<br/>Interstellar smuggler<br/>Local seeking a “cure”<br/>Curious xenophiliac
+              Avaricious local resident<br/>Interstellar smuggler
             </p>
             <h6>
               Complications
             </h6>
             <p>
-              Remote location<br/>Paranoid customs officials<br/>Alteration is contagious<br/>Alteration is necessary for long-term survival
+              Remote location<br/>Paranoid customs officials
             </p>
             <h6>
               Things
             </h6>
             <p>
-              Objects left with the remains of a prior unsuccessful expedition<br/>Untranslated alien texts<br/>Untouched hidden ruins<br/>Original pretech mutagenic equipment
+              Objects left with the remains of a prior unsuccessful expedition<br/>Untranslated alien texts
             </p>
             <h6>
               Places
             </h6>
             <p>
-              Orbital ruin<br/>Perfectly preserved alien building<br/>Alien mausoleum<br/>Abandoned eugenics laboratory
+              Orbital ruin<br/>Perfectly preserved alien building
             </p>
           </body>
         </html>

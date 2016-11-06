@@ -74,6 +74,8 @@ data class WorldRule(val atmosphere: Map<Int, WorldRuleSub>,
                      val temperature: Map<Int, WorldRuleSub>,
                      val biosphere: Map<Int, WorldRuleSub>)
 data class WorldRulesDto(val num_cultures: RangeMap,
+                         val num_tags: String,
+                         val num_tag_flavor: String,
                          val rules: WorldRule){
     companion object Resource {
         val resource_prefix = "world_rules"
@@ -179,13 +181,14 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
                 biosphere = dto.world.biospheres.select(bioRoll),
                 population = dto.world.populations.select(popRoll),
                 techlevel = dto.world.techlevels.select(techRoll),
-                worldTags = getWorldTags(dto.worldTags.world_tags)
+                worldTags = getWorldTags(dto.worldRules, dto.worldTags.world_tags)
         )
 
     }
 
-    private fun getWorldTags(worldTags: Map<String,WorldTag>): SwnWorldTagModel{
-        // pick 2 tags
+    private fun getWorldTags(worldRules: WorldRulesDto, worldTags: Map<String,WorldTag>): SwnWorldTagModel{
+        // pick N tags
+        val n = shuffler.dice(worldRules.num_tags).roll()
         val tags : List<String> = shuffler.pickN(worldTags.keys, 2).toList()
 
         val flavors : MutableList<Pair<String,String>> = mutableListOf()
@@ -206,11 +209,11 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
 
         return SwnWorldTagModel(
                 tags_and_flavor = flavors,
-                enemies = shuffler.pickN(enemies, 4),
-                friends = shuffler.pickN(friends, 4),
-                complications = shuffler.pickN(complications, 4),
-                things = shuffler.pickN(things, 4),
-                places = shuffler.pickN(places, 4)
+                enemies = shuffler.pickN(enemies, shuffler.dice(worldRules.num_tag_flavor).roll()),
+                friends = shuffler.pickN(friends, shuffler.dice(worldRules.num_tag_flavor).roll()),
+                complications = shuffler.pickN(complications, shuffler.dice(worldRules.num_tag_flavor).roll()),
+                things = shuffler.pickN(things, shuffler.dice(worldRules.num_tag_flavor).roll()),
+                places = shuffler.pickN(places, shuffler.dice(worldRules.num_tag_flavor).roll())
 
         )
     }

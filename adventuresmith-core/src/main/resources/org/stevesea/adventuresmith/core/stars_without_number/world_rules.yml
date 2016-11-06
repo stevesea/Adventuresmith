@@ -2,9 +2,14 @@
 # how many (human) cultures are on the world?
 #
 num_cultures:
-- 1..3, 1
-- 4..5, 2
-- 6, 3
+- 1..5, 1
+- 6..8, 2
+- 9..10, 3
+
+# how many world tags to pick
+num_tags: 2
+# for the combined world tags, how many items of each enemies/friends/places to pick
+num_tag_flavor: 2d2
 
 rules:
   # atmosphere affects temp/biosphere
