@@ -6,12 +6,19 @@ config:
     atmosphere: Atmosphere
     temperature: Temperature
     biosphere: Biosphere
+
     cultural: Cultural Attributes
     name: Name
     cultures: Cultures
     population: Population
     techlevel: Tech Level
+
     worldtags: World Tags
+    enemies: Enemies
+    friends: Friends
+    complications: Complications
+    things: Things
+    places: Places
 
 
 atmospheres: #2d6

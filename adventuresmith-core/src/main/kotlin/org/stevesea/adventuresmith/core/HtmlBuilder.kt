@@ -90,6 +90,7 @@ abstract class BodyTag(name: String) : TagWithText(name) {
     fun p(init: P.() -> Unit) = initTag(P(), init)
     fun small(init: Small.() -> Unit) = initTag(Small(), init)
     fun strong(init: Strong.() -> Unit) = initTag(Strong(), init)
+    fun blockquote(init: Blockquote.() -> Unit) = initTag(Blockquote(), init)
     fun em(init: Em.() -> Unit) = initTag(Em(), init)
     fun h1(init: H1.() -> Unit) = initTag(H1(), init)
     fun h2(init: H2.() -> Unit) = initTag(H2(), init)
@@ -116,6 +117,7 @@ class H3() : BodyTag("h3")
 class H4() : BodyTag("h4")
 class H5() : BodyTag("h5")
 class H6() : BodyTag("h6")
+class Blockquote() : BodyTag("blockquote")
 
 class Br() : Tag("br")
 

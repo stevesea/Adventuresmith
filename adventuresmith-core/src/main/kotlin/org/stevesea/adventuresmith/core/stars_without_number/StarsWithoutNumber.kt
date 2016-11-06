@@ -48,7 +48,12 @@ data class WorldConfigHeaders(val main: String,
                               val cultures: String,
                               val population: String,
                               val techlevel: String,
-                              val worldtags: String)
+                              val worldtags: String,
+                              val enemies: String,
+                              val friends: String,
+                              val complications: String,
+                              val things: String,
+                              val places: String)
 data class WorldConfig(val headers: WorldConfigHeaders)
 data class WorldDto(val config: WorldConfig,
                     val atmospheres: RangeMap,
@@ -108,6 +113,12 @@ class SwnDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleD
     }
 }
 
+data class SwnWorldTagModel(val tags_and_flavor: Collection<Pair<String, String>>,
+                            val enemies: Collection<String>,
+                            val friends: Collection<String>,
+                            val complications: Collection<String>,
+                            val things: Collection<String>,
+                            val places: Collection<String>)
 data class SwnWorldModel(val config: WorldConfig,
                          val atmosphere: String,
                          val temperature: String,
@@ -116,7 +127,7 @@ data class SwnWorldModel(val config: WorldConfig,
                          val techlevel: String,
                          val cultures: List<String>,
                          val name: String,
-                         val worldTags: Map<String, WorldTag?>
+                         val worldTags: SwnWorldTagModel
                          )
 class SwnWorldModelGenerator(override val kodein: Kodein) :
         ModelGeneratorStrategy<WorldBundleDto, SwnWorldModel>,
@@ -173,12 +184,34 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
 
     }
 
-    private fun getWorldTags(worldTags: Map<String,WorldTag>): Map<String, WorldTag?> {
+    private fun getWorldTags(worldTags: Map<String,WorldTag>): SwnWorldTagModel{
         // pick 2 tags
         val tags : List<String> = shuffler.pickN(worldTags.keys, 2).toList()
-        return mapOf(
-                tags[0] to worldTags.get(tags[0]),
-                tags[1] to worldTags.get(tags[1])
+
+        val flavors : MutableList<Pair<String,String>> = mutableListOf()
+        val enemies : MutableList<String> = mutableListOf()
+        val friends : MutableList<String> = mutableListOf()
+        val complications : MutableList<String> = mutableListOf()
+        val things : MutableList<String> = mutableListOf()
+        val places : MutableList<String> = mutableListOf()
+
+        tags.forEach {
+            flavors.add(Pair(it, worldTags.get(it)!!.flavor))
+            enemies.addAll(worldTags.get(it)!!.enemies)
+            friends.addAll(worldTags.get(it)!!.friends)
+            complications.addAll(worldTags.get(it)!!.complications)
+            things.addAll(worldTags.get(it)!!.things)
+            places.addAll(worldTags.get(it)!!.places)
+        }
+
+        return SwnWorldTagModel(
+                tags_and_flavor = flavors,
+                enemies = shuffler.pickN(enemies, 4),
+                friends = shuffler.pickN(friends, 4),
+                complications = shuffler.pickN(complications, 4),
+                things = shuffler.pickN(things, 4),
+                places = shuffler.pickN(places, 4)
+
         )
     }
 }
@@ -215,6 +248,22 @@ class SwnWorldView: ViewStrategy<SwnWorldModel, HTML> {
                     + model.techlevel
                 }
                 h4 { + model.config.headers.worldtags}
+
+                model.worldTags.tags_and_flavor.forEach {
+                    h6 { + it.first }
+                    blockquote { em { + it.second } }
+                }
+                h6 { + model.config.headers.enemies }
+                p { + model.worldTags.enemies.joinToString("<br/>") }
+                h6 { + model.config.headers.friends }
+                p { + model.worldTags.friends.joinToString("<br/>") }
+                h6 { + model.config.headers.complications }
+                p { + model.worldTags.complications.joinToString("<br/>") }
+                h6 { + model.config.headers.things }
+                p { + model.worldTags.things.joinToString("<br/>") }
+                h6 { + model.config.headers.places }
+                p { + model.worldTags.places.joinToString("<br/>") }
+
             }
         }
 

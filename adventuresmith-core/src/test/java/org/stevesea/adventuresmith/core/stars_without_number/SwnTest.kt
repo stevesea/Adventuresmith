@@ -119,7 +119,126 @@ class SwnTest {
 
     @Test
     fun world() {
-        Assert.assertEquals("asdf",
+        Assert.assertEquals("""
+        <html>
+          <body>
+            <h3>
+              World
+            </h3>
+            <h4>
+              Physical Attributes
+            </h4>
+            <p>
+              <strong>
+                <small>
+                  Atmosphere
+                </small>
+              </strong>
+              Corrosive
+              <br>
+              </br>
+              <strong>
+                <small>
+                  Temperature
+                </small>
+              </strong>
+              Frozen
+              <br>
+              </br>
+              <strong>
+                <small>
+                  Biosphere
+                </small>
+              </strong>
+              Biosphere remnants
+            </p>
+            <h4>
+              Cultural Attributes
+            </h4>
+            <p>
+              <strong>
+                <small>
+                  Name
+                </small>
+              </strong>
+              Andong
+              <br>
+              </br>
+              <strong>
+                <small>
+                  Cultures
+                </small>
+              </strong>
+              Chinese
+            </p>
+            <p>
+              <strong>
+                <small>
+                  Population
+                </small>
+              </strong>
+              Failed colony
+              <br>
+              </br>
+              <strong>
+                <small>
+                  Tech Level
+                </small>
+              </strong>
+              Tech Level 0. Stone-age technology.
+            </p>
+            <h4>
+              World Tags
+            </h4>
+            <h6>
+              Alien Ruins
+            </h6>
+            <blockquote>
+              <em>
+                The world has significant alien ruins present. The locals may or may not permit others to investigate the ruins, and may make it difficult to remove any objects of value without substantial payment.
+              </em>
+            </blockquote>
+            <h6>
+              Altered Humanity
+            </h6>
+            <blockquote>
+              <em>
+                The humans on this world are visibly and drastically different from normal humanity. They may have additional limbs, new sensory organs, or other significant changes. Were these from ancestral eugenic manipulation, or from environmental toxins?
+              </em>
+            </blockquote>
+            <h6>
+              Enemies
+            </h6>
+            <p>
+              Worshipper of the ruins<br/>Hidden alien survivor<br/>Biochauvinist local<br/>Local experimenter
+            </p>
+            <h6>
+              Friends
+            </h6>
+            <p>
+              Avaricious local resident<br/>Interstellar smuggler<br/>Local seeking a “cure”<br/>Curious xenophiliac
+            </p>
+            <h6>
+              Complications
+            </h6>
+            <p>
+              Remote location<br/>Paranoid customs officials<br/>Alteration is contagious<br/>Alteration is necessary for long-term survival
+            </p>
+            <h6>
+              Things
+            </h6>
+            <p>
+              Objects left with the remains of a prior unsuccessful expedition<br/>Untranslated alien texts<br/>Untouched hidden ruins<br/>Original pretech mutagenic equipment
+            </p>
+            <h6>
+              Places
+            </h6>
+            <p>
+              Orbital ruin<br/>Perfectly preserved alien building<br/>Alien mausoleum<br/>Abandoned eugenics laboratory
+            </p>
+          </body>
+        </html>
+        """.trimIndent(),
                 getGenerator(SwnConstants.WORLD, 0).generate(Locale.US))
     }
 }
