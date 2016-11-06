@@ -154,8 +154,8 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
                 tempRoll = shuffler.pick(rule.temperature)
             }
         }
-        if (dto.worldRules.rules.temperature.containsKey(atmoRoll)) {
-            val rule = dto.worldRules.rules.temperature.get(atmoRoll)
+        if (dto.worldRules.rules.temperature.containsKey(tempRoll)) {
+            val rule = dto.worldRules.rules.temperature.get(tempRoll)
             rule?.biosphere?.let {
                 bioRoll = shuffler.pick(rule.biosphere)
             }

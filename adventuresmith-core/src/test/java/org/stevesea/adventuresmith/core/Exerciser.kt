@@ -22,7 +22,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import org.junit.*
-import org.stevesea.adventuresmith.core.stars_without_number.*
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import java.security.*
 import java.util.*
 
@@ -37,14 +37,14 @@ class Exerciser {
         val kodein = getKodein(SecureRandom())
 
         // selective output some to console
-        val enablePrinting = setOf(SwnConstants.ANIMAL)
+        val enablePrinting = setOf(FotfConstants.SPELLS)
 
         val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {
             val generator_instance = kodein.instance<Generator>(g)
 
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
-                for (i in 1..50) {
+                for (i in 1..25) {
                     if (enablePrinting.contains(g))
                         println(generator_instance.generate(locale))
                     else
