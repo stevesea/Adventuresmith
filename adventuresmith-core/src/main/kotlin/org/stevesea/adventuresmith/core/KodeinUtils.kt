@@ -24,6 +24,7 @@ import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.fourth_page.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.maze_rats.*
+import org.stevesea.adventuresmith.core.perilous_wilds.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.security.*
 import java.util.*
@@ -58,6 +59,7 @@ val generatorModules = Kodein.Module {
     import(mrModule)
     import(diceModule)
     import(swnModule)
+    import(pwModule)
 
     bind<Set<String>>(AdventureSmithConstants.GENERATORS) with provider {
         val res : MutableSet<String> = TreeSet<String>()
@@ -66,6 +68,7 @@ val generatorModules = Kodein.Module {
         res.addAll(instance<List<String>>(FpConstants.GROUP))
         res.addAll(instance<List<String>>(DiceConstants.GROUP))
         res.addAll(instance<List<String>>(SwnConstants.GROUP))
+        res.addAll(instance<List<String>>(PwConstants.GROUP))
         res
     }
 }

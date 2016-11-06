@@ -1,0 +1,208 @@
+---
+nested_tables:
+  details:
+    abilities:
+    - 1, bless/curse
+    - 2, entangle/trap/snare
+    - 3, poison/disease
+    - 4, paralyze/petrify
+    - 5, mimic/camouflage
+    - 6, seduce/hypnotize
+    - 7, dissolve/disintegrate
+    - "8, {{details.magice_types}}"
+    - 9, drain life/magic
+    - "10, immunity: {{details.elements}}"
+    - 11, read/control minds
+    - "12, {{>pickN: 2 details.abilities ,&nbsp;}}"
+    activities:
+    - 1, laying trap/ambush
+    - 2, fighting/at war
+    - 3, prowling/on patrol
+    - 4, hunting/foraging
+    - 5, eating/resting
+    - 6, crafting/praying
+    - 7, traveling/relocating
+    - 8, exploring/lost
+    - 9, returning home
+    - 10, building/excavating
+    - 11, sleeping
+    - 12, dying
+
+    adjectives:
+    - 1, slick/slimy
+    - 2, rough/hard/sharp
+    - 3, smooth/soft/dull
+    - 4, corroded/rusty
+    - 5, rotten/decaying
+    - 6, broken/brittle
+    - 7, stinking/smelly
+    - 8, weak/thin/drained
+    - 9, strong/fat/full
+    - 10, pale/poor/shallow
+    - 11, dark/rich/deep
+    - 12, colorful
+    ages:
+    - 1, being born/built
+    - 2..4, young/recent
+    - 5..7, middle-aged
+    - 8..9, old
+    - 10..11, ancient
+    - 12, pre-historic
+    alignments:
+    - 1..2, Chaotic
+    - 3..4, Evil
+    - 5..8, Neutral
+    - 9..10, Good
+    - 11..12, Lawful
+    aspects:
+    - 1, power/strength
+    - 2, trickery/dexterity
+    - 3, time/constitution
+    - 4, knowledge/intelligence
+    - 5, nature/wisdom
+    - 6, culture/charisma
+    - 7, war/lies/discord
+    - 8, peace/truth/balance
+    - 9, hate/envy
+    - 10, love/admiration
+    - "11, {{details.elements}}"
+    - "12, {{>pickN: 2 details.aspects ,&nbsp;}}"
+
+    conditions:
+    - 1, being built/born
+    - 2..4, intact/healthy/stable
+    - 5..7, occupied/active/alert
+    - 8..9, worn/tired/weak
+    - 10, vacant/lost
+    - 11, ruined/defiled/dying
+    - 12, disappeared/dead
+
+    dispositions:
+    - 1, attacking
+    - 2..4, hostile/aggressive
+    - 5..6, cautious/doubtful
+    - 7, fearful/fleeing
+    - 8..10, neutral
+    - 11, curious/hopeful
+    - 12, friendly
+    elements:
+    - 1..2, air
+    - 3..4, earth
+    - 5..6, fire
+    - 7..8, water
+    - 9..10, life
+    - 11..12, death
+    features:
+    - 1, heavily armored
+    - 2..3, winged/flying
+    - 4, multiple heads/headless
+    - 5, many eyes/one eye
+    - 6, many limbs/tails
+    - 7, tentacles/tendrils
+    - "8, {{details.aspects}}"
+    - "9, {{details.elements}}"
+    - "10, {{details.magice_types}}"
+    - "11, {{details.oddities}}"
+    - "12, {{>pickN: 2 details.features ,&nbsp;}}"
+    magic_types:
+    - 1..2, divination
+    - 3..4, enchantment
+    - 5..6, evocation
+    - 7..8, illusion
+    - 9..10, necromancy
+    - 11..12, summoning
+    number_appearing:
+    - 1..4, Solitary (1)
+    - "5..9, Group (1d6+2) [{{>dice: 1d6+2}}]"
+    - "10..12, Horde (4d6 per wave) [{{>dice: 4d6}}"
+    oddities:
+    - 1, weird color/smell/sound
+    - 2, geometric
+    - 3, web/network/system
+    - 4, crystalline/glass-like
+    - 5, fungal
+    - 6, gaseous/smokey
+    - 7, mirage/illusion
+    - 8, volcanic/explosive
+    - 9, magnetic/repellant
+    - 10, devoid of life
+    - 11, unexpectedly alive
+    - "12, {{>pickN: 2 details.oddities ,&nbsp;}}"
+    orientations:
+    - 1..2, down/earthward
+    - 3, north
+    - 4, northeast
+    - 5, east
+    - 6, southeast
+    - 7, south
+    - 8, southwest
+    - 9, west
+    - 10, northwest
+    - 11..12, up/skyward
+
+    ruinations:
+    - 1, arcane disaster
+    - 2, damnation/curse
+    - 3..4, earthquake/fire/flood
+    - 5..6, plague/famine/drought
+    - 7..8, overrun by monsters
+    - 9..10, war/invasion
+    - 11, depleted resources
+    - 12, better prospects elsewhere
+    sizes:
+    - 1, Tiny
+    - 2..3, Small
+    - 4..9, medium-sized
+    - 10..11, Large
+    - 12, Huge
+    tags:
+    - 1, Amorphous
+    - 2, Cautious
+    - 3, Construct
+    - 4, Devious
+    - 5, Intelligent
+    - 6, Magical
+    - 7..8, Organized
+    - 9, Planar
+    - 10, Stealthy
+    - 11, Terrifying
+    - "12, {{>pickN: 2 details.tags ,&nbsp;}}"
+    terrains:
+    - 1, wasteland/desert
+    - 2..3, flatland/plain
+    - 4, wetland/marsh/swamp
+    - 5..7, woodland/forest/jungle
+    - 8..9, highland/hills
+    - 10..11, moutnains
+    - "12, {{details.oddities}}"
+    visibilities:
+    - 1..2, buried/camouflaged/nigh invisible
+    - 3..6, partly covered/overgrown/hidden
+    - 7..9, obvious/in plain sight
+    - 10..11, visible at near distance
+    - 12, visible at great distance/focal point
+
+    undead:
+    - 1..4, haunt/wisp
+    - 5..8, ghost/spectre
+    - 9, banshee
+    - 10..11, wraith/wight
+    - 12, spirit lord/master
+    planar:
+    - 1..3, imp (Small)
+    - 4..6, lesser elemental
+    - 7..9, lesser demon/horror
+    - 10, greater elemental
+    - 11, greater demon/horror
+    - 12, devil/elemental lord
+    divine:
+    - 1..5, agent
+    - 6..9, champion
+    - 10..11, army (Host)
+    - 12, avatar
+    resources:
+    - 1..4, game/fruit/vegetable
+    - 5..6, herb/spice/dye source
+    - 7..9, timber/stone
+    - 10..11, ore (copper, iron, etc.)
+    - 12, precious metal/gems

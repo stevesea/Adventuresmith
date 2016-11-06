@@ -141,6 +141,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
         // process the DTOs in reverse order, merging them together
         val result : MutableMap<String,Any> = mutableMapOf()
         for (d in dtos.reversed()) {
+            // TODO: throw exception if tables have conflicting keys?
             d.tables?.let {
                 result.putAll(d.tables)
             }
@@ -235,8 +236,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             } else {
                                 return StringReader(shuffler.pickD(params[0], coll))
                             }
-
-
                         } else if (cmd_and_params[0] == "dice:") {
                             // {{>dice: <dicestr>}}
                             return StringReader(shuffler.dice(cmd_and_params[1]).roll().toString())

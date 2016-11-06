@@ -22,7 +22,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import org.junit.*
-import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
+import org.stevesea.adventuresmith.core.perilous_wilds.*
 import java.security.*
 import java.util.*
 
@@ -37,7 +37,7 @@ class Exerciser {
         val kodein = getKodein(SecureRandom())
 
         // selective output some to console
-        val enablePrinting = setOf(FotfConstants.SPELLS)
+        val enablePrinting = setOf(PwConstants.PLACE, PwConstants.REGION)
 
         val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {
