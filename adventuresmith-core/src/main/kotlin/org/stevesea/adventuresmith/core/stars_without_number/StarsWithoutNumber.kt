@@ -53,11 +53,11 @@ object SwnConstants {
     val NAME_Nigerian = "${GROUP}/names_nigerian"
     val NAME_Russian = "${GROUP}/names_russian"
     val NAME_Spanish = "${GROUP}/names_spanish"
+    val NPC = "${GROUP}/npc"
     val POLITICAL_PARTY = "${GROUP}/political_party"
     val RELIGION = "${GROUP}/religion"
     val ROOM_DRESSING = "${GROUP}/room_dressing"
 
-    // npc
     // world
 
     val generators = listOf(
@@ -75,6 +75,7 @@ object SwnConstants {
             NAME_Nigerian,
             NAME_Russian,
             NAME_Spanish,
+            NPC,
             POLITICAL_PARTY,
             RELIGION,
             ROOM_DRESSING

@@ -42,25 +42,6 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
         val selN = pickN(itemsInds, num)
         return selN.map { rmap.select(it)}
     }
-    fun pickN(thing: Any?, num: Int) : List<String> {
-        if (thing is RangeMap) {
-            return pickN(thing, num)
-        } else if (thing is Collection<*>) {
-            return pickN(thing, num) as List<String>
-        } else {
-            return listOf("pickN failure!")
-        }
-    }
-
-    fun <T> pick(dice: Dice, items: Collection<T>?): T {
-        // use mod to ensure our index is within the acceptable range for the collection
-        // dice are 1-based, list indexes are 0-based so subtract 1
-        return items!!.elementAt(dice.roll() % items.size - 1)
-    }
-
-    fun <T> pick(diceStr: String, items: Collection<T>?) : T = pick(dice(diceStr), items)
-
-    fun dice(diceStr: String) : Dice = diceFactory.invoke(diceStr)
 
     fun <T> pickN(items: Collection<T>?, num: Int) : Collection<T> {
         val localItems = items!!.toMutableList()
@@ -68,12 +49,38 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
         return localItems.take(num)
     }
 
-    fun pickPairFromMapofLists(m: Map<String,Collection<String>>?) : Pair<String, String> {
-        val k = pick(m!!.keys)
-        return Pair(k, pick(m.getOrElse(k) {listOf("not found")}))
+    fun pickN(thing: Any?, num: Int) : List<String> {
+        if (thing is RangeMap) {
+            return pickN(thing, num)
+        } else if (thing is Collection<*>) {
+            return pickN(thing, num) as List<String>
+        } else {
+            throw IllegalArgumentException("don't know how to select thing of type " + thing!!.javaClass)
+        }
     }
-    fun pickPairFromMapofRangeMaps(m: Map<String,RangeMap>?) : Pair<String, String> {
-        val k = pick(m!!.keys)
-        return Pair(k, pick(m[k]))
+    fun pickD(diceStr: String, thing: Any?) : String {
+        if (thing is RangeMap) {
+            return pickD(dice(diceStr), thing as RangeMap)
+
+        } else if (thing is Collection<*>) {
+            return pickD(dice(diceStr), thing as Collection<String>)
+
+        } else {
+            throw IllegalArgumentException("don't know how to select thing of type " + thing!!.javaClass)
+        }
+
     }
+    fun pickD(dice: Dice, items: RangeMap?) : String {
+        return items!!.select(dice)
+    }
+
+    fun <T> pickD(dice: Dice, items: Collection<T>?): T {
+        // use mod to ensure our index is within the acceptable range for the collection
+        // dice are 1-based, list indexes are 0-based so subtract 1
+        return items!!.elementAt(dice.roll() % items.size - 1)
+    }
+
+    fun <T> pickD(diceStr: String, items: Collection<T>?) : T = pickD(dice(diceStr), items)
+
+    fun dice(diceStr: String) : Dice = diceFactory.invoke(diceStr)
 }

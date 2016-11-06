@@ -1,0 +1,72 @@
+---
+templates:
+- |
+  <h4>NPC - {{genders}}</h4>
+  <strong><small>Age:</small></strong> {{ages}} &nbsp;&nbsp;<strong><small>Height:</small></strong> {{heights}}
+  <br/>
+  <br/><strong><small>Job Motivation:</small></strong> {{job_motivations}}
+  <br/>
+  <br/><strong><small>Problems:</small></strong> {{problems}}
+  <br/>
+  <br/><strong><small>Quirks:</small></strong> {{quirks}}
+
+tables:
+  genders:
+  - Male
+  - Female
+  ages:
+  - 1..2, Young
+  - 3..4, Middle-aged
+  - 5..6, Old
+  heights:
+  - 1, Very Short
+  - 2..3, Short
+  - 4..5, Average height
+  - 6..7, Tall
+  - 8, Very Tall
+  problems:
+  - Grudge against local authorities.
+  - Has a secret kept from their family.
+  - Chronic illness
+  - Enmity of a local psychic
+  - Has enemies at work
+  - Owes loan sharks
+  - Threatened with loss of spouse, sibling, or child
+  - Close relative in trouble with the law
+  - Drug or behavioral addict
+  - Blackmailed by enemy
+  job_motivations:
+  - Greed, because nothing else they can do pays better
+  - Idealistic about the job
+  - Sense of social duty
+  - Force of habit takes them through the day
+  - Seeks to please another
+  - Feels inadequate as anything else
+  - Family tradition
+  - Religious obligation or vow
+  - Nothing better to do, and they need the money
+  - They’re quitting at the first good opportunity
+  - It’s a stepping stone to better things
+  - Spite against an enemy discomfited by the work
+  quirks:
+  - Bald
+  - Terrible taste in clothing
+  - Very thin
+  - Powerful build
+  - Bad eyesight, wears spectacles
+  - Carries work tools constantly
+  - Long hair
+  - Bearded, if male. Ankle-length hair if female.
+  - Scars all over hands
+  - Missing digits or an ear
+  - Smells like their work
+  - Repeats himself constantly
+  - Talks about tabloid articles
+  - Booming voice
+  - Vocal dislike of off worlders
+  - Always snuffling
+  - Missing teeth
+  - Fastidiously neat
+  - Wears religious emblems
+  - Speaks as little as possible
+

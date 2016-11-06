@@ -194,13 +194,8 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                 })
                 .withLoader(object : Mustache.TemplateLoader {
                     // this method is called to evaluate Partials {{>subtmpl}}
-
                     // in mustache, this typically means loading a different file.
 
-                    // TODO: use this, not the stdDice map. just do it this way, and force people
-                    //      to do {{> dice: 1d24}}
-                    //      that way, can have non-'dice' keywords. example:
-                    //            {{> pickN: forms, 3}}
                     // TODO: is this abusing partials? (to use them to run a 'special' function?
                     //
                     // TODO: how complicated do want language to get? need parsing?
@@ -211,13 +206,14 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             return StringReader("null")
                         val cmd_and_params = name.trim().split(" ", limit=2)
                         if (cmd_and_params[0] == "pickN:") {
-                            val params = cmd_and_params[1].split(" ", limit=3)
+                            // {{>pickN: <dice/#> <key> <delim>}}
+                            val params = cmd_and_params[1].split(" ", limit = 3)
 
-                            // 1st param must be dice (includes int)
+                            // 1st param must be dice (NOTE: dice str allows plain int)
                             val n = shuffler.dice(params[0]).roll()
                             // 2nd param must be which key in context to load
                             val ctxtKey = params[1]
-                            val coll = context.get(ctxtKey)
+                            val coll = context[ctxtKey]
                             if (coll == null) {
                                 throw IllegalArgumentException("unknown context key: ${ctxtKey}")
                             }
@@ -227,10 +223,25 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                                 delim = params[2]
                             }
                             return StringReader(results.joinToString(delim))
+                        } else if (cmd_and_params[0] == "pick:") {
+                            // {{>pick: <dice> <key>}}
+                            val params = cmd_and_params[1].split(" ", limit=2)
+                            // 1st param must be dice
+                            val d = shuffler.dice(params[0])
+                            val ctxtKey = params[1]
+                            val coll = context[ctxtKey]
+                            if (coll == null) {
+                                throw IllegalArgumentException("unknown context key: ${ctxtKey}")
+                            } else {
+                                return StringReader(shuffler.pickD(params[0], coll))
+                            }
+
+
                         } else if (cmd_and_params[0] == "dice:") {
+                            // {{>dice: <dicestr>}}
                             return StringReader(shuffler.dice(cmd_and_params[1]).roll().toString())
                         } else {
-                            return StringReader("unknown instruction: '${name}'")
+                            throw IllegalArgumentException("unknown instruction: '${name}'")
                         }
 
                     }
