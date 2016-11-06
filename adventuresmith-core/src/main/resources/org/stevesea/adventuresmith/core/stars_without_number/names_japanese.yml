@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Japanese</h5>
+  <small>{{headers.male}}:</small> {{Japanese.male}}
+  <br/><small>{{headers.female}}:</small> {{Japanese.female}}
+  <br/><small>{{headers.surname}}:</small> {{Japanese.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Japanese.place}}
+
+
+include_tables:
+- names
+- names_headers

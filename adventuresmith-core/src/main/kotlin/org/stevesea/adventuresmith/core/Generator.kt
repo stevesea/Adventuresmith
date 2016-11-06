@@ -100,13 +100,13 @@ class DataDrivenGenerator(
     val shuffler : Shuffler = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun generate(locale: Locale): String {
-        //try {
+        try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
 
             return templateProcessor.process(gatherDtoResources(dto, locale))
-        //} catch (ex: Exception) {
-        //    return "error running generator ${resource_prefix}: ${ex.toString()}"
-        //}
+        } catch (ex: Exception) {
+            throw IOException("problem running generator ${resource_prefix} (locale: ${locale}): ${ex.toString()}", ex)
+        }
     }
     fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
         val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)

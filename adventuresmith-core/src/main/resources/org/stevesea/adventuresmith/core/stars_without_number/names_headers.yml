@@ -1,0 +1,11 @@
+---
+# names themselves aren't going to change for localization.
+# but, the labels in the output templates will need to change
+# so, translators will just have to make copies of this file
+definitions:
+  headers:
+    culture: Culture
+    male: Male
+    female: Female
+    surname: Surname
+    place: Place

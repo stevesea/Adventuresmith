@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Russian</h5>
+  <small>{{headers.male}}:</small> {{Russian.male}}
+  <br/><small>{{headers.female}}:</small> {{Russian.female}}
+  <br/><small>{{headers.surname}}:</small> {{Russian.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Russian.place}}
+
+
+include_tables:
+- names
+- names_headers

@@ -26,6 +26,7 @@ import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.cache.*
 import com.google.common.io.*
+import java.io.*
 import java.net.*
 import java.nio.charset.*
 import java.util.*
@@ -164,8 +165,12 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
                                          charset: Charset): T {
         val url = LocaleAwareResourceFinder.find(resource_prefix,locale,clazz)
         val str = Resources.toString(url, charset)
-        val result: T = objectReader.forType(clazz).readValue(str)
+        try {
+            val result: T = objectReader.forType(clazz).readValue(str)
 
-        return validate(result)
+            return validate(result)
+        } catch (ex: Exception) {
+            throw IOException("problem reading file ${url} (locale: ${locale}) - ${ex.toString()}", ex)
+        }
     }
 }

@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Chinese</h5>
+  <small>{{headers.male}}:</small> {{Chinese.male}}
+  <br/><small>{{headers.female}}:</small> {{Chinese.female}}
+  <br/><small>{{headers.surname}}:</small> {{Chinese.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Chinese.place}}
+
+
+include_tables:
+- names
+- names_headers

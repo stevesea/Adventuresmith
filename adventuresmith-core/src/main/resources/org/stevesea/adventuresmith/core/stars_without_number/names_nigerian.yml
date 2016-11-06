@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Nigerian</h5>
+  <small>{{headers.male}}:</small> {{Nigerian.male}}
+  <br/><small>{{headers.female}}:</small> {{Nigerian.female}}
+  <br/><small>{{headers.surname}}:</small> {{Nigerian.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Nigerian.place}}
+
+
+include_tables:
+- names
+- names_headers

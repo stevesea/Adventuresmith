@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Arabic</h5>
+  <small>{{headers.male}}:</small> {{Arabic.male}}
+  <br/><small>{{headers.female}}:</small> {{Arabic.female}}
+  <br/><small>{{headers.surname}}:</small> {{Arabic.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Arabic.place}}
+
+
+include_tables:
+- names
+- names_headers

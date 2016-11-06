@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Spanish</h5>
+  <small>{{headers.male}}:</small> {{Spanish.male}}
+  <br/><small>{{headers.female}}:</small> {{Spanish.female}}
+  <br/><small>{{headers.surname}}:</small> {{Spanish.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Spanish.place}}
+
+
+include_tables:
+- names
+- names_headers

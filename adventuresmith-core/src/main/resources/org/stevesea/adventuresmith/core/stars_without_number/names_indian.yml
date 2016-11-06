@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h5>{{headers.culture}} - Indian</h5>
+  <small>{{headers.male}}:</small> {{Indian.male}}
+  <br/><small>{{headers.female}}:</small> {{Indian.female}}
+  <br/><small>{{headers.surname}}:</small> {{Indian.surname}}
+  <br/>
+  <br/><small>{{headers.place}}:</small>{{Indian.place}}
+
+
+include_tables:
+- names
+- names_headers

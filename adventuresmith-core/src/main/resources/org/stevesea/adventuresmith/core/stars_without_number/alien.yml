@@ -9,7 +9,6 @@ templates:
   <h5>Social Structure</h5>
   {{social_structures}}
 
-
 tables:
   hybrid:
   - "1..4, {{>pickN: 2 body_types_except_hybrid <br/>}}"

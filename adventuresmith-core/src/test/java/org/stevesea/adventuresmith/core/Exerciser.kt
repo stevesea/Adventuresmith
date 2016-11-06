@@ -37,7 +37,7 @@ class Exerciser {
         val kodein = getKodein(SecureRandom())
 
         // selective output some to console
-        val enablePrinting = setOf(SwnConstants.CORPORATION)
+        val enablePrinting = setOf(SwnConstants.NAME_Arabic, SwnConstants.NAME_Chinese)
 
         val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {
