@@ -9,7 +9,7 @@ num_cultures:
 # how many world tags to pick
 num_tags: 2
 # for the combined world tags, how many items of each enemies/friends/places to pick
-num_tag_flavor: 2d2
+num_tag_flavor: 1d2+2
 
 rules:
   # atmosphere affects temp/biosphere
