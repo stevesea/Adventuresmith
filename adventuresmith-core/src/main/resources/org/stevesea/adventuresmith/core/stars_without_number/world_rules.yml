@@ -1,0 +1,123 @@
+---
+# how many (human) cultures are on the world?
+#
+num_cultures:
+- 1..3, 1
+- 4..5, 2
+- 6, 3
+
+rules:
+  # atmosphere affects temp/biosphere
+  atmosphere:
+    2: #corrosive
+      biosphere:  # can't be human or hybrid
+      - 2
+      - 3
+      - 4
+      - 5
+      - 9
+      - 10
+      - 12
+    3: # inert
+      biosphere:  # can't be human or hybrid
+      - 2
+      - 3
+      - 4
+      - 5
+      - 9
+      - 10
+      - 12
+    4:  # airless/thin atmosphere forces burning/frozen temp
+      temperature:
+      - 2
+      - 12
+      - 13
+
+    11: # invasive/toxic
+      biosphere: # can't be human/hybrid
+      - 2
+      - 3
+      - 4
+      - 5
+      - 9
+      - 10
+      - 12
+    12: # corrosive & invasive
+      biosphere: # can't be human/hybrid
+      - 2
+      - 3
+      - 4
+      - 5
+      - 9
+      - 10
+      - 12
+
+  # temp affects biosphere, pop
+  temperature: # if temp is frozen/burning, force biosphere 2-5
+    2:  # frozen
+      biosphere:
+      - 2
+      - 3
+      - 4
+      - 5
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5
+    12: # burning
+      biosphere:
+      - 2
+      - 3
+      - 4
+      - 5
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5
+    13: # frozen/burning
+      biosphere:
+      - 2
+      - 3
+      - 4
+      - 5
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5
+
+  # biosphere affects population
+  biosphere:
+    2:
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5
+    3:
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5
+    4:
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5
+    5:
+      population: # force small pop (outpost/colony)
+      - 2
+      - 3
+      - 3
+      - 4
+      - 5

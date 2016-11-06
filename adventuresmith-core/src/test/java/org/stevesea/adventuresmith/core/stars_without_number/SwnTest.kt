@@ -116,4 +116,10 @@ class SwnTest {
         Social hostility to the group's membership<br/>Immigration and immigrants
         """.trimIndent(), getGenerator(SwnConstants.POLITICAL_PARTY, 0).generate(Locale.US))
     }
+
+    @Test
+    fun world() {
+        Assert.assertEquals("asdf",
+                getGenerator(SwnConstants.WORLD, 0).generate(Locale.US))
+    }
 }
