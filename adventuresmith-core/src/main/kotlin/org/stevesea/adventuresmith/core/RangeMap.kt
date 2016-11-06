@@ -84,6 +84,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
                 itemNum++
             }
         }
+        result.validateNoHoles()
         return result
     }
 
@@ -167,4 +168,15 @@ class RangeMap(
         return delegate.toString()
     }
 
+    fun validateNoHoles() {
+        val rangeSet : MutableSet<Int> = mutableSetOf()
+        keyRange().toCollection(rangeSet)
+
+        for (r in ranges) {
+            rangeSet.removeAll(r.toSet())
+        }
+        if (rangeSet.size != 0) {
+            throw IllegalArgumentException("holes in range set. missing elements: $rangeSet")
+        }
+    }
 }
