@@ -1,0 +1,110 @@
+---
+templates:
+- |
+  <h4>Political Party</h4>
+  {{name1}} {{name2}}
+  <h5>Leadership</h5>
+  {{leadership}}
+  <h5>Economic Policy</h5>
+  {{economic_policy}}
+  <h5>Important Issues</h5>
+  {{>pickN: 1d2+1 important_issues <br/>}}
+
+
+tables:
+  leadership:
+  - <em>Social elite:</em> the group is led by members of the planet's ruling class
+  - <em>Outcasts:</em> the group's leadership is filled out by members of a taboo, outcast, or otherwise socially marginal group
+  - <em>Bourgeoisie:</em> the group is driven by a leadership drawn from the middle class and those aspiring to join the elite
+  - <em>Proletariat:</em> the working class, both agricultural and industrial, provides the leadership for this group
+  - <em>Urban:</em> city-dwellers compose the leadership of the group
+  - <em>Rural:</em> farmers, herdsmen, small-town artisans, and other residents of the rural zones of a planet make up the leadership of the group
+  - <em>Pious:</em> clergy and devout laymen of a religion form the leadership
+  - <em>Intellectuals:</em> the movement is led by intellectuals
+
+  economic_policy:
+  - <em>Laissez-faire:</em> minimal or no government intervention in the market
+  - <em>State industry:</em> the government should own or support specific industries important to the group
+  - <em>Protectionist:</em> the government should tax imports that threaten to displace the products of local manufactures
+  - <em>Autarky:</em> the government should ensure that the world can provide all of its own goods and services and forbid the import of foreign goods
+  - <em>Socialist:</em> the market should be harnessed to ensure a state-determined minimal standard of living for all
+  - <em>Communist:</em> the state should control the economy, disbursing its products according to need and determined efficiency
+
+  important_issues:
+  - Poverty among the group's membership
+  - Social hostility to the group's membership
+  - Immigration and immigrants
+  - The membership's important industries
+  - Religion in public life
+  - Gender roles and sexual mores
+  - Culture of the group membership
+  - Military preparedness
+  - Governmental reform
+  - Secession
+  - Foreign relations
+  - Wealth redistribution
+  name1:
+  - People's
+  - Freedom
+  - National
+  - Unified
+  - Democratic
+  - Royal
+  - Social
+  - Progressive
+  - Popular
+  - Republican
+  - Federal
+  - Liberty
+  - (A local animal)
+  - Homeland
+  - Conservative
+  - Liberal
+  - Victory
+  - Black
+  - White
+  - Red
+  - Green
+  - Blue
+  - Yellow
+  - Scarlet
+  - Emerald
+  - Cyan
+  - Amber
+  - Purple
+  - Crimson
+  - Grey
+  - Orange
+  - Bronze
+  - Silver
+  - Gold
+  - Steel
+  - Iron
+  - Northern
+  - Southern
+  - Western
+  - Eastern
+  - Ascendant
+  - Upward
+  name2:
+  - Front
+  - Party
+  - Faction
+  - Group
+  - Element
+  - Consensus
+  - Council
+  - Banner
+  - Union
+  - Combine
+  - Society
+  - Sodality
+  - Brotherhood
+  - Commune
+  - Pact
+  - Foundation
+  - Fellowship
+  - Guild
+  - Federation
+  - Alliance
+

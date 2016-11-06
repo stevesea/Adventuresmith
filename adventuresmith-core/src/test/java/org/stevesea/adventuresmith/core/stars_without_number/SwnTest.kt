@@ -103,4 +103,17 @@ class SwnTest {
         Dietary prohibitions<br/>Characteristic item of clothing or jewelry
         """.trimIndent(), getGenerator(SwnConstants.HERESY, 0).generate(Locale.US))
     }
+    @Test
+    fun political_party() {
+        Assert.assertEquals("""
+        <h4>Political Party</h4>
+        People's Front
+        <h5>Leadership</h5>
+        <em>Social elite:</em> the group is led by members of the planet's ruling class
+        <h5>Economic Policy</h5>
+        <em>Laissez-faire:</em> minimal or no government intervention in the market
+        <h5>Important Issues</h5>
+        Social hostility to the group's membership<br/>Immigration and immigrants
+        """.trimIndent(), getGenerator(SwnConstants.POLITICAL_PARTY, 0).generate(Locale.US))
+    }
 }
