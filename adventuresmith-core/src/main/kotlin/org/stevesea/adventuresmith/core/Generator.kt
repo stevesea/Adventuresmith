@@ -217,7 +217,11 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             val n = shuffler.dice(params[0]).roll()
                             // 2nd param must be which key in context to load
                             val ctxtKey = params[1]
-                            val results = shuffler.pickN(context.get(ctxtKey), n)
+                            val coll = context.get(ctxtKey)
+                            if (coll == null) {
+                                throw IllegalArgumentException("unknown context key: ${ctxtKey}")
+                            }
+                            val results = shuffler.pickN(coll, n)
                             var delim = ", "
                             if (params.size > 2) {
                                 delim = params[2]

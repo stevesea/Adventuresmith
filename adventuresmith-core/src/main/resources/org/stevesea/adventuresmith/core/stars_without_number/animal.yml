@@ -1,0 +1,131 @@
+---
+templates:
+- |
+  <h4>Animal</h4>
+  {{body_types}}
+
+tables:
+  hybrid:
+  - "1..4, {{>pickN: 2 body_types_no_hybrid <br/>}}"
+  - "5..6, {{>pickN: 3 body_types_no_hybrid <br/>}}"
+
+  body_types_no_hybrid:
+  - "Insectile<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_insectile <br/>&nbsp;&nbsp;}}"
+  - "Reptilian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_reptilian <br/>&nbsp;&nbsp;}}"
+  - "Mammalian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_mammalian <br/>&nbsp;&nbsp;}}"
+  - "Avian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_avian <br/>&nbsp;&nbsp;}}"
+  - "Exotic<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_exotic <br/>&nbsp;&nbsp;}}"
+  body_types:
+  - "Insectile<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_insectile <br/>&nbsp;&nbsp;}}"
+  - "Reptilian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_reptilian <br/>&nbsp;&nbsp;}}"
+  - "Mammalian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_mammalian <br/>&nbsp;&nbsp;}}"
+  - "Avian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_avian <br/>&nbsp;&nbsp;}}"
+  - "Exotic<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_exotic <br/>&nbsp;&nbsp;}}"
+  - "{{hybrid}}"
+
+  traits_insectile:
+  - Sucking mouthparts
+  - Chewing mouthparts
+  - Jewel-colored chitin
+  - "{{>dice: 2d4}} <small><em>(2d4)</em></small> pairs of limbs"
+  - Membranous wings
+  - Deposits eggs in live prey
+  - Has “silk” spinnerets
+  - Has a chrysalis life stage
+  - No mouth; adult form lives only to reproduce
+  - "{{>dice: 1d4}} <small><em>(1d4)</em></small> pairs of eyes or eyespots"
+  - Sluglike body
+  - Color-changing exoskeleton
+  - Always encountered in groups
+  - Hums or buzzes in intricate patterns
+  - Lives in hives led by a queen
+  - Killing one causes others nearby to go berserk
+  - Emits powerful pheromones
+  - Hides itself to ambush prey
+  - Prefers subterranean environments
+  - Emits noxious or poisonous stench when killed
+  traits_reptilian:
+  - Sharp-edged scales
+  - "{{>dice: 1d4}} <small><em>(1d4)</em></small> pairs of eyes"
+  - Extremely long tail
+  - Bellowing vocalization
+  - Burrowing foreclaws
+  - Hide is damp and slimy
+  - Eyeless
+  - Strong swimmer
+  - Spits venom
+  - Lies in ambush in bodies of water
+  - Brilliantly-hued scales or hide
+  - Horns or body spikes
+  - Large membranous frills
+  - Hibernates in caves and undisturbed nooks
+  - Glowing body parts
+  - Body is patterned with both scales and hide
+  - Springs on prey from elevated places
+  - Warm-blooded
+  - Furred
+  - Limbless body
+  traits_mammalian:
+  - Multiple mouths
+  - Quill-like fur
+  - Prehensile tail
+  - Eyes or eyespots on body
+  - Membranous wings
+  - Stench glands
+  - Peculiar vocalization
+  - Marsupial pouch
+  - Patterned fur or hide
+  - Expands or inflates when threatened
+  - Strictly nocturnal
+  - "{{>dice: 1d6+1}} <small><em>(1d6+1)</em></small> limbs, including any tail"
+  - Mottled or mangy fur
+  - Fires darts or quills
+  - Animal is cold-blooded
+  - Horns or body spikes
+  - Superb scent tracker
+  - Burrowing creature
+  - Creature lacks a sense-hearing, sight, or smell
+  - Creature is abnormally clever for an animal
+  traits_avian:
+  - Sharp feathers
+  - "{{>dice: 1d3}} <small><em>(1d3)</em></small> pairs of wings"
+  - Long, sinuous neck
+  - Brilliant coloration
+  - Membranous wings
+  - Can hover
+  - Beautiful song
+  - Flightless
+  - Fights prey on the ground
+  - Launches secretions at prey
+  - Lifts and drops prey
+  - Exhales flame or other toxic substance
+  - Always appears in groups
+  - Long prehensile tail
+  - Animal is cold-blooded
+  - Fur instead of feathers
+  - Scales instead of feathers
+  - Toothed beak
+  - Has valuable or delicious eggs
+  - Flies by means of lighter-than-air gas
+  traits_exotic:
+  - Rocklike body
+  - "{{>dice: 1d4}} <small><em>(1d4)</em></small> pairs of eyestalks"
+  - Rolls on wheels
+  - Chainsaw-like mouthparts or claws
+  - Metallic hide
+  - Natural laser emitters
+  - Launches chemically-powered darts
+  - Amoeba-like body
+  - Crystalline tissues
+  - Gas-sack body
+  - "{{>dice: 2d10}} <small><em>(2d10)</em></small> tentacles"
+  - Gelatinous liquid body
+  - Radioactive flesh
+  - Uses sonic attacks to stun prey
+  - Colony entity made up of numerous small animals
+  - Controlled by neural symbiont
+  - Absorbs electromagnetic energy
+  - Precious mineral carapace or exoskeleton
+  - Double damage from a particular type of injury
+  - Mobile plant life
+

@@ -69,4 +69,12 @@ class SwnTest {
         Democratic
         """.trimIndent(), getGenerator(SwnConstants.ALIEN, 0).generate(Locale.US))
     }
+
+    @Test
+    fun animal() {
+        Assert.assertEquals("""
+        <h4>Animal</h4>
+        Insectile<br/>&nbsp;&nbsp;Chewing mouthparts<br/>&nbsp;&nbsp;Jewel-colored chitin
+        """.trimIndent(), getGenerator(SwnConstants.ANIMAL, 0).generate(Locale.US))
+    }
 }
