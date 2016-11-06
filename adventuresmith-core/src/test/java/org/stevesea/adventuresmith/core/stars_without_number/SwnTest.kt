@@ -89,4 +89,18 @@ class SwnTest {
         Reckless with the lives of their employees<br/>Reckless with the lives of their employees
         """.trimIndent(), getGenerator(SwnConstants.CORPORATION, 0).generate(Locale.US))
     }
+    @Test
+    fun heresy() {
+        Assert.assertEquals("""
+        <h4>Heresy</h4>
+        <h5>Founder</h5>
+        <em>Defrocked clergy:</em> founded by a cleric outcast from the faith
+        <h5>Major Heresy:</h5>
+        <em>Manichaeanism:</em> the sect believes in harsh austerities and rejection of matter as something profane and evil
+        <h5>Attitude towards orthodoxy</h5>
+        <em>Filial:</em> the sect honors and respects the orthodox faith, but feels it is substantially in error
+        <h5>Quirks</h5>
+        Dietary prohibitions<br/>Characteristic item of clothing or jewelry
+        """.trimIndent(), getGenerator(SwnConstants.HERESY, 0).generate(Locale.US))
+    }
 }
