@@ -1,0 +1,136 @@
+---
+templates:
+- |
+  <h4>Corporation</h4>
+  {{names}} {{organizations}}
+  <h5>Businesses</h5>
+  {{>pickN: 1d3+1 businesses <br/>}}
+  <h5>Rumors</h5>
+  {{>pickN: 1d3+1 rumors <br/>}}
+
+tables:
+  names:
+  - Ad Astra
+  - Colonial
+  - Compass
+  - Daybreak
+  - Frontier
+  - Guo Yin
+  - Highbeam
+  - Imani
+  - Magnus
+  - Meteor
+  - Neogen
+  - New Dawn
+  - Omnitech
+  - Outertech
+  - Overwatch
+  - Panstellar
+  - Shogun
+  - Silverlight
+  - Spiker
+  - Stella
+  - Striker
+  - Sunbeam
+  - Terra Prime
+  - Wayfarer
+  - West Wind
+
+  organizations:
+  - Alliance
+  - Association
+  - Band
+  - Circle
+  - Clan
+  - Combine
+  - Company
+  - Cooperative
+  - Corporation
+  - Enterprises
+  - Faction
+  - Group
+  - Megacorp
+  - Multistellar
+  - Organization
+  - Outfit
+  - Pact
+  - Partnership
+  - Ring
+  - Society
+  - Sodality
+  - Syndicate
+  - Union
+  - Unity
+  - Zaibatsu
+
+  businesses:
+  - Aeronautics
+  - Agriculture
+  - Art
+  - Assassination
+  - Asteroid Mining
+  - Astrotech
+  - Biotech
+  - Bootlegging
+  - Computer Hardware
+  - Construction
+  - Cybernetics
+  - Electronics
+  - Energy Weapons
+  - Entertainment
+  - Espionage
+  - Exploration
+  - Fishing
+  - Fuel Refining
+  - Gambling
+  - Gemstones
+  - Gengineering
+  - Grav Vehicles
+  - Heavy Weapons
+  - Ideology
+  - Illicit Drugs
+  - Journalism
+  - Law Enforcement
+  - Liquor
+  - Livestock
+  - Maltech
+  - Pharmaceuticals
+  - Piracy
+  - Planetary Mining
+  - Plastics
+  - Pretech
+  - Prisons
+  - Programming
+  - Projectile Guns
+  - Prostitution
+  - Psionics
+  - Psitech
+  - Robotics
+  - Security
+  - Shipyards
+  - Snacks
+  - Telcoms
+  - Transport
+  - Xenotech
+
+  rumors:
+  - "1..5, Reckless with the lives of their employees"
+  - "6..10, Have a dark secret about their board of directors"
+  - "11..15, Notoriously xenophobic towards aliens"
+  - "16..20, Lost much money to an embezzler who evaded arrest"
+  - "21..26, Reliable and trustworthy goods"
+  - "27..31, Stole a lot of R&D from a rival corporation"
+  - "32..37, They have high-level political connections"
+  - "38..43, Rumored cover-up of a massive industrial accident"
+  - "44..49, Stodgy and very conservative in their business plans"
+  - "50..53, {{rumors}}" # entries 50-53 missing from table. just make it pick again
+  - "54..59, The company’s owner is dangerously insane"
+  - "60..64, Rumored ties to a eugenics cult"
+  - "65..70, Said to have a cache of pretech equipment"
+  - "71..76, Possibly teetering on the edge of bankruptcy"
+  - "77..81, Front for a planetary government’s espionage arm"
+  - "82..86, Secretly run by a psychic cabal"
+  - "87..91, Secretly run by hostile aliens"
+  - "92..95, Secretly run by an unbraked AI"
+  - "96..98, They’ve turned over a new leaf with the new CEO"
+  - "99..100, Deeply entangled with the planetary underworld"

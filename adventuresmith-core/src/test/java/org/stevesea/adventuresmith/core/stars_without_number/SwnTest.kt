@@ -77,4 +77,16 @@ class SwnTest {
         Insectile<br/>&nbsp;&nbsp;Chewing mouthparts<br/>&nbsp;&nbsp;Jewel-colored chitin
         """.trimIndent(), getGenerator(SwnConstants.ANIMAL, 0).generate(Locale.US))
     }
+
+    @Test
+    fun corp() {
+        Assert.assertEquals("""
+        <h4>Corporation</h4>
+        Ad Astra Alliance
+        <h5>Businesses</h5>
+        Agriculture<br/>Art
+        <h5>Rumors</h5>
+        Reckless with the lives of their employees<br/>Reckless with the lives of their employees
+        """.trimIndent(), getGenerator(SwnConstants.CORPORATION, 0).generate(Locale.US))
+    }
 }

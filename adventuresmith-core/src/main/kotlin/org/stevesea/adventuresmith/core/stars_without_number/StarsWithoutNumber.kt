@@ -43,6 +43,7 @@ object SwnConstants {
     val ALIEN = "${GROUP}/alien"
     val ANIMAL = "${GROUP}/animal"
     val ARCHITECTURE = "${GROUP}/architecture"
+    val CORPORATION = "${GROUP}/corporation"
     val RELIGION = "${GROUP}/religion"
     val ROOM_DRESSING = "${GROUP}/room_dressing"
 
@@ -58,6 +59,7 @@ object SwnConstants {
             ALIEN,
             ANIMAL,
             ARCHITECTURE,
+            CORPORATION,
             RELIGION,
             ROOM_DRESSING
     )
