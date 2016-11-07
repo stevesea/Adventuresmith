@@ -57,27 +57,39 @@ object PwConstants {
     val TREASURE_GUARDED_1BONUS = "${GROUP}/treasure_guarded_1bonus"
     val TREASURE_GUARDED_2BONUS = "${GROUP}/treasure_guarded_2bonus"
 
+    val NPC = "${GROUP}/npc"
+    val NPC_RURAL = "${GROUP}/npc_rural"
+    val NPC_URBAN = "${GROUP}/npc_urban"
+    val NPC_WILDERNESS = "${GROUP}/npc_wilderness"
+
     // creature -- beast, human, humanoid, monster
     // danger
     // discovery
     // dungeon
     // dungeon disc/danger
     // follower
-    // npc -- rural, urban, wilderness
     // steading
-    // treasure guarded (3)  
+    // treasure guarded (3)  TODO: dice
 
     val generators = listOf(
             PLACE,
             REGION,
+
             NAMES_Arpad,
             NAMES_Oloru,
             NAMES_Tamanarugan,
             NAMES_Valkoina,
+
             TREASURE_ITEM,
             TREASURE_UNGUARDED,
             TREASURE_GUARDED,
             TREASURE_GUARDED_1BONUS,
-            TREASURE_GUARDED_2BONUS
+            TREASURE_GUARDED_2BONUS,
+
+            NPC,
+            NPC_RURAL,
+            NPC_URBAN,
+            NPC_WILDERNESS
+
     )
 }

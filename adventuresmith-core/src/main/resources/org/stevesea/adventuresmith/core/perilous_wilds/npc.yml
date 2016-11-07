@@ -1,0 +1,195 @@
+---
+templates:
+- "1..3, {{npc_templates.wilderness}}"
+- "4..9, {{npc_templates.rural}}"
+- "10..12, {{npc_templates.urban}}"
+
+include_tables:
+- details
+
+definitions:
+  npc_templates:
+    traits: |
+      <strong><small>Physical Appearance:</small></strong> {{npc.appearance}}
+      <br/><strong><small>Personality:</small></strong> {{npc.personality}}
+      <br/><strong><small>Quirk:</small></strong> {{npc.quirk}}
+    wilderness: |
+       <h4>NPC Wilderness</h4>
+       <strong><small>Occupation:</small></strong> {{npc_occupation.wilderness}}
+       <br/><strong><small>Activity:</small></strong> {{details.activities}}
+       <br/><strong><small>Alignment:</small></strong> {{details.alignments}}
+       <br/>
+       <br/>{{npc_templates.traits}}
+    rural: |
+       <h4>NPC Rural</h4>
+       <strong><small>Occupation:</small></strong> {{npc_occupation.rural}}
+       <br/><strong><small>Activity:</small></strong> {{details.activities}}
+       <br/><strong><small>Alignment:</small></strong> {{details.alignments}}
+       <br/>
+       <br/>{{npc_templates.traits}}
+    urban: |
+       <h4>NPC Urban</h4>
+       <strong><small>Occupation:</small></strong> {{npc_occupation.urban}}
+       <br/><strong><small>Activity:</small></strong> {{details.activities}}
+       <br/><strong><small>Alignment:</small></strong> {{details.alignments}}
+       <br/>
+       <br/>{{npc_templates.traits}}
+
+nested_tables:
+  npc:
+    single_trait:
+    - "1..6, <strong><small>Physical Appearance:</small></strong> {{npc.appearance}}"
+    - "7..9, <strong><small>Personality:</small></strong> {{npc.personality}}"
+    - "10..12, <strong><small>Quirk:</small></strong> {{npc.quirk}}"
+    appearance:
+    - 1, disfigured (missing teeth, eye, etc.)
+    - 2, lasting injury (bad leg, arm, etc.)
+    - 3, tattooed/pockmarked/scarred
+    - 4, unkempt/shabby/grubby
+    - 5, big/thick/brawny
+    - 6, small/scrawny/emaciated
+    - 7, notable hair (wild, long, none, etc.)
+    - 8, notable nose (big, hooked, etc.)
+    - 9, notable eyes (blue, bloodshot, etc.)
+    - 10, clean/well-dressed/well-groomed
+    - 11, attractive/handsome/stunning
+    - "12, they are [{{> pick: 1d11 npc.appearance}}] despite [a contradictory detail of your choice]"
+    personality:
+    - 1, loner/alienated/antisocial
+    - 2, cruel/belligerent/bully
+    - 3, anxious/fearful/cowardly
+    - 4, envious/covetous/greedy
+    - 5, aloof/haughty/arrogant
+    - 6, awkward/shy/self-loathing
+    - 7, orderly/compulsive/controlling
+    - 8, confident/impulsive/reckless
+    - 9, kind/generous/compassionate
+    - 10, easygoing/relaxed/peaceful
+    - 11, cheerful/happy/optimistic
+    - "12, they are [{{> pick: 1d11 npc.personality}}] despite [a contradictory detail of your choice]"
+    quirk:
+     - 1, insecure/racist/xenophobic
+     - 2, addict (sweets, drugs, sex, etc.)
+     - 3, phobia (spiders, fire, darkness, etc.)
+     - 4, allergic/asthmatic/chronically ill
+     - 5, skeptic/paranoid
+     - 6, superstitious/devout/fanatical
+     - 7, miser/pack-rat
+     - 8, spendthrift/wastrel
+     - 9, smart aleck/know-it-all
+     - 10, artistic/dreamer/delusional
+     - 11, naive/idealistic
+     - "12, they are [{{> pick: 1d11 npc.quirk}}] despite [a contradictory detail of your choice]"
+  npc_occupation:
+    criminal:
+    - 1, bandit/brigand/thug
+    - 2, bandit/brigand/thug
+    - 3..4, thief
+    - 5..6, bodyguard/tough
+    - 7..8, burglar
+    - 9, dealer/fence
+    - 10, racketeer
+    - 11, lieutenant
+    - 12, boss
+    commoner:
+    - 1, housewife/husband
+    - 2..3, hunter/gatherer
+    - 4..6, farmer/herder
+    - 7..8, laborer/servant
+    - 9, driver/porter/guide
+    - 10, sailor/soldier/guard
+    - 11, clergy/monk
+    - 12, apprentice/adventurer
+    tradesperson:
+    - 1, cobbler/furrier/tailor
+    - 2, weaver/basketmaker
+    - 3, potter/carpenter
+    - 4, mason/baker/chandler
+    - 5, cooper/wheelwright
+    - 6, tanner/ropemaker
+    - 7, smith/tinker
+    - 8, stablekeeper/herbalist
+    - 9, vintner/jeweler
+    - 10, innkeeper/tavernkeeper
+    - 11, artist/actor/minstrel
+    - 12, armorer/weaponsmith
+    merchant:
+    - 1..3, general goods/outfitter
+    - 4, raw materials
+    - 5, grain/livestock
+    - 6, ale/wine/spirits
+    - 7, clothing/jewelry
+    - 8, weapons/armor
+    - 9, spices/tobacco
+    - 10, labor/slaves
+    - 11, books/scrolls
+    - 12, magic supplies/items
+    specialist:
+    - 1, undertaker
+    - 2, sage/scholar/wizard
+    - 3, writer/illuminator
+    - 4, perfumer
+    - 5, architect/engineer
+    - 6, locksmith/clockmaker
+    - 7, physician/apothecary
+    - 8, navigator/guide
+    - 9, alchemist/astrologer
+    - 10, spy/diplomat
+    - 11, cartographer
+    - 12, inventor
+    official:
+    - 1, town crier
+    - 2, tax collector
+    - 3..4, armiger/gentry
+    - 5, reeve/sheriff/constable
+    - 6, mayor/magistrate
+    - 7, priest/bishop/abbot
+    - 8, guildmaster
+    - 9, knight/templar
+    - 10, elder/high priest
+    - 11, noble (baron, etc.)
+    - 12, lord/lady/king/queen
+
+    # this table is unused since we pick through wilderness/rural/urban
+    occupation:
+    - "1, Criminal: {{npc_occupation.criminal}}"
+    - "2..6, {{npc_occupation.commoner}}"
+    - "7..8, {{npc_occupation.tradesperson}}"
+    - "9..10, Merchant: {{npc_occupation.merchant}}"
+    - "11, {{npc_occupation.specialist}}"
+    - "12, {{npc_occupation.official}}"
+    wilderness:
+    - "1..2, Criminal: {{> pick: 1d8 npc_occupation.criminal}}"
+    - 3..4, adventurer/explorer
+    - 5..6, hunter/gatherer
+    - "7..8, {{npc_occupation.commoner}}"
+    - 9..10, ranger/scout
+    - 11, soldier/mercenary
+    - "12, {{npc_occupation.official}}"
+    rural:
+    - 1, beggar/urchin
+    - "2, Criminal: {{> pick: 1d11 npc_occupation.criminal}}"
+    - 3, adventurer/explorer
+    - 4, hunter/gatherer
+    - "5..8, {{npc_occupation.commoner}}"
+    - "9, {{npc_occupation.tradesperson}}"
+    - "10, Merchant: {{> pick: 1d11 npc_occupation.merchant}}"
+    - 11, militia/soldier/guard
+    - "12, {{npc_occupation.official}}"
+    urban:
+    - 1..2, beggar/urchin
+    - "3, Criminal: {{npc_occupation.criminal}}"
+    - "4..7, {{npc_occupation.commoner}}"
+    - "8, {{npc_occupation.tradesperson}}"
+    - "9, Merchant: {{npc_occupation.merchant}}"
+    - "10, {{npc_occupation.specialist}}"
+    - "11, militia/soldier/guard"
+    - "12, {{npc_occupation.official}}"
+
+
+
+
+
+
+
+

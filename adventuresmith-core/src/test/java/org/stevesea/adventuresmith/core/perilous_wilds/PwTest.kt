@@ -42,4 +42,18 @@ class PwTest {
         """.trimIndent(),
                 getGenerator(PwConstants.TREASURE_UNGUARDED, 1).generate(Locale.US))
     }
+    @Test
+    fun npc() {
+        Assert.assertEquals("""
+        <h4>NPC Wilderness</h4>
+        <strong><small>Occupation:</small></strong> Criminal: bandit/brigand/thug
+        <br/><strong><small>Activity:</small></strong> fighting/at war
+        <br/><strong><small>Alignment:</small></strong> Chaotic
+        <br/>
+        <br/><strong><small>Physical Appearance:</small></strong> lasting injury (bad leg, arm, etc.)
+        <br/><strong><small>Personality:</small></strong> cruel/belligerent/bully
+        <br/><strong><small>Quirk:</small></strong> addict (sweets, drugs, sex, etc.)
+        """.trimIndent(),
+                getGenerator(PwConstants.NPC, 1).generate(Locale.US))
+    }
 }

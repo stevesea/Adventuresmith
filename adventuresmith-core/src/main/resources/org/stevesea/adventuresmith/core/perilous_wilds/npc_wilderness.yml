@@ -1,0 +1,6 @@
+---
+templates:
+- "{{npc_templates.wilderness}}"
+
+include_tables:
+- npc

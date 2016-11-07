@@ -37,7 +37,7 @@ class Exerciser {
         val kodein = getKodein(SecureRandom())
 
         // selective output some to console
-        val enablePrinting = setOf(PwConstants.TREASURE_UNGUARDED)
+        val enablePrinting = setOf(PwConstants.NPC)
 
         val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
         for (g in gennames) {

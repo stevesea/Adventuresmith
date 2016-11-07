@@ -1,0 +1,6 @@
+---
+templates:
+- "{{npc_templates.urban}}"
+
+include_tables:
+- npc

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{npc_templates.rural}}"
+
+include_tables:
+- npc
