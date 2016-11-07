@@ -34,12 +34,10 @@
 #   tables defined in the sibling tables. Tables are applied to the context in
 #   reverse order of entry in the 'siblings' table, and then this file's tables.
 #
-#   Tables are _not_ merged. If there are any naming collisions, they'll be silently
-#   overriden in the above order.
+#   Tables are _not_ merged. If there are any naming collisions, an error will be thrown
 #
 #   Names must be unique across all entries in these files.
-#    definitions, tables, nested_tables cannot include items with the same name or
-#    they will silently override each other 
+#    definitions, tables, nested_tables cannot include items with the same name.
 #
 templates:
 - |

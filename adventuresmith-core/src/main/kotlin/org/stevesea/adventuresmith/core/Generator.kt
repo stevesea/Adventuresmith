@@ -118,7 +118,6 @@ class DataDrivenGenerator(
                 else
                     sibling
                 val d = loaderFactory.invoke(sibling_resource).load(locale)
-                results.add(d)
                 results.addAll(gatherDtoResources(d, locale))
             }
         }
@@ -131,29 +130,42 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
 
     val shuffler : Shuffler = instance()
 
-
+    // TODO: seems like merging DTOs can be separate from template processing
     fun process(dtos: List<DataDrivenGenDto>) : String {
         val context = mergeDtos(dtos)
         return processTemplate(context)
+    }
+
+    // at first, i just wanted to silently overwrite. but, ran into too many issues during
+    // generator creation where name overwrites resulted in obvious thrown exceptions, but
+    // i'd always have to go into the debugger to realize "oh! that's why!"
+    private fun throwOnKeyCollisions(existingKeys: Set<String> , proposedKeys: Set<String>) {
+        val common = existingKeys.intersect(proposedKeys)
+        if (common.size > 0) {
+            throw IOException("conflicting context key names: ${common}")
+        }
     }
 
     fun mergeDtos(dtos: List<DataDrivenGenDto>) : Map<String, Any> {
         // process the DTOs in reverse order, merging them together
         val result : MutableMap<String,Any> = mutableMapOf()
         for (d in dtos.reversed()) {
-            // TODO: throw exception if tables have conflicting keys?
             d.tables?.let {
+                throwOnKeyCollisions(result.keys, d.tables.keys)
                 result.putAll(d.tables)
             }
             d.nested_tables?.let {
+                throwOnKeyCollisions(result.keys, d.nested_tables.keys)
                 result.putAll(d.nested_tables)
             }
             d.dice?.let {
+                throwOnKeyCollisions(result.keys, d.dice.toSet())
                 for (dstr in d.dice) {
                     result.put(dstr, shuffler.dice(dstr))
                 }
             }
             d.definitions?.let {
+                throwOnKeyCollisions(result.keys, d.definitions.keys)
                 result.putAll(d.definitions)
             }
         }
