@@ -241,7 +241,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             // {{>pick: <dice> <key>}}
                             val params = cmd_and_params[1].split(" ", limit=2)
                             // 1st param must be dice
-                            val d = shuffler.dice(params[0])
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
                             return StringReader(shuffler.pickD(params[0], ctxtVal))

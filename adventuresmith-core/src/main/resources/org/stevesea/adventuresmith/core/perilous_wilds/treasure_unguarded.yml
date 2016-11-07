@@ -7,6 +7,12 @@ include_tables:
 
 tables:
   unguarded_treasure:
+  # TODO: rulebook says
+  #    roll 2d6
+  #    if double-sixes -- roll 3d6
+  #    if not, use lower of the two rolls
+  #
+  #    this seemed like an OK compromise, but isn't exactly that
   - "1..11, {{>pick: 1d6 treasure}}"
   - "12, {{>pick: 3d6 treasure}}"
 

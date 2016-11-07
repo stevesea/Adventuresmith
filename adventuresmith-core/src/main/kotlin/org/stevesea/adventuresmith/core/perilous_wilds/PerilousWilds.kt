@@ -53,6 +53,9 @@ object PwConstants {
 
     val TREASURE_ITEM = "${GROUP}/treasure_item"
     val TREASURE_UNGUARDED = "${GROUP}/treasure_unguarded"
+    val TREASURE_GUARDED = "${GROUP}/treasure_guarded"
+    val TREASURE_GUARDED_1BONUS = "${GROUP}/treasure_guarded_1bonus"
+    val TREASURE_GUARDED_2BONUS = "${GROUP}/treasure_guarded_2bonus"
 
     // creature -- beast, human, humanoid, monster
     // danger
@@ -62,9 +65,7 @@ object PwConstants {
     // follower
     // npc -- rural, urban, wilderness
     // steading
-    // treasure
-    // treasure items
-    // treasure guarded (3)
+    // treasure guarded (3)  
 
     val generators = listOf(
             PLACE,
@@ -74,6 +75,9 @@ object PwConstants {
             NAMES_Tamanarugan,
             NAMES_Valkoina,
             TREASURE_ITEM,
-            TREASURE_UNGUARDED
+            TREASURE_UNGUARDED,
+            TREASURE_GUARDED,
+            TREASURE_GUARDED_1BONUS,
+            TREASURE_GUARDED_2BONUS
     )
 }
