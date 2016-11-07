@@ -1,0 +1,12 @@
+---
+templates:
+- "{{> pick: 2d6 unguarded_treasure}}"
+
+include_tables:
+- treasure
+
+tables:
+  unguarded_treasure:
+  - "1..11, {{>pick: 1d6 treasure}}"
+  - "12, {{>pick: 3d6 treasure}}"
+

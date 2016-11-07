@@ -46,13 +46,20 @@ object PwConstants {
     val PLACE = "${GROUP}/place_names"
     val REGION = "${GROUP}/region_names"
 
+    val NAMES_Arpad = "${GROUP}/names_arpad"
+    val NAMES_Oloru = "${GROUP}/names_oloru"
+    val NAMES_Tamanarugan = "${GROUP}/names_tamanarugan"
+    val NAMES_Valkoina = "${GROUP}/names_valkoina"
+
+    val TREASURE_ITEM = "${GROUP}/treasure_item"
+    val TREASURE_UNGUARDED = "${GROUP}/treasure_unguarded"
+
     // creature -- beast, human, humanoid, monster
     // danger
     // discovery
     // dungeon
     // dungeon disc/danger
     // follower
-    // names -- arpad, oloru, tamanarugan, valkoina,
     // npc -- rural, urban, wilderness
     // steading
     // treasure
@@ -61,6 +68,12 @@ object PwConstants {
 
     val generators = listOf(
             PLACE,
-            REGION
+            REGION,
+            NAMES_Arpad,
+            NAMES_Oloru,
+            NAMES_Tamanarugan,
+            NAMES_Valkoina,
+            TREASURE_ITEM,
+            TREASURE_UNGUARDED
     )
 }

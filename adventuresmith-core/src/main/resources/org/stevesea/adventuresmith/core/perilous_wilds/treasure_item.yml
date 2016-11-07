@@ -1,0 +1,6 @@
+---
+templates:
+- "{{item}}"
+
+include_tables:
+- treasure

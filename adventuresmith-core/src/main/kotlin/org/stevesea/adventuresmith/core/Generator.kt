@@ -196,12 +196,28 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                 .withLoader(object : Mustache.TemplateLoader {
                     // this method is called to evaluate Partials {{>subtmpl}}
                     // in mustache, this typically means loading a different file.
-
-                    // TODO: is this abusing partials? (to use them to run a 'special' function?
                     //
                     // TODO: how complicated do want language to get? need parsing?
                     //    http://sargunvohra.me/cakeparse/
                     //    https://github.com/jparsec/jparsec/wiki/Overview
+                    fun findCtxtVal(findVal: String) : Any {
+                        val ctxtVal = context[findVal]
+                        if (ctxtVal != null)
+                            return ctxtVal
+
+                        if (findVal.contains(".")) {
+                            val pieces = findVal.split(".")
+                            val v = context.get(pieces[0])
+                            if (v is Map<*,*>) {
+                                val v2 = v.get(pieces[1])
+                                if (v2 != null) {
+                                    return v2
+                                }
+                                throw IllegalArgumentException("couldn't find child ${pieces[1]} for ${findVal}")
+                            }
+                        }
+                        throw IllegalArgumentException("unknown context key: ${findVal}")
+                    }
                     override fun getTemplate(name: String?): Reader {
                         if (name == null)
                             return StringReader("null")
@@ -214,11 +230,8 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             val n = shuffler.dice(params[0]).roll()
                             // 2nd param must be which key in context to load
                             val ctxtKey = params[1]
-                            val coll = context[ctxtKey]
-                            if (coll == null) {
-                                throw IllegalArgumentException("unknown context key: ${ctxtKey}")
-                            }
-                            val results = shuffler.pickN(coll, n)
+                            val ctxtVal = findCtxtVal(ctxtKey)
+                            val results = shuffler.pickN(ctxtVal, n)
                             var delim = ", "
                             if (params.size > 2) {
                                 delim = params[2]
@@ -230,12 +243,8 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             // 1st param must be dice
                             val d = shuffler.dice(params[0])
                             val ctxtKey = params[1]
-                            val coll = context[ctxtKey]
-                            if (coll == null) {
-                                throw IllegalArgumentException("unknown context key: ${ctxtKey}")
-                            } else {
-                                return StringReader(shuffler.pickD(params[0], coll))
-                            }
+                            val ctxtVal = findCtxtVal(ctxtKey)
+                            return StringReader(shuffler.pickD(params[0], ctxtVal))
                         } else if (cmd_and_params[0] == "dice:") {
                             // {{>dice: <dicestr>}}
                             return StringReader(shuffler.dice(cmd_and_params[1]).roll().toString())
@@ -250,20 +259,23 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
 
         var count = 0;
         do {
-            val result =  compiler
-                    .compile(template)
-                    .execute(context)
-                    .trim()
-            if (!result.contains("{{"))
-                return result
+            try {
+                val result = compiler
+                        .compile(template)
+                        .execute(context)
+                        .trim()
+                if (!result.contains("{{"))
+                    return result
+                // don't let a template force us into infinite loop
+                if (count > 4)
+                    return result
 
-            // don't let a template force us into infinite loop
-            if (count > 4)
-                return result
-
-            // do another iteration to re-process the result
-            template = result
-            count++
+                // do another iteration to re-process the result
+                template = result
+                count++
+            } catch (ex: MustacheException) {
+                throw MustacheException("problem processing template: ${template}", ex)
+            }
         } while (true)
     }
 }

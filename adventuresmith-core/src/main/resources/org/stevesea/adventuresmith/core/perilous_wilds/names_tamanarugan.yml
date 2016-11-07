@@ -1,0 +1,13 @@
+---
+templates:
+- |
+  <h4>{{#locations.Tamanarugan}}{{^-first}} - {{/-first}}{{.}}{{/locations.Tamanarugan}}</h4>
+  <strong><small>Male:</small></strong> {{Tamanarugan.male}}
+  <br/><strong><small>Female:</small></strong> {{Tamanarugan.female}}
+  <br/>
+  <br/><strong><small>Steading:</small></strong> {{Tamanarugan.steading}}
+  <br/>
+  <br/><strong><small>Mount:</small></strong> {{Tamanarugan.mount}}
+
+include_tables:
+- names

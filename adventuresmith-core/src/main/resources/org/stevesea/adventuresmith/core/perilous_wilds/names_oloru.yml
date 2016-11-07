@@ -1,0 +1,13 @@
+---
+templates:
+- |
+  <h4>{{#locations.Oloru}}{{^-first}} - {{/-first}}{{.}}{{/locations.Oloru}}</h4>
+  <strong><small>Male:</small></strong> {{Oloru.male}}
+  <br/><strong><small>Female:</small></strong> {{Oloru.female}}
+  <br/>
+  <br/><strong><small>Steading:</small></strong> {{Oloru.steading}}
+  <br/>
+  <br/><strong><small>Mount:</small></strong> {{Oloru.mount}}
+
+include_tables:
+- names

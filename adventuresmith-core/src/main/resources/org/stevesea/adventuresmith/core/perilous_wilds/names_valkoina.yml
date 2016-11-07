@@ -1,0 +1,13 @@
+---
+templates:
+- |
+  <h4>{{#locations.Valkoina}}{{^-first}} - {{/-first}}{{.}}{{/locations.Valkoina}}</h4>
+  <strong><small>Male:</small></strong> {{Valkoina.male}}
+  <br/><strong><small>Female:</small></strong> {{Valkoina.female}}
+  <br/>
+  <br/><strong><small>Steading:</small></strong> {{Valkoina.steading}}
+  <br/>
+  <br/><strong><small>Mount:</small></strong> {{Valkoina.mount}}
+
+include_tables:
+- names
