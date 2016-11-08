@@ -70,11 +70,11 @@ object PwConstants {
 
     val DANGER = "${GROUP}/danger"
 
-    // discovery
-    // dungeon
-    // dungeon disc/danger
-    // follower
-    // steading
+    // follower (needs npc)
+    // dungeon disc/danger (needs details/creature)
+    // steading (needs details/creature)
+    // discovery (need steading)
+    // dungeon (need details/creature)
 
     val generators = listOf(
             PLACE,
