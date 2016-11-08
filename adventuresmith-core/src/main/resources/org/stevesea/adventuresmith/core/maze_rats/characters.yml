@@ -28,8 +28,8 @@
 #                             same as above, but separated with semi-colon
 #
 #   Another oddity of how I process the templates is that I repeatedly process the template's
-#   result (up to 5 times). Unnecessary for most generators, but very handy for others.
-#      (example: see the Fourth Page generators for example)
+#   result. Unnecessary for most generators, but very handy for others.
+#      (example: see the Fourth Page and Perilous Wilds generators for examples)
 #
 #
 # implementation notes:
