@@ -34,8 +34,6 @@ class DiceTest {
 
     @Test
     fun testStringParsingModifier() {
-
-
         val d = getDiceFactory().invoke("2d20+4")
         Assert.assertEquals(2, d.nDice)
         Assert.assertEquals(20, d.nSides)

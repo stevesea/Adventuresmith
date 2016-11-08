@@ -21,6 +21,8 @@
 package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
+import me.sargunvohra.lib.cakeparse.api.*
+import me.sargunvohra.lib.cakeparse.parser.*
 import java.text.*
 import java.util.*
 
@@ -81,6 +83,108 @@ fun diceStrToDef(diceStr: String) : DiceDef {
         throw IllegalArgumentException("invalid dice string: '$trimmed' : ${ex.message}")
     }
 }
+
+class DiceParser(override val kodein: Kodein) : KodeinAware {
+    val random : Random = instance()
+
+    fun roll(diceStr: String) : Int {
+        return parse(diceStr)
+    }
+    fun rollN(diceStr: String, n: Int) : List<Int> {
+        val result: MutableList<Int> = mutableListOf()
+        for (i in 1..n) {
+            result.add(roll(diceStr))
+        }
+        return result
+    }
+
+
+    private fun roll(nDice: Int, nSides: Int) : Int {
+        var sum = 0
+        for (i in 1..nDice)
+            sum += random.nextInt(nSides) + 1
+        return sum
+    }
+
+    private fun lex(input: String) = allTokens.lexer().lex(input)
+    private fun parse(input: String) = lex(input).parseToEnd(expr).value
+
+    companion object {
+        val number = token("number", "[0-9]+")
+
+        val plus = token("plus", "\\+")
+        val minus = token("plus", "\\-")
+        val times = token("times", "\\*")
+
+        val lPar = token("lPar", "\\(")
+        val rPar = token("rPar", "\\)")
+
+        val d = token ("d", "d")
+
+        val space = token("space", "[ \\t\\r]+", ignore = true)
+
+        val allTokens = setOf(
+                number,
+                plus,
+                minus,
+                times,
+
+                lPar,
+                rPar,
+
+                space,
+                d
+        )
+    }
+
+    // convenience references for recursive rules
+    val exprRef: Parser<Int> = ref { expr }
+    val multExprRef: Parser<Int> = ref { multExpr }
+    val dExprRef: Parser<Int> = ref { dExpr }
+    val addExprRef: Parser<Int> = ref { addExpr }
+
+    // actual rules
+    val parenExpr = lPar then exprRef before rPar
+
+    val primExpr = number map { it.raw.toInt() } or parenExpr
+
+    val dExpr = primExpr and optional(d and dExprRef) map { exp ->
+        val (left, dRight) = exp
+        dRight?.let {
+            val (op, right) = it
+            when (op.type) {
+                d -> roll(left, right)
+                else -> throw IllegalStateException()
+            }
+        } ?: left
+    }
+
+    val multExpr = dExpr and optional(times and multExprRef) map { exp ->
+        val (left, mult) = exp
+        mult?.let {
+            val (op, right) = it
+            when (op.type) {
+                times -> left * right
+                else -> throw IllegalStateException()
+            }
+        } ?: left
+    }
+
+    val addExpr = multExpr and optional((plus or minus) and addExprRef) map { exp ->
+        val (left, mult) = exp
+        mult?.let {
+            val (op, right) = it
+            when (op.type) {
+                plus -> left + right
+                minus -> left - right
+                else -> throw IllegalStateException()
+            }
+        } ?: left
+    }
+
+    val expr: Parser<Int> = addExpr
+}
+
 
 
 object DiceConstants {
@@ -156,6 +260,10 @@ val diceModule = Kodein.Module {
                         DiceConstants.d20disadv
                 )
         ).flatten()
+    }
+
+    bind<DiceParser>() with singleton {
+        DiceParser(kodein)
     }
 
 }
