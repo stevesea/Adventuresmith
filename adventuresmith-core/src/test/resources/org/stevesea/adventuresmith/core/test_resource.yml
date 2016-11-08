@@ -5,6 +5,12 @@ templates:
 
   table3: {{table3}}   # recursive reference, tab3's string is a key to point at tab2
 
+  table1 N: {{>pickN: 2 table1}}               # pick N elements (default delimeter is comma)
+  table1 N: {{>pickN: 2 table1 ;&nbsp;}}       # pick N elements (supply own delim)
+  table1 NDice: {{>pickN: 1d4+1d4 table1}}     # pick <dice> elements
+
+  table2 pick: {{>pick: 1d2 table2}}    # pick from a table, but only interested in first <dice> vals
+
   sibling_table: {{sibling_table}}      # direct dependency
   sibling_table2: {{sibling_table2}}    # transitive dependency (brought in by sibling_table)
 
@@ -22,9 +28,11 @@ templates:
   {{#a_list_of_objs}}{{val}}{{/a_list_of_objs}}
 
   dice:
-  3d6: {{> dice: 3d6}}
-  20d20+1: {{> dice: 20d20+1}}
-  6d4: {{> dice: 6d4}}
+  3d6: {{> roll: 3d6}}
+  20d20+1: {{> roll: 20d20+1}}
+  6d4: {{> roll: 6d4}}
+  6d4: {{> rollN: 4 6d4}}  # roll 4 tiles
+
 
 definitions:
   a_list:

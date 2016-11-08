@@ -69,7 +69,6 @@ object PwConstants {
     // dungeon disc/danger
     // follower
     // steading
-    // treasure guarded (3)  TODO: dice
 
     val generators = listOf(
             PLACE,

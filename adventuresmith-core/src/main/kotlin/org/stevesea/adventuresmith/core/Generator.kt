@@ -229,6 +229,10 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             // {{>pickN: <dice/#> <key> <delim>}}
                             val params = cmd_and_params[1].split(" ", limit = 3)
 
+                            if (!(2..3).contains(params.size)) {
+                                throw IllegalArgumentException("pickN syntax must be: <dice/#> <key> [<delim>]. input: ${cmd_and_params[1]}")
+                            }
+
                             // 1st param must be dice (NOTE: dice str allows plain int)
                             val n = shuffler.roll(params[0])
                             // 2nd param must be which key in context to load
@@ -243,13 +247,30 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                         } else if (cmd_and_params[0] == "pick:") {
                             // {{>pick: <dice> <key>}}
                             val params = cmd_and_params[1].split(" ", limit=2)
+
+                            if (!(2..3).contains(params.size)) {
+                                throw IllegalArgumentException("pick syntax must be: <dice/#> <key>. input: ${cmd_and_params[1]}")
+                            }
                             // 1st param must be dice
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
                             return StringReader(shuffler.pickD(params[0], ctxtVal))
-                        } else if (cmd_and_params[0] == "dice:") {
-                            // {{>dice: <dicestr>}}
+                        } else if (cmd_and_params[0] == "roll:") {
+                            // {{>roll: <dicestr>}}
                             return StringReader(shuffler.roll(cmd_and_params[1]).toString())
+                        } else if (cmd_and_params[0] == "rollN:") {
+                            // {{>rollN: <n> <dicestr> <delim>}}
+                            val params = cmd_and_params[1].split(" ", limit=3)
+                            if (!(2..3).contains(params.size)) {
+                                throw IllegalArgumentException("rollN syntax must be: <#> <dice> [<delim>]. input: ${cmd_and_params[1]}")
+                            }
+                            val num = params[0].toInt()
+                            val diceStr = params[1]
+                            var delim = ", "
+                            if (params.size > 2) {
+                                delim = params[2]
+                            }
+                            return StringReader(shuffler.rollN(diceStr, num).joinToString(delim))
                         } else {
                             throw IllegalArgumentException("unknown instruction: '${name}'")
                         }

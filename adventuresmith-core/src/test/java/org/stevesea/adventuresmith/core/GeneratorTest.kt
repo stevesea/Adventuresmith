@@ -93,6 +93,12 @@ class GeneratorTest {
 
         table3: t2_valA   # recursive reference, tab3's string is a key to point at tab2
 
+        table1 N: t1_valB, t1_valC               # pick N elements (default delimeter is comma)
+        table1 N: t1_valB;&nbsp;t1_valC       # pick N elements (supply own delim)
+        table1 NDice: t1_valB, t1_valC     # pick <dice> elements
+
+        table2 pick: t2_valA    # pick from a table, but only interested in first <dice> vals
+
         sibling_table: ts_val1      # direct dependency
         sibling_table2: ts2_val1    # transitive dependency (brought in by sibling_table)
 
@@ -113,6 +119,7 @@ class GeneratorTest {
         3d6: 3
         20d20+1: 21
         6d4: 6
+        6d4: 6, 6, 6, 6  # roll 4 tiles
         """.trimIndent(), g.generate(Locale.US))
     }
 }

@@ -10,7 +10,9 @@
 #   I'm probably abusing Mustache, but it felt like the cleanest way to inject some custom syntax
 #   into the templates was via partials
 #
-#      {{>dice: 2d6+1}}           results in 2d6+1 roll.
+#      {{>roll: 2d6+1}}             results in 2d6+1 roll.
+#      {{>roll: 2*(1d4+2d20)}}      it can get silly
+#      {{>rollN: 2 2*(1d4+2d20)}}   be silly twice
 #
 #      {{>pick: <dice> <key>}}   result is using given dice roll to select 1 item from the given context key
 #              example:
@@ -18,8 +20,12 @@
 #
 #      {{>pickN: <dice/#> <key> <delim>}}  result is picking <dice> # of unique items from key, and separating them with the given delimeter
 #               example:
-#                    {{>pickN: 1d2+2 weapon ,&nbsp;}}
-#                             picks 2-4 weapons, outputs each comma-separated with space
+#                    {{>pickN: 2 weapon}}
+#                             picks 2 weapons, outputs each comma-separated
+#                    {{>pickN: 1d2+2 weapon}}
+#                             picks 2-4 weapons, outputs each comma-separated
+#                    {{>pickN: 1d2+2 weapon ;&nbsp;}}
+#                             same as above, but separated with semi-colon
 #
 #   Another oddity of how I process the templates is that I repeatedly process the template's
 #   result (up to 5 times). Unnecessary for most generators, but very handy for others.
@@ -42,7 +48,7 @@
 templates:
 - |
   Name: {{forename}} {{surname}}
-  STR: {{> dice: 3d6}} DEX: {{> dice: 3d6}} WIL: {{> dice: 3d6}}  HP: {{> dice: 1d6}}
+  STR: {{> roll: 3d6}} DEX: {{> roll: 3d6}} WIL: {{> roll: 3d6}}  HP: {{> roll: 1d6}}
   Appearance: {{appearance}}, {{appearance}}
   Personality: {{personality}}, {{personality}}
   Weapons: {{weapon}}, {{weapon}}

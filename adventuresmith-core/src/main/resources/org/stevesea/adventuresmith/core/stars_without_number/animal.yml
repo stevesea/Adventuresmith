@@ -27,13 +27,13 @@ tables:
   - Sucking mouthparts
   - Chewing mouthparts
   - Jewel-colored chitin
-  - "{{>dice: 2d4}} <small><em>(2d4)</em></small> pairs of limbs"
+  - "{{>roll: 2d4}} <small><em>(2d4)</em></small> pairs of limbs"
   - Membranous wings
   - Deposits eggs in live prey
   - Has “silk” spinnerets
   - Has a chrysalis life stage
   - No mouth; adult form lives only to reproduce
-  - "{{>dice: 1d4}} <small><em>(1d4)</em></small> pairs of eyes or eyespots"
+  - "{{>roll: 1d4}} <small><em>(1d4)</em></small> pairs of eyes or eyespots"
   - Sluglike body
   - Color-changing exoskeleton
   - Always encountered in groups
@@ -46,7 +46,7 @@ tables:
   - Emits noxious or poisonous stench when killed
   traits_reptilian:
   - Sharp-edged scales
-  - "{{>dice: 1d4}} <small><em>(1d4)</em></small> pairs of eyes"
+  - "{{>roll: 1d4}} <small><em>(1d4)</em></small> pairs of eyes"
   - Extremely long tail
   - Bellowing vocalization
   - Burrowing foreclaws
@@ -77,7 +77,7 @@ tables:
   - Patterned fur or hide
   - Expands or inflates when threatened
   - Strictly nocturnal
-  - "{{>dice: 1d6+1}} <small><em>(1d6+1)</em></small> limbs, including any tail"
+  - "{{>roll: 1d6+1}} <small><em>(1d6+1)</em></small> limbs, including any tail"
   - Mottled or mangy fur
   - Fires darts or quills
   - Animal is cold-blooded
@@ -88,7 +88,7 @@ tables:
   - Creature is abnormally clever for an animal
   traits_avian:
   - Sharp feathers
-  - "{{>dice: 1d3}} <small><em>(1d3)</em></small> pairs of wings"
+  - "{{>roll: 1d3}} <small><em>(1d3)</em></small> pairs of wings"
   - Long, sinuous neck
   - Brilliant coloration
   - Membranous wings
@@ -109,7 +109,7 @@ tables:
   - Flies by means of lighter-than-air gas
   traits_exotic:
   - Rocklike body
-  - "{{>dice: 1d4}} <small><em>(1d4)</em></small> pairs of eyestalks"
+  - "{{>roll: 1d4}} <small><em>(1d4)</em></small> pairs of eyestalks"
   - Rolls on wheels
   - Chainsaw-like mouthparts or claws
   - Metallic hide
@@ -118,7 +118,7 @@ tables:
   - Amoeba-like body
   - Crystalline tissues
   - Gas-sack body
-  - "{{>dice: 2d10}} <small><em>(2d10)</em></small> tentacles"
+  - "{{>roll: 2d10}} <small><em>(2d10)</em></small> tentacles"
   - Gelatinous liquid body
   - Radioactive flesh
   - Uses sonic attacks to stun prey
