@@ -75,7 +75,6 @@ data class DataDrivenGenMetaDto(val name: String,
 data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>?,
                             val include_tables: List<String>?,
-                            val dice: List<String>?,
                             val nested_tables : Map<String, Map<String, RangeMap>>?,
                             val definitions: Map<String, Any>?)
 
@@ -157,12 +156,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
             d.nested_tables?.let {
                 throwOnKeyCollisions(result.keys, d.nested_tables.keys)
                 result.putAll(d.nested_tables)
-            }
-            d.dice?.let {
-                throwOnKeyCollisions(result.keys, d.dice.toSet())
-                for (dstr in d.dice) {
-                    result.put(dstr, shuffler.dice(dstr))
-                }
             }
             d.definitions?.let {
                 throwOnKeyCollisions(result.keys, d.definitions.keys)

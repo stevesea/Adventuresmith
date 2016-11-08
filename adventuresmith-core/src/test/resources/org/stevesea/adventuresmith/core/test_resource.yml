@@ -22,13 +22,9 @@ templates:
   {{#a_list_of_objs}}{{val}}{{/a_list_of_objs}}
 
   dice:
-  3d6: {{3d6}}
-  20d20+1: {{20d20+1}}
+  3d6: {{> dice: 3d6}}
+  20d20+1: {{> dice: 20d20+1}}
   6d4: {{> dice: 6d4}}
-
-dice:
-- 3d6
-- 20d20+1
 
 definitions:
   a_list:

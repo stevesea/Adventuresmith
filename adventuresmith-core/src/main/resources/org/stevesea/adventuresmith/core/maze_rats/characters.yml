@@ -42,7 +42,7 @@
 templates:
 - |
   Name: {{forename}} {{surname}}
-  STR: {{3d6}} DEX: {{3d6}} WIL: {{3d6}}  HP: {{> dice: 1d6}}
+  STR: {{> dice: 3d6}} DEX: {{> dice: 3d6}} WIL: {{> dice: 3d6}}  HP: {{> dice: 1d6}}
   Appearance: {{appearance}}, {{appearance}}
   Personality: {{personality}}, {{personality}}
   Weapons: {{weapon}}, {{weapon}}
@@ -52,14 +52,6 @@ templates:
 # they _must_ be located next to this file
 include_tables:
 - names
-
-# a dice list is optional. If used, it'll add dice keywords like the tables keywords to the template.
-#   example:  {{3d6}}
-#
-# alternatively, you can use a Mustache partial
-#   example:  {{> dice: 1d6}}
-dice:
-- 3d6
 
 # tables is a map of adventuresmith RangeMaps. In terms of YaML syntax, these are just
 # lists of Strings. Overlapping ranges are not permitted and will be flagged as errors.
