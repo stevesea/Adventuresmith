@@ -61,6 +61,9 @@ dependencies {
 
     compile 'com.samskivert:jmustache:1.13'
 
+    // parser for dice expressions
+    compile 'me.sargunvohra.lib:cakeparse:1.1.1'
+
     compile 'microutils:kotlin.logging:1.2.1'
     compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
 
