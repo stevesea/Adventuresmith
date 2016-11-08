@@ -290,7 +290,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                 if (!result.contains("{{"))
                     return result
                 // don't let a template force us into infinite loop
-                if (count > 4)
+                if (count > 12)
                     return result
 
                 // do another iteration to re-process the result

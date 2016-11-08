@@ -1,12 +1,9 @@
 ---
 templates:
-- "1..4, {{creature_templates.beast}}"
-- "5..6, {{creature_templates.human}}"
-- "7..8, {{creature_templates.humanoid}}"
-- "9..12, {{creature_templates.monster}}"
+- "{{creature.creature}}"
 
 imports:
-- npc
+- npc # also imports details
 
 definitions:
   creature_templates:
@@ -65,10 +62,16 @@ definitions:
 nested_tables:
   creature:
     creature_no_tags:
-    - "1..4, {{beast}}"
+    - "1..4, {{creature.beast}}"
     - "5..6, human"
-    - "7..8, {{humanoid}}"
-    - "9..12, {{monster}}"
+    - "7..8, {{creature.humanoid}}"
+    - "9..12, {{creature.monster}}"
+
+    creature:
+    - "1..4, {{creature_templates.beast}}"
+    - "5..6, {{creature_templates.human}}"
+    - "7..8, {{creature_templates.humanoid}}"
+    - "9..12, {{creature_templates.monster}}"
 
     earthbound:
     - 1, termite/tick/louse

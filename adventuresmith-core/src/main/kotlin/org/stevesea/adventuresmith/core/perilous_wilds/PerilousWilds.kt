@@ -68,7 +68,8 @@ object PwConstants {
     val CREATURE_Humanoid = "${GROUP}/creature_humanoid"
     val CREATURE_Monster = "${GROUP}/creature_monster"
 
-    // danger
+    val DANGER = "${GROUP}/danger"
+
     // discovery
     // dungeon
     // dungeon disc/danger
@@ -99,7 +100,9 @@ object PwConstants {
             CREATURE_Beast,
             CREATURE_Human,
             CREATURE_Humanoid,
-            CREATURE_Monster
+            CREATURE_Monster,
+
+            DANGER
 
     )
 }

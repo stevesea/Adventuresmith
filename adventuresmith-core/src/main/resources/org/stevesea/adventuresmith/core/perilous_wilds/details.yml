@@ -162,7 +162,7 @@ nested_tables:
     number_appearing:
     - 1..4, Solitary (1)
     - "5..9, Group (1d6+2) [{{>roll: 1d6+2}}]"
-    - "10..12, Horde (4d6 per wave) [{{>roll: 4d6}}"
+    - "10..12, Horde (4d6 per wave) [{{>roll: 4d6}}]"
     oddities:
     - 1, weird color/smell/sound
     - 2, geometric

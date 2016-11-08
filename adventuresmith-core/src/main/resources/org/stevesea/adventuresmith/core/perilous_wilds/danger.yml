@@ -1,0 +1,129 @@
+templates:
+- "{{danger.danger}}"
+
+imports:
+- creature   # also imports in npc & details
+
+definitions:
+  danger_templates:
+    unnatural_entity: |
+      <h4>Danger - Unnatural Entity</h4>
+      {{danger.unnatural_entities}}
+    hazard: |
+      <h4>Danger - Hazard</h4>
+      {{danger.hazards}}
+    creature: |
+      <h4>Danger - Creature</h4>
+      {{creature.creature}}
+
+nested_tables:
+  # note: PW tables have undead/planar/divine as 'dangers', but
+  #    they're actually used in many places. in these config files,
+  #    those tables have been added to details.yml
+  hazard:
+    unnatural:
+    - 1..3, taint/blight/curse
+    - 4..8, arcane trap/effect
+    - 9..11, planar trap/effect
+    - 12, divine
+    natural:
+    - 1..2, blinding mist/fog
+    - 3..4, bog/mire/quicksand
+    - 5..7, pitfall/sinkhole/chasm
+    - 8..9, poison/disease
+    - 10..11, flood/fire/tornado
+    - "12, {{details.oddities}}"
+
+    trap:
+    - 1..2, alarm
+    - 3..5, ensnaring/paralyzing
+    - 6..8, injurious (pit, etc.)
+    - 9, gas/fire/poison
+    - 10..12, ambush
+
+  danger:
+    danger:
+    - "1, {{danger_templates.unnatural_entity}}"
+    - "2..6, {{danger_templates.hazard}}"
+    - "7..12, {{danger_templates.creature}}"
+
+    unnatural_entities:
+    - |
+      1..8,
+      <h5>Undead Entity</h5>
+      <p>
+      {{details.undead}}
+      </p>
+      <p>
+      {{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      </p>
+    - |
+      9..11,
+      <h5>Planar Entity</h5>
+      <p>
+      {{details.planar}}
+      </p>
+      <p>
+      {{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.elements}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.tags}}
+      </p>
+    - |
+      12,
+      <h5>Divine Entity</h5>
+      <p>
+      {{details.divine}}
+      </p>
+      <p>
+      {{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.aspects}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.elements}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.tags}}
+      </p>
+
+
+    hazards:
+    - |
+      1..2,
+      <h5>Unnatural Hazard</h5>
+      <p>
+      {{hazard.unnatural}}
+      </p>
+      <p>
+      {{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      </p>
+    - |
+      3..10,
+      <h5>Natural Hazard</h5>
+      <p>
+      {{hazard.natural}}
+      </p>
+      <p>
+      {{detail_config.select_and_label.visibilities}}
+      </p>
+    - |
+      11..12,
+      <h5>Trap</h5>
+      <p>
+      {{hazard.trap}}
+      </p>
+
+      <p>
+      {{detail_config.select_and_label.aspects}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      <br/><small><strong>Creature responsible:</strong></small> {{creature.creature_no_tags}}
+      </p>
+
