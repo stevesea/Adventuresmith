@@ -1,6 +1,6 @@
 ---
 
-include_tables:
+imports:
 - test_sibling2
 
 tables:

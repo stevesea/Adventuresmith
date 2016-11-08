@@ -2,5 +2,5 @@
 templates:
 - "{{npc_templates.rural}}"
 
-include_tables:
+imports:
 - npc

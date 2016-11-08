@@ -1,7 +1,7 @@
 ---
 # keywords in templates must appear as keys in the tables map of this
-# file (or as keys in the tables of included files in this same directory
-# see 'included_tables')
+# file (or as keys in the tables of imported files in this same directory
+# see 'imports')
 #
 # Template notes:
 #   Templates are Mustache templates (specifically, jmustache). so, you can probably do some
@@ -33,7 +33,7 @@
 #
 #
 # implementation notes:
-# - the 'included_tables' is a list of file prefixes which must be located
+# - the 'imports' is a list of file prefixes which must be located
 #   in the same directory as the current file.
 #
 # - the context passed to the template compiler is this file's table, plus any
@@ -56,7 +56,7 @@ templates:
 
 # a list of other input data files that should be loaded into the context.
 # they _must_ be located next to this file
-include_tables:
+imports:
 - names
 
 # tables is a map of adventuresmith RangeMaps. In terms of YaML syntax, these are just

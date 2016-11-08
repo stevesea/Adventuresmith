@@ -9,6 +9,6 @@ templates:
   <br/><small>{{headers.place}}:</small>{{Spanish.place}}
 
 
-include_tables:
+imports:
 - names
 - names_headers

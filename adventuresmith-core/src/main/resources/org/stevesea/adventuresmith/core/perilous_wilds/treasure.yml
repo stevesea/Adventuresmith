@@ -1,6 +1,6 @@
 ---
 
-include_tables:
+imports:
 - details
 
 tables:

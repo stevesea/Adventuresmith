@@ -12,6 +12,6 @@ templates:
   <h5>damage die - D12 + 1d4</h5>
   {{>pick: 1d12+1d4 treasure}}
 
-include_tables:
+imports:
 - treasure
 

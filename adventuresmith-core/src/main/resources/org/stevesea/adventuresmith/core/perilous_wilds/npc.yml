@@ -4,7 +4,7 @@ templates:
 - "4..9, {{npc_templates.rural}}"
 - "10..12, {{npc_templates.urban}}"
 
-include_tables:
+imports:
 - details
 
 definitions:

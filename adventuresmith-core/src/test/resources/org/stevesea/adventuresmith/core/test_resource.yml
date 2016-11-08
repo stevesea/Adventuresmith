@@ -51,7 +51,7 @@ definitions:
     mapkey2: mapval2
     mapkey3: mapval3
 
-include_tables:
+imports:
 - test_sibling
 
 tables:

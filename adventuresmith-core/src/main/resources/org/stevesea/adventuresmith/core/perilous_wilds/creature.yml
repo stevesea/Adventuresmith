@@ -1,0 +1,127 @@
+---
+templates:
+- asdasdfadsf
+
+imports:
+- npc
+
+tables:
+  earthbound:
+  - 1, 'termite/tick/louse')
+  - 2, 'snail/slug/worm')
+  - 3, 'ant/centipede/scorpion')
+  - 4, 'snake/lizard')
+  - 5, 'vole/rat/weasel')
+  - 6, 'boar/pig')
+  - 7, 'dog/fox/wolf')
+  - 8, 'cat/lion/panther')
+  - 9, 'deer/horse/camel')
+  - 10, 'ox/rhino')
+  - 11, 'bear/ape/gorilla')
+  - 12, 'mammoth/dinosaur')
+  airborne:
+  - 1, 'mosquito/firefly')
+  - 2, 'locust/dragonfly/moth')
+  - 3, 'bee/wasp')
+  - 4, 'chicken/duck/goose')
+  - 5, 'songbird/parrot')
+  - 6, 'gull/waterbird')
+  - 7, 'heron/crane/stork')
+  - 8, 'crow/raven')
+  - 9, 'hawk/falcon')
+  - 10, 'eagle/owl')
+  - 11, 'condor')
+  - 12, 'pteranodon')
+  water_going:
+  - 1, 'insect')
+  - 2, 'jelly/anemone')
+  - 3, 'clam/oyster/snail')
+  - 4, 'eel/snake')
+  - 5, 'frog/toad')
+  - 6, 'fish')
+  - 7, 'crab/lobster')
+  - 8, 'turtle')
+  - 9, 'alligator/crocodile')
+  - 10, 'dolphin/shark')
+  - 11, 'squid/octopus')
+  - 12, 'whale')
+  beast:
+  - 1..7, "${ -> pick(earthbound)}")
+  - 8..10, "${ -> pick(airborne)}")
+  - 11..12, "${ -> pick(water_going)}")
+
+  humanoid_common:
+  - 1..3, 'halfling (Small)')
+  - 4..5, 'goblin/kobold (Small)')
+  - 6..7, 'dwarf/gnome (Small)')
+  - 8..9, 'orc/hobgoblin/gnoll')
+  - 10..11, 'half-elf/half-orc, etc.')
+  - 12, 'elf')
+  humanoid_uncommon:
+  - 1, 'fey (Tiny)')
+  - 2..3, 'catfolk/dogfolk')
+  - 4..6, 'lizardfolk/merfolk')
+  - 7, 'birdfolk')
+  - 8..10, 'ogre/troll (Large)')
+  - 11..12, 'cyclops/giant (Large)')
+  humanoid_hybrid:
+  - 1..2, 'centaur')
+  - 3..5, 'werewolf/werebear')
+  - 6, "werecreature <br/><small>human + ${ -> pick(beast) }</small>")
+  - 7..10, "human + ${ -> pick(beast) }")
+  - 11..12, "human + ${ -> pickN(beast,2).join(' + ')}")
+
+  humanoid:
+  - 1..7, "${ -> pick(humanoid_common)}")
+  - 8..10, "${ -> pick(humanoid_uncommon)}")
+  - 11..12, "${ -> pick(humanoid_hybrid)}")
+
+  monster_unusual:
+  - 1..3, 'plant/fungus')
+  - 4..5, "Undead Human <small>[${ -> pick(pwDetails.undead)}]</small>")
+  - 6, "Undead Humanoid  <small>[${ -> pick(pwDetails.undead)} + ${ -> pick(humanoid)}]</small>")
+  - 7..8, "${ -> pickN(beast,2).join(' + ')}")
+  - 9..10, "${ -> pick(beast) } + ${ -> pwDetails.pickAbility()}")
+  - 11..12, "${ -> pick(beast) } + ${ -> pwDetails.pickFeature()}")
+  monster_rare:
+  - 1..3, 'slime/ooze (Amorphous)')
+  - 4..6, 'creation (Construct)')
+  - 7..9, "${ -> pick(beast) } + ${ -> pwDetails.pickOddity()}")
+  - 10..12, "${ -> pick(unnatural_entity)}")
+  monster_legendary:
+  - 1..3, 'dragon/colossus (Huge)')
+  - 4..6, "${ -> pick(monster_unusual)} (Huge)")
+  - 7..9, "${ -> pick(monster_rare)} (Huge)")
+  - 10, "${ -> pick(beast) } + dragon")
+  - 11, "${ -> pick(monster_unusual)} + dragon")
+  - 12, "${ -> pick(monster_rare)} + dragon")
+  monster:
+  - 1..7, "${ -> pick(monster_unusual)}")
+  - 8..10, "${ -> pick(monster_rare)} ${em('(rare)')}")
+  - 11..12, "${ -> pick(monster_legendary)} ${em('(legendary)')}")
+
+  unnatural_entity:
+            .with(1..8, """\
+${ss('Undead:')} ${ -> pick(pwDetails.undead)}\
+""")
+            .with(9..11, """\
+${ss('Planar:')} ${ -> pick(pwDetails.planar)}
+<br/>
+<br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
+<br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
+""")
+            .with(12, """\
+${ss('Divine:')} ${ -> pick(pwDetails.divine)}
+<br/>
+<br/>${ss('Aspect:')} ${ -> pwDetails.pickAspect()}
+<br/>${ss('Element:')} ${ -> pwDetails.pickElement()}
+<br/>${ss('Feature:')} ${ -> pwDetails.pickFeature()}
+<br/>${ss('Tag:')} ${ -> pwDetails.pickTag()}\
+""")
+
+    RangeMap creature_no_tags = new RangeMap()
+            .with(1..4, "${ -> pick(beast)}")
+            .with(5..6, "human")
+            .with(7..8, "${ -> pick(humanoid)}")
+            .with(9..12, "${ -> pick(monster)}")

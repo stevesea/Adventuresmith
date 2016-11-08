@@ -2,5 +2,5 @@
 templates:
 - "{{npc_templates.wilderness}}"
 
-include_tables:
+imports:
 - npc

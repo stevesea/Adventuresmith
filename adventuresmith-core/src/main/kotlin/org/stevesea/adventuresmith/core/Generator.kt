@@ -74,7 +74,7 @@ data class DataDrivenGenMetaDto(val name: String,
                                 val desc: String)
 data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>?,
-                            val include_tables: List<String>?,
+                            val imports: List<String>?,
                             val nested_tables : Map<String, Map<String, RangeMap>>?,
                             val definitions: Map<String, Any>?)
 
@@ -110,8 +110,8 @@ class DataDrivenGenerator(
     fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
         val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
 
-        dto.include_tables?.let {
-            for (sibling in dto.include_tables) {
+        dto.imports?.let {
+            for (sibling in dto.imports) {
                 val sibling_resource = if (resource_prefix.contains("/"))
                     resource_prefix.replaceAfterLast("/", sibling)
                 else

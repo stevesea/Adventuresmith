@@ -7,7 +7,7 @@ templates:
 - "{{creature}} {{creature}}"
 - "{{effect}} {{creature}} {{creature}}"
 
-include_tables:
+imports:
 - magic
 
 tables:

@@ -2,5 +2,5 @@
 templates:
 - "{{item}}"
 
-include_tables:
+imports:
 - treasure

@@ -9,5 +9,5 @@ templates:
   <br/>
   <br/><strong><small>Mount:</small></strong> {{Arpad.mount}}
 
-include_tables:
+imports:
 - names

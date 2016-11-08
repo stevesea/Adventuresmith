@@ -27,6 +27,7 @@ import java.text.*
 import java.util.*
 
 
+// TODO: add support for drop lowest/highest, min/max?
 // hey, it parses dice! practically identical to the CakeParse sample for calculator
 // just adds a 'd' token as the highest priority
 class DiceParser(override val kodein: Kodein) : KodeinAware {

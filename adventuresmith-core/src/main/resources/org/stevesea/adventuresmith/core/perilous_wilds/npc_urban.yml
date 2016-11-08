@@ -2,5 +2,5 @@
 templates:
 - "{{npc_templates.urban}}"
 
-include_tables:
+imports:
 - npc

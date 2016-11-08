@@ -7,7 +7,7 @@ templates:
 - "{{item}} of {{effect}} {{element}}"
 - "{{form}} {{item}}"
 
-include_tables:
+imports:
 - magic
 
 tables:

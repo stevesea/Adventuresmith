@@ -2,7 +2,7 @@
 templates:
 - "{{> pick: 2d6 unguarded_treasure}}"
 
-include_tables:
+imports:
 - treasure
 
 tables:
