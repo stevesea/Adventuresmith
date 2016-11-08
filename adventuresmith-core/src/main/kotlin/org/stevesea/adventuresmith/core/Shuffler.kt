@@ -25,7 +25,7 @@ import java.util.*
 
 class Shuffler(override val kodein: Kodein): KodeinAware {
     val random: Random = instance()
-    val diceFactory : (String) -> Dice = factory()
+    val diceParser : DiceParser = instance()
 
     fun <T> pick(items: Collection<T>?) : T {
         // use modulo because the randomizer might be a mock that's been setup to do something dumb
@@ -60,27 +60,26 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
     }
     fun pickD(diceStr: String, thing: Any?) : String {
         if (thing is RangeMap) {
-            return pickD(dice(diceStr), thing as RangeMap)
+            return pickD(diceStr, thing as RangeMap)
 
         } else if (thing is Collection<*>) {
-            return pickD(dice(diceStr), thing as Collection<String>)
+            return pickD(diceStr, thing as Collection<String>)
 
         } else {
             throw IllegalArgumentException("don't know how to select thing of type " + thing!!.javaClass)
         }
 
     }
-    fun pickD(dice: Dice, items: RangeMap?) : String {
-        return items!!.select(dice)
+    fun pickD(diceStr: String, items: RangeMap?) : String {
+        return items!!.select(roll(diceStr))
     }
 
-    fun <T> pickD(dice: Dice, items: Collection<T>?): T {
+    fun <T> pickD(diceStr: String, items: Collection<T>?): T {
         // use mod to ensure our index is within the acceptable range for the collection
         // dice are 1-based, list indexes are 0-based so subtract 1
-        return items!!.elementAt(dice.roll() % items.size - 1)
+        return items!!.elementAt(roll(diceStr) % items.size - 1)
     }
 
-    fun <T> pickD(diceStr: String, items: Collection<T>?) : T = pickD(dice(diceStr), items)
-
-    fun dice(diceStr: String) : Dice = diceFactory.invoke(diceStr)
+    fun roll(diceStr: String) : Int = diceParser.roll(diceStr)
+    fun rollN(diceStr: String, n: Int) : List<Int> = diceParser.rollN(diceStr, n)
 }

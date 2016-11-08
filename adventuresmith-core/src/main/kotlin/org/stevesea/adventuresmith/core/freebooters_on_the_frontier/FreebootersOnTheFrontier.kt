@@ -125,9 +125,9 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
                 playbook = dto.char.config.playbooks.get(playbook)!!,
                 heritage = dto.char.config.heritages.get(heritage)!!,
                 alignment = dto.char.config.alignments.get(alignment)!!,
-                abilRolls = shuffler.dice("3d6").rollN(dto.char.config.abilities.size),
+                abilRolls = shuffler.rollN("3d6",dto.char.config.abilities.size),
                 name = name,
-                appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.dice("1d2+1").roll()),
+                appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.roll("1d2+1")),
                 virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) {0}),
                 vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) {0}),
                 gear = dto.char.gear.get(playbook)?.map { shuffler.pick(it)}!!

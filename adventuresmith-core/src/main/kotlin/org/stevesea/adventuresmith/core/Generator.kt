@@ -192,8 +192,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                     override fun format(value: Any?): String {
                         if (value is RangeMap) {
                             return shuffler.pick(value)
-                        } else if (value is Dice) {
-                            return value.roll().toString()
                         }
                         return value.toString()
                     }
@@ -232,7 +230,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             val params = cmd_and_params[1].split(" ", limit = 3)
 
                             // 1st param must be dice (NOTE: dice str allows plain int)
-                            val n = shuffler.dice(params[0]).roll()
+                            val n = shuffler.roll(params[0])
                             // 2nd param must be which key in context to load
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
@@ -251,7 +249,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             return StringReader(shuffler.pickD(params[0], ctxtVal))
                         } else if (cmd_and_params[0] == "dice:") {
                             // {{>dice: <dicestr>}}
-                            return StringReader(shuffler.dice(cmd_and_params[1]).roll().toString())
+                            return StringReader(shuffler.roll(cmd_and_params[1]).toString())
                         } else {
                             throw IllegalArgumentException("unknown instruction: '${name}'")
                         }

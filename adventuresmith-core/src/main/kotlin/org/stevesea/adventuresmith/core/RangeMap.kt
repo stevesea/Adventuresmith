@@ -156,10 +156,6 @@ class RangeMap(
         return delegate.floorEntry(k).value
     }
 
-    fun select(dice: Dice) : String {
-        return select(dice.roll())
-    }
-
     fun keyRange() : IntRange {
         return IntRange(delegate.firstKey(), maxKey)
     }

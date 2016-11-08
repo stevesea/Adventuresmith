@@ -38,10 +38,6 @@ val randModule = Kodein.Module {
     bind<Random>() with singleton { SecureRandom() }
     bind<Shuffler>() with singleton { Shuffler(kodein) }
 
-    bind<Dice>() with factory { diceStr: String ->
-        val dd = diceStrToDef(diceStr)
-        Dice(dd.nSides, dd.nDice, dd.modifier, kodein)
-    }
     bind<DataDrivenGenDtoCachingResourceLoader>() with factory { resource_prefix: String ->
         DataDrivenGenDtoCachingResourceLoader(resource_prefix, kodein)
     }
