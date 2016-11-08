@@ -35,6 +35,10 @@ definitions:
        <br/>
        <br/>{{npc_templates.traits}}
 
+  npc_config:
+    select_and_label:
+      occupation: <strong><small>Occupation:</small></strong> {{npc_occupation.occupation}}
+
 nested_tables:
   npc:
     single_trait:
@@ -150,7 +154,6 @@ nested_tables:
     - 11, noble (baron, etc.)
     - 12, lord/lady/king/queen
 
-    # this table is unused since we pick through wilderness/rural/urban
     occupation:
     - "1, Criminal: {{npc_occupation.criminal}}"
     - "2..6, {{npc_occupation.commoner}}"

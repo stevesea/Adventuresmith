@@ -6,13 +6,14 @@ definitions:
       activity: Activity
       adjective: Adjective
       age: Age
+      alignment: Alignment
       aspect: Aspect
       condition: Condition
       disposition: Disposition
       element: Element
       feature: Feature
       magic_type: Magic Type
-      num_appearing: No. Appearing
+      number_appearing: No. Appearing
       oddity: Oddity
       orientation: Orientation
       ruination: Ruination
@@ -26,13 +27,14 @@ definitions:
       activities: <strong><small>{{detail_config.labels.activity}}:</small></strong> {{details.activities}}
       adjectives: <strong><small>{{detail_config.labels.adjective}}:</small></strong> {{details.adjectives}}
       ages: <strong><small>{{detail_config.labels.age}}:</small></strong> {{details.ages}}
+      alignments: <strong><small>{{detail_config.labels.alignment}}:</small></strong> {{details.alignments}}
       aspects: <strong><small>{{detail_config.labels.aspect}}:</small></strong> {{details.aspects}}
       conditions: <strong><small>{{detail_config.labels.condition}}:</small></strong> {{details.conditions}}
       dispositions: <strong><small>{{detail_config.labels.disposition}}:</small></strong> {{details.dispositions}}
       elements: <strong><small>{{detail_config.labels.element}}:</small></strong> {{details.elements}}
-      features: <strong><small>{{detail_config.labelsfeature}}:</small></strong> {{details.features}}
+      features: <strong><small>{{detail_config.labels.feature}}:</small></strong> {{details.features}}
       magic_types: <strong><small>{{detail_config.labels.magic_type}}:</small></strong> {{details.magic_types}}
-      num_appearing: <strong><small>{{detail_config.labels.num_appearing}}:</small></strong> {{details.num_appearing}}
+      number_appearing: <strong><small>{{detail_config.labels.number_appearing}}:</small></strong> {{details.number_appearing}}
       oddities: <strong><small>{{detail_config.labels.oddity}}:</small></strong> {{details.oddities}}
       orientations: <strong><small>{{detail_config.labels.orientation}}:</small></strong> {{details.orientations}}
       ruinations: <strong><small>{{detail_config.labels.ruination}}:</small></strong> {{details.ruinations}}
@@ -40,6 +42,10 @@ definitions:
       tags: <strong><small>{{detail_config.labels.tag}}:</small></strong> {{details.tags}}
       terrains: <strong><small>{{detail_config.labels.terrain}}:</small></strong> {{details.terrains}}
       visibilities: <strong><small>{{detail_config.labels.visibility}}:</small></strong> {{details.visibilities}}
+
+      undead: <strong><small>Undead:</small></strong> {{details.undead}}
+      planar: <strong><small>Planar:</small></strong> {{details.planar}}
+      divine: <strong><small>Divine:</small></strong> {{details.divine}}
 
 nested_tables:
   details:

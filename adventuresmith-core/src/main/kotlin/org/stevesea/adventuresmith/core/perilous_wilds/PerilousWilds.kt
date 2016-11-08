@@ -62,7 +62,12 @@ object PwConstants {
     val NPC_URBAN = "${GROUP}/npc_urban"
     val NPC_WILDERNESS = "${GROUP}/npc_wilderness"
 
-    // creature -- beast, human, humanoid, monster
+    val CREATURE = "${GROUP}/creature"
+    val CREATURE_Beast = "${GROUP}/creature_beast"
+    val CREATURE_Human = "${GROUP}/creature_human"
+    val CREATURE_Humanoid = "${GROUP}/creature_humanoid"
+    val CREATURE_Monster = "${GROUP}/creature_monster"
+
     // danger
     // discovery
     // dungeon
@@ -88,7 +93,13 @@ object PwConstants {
             NPC,
             NPC_RURAL,
             NPC_URBAN,
-            NPC_WILDERNESS
+            NPC_WILDERNESS,
+
+            CREATURE,
+            CREATURE_Beast,
+            CREATURE_Human,
+            CREATURE_Humanoid,
+            CREATURE_Monster
 
     )
 }

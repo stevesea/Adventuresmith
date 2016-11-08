@@ -1,0 +1,6 @@
+---
+templates:
+- "{{creature_templates.humanoid}}"
+
+imports:
+- creature
