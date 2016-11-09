@@ -1,3 +1,4 @@
+---
 templates:
 - "{{danger.danger}}"
 
