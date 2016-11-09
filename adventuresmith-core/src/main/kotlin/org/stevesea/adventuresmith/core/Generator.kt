@@ -165,19 +165,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
         // templates are only read from the first DTO
         result.put("template", shuffler.pick(dtos[0].templates))
 
-        // TODO: apply lambdas to context?
-
-        /*
-        val lambdas = mapOf(
-                "pick" to Mustache.Lambda { fragment, writer ->
-                    val key = fragment.execute()
-                    writer.write(key)
-                }
-        )
-        result.putAll(lambdas)
-        */
-
-
         return result
     }
 
@@ -199,10 +186,6 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                 .withLoader(object : Mustache.TemplateLoader {
                     // this method is called to evaluate Partials {{>subtmpl}}
                     // in mustache, this typically means loading a different file.
-                    //
-                    // TODO: how complicated do want language to get? need parsing?
-                    //    http://sargunvohra.me/cakeparse/
-                    //    https://github.com/jparsec/jparsec/wiki/Overview
                     fun findCtxtVal(findVal: String) : Any {
                         val ctxtVal = context[findVal]
                         if (ctxtVal != null)

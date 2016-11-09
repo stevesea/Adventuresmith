@@ -135,7 +135,6 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
             .expireAfterAccess(5, TimeUnit.MINUTES)
             .build()
 
-    // TODO: make this return nullable
     @Suppress("UNCHECKED_CAST")
     fun <T> deserialize(clazz: Class<T>,
                         resource_prefix : String,

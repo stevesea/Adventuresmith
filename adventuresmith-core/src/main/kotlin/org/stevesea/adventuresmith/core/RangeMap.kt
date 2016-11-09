@@ -50,9 +50,6 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
             throw JsonMappingException(p, "null parser received")
         val jsonNode : JsonNode = p.codec.readTree(p)
 
-        // TODO : is there better way to handle these sorts of errors than throwing?
-        //    seems like this could be source of subtle crashes (especially as locales are added)
-        //    if we just throw all the time.
         if (!jsonNode.isArray) {
             throw JsonMappingException(p, "RangeMap data must be an array of strings")
         }

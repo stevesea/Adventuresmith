@@ -26,7 +26,6 @@ import org.stevesea.adventuresmith.core.perilous_wilds.*
 import java.security.*
 import java.util.*
 
-// TODO: every time add a translation, add its locale here.
 
 // this test doesn't actually do any verification, but it does run all the generators a bunch of
 // times in a bunch of locales to try and smoke out any NPEs or other exceptions
@@ -43,6 +42,7 @@ class Exerciser {
         for (g in gennames) {
             val generator_instance = kodein.instance<Generator>(g)
 
+            // TODO: every time add a translation, add its locale here.
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
                 for (i in 1..25) {
                     if (enablePrinting.contains(g))
