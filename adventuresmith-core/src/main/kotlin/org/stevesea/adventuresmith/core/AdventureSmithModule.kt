@@ -20,6 +20,9 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.fasterxml.jackson.databind.*
+import com.fasterxml.jackson.dataformat.yaml.*
+import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.fourth_page.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
@@ -28,13 +31,14 @@ import org.stevesea.adventuresmith.core.perilous_wilds.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.security.*
 import java.util.*
+import javax.validation.*
 
 
 object AdventureSmithConstants {
     val GENERATORS = "generators"
 }
 
-val randModule = Kodein.Module {
+val generatorModule = Kodein.Module {
     bind<Random>() with singleton { SecureRandom() }
     bind<Shuffler>() with singleton { Shuffler(kodein) }
 
@@ -44,10 +48,39 @@ val randModule = Kodein.Module {
     bind<DataDrivenDtoTemplateProcessor>() with provider {
         DataDrivenDtoTemplateProcessor(kodein)
     }
-
+    bind<DtoMerger>() with provider {
+        DtoMerger(kodein)
+    }
 }
 
-val generatorModules = Kodein.Module {
+val utilModule = Kodein.Module {
+    bind() from singleton { ObjectMapper(YAMLFactory())
+            .registerKotlinModule() }
+    bind() from provider {
+        val mapper: ObjectMapper = instance()
+        mapper.reader()
+    }
+    bind() from provider {
+        val mapper: ObjectMapper = instance()
+        mapper.writer()
+    }
+
+    bind() from singleton {
+        CachingResourceDeserializer(kodein)
+    }
+
+    bind() from singleton {
+        Validation.buildDefaultValidatorFactory()
+    }
+    bind() from provider {
+        val valFactory: ValidatorFactory = instance()
+        valFactory.validator
+    }
+}
+
+val adventureSmithModule = Kodein.Module {
+    import(generatorModule)
+
     import(utilModule)
 
     import(fotfModule)

@@ -21,8 +21,6 @@
 package org.stevesea.adventuresmith.core
 
 import com.fasterxml.jackson.databind.*
-import com.fasterxml.jackson.dataformat.yaml.*
-import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.cache.*
 import com.google.common.io.*
@@ -32,31 +30,6 @@ import java.nio.charset.*
 import java.util.*
 import java.util.concurrent.*
 import javax.validation.*
-
-val utilModule = Kodein.Module {
-    bind() from singleton { ObjectMapper(YAMLFactory())
-            .registerKotlinModule() }
-    bind() from provider {
-        val mapper: ObjectMapper = instance()
-        mapper.reader()
-    }
-    bind() from provider {
-        val mapper: ObjectMapper = instance()
-        mapper.writer()
-    }
-
-    bind() from singleton {
-        CachingResourceDeserializer(kodein)
-    }
-
-    bind() from singleton {
-        Validation.buildDefaultValidatorFactory()
-    }
-    bind() from provider {
-        val valFactory: ValidatorFactory = instance()
-        valFactory.validator
-    }
-}
 
 fun getFinalPackageName(clz : Class<Any> ) : String {
     val words = clz.`package`.name.split(".")

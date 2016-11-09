@@ -32,8 +32,7 @@ fun getMockRandom(mockRandomVal: Int = 1) : Random {
 }
 
 fun getKodein(random: Random) = Kodein {
-    import(randModule)
-    import(generatorModules)
+    import(adventureSmithModule)
     bind<Random>(overrides = true) with instance (random)
 }
 

@@ -97,12 +97,16 @@ class DataDrivenGenerator(
 
     val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
     val shuffler : Shuffler = instance()
+    val dtoMerger : DtoMerger = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun generate(locale: Locale): String {
         try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
 
-            return templateProcessor.process(gatherDtoResources(dto, locale))
+            val context = dtoMerger.mergeDtos(gatherDtoResources(dto, locale))
+            val template = shuffler.pick(dto.templates)
+
+            return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
             throw IOException("problem running generator ${resource_prefix} (locale: ${locale}): ${ex.toString()}", ex)
         }
@@ -124,17 +128,8 @@ class DataDrivenGenerator(
     }
 }
 
-class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware {
-    companion object : KLogging()
-
+class DtoMerger(override val kodein: Kodein) : KodeinAware {
     val shuffler : Shuffler = instance()
-
-    // TODO: seems like merging DTOs can be separate from template processing
-    fun process(dtos: List<DataDrivenGenDto>) : String {
-        val context = mergeDtos(dtos)
-        return processTemplate(context)
-    }
-
     // at first, i just wanted to silently overwrite. but, ran into too many issues during
     // generator creation where name overwrites resulted in obvious thrown exceptions, but
     // i'd always have to go into the debugger to realize "oh! that's why!"
@@ -145,9 +140,9 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
         }
     }
 
-    fun mergeDtos(dtos: List<DataDrivenGenDto>) : Map<String, Any> {
+    fun mergeDtos(dtos: List<DataDrivenGenDto>): Map<String, Any> {
         // process the DTOs in reverse order, merging them together
-        val result : MutableMap<String,Any> = mutableMapOf()
+        val result: MutableMap<String, Any> = mutableMapOf()
         for (d in dtos.reversed()) {
             d.tables?.let {
                 throwOnKeyCollisions(result.keys, d.tables.keys)
@@ -167,8 +162,14 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
 
         return result
     }
+}
 
-    fun processTemplate(context: Map<String, Any>) : String {
+class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware {
+    companion object : KLogging()
+
+    val shuffler : Shuffler = instance()
+
+    fun processTemplate(template: String, context: Map<String, Any>) : String {
 
         val compiler = Mustache.compiler()
                 .escapeHTML(false)
@@ -261,13 +262,13 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                     }
                 })
 
-        var template = context["template"].toString()
+        var local_template = template
 
         var count = 0;
         do {
             try {
                 val result = compiler
-                        .compile(template)
+                        .compile(local_template)
                         .execute(context)
                         .trim()
                 if (!result.contains("{{"))
@@ -277,7 +278,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                     return result
 
                 // do another iteration to re-process the result
-                template = result
+                local_template = result
                 count++
             } catch (ex: MustacheException) {
                 throw MustacheException("problem processing template: ${template}", ex)
