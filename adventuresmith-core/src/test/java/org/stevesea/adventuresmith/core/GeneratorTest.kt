@@ -120,6 +120,15 @@ class GeneratorTest {
         20d20+1: 21
         6d4: 6
         6d4: 6, 6, 6, 6  # roll 4 tiles
+
+        state:
+        
+
+
+
+
+        4
+        val1<br/>val2
         """.trimIndent(), g.generate(Locale.US))
     }
 }

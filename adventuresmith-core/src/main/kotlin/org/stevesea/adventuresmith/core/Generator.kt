@@ -170,6 +170,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
     val shuffler : Shuffler = instance()
 
     fun processTemplate(template: String, context: Map<String, Any>) : String {
+        val state : MutableMap<String, Any> = mutableMapOf()
 
         val compiler = Mustache.compiler()
                 .escapeHTML(false)
@@ -185,8 +186,10 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                     }
                 })
                 .withLoader(object : Mustache.TemplateLoader {
-                    // this method is called to evaluate Partials {{>subtmpl}}
+                    // getTemplate is called to evaluate Partials {{>subtmpl}}
                     // in mustache, this typically means loading a different file.
+                    // i'm going to abuse it to allow some dynamic template stuff
+
                     fun findCtxtVal(findVal: String) : Any {
                         val ctxtVal = context[findVal]
                         if (ctxtVal != null)
@@ -223,10 +226,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
                             val results = shuffler.pickN(ctxtVal, n)
-                            var delim = ", "
-                            if (params.size > 2) {
-                                delim = params[2]
-                            }
+                            val delim = if (params.size > 2) { params[2] } else { ", "}
                             return StringReader(results.joinToString(delim))
                         } else if (cmd_and_params[0] == "pick:") {
                             // {{>pick: <dice> <key>}}
@@ -244,21 +244,52 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             return StringReader(shuffler.roll(cmd_and_params[1]).toString())
                         } else if (cmd_and_params[0] == "rollN:") {
                             // {{>rollN: <n> <dicestr> <delim>}}
-                            val params = cmd_and_params[1].split(" ", limit=3)
+                            val params = cmd_and_params[1].split(" ", limit = 3)
                             if (!(2..3).contains(params.size)) {
                                 throw IllegalArgumentException("rollN syntax must be: <#> <dice> [<delim>]. input: ${cmd_and_params[1]}")
                             }
                             val num = params[0].toInt()
                             val diceStr = params[1]
-                            var delim = ", "
-                            if (params.size > 2) {
-                                delim = params[2]
-                            }
+                            val delim = if (params.size > 2) { params[2] } else { ", "}
                             return StringReader(shuffler.rollN(diceStr, num).joinToString(delim))
+                        } else if (cmd_and_params[0] == "add:") {
+                            // {{>add: <variable> <val>}}
+                            val params = cmd_and_params[1].split(" ", limit = 2)
+                            val key = params[0]
+                            val curVal = state.get(key)
+                            if (curVal == null) {
+                                state.put(key, params[1].toInt())
+                            } else if (curVal is Int) {
+                                state.put(key, curVal + params[1].toInt())
+                            } else {
+                                throw IllegalArgumentException("cannot 'add:'. value of state.${key} is not an integer")
+                            }
+                            return StringReader("")
+                        } else if (cmd_and_params[0] == "accum:") {
+                            // {{>accum: <variable> <val>}}
+                            val params = cmd_and_params[1].split(" ", limit = 2)
+                            val key = params[0]
+                            val curVal = state.get(key)
+                            if (curVal == null) {
+                                state.put(key, listOf(params[1]))
+                            } else if (curVal is List<*>) {
+                                state.put(key, curVal + listOf(params[1]))
+                            }
+                            return StringReader("")
+                        } else if (cmd_and_params[0] == "get:") {
+                            // {{>get: <variable> [<delim>]}}
+                            val params = cmd_and_params[1].split(" ", limit = 2)
+                            val key = params[0]
+                            val curVal = state.get(key)
+                            if (curVal is Collection<*>) {
+                                val delim = if (params.size > 1) { params[1] } else { ", "}
+                                return StringReader(curVal.joinToString(delim))
+                            } else {
+                                return StringReader(curVal!!.toString())
+                            }
                         } else {
                             throw IllegalArgumentException("unknown instruction: '${name}'")
                         }
-
                     }
                 })
 

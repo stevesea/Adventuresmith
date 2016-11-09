@@ -33,6 +33,15 @@ templates:
   6d4: {{> roll: 6d4}}
   6d4: {{> rollN: 4 6d4}}  # roll 4 tiles
 
+  state:
+  {{>add: var1 1}}
+  {{>accum: listVar val1}}
+  {{>accum: listVar val2}}
+  {{>add: var1 -3}}
+  {{>add: var1 6}}
+  {{>get: var1}}
+  {{>get: listVar <br/>}}
+
 
 definitions:
   a_list:
