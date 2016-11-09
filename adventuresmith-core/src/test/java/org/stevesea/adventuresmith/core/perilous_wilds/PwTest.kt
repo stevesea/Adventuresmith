@@ -119,4 +119,41 @@ class PwTest {
         """.trimIndent(),
                 getGenerator(PwConstants.CREATURE_Monster, 0).generate(Locale.US))
     }
+
+
+    @Test
+    fun danger() {
+        Assert.assertEquals("""
+        <h4>Danger - Unnatural Entity</h4>
+        <h5>Undead Entity</h5>
+        <p>
+        haunt/wisp
+        </p>
+        <p>
+        <strong><small>Ability:</small></strong> bless/curse
+        <br/><strong><small>Activity:</small></strong> laying trap/ambush
+        <br/><strong><small>Alignment:</small></strong> Chaotic
+        <br/><strong><small>Disposition:</small></strong> attacking
+        </p>
+        """.trimIndent(),
+                getGenerator(PwConstants.DANGER, 0).generate(Locale.US))
+    }
+
+    @Test
+    fun explore_dungeon() {
+        Assert.assertEquals("""
+        <h3>Explore</h3>
+        <h4>Area Type: Common [Unthemed]</h4>
+        <h5>Contents:</h5>
+        empty
+        <h5>Optional</h5>
+        <em>
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Element:</small></strong> air
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Orientation:</small></strong> down/earthward
+        </em>
+        """.trimIndent(),
+                getGenerator(PwConstants.EXPLORE_DUNGEON, 0).generate(Locale.US))
+    }
 }
