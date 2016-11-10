@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import me.sargunvohra.lib.cakeparse.api.*
+import me.sargunvohra.lib.cakeparse.exception.*
 import me.sargunvohra.lib.cakeparse.parser.*
 import java.text.*
 import java.util.*
@@ -34,7 +35,11 @@ class DiceParser(override val kodein: Kodein) : KodeinAware {
     val random : Random = instance()
 
     fun roll(diceStr: String) : Int {
-        return parse(diceStr)
+        try {
+            return parse(diceStr)
+        } catch (e: LexerException) {
+            throw IllegalArgumentException("cannot parse '$diceStr' as dice. ${e.message}")
+        }
     }
     fun rollN(diceStr: String, n: Int) : List<Int> {
         val result: MutableList<Int> = mutableListOf()

@@ -1,26 +1,38 @@
 ---
 templates:
 - |
+  <h4>Follower</h4>{{>accum: calcTags ?-Wise}}{{>add: qual 0}}{{>add: tag_count 0}}
+  <strong><small>Competence:</small></strong> {{competence}}
+  <br/><strong><small>Background:</small></strong> {{background}}
+  <br/>
+  <br/><strong><small>Quality:</small></strong> %[[>get: qual]]%&nbsp;&nbsp;<strong><small>Loyalty:</small></strong> {{loyalty}}&nbsp;&nbsp;<strong><small>Cost:</small></strong> {{cost}}
+  <br/>
+  <br/><strong><small>Instinct:</small></strong> {{instinct}}
+  <br/>
+  <br/><strong><small>Hit Points:</small></strong> {{hit_points}}
+  <br/><strong><small>Damage Die:</small></strong> {{damage_die}}
+  <br/>
   <br/>{{npc_templates.traits}}
+  <h5>Tags</h5>
+  %[[>get: calcTags <br/>]]%<br/>
+  %[[>pickN: tag_count tags <br/>]]%
 
 imports:
 - npc
 
-definitions:
-
 tables:
   competence:
-  - 1..3, A liability${ -> qual-=1; ''}
-  - 4..9, Competent${ -> tagCount+=1 ; ''}
-  - 10..11, Fully capable${ -> qual+=1 ; tagCount+=2; ''}
-  - 12, Exceptional${ -> qual+=2 ; tagCount+=4; ''}
+  - "1..3, A liability{{> add: qual -1}}"
+  - "4..9, Competent{{>add: tag_count 1}}"
+  - "10..11, Fully capable{{>add: tag_count 2}}{{>add: qual 1}}"
+  - "12, Exceptional{{>add: tag_count 4}}{{>add: qual 2}}"
   background:
-  - 1..2, Life of servitude/oppression${ -> calculatedTags.add('Meek'); ''}
-  - 3, Past their prime${ -> qual-=1; calculatedTags.add('?-Wise+'); ''}
-  - 4..5, Has lived a life of danger${ -> tagCount+=2; ''}
+  - "1..2, Life of servitude/oppression{{>accum: calcTags Meek}}"
+  - "3, Past their prime{{> add: qual -1}}{{>accum: calcTags ?-Wise+}}"
+  - "4..5, Has lived a life of danger{{>add: tag_count 2}}"
   - 6..9, Unremarkable
-  - 10, Has lived a life of privilege ${ -> tagCount+=1; ''}
-  - "11, Specialist ({{npc_occupation.specialist}}) ${ -> qual+=1 ; tagCount-=2; ''}"
+  - "10, Has lived a life of privilege{{>add: tag_count 1}}"
+  - "11, Specialist ({{npc_occupation.specialist}}){{>add: tag_count -2}}{{>add: qual 1}}"
   - "12, {{>pickN: 2 background}}"
   instinct:
   - 1, Loot, pillage, and burn
@@ -33,8 +45,8 @@ tables:
   - 12, Avoid danger or punishment
   loyalty:
   - 1..2, 0
-  - 3..10, 1
-  - 11..12, 2
+  - 3..10, +1
+  - 11..12, +2
   cost:
   - 1, Debauchery
   - 2, Vengeance
@@ -58,11 +70,11 @@ tables:
   - Athletic
   - Beautiful
   - Cautious
-  - Connected (?pick steading/group)
+  - Connected (?pick 1 steading/group)
   - Cunning
   - Devious
   - Group
-  - Guide
+  - Guide (?pick 1 steading/region)
   - Hardy
   - Healer
   - Meek

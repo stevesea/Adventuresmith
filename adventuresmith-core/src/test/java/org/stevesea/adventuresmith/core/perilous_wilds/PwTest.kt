@@ -156,4 +156,28 @@ class PwTest {
         """.trimIndent(),
                 getGenerator(PwConstants.EXPLORE_DUNGEON, 0).generate(Locale.US))
     }
+
+    @Test
+    fun follower() {
+        Assert.assertEquals("""
+        <h4>Follower</h4>
+        <strong><small>Competence:</small></strong> A liability
+        <br/><strong><small>Background:</small></strong> Life of servitude/oppression
+        <br/>
+        <br/><strong><small>Quality:</small></strong> -1&nbsp;&nbsp;<strong><small>Loyalty:</small></strong> 0&nbsp;&nbsp;<strong><small>Cost:</small></strong> Debauchery
+        <br/>
+        <br/><strong><small>Instinct:</small></strong> Loot, pillage, and burn
+        <br/>
+        <br/><strong><small>Hit Points:</small></strong> 3HP (weak/frail/soft)
+        <br/><strong><small>Damage Die:</small></strong> d4 (Not very dangerous)
+        <br/>
+        <br/><strong><small>Physical Appearance:</small></strong> disfigured (missing teeth, eye, etc.)
+        <br/><strong><small>Personality:</small></strong> loner/alienated/antisocial
+        <br/><strong><small>Quirk:</small></strong> insecure/racist/xenophobic
+
+        <h5>Tags</h5>
+        ?-Wise<br/>Meek<br/>
+        """.trimIndent(),
+                getGenerator(PwConstants.FOLLOWER, 0).generate(Locale.US))
+    }
 }

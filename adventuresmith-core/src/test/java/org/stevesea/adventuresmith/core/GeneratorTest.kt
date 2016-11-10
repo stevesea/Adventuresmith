@@ -122,7 +122,7 @@ class GeneratorTest {
         6d4: 6, 6, 6, 6  # roll 4 tiles
 
         state:
-        
+
 
 
 

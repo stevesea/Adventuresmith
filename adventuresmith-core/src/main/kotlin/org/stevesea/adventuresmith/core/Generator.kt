@@ -220,8 +220,10 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                                 throw IllegalArgumentException("pickN syntax must be: <dice/#> <key> [<delim>]. input: ${cmd_and_params[1]}")
                             }
 
-                            // 1st param must be dice (NOTE: dice str allows plain int)
-                            val n = shuffler.roll(params[0])
+                            // could be entry in state or context, if neither of those try to roll it
+                            val n = if (state.containsKey(params[0])) state.get(params[0]) as Int
+                                else if (context.containsKey(params[0])) context.get(params[0]) as Int
+                                else shuffler.roll(params[0])
                             // 2nd param must be which key in context to load
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
@@ -281,11 +283,13 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             val params = cmd_and_params[1].split(" ", limit = 2)
                             val key = params[0]
                             val curVal = state.get(key)
-                            if (curVal is Collection<*>) {
+                            if (curVal == null) {
+                                throw IllegalStateException("key '$key' from command '>$name' is null")
+                            } else if (curVal is Collection<*>) {
                                 val delim = if (params.size > 1) { params[1] } else { ", "}
                                 return StringReader(curVal.joinToString(delim))
                             } else {
-                                return StringReader(curVal!!.toString())
+                                return StringReader(curVal.toString())
                             }
                         } else {
                             throw IllegalArgumentException("unknown instruction: '${name}'")
@@ -293,28 +297,37 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                     }
                 })
 
-        var local_template = template
+        var result = template
 
         var count = 0;
         do {
             try {
-                val result = compiler
-                        .compile(local_template)
+                result = compiler
+                        .compile(result)
                         .execute(context)
                         .trim()
-                if (!result.contains("{{"))
-                    return result
+                if (!result.contains("{{")) {
+                    if (result.contains("%[[")) {
+
+                        result = compiler
+                                .compile(result
+                                        .replace("%[[", "{{")
+                                        .replace("]]%","}}"))
+                                .execute(context)
+                                .trim()
+                    }
+                }
                 // don't let a template force us into infinite loop
                 if (count > 12)
-                    return result
+                    break
 
-                // do another iteration to re-process the result
-                local_template = result
                 count++
             } catch (ex: MustacheException) {
                 throw MustacheException("problem processing template: ${template}", ex)
             }
         } while (true)
+
+        return result
     }
 }
 

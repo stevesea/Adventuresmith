@@ -38,12 +38,16 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
         return rmap.select(sel)
     }
     fun pickN(rmap: RangeMap?, num: Int) : List<String> {
+        if (num <= 0)
+            return listOf()
         val itemsInds = rmap!!.keyRange().toList()
         val selN = pickN(itemsInds, num)
         return selN.map { rmap.select(it)}
     }
 
     fun <T> pickN(items: Collection<T>?, num: Int) : Collection<T> {
+        if (num <= 0)
+            return listOf()
         val localItems = items!!.toMutableList()
         Collections.shuffle(localItems, random)
         return localItems.take(num)
