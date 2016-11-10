@@ -1,11 +1,11 @@
 ---
-# keywords in templates must appear as keys in the tables map of this
+# keywords in templates must appear as keys in the tables of this
 # file (or as keys in the tables of imported files in this same directory
 # see 'imports')
 #
 # Template notes:
-#   Templates are Mustache templates (specifically, jmustache). so, you can probably do some
-#   strange and awful things with them. And, probably break the app.
+#   Templates are Mustache templates (specifically, jmustache). so, you can do some
+#   strange and awful things with them. And, likely break the app.
 #
 #   I'm probably abusing Mustache, but it felt like the cleanest way to inject some custom syntax
 #   into the templates was via partials
@@ -36,9 +36,9 @@
 # - the 'imports' is a list of file prefixes which must be located
 #   in the same directory as the current file.
 #
-# - the context passed to the template compiler is this file's table, plus any
-#   tables defined in the sibling tables. Tables are applied to the context in
-#   reverse order of entry in the 'siblings' table, and then this file's tables.
+# - the context passed to the template processor is this file, plus any
+#   tables defined in the imported tables. Tables are applied to the context in
+#   reverse order of entry in the imports list, and then this file's tables.
 #
 #   Tables are _not_ merged. If there are any naming collisions, an error will be thrown
 #
@@ -60,12 +60,14 @@ imports:
 - names
 
 # tables is a map of adventuresmith RangeMaps. In terms of YaML syntax, these are just
-# lists of Strings. Overlapping ranges are not permitted and will be flagged as errors.
-# Holes in the accumulated set of ranges are also not permitted, and will result in errors.
+# lists of Strings, and each string can be prefixed with an IntRage. Overlapping ranges are 
+# not permitted and will be flagged as errors.
+#
+# Holes in the accumulated set of ranges are also not permitted, and will result in exceptions being thrown.
 #
 # examples:
 #
-#  the following two rangemaps  are equivalent
+#  the following two rangemaps are equivalent
 #
 #    tables:
 #       heritage_ex1:
