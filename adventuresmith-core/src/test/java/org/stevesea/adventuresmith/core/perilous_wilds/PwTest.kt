@@ -180,4 +180,19 @@ class PwTest {
         """.trimIndent(),
                 getGenerator(PwConstants.FOLLOWER, 0).generate(Locale.US))
     }
+
+    @Test
+    fun dungeon() {
+        Assert.assertEquals("""
+        <h4>Dungeon</h4>
+        <strong><small>Size:</small></strong> Small&nbsp;&nbsp;<strong><small>Area Limit:</small></strong> 6 or 1d6+2
+        <br/><strong><small>Builder:</small></strong> aliens/precursors
+        <br/><strong><small>Function:</small></strong> source/portal
+        <br/>
+        <br/><strong><small>Ruination:</small></strong> arcane disaster
+        <h5>Themes [2 or 1d4]</h5>
+        rot/decay<br/>rot/decay
+        """.trimIndent(),
+                getGenerator(PwConstants.DUNGEON, 0).generate(Locale.US))
+    }
 }

@@ -267,6 +267,12 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                                 throw IllegalArgumentException("cannot 'add:'. value of state.${key} is not an integer")
                             }
                             return StringReader("")
+                        } else if (cmd_and_params[0] == "set:") {
+                            // {{>set: <variable> <val>}}
+                            val params = cmd_and_params[1].split(" ", limit = 2)
+                            val key = params[0]
+                            state.put(key, params[1])
+                            return StringReader("")
                         } else if (cmd_and_params[0] == "accum:") {
                             // {{>accum: <variable> <val>}}
                             val params = cmd_and_params[1].split(" ", limit = 2)
