@@ -8,13 +8,13 @@ imports:
 definitions:
   danger_templates:
     unnatural_entity: |
-      <h4>Danger - Unnatural Entity</h4>
+      <h3>Danger - Unnatural Entity</h3>
       {{danger.unnatural_entities}}
     hazard: |
-      <h4>Danger - Hazard</h4>
+      <h3>Danger - Hazard</h3>
       {{danger.hazards}}
     creature: |
-      <h4>Danger - Creature</h4>
+      <h3>Danger - Creature</h3>
       {{creature.creature}}
 
 nested_tables:

@@ -130,31 +130,44 @@ class DataDrivenGenerator(
 
 class DtoMerger(override val kodein: Kodein) : KodeinAware {
     val shuffler : Shuffler = instance()
+
     // at first, i just wanted to silently overwrite. but, ran into too many issues during
-    // generator creation where name overwrites resulted in obvious thrown exceptions, but
-    // i'd always have to go into the debugger to realize "oh! that's why!"
-    private fun throwOnKeyCollisions(existingKeys: Set<String> , proposedKeys: Set<String>) {
-        val common = existingKeys.intersect(proposedKeys)
-        if (common.size > 0) {
-            throw IOException("conflicting context key names: ${common}")
-        }
-    }
+    // generator creation where silent name overwrites resulted subtle bugs that took getting
+    // into the debugger to figure out
 
     fun mergeDtos(dtos: List<DataDrivenGenDto>): Map<String, Any> {
         // process the DTOs in reverse order, merging them together
         val result: MutableMap<String, Any> = mutableMapOf()
         for (d in dtos.reversed()) {
             d.tables?.let {
-                throwOnKeyCollisions(result.keys, d.tables.keys)
-                result.putAll(d.tables)
+                d.tables.entries.forEach {
+                    if (result.containsKey(it.key)) {
+                        if (result[it.key] != it.value) {
+                            throw IOException("conflicting context key: ${it.key}")
+                        }
+                    }
+                    result.put(it.key,it.value)
+                }
             }
             d.nested_tables?.let {
-                throwOnKeyCollisions(result.keys, d.nested_tables.keys)
-                result.putAll(d.nested_tables)
+                d.nested_tables.entries.forEach {
+                    if (result.containsKey(it.key)) {
+                        if (result[it.key] != it.value) {
+                            throw IOException("conflicting context key: ${it.key}")
+                        }
+                    }
+                    result.put(it.key,it.value)
+                }
             }
             d.definitions?.let {
-                throwOnKeyCollisions(result.keys, d.definitions.keys)
-                result.putAll(d.definitions)
+                d.definitions.entries.forEach {
+                    if (result.containsKey(it.key)) {
+                        if (result[it.key] != it.value) {
+                            throw IOException("conflicting context key: ${it.key}")
+                        }
+                    }
+                    result.put(it.key,it.value)
+                }
             }
         }
         // templates are only read from the first DTO

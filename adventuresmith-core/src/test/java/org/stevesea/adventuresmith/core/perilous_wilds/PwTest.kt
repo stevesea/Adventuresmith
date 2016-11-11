@@ -140,7 +140,7 @@ class PwTest {
     @Test
     fun danger() {
         Assert.assertEquals("""
-        <h4>Danger - Unnatural Entity</h4>
+        <h3>Danger - Unnatural Entity</h3>
         <h5>Undead Entity</h5>
         <p>
         haunt/wisp
@@ -210,5 +210,17 @@ class PwTest {
         rot/decay<br/>rot/decay
         """.trimIndent(),
                 getGenerator(PwConstants.DUNGEON, 0).generate(Locale.US))
+    }
+    @Test
+    fun discovery() {
+        Assert.assertEquals("""
+        <h3>Unnatural Feature - Arcane</h3>
+        residue
+        <p>
+        <strong><small>Alignment:</small></strong> Chaotic
+        <br/><strong><small>Magic Type:</small></strong> divination
+        </p>
+        """.trimIndent(),
+                getGenerator(PwConstants.DISCOVERY, 0).generate(Locale.US))
     }
 }
