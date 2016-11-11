@@ -1,0 +1,152 @@
+---
+templates:
+- "{{steadings}}"
+
+
+imports:
+- creature
+
+
+tables:
+  steadings:
+  - "1..5, {{steading_templates.village}}"
+  - "6..8, {{steading_templates.town}}"
+  - "9..11, {{steading_templates.keep}}"
+  - "12, {{steading_templates.city}}"
+
+
+definitions:
+  steading_templates:
+    village: |
+      <h4>Village</h4>{{>add: prosperity 2}}{{>add: population 3}}{{>add: defenses 2}}{{>accum: tags Oath: other steading}}{{>accum: tags Resource: %[[details.resources]]%}}
+      <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{village.info}}
+      <br/>{{village.problem}}
+      <br/>
+      <br/><strong><small>Prosperity:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Defenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+    town: |
+      <h4>Town</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 3}}{{>accum: tags Trade: 2 other steadings}}{{>accum: tags Resource: %[[details.resources]]%}}
+      <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{town.info}}
+      <br/>{{town.problem}}
+      <br/>
+      <br/><strong><small>Prosperity:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Defenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+    keep: |
+      <h4>Keep</h4>{{>add: prosperity 2}}{{>add: population 2}}{{>add: defenses 4}}{{>accum: tags Trade: someplace with supplies}}{{>accum: tags Need: supplies}}{{>accum: tags Oath: GM's choice}}
+      <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{keep.info}}
+      <br/>{{keep.problem}}
+      <br/>
+      <br/><strong><small>Prosperity:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Defenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+    city: |
+      <h4>City</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 4}}{{>accum: tags Oath: 2+ steadings of GM's choice}}{{>accum: tags Guild: GM's choice}}
+      <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{city.info}}
+      <br/>{{city.problem}}
+      <br/>
+      <br/><strong><small>Prosperity:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Defenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+
+nested_tables:
+  steading:
+    prosperity:
+    - Dirt
+    - Poor
+    - Moderate
+    - Wealthy
+    - Rich
+    population:
+    - Exodus
+    - Shrinking
+    - Steady
+    - Growing
+    - Booming
+    defenses:
+    - None
+    - Militia
+    - Watch
+    - Guard
+    - Garrison
+    - Battalion
+    - Legion
+
+  village:
+    info:
+    - "1..3, Natural defenses{{>accum: tags Safe}}{{>add: defenses -1}}"
+    - "4..6, Abundant resources{{>accum: tags Enmity: GM choice}}{{>accum: tags Resource: %[[details.resources]]%}}{{>add: prosperity 1}}"
+    - "7..8, Protected by another steading{{>accum: tags Oath: other steading}}{{>add: defenses 1}}"
+    - "9..10, On a major road.{{>accum: tags Trade: %[[details.resources]]%}}{{>add: prosperity 1}}"
+    - "11, Built around a wizard’s tower{{>accum: tags Personage: the wizard}}{{>accum: tags Blight: arcane creatures}}"
+    - "12, Built on a site of religious significance{{>accum: tags Divine: %[[details.divine]]%}}{{>accum: tags History: GM's choice}}"
+
+    problem:
+    - "1..2, Surrounded by arid or uncultivable land{{>accum: tags Need: food}}"
+    - "3..4, Dedicated to a deity{{>accum: tags Religious: deity}}{{>accum: tags Enmity: steading of opposing deity}}"
+    - "5..6, Recently at war: -Prosperity if they fought to the end, -Defenses if they lost{{>add: population -1}}"
+    - "7..8, Monster problem{{>accum: tags Blight: that monster}}{{>accum: tags Need: adventurers}}"
+    - "9..10, Absorbed another village{{>accum: tags Lawless}}{{>add: population 1}}"
+    - "11..12, Remote or unwelcoming{{>accum: tags Dwarven, Elven, or other non-human}}{{>add: prosperity -1}}"
+
+  town:
+    info:
+    - "1, Booming{{>accum: tags Booming}}{{>accum: tags Lawless}}"
+    - "2..3, At a crossroads{{>accum: tags Market}}{{>add: prosperity 1}}"
+    - "4..5, Defended by another steading{{>accum: tags Oath: other steading (defender)}}{{>add: defenses 1}}"
+    - "6..7, Built around a church{{>accum: tags Power: divine}}"
+    - "8..10, Built around a craft{{>accum: tags Resource: %[[details.resources]]%}}{{>accum: tags Craft: (for resource)}}"
+    - "11..12, Built around a military post{{>add: defenses 1}}"
+    problem:
+    - "1..2, Outgrowing a vital resource{{>accum: tags Need: that resource}}{{>accum: tags Trade: a steading with that resource}}"
+    - "3..4, Offers defense to others{{>add: defenses -1}}{{>accum: tags Oath: GM choice}}"
+    - "5..6, Outlaw rumored to live there{{>accum: tags Personage: the outlaw}}{{>accum: tags Enmity: preyed upon by outlaw}}"
+    - "7..8, Controls a good/service{{>accum: tags Exotic: that good/services}}{{>accum: tags Enmity: steading with ambition}}"
+    - "9..10, Suffers from disease{{>add: population -1}}"
+    - "11..12, Popular meeting place{{>add: population 1}}{{>accum: tags Lawless}}"
+
+  keep:
+    info:
+    - "1..2, Belongs to a noble family{{>add: prosperity 1}}{{>accum: tags Power: political}}"
+    - "3..4, Run by a skilled commander{{>add: defenses 1}}{{>accum: tags Personage: the commander}}"
+    - "5..6, Stands watch over a trade road{{>add: prosperity 1}}{{>accum: tags Guild: trade}}"
+    - "7..8, Used to train special troops{{>add: population -1}}{{>accum: tags Arcane}}"
+    - "9..10, Surrounded by fertile land{{>remove: tags -Need: Supplies}}"
+    - "11..12, Stands on a border{{>add: defenses 1}}{{>accum: tags Enmity: steading on the other side of the border}}"
+    problem:
+    - "1..3, Built on a naturally defensible position{{>add: population -1}}{{>accum: tags Safe}}"
+    - "4, Formerly occupied by another power{{>accum: tags Enmity: steadings of formerly occupying power}}"
+    - "5, Safe haven for brigands{{>accum: tags Lawless}}"
+    - "6, Built to defend from a specific threat{{>accum: tags Blight: that threat}}"
+    - "7, Has seen horrible bloody war{>accum: tags Blight: restless spirits}}{>accum: tags History: battle}}"
+    - "8, Is given the worst of the worst{>accum: tags Need: skilled recruits}}"
+    - "9..10, Suffers from disease{{>add: population -1}}"
+    - "11..12, Popular meeting place{{>add: population 1}}{{>accum: tags -Law}}"
+  city:
+    info:
+    - "1..3, Permanent defenses, such as walls{{>add: defenses 1}}{{>accum: tags Oath: GM choice}}"
+    - "4..6, Ruled by a single individual{{>accum: tags Personage: the ruler}}{{>accum: tags Power: political}}"
+    - "7, Diverse{{>accum: tags Dwarven or Elven or both}}"
+    - "8..10, Trade hub{{>add: prosperity 1}}{{>accum: tags Trade: every nearby steading}}"
+    - "11, Ancient, built on top of its own ruins{{>accum: tags History: GM choice}}{{>accum: tags Divine}}"
+    - "12, Center of learning{{>accum: tags Power: arcane}}{{>accum: tags Arcane}}{{>accum: tags Craft: GM choice}}"
+    problem:
+    - "1..3, Outgrown its resources{{>add: population 1}}{{>accum: tags Need: food}}"
+    - "4..6, Designs on nearby territory{{>add: defenses 1}}{{>accum: tags Enmity: nearby steadings}}"
+    - "7..8, Ruled by a theocracy{{>add: defenses -1}}{{>accum: tags Power: divine}}"
+    - "9..10, Ruled by the people{{>add: defenses -1}}{{>add: population 1}}"
+    - "11, Supernatural defenses{{>add: defenses 1}}{{>accum: tags Blight: related supernatural creatures}}"
+    - "12, Occupies a place of power{{>accum: tags Blight: arcane creatures}}{{>accum: tags Arcane}}{{>accum: tags Personage: whoever watches the place of power}}"

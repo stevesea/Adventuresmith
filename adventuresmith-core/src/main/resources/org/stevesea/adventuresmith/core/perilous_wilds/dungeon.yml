@@ -43,6 +43,7 @@ templates:
 imports:
 - creature
 
+# TODO: seems like these could be externalized to make translation more modular
 definitions:
   config:
     area_limits:

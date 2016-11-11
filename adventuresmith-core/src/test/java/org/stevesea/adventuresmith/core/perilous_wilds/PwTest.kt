@@ -42,6 +42,22 @@ class PwTest {
         """.trimIndent(),
                 getGenerator(PwConstants.TREASURE_UNGUARDED, 1).generate(Locale.US))
     }
+    @Test
+    fun steading() {
+        Assert.assertEquals("""
+        <h4>Village</h4>
+        <strong><small>Built by:</small></strong> human
+        <br/>Natural defenses
+        <br/>Surrounded by arid or uncultivable land
+        <br/>
+        <br/><strong><small>Prosperity:</small></strong> Poor
+        <br/><strong><small>Population:</small></strong> Steady
+        <br/><strong><small>Defenses:</small></strong> Militia
+        <br/>
+        <br/>Oath: other steading<br/>Resource: game/fruit/vegetable<br/>Safe<br/>Need: food
+        """.trimIndent(),
+                getGenerator(PwConstants.STEADING, 1).generate(Locale.US))
+    }
 
 
     @Test

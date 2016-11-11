@@ -237,7 +237,7 @@ ${strong('City')}
     RangeMap town_problem = new RangeMap()
             .with(1..2, "Outgrowing a vital resource${-> info.tags.add('Need: that resource'); info.tags.add('Trade: a steading with that resource');''}")
             .with(3..4, "Offers defense to others${ -> info.defenses.decr(); info.tags.add('Oath: GM choice');''}")
-            .with(5..6, "Outlaw rumored to live there${-> info.tags.add('Personage: the outloaw'); info.tags.add('Enmity: preyed upon by outlaw');''}")
+            .with(5..6, "Outlaw rumored to live there${-> info.tags.add('Personage: the outlaw'); info.tags.add('Enmity: preyed upon by outlaw');''}")
             .with(7..8, "Controls a good/service${-> info.tags.add('Exotic: that good/services'); info.tags.add('Enmity: steading with ambition');''}")
             .with(9..10, "Suffers from disease${ -> info.population.decr();''}")
             .with(11..12, "Popular meeting place${ -> info.population.incr(); info.tags.add('Lawless');''}")

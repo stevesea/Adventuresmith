@@ -73,6 +73,7 @@ object PwConstants {
     val EXPLORE_DUNGEON = "${GROUP}/explore_dungeon"
     val FOLLOWER = "${GROUP}/follower"
     val DUNGEON = "${GROUP}/dungeon"
+    val STEADING = "${GROUP}/steading"
 
     // steading (needs details/creature)
     // discovery (need steading)
@@ -106,7 +107,8 @@ object PwConstants {
             DANGER,
             EXPLORE_DUNGEON,
             FOLLOWER,
-            DUNGEON
+            DUNGEON,
+            STEADING
 
     )
 }

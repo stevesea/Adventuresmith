@@ -274,7 +274,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             state.put(key, params[1])
                             return StringReader("")
                         } else if (cmd_and_params[0] == "accum:") {
-                            // {{>accum: <variable> <val>}}
+                            // {{>accum: <list-variable> <val>}}
                             val params = cmd_and_params[1].split(" ", limit = 2)
                             val key = params[0]
                             val curVal = state.get(key)
@@ -282,6 +282,15 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                                 state.put(key, listOf(params[1]))
                             } else if (curVal is List<*>) {
                                 state.put(key, curVal + listOf(params[1]))
+                            }
+                            return StringReader("")
+                        } else if (cmd_and_params[0] == "remove:") {
+                            // {{>remove: <list-variable> <val>}}
+                            val params = cmd_and_params[1].split(" ", limit = 2)
+                            val key = params[0]
+                            val curVal = state.get(key)
+                            if (curVal != null && curVal is List<*>) {
+                                state.put(key, curVal.filter { it != params[1] })
                             }
                             return StringReader("")
                         } else if (cmd_and_params[0] == "get:") {
