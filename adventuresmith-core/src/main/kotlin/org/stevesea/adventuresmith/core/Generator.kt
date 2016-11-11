@@ -128,6 +128,7 @@ class DataDrivenGenerator(
     }
 }
 
+// TODO: if we merge as we read resources, we can give better error messages
 class DtoMerger(override val kodein: Kodein) : KodeinAware {
     val shuffler : Shuffler = instance()
 

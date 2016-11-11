@@ -111,7 +111,6 @@ tables:
   - Village
   - Wall
   noun:
-  ## TODO: how to replace name?
   - [Name]
   - Arm
   - Ash
