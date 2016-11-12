@@ -30,13 +30,16 @@ import java.util.*
 
 interface Generator {
     fun generate(locale: Locale = Locale.ENGLISH) : String
+    fun getMetadata(): GeneratorMetaDto
 }
 interface ModelGenerator<T> {
     fun generate(locale: Locale = Locale.ENGLISH) : T
+    fun getMetadata(): GeneratorMetaDto
 }
 
 interface DtoLoadingStrategy<out TDto> {
     fun load(locale: Locale) : TDto
+    fun getMetadata(): GeneratorMetaDto
 }
 
 interface ModelGeneratorStrategy<in TDto, out TModel> {
@@ -57,6 +60,10 @@ open class BaseGenerator<
         val output = modelGeneratorStrat.transform(input)
         return output
     }
+
+    override fun getMetadata(): GeneratorMetaDto {
+        return loadingStrat.getMetadata()
+    }
 }
 
 open class BaseGeneratorWithView<TModel, TView>(
@@ -65,13 +72,15 @@ open class BaseGeneratorWithView<TModel, TView>(
     override fun generate(locale: Locale): String {
         return viewTransform.transform(modelGen.generate(locale)).toString().trim()
     }
+
+    override fun getMetadata(): GeneratorMetaDto {
+        return modelGen.getMetadata()
+    }
 }
 
-// TODO: seems like we should read data about generators too
-//    bind to same resource_prefix and generator, but make it not part of generator itself?
-data class DataDrivenGenMetaDto(val name: String,
-                                val tags: List<String>?,
-                                val desc: String)
+data class GeneratorMetaDto(val name: String,
+                            val tags: List<String>? = null,
+                            val desc: String? = null)
 
 data class GeneratorListDto(val generators: Map<String,List<String>>);
 
@@ -89,6 +98,14 @@ class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, overrid
                 DataDrivenGenDto::class.java,
                 resource_prefix,
                 locale
+        )
+    }
+
+    override fun getMetadata(): GeneratorMetaDto {
+        return resourceDeserializer.deserialize(
+                GeneratorMetaDto::class.java,
+                resource_prefix + ".meta",
+                locale = Locale.US
         )
     }
 }
@@ -114,6 +131,11 @@ class DataDrivenGenerator(
             throw IOException("problem running generator ${resource_prefix} (locale: ${locale}): ${ex.toString()}", ex)
         }
     }
+
+    override fun getMetadata(): GeneratorMetaDto {
+        return loaderFactory.invoke(resource_prefix).getMetadata()
+    }
+
     fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
         val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
 

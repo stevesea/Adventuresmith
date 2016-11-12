@@ -154,6 +154,10 @@ val diceModule = Kodein.Module {
     for (d in DiceConstants.regularDice) {
         bind<Generator>(d) with provider {
             object: Generator {
+                override fun getMetadata(): GeneratorMetaDto {
+                    return GeneratorMetaDto(name = d)
+                }
+
                 val diceParser : DiceParser = instance()
                 override fun generate(locale: Locale): String {
                     val nf = NumberFormat.getInstance(locale)
@@ -172,6 +176,9 @@ val diceModule = Kodein.Module {
                 val best = rolls.max()
                 return "${DiceConstants.d20adv}: ${nf.format(best)} <small>${rolls}</small>"
             }
+            override fun getMetadata(): GeneratorMetaDto {
+                return GeneratorMetaDto(name = "d20 (adv)")
+            }
         }
     }
 
@@ -183,6 +190,9 @@ val diceModule = Kodein.Module {
                 val rolls = diceParser.rollN("1d20", 2)
                 val worst = rolls.min()
                 return "${DiceConstants.d20disadv}: ${nf.format(worst)} <small>${rolls}</small>"
+            }
+            override fun getMetadata(): GeneratorMetaDto {
+                return GeneratorMetaDto(name = "d20 (disadv)")
             }
         }
     }

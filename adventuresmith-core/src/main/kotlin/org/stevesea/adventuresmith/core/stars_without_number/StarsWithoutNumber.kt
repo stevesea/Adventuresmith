@@ -89,6 +89,14 @@ data class WorldBundleDto(val world: WorldDto,
 
 class SwnDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
+
+    override fun getMetadata(): GeneratorMetaDto {
+        return resourceDeserializer.deserialize(
+                GeneratorMetaDto::class.java,
+                WorldDto.resource_prefix + ".meta",
+                locale = Locale.US
+        )
+    }
     override fun load(locale: Locale): WorldBundleDto {
         return WorldBundleDto(
                 world = resourceDeserializer.deserialize(
