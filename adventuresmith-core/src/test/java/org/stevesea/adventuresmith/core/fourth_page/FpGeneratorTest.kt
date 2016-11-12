@@ -24,6 +24,17 @@ import org.junit.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
+
+object FpConstants {
+    private val GROUP = getFinalPackageName(this.javaClass)
+
+    val DUNGEON = "${GROUP}/dungeon"
+    val CITY = "${GROUP}/city"
+    val ARTIFACT = "${GROUP}/artifact"
+    val MONSTER = "${GROUP}/monster"
+}
+
+
 class FpGeneratorTest {
 
     @Test

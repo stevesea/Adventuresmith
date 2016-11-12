@@ -24,6 +24,48 @@ import org.junit.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
+
+object PwConstants {
+    private val GROUP = getFinalPackageName(this.javaClass)
+
+    val DETAILS = "${GROUP}/details"
+
+    val PLACE = "${GROUP}/place_names"
+    val REGION = "${GROUP}/region_names"
+
+    val NAMES_Arpad = "${GROUP}/names_arpad"
+    val NAMES_Oloru = "${GROUP}/names_oloru"
+    val NAMES_Tamanarugan = "${GROUP}/names_tamanarugan"
+    val NAMES_Valkoina = "${GROUP}/names_valkoina"
+
+    val TREASURE_ITEM = "${GROUP}/treasure_item"
+    val TREASURE_UNGUARDED = "${GROUP}/treasure_unguarded"
+    val TREASURE_GUARDED = "${GROUP}/treasure_guarded"
+    val TREASURE_GUARDED_1BONUS = "${GROUP}/treasure_guarded_1bonus"
+    val TREASURE_GUARDED_2BONUS = "${GROUP}/treasure_guarded_2bonus"
+
+    val NPC = "${GROUP}/npc"
+    val NPC_RURAL = "${GROUP}/npc_rural"
+    val NPC_URBAN = "${GROUP}/npc_urban"
+    val NPC_WILDERNESS = "${GROUP}/npc_wilderness"
+
+    val CREATURE = "${GROUP}/creature"
+    val CREATURE_Beast = "${GROUP}/creature_beast"
+    val CREATURE_Human = "${GROUP}/creature_human"
+    val CREATURE_Humanoid = "${GROUP}/creature_humanoid"
+    val CREATURE_Monster = "${GROUP}/creature_monster"
+
+    val DANGER = "${GROUP}/danger"
+
+    val EXPLORE_DUNGEON = "${GROUP}/explore_dungeon"
+    val FOLLOWER = "${GROUP}/follower"
+    val DUNGEON = "${GROUP}/dungeon"
+    val STEADING = "${GROUP}/steading"
+    val DISCOVERY = "${GROUP}/discovery"
+
+}
+
+
 class PwTest {
 
     @Test

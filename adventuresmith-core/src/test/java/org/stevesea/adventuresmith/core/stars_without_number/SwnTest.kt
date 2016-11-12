@@ -25,6 +25,36 @@ import org.stevesea.adventuresmith.core.*
 import java.util.*
 
 
+object SwnConstants {
+    val GROUP = getFinalPackageName(this.javaClass)
+
+    val ADV_SEED = "${GROUP}/adventure_seed"
+    val ALIEN = "${GROUP}/alien"
+    val ANIMAL = "${GROUP}/animal"
+    val ARCHITECTURE = "${GROUP}/architecture"
+    val CORPORATION = "${GROUP}/corporation"
+    val HERESY = "${GROUP}/heresy"
+    val NAME_Arabic = "${GROUP}/names_arabic"
+    val NAME_Chinese = "${GROUP}/names_chinese"
+    val NAME_English = "${GROUP}/names_english"
+    val NAME_Indian = "${GROUP}/names_indian"
+    val NAME_Japanese = "${GROUP}/names_japanese"
+    val NAME_Nigerian = "${GROUP}/names_nigerian"
+    val NAME_Russian = "${GROUP}/names_russian"
+    val NAME_Spanish = "${GROUP}/names_spanish"
+    val NPC = "${GROUP}/npc"
+    val POLITICAL_PARTY = "${GROUP}/political_party"
+    val RELIGION = "${GROUP}/religion"
+    val ROOM_DRESSING = "${GROUP}/room_dressing"
+
+    val WORLD = "${GROUP}/world"
+
+    val othergen = listOf(
+            WORLD
+    )
+
+}
+
 class SwnTest {
 
     @Test

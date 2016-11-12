@@ -25,11 +25,7 @@ import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.io.Resources
-import org.stevesea.adventuresmith.core.AdventureSmithConstants.CORE_GENERATORS
-import org.stevesea.adventuresmith.core.fourth_page.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
-import org.stevesea.adventuresmith.core.maze_rats.*
-import org.stevesea.adventuresmith.core.perilous_wilds.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.io.IOException
 import java.security.*
@@ -118,7 +114,7 @@ val adventureSmithModule = Kodein.Module {
     bind<Set<String>>(AdventureSmithConstants.GENERATORS) with provider {
         val res : MutableSet<String> = TreeSet<String>()
         res.addAll(instance<List<String>>(FotfConstants.GROUP))
-        res.addAll(instance<List<String>>(SwnConstants.GROUP))
+        res.addAll(instance<List<String>>(SwnConstantsCustom.GROUP))
         res.addAll(instance<List<String>>(AdventureSmithConstants.CORE_GENERATORS))
         res
     }

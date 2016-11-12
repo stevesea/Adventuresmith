@@ -25,6 +25,18 @@ import org.stevesea.adventuresmith.core.*
 import java.util.*
 
 
+object MrConstants {
+    private val GROUP = getFinalPackageName(this.javaClass)
+
+    val AFFLICTIONS = "${GROUP}/afflictions"
+    val POTION_EFFECTS = "${GROUP}/potion_effects"
+    val ITEM = "${GROUP}/items"
+    val MAGIC = "${GROUP}/magic"
+    val MONSTER = "${GROUP}/monsters"
+    val CHAR = "${GROUP}/characters"
+
+}
+
 class MazeRatsTest {
 
     @Test

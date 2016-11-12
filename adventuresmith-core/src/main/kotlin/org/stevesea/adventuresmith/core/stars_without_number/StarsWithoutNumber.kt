@@ -108,7 +108,7 @@ class SwnDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleD
                 ),
                 names = resourceDeserializer.deserialize(
                         DataDrivenGenDto::class.java,
-                        SwnConstants.NAMES,
+                        SwnConstantsCustom.NAMES,
                         locale
                 )
         )
@@ -282,49 +282,24 @@ val swnModule = Kodein.Module {
                 modelGeneratorStrat = SwnWorldModelGenerator(kodein)
         )
     }
-    bind<Generator>(SwnConstants.WORLD) with provider {
+    bind<Generator>(SwnConstantsCustom.WORLD) with provider {
         BaseGeneratorWithView<SwnWorldModel, HTML>(
                 modelGen = instance(),
                 viewTransform = SwnWorldView()
         )
     }
 
-    bind<List<String>>(SwnConstants.GROUP) with singleton {
-        listOf(
-            SwnConstants.othergen
-        ).flatten()
+    bind<List<String>>(SwnConstantsCustom.GROUP) with singleton {
+        listOf(SwnConstantsCustom.WORLD)
     }
 }
 
-object SwnConstants {
+object SwnConstantsCustom {
     val GROUP = getFinalPackageName(this.javaClass)
-
-    val ADV_SEED = "${GROUP}/adventure_seed"
-    val ALIEN = "${GROUP}/alien"
-    val ANIMAL = "${GROUP}/animal"
-    val ARCHITECTURE = "${GROUP}/architecture"
-    val CORPORATION = "${GROUP}/corporation"
-    val HERESY = "${GROUP}/heresy"
-    val NAME_Arabic = "${GROUP}/names_arabic"
-    val NAME_Chinese = "${GROUP}/names_chinese"
-    val NAME_English = "${GROUP}/names_english"
-    val NAME_Indian = "${GROUP}/names_indian"
-    val NAME_Japanese = "${GROUP}/names_japanese"
-    val NAME_Nigerian = "${GROUP}/names_nigerian"
-    val NAME_Russian = "${GROUP}/names_russian"
-    val NAME_Spanish = "${GROUP}/names_spanish"
-    val NPC = "${GROUP}/npc"
-    val POLITICAL_PARTY = "${GROUP}/political_party"
-    val RELIGION = "${GROUP}/religion"
-    val ROOM_DRESSING = "${GROUP}/room_dressing"
-
-
-    val NAMES = "${GROUP}/names"
 
     val WORLD = "${GROUP}/world"
 
-    val othergen = listOf(
-            WORLD
-    )
+
+    val NAMES = "${GROUP}/names"
 
 }
