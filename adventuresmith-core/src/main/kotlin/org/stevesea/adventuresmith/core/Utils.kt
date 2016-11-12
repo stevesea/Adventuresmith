@@ -85,7 +85,7 @@ object LocaleAwareResourceFinder {
         val fnames_precendence_order = locale_names(name, locale, ext)
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
-        if (foundList.size == 0) {
+        if (foundList.isEmpty()) {
             throw IllegalArgumentException("Unable to find any resources matching $name. Tried: $fnames_precendence_order ")
         }
         return foundList.first()
