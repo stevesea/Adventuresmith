@@ -63,12 +63,12 @@ object LocaleAwareResourceFinder {
         //    _en
         //    <emptystring>
         val locale_suffixes = linkedSetOf(
-                String.format("_%s_%s_%s", locale.language, locale.country, locale.variant),
-                String.format("_%s_%s", locale.language, locale.country),
-                String.format("_%s", locale.language),
-                String.format("_%s_%s_%s", defaultLocale.language, defaultLocale.country, defaultLocale.variant),
-                String.format("_%s_%s", defaultLocale.language, defaultLocale.country),
-                String.format("_%s", defaultLocale.language),
+                String.format(".%s_%s_%s", locale.language, locale.country, locale.variant),
+                String.format(".%s_%s", locale.language, locale.country),
+                String.format(".%s", locale.language),
+                String.format(".%s_%s_%s", defaultLocale.language, defaultLocale.country, defaultLocale.variant),
+                String.format(".%s_%s", defaultLocale.language, defaultLocale.country),
+                String.format(".%s", defaultLocale.language),
                 ""
         )
         // if any of the locales didn't have country/variant, the list will have things like
