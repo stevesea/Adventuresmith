@@ -189,7 +189,7 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
     private fun getWorldTags(worldRules: WorldRulesDto, worldTags: Map<String,WorldTag>): SwnWorldTagModel{
         // pick N tags
         val n = shuffler.roll(worldRules.num_tags)
-        val tags : List<String> = shuffler.pickN(worldTags.keys, 2).toList()
+        val tags : List<String> = shuffler.pickN(worldTags.keys, n).toList()
 
         val flavors : MutableList<Pair<String,String>> = mutableListOf()
         val enemies : MutableList<String> = mutableListOf()
