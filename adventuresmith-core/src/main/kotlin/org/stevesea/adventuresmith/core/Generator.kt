@@ -72,6 +72,9 @@ open class BaseGeneratorWithView<TModel, TView>(
 data class DataDrivenGenMetaDto(val name: String,
                                 val tags: List<String>?,
                                 val desc: String)
+
+data class GeneratorListDto(val generators: Map<String,List<String>>);
+
 data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>?,
                             val imports: List<String>?,

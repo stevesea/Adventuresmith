@@ -20,38 +20,15 @@
 
 package org.stevesea.adventuresmith.core.fourth_page
 
-import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
-import org.stevesea.adventuresmith.core.maze_rats.MrConstants
-import java.util.*
-
-val fpModule = Kodein.Module {
-    FpConstants.generators.forEach {
-        bind<Generator>(it) with provider {
-            DataDrivenGenerator(it, kodein)
-        }
-    }
-
-    bind<List<String>>(FpConstants.GROUP) with singleton {
-        FpConstants.generators
-    }
-}
 
 object FpConstants {
-    val GROUP = getFinalPackageName(this.javaClass)
+    private val GROUP = getFinalPackageName(this.javaClass)
 
     val DUNGEON = "${GROUP}/dungeon"
     val CITY = "${GROUP}/city"
     val ARTIFACT = "${GROUP}/artifact"
     val MONSTER = "${GROUP}/monster"
-
-
-    val generators = listOf(
-            MONSTER,
-            DUNGEON,
-            CITY,
-            ARTIFACT
-    )
 }
 
 

@@ -24,11 +24,14 @@ import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
+import com.google.common.io.Resources
+import org.stevesea.adventuresmith.core.AdventureSmithConstants.CORE_GENERATORS
 import org.stevesea.adventuresmith.core.fourth_page.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.maze_rats.*
 import org.stevesea.adventuresmith.core.perilous_wilds.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
+import java.io.IOException
 import java.security.*
 import java.util.*
 import javax.validation.*
@@ -36,26 +39,16 @@ import javax.validation.*
 
 object AdventureSmithConstants {
     val GENERATORS = "generators"
+    val CORE_GENERATORS = "core_generators"
+
 }
 
 val generatorModule = Kodein.Module {
-    bind<Random>() with singleton { SecureRandom() }
-    bind<Shuffler>() with singleton { Shuffler(kodein) }
 
-    bind<DataDrivenGenDtoCachingResourceLoader>() with factory { resource_prefix: String ->
-        DataDrivenGenDtoCachingResourceLoader(resource_prefix, kodein)
-    }
-    bind<DataDrivenDtoTemplateProcessor>() with provider {
-        DataDrivenDtoTemplateProcessor(kodein)
-    }
-    bind<DtoMerger>() with provider {
-        DtoMerger(kodein)
-    }
-}
+    val objectMapper = ObjectMapper(YAMLFactory())
+            .registerKotlinModule()
 
-val utilModule = Kodein.Module {
-    bind() from singleton { ObjectMapper(YAMLFactory())
-            .registerKotlinModule() }
+    bind() from instance ( objectMapper )
     bind() from provider {
         val mapper: ObjectMapper = instance()
         mapper.reader()
@@ -76,28 +69,57 @@ val utilModule = Kodein.Module {
         val valFactory: ValidatorFactory = instance()
         valFactory.validator
     }
+    bind<Random>() with singleton { SecureRandom() }
+    bind<Shuffler>() with singleton { Shuffler(kodein) }
+
+    bind<DataDrivenGenDtoCachingResourceLoader>() with factory { resource_prefix: String ->
+        DataDrivenGenDtoCachingResourceLoader(resource_prefix, kodein)
+    }
+    bind<DataDrivenDtoTemplateProcessor>() with provider {
+        DataDrivenDtoTemplateProcessor(kodein)
+    }
+    bind<DtoMerger>() with provider {
+        DtoMerger(kodein)
+    }
+
+    val generatorsFile = "core_generators.yml"
+    try {
+        val generatorsUrl = Resources.getResource(AdventureSmithConstants.javaClass, generatorsFile)
+        val generatorsStr = Resources.toString(generatorsUrl, Charsets.UTF_8)
+        val generatorsListDto: GeneratorListDto = objectMapper.reader().forType(GeneratorListDto::class.java).readValue(generatorsStr)
+        val genList : MutableList<String> = mutableListOf()
+
+        for (generatorPkg in generatorsListDto.generators) {
+            for (id in generatorPkg.value) {
+                val genStr = "${generatorPkg.key}/${id}"
+
+                genList.add(genStr)
+
+                bind<Generator>(genStr) with provider {
+                    DataDrivenGenerator(genStr, kodein)
+                }
+            }
+        }
+
+        bind<List<String>>(AdventureSmithConstants.CORE_GENERATORS) with instance(genList)
+
+    } catch (ex: Exception) {
+        throw IOException("problem reading $generatorsFile - ${ex.message}")
+    }
 }
 
 val adventureSmithModule = Kodein.Module {
     import(generatorModule)
-
-    import(utilModule)
+    import(diceModule)
 
     import(fotfModule)
-    import(fpModule)
-    import(mrModule)
-    import(diceModule)
     import(swnModule)
-    import(pwModule)
 
     bind<Set<String>>(AdventureSmithConstants.GENERATORS) with provider {
         val res : MutableSet<String> = TreeSet<String>()
         res.addAll(instance<List<String>>(FotfConstants.GROUP))
-        res.addAll(instance<List<String>>(MrConstants.GROUP))
-        res.addAll(instance<List<String>>(FpConstants.GROUP))
-        res.addAll(instance<List<String>>(DiceConstants.GROUP))
         res.addAll(instance<List<String>>(SwnConstants.GROUP))
-        res.addAll(instance<List<String>>(PwConstants.GROUP))
+        res.addAll(instance<List<String>>(AdventureSmithConstants.CORE_GENERATORS))
         res
     }
 }

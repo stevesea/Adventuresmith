@@ -20,24 +20,11 @@
 
 package org.stevesea.adventuresmith.core.maze_rats
 
-import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 
-val mrModule = Kodein.Module {
-
-    MrConstants.generators.forEach {
-        bind<Generator>(it) with provider {
-            DataDrivenGenerator(it, kodein)
-        }
-    }
-
-    bind<List<String>>(MrConstants.GROUP) with singleton {
-        MrConstants.generators
-    }
-}
 
 object MrConstants {
-    val GROUP = getFinalPackageName(this.javaClass)
+    private val GROUP = getFinalPackageName(this.javaClass)
 
     val AFFLICTIONS = "${GROUP}/afflictions"
     val POTION_EFFECTS = "${GROUP}/potion_effects"
@@ -46,12 +33,4 @@ object MrConstants {
     val MONSTER = "${GROUP}/monsters"
     val CHAR = "${GROUP}/characters"
 
-    val generators = listOf(
-            MONSTER,
-            ITEM,
-            CHAR,
-            MAGIC,
-            POTION_EFFECTS,
-            AFFLICTIONS
-    )
 }

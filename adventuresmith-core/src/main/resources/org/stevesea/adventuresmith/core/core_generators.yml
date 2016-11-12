@@ -1,0 +1,71 @@
+---
+
+# not every generator is listed here, but most are.
+generators:
+  fourth_page:
+  - artifact
+  - dungeon
+  - city
+  - monster
+  freebooters_on_the_frontier:
+  #- chars   Not converted completely to new template format
+  - spells
+  maze_rats:
+  - afflictions
+  - characters
+  - items
+  - magic
+  - monsters
+  - potion_effects
+  perilous_wilds:
+  - place_names
+  - region_names
+
+  - names_arpad
+  - names_oloru
+  - names_tamanarugan
+  - names_valkoina
+
+  - treasure_item
+  - treasure_unguarded
+  - treasure_guarded
+  - treasure_guarded_1bonus
+  - treasure_guarded_2bonus
+
+  - npc
+  - npc_rural
+  - npc_urban
+  - npc_wilderness
+
+  - creature
+  - creature_beast
+  - creature_human
+  - creature_humanoid
+  - creature_monster
+
+  - danger
+  - explore_dungeon
+  - follower
+  - dungeon
+  - steading
+  - discovery
+  stars_without_number:
+  # - world             Not converted completely to new template format
+  - adventure_seed
+  - alien
+  - animal
+  - architecture
+  - corporation
+  - heresy
+  - names_arabic
+  - names_chinese
+  - names_english
+  - names_indian
+  - names_japanese
+  - names_nigerian
+  - names_russian
+  - names_spanish
+  - npc
+  - political_party
+  - religion
+  - room_dressing

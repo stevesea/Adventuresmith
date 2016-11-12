@@ -276,12 +276,6 @@ class SwnWorldView: ViewStrategy<SwnWorldModel, HTML> {
 
 val swnModule = Kodein.Module {
 
-    SwnConstants.ddgen.forEach {
-        bind<Generator>(it) with provider {
-            DataDrivenGenerator(it, kodein)
-        }
-    }
-
     bind<ModelGenerator<SwnWorldModel>>() with provider {
         BaseGenerator<WorldBundleDto, SwnWorldModel>(
                 loadingStrat = SwnDtoLoader(kodein),
@@ -297,7 +291,6 @@ val swnModule = Kodein.Module {
 
     bind<List<String>>(SwnConstants.GROUP) with singleton {
         listOf(
-            SwnConstants.ddgen,
             SwnConstants.othergen
         ).flatten()
     }
@@ -334,24 +327,4 @@ object SwnConstants {
             WORLD
     )
 
-    val ddgen = listOf(
-            ADV_SEED,
-            ALIEN,
-            ANIMAL,
-            ARCHITECTURE,
-            CORPORATION,
-            HERESY,
-            NAME_Arabic,
-            NAME_Chinese,
-            NAME_English,
-            NAME_Indian,
-            NAME_Japanese,
-            NAME_Nigerian,
-            NAME_Russian,
-            NAME_Spanish,
-            NPC,
-            POLITICAL_PARTY,
-            RELIGION,
-            ROOM_DRESSING
-    )
 }

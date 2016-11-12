@@ -196,18 +196,8 @@ val fotfModule = Kodein.Module {
         )
     }
 
-    listOf(
-            FotfConstants.SPELLS
-    ).forEach {
-        bind<Generator>(it) with provider {
-            DataDrivenGenerator(it, kodein)
-        }
-    }
-
-
     bind<List<String>>(FotfConstants.GROUP) with singleton {
         listOf(
-                FotfConstants.SPELLS,
                 FotfConstants.CHARS
         )
     }

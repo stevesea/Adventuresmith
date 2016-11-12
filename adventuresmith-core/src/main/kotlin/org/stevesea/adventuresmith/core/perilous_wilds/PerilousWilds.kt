@@ -20,24 +20,11 @@
 
 package org.stevesea.adventuresmith.core.perilous_wilds
 
-import com.github.salomonbrys.kodein.*
 import org.stevesea.adventuresmith.core.*
 
-val pwModule = Kodein.Module {
-
-    PwConstants.generators.forEach {
-        bind<Generator>(it) with provider {
-            DataDrivenGenerator(it, kodein)
-        }
-    }
-
-    bind<List<String>>(PwConstants.GROUP) with singleton {
-        PwConstants.generators
-    }
-}
 
 object PwConstants {
-    val GROUP = getFinalPackageName(this.javaClass)
+    private val GROUP = getFinalPackageName(this.javaClass)
 
     // TODO: read this list of generators from resource?
 
@@ -76,38 +63,4 @@ object PwConstants {
     val STEADING = "${GROUP}/steading"
     val DISCOVERY = "${GROUP}/discovery"
 
-    val generators = listOf(
-            PLACE,
-            REGION,
-
-            NAMES_Arpad,
-            NAMES_Oloru,
-            NAMES_Tamanarugan,
-            NAMES_Valkoina,
-
-            TREASURE_ITEM,
-            TREASURE_UNGUARDED,
-            TREASURE_GUARDED,
-            TREASURE_GUARDED_1BONUS,
-            TREASURE_GUARDED_2BONUS,
-
-            NPC,
-            NPC_RURAL,
-            NPC_URBAN,
-            NPC_WILDERNESS,
-
-            CREATURE,
-            CREATURE_Beast,
-            CREATURE_Human,
-            CREATURE_Humanoid,
-            CREATURE_Monster,
-
-            DANGER,
-            EXPLORE_DUNGEON,
-            FOLLOWER,
-            DUNGEON,
-            STEADING,
-            DISCOVERY
-
-    )
 }
