@@ -81,7 +81,7 @@ class FotfCharDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfCh
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return resourceDeserializer.deserialize(
                 GeneratorMetaDto::class.java,
-                FotfCharNames.resource_prefix + ".meta",
+                FotfConstants.GROUP + "/" + FotfCharDto.resource_prefix + ".meta",
                 locale
         )
     }

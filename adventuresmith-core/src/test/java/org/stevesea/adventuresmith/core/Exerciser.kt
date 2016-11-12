@@ -44,6 +44,7 @@ class Exerciser {
 
             // TODO: every time add a translation, add its locale here.
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
+                generator_instance.getMetadata(locale)
                 for (i in 1..25) {
                     if (enablePrinting.contains(g))
                         println(generator_instance.generate(locale))

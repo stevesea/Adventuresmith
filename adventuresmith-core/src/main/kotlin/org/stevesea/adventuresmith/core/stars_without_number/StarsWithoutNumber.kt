@@ -93,7 +93,7 @@ class SwnDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleD
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return resourceDeserializer.deserialize(
                 GeneratorMetaDto::class.java,
-                WorldDto.resource_prefix + ".meta",
+                SwnConstantsCustom.GROUP + "/" + WorldDto.resource_prefix + ".meta",
                 locale
         )
     }
