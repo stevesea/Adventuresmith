@@ -78,11 +78,11 @@ data class FotfCharBundleDto(val char: FotfCharDto,
 class FotfCharDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfCharBundleDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
 
-    override fun getMetadata(): GeneratorMetaDto {
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return resourceDeserializer.deserialize(
                 GeneratorMetaDto::class.java,
                 FotfCharNames.resource_prefix + ".meta",
-                locale = Locale.US
+                locale
         )
     }
     override fun load(locale: Locale): FotfCharBundleDto {

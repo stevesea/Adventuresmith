@@ -30,16 +30,16 @@ import java.util.*
 
 interface Generator {
     fun generate(locale: Locale = Locale.ENGLISH) : String
-    fun getMetadata(): GeneratorMetaDto
+    fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
 interface ModelGenerator<T> {
     fun generate(locale: Locale = Locale.ENGLISH) : T
-    fun getMetadata(): GeneratorMetaDto
+    fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
 
 interface DtoLoadingStrategy<out TDto> {
     fun load(locale: Locale) : TDto
-    fun getMetadata(): GeneratorMetaDto
+    fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
 
 interface ModelGeneratorStrategy<in TDto, out TModel> {
@@ -61,8 +61,8 @@ open class BaseGenerator<
         return output
     }
 
-    override fun getMetadata(): GeneratorMetaDto {
-        return loadingStrat.getMetadata()
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return loadingStrat.getMetadata(locale)
     }
 }
 
@@ -73,12 +73,14 @@ open class BaseGeneratorWithView<TModel, TView>(
         return viewTransform.transform(modelGen.generate(locale)).toString().trim()
     }
 
-    override fun getMetadata(): GeneratorMetaDto {
-        return modelGen.getMetadata()
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return modelGen.getMetadata(locale)
     }
 }
 
 data class GeneratorMetaDto(val name: String,
+                            val collection: String,
+                            val group: String? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null)
 
@@ -101,11 +103,11 @@ class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, overrid
         )
     }
 
-    override fun getMetadata(): GeneratorMetaDto {
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return resourceDeserializer.deserialize(
                 GeneratorMetaDto::class.java,
                 resource_prefix + ".meta",
-                locale = Locale.US
+                locale
         )
     }
 }
@@ -132,8 +134,8 @@ class DataDrivenGenerator(
         }
     }
 
-    override fun getMetadata(): GeneratorMetaDto {
-        return loaderFactory.invoke(resource_prefix).getMetadata()
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return loaderFactory.invoke(resource_prefix).getMetadata(locale)
     }
 
     fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
