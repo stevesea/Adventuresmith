@@ -62,9 +62,10 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
             throw IllegalArgumentException("don't know how to select thing of type " + thing!!.javaClass)
         }
     }
+
     fun pickD(diceStr: String, thing: Any?) : String {
         if (thing is RangeMap) {
-            return pickD(diceStr, thing as RangeMap)
+            return pickD(diceStr, thing)
 
         } else if (thing is Collection<*>) {
             return pickD(diceStr, thing as Collection<String>)
