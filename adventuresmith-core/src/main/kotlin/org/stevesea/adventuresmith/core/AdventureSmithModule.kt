@@ -115,6 +115,7 @@ val adventureSmithModule = Kodein.Module {
         val res : MutableSet<String> = TreeSet<String>()
         res.addAll(instance<List<String>>(FotfConstants.GROUP))
         res.addAll(instance<List<String>>(SwnConstantsCustom.GROUP))
+        res.addAll(instance<List<String>>(DiceConstants.GROUP))
         res.addAll(instance<List<String>>(AdventureSmithConstants.CORE_GENERATORS))
         res
     }
