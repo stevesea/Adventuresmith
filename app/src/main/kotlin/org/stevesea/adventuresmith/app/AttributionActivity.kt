@@ -20,39 +20,26 @@
 
 package org.stevesea.adventuresmith.app
 
-import android.content.pm.*
 import android.os.*
 import android.support.v7.app.*
 import com.github.salomonbrys.kodein.*
 import com.github.salomonbrys.kodein.android.*
 import com.mikepenz.materialize.*
-import kotlinx.android.synthetic.main.activity_about.*
+import kotlinx.android.synthetic.main.activity_attribution.*
 import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.R
 
-class AboutActivity : AppCompatActivity(), LazyKodeinAware {
+class AttributionActivity : AppCompatActivity(), LazyKodeinAware {
     override val kodein = LazyKodein(appKodein)
-
-    val pkgManager: PackageManager by withContext(this).instance()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
 
-        var versionName = ""
-        var versionCode = -1
-        try {
-            val packageInfo = pkgManager.getPackageInfo(getPackageName(), 0);
-            versionName = packageInfo.versionName
-            versionCode = packageInfo.versionCode
-        } catch (e: PackageManager.NameNotFoundException) {
-            // no-op
-        }
+        setContentView(R.layout.activity_attribution)
 
         setSupportActionBar(toolbar)
 
-        supportActionBar!!.setTitle(R.string.nav_about)
+        supportActionBar!!.setTitle(R.string.nav_thanks)
         supportActionBar!!.setDefaultDisplayHomeAsUpEnabled(true)
 
         MaterializeBuilder()
@@ -61,8 +48,8 @@ class AboutActivity : AppCompatActivity(), LazyKodeinAware {
                 .withStatusBarPadding(true)
                 .build()
 
-        about_txt_version.text = ResultAdapterItem.htmlStrToSpanned(String.format(getString(R.string.about_version), versionName, versionCode))
-
-        about_txt_app.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.about_app))
+        attribution_txt_content.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_attribution))
+        attribution_txt_artwork.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_artwork))
+        attribution_txt_thanks.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_thanks))
     }
 }
