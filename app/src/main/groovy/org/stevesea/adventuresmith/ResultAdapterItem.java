@@ -39,7 +39,7 @@ public class ResultAdapterItem extends AbstractItem<ResultAdapterItem, ResultAda
     private static final ViewHolderFactory<? extends ViewHolder> FACTORY = new ItemFactory();
 
     @SuppressWarnings("deprecation")
-    static Spanned htmlStrToSpanned(String input) {
+    public static Spanned htmlStrToSpanned(String input) {
         if (Build.VERSION.SDK_INT >= 24 /*Build.VERSION_CODES.N*/) {
             return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY);
         } else {
