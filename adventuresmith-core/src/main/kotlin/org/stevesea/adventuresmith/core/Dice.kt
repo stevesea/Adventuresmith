@@ -140,7 +140,7 @@ class DiceParser(override val kodein: Kodein) : KodeinAware {
 
 object DiceConstants {
     val GROUP = "dice"
-    val CollectionName = "Dice Roller"
+    val CollectionName = "dice_roller"
 
     val regularDice = listOf("1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100",
             "2d6", "3d6","4d4")
@@ -156,7 +156,7 @@ val diceModule = Kodein.Module {
         bind<Generator>(d) with provider {
             object: Generator {
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = d, collection = DiceConstants.CollectionName)
+                    return GeneratorMetaDto(name = d, collectionId = DiceConstants.CollectionName)
                 }
 
                 val diceParser : DiceParser = instance()
@@ -178,7 +178,7 @@ val diceModule = Kodein.Module {
                 return "${DiceConstants.d20adv}: ${nf.format(best)} <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "d20 (adv)", collection = DiceConstants.CollectionName)
+                return GeneratorMetaDto(name = "d20 (adv)", collectionId = DiceConstants.CollectionName)
             }
         }
     }
@@ -193,7 +193,7 @@ val diceModule = Kodein.Module {
                 return "${DiceConstants.d20disadv}: ${nf.format(worst)} <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "d20 (disadv)", collection = DiceConstants.CollectionName)
+                return GeneratorMetaDto(name = "d20 (disadv)", collectionId = DiceConstants.CollectionName)
             }
         }
     }

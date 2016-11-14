@@ -24,10 +24,10 @@ import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
-import com.google.common.io.Resources
+import com.google.common.io.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
-import java.io.IOException
+import java.io.*
 import java.security.*
 import java.util.*
 import javax.validation.*
@@ -36,7 +36,6 @@ import javax.validation.*
 object AdventureSmithConstants {
     val GENERATORS = "generators"
     val CORE_GENERATORS = "core_generators"
-
 }
 
 val generatorModule = Kodein.Module {
@@ -76,6 +75,10 @@ val generatorModule = Kodein.Module {
     }
     bind<DtoMerger>() with provider {
         DtoMerger(kodein)
+    }
+
+    bind<CollectionMetaLoader>() with singleton {
+        CollectionMetaLoader(kodein)
     }
 
     val generatorsFile = "core_generators.yml"

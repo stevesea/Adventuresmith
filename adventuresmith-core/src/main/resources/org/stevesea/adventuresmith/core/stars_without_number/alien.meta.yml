@@ -1,4 +1,4 @@
 ---
 name: Alien
-collection: Stars Without Number
-group: Aliens, Animals, Worlds…
+collectionId: stars_without_number
+groupId: grp1

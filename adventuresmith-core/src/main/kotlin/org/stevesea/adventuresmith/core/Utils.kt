@@ -86,7 +86,7 @@ object LocaleAwareResourceFinder {
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
         if (foundList.isEmpty()) {
-            throw IllegalArgumentException("Unable to find any resources matching $name. Tried: $fnames_precendence_order ")
+            throw IllegalArgumentException("Unable to find any resources matching $name. Looked in: ${clazz.`package`.name} Tried: $fnames_precendence_order ")
         }
         return foundList.first()
     }

@@ -1,4 +1,4 @@
 ---
 name: Rural
-collection: The Perilous Wilds
-group: NPCs
+collectionId: perilous_wilds
+groupId: grp4

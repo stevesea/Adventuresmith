@@ -18,6 +18,7 @@ androidGitVersion {
 ext {
     groovyVersion = '2.4.7'
     androidSupportVersion = '24.2.0'
+    ankoVersion = '0.9'
 }
 
 android {
@@ -176,6 +177,11 @@ dependencies {
 
     compile 'com.github.salomonbrys.kodein:kodein-android:3.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile "org.jetbrains.anko:anko-sdk23:$ankoVersion" // sdk19, sdk21, sdk23 are also available
+    compile "org.jetbrains.anko:anko-support-v4:$ankoVersion" // In case you need support-v4 bindings
+    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion" // For appcompat-v7 bindings
+
     compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"

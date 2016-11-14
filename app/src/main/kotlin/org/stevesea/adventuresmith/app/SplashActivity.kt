@@ -20,17 +20,19 @@
 
 package org.stevesea.adventuresmith.app
 
-import android.content.*
 import android.os.*
 import android.support.v7.app.*
-import org.stevesea.adventuresmith.*
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //startActivity(intentFor<AdventuresmithActivity>())
+
+        /*
         val intent = Intent(this, AdventuresmithActivity::class.java)
         startActivity(intent)
         finish()
+        */
     }
 }

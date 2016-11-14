@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.app
 
+import android.content.*
 import android.support.multidex.*
 import com.crashlytics.android.*
 import com.crashlytics.android.core.*
@@ -30,12 +31,39 @@ import io.fabric.sdk.android.*
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.*
 
+object AdventuresmithAppConstants {
+}
 class AdventuresmithApp : MultiDexApplication(), KodeinAware {
 
     override val kodein by Kodein.lazy {
         import(adventureSmithModule)
 
         import(androidModule)
+
+        val gennames = instance<Set<String>>(AdventureSmithConstants.GENERATORS)
+
+        // map of generator name -> generator
+        val genMap : MutableMap<String, Generator> = mutableMapOf()
+        // map of coll name -> coll meta data
+        val collMap : MutableMap<String, CollectionMetaDto> = mutableMapOf()
+
+        val collgrpToGen : MutableMap<String, MutableList<Generator>> = mutableMapOf()
+
+        val collMetaLoader = instance<CollectionMetaLoader>()
+
+        val context : Context = instance()
+
+        for (g in gennames) {
+            val generator_instance = instance<Generator>(g)
+
+            val genmeta = generator_instance.getMetadata()
+
+            collMap.put(genmeta.collectionId,
+                    collMetaLoader.load(genmeta.collectionId,
+                            context.resources.configuration.locales.get(0))
+            )
+            genMap.put(g, generator_instance)
+        }
     }
 
     override fun onCreate() {
@@ -46,7 +74,6 @@ class AdventuresmithApp : MultiDexApplication(), KodeinAware {
             return;
         }
         LeakCanary.install(this)
-
 
         val crashlyticsKit = Crashlytics.Builder()
                 .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())

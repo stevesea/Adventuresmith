@@ -79,12 +79,29 @@ open class BaseGeneratorWithView<TModel, TView>(
 }
 
 data class GeneratorMetaDto(val name: String,
-                            val collection: String,
-                            val group: String? = null,
+                            val collectionId: String,
+                            val groupId: String? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null)
 
 data class GeneratorListDto(val generators: Map<String,List<String>>);
+
+data class CollectionMetaDto(val url: String?,
+                         val name: String,
+                         val credit: String?,
+                         val desc: String?,
+                         val groups: Map<String, String>?)
+
+class CollectionMetaLoader(override val kodein: Kodein) : KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
+    fun load(collection_path: String, locale: Locale = Locale.US): CollectionMetaDto {
+        return resourceDeserializer.deserialize(
+                CollectionMetaDto::class.java,
+                collection_path + "/" + ".meta",
+                locale
+        )
+    }
+}
 
 data class DataDrivenGenDto(val templates: RangeMap?,
                             val tables: Map<String, RangeMap>?,
