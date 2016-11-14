@@ -32,6 +32,7 @@ import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.*
 
 object AdventuresmithAppConstants {
+    val COLLECTIONS = "core_co"
 }
 class AdventuresmithApp : MultiDexApplication(), KodeinAware {
 
@@ -42,28 +43,30 @@ class AdventuresmithApp : MultiDexApplication(), KodeinAware {
 
         val gennames = instance<Set<String>>(AdventureSmithConstants.GENERATORS)
 
-        // map of generator name -> generator
+        // map of generator id -> generator
         val genMap : MutableMap<String, Generator> = mutableMapOf()
-        // map of coll name -> coll meta data
-        val collMap : MutableMap<String, CollectionMetaDto> = mutableMapOf()
-
-        val collgrpToGen : MutableMap<String, MutableList<Generator>> = mutableMapOf()
+        // set of generator-collections
+        val colls : MutableSet<CollectionMetaDto> = mutableSetOf()
 
         val collMetaLoader = instance<CollectionMetaLoader>()
 
-        val context : Context = instance()
+        val context : Context = instance() // TODO: no idea if this works
+        val locale = context.resources.configuration.locales.get(0)
 
         for (g in gennames) {
             val generator_instance = instance<Generator>(g)
 
-            val genmeta = generator_instance.getMetadata()
+            val genmeta = generator_instance.getMetadata(locale)
 
-            collMap.put(genmeta.collectionId,
-                    collMetaLoader.load(genmeta.collectionId,
-                            context.resources.configuration.locales.get(0))
-            )
+            colls.add(collMetaLoader.load(genmeta.collectionId, locale))
+
             genMap.put(g, generator_instance)
         }
+
+        bind<Set<CollectionMetaDto>>(AdventureSmithConstants.GENERATORS) with instance(colls)
+        bind<Map<String, Generator>>(AdventureSmithConstants.GENERATORS) with instance(genMap)
+
+        // TODO: create drawer items here?
     }
 
     override fun onCreate() {

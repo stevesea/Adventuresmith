@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.core
 
 
 import com.github.salomonbrys.kodein.*
+import com.google.common.collect.*
 import com.samskivert.mustache.*
 import mu.*
 import java.io.*
@@ -86,11 +87,21 @@ data class GeneratorMetaDto(val name: String,
 
 data class GeneratorListDto(val generators: Map<String,List<String>>);
 
-data class CollectionMetaDto(val url: String?,
-                         val name: String,
-                         val credit: String?,
-                         val desc: String?,
-                         val groups: Map<String, String>?)
+data class CollectionMetaDto(val url: String? = null,
+                             val id: String,
+                             val name: String,
+                             val priority: Int,
+                             val desc: String? = null,
+                             val credit: String? = null,
+                             val attribution: String? = null,
+                             val groups: Map<String, String>? = null) : Comparable<CollectionMetaDto> {
+    override fun compareTo(other: CollectionMetaDto): Int {
+        return ComparisonChain.start()
+                .compare(priority, other.priority)
+                .compare(name, other.name)
+                .result()
+    }
+}
 
 class CollectionMetaLoader(override val kodein: Kodein) : KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()

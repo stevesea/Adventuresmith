@@ -1,7 +1,9 @@
 name: Stars Without Number
+id: stars_without_number
+priority: 1
 credit: Kevin Crawford / Sine Nomine Publishing
 url: "http://www.sinenomine-pub.com/"
-desc: |
+attribution: |
   The content reproduced here is from the free versions of the core SWN rulebook and supplements.
 groups:
   grp1: Aliens, Animals, Worlds…

@@ -1,1 +1,4 @@
 name: Dice Roller
+id: dice_roller
+priority: 999
+

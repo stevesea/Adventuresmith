@@ -1,6 +1,8 @@
 name: The Fourth Page
+id: fourth_page
+priority: 100
 credit: Mike Riverso
-desc: |
+attribution: |
   <p><cite>the Fourth Page</cite> generators for World of Dungeons.
   <br/>
   <br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy

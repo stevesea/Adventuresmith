@@ -35,7 +35,7 @@ import javax.validation.*
 
 object AdventureSmithConstants {
     val GENERATORS = "generators"
-    val CORE_GENERATORS = "core_generators"
+    val RESOURCE_GENERATORS = "resource_generators"
 }
 
 val generatorModule = Kodein.Module {
@@ -100,7 +100,7 @@ val generatorModule = Kodein.Module {
             }
         }
 
-        bind<List<String>>(AdventureSmithConstants.CORE_GENERATORS) with instance(genList)
+        bind<List<String>>(AdventureSmithConstants.RESOURCE_GENERATORS) with instance(genList)
 
     } catch (ex: Exception) {
         throw IOException("problem reading $generatorsFile - ${ex.message}")
@@ -119,7 +119,7 @@ val adventureSmithModule = Kodein.Module {
         res.addAll(instance<List<String>>(FotfConstants.GROUP))
         res.addAll(instance<List<String>>(SwnConstantsCustom.GROUP))
         res.addAll(instance<List<String>>(DiceConstants.GROUP))
-        res.addAll(instance<List<String>>(AdventureSmithConstants.CORE_GENERATORS))
+        res.addAll(instance<List<String>>(AdventureSmithConstants.RESOURCE_GENERATORS))
         res
     }
 }

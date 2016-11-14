@@ -1,5 +1,7 @@
 name: The Perilous Wilds
+id: perilous_wilds
 credit: Jason Lutes
+priority: 0
 url: "http://lampblackandbrimstone.blogspot.com/"
 groups:
   grp1: Creatures
