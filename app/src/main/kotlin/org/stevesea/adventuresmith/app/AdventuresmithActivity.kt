@@ -30,6 +30,7 @@ import com.github.salomonbrys.kodein.*
 import com.github.salomonbrys.kodein.android.*
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
+import com.mikepenz.fastadapter.adapters.*
 import com.mikepenz.iconics.*
 import com.mikepenz.iconics.typeface.*
 import com.mikepenz.ionicons_typeface_library.*
@@ -37,7 +38,6 @@ import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.model.*
 import com.mikepenz.materialdrawer.model.interfaces.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
-import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
 import java.util.*
@@ -113,16 +113,33 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
         result
     }
 
+    val resultAdapter by lazy {
+        FastItemAdapter<ResultItem>()
+                .withSelectable(true)
+                .withMultiSelect(true)
+                .withSelectOnLongClick(true)
+                .withPositionBasedStateManagement(true)
+                .withOnLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
+                    override fun onLongClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
+                        // TODO: clipboard send
+                        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    }
+                })
+    }
+
     val buttonAdapter by lazy {
-        FastAdapter<ButtonAdapterItem>()
+        FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
-                .withOnClickListener ( object : FastAdapter.OnClickListener<ButtonAdapterItem> {
-                    override fun onClick(v: View?, adapter: IAdapter<ButtonAdapterItem>?, item: ButtonAdapterItem?, position: Int): Boolean {
+                .withOnClickListener ( object : FastAdapter.OnClickListener<GeneratorButton> {
+                    override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
                             return false
-                        if (item.buttonData == null)
-                            return false
+
+                        val result = item.generator.generate(
+                                this@AdventuresmithActivity.resources.configuration.locales.get(0))
+
+                        resultAdapter.add(0, ResultItem(result))
 
                         // asldkfjalsdkjfalskjdf
                         return true
@@ -162,7 +179,12 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
 
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        buttonAdapter.saveInstanceState(outState)
+        resultAdapter.saveInstanceState(outState)
+        // TODO: deliberate skipping button adapter -- it should be re-created on each
+        //buttonAdapter.saveInstanceState(outState)
+
+        drawerHeader!!.saveInstanceState(outState)
+        drawer!!.saveInstanceState(outState)
 
         super.onSaveInstanceState(outState)
     }
@@ -170,7 +192,8 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        buttonAdapter.withSavedInstanceState(savedInstanceState)
+        //buttonAdapter.withSavedInstanceState(savedInstanceState)
+        resultAdapter.withSavedInstanceState(savedInstanceState)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

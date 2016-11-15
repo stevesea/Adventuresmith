@@ -21,7 +21,9 @@
 package org.stevesea.adventuresmith.app
 
 import android.content.*
+import android.os.*
 import android.support.multidex.*
+import android.text.*
 import com.crashlytics.android.*
 import com.crashlytics.android.core.*
 import com.github.salomonbrys.kodein.*
@@ -31,9 +33,6 @@ import io.fabric.sdk.android.*
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.*
 
-object AdventuresmithAppConstants {
-    val COLLECTIONS = "core_co"
-}
 class AdventuresmithApp : MultiDexApplication(), KodeinAware {
 
     override val kodein by Kodein.lazy {
@@ -82,5 +81,15 @@ class AdventuresmithApp : MultiDexApplication(), KodeinAware {
                 .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
                 .build()
         Fabric.with(this, crashlyticsKit)
+    }
+}
+
+
+
+fun htmlStrToSpanned(input: String): Spanned {
+    if (Build.VERSION.SDK_INT >= 24 /*Build.VERSION_CODES.N*/) {
+        return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        return Html.fromHtml(input)
     }
 }
