@@ -20,12 +20,15 @@
 
 package org.stevesea.adventuresmith.app
 
+import android.content.*
 import android.graphics.*
 import android.os.*
 import android.support.v7.app.*
+import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
 import android.view.*
 import android.widget.*
+import com.crashlytics.android.answers.*
 import com.github.salomonbrys.kodein.*
 import com.github.salomonbrys.kodein.android.*
 import com.mikepenz.community_material_typeface_library.*
@@ -42,21 +45,20 @@ import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
-
+class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware, ItemAdapter.ItemFilterListener  {
     override val kodein = LazyKodein(appKodein)
     val generatorCollections : Set<CollectionMetaDto> by kodein.instance(AdventureSmithConstants.GENERATORS)
     val generatorMap : Map<String, Generator> by kodein.instance(AdventureSmithConstants.GENERATORS)
 
-    var drawerIdToGenerators : Map<Int, Generator>? = null
+    val drawerIdToGenerators : MutableMap<Int, List<Generator>> = mutableMapOf()
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
 
     val navDrawerItems : List<IDrawerItem<*,*>> by lazy {
-        drawerIdToGenerators = mutableMapOf()
+        drawerIdToGenerators.clear()
 
-        val result: MutableList<IDrawerItem<*,*>> = mutableListOf()
+        val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
         var previousWasExpandable = false
         for (coll in generatorCollections) {
@@ -121,10 +123,32 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
                 .withPositionBasedStateManagement(true)
                 .withOnLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
                     override fun onLongClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
-                        // TODO: clipboard send
-                        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        if (v == null || item == null)
+                            return false
+
+                        // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
+                        // TODO: https://gist.github.com/mediavrog/5625602
+                        /*
+                        ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
+                        ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
+                        clipboard.setPrimaryClip(clipData)
+                        */
+                        //Snackbar.make(v, "Shared...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+
+                        val intent = Intent()
+                        intent.setAction(Intent.ACTION_SEND)
+                        intent.setType("text/html")
+                        intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
+                        intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
+
+                        v.context.startActivity(Intent.createChooser(intent,
+                                v.context.getString(R.string.action_share)))
+
+                        return true
                     }
                 })
+
+        as  FastItemAdapter<ResultItem>
     }
 
     val buttonAdapter by lazy {
@@ -141,12 +165,23 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
 
                         resultAdapter.add(0, ResultItem(result))
 
-                        // asldkfjalsdkjfalskjdf
+                        recycler_results.scrollToPosition(0)
+
+                        Answers.getInstance().logCustom(
+                                CustomEvent("Generated Result")
+                                        .putCustomAttribute("CollectionId", item.meta.collectionId)
+                                        .putCustomAttribute("GroupId", item.meta.groupId)
+                                        .putCustomAttribute("Name", item.meta.name)
+                        )
                         return true
                     }
                 })
+        as FastItemAdapter<GeneratorButton>
     }
 
+    override fun itemsFiltered() {
+        // no-op
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,7 +207,79 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware {
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(navDrawerItems)
+                .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                    override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*, *>?): Boolean {
+                        //check if the drawerItem is set.
+                        //there are different reasons for the drawerItem to be null
+                        //--> click on the header
+                        //--> click on the footer
+                        //those items don't contain a drawerItem
+                        if (drawerItem == null)
+                            return false
+
+                        //drawerItem.identifier
+                        return false
+
+                    }
+
+                })
                 .build()
+
+        val btnSpanShort = resources.getInteger(R.integer.buttonSpanShort)
+        val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)
+        val btnSpanLong = resources.getInteger(R.integer.buttonSpanLong)
+        val buttonGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.buttonCols))
+        buttonGridLayoutMgr.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val item = buttonAdapter.getAdapterItem(position)
+                if (item == null) {
+                    return btnSpanRegular
+                }
+                val maxWordLength = item.name.split(" ").map { it.length }.max()
+                if (maxWordLength == null) {
+                    return btnSpanRegular
+                } else if (maxWordLength <= 6) {
+                    return btnSpanShort
+                } else if (maxWordLength >= 11) {
+                    return btnSpanLong
+                } else {
+                    return btnSpanRegular
+                }
+            }
+        }
+
+        recycler_buttons.layoutManager = buttonGridLayoutMgr
+        recycler_buttons.itemAnimator = DefaultItemAnimator()
+        recycler_buttons.adapter = buttonAdapter
+
+
+        resultAdapter.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+            override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
+                if (item == null || constraint == null)
+                    return false
+
+                //return true if we should filter it out
+                //return false to keep it
+                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
+            }
+        })
+        resultAdapter.itemAdapter.withItemFilterListener(this)
+
+        val resultsGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.resultCols))
+        val resultSpanLong = resources.getInteger(R.integer.resultColsLongtext)
+        resultsGridLayoutMgr.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val item = resultAdapter.getAdapterItem(position)
+                if (item == null || item.htmlTxt.length > 48)
+                    return resultSpanLong
+                else
+                    return 1
+            }
+        }
+
+        recycler_results.layoutManager = resultsGridLayoutMgr
+        recycler_results.itemAnimator = DefaultItemAnimator()
+        recycler_results.adapter = resultAdapter
     }
 
 

@@ -33,7 +33,7 @@ import java.util.*
 // TODO: don't impl parcelable -- just re-generate the whole button list if recyclerview re-loaded
 class GeneratorButton(val generator: Generator,
                       locale: Locale = Locale.US,
-                      meta : GeneratorMetaDto = generator.getMetadata(locale)) :
+                      val meta : GeneratorMetaDto = generator.getMetadata(locale)) :
         AbstractItem<GeneratorButton, GeneratorButton.ViewHolder>() {
     init {
         withIdentifier(Objects.hash(
