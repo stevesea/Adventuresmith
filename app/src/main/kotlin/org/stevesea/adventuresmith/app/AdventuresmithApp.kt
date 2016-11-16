@@ -30,12 +30,15 @@ import com.github.salomonbrys.kodein.*
 import com.github.salomonbrys.kodein.android.*
 import com.squareup.leakcanary.*
 import io.fabric.sdk.android.*
+import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.*
 
-class AdventuresmithApp : MultiDexApplication(), KodeinAware {
+class AdventuresmithApp : MultiDexApplication(), KodeinAware, AnkoLogger {
 
     override val kodein by Kodein.lazy {
+        info("starting kodein bindings")
+
         import(adventureSmithModule)
 
         import(androidModule)
@@ -52,6 +55,7 @@ class AdventuresmithApp : MultiDexApplication(), KodeinAware {
         val context : Context = instance() // TODO: no idea if this works
         val locale = context.resources.configuration.locales.get(0)
 
+        info("instantiating generators")
         for (g in gennames) {
             val generator_instance = instance<Generator>(g)
 
@@ -65,11 +69,13 @@ class AdventuresmithApp : MultiDexApplication(), KodeinAware {
         bind<Set<CollectionMetaDto>>(AdventureSmithConstants.GENERATORS) with instance(colls)
         bind<Map<String, Generator>>(AdventureSmithConstants.GENERATORS) with instance(genMap)
 
+        info("done with bindings")
         // TODO: create drawer items here?
     }
 
     override fun onCreate() {
         super.onCreate()
+        info("creating app")
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.

@@ -41,11 +41,15 @@ import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.model.*
 import com.mikepenz.materialdrawer.model.interfaces.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
+import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware, ItemAdapter.ItemFilterListener  {
+class AdventuresmithActivity : AppCompatActivity(),
+        AnkoLogger,
+        LazyKodeinAware,
+        ItemAdapter.ItemFilterListener  {
     override val kodein = LazyKodein(appKodein)
     val generatorCollections : Set<CollectionMetaDto> by kodein.instance(AdventureSmithConstants.GENERATORS)
     val generatorMap : Map<String, Generator> by kodein.instance(AdventureSmithConstants.GENERATORS)
@@ -56,6 +60,7 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware, ItemAdapter
     private var drawer: Drawer? = null
 
     val navDrawerItems : List<IDrawerItem<*,*>> by lazy {
+        info("Creating navDrawerItems")
         drawerIdToGenerators.clear()
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
@@ -116,6 +121,7 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware, ItemAdapter
     }
 
     val resultAdapter by lazy {
+        info("Creating resultAdapter")
         FastItemAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
@@ -152,6 +158,7 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware, ItemAdapter
     }
 
     val buttonAdapter by lazy {
+        info("Creating buttonAdapter")
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
@@ -187,6 +194,7 @@ class AdventuresmithActivity : AppCompatActivity(), LazyKodeinAware, ItemAdapter
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_adventuresmith)
+        info("onCreate")
 
         setSupportActionBar(toolbar)
 

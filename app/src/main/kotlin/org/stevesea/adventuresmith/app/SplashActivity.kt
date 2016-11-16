@@ -20,19 +20,19 @@
 
 package org.stevesea.adventuresmith.app
 
+import android.content.*
 import android.os.*
 import android.support.v7.app.*
+import org.jetbrains.anko.*
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //startActivity(intentFor<AdventuresmithActivity>())
+        info ("splash!")
 
-        /*
         val intent = Intent(this, AdventuresmithActivity::class.java)
         startActivity(intent)
         finish()
-        */
     }
 }

@@ -24,7 +24,7 @@
                 android:id="@+id/activity_about"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="org.stevesea.adventuresmith.AboutActivity">
+                tools:context="org.stevesea.adventuresmith.app.AboutActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
