@@ -25,6 +25,7 @@ import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.io.*
+import mu.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.io.*
@@ -33,9 +34,50 @@ import java.util.*
 import javax.validation.*
 
 
-object AdventureSmithConstants {
-    val GENERATORS = "generators"
+object AdventuresmithCore : KodeinAware, KLogging() {
+    // 'all' the generators in core
+    val GENERATORS = "core-generators"
+    // the tag for the resource-generators held in core
     val RESOURCE_GENERATORS = "resource_generators"
+
+    override val kodein: Kodein by Kodein.lazy {
+        logger.info("creating kodein module")
+        import(adventureSmithModule)
+    }
+
+    val generatorNames by lazy {
+        kodein.instance<Set<String>>(GENERATORS)
+    }
+
+    val generators by lazy {
+        val generators :  MutableMap<String, Generator> = mutableMapOf()
+
+        for (g in generatorNames) {
+            logger.info("  - creating: $g")
+            generators.put(g, instance<Generator>(g))
+        }
+        generators
+    }
+
+    fun getCollections(locale: Locale): Set<CollectionMetaDto> {
+        val result: MutableSet<CollectionMetaDto> = mutableSetOf()
+
+        val collMetaLoader = kodein.instance<CollectionMetaLoader>()
+
+        for (gen in generators) {
+            logger.info("loading metadata for ${gen.key}")
+            val genMeta = gen.value.getMetadata(locale)
+            logger.info(" name: ${genMeta.name}")
+            result.add(collMetaLoader.load(genMeta.collectionId, locale))
+        }
+
+        return result
+    }
+
+
+
+
+
 }
 
 val generatorModule = Kodein.Module {
@@ -83,7 +125,7 @@ val generatorModule = Kodein.Module {
 
     val generatorsFile = "core_generators.yml"
     try {
-        val generatorsUrl = Resources.getResource(AdventureSmithConstants.javaClass, generatorsFile)
+        val generatorsUrl = Resources.getResource(AdventuresmithCore.javaClass, generatorsFile)
         val generatorsStr = Resources.toString(generatorsUrl, Charsets.UTF_8)
         val generatorsListDto: GeneratorListDto = objectMapper.reader().forType(GeneratorListDto::class.java).readValue(generatorsStr)
         val genList : MutableList<String> = mutableListOf()
@@ -100,7 +142,7 @@ val generatorModule = Kodein.Module {
             }
         }
 
-        bind<List<String>>(AdventureSmithConstants.RESOURCE_GENERATORS) with instance(genList)
+        bind<List<String>>(AdventuresmithCore.RESOURCE_GENERATORS) with instance(genList)
 
     } catch (ex: Exception) {
         throw IOException("problem reading $generatorsFile - ${ex.message}")
@@ -109,17 +151,17 @@ val generatorModule = Kodein.Module {
 
 val adventureSmithModule = Kodein.Module {
     import(generatorModule)
-    import(diceModule)
 
+    import(diceModule)
     import(fotfModule)
     import(swnModule)
 
-    bind<Set<String>>(AdventureSmithConstants.GENERATORS) with provider {
+    bind<Set<String>>(AdventuresmithCore.GENERATORS) with provider {
         val res : MutableSet<String> = TreeSet<String>()
         res.addAll(instance<List<String>>(FotfConstants.GROUP))
         res.addAll(instance<List<String>>(SwnConstantsCustom.GROUP))
         res.addAll(instance<List<String>>(DiceConstants.GROUP))
-        res.addAll(instance<List<String>>(AdventureSmithConstants.RESOURCE_GENERATORS))
+        res.addAll(instance<List<String>>(AdventuresmithCore.RESOURCE_GENERATORS))
         res
     }
 }

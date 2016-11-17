@@ -22,15 +22,12 @@ package org.stevesea.adventuresmith.app
 
 import android.os.*
 import android.support.v7.app.*
-import com.github.salomonbrys.kodein.*
-import com.github.salomonbrys.kodein.android.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_attribution.*
 import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.R
 
-class AttributionActivity : AppCompatActivity(), LazyKodeinAware {
-    override val kodein = LazyKodein(appKodein)
+class AttributionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

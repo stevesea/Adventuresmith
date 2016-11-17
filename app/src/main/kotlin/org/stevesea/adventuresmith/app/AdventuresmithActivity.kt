@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith.app
 
+import android.annotation.*
 import android.content.*
 import android.graphics.*
 import android.os.*
@@ -29,8 +30,6 @@ import android.support.v7.widget.SearchView
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
-import com.github.salomonbrys.kodein.*
-import com.github.salomonbrys.kodein.android.*
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.adapters.*
@@ -46,24 +45,36 @@ import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
+
+
 class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger,
-        LazyKodeinAware,
         ItemAdapter.ItemFilterListener  {
-    override val kodein = LazyKodein(appKodein)
-    val generatorCollections : Set<CollectionMetaDto> by kodein.instance(AdventureSmithConstants.GENERATORS)
-    val generatorMap : Map<String, Generator> by kodein.instance(AdventureSmithConstants.GENERATORS)
 
     val drawerIdToGenerators : MutableMap<Int, List<Generator>> = mutableMapOf()
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
 
-    val navDrawerItems : List<IDrawerItem<*,*>> by lazy {
+    @TargetApi(Build.VERSION_CODES.N)
+    fun getCurrentLocale(): Locale {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return resources.configuration.locales.get(0)
+        } else {
+
+            return resources.configuration.locale
+        }
+    }
+
+    fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         info("Creating navDrawerItems")
         drawerIdToGenerators.clear()
 
+        val generatorCollections = AdventuresmithCore.getCollections(locale)
+
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
+
+        info("Generators: $generatorCollections")
 
         var previousWasExpandable = false
         for (coll in generatorCollections) {
@@ -117,7 +128,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withIcon(CommunityMaterial.Icon.cmd_help)
         )
 
-        result
+        return result
     }
 
     val resultAdapter by lazy {
@@ -214,7 +225,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withAccountHeader(drawerHeader!!)
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
-                .withDrawerItems(navDrawerItems)
+                .withDrawerItems(getNavDrawerItems(getCurrentLocale()))
                 .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                     override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*, *>?): Boolean {
                         //check if the drawerItem is set.

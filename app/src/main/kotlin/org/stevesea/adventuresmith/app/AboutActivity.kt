@@ -23,17 +23,14 @@ package org.stevesea.adventuresmith.app
 import android.content.pm.*
 import android.os.*
 import android.support.v7.app.*
-import com.github.salomonbrys.kodein.*
-import com.github.salomonbrys.kodein.android.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_about.*
 import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.R
 
-class AboutActivity : AppCompatActivity(), LazyKodeinAware {
-    override val kodein = LazyKodein(appKodein)
+class AboutActivity : AppCompatActivity() {
 
-    val pkgManager: PackageManager by withContext(this).instance()
+    //val pkgManager: PackageManager by withContext(this).instance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +40,7 @@ class AboutActivity : AppCompatActivity(), LazyKodeinAware {
         var versionName = ""
         var versionCode = -1
         try {
-            val packageInfo = pkgManager.getPackageInfo(getPackageName(), 0);
+            val packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
             versionName = packageInfo.versionName
             versionCode = packageInfo.versionCode
         } catch (e: PackageManager.NameNotFoundException) {

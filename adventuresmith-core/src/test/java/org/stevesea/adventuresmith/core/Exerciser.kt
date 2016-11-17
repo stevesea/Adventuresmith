@@ -38,7 +38,7 @@ class Exerciser {
         // output specific ones to console
         val enablePrinting = setOf(PwConstants.DISCOVERY)
 
-        val gennames = kodein.instance<Set<String>>(AdventureSmithConstants.GENERATORS)
+        val gennames = kodein.instance<Set<String>>(AdventuresmithCore.GENERATORS)
         for (g in gennames) {
             val generator_instance = kodein.instance<Generator>(g)
 
