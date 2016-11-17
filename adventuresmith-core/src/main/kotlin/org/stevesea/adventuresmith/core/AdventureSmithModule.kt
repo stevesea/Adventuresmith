@@ -66,7 +66,7 @@ object AdventuresmithCore : KodeinAware {
             result.add(collMetaLoader.load(genMeta.collectionId, locale))
         }
 
-        return result
+        return result.toSortedSet()
     }
 }
 
