@@ -20,10 +20,8 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.github.salomonbrys.kodein.*
 import org.junit.*
 import org.stevesea.adventuresmith.core.perilous_wilds.*
-import java.security.*
 import java.util.*
 
 
@@ -33,29 +31,27 @@ class Exerciser {
 
     @Test
     fun exerciser() {
-        val kodein = getKodein(SecureRandom())
-
         // output specific ones to console
         val enablePrinting = setOf(PwConstants.DISCOVERY)
 
-        val gennames = kodein.instance<Set<String>>(AdventuresmithCore.GENERATORS)
-        for (g in gennames) {
-            val generator_instance = kodein.instance<Generator>(g)
+        for (g in AdventuresmithCore.generators) {
+            val generator_instance = g.value
 
             // TODO: every time add a translation, add its locale here.
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
                 val meta = generator_instance.getMetadata(locale)
 
-                val collMeta = kodein.instance<CollectionMetaLoader>().load(
-                        meta.collectionId, locale)
-
                 for (i in 1..25) {
-                    if (enablePrinting.contains(g))
+                    if (enablePrinting.contains(g.key))
                         println(generator_instance.generate(locale))
                     else
                         generator_instance.generate(locale)
                 }
             }
+        }
+
+        for (locale in listOf(Locale.FRANCE, Locale.US)) {
+            AdventuresmithCore.getCollections(locale)
         }
     }
 }

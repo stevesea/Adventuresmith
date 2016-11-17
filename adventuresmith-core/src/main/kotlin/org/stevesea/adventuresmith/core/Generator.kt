@@ -108,7 +108,7 @@ class CollectionMetaLoader(override val kodein: Kodein) : KodeinAware {
     fun load(collection_path: String, locale: Locale = Locale.US): CollectionMetaDto {
         return resourceDeserializer.deserialize(
                 CollectionMetaDto::class.java,
-                collection_path + "/" + ".meta",
+                collection_path + "/" + "meta",
                 locale
         )
     }

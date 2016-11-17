@@ -25,7 +25,6 @@ import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.io.*
-import mu.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.io.*
@@ -34,14 +33,13 @@ import java.util.*
 import javax.validation.*
 
 
-object AdventuresmithCore : KodeinAware, KLogging() {
+object AdventuresmithCore : KodeinAware {
     // 'all' the generators in core
     val GENERATORS = "core-generators"
     // the tag for the resource-generators held in core
     val RESOURCE_GENERATORS = "resource_generators"
 
     override val kodein: Kodein by Kodein.lazy {
-        logger.info("creating kodein module")
         import(adventureSmithModule)
     }
 
@@ -53,7 +51,6 @@ object AdventuresmithCore : KodeinAware, KLogging() {
         val generators :  MutableMap<String, Generator> = mutableMapOf()
 
         for (g in generatorNames) {
-            logger.info("  - creating: $g")
             generators.put(g, instance<Generator>(g))
         }
         generators
@@ -65,19 +62,12 @@ object AdventuresmithCore : KodeinAware, KLogging() {
         val collMetaLoader = kodein.instance<CollectionMetaLoader>()
 
         for (gen in generators) {
-            logger.info("loading metadata for ${gen.key}")
             val genMeta = gen.value.getMetadata(locale)
-            logger.info(" name: ${genMeta.name}")
             result.add(collMetaLoader.load(genMeta.collectionId, locale))
         }
 
         return result
     }
-
-
-
-
-
 }
 
 val generatorModule = Kodein.Module {
