@@ -43,17 +43,34 @@ object AdventuresmithCore : KodeinAware {
         import(adventureSmithModule)
     }
 
-    val generatorNames by lazy {
-        kodein.instance<Set<String>>(GENERATORS)
-    }
-
-    val generators by lazy {
+    val generators : Map<String,Generator> by lazy {
         val generators :  MutableMap<String, Generator> = mutableMapOf()
 
-        for (g in generatorNames) {
-            generators.put(g, instance<Generator>(g))
+        for (g in instance<Set<String>>(GENERATORS)) {
+            try {
+                generators.put(g, instance<Generator>(g))
+            } catch (e : Exception) {
+                // TODO: log
+            }
         }
         generators
+    }
+
+    fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : List<Generator> {
+        val result : MutableList<Generator> = mutableListOf()
+
+        for (gen in generators) {
+            try {
+                val genMeta = gen.value.getMetadata(locale)
+                if (Objects.equals(collId, genMeta.collectionId) &&
+                        Objects.equals(grpId, genMeta.groupId)) {
+                    result.add(gen.value)
+                }
+            } catch (e : Exception) {
+                // TODO: log
+            }
+        }
+        return result
     }
 
     fun getCollections(locale: Locale): Set<CollectionMetaDto> {
@@ -62,10 +79,13 @@ object AdventuresmithCore : KodeinAware {
         val collMetaLoader = kodein.instance<CollectionMetaLoader>()
 
         for (gen in generators) {
-            val genMeta = gen.value.getMetadata(locale)
-            result.add(collMetaLoader.load(genMeta.collectionId, locale))
+            try {
+                val genMeta = gen.value.getMetadata(locale)
+                result.add(collMetaLoader.load(genMeta.collectionId, locale))
+            } catch (e: Exception) {
+                // TODO: log
+            }
         }
-
         return result.toSortedSet()
     }
 }

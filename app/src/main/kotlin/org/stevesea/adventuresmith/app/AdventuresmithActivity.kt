@@ -45,13 +45,14 @@ import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-
+data class CollectionAndGroup(val collectionId: String,
+                              val groupId: String? = null)
 
 class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger,
         ItemAdapter.ItemFilterListener  {
 
-    val drawerIdToGenerators : MutableMap<Long, List<Generator>> = mutableMapOf()
+    val drawerIdToGroup : MutableMap<Long, CollectionAndGroup> = mutableMapOf()
     val ID_ABOUT = Objects.hash("about").toLong()
     val ID_THANKS = Objects.hash("thanks").toLong()
 
@@ -67,10 +68,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
     }
 
-
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         info("Creating navDrawerItems")
-        drawerIdToGenerators.clear()
+        drawerIdToGroup.clear()
 
         val generatorCollections = AdventuresmithCore.getCollections(locale)
 
@@ -90,10 +90,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                         .withSelectable(false)
                         .withIsExpanded(false)
                 for (grp in coll.groups!!.entries) {
+                    val navId = Objects.hash(coll.id, grp.key).toLong()
+                    drawerIdToGroup.put(navId, CollectionAndGroup(coll.id, grp.key))
                     val childItem = SecondaryDrawerItem()
                             .withName(grp.value)
                             .withIcon(getCollectionIcon(coll.id, grp.key))
-                            .withIdentifier(Objects.hash(coll.id, grp.key).toLong())
+                            .withIdentifier(navId)
                             .withSelectable(true)
                             .withLevel(2)
                     expandableItem.withSubItems(childItem)
@@ -105,10 +107,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                     result.add(DividerDrawerItem())
                 }
                 // no groups, just create item
+                val navId = Objects.hash(coll.id).toLong()
+                drawerIdToGroup.put(navId, CollectionAndGroup(coll.id))
                 result.add(PrimaryDrawerItem()
                         .withName(coll.name)
                         .withIcon(getCollectionIcon(coll.id))
-                        .withIdentifier(coll.hashCode().toLong())
+                        .withIdentifier(navId)
                         .withSelectable(true)
                         .withDescription(coll.desc)
                 )
@@ -190,7 +194,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         Answers.getInstance().logCustom(
                                 CustomEvent("Generated Result")
                                         .putCustomAttribute("CollectionId", item.meta.collectionId)
-                                        .putCustomAttribute("GroupId", item.meta.groupId)
+                                        .putCustomAttribute("GroupId", Objects.toString(item.meta.groupId, ""))
                                         .putCustomAttribute("Name", item.meta.name)
                         )
                         return true
@@ -238,10 +242,26 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (drawerItem == null)
                             return false
 
-                        when (drawerItem.identifier) {
-                            ID_ABOUT -> this@AdventuresmithActivity.startActivity(Intent(this@AdventuresmithActivity, AboutActivity::class.java))
-                            ID_THANKS -> this@AdventuresmithActivity.startActivity(Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
-                            else -> info("drawer item selected!")
+                        val collGrp = drawerIdToGroup.get(drawerItem.identifier)
+                        if (collGrp !=  null) {
+                            buttonAdapter.clear()
+                            val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(), collGrp.collectionId, collGrp.groupId)
+                            for (g in generators) {
+                                buttonAdapter.add(GeneratorButton(g, getCurrentLocale()))
+                            }
+                            resultAdapter.clear()
+                            recycler_results.scrollToPosition(0)
+                            appbar.setExpanded(true, true)
+
+                            Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
+                                    .putCustomAttribute("Dataset", collGrp.collectionId)
+                            )
+                        } else if (drawerItem.identifier == ID_ABOUT) {
+                            this@AdventuresmithActivity.startActivity(
+                                    Intent(this@AdventuresmithActivity, AboutActivity::class.java))
+                        } else if (drawerItem.identifier == ID_THANKS) {
+                            this@AdventuresmithActivity.startActivity(
+                                    Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
                         }
                         return false
                     }
