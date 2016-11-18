@@ -51,7 +51,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger,
         ItemAdapter.ItemFilterListener  {
 
-    val drawerIdToGenerators : MutableMap<Int, List<Generator>> = mutableMapOf()
+    val drawerIdToGenerators : MutableMap<Long, List<Generator>> = mutableMapOf()
+    val ID_ABOUT = Objects.hash("about").toLong()
+    val ID_THANKS = Objects.hash("thanks").toLong()
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
@@ -61,10 +63,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return resources.configuration.locales.get(0)
         } else {
-
             return resources.configuration.locale
         }
     }
+
 
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         info("Creating navDrawerItems")
@@ -118,13 +120,13 @@ class AdventuresmithActivity : AppCompatActivity(),
         result.add(SecondaryDrawerItem()
                 .withName(R.string.nav_thanks)
                 .withLevel(1)
-                .withIdentifier(Objects.hash("thanks").toLong())
+                .withIdentifier(ID_THANKS)
                 .withIcon(CommunityMaterial.Icon.cmd_information_outline)
         )
         result.add(SecondaryDrawerItem()
                 .withName(R.string.nav_about)
                 .withLevel(1)
-                .withIdentifier(Objects.hash("about").toLong())
+                .withIdentifier(ID_ABOUT)
                 .withIcon(CommunityMaterial.Icon.cmd_help)
         )
 
@@ -236,11 +238,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (drawerItem == null)
                             return false
 
-                        //drawerItem.identifier
+                        when (drawerItem.identifier) {
+                            ID_ABOUT -> this@AdventuresmithActivity.startActivity(Intent(this@AdventuresmithActivity, AboutActivity::class.java))
+                            ID_THANKS -> this@AdventuresmithActivity.startActivity(Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
+                            else -> info("drawer item selected!")
+                        }
                         return false
-
                     }
-
                 })
                 .build()
 

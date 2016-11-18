@@ -25,7 +25,6 @@ import android.os.*
 import android.support.v7.app.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_about.*
-import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.R
 
 class AboutActivity : AppCompatActivity() {
@@ -50,7 +49,7 @@ class AboutActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar!!.setTitle(R.string.nav_about)
-        supportActionBar!!.setDefaultDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         MaterializeBuilder()
                 .withActivity(this)
@@ -58,8 +57,8 @@ class AboutActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
-        about_txt_version.text = ResultAdapterItem.htmlStrToSpanned(String.format(getString(R.string.about_version), versionName, versionCode))
+        about_txt_version.text = htmlStrToSpanned(String.format(getString(R.string.about_version), versionName, versionCode))
 
-        about_txt_app.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.about_app))
+        about_txt_app.text = htmlStrToSpanned(getString(R.string.about_app))
     }
 }

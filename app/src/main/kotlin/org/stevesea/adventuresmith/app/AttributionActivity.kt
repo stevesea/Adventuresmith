@@ -24,7 +24,6 @@ import android.os.*
 import android.support.v7.app.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_attribution.*
-import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.R
 
 class AttributionActivity : AppCompatActivity() {
@@ -37,7 +36,7 @@ class AttributionActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar!!.setTitle(R.string.nav_thanks)
-        supportActionBar!!.setDefaultDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         MaterializeBuilder()
                 .withActivity(this)
@@ -45,8 +44,8 @@ class AttributionActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
-        attribution_txt_content.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_attribution))
-        attribution_txt_artwork.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_artwork))
-        attribution_txt_thanks.text = ResultAdapterItem.htmlStrToSpanned(getString(R.string.content_thanks))
+        attribution_txt_content.text = htmlStrToSpanned(getString(R.string.content_attribution))
+        attribution_txt_artwork.text = htmlStrToSpanned(getString(R.string.content_artwork))
+        attribution_txt_thanks.text = htmlStrToSpanned(getString(R.string.content_thanks))
     }
 }

@@ -53,6 +53,7 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 
+    // use a couple things from guava (resource cache and other things)
     compile group: 'com.google.guava', name: 'guava', version: '19.0'
     compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.2.4.Final'
     // required for hibernate validation. if inside web app container, probably already there.
@@ -61,10 +62,9 @@ dependencies {
 
     compile 'com.samskivert:jmustache:1.13'
 
-    // parser for dice expressions
+    // framework for dice expression parser
     compile 'me.sargunvohra.lib:cakeparse:1.1.1'
 
-    compile 'microutils:kotlin.logging:1.2.1'
     compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
 
     testCompile "junit:junit:$junit_version"

@@ -80,6 +80,7 @@ object LocaleAwareResourceFinder {
 
     /**
      * our resources are going to be YaML
+     * TODO: seems like we could merge dtos
      */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
         val fnames_precendence_order = locale_names(name, locale, ext)

@@ -24,7 +24,6 @@ package org.stevesea.adventuresmith.core
 import com.github.salomonbrys.kodein.*
 import com.google.common.collect.*
 import com.samskivert.mustache.*
-import mu.*
 import java.io.*
 import java.util.*
 
@@ -143,7 +142,6 @@ class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, overrid
 class DataDrivenGenerator(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
-    companion object : KLogging()
 
     val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
     val shuffler : Shuffler = instance()
@@ -234,7 +232,6 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
 }
 
 class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware {
-    companion object : KLogging()
 
     val shuffler : Shuffler = instance()
 
