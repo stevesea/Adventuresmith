@@ -28,10 +28,6 @@ import kotlinx.android.synthetic.main.activity_about.*
 import org.stevesea.adventuresmith.R
 
 class AboutActivity : AppCompatActivity() {
-
-    //val pkgManager: PackageManager by withContext(this).instance()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)

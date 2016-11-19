@@ -29,8 +29,6 @@ class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        info ("splash!")
-
         val intent = Intent(this, AdventuresmithActivity::class.java)
         startActivity(intent)
         finish()

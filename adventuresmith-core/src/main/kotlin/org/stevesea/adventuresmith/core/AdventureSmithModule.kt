@@ -56,21 +56,21 @@ object AdventuresmithCore : KodeinAware {
         generators
     }
 
-    fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : List<Generator> {
-        val result : MutableList<Generator> = mutableListOf()
+    fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : Map<GeneratorMetaDto, Generator> {
+        val result : MutableMap<GeneratorMetaDto, Generator> = mutableMapOf()
 
         for (gen in generators) {
             try {
                 val genMeta = gen.value.getMetadata(locale)
                 if (Objects.equals(collId, genMeta.collectionId) &&
                         Objects.equals(grpId, genMeta.groupId)) {
-                    result.add(gen.value)
+                    result.put(genMeta, gen.value)
                 }
             } catch (e : Exception) {
                 // TODO: log
             }
         }
-        return result
+        return result.toSortedMap()
     }
 
     fun getCollections(locale: Locale): Set<CollectionMetaDto> {

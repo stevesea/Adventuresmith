@@ -272,9 +272,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                 val maxWordLength = item.name.split(" ").map { it.length }.max()
                 if (maxWordLength == null) {
                     return btnSpanRegular
-                } else if (maxWordLength <= 6) {
+                } else if (maxWordLength < 6) {
                     return btnSpanShort
-                } else if (maxWordLength >= 11) {
+                } else if (maxWordLength >= 10) {
                     return btnSpanLong
                 } else {
                     return btnSpanRegular
@@ -326,7 +326,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         buttonAdapter.clear()
         val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(), collGrp.collectionId, collGrp.groupId)
         for (g in generators) {
-            buttonAdapter.add(GeneratorButton(g, getCurrentLocale()))
+            buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(), g.key))
         }
         resultAdapter.clear()
         recycler_results.scrollToPosition(0)
@@ -342,8 +342,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     override fun onSaveInstanceState(outState: Bundle?) {
         resultAdapter.saveInstanceState(outState)
-        // TODO: deliberate skipping button adapter -- it should be re-created on each
-        //buttonAdapter.saveInstanceState(outState)
 
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
