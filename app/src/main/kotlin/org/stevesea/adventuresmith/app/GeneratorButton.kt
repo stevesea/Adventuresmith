@@ -36,7 +36,7 @@ class GeneratorButton(val generator: Generator,
                       val meta : GeneratorMetaDto = generator.getMetadata(locale)) :
         AbstractItem<GeneratorButton, GeneratorButton.ViewHolder>() {
     init {
-        withIdentifier(Objects.hash(
+        withIdentifier(com.google.common.base.Objects.hashCode(
                 meta.name,
                 meta.collectionId,
                 meta.groupId).toLong())

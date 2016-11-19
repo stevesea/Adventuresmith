@@ -55,8 +55,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var currentDrawerItemId: Long? = null
     val drawerIdToGroup : MutableMap<Long, CollectionAndGroup> = mutableMapOf()
-    val ID_ABOUT = Objects.hash("about").toLong()
-    val ID_THANKS = Objects.hash("thanks").toLong()
+    val ID_ABOUT = com.google.common.base.Objects.hashCode("about").toLong()
+    val ID_THANKS = com.google.common.base.Objects.hashCode("thanks").toLong()
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
@@ -88,11 +88,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                 val expandableItem = ExpandableDrawerItem()
                         .withName(coll.name)
                         .withIcon(getCollectionIcon(coll.id))
-                        .withIdentifier(Objects.hash(coll.id).toLong())
+                        .withIdentifier(com.google.common.base.Objects.hashCode(coll.id).toLong())
                         .withSelectable(false)
                         .withIsExpanded(false)
                 for (grp in coll.groups!!.entries) {
-                    val navId = Objects.hash(coll.id, grp.key).toLong()
+                    val navId = com.google.common.base.Objects.hashCode(coll.id, grp.key).toLong()
                     drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}" , groupId = grp.key))
                     val childItem = SecondaryDrawerItem()
                             .withName(grp.value)
@@ -109,7 +109,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     result.add(DividerDrawerItem())
                 }
                 // no groups, just create item
-                val navId = Objects.hash(coll.id).toLong()
+                val navId = com.google.common.base.Objects.hashCode(coll.id).toLong()
                 drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = coll.name))
                 result.add(PrimaryDrawerItem()
                         .withName(coll.name)
@@ -394,13 +394,13 @@ class AdventuresmithActivity : AppCompatActivity(),
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    // resultAdapter.filter(s)
+                    resultAdapter.filter(newText)
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    // resultAdapter.filter(s)
+                    resultAdapter.filter(query)
                     appbar.setExpanded(false,false)
                     return true
                 }

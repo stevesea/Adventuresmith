@@ -19,6 +19,23 @@
 -dontoptimize
 -dontpreverify
 
+
+# from https://github.com/cypressious/KotlinReflectionProguard,
+# proguard strips off dto ctors, making jackson deserialization unhappy
+-dontwarn kotlin.**
+-dontwarn org.w3c.dom.events.*
+-dontwarn org.jetbrains.kotlin.di.InjectorForRuntimeDescriptorLoader
+
+-keep class kotlin.** { *; }
+-keepclassmembers,allowoptimization enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+    **[] $VALUES;
+    public *;
+}
+
+-keepattributes InnerClasses
+
 -ignorewarnings
 
 -keep class org.stevesea.**
