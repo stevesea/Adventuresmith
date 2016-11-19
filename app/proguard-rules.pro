@@ -31,26 +31,6 @@
 -keep class com.crashlytics.** { *; }
 -dontwarn com.crashlytics.**
 
-
--keep class org.codehaus.groovy.vmplugin.**
--keep class org.codehaus.groovy.runtime.dgm*
--keep class org.codehaus.groovy.util.**
--keep class org.codehaus.groovy.runtime.**
--keep class org.codehaus.groovy.reflection.**
--keep class org.codehaus.groovy.control.**
-
--keepclassmembers class org.codehaus.groovy.util.** {  *; }
--keepclassmembers class org.codehaus.groovy.runtime.dgm* { *; }
--keepclassmembers class ** implements org.codehaus.groovy.runtime.GeneratedClosure { *; }
--keepclassmembers class org.codehaus.groovy.reflection.** { *;}
--keepclassmembers class org.codehaus.groovy.runtime.** { *; }
--keepclassmembers class org.codehaus.groovy.control.SourceUnit { *; }
-
--keep class groovy.lang.** { *; }
-
--dontwarn org.codehaus.groovy.**
--dontwarn groovy**
-
 -keep class android.support.v7.widget.SearchView { *; }
 
 # kodein (kotlin dep injection)
