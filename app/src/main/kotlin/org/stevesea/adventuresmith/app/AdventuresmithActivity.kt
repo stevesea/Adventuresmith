@@ -52,6 +52,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger,
         ItemAdapter.ItemFilterListener  {
 
+    private var currentDrawerItemId: Long? = null
     val drawerIdToGroup : MutableMap<Long, CollectionAndGroup> = mutableMapOf()
     val ID_ABOUT = Objects.hash("about").toLong()
     val ID_THANKS = Objects.hash("thanks").toLong()
@@ -76,7 +77,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
-        info("Generators: $generatorCollections")
+        //info("Generators: $generatorCollections")
 
         var previousWasExpandable = false
         for (coll in generatorCollections) {
@@ -207,6 +208,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         // no-op
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -242,24 +244,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (drawerItem == null)
                             return false
 
-                        val collGrp = drawerIdToGroup.get(drawerItem.identifier)
-                        if (collGrp !=  null) {
-                            buttonAdapter.clear()
-                            val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(), collGrp.collectionId, collGrp.groupId)
-                            for (g in generators) {
-                                buttonAdapter.add(GeneratorButton(g, getCurrentLocale()))
-                            }
-                            resultAdapter.clear()
-                            recycler_results.scrollToPosition(0)
-                            appbar.setExpanded(true, true)
-
-                            Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
-                                    .putCustomAttribute("Dataset", collGrp.collectionId)
-                            )
-                        } else if (drawerItem.identifier == ID_ABOUT) {
+                        val drawerItemId = drawerItem.identifier
+                        if (drawerIdToGroup.containsKey(drawerItemId)) {
+                            selectDrawerItem(drawerItemId)
+                        } else if (drawerItemId == ID_ABOUT) {
                             this@AdventuresmithActivity.startActivity(
                                     Intent(this@AdventuresmithActivity, AboutActivity::class.java))
-                        } else if (drawerItem.identifier == ID_THANKS) {
+                        } else if (drawerItemId == ID_THANKS) {
                             this@AdventuresmithActivity.startActivity(
                                     Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
                         }
@@ -325,8 +316,29 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.adapter = resultAdapter
     }
 
+    private fun selectDrawerItem(drawerItemId: Long) {
+        val collGrp = drawerIdToGroup.get(drawerItemId)
+        if (collGrp == null)
+            return
 
+        currentDrawerItemId = drawerItemId
 
+        buttonAdapter.clear()
+        val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(), collGrp.collectionId, collGrp.groupId)
+        for (g in generators) {
+            buttonAdapter.add(GeneratorButton(g, getCurrentLocale()))
+        }
+        resultAdapter.clear()
+        recycler_results.scrollToPosition(0)
+        appbar.setExpanded(true, true)
+
+        Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
+                .putCustomAttribute("Dataset", collGrp.collectionId)
+        )
+    }
+
+    private val BUNDLE_CURRENT_DRAWER_ITEM = AdventuresmithActivity::class.java.name + ".currentDrawerItem"
+    private val BUNDLE_RESULT_ITEMS = AdventuresmithActivity::class.java.name + ".resultItems"
 
     override fun onSaveInstanceState(outState: Bundle?) {
         resultAdapter.saveInstanceState(outState)
@@ -336,14 +348,33 @@ class AdventuresmithActivity : AppCompatActivity(),
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
 
+        outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
+
+        val results : ArrayList<ResultItem> = ArrayList()
+        results.addAll(resultAdapter.adapterItems)
+        outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
+
         super.onSaveInstanceState(outState)
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        //buttonAdapter.withSavedInstanceState(savedInstanceState)
+        selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long)
+        val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
+        resultAdapter.clear()
+        resultAdapter.add(restoredResults)
+
+        buttonAdapter.withSavedInstanceState(savedInstanceState)
         resultAdapter.withSavedInstanceState(savedInstanceState)
+    }
+
+    override fun onBackPressed() {
+        if (drawer != null && drawer!!.isDrawerOpen())
+            drawer!!.closeDrawer()
+        else
+            super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -384,7 +415,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        if (item!!.itemId == R.id.action_clear) {
+        if (item != null && item.itemId == R.id.action_clear) {
             // clear results
             // resultAdapter.clear
             return true
@@ -402,11 +433,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                 "fourth_page" -> CommunityMaterial.Icon.cmd_numeric_4_box_outline
                 "perilous_wilds" -> {
                     when (grpId) {
-                        "grp1" -> Ionicons.Icon.ion_ios_paw // creature
-                        "grp2" -> CommunityMaterial.Icon.cmd_image_filter_hdr // dangers & discov
-                        "grp3" -> CommunityMaterial.Icon.cmd_white_balance_irradescent // create & name
+                        "grp1" -> CommunityMaterial.Icon.cmd_image_filter_hdr // dangers & discov
+                        "grp2" -> CommunityMaterial.Icon.cmd_book_open_page_variant // create & name
+                        "grp3" -> Ionicons.Icon.ion_ios_paw // creature
                         "grp4" -> CommunityMaterial.Icon.cmd_account_multiple // npcs
-                        "grp5" -> CommunityMaterial.Icon.cmd_book_open_page_variant // treasure
+                        "grp5" -> CommunityMaterial.Icon.cmd_white_balance_irradescent // treasure
                         else -> CommunityMaterial.Icon.cmd_folder_multiple_image
                     }
                 }
