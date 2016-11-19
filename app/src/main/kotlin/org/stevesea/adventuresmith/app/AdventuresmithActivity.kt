@@ -186,8 +186,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (item == null)
                             return false
 
-                        val result = item.generator.generate(
-                                this@AdventuresmithActivity.resources.configuration.locales.get(0))
+                        val result = item.generator.generate(getCurrentLocale())
 
                         resultAdapter.add(0, ResultItem(result))
 
