@@ -142,10 +142,18 @@ object DiceConstants {
     val GROUP = "dice"
     val CollectionName = "dice_roller"
 
-    val regularDice = listOf("1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100", "2d6", "3d6","4d4")
+    val regularDice = listOf("1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100")
 
-    val d20adv = "1d20adv"
-    val d20disadv = "1d20disadv"
+    // if we just want to roll dice, these could just be in the 'regularDice' above. But, i like
+    // showing the individual rolls too
+    val multDice : Map<String,Pair<Int,String>> = mapOf(
+            "2d6" to Pair(2, "1d6"),
+            "3d6" to Pair(3, "1d6"),
+            "4d4" to Pair(4, "1d4")
+    )
+
+    val d20adv = "1d20 advantage"
+    val d20disadv = "1d20 disadvantage"
 
 }
 
@@ -162,6 +170,26 @@ val diceModule = Kodein.Module {
                 override fun generate(locale: Locale): String {
                     val nf = NumberFormat.getInstance(locale)
                     return "${d}: ${nf.format(diceParser.roll(d))}"
+                }
+            }
+        }
+    }
+    // mutliple rolls
+    for (d in DiceConstants.multDice) {
+        bind<Generator>(d.key) with provider {
+            object: Generator {
+                override fun getMetadata(locale: Locale): GeneratorMetaDto {
+                    return GeneratorMetaDto(name = d.key,
+                            collectionId = DiceConstants.CollectionName,
+                            priority = 100)
+                }
+
+                val diceParser : DiceParser = instance()
+                override fun generate(locale: Locale): String {
+                    val nf = NumberFormat.getInstance(locale)
+                    val rolls = diceParser.rollN(d.value.second, d.value.first)
+                    val sum = rolls.sum()
+                    return "${d.key}: ${nf.format(sum)} <small>${rolls.map { nf.format(it) }}</small>"
                 }
             }
         }
@@ -200,6 +228,7 @@ val diceModule = Kodein.Module {
     bind<List<String>>(DiceConstants.GROUP) with singleton {
         listOf(
                 DiceConstants.regularDice,
+                DiceConstants.multDice.keys,
                 listOf(
                         DiceConstants.d20adv,
                         DiceConstants.d20disadv
