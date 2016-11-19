@@ -48,7 +48,7 @@
 templates:
 - |
   <strong><small>Name:</small></strong> <em>{{forename}} {{surname}}</em>
-  <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR:</small> {{> roll: 3d6}} <small>DEX:</small> {{> roll: 3d6}} <small>WIL:</small> {{> roll: 3d6}}  <small>HP:</small> {{> roll: 1d6}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR:</small> {{> roll: 3d6}} <small>DEX:</small> {{> roll: 3d6}} <small>WIL:</small> {{> roll: 3d6}} &nbsp;&nbsp;<small>HP:</small> {{> roll: 1d6}}
   <br/><strong><small>Appearance:</small></strong>  {{appearance}}, {{appearance}}
   <br/><strong><small>Personality:</small></strong>  {{personality}}, {{personality}}
   <br/><strong><small>Weapons:</small></strong>  {{>pickN: 2 weapon}}

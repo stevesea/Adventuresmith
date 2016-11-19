@@ -78,7 +78,7 @@ class MazeRatsTest {
     fun char() {
         Assert.assertEquals("""
         <strong><small>Name:</small></strong> <em>Adelaide Barrow</em>
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR:</small> 3 <small>DEX:</small> 3 <small>WIL:</small> 3  <small>HP:</small> 1
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR:</small> 3 <small>DEX:</small> 3 <small>WIL:</small> 3 &nbsp;&nbsp;<small>HP:</small> 1
         <br/><strong><small>Appearance:</small></strong>  Acid Scars, Acid Scars
         <br/><strong><small>Personality:</small></strong>  Arrogant, Arrogant
         <br/><strong><small>Weapons:</small></strong>  Arming Sword (d6), Battered Halberd (d8)
