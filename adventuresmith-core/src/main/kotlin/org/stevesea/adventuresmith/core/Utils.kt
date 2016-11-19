@@ -29,7 +29,6 @@ import java.net.*
 import java.nio.charset.*
 import java.util.*
 import java.util.concurrent.*
-import javax.validation.*
 
 fun getFinalPackageName(clz : Class<Any> ) : String {
     val words = clz.`package`.name.split(".")
@@ -102,7 +101,6 @@ object LocaleAwareResourceFinder {
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
     val objectReader : ObjectReader = instance()
-    val validator : Validator = instance()
     val maxSize = 100L
 
     val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
@@ -126,13 +124,6 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
         }
     }
 
-    private fun <T> validate(obj: T) : T {
-        val constraintViolations = validator.validate(obj)
-        if (constraintViolations.size > 0)
-            throw ConstraintViolationException(constraintViolations)
-        return obj
-    }
-
     private fun <T> uncached_deserialize(clazz: Class<T>,
                                          resource_prefix : String,
                                          locale: Locale,
@@ -142,7 +133,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
         try {
             val result: T = objectReader.forType(clazz).readValue(str)
 
-            return validate(result)
+            return result
         } catch (ex: Exception) {
             throw IOException("problem reading file ${url} (locale: ${locale}) - ${ex.toString()}", ex)
         }

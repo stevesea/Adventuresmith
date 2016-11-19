@@ -30,7 +30,6 @@ import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.io.*
 import java.security.*
 import java.util.*
-import javax.validation.*
 
 
 object AdventuresmithCore : KodeinAware {
@@ -109,13 +108,6 @@ val generatorModule = Kodein.Module {
         CachingResourceDeserializer(kodein)
     }
 
-    bind() from singleton {
-        Validation.buildDefaultValidatorFactory()
-    }
-    bind() from provider {
-        val valFactory: ValidatorFactory = instance()
-        valFactory.validator
-    }
     bind<Random>() with singleton { SecureRandom() }
     bind<Shuffler>() with singleton { Shuffler(kodein) }
 
