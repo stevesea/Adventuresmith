@@ -44,6 +44,7 @@ class AttributionActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
+        // TODO: read these from YaML
         attribution_txt_content.text = htmlStrToSpanned(getString(R.string.content_attribution))
         attribution_txt_artwork.text = htmlStrToSpanned(getString(R.string.content_artwork))
         attribution_txt_thanks.text = htmlStrToSpanned(getString(R.string.content_thanks))
