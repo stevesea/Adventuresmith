@@ -47,12 +47,12 @@
 #
 templates:
 - |
-  Name: {{forename}} {{surname}}
-  STR: {{> roll: 3d6}} DEX: {{> roll: 3d6}} WIL: {{> roll: 3d6}}  HP: {{> roll: 1d6}}
-  Appearance: {{appearance}}, {{appearance}}
-  Personality: {{personality}}, {{personality}}
-  Weapons: {{weapon}}, {{weapon}}
-  Equipment: {{equipment}}, {{equipment}}, {{equipment}}
+  <strong><small>Name:</small></strong> <em>{{forename}} {{surname}}</em>
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>STR:</small> {{> roll: 3d6}} <small>DEX:</small> {{> roll: 3d6}} <small>WIL:</small> {{> roll: 3d6}}  <small>HP:</small> {{> roll: 1d6}}
+  <br/><strong><small>Appearance:</small></strong>  {{appearance}}, {{appearance}}
+  <br/><strong><small>Personality:</small></strong>  {{personality}}, {{personality}}
+  <br/><strong><small>Weapons:</small></strong>  {{>pickN: 2 weapon}}
+  <br/><strong><small>Equipment:</small></strong>  {{>pickN: 3 equipment}}
 
 # a list of other input data files that should be loaded into the context.
 # they _must_ be located next to this file
@@ -60,7 +60,7 @@ imports:
 - names
 
 # tables is a map of adventuresmith RangeMaps. In terms of YaML syntax, these are just
-# lists of Strings, and each string can be prefixed with an IntRage. Overlapping ranges are 
+# lists of Strings, and each string can be prefixed with an IntRage. Overlapping ranges are
 # not permitted and will be flagged as errors.
 #
 # Holes in the accumulated set of ranges are also not permitted, and will result in exceptions being thrown.
