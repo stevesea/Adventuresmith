@@ -52,38 +52,30 @@ nested_tables:
     - |
       1..8,
       <h5>Undead Entity</h5>
-      <p>
       {{details.undead}}
-      </p>
-      <p>
-      {{detail_config.select_and_label.abilities}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
       <br/>{{detail_config.select_and_label.activities}}
       <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.dispositions}}
-      </p>
     - |
       9..11,
       <h5>Planar Entity</h5>
-      <p>
       {{details.planar}}
-      </p>
-      <p>
-      {{detail_config.select_and_label.abilities}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
       <br/>{{detail_config.select_and_label.activities}}
       <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.dispositions}}
       <br/>{{detail_config.select_and_label.elements}}
       <br/>{{detail_config.select_and_label.features}}
       <br/>{{detail_config.select_and_label.tags}}
-      </p>
     - |
       12,
       <h5>Divine Entity</h5>
-      <p>
       {{details.divine}}
-      </p>
-      <p>
-      {{detail_config.select_and_label.abilities}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
       <br/>{{detail_config.select_and_label.activities}}
       <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.aspects}}
@@ -91,40 +83,29 @@ nested_tables:
       <br/>{{detail_config.select_and_label.elements}}
       <br/>{{detail_config.select_and_label.features}}
       <br/>{{detail_config.select_and_label.tags}}
-      </p>
 
 
     hazards:
     - |
       1..2,
       <h5>Unnatural Hazard</h5>
-      <p>
       {{hazard.unnatural}}
-      </p>
-      <p>
-      {{detail_config.select_and_label.abilities}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
       <br/>{{detail_config.select_and_label.visibilities}}
-      </p>
     - |
       3..10,
       <h5>Natural Hazard</h5>
-      <p>
       {{hazard.natural}}
-      </p>
-      <p>
-      {{detail_config.select_and_label.visibilities}}
-      </p>
+      <br/>
+      <br/>{{detail_config.select_and_label.visibilities}}
     - |
       11..12,
       <h5>Trap</h5>
-      <p>
       {{hazard.trap}}
-      </p>
-
-      <p>
-      {{detail_config.select_and_label.aspects}}
+      <br/>
+      <br/>{{detail_config.select_and_label.aspects}}
       <br/>{{detail_config.select_and_label.visibilities}}
       <br/>
       <br/><small><strong>Creature responsible:</strong></small> {{creature.creature_no_tags}}
-      </p>
 

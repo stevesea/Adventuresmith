@@ -36,26 +36,23 @@ nested_tables:
       1..9,
       <h3>Unnatural Feature - Arcane</h3>
       {{unnatural.arcane}}
-      <p>
-      {{detail_config.select_and_label.alignments}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.magic_types}}
-      </p>
     - |
       10..11,
       <h3>Unnatural Feature - Planar</h3>
       {{details.planar}}
-      <p>
-      {{detail_config.select_and_label.alignments}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.elements}}
-      </p>
     - |
       12,
       <h3>Unnatural Feature - Divine</h3>
       {{details.divine}}
-      <p>
-      {{detail_config.select_and_label.alignments}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.aspects}}
-      </p>
 
   natural:
     templates:
@@ -85,7 +82,7 @@ nested_tables:
     - |
       12,
       <h3>Natural Feature - Resource</h3>
-      <br/>{{detail_config.select_and_label.sizes}}
+      {{detail_config.select_and_label.sizes}}
       <br/>{{detail_config.select_and_label.visibilities}}
       <br/>
       <br/>{{details.resources}}
@@ -172,7 +169,7 @@ nested_tables:
     - |
       1,
       <h3>Structure - Enigmatic</h3>
-      <br/><strong><small>{{detail_config.labels.age}}:</small></strong> {{>pick: 1d8+4 details.ages}}
+      <strong><small>{{detail_config.labels.age}}:</small></strong> {{>pick: 1d8+4 details.ages}}
       <br/><strong><small>{{detail_config.labels.size}}:</small></strong> {{>pick: 1d8+4 details.sizes}}
       <br/>{{detail_config.select_and_label.visibilities}}
       <br/>
@@ -180,7 +177,7 @@ nested_tables:
     - |
       2..3,
       <h3>Structure - Infrastructure</h3>
-      <br/><strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>
       <br/>{{structure.infrastructure}}
     - |

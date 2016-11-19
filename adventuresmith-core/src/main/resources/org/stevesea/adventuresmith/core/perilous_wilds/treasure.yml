@@ -36,51 +36,51 @@ tables:
 
   treasure:
   - |
-    <p>A few coins, 2d8 or so <small>({{>roll: 2d8}})</small></p>
+    A few coins, 2d8 or so <small>({{>roll: 2d8}})</small>
   - |
-    <p>A useful item - {{utility_item}}
+    A useful item - {{utility_item}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>Several coins, about 4d10 <small>({{>roll: 4d10}})</small></p>
+    Several coins, about 4d10 <small>({{>roll: 4d10}})</small>
   - |
-    <p>A small valuable (gem, art - {{art_item}}), worth 2d10x10 coins, 0 weight  <small>({{>roll: 2d10*10}})</small>
+    A small valuable (gem, art - {{art_item}}), worth 2d10x10 coins, 0 weight  <small>({{>roll: 2d10*10}})</small>
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>Some minor magical trinket - {{item}}
+    Some minor magical trinket - {{item}}
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.abilities}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.magic_types}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>Useful clue (map, note, etc.)
+    Useful clue (map, note, etc.)
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>Bag of coins, 1d4x100, 1 weight per 100  <small>({{>roll: 1d4*100}})</small></p>
+    Bag of coins, 1d4x100, 1 weight per 100  <small>({{>roll: 1d4*100}})</small>
   - |
-    <p>A small item (gem, art - [{{art_item}}]) of great value (2d6x100 coins, 0 weight) <small>({{>roll: 2d6*100}})</small>
+    A small item (gem, art - [{{art_item}}]) of great value (2d6x100 coins, 0 weight) <small>({{>roll: 2d6*100}})</small>
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>A chest of coins and other small valuables. 1 weight, worth 3d6x100 coins. <small>({{>roll: 3d6*100}})</small></p>
+    A chest of coins and other small valuables. 1 weight, worth 3d6x100 coins. <small>({{>roll: 3d6*100}})</small>
   - |
-    <p>A magical item or magical effect - {{item}}
+    A magical item or magical effect - {{item}}
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.abilities}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
@@ -88,34 +88,34 @@ tables:
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.magic_types}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>Many bags of coins, 2d4x100 or so <small>({{>roll: 2d4*100}})</small></p>
+    Many bags of coins, 2d4x100 or so <small>({{>roll: 2d4*100}})</small>
   - |
-    <p>A sign of office (crown, banner) worth at least 3d4x100 coins <small>({{>roll: 3d4*100}})</small>
+    A sign of office (crown, banner) worth at least 3d4x100 coins <small>({{>roll: 3d4*100}})</small>
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>A large art item - {{art_item}} (4d4x100 coins, 1 weight) <small>({{>roll: 4d4*100}})</small>
-    <br/>
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
-  - |
-    <p>Unique item ({{item}}) worth at least 5d4x100 coins <small>({{>roll: 5d4*100}})</small>
+    A large art item - {{art_item}} (4d4x100 coins, 1 weight) <small>({{>roll: 4d4*100}})</small>
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}</p>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
   - |
-    <p>Everything needed to learn a new spell.
+    Unique item ({{item}}) worth at least 5d4x100 coins <small>({{>roll: 5d4*100}})</small>
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Everything needed to learn a new spell.
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.abilities}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
@@ -123,22 +123,22 @@ tables:
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.magic_types}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
     <br/>
-    <br/>{{>pick: 1d12 treasure}}</p>
+    <br/>{{>pick: 1d12 treasure}}
   - |
-    <p>A portal or secret path (or directions to one)
+    A portal or secret path (or directions to one)
     <br/>
-    <br/>{{>pick: 1d12 treasure}}</p>
+    <br/>{{>pick: 1d12 treasure}}
   - |
-    <p>Something relating to one of the characters
+    Something relating to one of the characters
     <br/>
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
     <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
     <br/>
-    <br/>{{>pick: 1d12 treasure}}</p>
+    <br/>{{>pick: 1d12 treasure}}
   - |
-    <p>A hoard: 1d10x1000 coins and 1d10x10 gems worth 2d6x100 each
+    A hoard: 1d10x1000 coins and 1d10x10 gems worth 2d6x100 each
     <br/>
     <br/>&nbsp;&nbsp; coins: {{>roll: 1d10*1000}}
-    <br/>&nbsp;&nbsp; gems: {{>roll: 1d10*10}} worth {{>roll: 2d6*100}} each</p>
+    <br/>&nbsp;&nbsp; gems: {{>roll: 1d10*10}} worth {{>roll: 2d6*100}} each
