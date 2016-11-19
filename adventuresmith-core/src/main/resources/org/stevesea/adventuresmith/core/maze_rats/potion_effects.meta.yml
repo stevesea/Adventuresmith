@@ -1,3 +1,4 @@
 ---
 name: Potion Effects
 collectionId: maze_rats
+priority: 2000

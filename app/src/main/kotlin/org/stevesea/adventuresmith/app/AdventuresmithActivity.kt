@@ -46,6 +46,7 @@ import org.stevesea.adventuresmith.core.*
 import java.util.*
 
 data class CollectionAndGroup(val collectionId: String,
+                              val name: String,
                               val groupId: String? = null)
 
 class AdventuresmithActivity : AppCompatActivity(),
@@ -92,7 +93,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         .withIsExpanded(false)
                 for (grp in coll.groups!!.entries) {
                     val navId = Objects.hash(coll.id, grp.key).toLong()
-                    drawerIdToGroup.put(navId, CollectionAndGroup(coll.id, grp.key))
+                    drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}" , groupId = grp.key))
                     val childItem = SecondaryDrawerItem()
                             .withName(grp.value)
                             .withIcon(getCollectionIcon(coll.id, grp.key))
@@ -109,7 +110,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 }
                 // no groups, just create item
                 val navId = Objects.hash(coll.id).toLong()
-                drawerIdToGroup.put(navId, CollectionAndGroup(coll.id))
+                drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = coll.name))
                 result.add(PrimaryDrawerItem()
                         .withName(coll.name)
                         .withIcon(getCollectionIcon(coll.id))
@@ -320,6 +321,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collGrp = drawerIdToGroup.get(drawerItemId)
         if (collGrp == null)
             return
+
+        toolbar.title = collGrp.name
 
         currentDrawerItemId = drawerItemId
 

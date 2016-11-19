@@ -82,7 +82,7 @@ data class GeneratorMetaDto(val name: String,
                             val groupId: String? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null,
-                            val priority: Int = 99999) : Comparable<GeneratorMetaDto> {
+                            val priority: Int = 1000) : Comparable<GeneratorMetaDto> {
     override fun compareTo(other: GeneratorMetaDto): Int {
         return ComparisonChain.start()
                 .compare(priority, other.priority)
