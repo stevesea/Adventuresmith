@@ -246,6 +246,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val drawerItemId = drawerItem.identifier
                         if (drawerIdToGroup.containsKey(drawerItemId)) {
                             selectDrawerItem(drawerItemId)
+                            return false
                         } else if (drawerItemId == ID_ABOUT) {
                             this@AdventuresmithActivity.startActivity(
                                     Intent(this@AdventuresmithActivity, AboutActivity::class.java))
@@ -253,6 +254,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             this@AdventuresmithActivity.startActivity(
                                     Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
                         }
+                        currentDrawerItemId = null
                         return false
                     }
                 })
@@ -315,7 +317,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.adapter = resultAdapter
     }
 
-    private fun selectDrawerItem(drawerItemId: Long) {
+    private fun selectDrawerItem(drawerItemId: Long?) {
+        if (drawerItemId == null)
+            return
         val collGrp = drawerIdToGroup.get(drawerItemId)
         if (collGrp == null)
             return
@@ -362,7 +366,8 @@ class AdventuresmithActivity : AppCompatActivity(),
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long)
+        // currentDrawerItem _may_ be null
+        selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
         resultAdapter.clear()
         resultAdapter.add(restoredResults)
@@ -380,8 +385,10 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main, menu)
+        if (menu == null)
+            return super.onCreateOptionsMenu(menu)
 
-        menu!!.findItem(R.id.action_clear).icon = IconicsDrawable(this,
+        menu.findItem(R.id.action_clear).icon = IconicsDrawable(this,
                 CommunityMaterial.Icon.cmd_delete)
                 .color(Color.WHITE)
                 .actionBar()
