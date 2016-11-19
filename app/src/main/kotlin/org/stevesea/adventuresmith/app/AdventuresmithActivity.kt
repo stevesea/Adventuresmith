@@ -82,6 +82,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         var previousWasExpandable = false
         for (coll in generatorCollections) {
+            info("collection: ${coll}")
 
             if (coll.groups != null && coll.groups!!.isNotEmpty()) {
                 // has groups, create header & children
@@ -106,7 +107,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 previousWasExpandable = true
             } else {
                 if (previousWasExpandable) {
-                    result.add(DividerDrawerItem())
+                    //result.add(DividerDrawerItem())
                 }
                 // no groups, just create item
                 val navId = com.google.common.base.Objects.hashCode(coll.id).toLong()
@@ -140,7 +141,6 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     val resultAdapter by lazy {
-        info("Creating resultAdapter")
         FastItemAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
@@ -177,7 +177,6 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     val buttonAdapter by lazy {
-        info("Creating buttonAdapter")
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
@@ -321,6 +320,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (collGrp == null)
             return
 
+        info("selected: ${collGrp.name}")
+
         toolbar.title = collGrp.name
 
         currentDrawerItemId = drawerItemId
@@ -417,7 +418,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         if (item != null && item.itemId == R.id.action_clear) {
             // clear results
-            // resultAdapter.clear
+            resultAdapter.clear()
             return true
         }
         return super.onOptionsItemSelected(item)
