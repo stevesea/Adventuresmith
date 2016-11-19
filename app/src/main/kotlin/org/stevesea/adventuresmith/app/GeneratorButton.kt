@@ -29,8 +29,6 @@ import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
-
-// TODO: don't impl parcelable -- just re-generate the whole button list if recyclerview re-loaded
 class GeneratorButton(val generator: Generator,
                       locale: Locale = Locale.US,
                       val meta : GeneratorMetaDto = generator.getMetadata(locale)) :

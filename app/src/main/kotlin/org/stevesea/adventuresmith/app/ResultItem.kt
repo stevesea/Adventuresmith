@@ -35,7 +35,6 @@ class ResultItem(val htmlTxt: String) :
     val spannedText = htmlStrToSpanned(htmlTxt)
 
     init {
-        // TODO: in groovy version, hold a static atomiclong to track an ID for every result
         withIdentifier(resultId.andDecrement)
     }
 
