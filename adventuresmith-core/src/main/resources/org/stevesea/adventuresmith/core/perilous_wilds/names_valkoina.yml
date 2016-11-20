@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  <h4>{{#locations.Valkoina}}{{^-first}} - {{/-first}}{{.}}{{/locations.Valkoina}}</h4>
+  <h4>{{locations.Valkoina}}</h4>
   <strong><small>Male:</small></strong> {{Valkoina.male}}
   <br/><strong><small>Female:</small></strong> {{Valkoina.female}}
   <br/>

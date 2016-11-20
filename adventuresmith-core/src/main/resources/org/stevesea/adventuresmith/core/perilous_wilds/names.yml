@@ -1,18 +1,10 @@
 ---
 definitions:
   locations:
-    Arpad:
-    - The Kingdom of Arpad
-    - Based loosely on Hungarian
-    Oloru:
-    - Oloru, Sky-God's Home
-    - Based loosely on Yoruba
-    Valkoina:
-    - Valkoina, Land of White Lion
-    - Based loosely on Finnish
-    Tamanarugan:
-    - The Tamanarugan Empire
-    - Based loosely on Indonesian
+    Arpad: The Kingdom of Arpad
+    Oloru: Oloru, Sky-God's Home
+    Valkoina: Valkoina, Land of White Lion
+    Tamanarugan: The Tamanarugan Empire
 nested_tables:
   Arpad:
     male:

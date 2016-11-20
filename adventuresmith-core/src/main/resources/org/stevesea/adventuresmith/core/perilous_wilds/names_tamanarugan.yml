@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  <h4>{{#locations.Tamanarugan}}{{^-first}} - {{/-first}}{{.}}{{/locations.Tamanarugan}}</h4>
+  <h4>{{locations.Tamanarugan}}</h4>
   <strong><small>Male:</small></strong> {{Tamanarugan.male}}
   <br/><strong><small>Female:</small></strong> {{Tamanarugan.female}}
   <br/>

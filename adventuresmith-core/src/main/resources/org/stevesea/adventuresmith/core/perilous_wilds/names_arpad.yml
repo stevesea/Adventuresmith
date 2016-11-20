@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  <h4>{{#locations.Arpad}}{{^-first}} - {{/-first}}{{.}}{{/locations.Arpad}}</h4>
+  <h4>{{locations.Arpad}}</h4>
   <strong><small>Male:</small></strong> {{Arpad.male}}
   <br/><strong><small>Female:</small></strong> {{Arpad.female}}
   <br/>

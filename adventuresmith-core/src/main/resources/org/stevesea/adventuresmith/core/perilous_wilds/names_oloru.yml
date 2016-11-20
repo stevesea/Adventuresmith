@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  <h4>{{#locations.Oloru}}{{^-first}} - {{/-first}}{{.}}{{/locations.Oloru}}</h4>
+  <h4>{{locations.Oloru}}</h4>
   <strong><small>Male:</small></strong> {{Oloru.male}}
   <br/><strong><small>Female:</small></strong> {{Oloru.female}}
   <br/>

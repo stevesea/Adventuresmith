@@ -77,10 +77,10 @@ class PwTest {
     @Test
     fun treasure_unguarded() {
         Assert.assertEquals("""
-        <p>A useful item - potion/food
+        A useful item - potion/food
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> rough/hard/sharp
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> young/recent
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> geometric</p>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> geometric
         """.trimIndent(),
                 getGenerator(PwConstants.TREASURE_UNGUARDED, 1).generate(Locale.US))
     }
@@ -106,34 +106,34 @@ class PwTest {
     fun treasure_guarded1() {
         Assert.assertEquals("""
         <h5>damage die - D4 + 1d4</h5>
-        <p>A useful item - key/lockpick
+        A useful item - key/lockpick
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound</p>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
 
         <h5>damage die - D6 + 1d4</h5>
-        <p>A useful item - key/lockpick
+        A useful item - key/lockpick
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound</p>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
 
         <h5>damage die - D8 + 1d4</h5>
-        <p>A useful item - key/lockpick
+        A useful item - key/lockpick
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound</p>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
 
         <h5>damage die - D10 + 1d4</h5>
-        <p>A useful item - key/lockpick
+        A useful item - key/lockpick
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound</p>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
 
         <h5>damage die - D12 + 1d4</h5>
-        <p>A useful item - key/lockpick
+        A useful item - key/lockpick
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound</p>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
         """.trimIndent(),
                 getGenerator(PwConstants.TREASURE_GUARDED_1BONUS, 0).generate(Locale.US))
     }
@@ -184,15 +184,12 @@ class PwTest {
         Assert.assertEquals("""
         <h3>Danger - Unnatural Entity</h3>
         <h5>Undead Entity</h5>
-        <p>
         haunt/wisp
-        </p>
-        <p>
-        <strong><small>Ability:</small></strong> bless/curse
+        <br/>
+        <br/><strong><small>Ability:</small></strong> bless/curse
         <br/><strong><small>Activity:</small></strong> laying trap/ambush
         <br/><strong><small>Alignment:</small></strong> Chaotic
         <br/><strong><small>Disposition:</small></strong> attacking
-        </p>
         """.trimIndent(),
                 getGenerator(PwConstants.DANGER, 0).generate(Locale.US))
     }
@@ -258,10 +255,9 @@ class PwTest {
         Assert.assertEquals("""
         <h3>Unnatural Feature - Arcane</h3>
         residue
-        <p>
-        <strong><small>Alignment:</small></strong> Chaotic
+        <br/>
+        <br/><strong><small>Alignment:</small></strong> Chaotic
         <br/><strong><small>Magic Type:</small></strong> divination
-        </p>
         """.trimIndent(),
                 getGenerator(PwConstants.DISCOVERY, 0).generate(Locale.US))
     }
