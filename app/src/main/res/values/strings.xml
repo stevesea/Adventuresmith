@@ -10,6 +10,10 @@
     <string name="action_share">Share…</string>
     <string name="action_clear">Clear</string>
     <string name="nav_other">Other</string>
+    <string name="nav_thanks">Attribution &amp; Thanks</string>
+    <string name="nav_about">About</string>
+
+
     <string name="search_title">Search</string>
 
 </resources>
