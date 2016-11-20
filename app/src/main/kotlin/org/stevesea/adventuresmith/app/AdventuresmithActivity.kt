@@ -426,6 +426,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (item != null && item.itemId == R.id.action_clear) {
             // clear results
             resultAdapter.clear()
+            // expand buttons
+            appbar.setExpanded(true,true)
             return true
         }
         return super.onOptionsItemSelected(item)
