@@ -169,7 +169,7 @@ val diceModule = Kodein.Module {
                 val diceParser : DiceParser = instance()
                 override fun generate(locale: Locale): String {
                     val nf = NumberFormat.getInstance(locale)
-                    return "${d}: ${nf.format(diceParser.roll(d))}"
+                    return "${d}: <strong>${nf.format(diceParser.roll(d))}</strong>"
                 }
             }
         }
@@ -189,7 +189,7 @@ val diceModule = Kodein.Module {
                     val nf = NumberFormat.getInstance(locale)
                     val rolls = diceParser.rollN(d.value.second, d.value.first)
                     val sum = rolls.sum()
-                    return "${d.key}: ${nf.format(sum)} <small>${rolls.map { nf.format(it) }}</small>"
+                    return "${d.key}: <strong>${nf.format(sum)}</strong> <small>${rolls.map { nf.format(it) }}</small>"
                 }
             }
         }
@@ -202,7 +202,7 @@ val diceModule = Kodein.Module {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val best = rolls.max()
-                return "${DiceConstants.d20adv}: ${nf.format(best)} <small>${rolls}</small>"
+                return "${DiceConstants.d20adv}: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
                 return GeneratorMetaDto(name = "1d20 (adv)", collectionId = DiceConstants.CollectionName, priority = 2000)
@@ -217,7 +217,7 @@ val diceModule = Kodein.Module {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val worst = rolls.min()
-                return "${DiceConstants.d20disadv}: ${nf.format(worst)} <small>${rolls}</small>"
+                return "${DiceConstants.d20disadv}: <strong>${nf.format(worst)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
                 return GeneratorMetaDto(name = "1d20 (disadv)", collectionId = DiceConstants.CollectionName, priority = 2000)
