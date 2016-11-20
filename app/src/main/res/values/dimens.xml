@@ -16,5 +16,4 @@
     <integer name="buttonSpanShort">2</integer>
 
     <integer name="resultCols">1</integer>
-    <integer name="resultColsLongtext">1</integer>
 </resources>

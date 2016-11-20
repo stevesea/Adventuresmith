@@ -302,16 +302,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         resultAdapter.itemAdapter.withItemFilterListener(this)
 
         val resultsGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.resultCols))
-        val resultSpanLong = resources.getInteger(R.integer.resultColsLongtext)
-        resultsGridLayoutMgr.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                val item = resultAdapter.getAdapterItem(position)
-                if (item == null || item.htmlTxt.length > 48)
-                    return resultSpanLong
-                else
-                    return 1
-            }
-        }
 
         recycler_results.layoutManager = resultsGridLayoutMgr
         recycler_results.itemAnimator = DefaultItemAnimator()
