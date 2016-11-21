@@ -69,3 +69,5 @@ generators:
   - political_party
   - religion
   - room_dressing
+  stonetop:
+  - minor_arcana

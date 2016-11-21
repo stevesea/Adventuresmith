@@ -1,0 +1,347 @@
+---
+templates:
+- |
+  <h4>Minor Arcana</h4>
+  {{nature}}
+
+definitions:
+  label:
+    forge_lords: The Forge Lords
+    green_lords: The Green Lords
+    stone_lords: The Stone Lords
+    rime_lords: The Rime Lords
+    tempest_lords: The Tempest Lords
+    things_below: The Things Below
+    fae: The Fae
+    primordial_power: Primordial Power
+    wild: The Wild
+    sky: The Sky
+    black_gates: The Black Gates
+    civilization: Civilization
+    practical_item: Practical Item
+    art_or_luxury_item: Art or Luxury Item
+    edifice: Edifice
+    natural_feature: Natural Feature
+
+tables:
+  nature:
+  - |
+    1..3,
+    It is extraordinary in some regard
+    <h5>Origin & Theme</h5>
+    {{origin_and_theme}}
+    <h5>Form</h5>
+    {{>pick: 1d10 form}}
+
+  origin_and_theme:
+  - "{{origin_and_themes.forge_lords}}"
+  - "{{origin_and_themes.green_lords}}"
+  - "{{origin_and_themes.stone_lords}}"
+  - "{{origin_and_themes.rime_lords}}"
+  - "{{origin_and_themes.tempest_lords}}"
+  - "{{origin_and_themes.things_below}}"
+  - "{{origin_and_themes.fae}}"
+  - "{{origin_and_themes.primordial_power}}"
+  - "{{origin_and_themes.wild}}"
+  - "{{origin_and_themes.sky}}"
+  - "{{origin_and_themes.black_gates}}"
+  - "{{origin_and_themes.civilization}}"
+  form:
+  - "1..4, {{forms.practical_item}}"
+  - "5..8, {{forms.art_or_luxury_item}}"
+  - "9..10, {{forms.edifice}}"
+  - "11..12, {{forms.natural_feature}}"
+
+  property:
+  - "1, Moves and acts of its own accord"
+  - "2, Absorbs ____ and stores its power (fire, lightning, hatred, stillness, etc.)"
+  - "3, Seamlessly blends two or more materials, in a way that should not be possible"
+  - "4, Is ____, though it shouldn’t be (flammable, luminous, silent, weightless, etc.)"
+  - "5, Is much, much ____ than it should be (heavier, harder, faster, etc.)"
+  - "6, Is impossibly ____ (sharp, beautiful, lifelike, fine, etc.)"
+  - "7, Cannot be ____ (broken, burned, melted, affected by magic, etc.)"
+  - "8, Absorbs ____ and stores its power (fire, lightning, hatred, stillness, etc.)"
+  - "9, Is impervious to/cuts clean through/can harm ____ (fire, steel, ghosts, etc.)"
+  - "10, Cannot be perceived by ____ (demons, fae, spirits, the dead, etc.)"
+  - "11, Glows/thrums/vibrates in the presence of ____ (gold, magic, lies, poison, etc.)"
+  - "12, Roll twice, but threat one of the results as a drawback or flaw"
+  valuable:
+  - "1, Precious metals"
+  - "2, Fine stones/gems/crystals"
+  - "3, Historical or religious importance"
+  - "4, Haunting beauty"
+  - "5, One of only d12, if you trust the tales"
+  - "6, Transcendent, a symbol of something greater, something more"
+  - "7, Crafted with sublime skill"
+  - "8, Great luxury or convenience"
+  - "9, Beyond meager mortal arts"
+  - "10, Status among people"
+  - "11, Rarely found in nature"
+  - "12, Roll twice and combine"
+  people:
+  - "1, Stonetop and its people’s ancestors"
+  - "2, The folk of Marshedge"
+  - "3, The nomadic Hillfolk clans"
+  - "4, The riff-raff of Gordin’s Delve"
+  - "5, The stoic folk of Barrier Pass"
+  - "6, The Ganagoeg, those horrid lizard-people of Ferrier’s Bog"
+  - "7, The Manmarchers"
+  - "8, The “civilized” Southerners"
+  - "9, The Forest People, gone missing"
+  - "10, The spindly, gray-skinned Crinwid"
+  - "11, The Ustrina, from past Gordin’s Delve"
+  - "12, Some other folk, unheard of or established during play"
+  magic:
+  - "1, Create/conjure/craft"
+  - "2, Defend/repel/secure"
+  - "3, Destroy/slay/consume"
+  - "4, Contain/bind/capture"
+  - "5, Enhance/refine/purify"
+  - "6, Reduce/diminish/suppress"
+  - "7, Sustain/heal/repair"
+  - "8, Sense/identify/reveal"
+  - "9, Hide/disguise/confuse"
+  - "10, Manipulate/control/compel"
+  - "11, Transform/combine/reshape"
+  - "12, Roll twice and combine"
+  limit:
+  - "1, Corrupting (leaves a lasting thematic mark on the caster or the target)"
+  - "2, Dangerous (is likely to have destructive, unwanted side effects)"
+  - "3, Demanding (it takes great effort to cast/trigger/maintain)"
+  - "4, Discordant (sends out psychic ripples, which can be sensed for miles around)"
+  - "5, Unreliable (fickle, temperamental, likely to fail at inopportune times)"
+  - "6, Weak (can easily be countered by will/fortitude/preparation)"
+  - "7, Indiscriminant (impossible to control who or what is targeted/how long it lasts)"
+  - "8, Withering (weakens you, the object, and/or the target)"
+  - "9, Restricted (only works under specific, thematic conditions)"
+  - "10, Costly (requires sacrifice/uses up a limited resource)"
+  - "11, Slow (it takes a long time to cast/manifest)"
+  - "12, Roll twice"
+  usage:
+  - "1..2, Single use, then it’s consumed/ruined/powerless"
+  - "3..4, 2d6 more uses, then it’s consumed/ruined/powerless"
+  - "5..6, 1d6 uses, then it must be recharged/renewed/replenished"
+  - "7, 1d6 uses; slowly recharges over hours/days/weeks/months"
+  - "8, 1d4 charges; a charge might be lost each time it’s used; must be recharged/renewed/replenished"
+  - "9, 1d4 charges; a charge might be lost each time it’s used; slowly recharges over hours/days/weeks/months"
+  - "10, At will, but each time is riskier/less powerful/more costly; resets slowly over hours/days/weeks/months"
+  - "11, Continuously; it’s always going"
+  - "12, At will"
+
+
+nested_tables:
+  origin_and_themes:
+    forge_lords:
+    - "1..2, Fire/heat/light"
+    - "3..4, Brass/iron/steel/orichalcum"
+    - "5, Coals/smoke/ash"
+    - "6, Anger/passion/rage"
+    - "7, Fear/terror/panic"
+    - "8, Clockwork"
+    - "9..12, Sized for giants, {{>pick: 1d8 origin_and_themes.forge_lords}}"
+    green_lords:
+    - "1..2, Trees/forests/plants"
+    - "3..4, Beasts of the land"
+    - "5, Adaptation/growth/expansion"
+    - "6, Hunger/savagery/ferocity"
+    - "7..8, Chimerae"
+    - "9..12, Sized for giants, {{>pick: 1d8 origin_and_themes.green_lords}}"
+    stone_lords:
+    - "1..3, Stone/rock/earth"
+    - "4, Crystals/gems/makerglass"
+    - "5..6, Architecture/excavation"
+    - "7, Endurance/strength/stability"
+    - "8, Stubbornness/rigidness/pride"
+    - "9..12, Sized for giants, {{>pick: 1d8 origin_and_themes.stone_lords}}"
+    rime_lords:
+    - "1..3, Ice/cold/stasis"
+    - "4..5, Law/order/control"
+    - "6, Writing/records"
+    - "7, Calm/logic/discipline"
+    - "8, Apathy/indifference/despair"
+    - "9..12, Sized for giants, {{>pick: 1d8 origin_and_themes.rime_lords}}"
+    tempest_lords:
+    - "1..2, Thunder/lightning/aetherium"
+    - "3..4, Wind/rain/weather"
+    - "5, Water/sea/brine"
+    - "6, Conduits of power"
+    - "7, Energy/relentlessness/passion"
+    - "8, Confusion/chaos/disarray"
+    - "9..12, Sized for giants, {{>pick: 1d8 origin_and_themes.tempest_lords}}"
+    things_below:
+    - "1, Darkness/shadow/deception/obsidian"
+    - "2, Decay/weakness/corrosion/rust"
+    - "3, Jealousy/gluttony/greed/flesh"
+    - "4, Secrets/shame/guilt/pearls"
+    - "5, Hunger/starvation/desperation/wind"
+    - "6, Hatred/wrath/cruelty/red crystal"
+    - "7, Insanity/chaos/ruin/quicksilver"
+    - "8, Corruption/disease/poison/vermin"
+    - "9, Scales/slime/gills/tentacles/water"
+    - "10, Death/undeath/fear/bones"
+    - "11, Sleep/dreams/nightmares/agates"
+    - "12, Pain/torture/wounds/blood"
+    fae:
+    - "1, Beauty/wonder/awe"
+    - "2, Ugliness/horror/disgust"
+    - "3, Fluidity of time and space"
+    - "4, Illusion/glamor/pretense"
+    - "5, Singing/poetry/art"
+    - "6, Debts/vows/obligations"
+    - "7, Strange & fickle customs & etiquette"
+    - "8, Callousness/cruelty/indifference"
+    - "9, Yearning/passion/desire"
+    - "10, Dancing/revelry/sex"
+    - "11, Wondrous food & drink"
+    - "12, {{>pickN: 2 origin_and_themes.fae}}"
+    primordial_power:
+    - "1, Truth/purity/quintessence"
+    - "2, Creation/shaping/invention"
+    - "3, Light/etherealness/transcendence"
+    - "4, Darkness/stillness/the void"
+    - "5, Language/words/names"
+    - "6, Sentience/perception/knowledge"
+    - "7, Vitality/energy/will"
+    - "8, Bewildering/incomprehensible/alien"
+    - "9, Oneness/sameness/unity"
+    - "10, Raw elements/power/force"
+    - "11..12, Diminished/fragmentary/shattered, {{>pick: 1d10 origin_and_themes.primordial_power}}"
+    wild:
+    - "1, Trees/plants/flora"
+    - "2, Beasts/vermin/fauna"
+    - "3, Blood"
+    - "4, Spring/birth/fertility/sex/healing"
+    - "5, Summer/warmth/growth/vitality"
+    - "6, Autumn/harvest/sustenance/plenty"
+    - "7, Winter/cold/hunger/sleep/death"
+    - "8, Savagery/the hunt/dominance"
+    - "9, Nurture/shelter/provision"
+    - "10, The land/soil/stone/terrain"
+    - "11, Blight/decay/reclamation"
+    - "12, That which Danu holds tightly in her grasp"
+    sky:
+    - "1..3, Tor/storms/weather/rain/aetherium"
+    - "4..6, Helior/the sun/daylight/dawn"
+    - "7..8, The moon/cycles/shapeshifters/moonstone"
+    - "9..10, The stars/the future/omens"
+    - "11..12, Birds/flight/wind"
+    black_gates:
+    - "1, Death personified/the Lady of Crows/the Pale Hunter"
+    - "2, Death itself/the passage from life"
+    - "3, Death omens/dooms foretold"
+    - "4, The quiet dead, who have passed on"
+    - "5, The restless dead, who refuse to go"
+    - "6, The vengeful dead, who seek to drag others with them"
+    - "7, The hungry dead, who prey upon the living"
+    - "8, The half-dead, those who cheat death"
+    - "9, Spirit-walking/leaving one’s body"
+    - "10, Night/darkness/fear"
+    - "11..12, Bone/skulls/mummified remains, {{>pick: 1d10 origin_and_themes.black_gates}}"
+    civilization:
+    - "1, Walls/hearths/construction"
+    - "2, Laws/justice/punishment"
+    - "3, Knowledge/records/written words"
+    - "4, Wealth/trade/greed"
+    - "5, Authority/oaths/duty"
+    - "6, Tradition/ceremony/culture"
+    - "7, Family/kinship/cooperation"
+    - "8, Artwork/crafts/invention"
+    - "9, Expansion/conquest/war"
+    - "10, Agriculture/domestication"
+    - "11..12, Aratis/her Judges/black iron"
+  forms:
+    practical_item:
+    - "1, Key/lock/clasp"
+    - "2, Food/drink"
+    - "3, Clothing/cloak"
+    - "4, Boots/gloves/shoes"
+    - "5, Cup/vessel"
+    - "6, Box/cage/coffer"
+    - "7, Utensil/tool"
+    - "8, Weapon/rod/staff"
+    - "9, Armor/shield/helm"
+    - "10, Rope/cord/chain"
+    - "11, Belt/pack/pouch"
+    - "12, Lantern/lamp/torch"
+    art_or_luxury_item:
+    - "1, Amulet/charm"
+    - "2, Painting/mural/tapestry"
+    - "3, Ceramics/pottery"
+    - "4, Ring/jewelry/eyewear"
+    - "5, Carpet/rug/bedding"
+    - "6, Figurine/carving/idol"
+    - "7, Flag/banner"
+    - "8, Instrument"
+    - "9, Furs/skins/trophies"
+    - "10, Orb/gem/stone"
+    - "11, Crown/scepter"
+    - "12, Enigma, its purpose unclear"
+    edifice:
+    - "1, Grave site (barrow/tombs/catacombs)"
+    - "2, Place of worship (temple/shrine/altar)"
+    - "3, Passage (road/bridge/tunnel/portal)"
+    - "4, Monument (statue/megalith/carving)"
+    - "5, Resource (mine/aqueduct/cistern/well)"
+    - "6, Dwelling (home/stable/barracks)"
+    - "7, Public place (inn/stadium/market)"
+    - "8, Fortification (keep/tower/walls/gate)"
+    - "9, Workplace (forge/shop/studio/lab)"
+    - "10, Prison (dungeon/cage/jail/oubliette)"
+    - "11, Storage (vault/library/cache)"
+    - "12, Enigma (its purpose unclear)"
+    natural_feature:
+    - "1, Tree(s) or vegetation"
+    - "2, Cave/cavern/grotto"
+    - "3, Clearing/meadow/field"
+    - "4, Oddity/strange formation"
+    - "5, Valley/canyon/gorge"
+    - "6, Creek/stream/river"
+    - "7, Pool/pond/lake"
+    - "8, Summit/precipice/outcrop"
+    - "9, Hill/cliff/mesa"
+    - "10, Bog/marsh/fen"
+    - "11, Sinkhole/crater/pit"
+    - "12, {{>pickN: 2 forms.natural_feature}}"
+
+  lores:
+    reveal:
+    - "1..3, The workings of a ritual or spell (magic, limit)"
+    - "4, An artifice or technique lost to antiquity"
+    - "5, The workings or secrets of a mysterious object"
+    - "6, The history of a people"
+    - "7, The weakness/motive/origins/lair of an established threat"
+    - "8, The hazards/secrets/history/location of a mysterious place"
+    - "9, The true nature of an origin (the one you first rolled, or another)"
+    - "10, The location/powers/history/secrets of a major arcana"
+    - "11, The truth about a person/event/creature of legend"
+    - "12, A resource that might be exploited"
+    imparted:
+    - "1..2, In a tome/scroll/folio, in a cypher or a long-dead language"
+    - "3, In a tome/scroll/folio, clear to those who can read the language"
+    - "4..5, As an obscure song/story/poem"
+    - "6..7, Through ancient runes etched into place (form d4+8)"
+    - "8..9, Via carvings/paintings/decorations/diagrams (form)"
+    - "10, Implied by its very nature or existence, or where it is found (form d10)"
+    - "11, By a spirit tied to a place (form d4+8)"
+    - "12, Through a vision or omen, imparted to whoever touches/enters/approaches (form)"
+  spirits:
+    type:
+    - "1..2, Elemental, as per theme (instinct: to wantonly express its nature"
+    - "3, Demon (instinct: to corrupt, destroy, befoul, ruin)"
+    - "4, Castaway or refugee (instinct: to improve or sustain its meager existence)"
+    - "5, Fledgling (instinct: to find its place or purpose)"
+    - "6, Archon (instinct: to enforce cosmic order)"
+    - "7, Fauna (instinct: to feed and sustain itself)"
+    - "8, Apotheosis (instinct: to gather power and worship)"
+    - "9, Haunt (instinct: to reenact its life)"
+    - "10, Shade (instinct: to fulfill its longings)"
+    - "11, Specter (instinct: to punish the living)"
+    - "12, Wraith (instinct: to feed on the living)"
+    bound:
+    - "1..2, Imprisoned and locked away"
+    - "3..5, Forced to serve"
+    - "6, Serves willingly"
+    - "7..8, Its own desires tether it"
+    - "9, Trapped by accident or twist of fate"
+    - "10..12, This is its natural home or anchor to the world"
+
