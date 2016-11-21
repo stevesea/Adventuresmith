@@ -19,86 +19,103 @@
   ~
   -->
 
-<!-- CoordinatorLayout is used to create scrolling and "floating" effects within a layout -->
-<!-- This is typically the root layout which wraps the app bar and content -->
-<android.support.design.widget.CoordinatorLayout
+<!-- Horizontal Linear Layout to display the Drawer on the left,
+ and the app's contents on the right.-->
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:id="@+id/main_content"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="@color/colorPrimary"
-    tools:context="org.stevesea.adventuresmith.app.AdventuresmithActivity"
-    >
+    android:layout_width="match_parent"
+    android:orientation="horizontal">
 
-    <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
-    <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+    <!-- -->
+    <FrameLayout
+        android:id="@+id/nav_tablet"
+        android:layout_width="@dimen/navigation_menu_width"
+        android:layout_height="match_parent"/>
+
+    <!-- CoordinatorLayout is used to create scrolling and "floating" effects within a layout -->
+    <!-- This is typically the root layout which wraps the app bar and content -->
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:background="@color/colorPrimary"
+        tools:context="org.stevesea.adventuresmith.app.AdventuresmithActivity"
+        >
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+        <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
+        <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:titleEnabled="false">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <ImageView
-                android:id="@+id/backdrop"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/mmanticore"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax" />
-
-            <android.support.v7.widget.RecyclerView
-                android:fitsSystemWindows="false"
-                android:id="@+id/recycler_buttons"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="30dp"
-                android:layout_marginTop="?attr/actionBarSize"
-                />
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
 
-            <!-- As our statusBar is transparent below and content is moved behind our toolbar has to include the padding on top so we use this area -->
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                <ImageView
+                    android:id="@+id/backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/mmanticore"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax" />
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:fitsSystemWindows="false"
+                    android:id="@+id/recycler_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="30dp"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    />
 
-    </android.support.design.widget.AppBarLayout>
-    <!--
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_advsmth_splasha"/>
-        -->
+                <!-- As our statusBar is transparent below and content is moved behind our toolbar has to include the padding on top so we use this area -->
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <android.support.v7.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/recycler_results"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
+            </android.support.design.widget.CollapsingToolbarLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+        </android.support.design.widget.AppBarLayout>
+        <!--
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_advsmth_splasha"/>
+            -->
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/recycler_results"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
+
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

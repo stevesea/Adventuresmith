@@ -219,7 +219,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 .build()
 
-        drawer = DrawerBuilder()
+        val drawerBuilder = DrawerBuilder()
                 .withActivity(this)
                 .withHasStableIds(true)
                 .withToolbar(toolbar)
@@ -252,7 +252,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                         return false
                     }
                 })
-                .build()
+
+        if (resources.getDimension(R.dimen.navigation_menu_width) > 0) {
+            drawer = drawerBuilder.buildView()
+            nav_tablet.addView(drawer!!.slider)
+        } else {
+            drawer = drawerBuilder.build()
+        }
 
         val btnSpanShort = resources.getInteger(R.integer.buttonSpanShort)
         val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)

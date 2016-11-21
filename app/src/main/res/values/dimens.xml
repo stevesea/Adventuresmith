@@ -16,4 +16,7 @@
     <integer name="buttonSpanShort">2</integer>
 
     <integer name="resultCols">1</integer>
+
+    <dimen name="navigation_menu_width">0dp</dimen>
+
 </resources>
