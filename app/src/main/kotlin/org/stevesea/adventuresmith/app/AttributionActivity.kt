@@ -25,8 +25,39 @@ import android.support.v7.app.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_attribution.*
 import org.stevesea.adventuresmith.R
+import org.stevesea.adventuresmith.core.*
+import java.util.*
 
 class AttributionActivity : AppCompatActivity() {
+
+    fun getAttributions(locale: Locale) : String {
+        val colls = AdventuresmithCore.getCollections(locale)
+
+        return html {
+            body {
+                h1 { + getString(R.string.attribution_header) }
+                p {
+                    + getString(R.string.attribution_desc)
+                }
+                for (coll in colls) {
+                    if (coll.credit == null)
+                        continue
+
+                    h4 { + "${coll.credit.orEmpty()} - ${coll.name}" }
+                    if (coll.desc != null) {
+                        p { + coll.desc!! }
+                    }
+                    if (coll.attribution != null) {
+                        p { + coll.attribution!! }
+                    }
+                    if (coll.url != null)  {
+                        p { + coll.url!! }
+                    }
+                }
+            }
+
+        }.toString()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +76,7 @@ class AttributionActivity : AppCompatActivity() {
                 .build()
 
         // TODO: read these from YaML
-        attribution_txt_content.text = htmlStrToSpanned(getString(R.string.content_attribution))
+        attribution_txt_content.text = htmlStrToSpanned(getAttributions(AdventuresmithActivity.getCurrentLocale(resources)))
         attribution_txt_artwork.text = htmlStrToSpanned(getString(R.string.content_artwork))
         attribution_txt_thanks.text = htmlStrToSpanned(getString(R.string.content_thanks))
     }

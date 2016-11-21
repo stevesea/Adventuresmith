@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.app
 
 import android.annotation.*
 import android.content.*
+import android.content.res.*
 import android.graphics.*
 import android.os.*
 import android.support.v7.app.*
@@ -61,14 +62,6 @@ class AdventuresmithActivity : AppCompatActivity(),
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
 
-    @TargetApi(Build.VERSION_CODES.N)
-    fun getCurrentLocale(): Locale {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return resources.configuration.locales.get(0)
-        } else {
-            return resources.configuration.locale
-        }
-    }
 
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         info("Creating navDrawerItems")
@@ -186,7 +179,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return false
                         info("Pressed button: ${item.name} (${item.meta.collectionId} ${Objects.toString(item.meta.groupId,"")})")
 
-                        val result = item.generator.generate(getCurrentLocale())
+                        val result = item.generator.generate(getCurrentLocale(resources))
 
                         resultAdapter.add(0, ResultItem(result))
 
@@ -233,7 +226,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withAccountHeader(drawerHeader!!)
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
-                .withDrawerItems(getNavDrawerItems(getCurrentLocale()))
+                .withDrawerItems(getNavDrawerItems(getCurrentLocale(resources)))
                 .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                     override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*, *>?): Boolean {
                         //check if the drawerItem is set.
@@ -322,9 +315,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         currentDrawerItemId = drawerItemId
 
         buttonAdapter.clear()
-        val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(), collGrp.collectionId, collGrp.groupId)
+        val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
         for (g in generators) {
-            buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(), g.key))
+            buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
         }
         resultAdapter.clear()
         recycler_results.scrollToPosition(0)
@@ -425,6 +418,15 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     companion object {
+
+        @TargetApi(Build.VERSION_CODES.N)
+        fun getCurrentLocale(r: Resources): Locale {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                return r.configuration.locales.get(0)
+            } else {
+                return r.configuration.locale
+            }
+        }
         fun getCollectionIcon(id: String, grpId : String? = null): IIcon {
 
             return when(id) {

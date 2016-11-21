@@ -19,37 +19,8 @@
   -->
 
 <resources>
-    <string name="content_attribution"><![CDATA[
-        <h1>Attribution - Content</h1>
-
-        <p>This application uses content from the following sources.</p>
-
-        <h5>Jason Lutes</h5>
-        http://lampblackandbrimstone.blogspot.com/
-        <br/><cite>The Perilous Wilds</cite>
-        <br/><cite>Freebooters on the Frontier</cite>
-        <br/>
-        <p><strong>Antoine Pempie</strong> - French translation of Freebooters on the Frontier, released
-             under Creative Commons Attribution - ShareAlike 3.0 Unported license.﻿</p>
-
-        <h5>Kevin Crawford / Sine Nomine Publishing</h5>
-        http://www.sinenomine-pub.com/
-        <br/><cite>Stars Without Number</cite> written by  Kevin Crawford.
-        <br/>&nbsp;&nbsp;The content reproduced here is from the free version of the rulebook.
-
-        <h5>Ben Milton</h5>
-        http://questingblog.com/maze-rats/
-        <br/><cite>Maze Rats 0.1</cite>
-
-        <h5>Mike Riverso</h5>
-        <p><cite>the Fourth Page</cite> generators for World of Dungeons.
-        <br/>
-        <br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
-        of this license, visit https://creativecommons.org/licenses/by/3.0/
-        </p>
-
-        ]]>
-    </string>
+    <string name="attribution_header">Attribution - Content</string>
+    <string name="attribution_desc">This application uses content from the following sources.</string>
 
     <string name="content_artwork"><![CDATA[
         <h1>Attribution - Artwork</h1>
