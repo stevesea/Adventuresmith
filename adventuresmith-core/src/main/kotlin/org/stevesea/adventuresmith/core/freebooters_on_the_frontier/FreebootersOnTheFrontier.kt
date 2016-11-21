@@ -156,9 +156,10 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
                 }
                 p {
                     + model.name
-                    em { + model.gender }
+                    em { + "&nbsp;&nbsp;${model.gender}" }
                     br {}
-                    + "${model.heritage} ${model.alignment}"
+                    + model.heritage
+                    em { + "&nbsp;&nbsp;${model.alignment}" }
                 }
                 h5 {
                     + model.config.headers.abilities
@@ -172,18 +173,21 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
                     br{}
                     + abils.elementAt(6)
                 }
-                h5 {
-                    + model.config.headers.virtues_vices
+                strong {
+                    small {
+                        + model.config.headers.virtues_vices
+                    }
                 }
-                p {
-                    + listOf(model.virtues, model.vices).flatten().joinToString("<br/>")
+                + listOf(model.virtues, model.vices).flatten().joinToString(", ")
+
+                br {  }
+
+                strong {
+                    small {
+                        +model.config.headers.gear
+                    }
                 }
-                h5 {
-                    + model.config.headers.gear
-                }
-                p {
-                    + model.gear.joinToString("<br/>")
-                }
+                + model.gear.joinToString(", ")
             }
         }
     }

@@ -48,104 +48,116 @@ class FotfGeneratorTest {
     @Test
     fun char_french() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <h4>
-      Playbook - Guerrier
-    </h4>
-    <h5>
-      Nom & Héritage
-    </h5>
-    <p>
-      Alodia
-      <em>
-        Féminin
-      </em>
-      <br>
-      </br>
-      Humain Mauvais
-    </p>
-    <h5>
-      Caractéristiques
-    </h5>
-    <p>
-      Force: 6&nbsp;&nbsp;Dextérité: 6
-      <br>
-      </br>
-      Charisme: 6&nbsp;&nbsp;Constitution: 6
-      <br>
-      </br>
-      Sagesse: 6&nbsp;&nbsp;Intelligence: 6
-      <br>
-      </br>
-      Chance: 6
-    </p>
-    <h5>
-      Vertus & Vices
-    </h5>
-    <p>
-      Accro<br/>Alcoolique<br/>Hostile
-    </p>
-    <h5>
-      Équipement
-    </h5>
-    <p>
-      Cotte de mailles<br/>Bouclier
-    </p>
-  </body>
-</html>""".trim(), getGenerator(FotfConstants.CHARS,1).generate(Locale.FRANCE))
+        <html>
+          <body>
+            <h4>
+              Livret - Guerrier
+            </h4>
+            <h5>
+              Nom & Héritage
+            </h5>
+            <p>
+              Alodia
+              <em>
+                &nbsp;&nbsp;Féminin
+              </em>
+              <br>
+              </br>
+              Humain
+              <em>
+                &nbsp;&nbsp;Mauvais
+              </em>
+            </p>
+            <h5>
+              Caractéristiques
+            </h5>
+            <p>
+              Force: 6&nbsp;&nbsp;Dextérité: 6
+              <br>
+              </br>
+              Charisme: 6&nbsp;&nbsp;Constitution: 6
+              <br>
+              </br>
+              Sagesse: 6&nbsp;&nbsp;Intelligence: 6
+              <br>
+              </br>
+              Chance: 6
+            </p>
+            <strong>
+              <small>
+                Vertus & Vices
+              </small>
+            </strong>
+            Accro, Alcoolique, Hostile
+            <br>
+            </br>
+            <strong>
+              <small>
+                Équipement
+              </small>
+            </strong>
+            Cotte de mailles, Bouclier
+          </body>
+        </html>
+""".trimIndent(), getGenerator(FotfConstants.CHARS,1).generate(Locale.FRANCE))
 
     }
 
     @Test
     fun char_english() {
         Assert.assertEquals("""
-<html>
-  <body>
-    <h4>
-      Playbook - Fighter
-    </h4>
-    <h5>
-      Name & Heritage
-    </h5>
-    <p>
-      Alodia
-      <em>
-        Female
-      </em>
-      <br>
-      </br>
-      Human Evil
-    </p>
-    <h5>
-      Abilities
-    </h5>
-    <p>
-      Strength: 6&nbsp;&nbsp;Dexterity: 6
-      <br>
-      </br>
-      Charisma: 6&nbsp;&nbsp;Constitution: 6
-      <br>
-      </br>
-      Wisdom: 6&nbsp;&nbsp;Intelligence: 6
-      <br>
-      </br>
-      Luck: 6
-    </p>
-    <h5>
-      Virtues & Vices
-    </h5>
-    <p>
-      Addict<br/>Alcoholic<br/>Antagonistic
-    </p>
-    <h5>
-      Gear
-    </h5>
-    <p>
-      Chainmail<br/>Shield
-    </p>
-  </body>
-</html>""".trim(), getGenerator(FotfConstants.CHARS,1).generate(Locale.ENGLISH))
+        <html>
+          <body>
+            <h4>
+              Playbook - Fighter
+            </h4>
+            <h5>
+              Name & Heritage
+            </h5>
+            <p>
+              Alodia
+              <em>
+                &nbsp;&nbsp;Female
+              </em>
+              <br>
+              </br>
+              Human
+              <em>
+                &nbsp;&nbsp;Evil
+              </em>
+            </p>
+            <h5>
+              Abilities
+            </h5>
+            <p>
+              Strength: 6&nbsp;&nbsp;Dexterity: 6
+              <br>
+              </br>
+              Charisma: 6&nbsp;&nbsp;Constitution: 6
+              <br>
+              </br>
+              Wisdom: 6&nbsp;&nbsp;Intelligence: 6
+              <br>
+              </br>
+              Luck: 6
+            </p>
+            <strong>
+              <small>
+                Virtues & Vices
+              </small>
+            </strong>
+            Addict, Alcoholic, Antagonistic
+            <br>
+            </br>
+            <strong>
+              <small>
+                Gear
+              </small>
+            </strong>
+            Chainmail, Shield
+          </body>
+        </html>
+""".trimIndent(), getGenerator(FotfConstants.CHARS,1).generate(Locale.ENGLISH))
 
     }
 
