@@ -21,7 +21,7 @@ config:
     good: Bon
   headers:
     virtues_vices: Vertus & Vices
-    playbook: Playbook
+    playbook: Livret
     name_heritage: Nom & Héritage
     appearance: Apparence
     gear: Équipement
