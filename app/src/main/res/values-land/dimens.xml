@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="buttonCols">15</integer>
-    <integer name="buttonSpanRegular">3</integer>
-    <integer name="buttonSpanShort">2</integer>
-
-    <integer name="resultCols">2</integer>
-</resources>

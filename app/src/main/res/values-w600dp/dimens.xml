@@ -20,12 +20,17 @@
 
 <resources>
 
+    <!-- For landscape on phones & small tablets in portrait
+    https://material.io/devices/
+
+    -->
+
     <integer name="buttonCols">15</integer>
     <integer name="buttonSpanRegular">3</integer>
     <integer name="buttonSpanShort">2</integer>
 
     <integer name="resultCols">2</integer>
 
-    <dimen name="navigation_menu_width">300dp</dimen>
+    <dimen name="navigation_menu_width">0dp</dimen>
 
 </resources>
