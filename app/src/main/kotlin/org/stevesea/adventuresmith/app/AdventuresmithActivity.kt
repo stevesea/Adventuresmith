@@ -51,8 +51,7 @@ data class CollectionAndGroup(val collectionId: String,
                               val groupId: String? = null)
 
 class AdventuresmithActivity : AppCompatActivity(),
-        AnkoLogger,
-        ItemAdapter.ItemFilterListener  {
+        AnkoLogger {
 
     private var currentDrawerItemId: Long? = null
     val drawerIdToGroup : MutableMap<Long, CollectionAndGroup> = mutableMapOf()
@@ -61,6 +60,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
+    var resultAdapter : FastItemAdapter<ResultItem>? = null
+    var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
 
 
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
@@ -133,8 +134,18 @@ class AdventuresmithActivity : AppCompatActivity(),
         return result
     }
 
-    val resultAdapter by lazy {
-        FastItemAdapter<ResultItem>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_adventuresmith)
+        info("onCreate")
+
+        setSupportActionBar(toolbar)
+
+        collapsing_toolbar.title = ""
+
+        resultAdapter = FastItemAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
                 .withSelectOnLongClick(true)
@@ -164,24 +175,30 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         return true
                     }
-                })
+                }) as FastItemAdapter<ResultItem>
 
-        as  FastItemAdapter<ResultItem>
-    }
+        resultAdapter!!.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+            override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
+                if (item == null || constraint == null)
+                    return false
 
-    val buttonAdapter by lazy {
-        FastItemAdapter<GeneratorButton>()
+                //return true if we should filter it out
+                //return false to keep it
+                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
+            }
+        })
+        buttonAdapter = FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
-                .withOnClickListener ( object : FastAdapter.OnClickListener<GeneratorButton> {
+                .withOnClickListener(object : FastAdapter.OnClickListener<GeneratorButton> {
                     override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
                             return false
-                        info("Pressed button: ${item.name} (${item.meta.collectionId} ${Objects.toString(item.meta.groupId,"")})")
+                        info("Pressed button: ${item.name} (${item.meta.collectionId} ${Objects.toString(item.meta.groupId, "")})")
 
                         val result = item.generator.generate(getCurrentLocale(resources))
 
-                        resultAdapter.add(0, ResultItem(result))
+                        resultAdapter!!.add(0, ResultItem(result))
 
                         recycler_results.scrollToPosition(0)
 
@@ -194,23 +211,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         return true
                     }
                 })
-        as FastItemAdapter<GeneratorButton>
-    }
-
-    override fun itemsFiltered() {
-        // no-op
-    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_adventuresmith)
-        info("onCreate")
-
-        setSupportActionBar(toolbar)
-
-        collapsing_toolbar.title = ""
+                as FastItemAdapter<GeneratorButton>
 
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
@@ -266,7 +267,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val buttonGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.buttonCols))
         buttonGridLayoutMgr.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val item = buttonAdapter.getAdapterItem(position)
+                val item = buttonAdapter!!.getAdapterItem(position)
                 if (item == null) {
                     return btnSpanRegular
                 }
@@ -288,19 +289,11 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_buttons.adapter = buttonAdapter
 
 
-        resultAdapter.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
-            override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
-                if (item == null || constraint == null)
-                    return false
 
-                //return true if we should filter it out
-                //return false to keep it
-                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
-            }
-        })
-        resultAdapter.itemAdapter.withItemFilterListener(this)
-
-        val resultsGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.resultCols))
+        //val resultsGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.resultCols))
+        val resultsGridLayoutMgr = StaggeredGridLayoutManager(
+                resources.getInteger(R.integer.resultCols),
+                StaggeredGridLayoutManager.VERTICAL)
 
         recycler_results.layoutManager = resultsGridLayoutMgr
         recycler_results.itemAnimator = DefaultItemAnimator()
@@ -320,13 +313,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         currentDrawerItemId = drawerItemId
 
-        buttonAdapter.clear()
+        buttonAdapter!!.clear()
         val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
         for (g in generators) {
-            buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+            buttonAdapter!!.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
         }
-        resultAdapter.clear()
-        recycler_results.scrollToPosition(0)
+        resultAdapter!!.clear()
+        resultAdapter!!.notifyAdapterDataSetChanged()
         appbar.setExpanded(true, true)
 
         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
@@ -338,7 +331,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     private val BUNDLE_RESULT_ITEMS = AdventuresmithActivity::class.java.name + ".resultItems"
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        resultAdapter.saveInstanceState(outState)
+        resultAdapter!!.saveInstanceState(outState)
 
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
@@ -346,7 +339,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         val results : ArrayList<ResultItem> = ArrayList()
-        results.addAll(resultAdapter.adapterItems)
+        results.addAll(resultAdapter!!.adapterItems)
         outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
 
         super.onSaveInstanceState(outState)
@@ -356,14 +349,14 @@ class AdventuresmithActivity : AppCompatActivity(),
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        // currentDrawerItem _may_ be null
+        // NOTE: currentDrawerItem _may_ have saved null
         selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
-        resultAdapter.clear()
-        resultAdapter.add(restoredResults)
+        resultAdapter!!.clear()
+        resultAdapter!!.add(restoredResults)
 
-        buttonAdapter.withSavedInstanceState(savedInstanceState)
-        resultAdapter.withSavedInstanceState(savedInstanceState)
+        buttonAdapter!!.withSavedInstanceState(savedInstanceState)
+        resultAdapter!!.withSavedInstanceState(savedInstanceState)
     }
 
     override fun onBackPressed() {
@@ -391,13 +384,13 @@ class AdventuresmithActivity : AppCompatActivity(),
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    resultAdapter.filter(newText)
+                    resultAdapter!!.filter(newText)
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    resultAdapter.filter(query)
+                    resultAdapter!!.filter(query)
                     appbar.setExpanded(false,false)
                     return true
                 }
@@ -415,7 +408,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         if (item != null && item.itemId == R.id.action_clear) {
             // clear results
-            resultAdapter.clear()
+            resultAdapter!!.clear()
+            resultAdapter!!.notifyAdapterDataSetChanged()
             // expand buttons
             appbar.setExpanded(true,true)
             return true

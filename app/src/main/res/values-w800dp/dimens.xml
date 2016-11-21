@@ -26,6 +26,6 @@
 
     <integer name="resultCols">2</integer>
 
-    <dimen name="navigation_menu_width">300dp</dimen>
+    <dimen name="navigation_menu_width">275dp</dimen>
 
 </resources>
