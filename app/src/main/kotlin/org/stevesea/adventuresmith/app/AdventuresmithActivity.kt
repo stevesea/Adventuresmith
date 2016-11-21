@@ -143,6 +143,9 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         setSupportActionBar(toolbar)
 
+        info("width: ${resources.configuration.screenWidthDp}")
+        info("height: ${resources.configuration.screenHeightDp}")
+
         collapsing_toolbar.title = ""
 
         resultAdapter = FastItemAdapter<ResultItem>()

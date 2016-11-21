@@ -24,7 +24,6 @@
     https://material.io/devices/
 
     -->
-
     <integer name="buttonCols">15</integer>
     <integer name="buttonSpanRegular">3</integer>
     <integer name="buttonSpanShort">2</integer>
