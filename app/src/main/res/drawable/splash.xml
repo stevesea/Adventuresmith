@@ -22,13 +22,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@color/md_white_1000"/>
-
-    <item android:gravity="center">
-        <shape>
-            <size android:height="735dp" android:width="735dp"/>
-            <solid android:color="@color/md_white_1000"/>
-        </shape>
-    </item>
     <item
         android:drawable="@drawable/ic_advsmth_splasha"
         android:top="200dp"
