@@ -25,7 +25,7 @@
 
     <item android:gravity="center">
         <shape>
-            <size android:height="735dp" android:width="735dp"/>
+            <size android:height="800dp" android:width="800dp"/>
             <solid android:color="@color/md_white_1000"/>
         </shape>
     </item>
