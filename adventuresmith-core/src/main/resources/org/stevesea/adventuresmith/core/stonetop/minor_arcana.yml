@@ -1,35 +1,23 @@
 ---
 templates:
-- |
-  <h4>Minor Arcana</h4>
-  {{nature}}
+- "{{nature}}"
 
 definitions:
   labels:
     origin: "Origin:"
     theme: "Theme:"
-    forge_lords: The Forge Lords
-    green_lords: The Green Lords
-    stone_lords: The Stone Lords
-    rime_lords: The Rime Lords
-    tempest_lords: The Tempest Lords
-    things_below: The Things Below
-    fae: The Fae
-    primordial_power: Primordial Power
-    wild: The Wild
-    sky: The Sky
-    black_gates: The Black Gates
-    civilization: Civilization
 
   nature_templates:
     # property for extraordinary is picked below
     extraordinary: |
+      <h4>Minor Arcana - Extraordinary</h4>
       It is extraordinary in some regard
       <br/>
       <br/><strong><small>Forms:</small></strong> {{>pick: 1d10 form}}; {{>pick: 1d12 form}}
       <br/>
       <br/>{{origin_and_theme}}
     rare: |
+      <h4>Minor Arcana </h4>
       It is rare, sought-after, prized
       <br/>
       <br/><strong><small>Forms:</small></strong> {{>pick: 1d8 form}}; {{>pick: 1d12 form}}
@@ -38,6 +26,7 @@ definitions:
       <br/>
       <br/>{{origin_and_theme}}
     interesting: |
+      <h4>Minor Arcana - </h4>
       It reveals something interesting and useful
       <br/>
       <br/><em>What does it reveal?</em> - {{lores.reveal}}
@@ -46,6 +35,7 @@ definitions:
       <br/>
       <br/>{{origin_and_theme}}
     spirit: |
+      <h4>Minor Arcana - </h4>
       It houses a sentience or spirit
       <br/>
       <br/>{{spirits.type}}
@@ -55,6 +45,7 @@ definitions:
       <br/>
       <br/>{{origin_and_theme}}
     magic: |
+      <h4>Minor Arcana - </h4>
       <strong><small>Magical effect</small></strong> {{magic}}
       <br/>
       <br/><strong><small>Forms:</small></strong> {{>pickN: 2 form ;&nbsp;}}
@@ -75,8 +66,8 @@ tables:
   - "7..8, {{nature_templates.spirit}}"
   - "9..10, {{nature_templates.magic}}"
   - "11..12, {{nature_reroll}}"
-  #if item/edifice pick a second property.
-  # note: if roll is extraordinary, it'll _always_ item/edifice since that rolls 1d10 form
+    #if item/edifice pick a second property.
+    # note: if roll is extraordinary, it'll _always_ item/edifice since that rolls 1d10 form
   nature_reroll:
   - "1..2, {{nature_templates.interesting}}"
   - "3..4, {{nature_templates.rare}}"
@@ -84,45 +75,45 @@ tables:
     5..6,
     {{nature_templates.extraordinary}}
     <br/>
-    <br/>{{>pickN: 2 property}}
+    <br/>{{>pickN: 2 property ;&nbsp;}}
   - "7..8, {{nature_templates.spirit}}"
   - "9..10, {{nature_templates.magic}}"
   origin_and_theme:
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.forge_lords}}
+    <strong><small>{{labels.origin}}</small></strong> The Forge Lords <small><em>- the Makers, workers of fire & metal</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.forge_lords}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.green_lords}}
+    <strong><small>{{labels.origin}}</small></strong> The Green Lords <small><em>- the Makers, growers, cultivators, & breeders</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.green_lords}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.stone_lords}}
+    <strong><small>{{labels.origin}}</small></strong> The Stone Lords <small><em>- the Makers, builders and diggers</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.stone_lords}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.rime_lords}}
+    <strong><small>{{labels.origin}}</small></strong> The Rime Lords <small><em>- the Makers, cold of heart and sharp of mind</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.rime_lords}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.tempest_lords}}
+    <strong><small>{{labels.origin}}</small></strong> The Tempest Lords <small><em>- the Makers, of storm and sky and sea</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.tempest_lords}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.things_below}}
+    <strong><small>{{labels.origin}}</small></strong> The Things Below
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.things_below}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.fae}}
+    <strong><small>{{labels.origin}}</small></strong> The Fae <small><em>- strange neighbors with their strange ways</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.fae}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.primordial_power}}
+    <strong><small>{{labels.origin}}</small></strong> Primordial Power <small><em>- remnants of the first age</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.primordial_power}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.wild}}
+    <strong><small>{{labels.origin}}</small></strong> The Wild <small><em>- the Earth Mother, Danu, her children and her dreams</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.wild}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.sky}}
+    <strong><small>{{labels.origin}}</small></strong> The Sky <small><em>- and the things that dwell there</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.sky}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.black_gates}}
+    <strong><small>{{labels.origin}}</small></strong> The Black Gates <small><em>- and that which lies beyond, or should</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.black_gates}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> {{labels.civilization}}
+    <strong><small>{{labels.origin}}</small></strong> Civilization <small><em>- the children of Aratis, dwellers of village, town and city</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.civilization}}
   form:
   - "1..4, {{forms.practical_item}}"
