@@ -32,8 +32,7 @@ class Exerciser {
     fun exerciser() {
         // output specific ones to console
         val enablePrinting = setOf(
-                "stonetop/minor_arcana",
-                "stonetop/mysterious_place"
+                "stonetop/minor_arcana"
         )
 
         for (g in AdventuresmithCore.generators) {
