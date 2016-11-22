@@ -288,11 +288,11 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             return StringReader("null")
                         val cmd_and_params = name.trim().split(" ", limit=2)
                         if (cmd_and_params[0] == "pickN:") {
-                            // {{>pickN: <dice/#> <key> <delim>}}
+                            // {{>pickN: <dice/#/variable> <key> <delim>}}
                             val params = cmd_and_params[1].split(" ", limit = 3)
 
                             if (!(2..3).contains(params.size)) {
-                                throw IllegalArgumentException("pickN syntax must be: <dice/#> <key> [<delim>]. input: ${cmd_and_params[1]}")
+                                throw IllegalArgumentException("pickN syntax must be: <dice/#/variable> <key> [<delim>]. input: ${cmd_and_params[1]}")
                             }
 
                             // could be entry in state or context, if neither of those try to roll it
