@@ -38,6 +38,11 @@ object AdventuresmithCore : KodeinAware {
     // the tag for the resource-generators held in core
     val RESOURCE_GENERATORS = "resource_generators"
 
+    val MazeRats = "maze_rats"
+    val FourthPage = "fourth_page"
+    val PerilousWilds = "perilous_wilds"
+    val Stonetop = "stonetop"
+
     override val kodein: Kodein by Kodein.lazy {
         import(adventureSmithModule)
     }

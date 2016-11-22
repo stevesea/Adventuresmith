@@ -44,6 +44,8 @@ import kotlinx.android.synthetic.main.activity_adventuresmith.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
+import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.util.*
 
 data class CollectionAndGroup(val collectionId: String,
@@ -433,11 +435,11 @@ class AdventuresmithActivity : AppCompatActivity(),
         fun getCollectionIcon(id: String, grpId : String? = null): IIcon {
 
             return when(id) {
-                "dice_roller" -> CommunityMaterial.Icon.cmd_dice_6
-                "maze_rats" -> CommunityMaterial.Icon.cmd_castle
-                "freebooters_on_the_frontier" -> Ionicons.Icon.ion_map
-                "fourth_page" -> CommunityMaterial.Icon.cmd_numeric_4_box_outline
-                "perilous_wilds" -> {
+                DiceConstants.CollectionName -> CommunityMaterial.Icon.cmd_dice_6
+                AdventuresmithCore.MazeRats -> CommunityMaterial.Icon.cmd_castle
+                FotfConstants.GROUP -> Ionicons.Icon.ion_map
+                AdventuresmithCore.FourthPage -> CommunityMaterial.Icon.cmd_numeric_4_box_outline
+                AdventuresmithCore.PerilousWilds -> {
                     when (grpId) {
                         "grp1" -> CommunityMaterial.Icon.cmd_image_filter_hdr // dangers & discov
                         "grp2" -> CommunityMaterial.Icon.cmd_book_open_page_variant // create & name
@@ -447,7 +449,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         else -> CommunityMaterial.Icon.cmd_folder_multiple_image
                     }
                 }
-                "stars_without_number" ->  {
+                SwnConstantsCustom.GROUP ->  {
                     when (grpId) {
                         "grp1" -> Ionicons.Icon.ion_planet // aliens, animals, worlds
                         "grp2" -> Ionicons.Icon.ion_person_stalker // npcs, corps, religions
@@ -455,6 +457,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         else -> CommunityMaterial.Icon.cmd_rocket
                     }
                 }
+                AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_pine_tree//CommunityMaterial.Icon.cmd_barley
                 else -> CommunityMaterial.Icon.cmd_help_circle
             }
         }
