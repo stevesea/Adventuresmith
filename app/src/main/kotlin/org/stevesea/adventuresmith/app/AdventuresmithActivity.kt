@@ -457,7 +457,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         else -> CommunityMaterial.Icon.cmd_rocket
                     }
                 }
-                AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_pine_tree//CommunityMaterial.Icon.cmd_barley
+                AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley//CommunityMaterial.Icon.cmd_pine_tree
                 else -> CommunityMaterial.Icon.cmd_help_circle
             }
         }
