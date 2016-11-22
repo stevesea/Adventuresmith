@@ -1,0 +1,69 @@
+---
+templates:
+- "{{mysterious_places}}"
+
+imports:
+- minor_arcana
+
+tables:
+  mysterious_places:
+  - |
+    <h5>Stonetop and the Flats - the town was built on ruins</h5>
+    {{stonetop_and_flats}}
+  - |
+    <h5>The Great Wood - vast and ancient and green</h5>
+    {{great_wood}}
+  - |
+    <h5>The Steplands - slope beyond slope, dark with sullen trees</h5>
+    {{steplands}}
+
+  stonetop_and_flats:
+  - 1, The Stone
+  - 2, The town’s cistern
+  - 3, The Old Wall
+  - 4, The Ruined Tower
+  - 5, The West Way
+  - 6, The Highway
+  - 7, Titan Bones
+  - |
+    8,
+    A new place
+    <br/>{{>pick: 1d4+8 form}}
+    <br/>{{origin_and_theme}}
+  - |
+    9..12,
+    Some other site established during play
+    <br/>
+    <br/><em>{{>pick: 1d8 stonetop_and_flats}}</em>
+  great_wood:
+  - 1, The Golden Oak
+  - 2, The Stream
+  - 3, The barren cave
+  - 4, The grove of blood-red trees
+  - 5, The cave bear’s den
+  - |
+    6..8,
+    A new place
+    <br/>{{>pick: 1d4+8 form}}
+    <br/>{{origin_and_theme}}
+  - |
+    9..12,
+    Some other site established during play
+    <br/>
+    <br/><em>{{>pick: 1d8 great_wood}}</em>
+  steplands:
+  - 1, The ancient barrow mounds
+  - 2, Blackwater Lake
+  - 3, Three-Coven Lake
+  - 4, Wyvern’s Rook
+  - 5, The cave bear’s den
+  - |
+    6..8,
+    A new place
+    <br/>{{>pick: 1d4+8 form}}
+    <br/>{{origin_and_theme}}
+  - |
+    9..12,
+    Some other site established during play
+    <br/>
+    <br/><em>{{>pick: 1d8 steplands}}</em>

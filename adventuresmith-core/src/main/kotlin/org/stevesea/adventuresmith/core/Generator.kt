@@ -232,6 +232,8 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
             }
         }
         // templates are only read from the first DTO
+        if (dtos[0].templates == null)
+            throw IOException("missing 'templates' table")
         result.put("template", shuffler.pick(dtos[0].templates))
 
         return result

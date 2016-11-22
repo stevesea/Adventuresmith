@@ -5,7 +5,9 @@ templates:
   {{nature}}
 
 definitions:
-  label:
+  labels:
+    origin: Origin
+    theme: Theme
     forge_lords: The Forge Lords
     green_lords: The Green Lords
     stone_lords: The Stone Lords
@@ -18,34 +20,120 @@ definitions:
     sky: The Sky
     black_gates: The Black Gates
     civilization: Civilization
+
+    form: Form
     practical_item: Practical Item
     art_or_luxury_item: Art or Luxury Item
     edifice: Edifice
     natural_feature: Natural Feature
 
+  nature_templates:
+    # property for extraordinary is picked below
+    extraordinary: |
+      It is extraordinary in some regard
+      <br/>{{origin_and_theme}}
+      <h5>{{labels.form}}</h5>
+      general: {{>pick: 1d10 form}}
+      specific: {{>pick: 1d12 form}}
+
+    rare: |
+      It is rare, sought-after, prized
+      <br/>{{origin_and_theme}}
+      <h5>{{labels.form}}</h5>
+      general: {{>pick: 1d8 form}}
+      specific: {{>pick: 1d12 form}}
+      <h5>Valuable</h5>
+      {{valuable}}
+    interesting: |
+      It reveals something interesting and useful
+      <br/>{{origin_and_theme}}
+      <h5>Lore</h5>
+      What does it reveal? {{lores.reveal}}
+      <br/>How is the information imparted? {{lores.imparted}}
+    spirit: |
+      It houses a sentience or spirit
+      <br/>{{origin_and_theme}}
+      <h5>{{labels.form}}</h5>
+      general: {{>pick: 1d12 form}}
+      specific: {{>pick: 1d12 form}}
+      <h5>Spirit</h5>
+      type: {{spirits.type}}
+      bound: {{spirits.bound}}
+    magic: |
+      It produces some magical effect
+      <br/>{{origin_and_theme}}
+      <h5>{{labels.form}}</h5>
+      general: {{>pick: 1d12 form}}
+      specific: {{>pick: 1d12 form}}
+      <h5>Magic</h5>
+      <br/>Magic: {{magic}}
+      <br/>Limit: {{limit}}
+      <br/>Usages: {{usage}}
+
+
 tables:
   nature:
+  - "1..2, {{nature_templates.interesting}}"
+  - "3..4, {{nature_templates.rare}}"
   - |
-    1..3,
-    It is extraordinary in some regard
-    <h5>Origin & Theme</h5>
-    {{origin_and_theme}}
-    <h5>Form</h5>
-    {{>pick: 1d10 form}}
+    5..6,
+    {{nature_templates.extraordinary}}
+    {{property}}
+  - "7..8, {{nature_templates.spirit}}"
+  - "9..10, {{nature_templates.magic}}"
+  - "11..12, {{nature_reroll}}"
+
+  #if item/edifice pick a second property.
+  # note: if roll is extraordinary, it'll _always_ item or edifice since that rolls 1d10 form
+  nature_reroll:
+  - "1..2, {{nature_templates.interesting}}"
+  - "3..4, {{nature_templates.rare}}"
+  - |
+    5..6,
+    {{nature_templates.extraordinary}}
+    {{>pickN: 2 property}}
+  - "7..8, {{nature_templates.spirit}}"
+  - "9..10, {{nature_templates.magic}}"
+
+
 
   origin_and_theme:
-  - "{{origin_and_themes.forge_lords}}"
-  - "{{origin_and_themes.green_lords}}"
-  - "{{origin_and_themes.stone_lords}}"
-  - "{{origin_and_themes.rime_lords}}"
-  - "{{origin_and_themes.tempest_lords}}"
-  - "{{origin_and_themes.things_below}}"
-  - "{{origin_and_themes.fae}}"
-  - "{{origin_and_themes.primordial_power}}"
-  - "{{origin_and_themes.wild}}"
-  - "{{origin_and_themes.sky}}"
-  - "{{origin_and_themes.black_gates}}"
-  - "{{origin_and_themes.civilization}}"
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.forge_lords}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.forge_lords}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.green_lords}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.green_lords}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.stone_lords}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.stone_lords}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.rime_lords}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.rime_lords}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.tempest_lords}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.tempest_lords}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.things_below}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.things_below}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.fae}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.fae}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.primordial_power}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.primordial_power}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.wild}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.wild}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.sky}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.sky}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.black_gates}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.black_gates}}
+  - |
+    <strong>{{labels.origin}}</strong> {{labels.civilization}}
+    <br/><strong>{{labels.theme}}</strong> {{origin_and_themes.civilization}}
   form:
   - "1..4, {{forms.practical_item}}"
   - "5..8, {{forms.art_or_luxury_item}}"
@@ -53,31 +141,32 @@ tables:
   - "11..12, {{forms.natural_feature}}"
 
   property:
+  # TODO: if origin civilization, roll d8+4 property otherwise d12
   - "1, Moves and acts of its own accord"
-  - "2, Absorbs ____ and stores its power (fire, lightning, hatred, stillness, etc.)"
+  - "2, Absorbs (fire, lightning, hatred, stillness, etc.) and stores its power"
   - "3, Seamlessly blends two or more materials, in a way that should not be possible"
-  - "4, Is ____, though it shouldn’t be (flammable, luminous, silent, weightless, etc.)"
-  - "5, Is much, much ____ than it should be (heavier, harder, faster, etc.)"
-  - "6, Is impossibly ____ (sharp, beautiful, lifelike, fine, etc.)"
-  - "7, Cannot be ____ (broken, burned, melted, affected by magic, etc.)"
-  - "8, Absorbs ____ and stores its power (fire, lightning, hatred, stillness, etc.)"
-  - "9, Is impervious to/cuts clean through/can harm ____ (fire, steel, ghosts, etc.)"
-  - "10, Cannot be perceived by ____ (demons, fae, spirits, the dead, etc.)"
-  - "11, Glows/thrums/vibrates in the presence of ____ (gold, magic, lies, poison, etc.)"
-  - "12, Roll twice, but threat one of the results as a drawback or flaw"
+  - "4, Is (flammable, luminous, silent, weightless, etc.), though it shouldn’t be"
+  - "5, Is much, much (heavier, harder, faster, etc.) than it should be"
+  - "6, Is impossibly (sharp, beautiful, lifelike, fine, etc.)"
+  - "7, Cannot be (broken, burned, melted, affected by magic, etc.)"
+  - "8, Fills those who look upon it with (greed, rage, peace, joy, etc.)"
+  - "9, Is impervious to/cuts clean through/can harm (fire, steel, ghosts, etc.)"
+  - "10, Cannot be perceived by (demons, fae, spirits, the dead, etc.)"
+  - "11, Glows/thrums/vibrates in the presence of (gold, magic, lies, poison, etc.)"
+  - "12, {{>pickN: 2 property ;}} [select one as a drawback/flaw]"
   valuable:
   - "1, Precious metals"
   - "2, Fine stones/gems/crystals"
   - "3, Historical or religious importance"
   - "4, Haunting beauty"
-  - "5, One of only d12, if you trust the tales"
+  - "5, One of only d12 <small>({{>roll: 1d12}})</small>, if you trust the tales"
   - "6, Transcendent, a symbol of something greater, something more"
   - "7, Crafted with sublime skill"
   - "8, Great luxury or convenience"
   - "9, Beyond meager mortal arts"
-  - "10, Status among people"
+  - "10, Status among people <small>({{people}})</small>"
   - "11, Rarely found in nature"
-  - "12, Roll twice and combine"
+  - "12, {{>pickN: 2 valuable}}"
   people:
   - "1, Stonetop and its people’s ancestors"
   - "2, The folk of Marshedge"
@@ -103,7 +192,7 @@ tables:
   - "9, Hide/disguise/confuse"
   - "10, Manipulate/control/compel"
   - "11, Transform/combine/reshape"
-  - "12, Roll twice and combine"
+  - "12, {{>pickN: 2 magic}}"
   limit:
   - "1, Corrupting (leaves a lasting thematic mark on the caster or the target)"
   - "2, Dangerous (is likely to have destructive, unwanted side effects)"
@@ -116,7 +205,7 @@ tables:
   - "9, Restricted (only works under specific, thematic conditions)"
   - "10, Costly (requires sacrifice/uses up a limited resource)"
   - "11, Slow (it takes a long time to cast/manifest)"
-  - "12, Roll twice"
+  - "12, {{>pickN: 2 limit}}"
   usage:
   - "1..2, Single use, then it’s consumed/ruined/powerless"
   - "3..4, 2d6 more uses, then it’s consumed/ruined/powerless"
@@ -169,6 +258,8 @@ nested_tables:
     - "8, Confusion/chaos/disarray"
     - "9..12, Sized for giants, {{>pick: 1d8 origin_and_themes.tempest_lords}}"
     things_below:
+    - "{{>pickN: 2 origin_and_themes.things_below_sub}}"
+    things_below_sub:
     - "1, Darkness/shadow/deception/obsidian"
     - "2, Decay/weakness/corrosion/rust"
     - "3, Jealousy/gluttony/greed/flesh"
@@ -193,7 +284,7 @@ nested_tables:
     - "9, Yearning/passion/desire"
     - "10, Dancing/revelry/sex"
     - "11, Wondrous food & drink"
-    - "12, {{>pickN: 2 origin_and_themes.fae}}"
+    - "12, Tiny in size"
     primordial_power:
     - "1, Truth/purity/quintessence"
     - "2, Creation/shaping/invention"
@@ -305,10 +396,14 @@ nested_tables:
 
   lores:
     reveal:
-    - "1..3, The workings of a ritual or spell (magic, limit)"
+    - |
+      1..3,
+      The workings of a ritual or spell
+      <br/>Magic: {{magic}}
+      <br/>Limit: {{limit}}
     - "4, An artifice or technique lost to antiquity"
     - "5, The workings or secrets of a mysterious object"
-    - "6, The history of a people"
+    - "6, The history of a people <small>({{people}})</small>"
     - "7, The weakness/motive/origins/lair of an established threat"
     - "8, The hazards/secrets/history/location of a mysterious place"
     - "9, The true nature of an origin (the one you first rolled, or another)"
@@ -318,12 +413,27 @@ nested_tables:
     imparted:
     - "1..2, In a tome/scroll/folio, in a cypher or a long-dead language"
     - "3, In a tome/scroll/folio, clear to those who can read the language"
-    - "4..5, As an obscure song/story/poem"
-    - "6..7, Through ancient runes etched into place (form d4+8)"
-    - "8..9, Via carvings/paintings/decorations/diagrams (form)"
-    - "10, Implied by its very nature or existence, or where it is found (form d10)"
-    - "11, By a spirit tied to a place (form d4+8)"
-    - "12, Through a vision or omen, imparted to whoever touches/enters/approaches (form)"
+    - |
+      4..5,
+      Through ancient runes etched into place
+      <br/>Form: {{>pick: 1d4+8 form}}
+    - |
+      6..7,
+      Through carvings/paintings/decorations/diagrams
+      <br/>Form: {{form}}
+    - |
+      8,
+      By a spirit tied to a place
+      <br/>Form: {{>pick: 1d4+8 form}}
+    - |
+      9,
+      Via a vision or omen, imparted to whoever touches/enters/approaches
+      <br/>Form: {{form}}
+    - "10..11, As an obscure song/story/poem, told by the people <small>({{people}})</small>"
+    - |
+      12,
+      Implied by its very nature or existence, or where it is found
+      <br/>Form: {{>pick: 1d10 form}}
   spirits:
     type:
     - "1..2, Elemental, as per theme (instinct: to wantonly express its nature"

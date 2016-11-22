@@ -21,7 +21,6 @@
 package org.stevesea.adventuresmith.core
 
 import org.junit.*
-import org.stevesea.adventuresmith.core.perilous_wilds.*
 import java.util.*
 
 
@@ -32,7 +31,10 @@ class Exerciser {
     @Test
     fun exerciser() {
         // output specific ones to console
-        val enablePrinting = setOf(PwConstants.DISCOVERY)
+        val enablePrinting = setOf(
+                "stonetop/minor_arcana",
+                "stonetop/mysterious_place"
+        )
 
         for (g in AdventuresmithCore.generators) {
             val generator_instance = g.value
