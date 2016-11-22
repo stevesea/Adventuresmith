@@ -20,9 +20,9 @@ config:
     lawful: Lawful
     good: Good
   headers:
-    virtues_vices: Virtues & Vices
+    virtues_vices: Virtues &amp; Vices
     playbook: Playbook
-    name_heritage: Name & Heritage
+    name_heritage: Name &amp; Heritage
     appearance: Appearance
     gear: Gear
     abilities: Abilities
@@ -72,7 +72,7 @@ gear:
     -
       - 1, Healing potion
       - 2, Shield
-      - 3, Poultices & herbs
+      - 3, Poultices &amp; herbs
       - 4, Antitoxin
       - 5, Rations
       - 6, Adventuring gear

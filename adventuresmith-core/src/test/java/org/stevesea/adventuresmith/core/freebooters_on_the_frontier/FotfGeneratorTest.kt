@@ -54,7 +54,7 @@ class FotfGeneratorTest {
               Livret - Guerrier
             </h4>
             <h5>
-              Nom & Héritage
+              Nom &amp; Héritage
             </h5>
             <p>
               Alodia
@@ -85,7 +85,7 @@ class FotfGeneratorTest {
             </p>
             <strong>
               <small>
-                Vertus & Vices
+                Vertus &amp; Vices
               </small>
             </strong>
             Accro, Alcoolique, Hostile
@@ -112,7 +112,7 @@ class FotfGeneratorTest {
               Playbook - Fighter
             </h4>
             <h5>
-              Name & Heritage
+              Name &amp; Heritage
             </h5>
             <p>
               Alodia
@@ -143,7 +143,7 @@ class FotfGeneratorTest {
             </p>
             <strong>
               <small>
-                Virtues & Vices
+                Virtues &amp; Vices
               </small>
             </strong>
             Addict, Alcoholic, Antagonistic
