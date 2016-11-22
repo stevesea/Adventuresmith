@@ -23,6 +23,8 @@ package org.stevesea.adventuresmith.app
 import android.content.pm.*
 import android.os.*
 import android.support.v7.app.*
+import android.support.v7.widget.*
+import com.mikepenz.fastadapter.adapters.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_about.*
 import org.stevesea.adventuresmith.R
@@ -53,8 +55,22 @@ class AboutActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
-        about_txt_version.text = htmlStrToSpanned(String.format(getString(R.string.about_version), versionName, versionCode))
+        val itemAdapter : FastItemAdapter<ResultItem> = FastItemAdapter<ResultItem>()
+                .withSelectable(false)
+                .withMultiSelect(false)
+                .withPositionBasedStateManagement(false)
+                as FastItemAdapter<ResultItem>
 
-        about_txt_app.text = htmlStrToSpanned(getString(R.string.about_app))
+        val resultsGridLayoutMgr = StaggeredGridLayoutManager(
+                resources.getInteger(R.integer.resultCols),
+                StaggeredGridLayoutManager.VERTICAL)
+
+        recycler_about.layoutManager = resultsGridLayoutMgr
+        recycler_about.itemAnimator = DefaultItemAnimator()
+        recycler_about.adapter = itemAdapter
+
+        itemAdapter.add(ResultItem(String.format(getString(R.string.about_version), versionName, versionCode)))
+        itemAdapter.add(ResultItem(getString(R.string.about_app)))
+        itemAdapter.add(ResultItem(getString(R.string.about_thirdparty)))
     }
 }

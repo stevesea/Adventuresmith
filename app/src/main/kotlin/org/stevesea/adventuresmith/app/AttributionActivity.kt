@@ -22,6 +22,8 @@ package org.stevesea.adventuresmith.app
 
 import android.os.*
 import android.support.v7.app.*
+import android.support.v7.widget.*
+import com.mikepenz.fastadapter.adapters.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_attribution.*
 import org.stevesea.adventuresmith.R
@@ -30,33 +32,29 @@ import java.util.*
 
 class AttributionActivity : AppCompatActivity() {
 
-    fun getAttributions(locale: Locale) : String {
+    fun getAttributions(adapter: FastItemAdapter<ResultItem>, locale: Locale) {
         val colls = AdventuresmithCore.getCollections(locale)
 
-        return html {
-            body {
-                h1 { + getString(R.string.attribution_header) }
-                p {
-                    + getString(R.string.attribution_desc)
-                }
-                for (coll in colls) {
-                    if (coll.credit == null)
-                        continue
-
-                    h4 { + "${coll.credit.orEmpty()} - ${coll.name}" }
+        for (coll in colls) {
+            if (coll.credit == null)
+                continue
+            val str = html {
+                body {
+                    h1 { + "${getString(R.string.attribution_content)} - ${coll.name}"}
+                    h4 { + coll.credit.orEmpty() }
                     if (coll.desc != null) {
-                        p { + coll.desc!! }
+                        p { +coll.desc!! }
                     }
                     if (coll.attribution != null) {
-                        p { + coll.attribution!! }
+                        p { +coll.attribution!! }
                     }
-                    if (coll.url != null)  {
-                        p { + coll.url!! }
+                    if (coll.url != null) {
+                        p { +coll.url!! }
                     }
                 }
-            }
-
-        }.toString()
+            }.toString()
+            adapter.add(ResultItem(str))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,9 +73,26 @@ class AttributionActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
-        // TODO: read these from YaML
-        attribution_txt_content.text = htmlStrToSpanned(getAttributions(AdventuresmithActivity.getCurrentLocale(resources)))
-        attribution_txt_artwork.text = htmlStrToSpanned(getString(R.string.content_artwork))
-        attribution_txt_thanks.text = htmlStrToSpanned(getString(R.string.content_thanks))
+        val itemAdapter : FastItemAdapter<ResultItem> = FastItemAdapter<ResultItem>()
+                .withSelectable(false)
+                .withMultiSelect(false)
+                .withPositionBasedStateManagement(false)
+                as FastItemAdapter<ResultItem>
+
+
+        val resultsGridLayoutMgr = StaggeredGridLayoutManager(
+                resources.getInteger(R.integer.resultCols),
+                StaggeredGridLayoutManager.VERTICAL)
+
+        recycler_attribution.layoutManager = resultsGridLayoutMgr
+        recycler_attribution.itemAnimator = DefaultItemAnimator()
+        recycler_attribution.adapter = itemAdapter
+
+        itemAdapter.add(ResultItem(getString(R.string.artwork_advsmith)))
+        itemAdapter.add(ResultItem(getString(R.string.content_thanks)))
+        getAttributions(itemAdapter, AdventuresmithActivity.getCurrentLocale(resources))
+        itemAdapter.add(ResultItem(getString(R.string.artwork_icons)))
+        itemAdapter.add(ResultItem(getString(R.string.artwork_public_domain)))
+
     }
 }

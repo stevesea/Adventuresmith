@@ -18,10 +18,12 @@
   ~ along with Adventuresmith.  If not, see <http://www.gnu.org/licenses/>.
   ~
   -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/activity_about"
+              android:orientation="vertical"
+              android:background="?attr/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="org.stevesea.adventuresmith.app.AboutActivity">
@@ -30,67 +32,22 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
         android:title="@string/app_name"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
 
     <ScrollView
-        android:layout_below="@id/toolbar"
+        android:background="?attr/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/recycler_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/resultCardBg"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp"
-                app:cardPreventCornerOverlap="false"
-                app:cardUseCompatPadding="true"
-                >
-                <TextView
-                    android:id="@+id/about_txt_app"
-                    android:text="About App!"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:textSize="@dimen/resultListFontSize"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="web"/>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/resultCardBg"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="6dp"
-                app:cardPreventCornerOverlap="false"
-                app:cardUseCompatPadding="true"
-                >
-                <TextView
-                    android:id="@+id/about_txt_version"
-                    android:text="Version!"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:textSize="@dimen/resultListFontSize"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
+            />
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

@@ -19,30 +19,35 @@
   -->
 
 <resources>
-    <string name="attribution_header">Attribution - Content</string>
-    <string name="attribution_desc">This application uses content from the following sources.</string>
+    <string name="attribution_content">Content</string>
 
-    <string name="content_artwork"><![CDATA[
-        <h1>Attribution - Artwork</h1>
-
-        <h5>Adventuresmith Art</h5>
+    <string name="artwork_advsmith"><![CDATA[
+        <h1>Artwork - Adventuresmith</h1>
         <p>Application launch icon, splash screen logo, and nav-drawer-header logo were created by Brian Todd Christensen.
         <br/>
         <br/>Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License, available at http://creativecommons.org/licenses/by-sa/4.0
         <br/>
         <br/>Based on work at https://stevesea.github.io/Adventuresmith/
         <br/>Permissions beyond the scope of this license may be available at http://briantchristensen.com/Adventuresmith</p>
-        <h5>Icons</h5>
+        ]]>
+    </string>
+    <string name="artwork_icons"><![CDATA[
+        <h1>Artwork - Icons</h1>
         <p>This application uses icons from https://materialdesignicons.com/</p>
         <p>This application uses icons from http://ionicons.com/</p>
-        <h5>Public Domain</h5>
+        ]]>
+    </string>
+    <string name="artwork_public_domain"><![CDATA[
+        <h1>Artwork - Public Domain</h1>
         <p>TBD need to give attribution for public domain images from illuminated manuscripts</p>
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[
-        <h1>Thanks</h1>
-        People who helped during development: testing, ideas, encouragement, etc
-        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, …</p>
+        <h1>Thanks!</h1>
+        Many people who helped during development: testing, ideas, encouragement, etc. An incomplete list includes
+        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, Jason Lutes, Eric Nieudan, Matthieu B, Luka Rejec, Joe Banner, Jeremy Strandberg, Aaron Griffin, and others!</p>
+
+        <br/>
         <p>James D`Amato, Kat Kuhl, and others at http://oneshotpodcast.com/ — thank you for re-invigorating my love of RPGs! </p>
     ]]></string>
     <string name="welcome_msg"><![CDATA[
@@ -56,16 +61,22 @@
     <strong>Version:</strong> %1$s (%2$d)
     ]]></string>
     <string name="about_app"><![CDATA[
-    <h3>Adventuresmith</h3>
+    <h1>Adventuresmith</h1>
     <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
     <p>If you find bugs, have suggestions, or want to help develop it, go to https://github.com/stevesea/Adventuresmith</p>
-    <h3>Thirdparty software libraries</h3>
+    </ul>
+    ]]></string>
+    <string name="about_thirdparty"><![CDATA[
+    <h1>Thirdparty software libraries</h1>
     <p>Adventuresmith makes use of the following software libraries</p>
-<p>MaterialDrawer https://github.com/mikepenz/MaterialDrawer</p>
-<p>FastAdapter https://github.com/mikepenz/fastadapter</p>
-<p>Android-Iconics https://github.com/mikepenz/Android-Iconics</p>
-<p>Crashlytics/Answers - https://fabric.io</p>
-<p>LeakCanary https://github.com/square/leakcanary</p>
+    <p>Jackson https://github.com/FasterXML/jackson</p>
+    <p>JMustache https://github.com/samskivert/jmustache</p>
+    <p>CakeParse https://github.com/sargunster/cakeparse</p>
+    <p>MaterialDrawer https://github.com/mikepenz/MaterialDrawer</p>
+    <p>FastAdapter https://github.com/mikepenz/fastadapter</p>
+    <p>Android-Iconics https://github.com/mikepenz/Android-Iconics</p>
+    <p>Crashlytics/Answers - https://fabric.io</p>
+    <p>LeakCanary https://github.com/square/leakcanary</p>
     </ul>
     ]]></string>
 
