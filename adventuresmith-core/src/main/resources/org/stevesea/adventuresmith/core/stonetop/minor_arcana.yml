@@ -6,51 +6,48 @@ definitions:
   labels:
     origin: "Origin:"
     theme: "Theme:"
+    forms: "Forms:"
 
   nature_templates:
     # property for extraordinary is picked below
     extraordinary: |
       <h4>Minor Arcana - Extraordinary</h4>
-      It is extraordinary in some regard
+      {{origin_and_theme}}
       <br/>
-      <br/><strong><small>Forms:</small></strong> {{>pick: 1d10 form}}; {{>pick: 1d12 form}}
+      <br/>{{>pick: 1d10 form}}
+      <br/>{{>pick: 1d12 form}}
       <br/>
-      <br/>{{origin_and_theme}}
+      <br/>%[[>pickN: prop_count property <br/>]]%
     rare: |
-      <h4>Minor Arcana </h4>
-      It is rare, sought-after, prized
+      <h4>Minor Arcana - Rare, sought-after, prized</h4>
+      {{origin_and_theme}}
       <br/>
-      <br/><strong><small>Forms:</small></strong> {{>pick: 1d8 form}}; {{>pick: 1d12 form}}
-      <br/>
-      <br/><strong><small>Valuable:</small></strong> {{valuable}}
-      <br/>
-      <br/>{{origin_and_theme}}
+      <br/>{{>pick: 1d8 form}}
+      <br/>{{>pick: 1d12 form}}
+      <h5><em>Why is it valuable?</em></h5>
+      {{valuable}}
     interesting: |
-      <h4>Minor Arcana - </h4>
-      It reveals something interesting and useful
-      <br/>
-      <br/><em>What does it reveal?</em> - {{lores.reveal}}
-      <br/>
-      <br/><em>How is the information imparted?</em> - {{lores.imparted}}
-      <br/>
-      <br/>{{origin_and_theme}}
+      <h4>Minor Arcana - Reveals something interesting/useful</h4>
+      {{origin_and_theme}}
+      <h5><em>What does it reveal?</em></h5>
+      {{lores.reveal}}
+      <h5><em>How is the information imparted?</em></h5>
+      {{lores.imparted}}
     spirit: |
-      <h4>Minor Arcana - </h4>
-      It houses a sentience or spirit
+      <h4>Minor Arcana - Houses a spirit or sentience</h4>
+      {{origin_and_theme}}
+      <br/>
+      <br/>{{>pickN: 2 form <br/>}}
       <br/>
       <br/>{{spirits.type}}
       <br/>{{spirits.bound}}
-      <br/>
-      <br/><strong><small>Forms:</small></strong> {{>pickN: 2 form ;&nbsp;}}
-      <br/>
-      <br/>{{origin_and_theme}}
     magic: |
-      <h4>Minor Arcana - </h4>
-      <strong><small>Magical effect</small></strong> {{magic}}
+      <h4>Minor Arcana - Magical Effect</h4>
+      {{origin_and_theme}}
       <br/>
-      <br/><strong><small>Forms:</small></strong> {{>pickN: 2 form ;&nbsp;}}
+      <br/>{{>pickN: 2 form <br/>}}
       <br/>
-      <br/>{{origin_and_theme}}
+      <br/><strong><small>Magical effect:</small></strong> {{magic}}
       <br/>
       <br/><strong><small>Limit:</small></strong> {{limit}}
       <br/><strong><small>Usages:</small></strong> {{usage}}
@@ -58,32 +55,18 @@ tables:
   nature:
   - "1..2, {{nature_templates.interesting}}"
   - "3..4, {{nature_templates.rare}}"
-  - |
-    5..6,
-    {{nature_templates.extraordinary}}
-    <br/>
-    <br/>{{property}}
+  - "5..6, {{>add: prop_count 1}}{{nature_templates.extraordinary}}"
   - "7..8, {{nature_templates.spirit}}"
   - "9..10, {{nature_templates.magic}}"
-  - "11..12, {{nature_reroll}}"
+  - "11..12, {{>add: prop_count 1}}{{nature_templates.extraordinary}}"
     #if item/edifice pick a second property.
     # note: if roll is extraordinary, it'll _always_ item/edifice since that rolls 1d10 form
-  nature_reroll:
-  - "1..2, {{nature_templates.interesting}}"
-  - "3..4, {{nature_templates.rare}}"
-  - |
-    5..6,
-    {{nature_templates.extraordinary}}
-    <br/>
-    <br/>{{>pickN: 2 property ;&nbsp;}}
-  - "7..8, {{nature_templates.spirit}}"
-  - "9..10, {{nature_templates.magic}}"
   origin_and_theme:
   - |
-    <strong><small>{{labels.origin}}</small></strong> The Forge Lords <small><em>- the Makers, workers of fire & metal</em></small>
+    <strong><small>{{labels.origin}}</small></strong> The Forge Lords <small><em>- the Makers, workers of fire &amp; metal</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.forge_lords}}
   - |
-    <strong><small>{{labels.origin}}</small></strong> The Green Lords <small><em>- the Makers, growers, cultivators, & breeders</em></small>
+    <strong><small>{{labels.origin}}</small></strong> The Green Lords <small><em>- the Makers, growers, cultivators, &amp; breeders</em></small>
     <br/><strong><small>{{labels.theme}}</small></strong> {{origin_and_themes.green_lords}}
   - |
     <strong><small>{{labels.origin}}</small></strong> The Stone Lords <small><em>- the Makers, builders and diggers</em></small>
@@ -133,7 +116,7 @@ tables:
   - "9, Is impervious to/cuts clean through/can harm (fire, steel, ghosts, etc.)"
   - "10, Cannot be perceived by (demons, fae, spirits, the dead, etc.)"
   - "11, Glows/thrums/vibrates in the presence of (gold, magic, lies, poison, etc.)"
-  - "12, {{>pickN: 2 property ;&nbsp;}} [select one as a drawback/flaw]"
+  - "12, <em>select one as a drawback/flaw:</em>{{>pickN: 2 property <br/>}}"
   valuable:
   - "1, Precious metals"
   - "2, Fine stones/gems/crystals"
@@ -146,7 +129,7 @@ tables:
   - "9, Beyond meager mortal arts"
   - "10, Status among people <small>({{people}})</small>"
   - "11, Rarely found in nature"
-  - "12, {{>pickN: 2 valuable ;&nbsp;}}"
+  - "12, {{>pickN: 2 valuable <br/>}}"
   people:
   - "1, Stonetop and its people’s ancestors"
   - "2, The folk of Marshedge"
@@ -172,7 +155,7 @@ tables:
   - "9, Hide/disguise/confuse"
   - "10, Manipulate/control/compel"
   - "11, Transform/combine/reshape"
-  - "12, {{>pickN: 2 magic}}"
+  - "12, {{>pickN: 2 magic <br/>}}"
   limit:
   - "1, Corrupting (leaves a lasting thematic mark on the caster or the target)"
   - "2, Dangerous (is likely to have destructive, unwanted side effects)"
@@ -185,7 +168,7 @@ tables:
   - "9, Restricted (only works under specific, thematic conditions)"
   - "10, Costly (requires sacrifice/uses up a limited resource)"
   - "11, Slow (it takes a long time to cast/manifest)"
-  - "12, {{>pickN: 2 limit}}"
+  - "12, {{>pickN: 2 limit <br/>}}"
   usage:
   - "1..2, Single use, then it’s consumed/ruined/powerless"
   - "3..4, {{>roll: 2d6}} <small>(2d6)</small> more uses, then it’s consumed/ruined/powerless"
@@ -259,11 +242,11 @@ nested_tables:
     - "4, Illusion/glamor/pretense"
     - "5, Singing/poetry/art"
     - "6, Debts/vows/obligations"
-    - "7, Strange & fickle customs & etiquette"
+    - "7, Strange &amp; fickle customs &amp; etiquette"
     - "8, Callousness/cruelty/indifference"
     - "9, Yearning/passion/desire"
     - "10, Dancing/revelry/sex"
-    - "11, Wondrous food & drink"
+    - "11, Wondrous food &amp; drink"
     - "12, Tiny in size"
     primordial_power:
     - "1, Truth/purity/quintessence"
@@ -372,7 +355,7 @@ nested_tables:
     - "9, Hill/cliff/mesa"
     - "10, Bog/marsh/fen"
     - "11, Sinkhole/crater/pit"
-    - "12, {{>pickN: 2 forms.natural_feature}}"
+    - "12, {{>pickN: 2 forms.natural_feature <br/>}}"
 
   lores:
     reveal:
@@ -403,7 +386,7 @@ nested_tables:
     - "12, Implied by its very nature or existence, or where it is found <small>({{>pick: 1d10 form}})</small>"
   spirits:
     type:
-    - "1..2, Elemental, as per theme (instinct: to wantonly express its nature"
+    - "1..2, Elemental, as per theme (instinct: to wantonly express its nature)"
     - "3, Demon (instinct: to corrupt, destroy, befoul, ruin)"
     - "4, Castaway or refugee (instinct: to improve or sustain its meager existence)"
     - "5, Fledgling (instinct: to find its place or purpose)"
