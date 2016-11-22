@@ -222,7 +222,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withActivity(this)
                 .withSavedInstance(savedInstanceState)
                 .withHeaderBackground(R.drawable.header_graphic)
-                .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
+                .withHeaderBackgroundScaleType(ImageView.ScaleType.FIT_XY)
                 .build()
 
         val drawerBuilder = DrawerBuilder()
