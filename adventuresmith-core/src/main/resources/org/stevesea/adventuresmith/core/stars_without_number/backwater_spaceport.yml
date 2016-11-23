@@ -1,0 +1,88 @@
+---
+templates:
+  - |
+    <h4>Backwater Spaceport</h4>
+    <strong><small>What’s So Backwater About It?</small></strong> {{whats_so_backwater}}
+    <br/>
+    <br/><strong><small>How are ships and cargo secured?</small></strong> {{security}}
+    <br/>
+    <br/><strong><small>What’s The Nearest Popular Entertainment?</small></strong> {{entertainment}}
+    <br/>
+    <br/><strong><small>What’s Wrong With The Starport Staff?</small></strong> {{staff_quirks}}
+    <br/>
+    <br/><strong><small>Who Needs To Talk To Outsiders Right Now?</small></strong> {{who_needs_help}}
+    <br/>
+    <br/><strong><small>What’s The Problem Here?</small></strong> {{problem}}
+
+tables:
+
+  whats_so_backwater:
+  - 1, The PCs are the only ship in port for some time.
+  - 2, The port gear is dangerously outdated and worn.
+  - 3, The locals really dislike or mistrust offworlders.
+  - 4, They’re missing some important facility or service.
+
+  security:
+  - 1, Absolutely no security on an open field.
+  - 2, Native longshoremen extort cash for “security”.
+  - 3, The local ruler “secures” cargo in his storehouses.
+  - 4, Ships are kept in caves until fees and taxes are paid.
+  - 5, The warehouses and hangars are weather-unsafe.
+  - 6, The local military keeps very careful watch on both.
+  entertainment:
+  - 1, A spectacularly filthy dive bar full of criminals.
+  - 2, Native animal races, sometimes with escapees.
+  - 3, Public executions of criminals and political losers.
+  - 4, Animal baiting of a very dangerous native lifeform.
+  - 5, Brothel offering a morally repugnant sort of service.
+  - 6, Club for native elite and rich offworld visitors.
+  - 7, Arena for pit fights between enthusiastic natives.
+  - 8, Sporting field for physically hazardous native game.
+  - 9, Beautiful nature site full of prostitutes and con men.
+  - 10, Pleasant public park with vendors and strollers.
+  - 11, Restaurant that serves something deeply unnerving.
+  - 12, Public temple or shrine with some remarkable relic.
+
+  staff_quirks:
+  - 1, The portmaster is a corrupt and greedy political hire.
+  - 2, Maintenance staff are totally incompetent.
+  - 3, They expect outsiders to follow odd cultural taboos.
+  - 4, They are utterly torpid unless bribed or frightened.
+  - 5, Their total effort is monopolized by the local military.
+  - 6, They’re interested only in pleasing the local ruler.
+  - 7, They think outsiders are made to be bilked.
+  - 8, Nobody important speaks the PCs’ language.
+
+  problem:
+  - 1, Maintenance staff is stealing vital parts off ships.
+  - 2, A plague has suddenly hit the area.
+  - 3, A local war zone suddenly engulfs the port.
+  - 4, Rebels scheme to seize the port and its ships.
+  - 5, A dangerous religious festival is underway.
+  - 6, The last outworlder did something horrible here.
+  - 7, The local ruler wants to conscript the PCs for war.
+  - 8, Another outworlder set the PCs up for trouble.
+  - 9, The local ruler won power by hating foreigners.
+  - 10, A natural disaster strikes just after the PCs land.
+  - 11, The only people with money here are loathsome.
+  - 12, Local troublemakers are hunting for foreigners.
+  - 13, The local construction is frail and about to crumble.
+  - 14, Native weather is making take-offs very dangerous.
+  - 15, The local economy just got shocked by outsiders.
+  - 16, The locals strip ships for some desperate need.
+  - 17, Goods bought here are often fake or counterfeit.
+  - 18, The local cops think the PCs are agents of a foe.
+  - 19, The PCs are mistaken for expected contractors.
+  - 20, They’re using a dangerous pretech device here.
+
+  who_needs_help:
+  - 1, A desperate native, despised and hated locally.
+  - 2, A hidden outlaw seeking passage offworld.
+  - 3, A local ruler in dire need of advanced medtech.
+  - 4, A spouse seeking to duck out from a marriage.
+  - 5, A local inventor with a plausible but terrible idea.
+  - 6, A local warlord who wants offworlder muscle.
+  - 7, A con man seeking to trick the PCs out of cargo.
+  - 8, A marooned offworlder seeking passage out.
+  - 9, A failed rebel in need of rapid departure.
+  - 10, An outworlder-hater who wants to harm the PCs.

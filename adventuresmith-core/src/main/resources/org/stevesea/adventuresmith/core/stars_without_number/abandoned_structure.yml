@@ -1,0 +1,90 @@
+---
+templates:
+  - |
+    <h4>Abandoned Structure</h4>
+    <strong><small>Where Are The Usable Entrances?</small></strong> {{usable_entrances}}
+    <br/>
+    <br/><strong><small>What’s Its Most Noticeable Form of Decay?</small></strong> {{noticeable_decay}}
+    <br/>
+    <br/><strong><small>What Was Its Basic Original Use?</small></strong> {{original_use}}
+    <br/>
+    <br/><strong><small>What’s Worth Finding In It?</small></strong> {{worth_finding}}
+    <br/>
+    <br/><strong><small>What Dangers Exist In It?</small></strong> {{dangers}}
+    <br/>
+    <br/><strong><small>What Interesting Features Does It Have?</small></strong> {{interesting_features}}
+
+tables:
+
+  usable_entrances:
+  - 1, The front or main entrance is still passable.
+  - 2, There’s a sinkhole or tunnel to a basement level.
+  - 3, There are holes in the roof.
+  - 4, A wall or window has given way.
+
+  noticeable_decay:
+  - 1, Extremely rickety; structural supports are failing.
+  - 2, Local vegetation has almost entombed it.
+  - 3, Fire has scorched large portions of it.
+  - 4, External sheathing is decaying or falling away.
+  - 5, Water has soaked it; molds, mosses, and slime.
+  - 6, Large pieces have been blasted away or collapsed.
+
+  original_use:
+  - 1, Residential. People lived in it, either as home or hotel.
+  - 2, Industrial. It was a factory, farm or workshop.
+  - 3, Governmental. Local officials worked there.
+  - 4, Entertainment. It was a club, theater, or dance hall.
+  - 5, Infrastructural. Sewage plant, roadwork garage, etc.
+  - 6, Fortification. It was for frontier defense or civil order.
+  - 7, Culture. It was an art gallery, shrine or cultural center.
+  - 8, Commercial. People bought and sold something here.
+
+  worth_finding:
+  - 1, A cache of local currency was left behind.
+  - 2, A valuable cultural artifact or historical item.
+  - 3, Interesting bank accounts, legal data, or land deeds.
+  - 4, One or more persons in desperate need of help.
+  - 5, A somewhat cumbersome but precious object.
+  - 6, A cache of weapons, armor, or other military tech.
+  - 7, A functioning vehicle of some kind.
+  - 8, Useful equipment related to the building’s purpose.
+  - 9, Nothing. Everything is ruined or worthless inside.
+  - "10, {{>pick: 1d9 worth_finding}} (Trapped/dangerous)"
+
+  dangers:
+  - 1, Savage local fauna have nested in it.
+  - 2, One or more dangerous humans are lairing there.
+  - 3, A roof or floor is threatening to give way.
+  - 4, Something is emitting a dangerous gas or radiation.
+  - 5, Live power lines look dead until touched.
+  - 6, Violent action risks collapsing a room or area.
+  - 7, A type of dangerous local plant grows inside.
+  - 8, Security bots are still operating inside.
+  - 9, Something here is diseased and contagious.
+  - 10, The useful thing is propping up a room’s ceiling.
+  - 11, Something waits to ambush those who emerge.
+  - 12, A dangerous toxin has spilled in the building.
+
+
+  interesting_features:
+  - 1, The running water still works, and is stuck on.
+  - 2, The building is partially buried.
+  - 3, Exiles, criminals, or social outcasts once laired here.
+  - 4, The building is at a dramatic tilt.
+  - 5, There was a vicious combat here at some point.
+  - 6, An important official lies here with vital documents.
+  - 7, Secret rooms were built for the original owner.
+  - 8, It’s heavily adorned with local religious symbolism.
+  - 9, It was built in fanciful, artistic, and impractical ways.
+  - 10, It’s all concrete and fortified angles.
+  - 11, The power is still on and may mix badly with water.
+  - 12, It was a refuge for a hiding person at some point.
+  - 13, One or more looters died to the dangers here.
+  - 14, Has a small library of prohibited or interesting texts.
+  - 15, Numerous crumbling pieces of art around the place.
+  - 16, Flowing fountains or water features, semi-functional.
+  - 17, Unusually deep basements or tunnels.
+  - 18, Someone tried to repair or rebuild it at some point.
+  - 19, Part of it is perfectly preserved.
+  - 20, It was actually meant for multiple purposes.

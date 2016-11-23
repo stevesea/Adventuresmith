@@ -51,10 +51,12 @@ generators:
   - discovery
   stars_without_number:
   # - world             Not converted completely to new template format
+  - abandoned_structure
   - adventure_seed
   - alien
   - animal
   - architecture
+  - backwater_spaceport
   - corporation
   - heresy
   - mandate_tech_hand_held
