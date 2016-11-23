@@ -18,7 +18,7 @@ tables:
 definitions:
   steading_templates:
     village: |
-      <h4>Village</h4>{{>add: prosperity 2}}{{>add: population 3}}{{>add: defenses 2}}{{>accum: tags Oath: other steading}}{{>accum: tags Resource: %[[details.resources]]%}}
+      <h4>Village</h4>{{>add: prosperity 2}}{{>add: population 3}}{{>add: defenses 2}}{{>add: resource_count 1}}{{>accum: tags Oath: other steading}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{village.info}}
       <br/>{{village.problem}}
@@ -29,7 +29,7 @@ definitions:
       <br/>
       <br/>%[[>get: tags <br/>]]%
     town: |
-      <h4>Town</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 3}}{{>accum: tags Trade: 2 other steadings}}{{>accum: tags Resource: %[[details.resources]]%}}
+      <h4>Town</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 3}}{{>add: resource_count 1}}{{>accum: tags Trade: 2 other steadings}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{town.info}}
       <br/>{{town.problem}}
@@ -40,7 +40,7 @@ definitions:
       <br/>
       <br/>%[[>get: tags <br/>]]%
     keep: |
-      <h4>Keep</h4>{{>add: prosperity 2}}{{>add: population 2}}{{>add: defenses 4}}{{>accum: tags Trade: someplace with supplies}}{{>accum: tags Need: supplies}}{{>accum: tags Oath: GM's choice}}
+      <h4>Keep</h4>{{>add: prosperity 2}}{{>add: population 2}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags Trade: someplace with supplies}}{{>accum: tags Need: supplies}}{{>accum: tags Oath: GM's choice}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{keep.info}}
       <br/>{{keep.problem}}
@@ -51,7 +51,7 @@ definitions:
       <br/>
       <br/>%[[>get: tags <br/>]]%
     city: |
-      <h4>City</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 4}}{{>accum: tags Oath: 2+ steadings of GM's choice}}{{>accum: tags Guild: GM's choice}}
+      <h4>City</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags Oath: 2+ steadings of GM's choice}}{{>accum: tags Guild: GM's choice}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{city.info}}
       <br/>{{city.problem}}
@@ -88,7 +88,7 @@ nested_tables:
   village:
     info:
     - "1..3, Natural defenses{{>accum: tags Safe}}{{>add: defenses -1}}"
-    - "4..6, Abundant resources{{>accum: tags Enmity: GM choice}}{{>accum: tags Resource: %[[details.resources]]%}}{{>add: prosperity 1}}"
+    - "4..6, Abundant resources{{>accum: tags Enmity: GM choice}}{{>add: resource_count 1}}{{>add: prosperity 1}}"
     - "7..8, Protected by another steading{{>accum: tags Oath: other steading}}{{>add: defenses 1}}"
     - "9..10, On a major road.{{>accum: tags Trade: %[[details.resources]]%}}{{>add: prosperity 1}}"
     - "11, Built around a wizard’s tower{{>accum: tags Personage: the wizard}}{{>accum: tags Blight: arcane creatures}}"
@@ -108,7 +108,7 @@ nested_tables:
     - "2..3, At a crossroads{{>accum: tags Market}}{{>add: prosperity 1}}"
     - "4..5, Defended by another steading{{>accum: tags Oath: other steading (defender)}}{{>add: defenses 1}}"
     - "6..7, Built around a church{{>accum: tags Power: divine}}"
-    - "8..10, Built around a craft{{>accum: tags Resource: %[[details.resources]]%}}{{>accum: tags Craft: (for resource)}}"
+    - "8..10, Built around a craft{{>add: resource_count 1}}{{>accum: tags Craft: (for resource)}}"
     - "11..12, Built around a military post{{>add: defenses 1}}"
     problem:
     - "1..2, Outgrowing a vital resource{{>accum: tags Need: that resource}}{{>accum: tags Trade: a steading with that resource}}"
