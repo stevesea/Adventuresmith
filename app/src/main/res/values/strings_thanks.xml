@@ -57,11 +57,9 @@
     <p>To report problems or request enhancements, please visit <br/>https://github.com/stevesea/Adventuresmith</p>
     ]]></string>
 
-    <string name="about_version"><![CDATA[
-    <strong>Version:</strong> %1$s (%2$d)
-    ]]></string>
     <string name="about_app"><![CDATA[
     <h1>Adventuresmith</h1>
+    <p>Version:</strong> %1$s (%2$d)</p>
     <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
     <p>If you find bugs, have suggestions, or want to help develop it, go to https://github.com/stevesea/Adventuresmith</p>
     </ul>

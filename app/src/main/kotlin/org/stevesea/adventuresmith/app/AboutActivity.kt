@@ -69,8 +69,7 @@ class AboutActivity : AppCompatActivity() {
         recycler_about.itemAnimator = DefaultItemAnimator()
         recycler_about.adapter = itemAdapter
 
-        itemAdapter.add(ResultItem(String.format(getString(R.string.about_version), versionName, versionCode)))
-        itemAdapter.add(ResultItem(getString(R.string.about_app)))
+        itemAdapter.add(ResultItem(String.format(getString(R.string.about_app), versionName, versionCode)))
         itemAdapter.add(ResultItem(getString(R.string.about_thirdparty)))
     }
 }
