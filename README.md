@@ -39,23 +39,17 @@ Want to keep up with development? Here's my G+ collection: https://plus.google.c
 
 Google Play: https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith
 
+#### FAQ: "but, I don't have Android! when can I run this on iOS?"
+
+iOS support is something I want to implement, but in the meantime you _can_ run Android apps on
+your desktop in a Chrome browser using ARC Welder.
+
+Here are some instructions: https://plus.google.com/111334816577377987512/posts/cTJQokyMx76
+
 ## Screenshots
 
 ![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer.png "Sliding nav bar")
 ![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/pw_discovery.png "Perilous Wilds - Discovery")
-
-## Similar Tools
-Other random generators with the same/similar content
-
-https://perilous-wilds.geekwire.net/region
-
-http://www.random-generator.com/index.php?title=Category:Dungeon_World
-
-http://www.random-generator.com/index.php?title=Category:Stars_Without_Number
-
-http://swn.emichron.com/ (https://github.com/nhr/swn)
-
-https://github.com/orffen/swn/
 
 ----------------------------------
 
@@ -76,10 +70,13 @@ Application launch icon, splash screen logo, and nav-drawer-header logo were cre
 * This application uses icons from http://ionicons.com/
 
 ### Public Domain
-TODO: enter attribution for public domain images
+TODO: enter attribution for public domain images from illuminated manuscripts
 
 ## Content
-Adventuresmith uses content from the following sources:
+Adventuresmith uses content from the following sources
+
+NOTE: this README may be out-of-date, but the app itself has a 'Attribution & Thanks' page
+that lists all the content contained within it.
 
 ### Jason Lutes
 http://lampblackandbrimstone.blogspot.com/
@@ -96,6 +93,9 @@ http://www.sinenomine-pub.com/
 
 ### Ben Milton
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
+
+### Jeremy Strandberg
+* Minor Arcana Generator for Stonetop https://plus.google.com/collection/c0dRb
 
 ### Mike Riverso
 * the Fourth Page generators for World of Dungeons. Licensed under the Creative Commons Attribute 3.0 Unported License. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
