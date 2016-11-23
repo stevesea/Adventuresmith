@@ -91,12 +91,9 @@ class SwnTest {
     fun alien() {
         Assert.assertEquals("""
         <h4>Alien</h4>
-        <h5>Body Type</h5>
-        Humanlike
-        <h5>Lenses</h5>
-        Curiosity<br/>Despair
-        <h5>Social Structure</h5>
-        Democratic
+        <strong><small>Body Type:</small></strong> Humanlike
+        <br/><strong><small>Lenses:</small></strong> Curiosity, Despair
+        <br/><strong><small>Social Structure:</small></strong> Democratic
         """.trimIndent(), getGenerator(SwnConstants.ALIEN, 0).generate(Locale.US))
     }
 
@@ -104,7 +101,7 @@ class SwnTest {
     fun animal() {
         Assert.assertEquals("""
         <h4>Animal</h4>
-        Insectile<br/>&nbsp;&nbsp;Chewing mouthparts<br/>&nbsp;&nbsp;Jewel-colored chitin
+        <strong>Insectile</strong><br/>&nbsp;&nbsp;Chewing mouthparts<br/>&nbsp;&nbsp;Jewel-colored chitin
         """.trimIndent(), getGenerator(SwnConstants.ANIMAL, 0).generate(Locale.US))
     }
 
