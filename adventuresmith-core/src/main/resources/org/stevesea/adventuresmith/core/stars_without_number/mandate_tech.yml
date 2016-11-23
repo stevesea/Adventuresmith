@@ -1,0 +1,111 @@
+---
+
+definitions:
+  common_template: |
+    <strong><small>Decoration:</small></strong> {{>pickN: 1d2 decorations}}
+    <br/>
+    <br/><strong><small>Effectuators:</small></strong> {{effectuators}}
+    <br/><strong><small>Activation:</small></strong> {{activation}}
+    <br/><strong><small>Data Output Method:</small></strong> {{data_output_method}}
+    <br/>
+    <br/><strong><small>Side Effect:</small></strong> {{side_effect}}
+
+  worn_template: |
+    <h4>Mandate Tech - <em>Worn</em></h4>
+    {{worn}}
+    <br/>
+    <br/>{{common_template}}
+
+  handheld_template: |
+    <h4>Mandate Tech - <em>Hand-Held</em></h4>
+    {{hand_held}}
+    <br/>
+    <br/>{{common_template}}
+
+tables:
+  worn:
+  - Bracer
+  - Bandoleer
+  - Belt
+  - Chain of links
+  - Glove
+  - Straps
+  - Paint-like liquid
+  - Torc necklace
+  - Contact lenses
+  - False nails
+  - Tunic
+  - Bodysuit
+
+  hand_held:
+  - Arm-long tube
+  - Sphere with finger grooves
+  - Bracer
+  - Torc-like necklace
+  - Glove
+  - Gripped cylinder
+  - Hoop
+  - Eyeball-sized sphere
+  - Scepter
+  - Chain of links
+  - Tube with a grip on one side
+  - Several small geometric solids
+
+  decorations:
+  - Corrugated surface
+  - Colored banding
+  - Transparent elements
+  - Power availability bar
+  - Smooth curved surfaces
+  - Sharp, angular design
+  - Struts
+  - Grooves
+  - Patterned inlay
+  - Sharp edges
+  - Glowing elements
+  - Hot or cold parts
+
+  effectuators:
+  - Cloud of nanites
+  - Hyper-precise gravitic manipulations
+  - Chemical catalysis and nanite restructuring
+  - Pretech material beyond modern reproduction
+  - Metadimensional energy beams
+  - Inertial manipulators
+  - Chronon bursts that flex the local flow of time
+  - Biological interface with wearer to augment them
+  - Limited neural influence over others’ minds
+  - “Hard light” nano-holograms
+  - Focalized sonics
+  - Kinetic taps and redirectors
+
+  activation:
+  - Button
+  - Trigger
+  - Dial
+  - Toggle
+  - Voice
+  - Slider
+
+  data_output_method:
+  - Projected holoscreen
+  - Voice
+  - Colored dials
+  - Radio transmission
+  - Skin-transferred direct neural feed
+  - Thermal patterns
+
+  side_effect:
+  - Brilliant glow around user
+  - Shrill, maddening whine when in operation
+  - User appears twelve cm distant from their actual position
+  - User bleeds slightly from pores after use (1 HP damage)
+  - Halo of fractal distortion around device
+  - Radiation exposure on use; save or Con loss in 1 hour.
+  - Creates geometric bands of light around device
+  - Overpowering tang of ozone while in use
+  - Gives user leukemia; TL 4 meds or die in one month
+  - Blinds user for 1 round after use
+  - Ear-splitting roar when used
+  - 10% chance to fail to activate when triggered
+

@@ -57,6 +57,8 @@ generators:
   - architecture
   - corporation
   - heresy
+  - mandate_tech_hand_held
+  - mandate_tech_worn
   - names_arabic
   - names_chinese
   - names_english
@@ -69,5 +71,6 @@ generators:
   - political_party
   - religion
   - room_dressing
+  - scavenger_fleet
   stonetop:
   - minor_arcana

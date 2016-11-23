@@ -1,0 +1,6 @@
+---
+templates:
+- "{{worn_template}}"
+
+imports:
+- mandate_tech

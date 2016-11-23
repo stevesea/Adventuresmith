@@ -1,0 +1,100 @@
+---
+templates:
+- |
+  <h4>Scavenger Fleet</h4>
+  <strong><small>Origins:</small></strong> {{origins}}
+  <br/>
+  <br/><strong><small>The Thing They Need Most:</small></strong> {{needs}}
+  <br/><strong><small>What are they offering?:</small></strong> {{offers}}
+  <h5>Fleet Cultural Traits</h5>
+  {{>pickN: 1d2 traits <br/>}}
+  <h5>Recent Problems or Needs</h5>
+  {{>pickN: 1d2 current_prob_or_event <br/>}}
+
+tables:
+  origins:
+  - 1, Merchants caught mid-space by the Scream
+  - 2, Religious zealots on their way to a holy world
+  - 3, Pirates safely in space at the time of the Scream
+  - 4, Government officials in requisitioned ships
+  - 5, Naval remnants from a local world’s former fleet
+  - 6, Wealthy elites and their favored courtiers
+  - 7, Scientists conducting deep-space investigations
+  - 8, Ship repair depot with numerous half-usable hulls
+  - 9, Outcasts exiled into orbital habitat by a local world
+  - 10, Mandate security personnel patrolling the sector
+  - 11, Random survivors and confused remnants
+  - 12, Alien fleet that rescued humans
+
+  traits:
+  - <strong>Alien.</strong> They follow the ways of an alien race.
+  - <strong>Altruistic.</strong> They are actively helpful to outsiders.
+  - <strong>Amoral.</strong> They have few or no inviolable beliefs.
+  - <strong>Elitist.</strong> They simply know they’re better than you.
+  - <strong>Enigmatic.</strong> They tell others nothing of their ways.
+  - <strong>Hedonistic.</strong> They savor strange, extreme pleasures.
+  - <strong>Honorable.</strong> Their word means everything to them.
+  - <strong>Imperial.</strong> They like to suborn planetary governments.
+  - <strong>Mercenary.</strong> They’ll do anything for the right price.
+  - <strong>Missionary.</strong> They spread their beliefs zealously.
+  - <strong>Monopolist.</strong> They control an important commodity.
+  - <strong>Pious.</strong> They are pious believers in a local faith.
+  - <strong>Questing.</strong> They’re seeking something important.
+  - <strong>Recruiter.</strong> They often enlist outsiders as members.
+  - <strong>Scheming.</strong> They have a plan for everything.
+  - <strong>Suppressive.</strong> They actively seek to halt spacefaring.
+  - <strong>Treacherous.</strong> No bargain is too important to break.
+  - <strong>Vengeful.</strong> They want revenge against an old foe.
+  - <strong>Violent.</strong> They have an unusual affection for force.
+  - <strong>Xenophobic.</strong> They shun unnecessary contact.
+
+  needs:
+  - 1, <strong>Data.</strong> They’re looking for a long-lost fleet cache.
+  - 2, <strong>Food.</strong> The hydro production recently crashed.
+  - 3, <strong>Genetic samples.</strong> Inbreeding threatens them.
+  - 4, <strong>Medicine.</strong> A plague threatens to destroy them.
+  - 5, <strong>Parts.</strong> They need ship parts they can’t manufacture.
+  - 6, <strong>Prisoners.</strong> They need to rescue imprisoned crew.
+  - 7, <strong>Rare Ore.</strong> It’s (almost) unknown in this sector.
+  - 8, <strong>Refuge.</strong> The fleet is being pursued by something.
+  - 9, <strong>Revenge.</strong> Some local world wronged them badly.
+  - 10, <strong>Rule.</strong> They seek to dominate a local polity.
+  - 11, <strong>Skills.</strong> They need a certain master specialist.
+  - 12, <strong>Slaves.</strong> They need certain locals for some reason.
+
+  current_prob_or_event:
+  - 1, Separatists stole a ship with scavver nav data.
+  - 2, Pirates took a scout crew prisoner.
+  - 3, A local power robbed a scavver merchant.
+  - 4, A plague is spreading through a colony ship.
+  - 5, The ship’s gene banks have been corrupted.
+  - 6, Sectarians have sabotaged a colony ship’s drives.
+  - 7, Factional strife threatens to bring civil war.
+  - 8, A new religion threatens the fleet’s stability.
+  - 9, Someone they harmed can now can take revenge.
+  - 10, A powerful polity has turned against the fleet.
+  - 11, Expendable spacers are needed to salvage a wreck.
+  - 12, Aliens seek to destroy the fleet.
+  - 13, A factory ship needs a vanishingly rare pretech part.
+  - 14, A feral psychic has taken over the fleet.
+  - 15, A powerful faction advocates the fleet turn pirate.
+  - 16, The admiral is senile, but none can agree on a new one.
+  - 17, The fleet found a powerful alien ship that kills crew.
+  - 18, The fleet offers a thing that threatens local powers.
+  - 19, The fleet seeks to scout an uncharted sector.
+  - 20, The fleet is made temporarily helpless by something.
+
+  offers:
+  - 1, <strong>Astrotech.</strong> Ship fittings unknown elsewhere.
+  - 2, <strong>Drugs.</strong> Either delightful or powerfully medicinal.
+  - 3, <strong>Maltech.</strong> Forbidden biotech or worse.
+  - 4, <strong>Muscle.</strong> Pick a target, and they’ll shoot it.
+  - 5, <strong>Pretech.</strong> Salvage from long-lost worlds and caches.
+  - 6, <strong>Psitech.</strong> Rare, esoteric, and probably dangerous.
+  - 7, <strong>Rescue.</strong> Save a crippled orbital or damaged colony.
+  - 8, <strong>Ships.</strong> Spare craft of superb quality are offered for sale.
+  - 9, <strong>Skills.</strong> Talents and expertise in service to buyers.
+  - 10, <strong>Slaves.</strong> Victims stolen to order from local worlds.
+  - 11, <strong>Training.</strong> Possibly even a psychic mentor.
+  - 12, <strong>Transport.</strong> Passage to uncharted worlds.
+

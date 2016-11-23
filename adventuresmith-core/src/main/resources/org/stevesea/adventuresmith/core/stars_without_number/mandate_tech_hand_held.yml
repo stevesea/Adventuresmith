@@ -1,0 +1,6 @@
+---
+templates:
+- "{{handheld_template}}"
+
+imports:
+- mandate_tech
