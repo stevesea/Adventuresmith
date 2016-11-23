@@ -131,8 +131,8 @@ nested_tables:
     - "4, Formerly occupied by another power{{>accum: tags Enmity: steadings of formerly occupying power}}"
     - "5, Safe haven for brigands{{>accum: tags Lawless}}"
     - "6, Built to defend from a specific threat{{>accum: tags Blight: that threat}}"
-    - "7, Has seen horrible bloody war{>accum: tags Blight: restless spirits}}{>accum: tags History: battle}}"
-    - "8, Is given the worst of the worst{>accum: tags Need: skilled recruits}}"
+    - "7, Has seen horrible bloody war{{>accum: tags Blight: restless spirits}}{{>accum: tags History: battle}}"
+    - "8, Is given the worst of the worst{{>accum: tags Need: skilled recruits}}"
     - "9..10, Suffers from disease{{>add: population -1}}"
     - "11..12, Popular meeting place{{>add: population 1}}{{>accum: tags -Law}}"
   city:

@@ -16,8 +16,8 @@ definitions:
       <br/>
       <br/>{{>pick: 1d10 form}}
       <br/>{{>pick: 1d12 form}}
-      <br/>
-      <br/>%[[>pickN: prop_count property <br/>]]%
+      <h5><em>Why is it extraordinary?</em></h5>
+      %[[>pickN: prop_count property <br/>]]%
     rare: |
       <h4>Minor Arcana - Rare, sought-after, prized</h4>
       {{origin_and_theme}}
@@ -38,16 +38,17 @@ definitions:
       {{origin_and_theme}}
       <br/>
       <br/>{{>pickN: 2 form <br/>}}
+      <h5><em>What type of spirit, and how/why is it bound?</em></h5>
+      {{spirits.type}}
       <br/>
-      <br/>{{spirits.type}}
       <br/>{{spirits.bound}}
     magic: |
       <h4>Minor Arcana - Magical Effect</h4>
       {{origin_and_theme}}
       <br/>
       <br/>{{>pickN: 2 form <br/>}}
-      <br/>
-      <br/><strong><small>Magical effect:</small></strong> {{magic}}
+      <h5><em>Magical Effect?</em></h5>
+      {{magic}}
       <br/>
       <br/><strong><small>Limit:</small></strong> {{limit}}
       <br/><strong><small>Usages:</small></strong> {{usage}}

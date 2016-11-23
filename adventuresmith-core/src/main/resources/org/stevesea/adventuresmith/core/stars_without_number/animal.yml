@@ -10,17 +10,17 @@ tables:
   - "5..6, {{>pickN: 3 body_types_no_hybrid <br/>}}"
 
   body_types_no_hybrid:
-  - "Insectile<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_insectile <br/>&nbsp;&nbsp;}}"
-  - "Reptilian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_reptilian <br/>&nbsp;&nbsp;}}"
-  - "Mammalian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_mammalian <br/>&nbsp;&nbsp;}}"
-  - "Avian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_avian <br/>&nbsp;&nbsp;}}"
-  - "Exotic<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_exotic <br/>&nbsp;&nbsp;}}"
+  - "<strong>Insectile</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_insectile <br/>&nbsp;&nbsp;}}"
+  - "<strong>Reptilian</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_reptilian <br/>&nbsp;&nbsp;}}"
+  - "<strong>Mammalian</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_mammalian <br/>&nbsp;&nbsp;}}"
+  - "<strong>Avian</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_avian <br/>&nbsp;&nbsp;}}"
+  - "<strong>Exotic</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_exotic <br/>&nbsp;&nbsp;}}"
   body_types:
-  - "Insectile<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_insectile <br/>&nbsp;&nbsp;}}"
-  - "Reptilian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_reptilian <br/>&nbsp;&nbsp;}}"
-  - "Mammalian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_mammalian <br/>&nbsp;&nbsp;}}"
-  - "Avian<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_avian <br/>&nbsp;&nbsp;}}"
-  - "Exotic<br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_exotic <br/>&nbsp;&nbsp;}}"
+  - "<strong>Insectile</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_insectile <br/>&nbsp;&nbsp;}}"
+  - "<strong>Reptilian</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_reptilian <br/>&nbsp;&nbsp;}}"
+  - "<strong>Mammalian</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_mammalian <br/>&nbsp;&nbsp;}}"
+  - "<strong>Avian</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_avian <br/>&nbsp;&nbsp;}}"
+  - "<strong>Exotic</strong><br/>&nbsp;&nbsp;{{>pickN: 1d2+1 traits_exotic <br/>&nbsp;&nbsp;}}"
   - "{{hybrid}}"
 
   traits_insectile:

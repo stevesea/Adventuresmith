@@ -2,17 +2,14 @@
 templates:
 - |
   <h4>Alien</h4>
-  <h5>Body Type</h5>
-  {{body_types}}
-  <h5>Lenses</h5>
-  {{>pickN: 1d2+1 lenses <br/>}}
-  <h5>Social Structure</h5>
-  {{social_structures}}
+  <strong><small>Body Type:</small></strong> {{body_types}}
+  <br/><strong><small>Lenses:</small></strong> {{>pickN: 1d2+1 lenses}}
+  <br/><strong><small>Social Structure:</small></strong> {{social_structures}}
 
 tables:
   hybrid:
-  - "1..4, {{>pickN: 2 body_types_except_hybrid <br/>}}"
-  - "5..6, {{>pickN: 3 body_types_except_hybrid <br/>}}"
+  - "1..4, {{>pickN: 2 body_types_except_hybrid}}"
+  - "5..6, {{>pickN: 3 body_types_except_hybrid}}"
 
   body_types_except_hybrid:
   - Humanlike
@@ -51,9 +48,9 @@ tables:
   - Wrath
 
   multipolar:
-  - "1..2, {{>pickN: 2 social_structures_except_multipolar <br/>}}"
-  - "3..4, {{>pickN: 3 social_structures_except_multipolar <br/>}}"
-  - "5..6, {{>pickN: 4 social_structures_except_multipolar <br/>}}"
+  - "1..2, {{>pickN: 2 social_structures_except_multipolar}}"
+  - "3..4, {{>pickN: 3 social_structures_except_multipolar}}"
+  - "5..6, {{>pickN: 4 social_structures_except_multipolar}}"
 
   social_structures_except_multipolar:
   - 1,Democratic
