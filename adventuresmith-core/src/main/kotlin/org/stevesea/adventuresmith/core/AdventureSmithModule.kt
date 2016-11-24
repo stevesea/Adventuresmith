@@ -66,8 +66,8 @@ object AdventuresmithCore : KodeinAware {
         for (gen in generators) {
             try {
                 val genMeta = gen.value.getMetadata(locale)
-                if (Objects.equals(collId, genMeta.collectionId) &&
-                        Objects.equals(grpId, genMeta.groupId)) {
+                if (collId == genMeta.collectionId &&
+                        grpId.orEmpty() == genMeta.groupId.orEmpty()) {
                     result.put(genMeta, gen.value)
                 }
             } catch (e : Exception) {

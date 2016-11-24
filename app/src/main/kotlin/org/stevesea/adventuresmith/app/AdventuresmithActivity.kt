@@ -199,7 +199,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                     override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
                             return false
-                        info("Pressed button: ${item.name} (${item.meta.collectionId} ${Objects.toString(item.meta.groupId, "")})")
 
                         var result : String? = null
                         try {
@@ -216,7 +215,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         Answers.getInstance().logCustom(
                                 CustomEvent("Generated Result")
                                         .putCustomAttribute("CollectionId", item.meta.collectionId)
-                                        .putCustomAttribute("GroupId", Objects.toString(item.meta.groupId, ""))
+                                        .putCustomAttribute("GroupId", "${item.meta.groupId}")
                                         .putCustomAttribute("Name", item.meta.name)
                         )
                         return true

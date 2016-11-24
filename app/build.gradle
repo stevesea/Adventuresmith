@@ -83,6 +83,7 @@ android {
     }
 
     lintOptions {
+        abortOnError true
         textReport true
         textOutput 'stdout'
         warning 'InvalidPackage' // lint sees references in the grooid jar to unavailable java classes
