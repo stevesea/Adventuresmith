@@ -10,9 +10,9 @@ templates:
     <br/>
     <br/><strong><small>What’s Worth Finding In It?</small></strong> {{worth_finding}}
     <br/>
-    <br/><strong><small>What Dangers Exist In It?</small></strong> {{dangers}}
+    <br/><strong><small>What Dangers Exist In It?</small></strong> <br/>{{>pickN: 1d2 dangers <br/>}}
     <br/>
-    <br/><strong><small>What Interesting Features Does It Have?</small></strong> {{interesting_features}}
+    <br/><strong><small>What Interesting Features Does It Have?</small></strong> <br/>{{>pickN: 1d2+1 interesting_features <br/>}}
 
 tables:
 

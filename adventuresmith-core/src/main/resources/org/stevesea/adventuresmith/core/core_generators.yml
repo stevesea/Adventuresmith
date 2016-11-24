@@ -77,6 +77,7 @@ generators:
   - npc
   - political_party
   - religion
+  - religious_revolt
   - room_dressing
   - scavenger_fleet
   - temple_shrine

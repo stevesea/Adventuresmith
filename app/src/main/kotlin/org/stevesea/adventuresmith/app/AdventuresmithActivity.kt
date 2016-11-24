@@ -201,9 +201,15 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return false
                         info("Pressed button: ${item.name} (${item.meta.collectionId} ${Objects.toString(item.meta.groupId, "")})")
 
-                        val result = item.generator.generate(getCurrentLocale(resources))
+                        var result : String? = null
+                        try {
+                            result = item.generator.generate(getCurrentLocale(resources))
+                        } catch (e: Exception) {
+                            warn(e)
+                            result = e.toString()
+                        }
 
-                        resultAdapter!!.add(0, ResultItem(result))
+                        resultAdapter!!.add(0, ResultItem(result.orEmpty()))
 
                         recycler_results.scrollToPosition(0)
 

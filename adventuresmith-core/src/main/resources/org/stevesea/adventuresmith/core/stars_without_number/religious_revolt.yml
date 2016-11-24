@@ -1,0 +1,92 @@
+---
+templates:
+  - |
+    <h4>Religious Revolt</h4>
+    <strong><small>What Stage Is It In?</small></strong> {{stage}}
+    <br/>
+    <br/><strong><small>What Started It?</small></strong> {{started}}
+    <br/>
+    <br/><strong><small>What is their biggest advantage?</small></strong> {{advantage}}
+    <br/>
+    <br/><strong><small>What is the overarching goal?</small></strong> {{goal}}
+    <br/>
+    <br/><strong><small>What is their biggest disadvantage?</small></strong> {{disadvantage}}
+    <br/>
+    <br/><strong><small>Interesting Figures of the Revolt</small></strong> <br/>{{>pickN: 1d2+1 figures <br/>}}
+
+tables:
+  stage:
+  - It's just ignited and is starting to spread
+  - It's a serious threat to authority in a region
+  - It's actually in control in some areas
+  - It's been crushed and is being mopped up
+
+  started:
+  - Brutal martyrdom of a holy person
+  - A miraculous letter or sign in the heavens
+  - A fiery demagogue or optimistic prophet
+  - The glorious assassination of a cruel lord
+  - A weakening of the oppressing power there
+  - Relaxed oppression of a now-ambitious sect
+
+
+  advantage:
+  - Large numbers of fearless zealots
+  - Support from a neighboring nation
+  - Great riches they either possess or seized
+  - Technical skills ideally suited to resistance
+  - Network of sympathizers in power
+  - Sympathy from uninvolved common folk
+  - Recently-obtained tech or war gear
+  - Spies and saboteurs among the enemy
+
+  goal:
+  - Extermination of the hated oppressors
+  - Conversion or death to the oppressors
+  - Autonomy and independence from their rulers
+  - Seizure of a captive holy site or region
+  - Elimination of social disabilities due to their faith
+  - Punishment of a specific group of oppressors
+  - Conquest and rule of a region by their own kind
+  - Freedom and recompense for their suffering
+  - Replacing oppressive rulers with their own people
+  - Enacting of some prophesied path to utopia
+
+  disadvantage:
+  - Capricious brutality and indiscipline
+  - Others detest their religious rules and strictures
+  - Venal leadership seeking personal wealth
+  - Military incompetence or ignorance
+  - A sense of inferiority and hopelessness
+  - Ridiculously excessive goals they take seriously
+  - Their enemies were ready for the revolt
+  - They are divided over the wisdom of the revolt
+  - A neighboring nation fears their rise
+  - Religious strictures hinder their combat utility
+  - They expect divine aid that is not forthcoming
+  - Their neighbors hate or despise them
+
+  figures:
+  - Aged prophet who promises victory if a thing is done
+  - Aggrieved holy figure who never wanted violence
+  - Anguished avenger who seeks death for all foes
+  - Bloodthirsty official bent on brutal suppression
+  - Concubine of the elite who serves the rebel cause
+  - Crushed soul who rose to become a great leader
+  - Cynical outsider selling them weapons
+  - Discreetly-sympathetic official among their foes
+  - Fought-over descendant of a famous holy figure
+  - Frustrated reformer from among the oppressors
+  - Hapless grandee hated by both sides
+  - Important convert from among their foes
+  - Local leader bent on settling old scores
+  - Outside technician bent on aiding one of the sides
+  - Remarkably gifted young military strategist
+  - Ruthless slave trader profiting from the strife
+  - Scheming merchant who plans to profit from losses
+  - Secretly faithless rebel leader with their own goals
+  - Sectarian priest scheming to seize leadership
+  - Zealous missionary bringing the faith to bystanders
+
+
+

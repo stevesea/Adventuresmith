@@ -12,7 +12,7 @@ templates:
     <br/>
     <br/><strong><small>Another consequence of the event was…</small></strong> {{another_consequence}}
     <br/>
-    <br/><strong><small>What other elements were involved?</small></strong> {{other_elements}}
+    <br/><strong><small>What other elements were involved?</small></strong> <br/>{{>pickN: 1d3 other_elements <br/>}}
 
 tables:
   final_outcome:

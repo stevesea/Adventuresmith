@@ -10,9 +10,9 @@ templates:
     <br/>
     <br/><strong><small>What problem does it face?</small></strong> {{problem}}
     <br/>
-    <br/><strong><small>Potential Friends?</small></strong> {{friends}}
+    <br/><strong><small>Potential Friends?</small></strong> <br/>{{>pickN: 1d2 friends <br/>}}
     <br/>
-    <br/><strong><small>Potential Antagonists?</small></strong> {{antagonists}}
+    <br/><strong><small>Potential Antagonists?</small></strong> <br/>{{>pickN: 1d3 antagonists <br/>}}
 
 tables:
   importance:

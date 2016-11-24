@@ -12,7 +12,7 @@ templates:
     <br/>
     <br/><strong><small>Who Needs To Talk To Outsiders Right Now?</small></strong> {{who_needs_help}}
     <br/>
-    <br/><strong><small>What’s The Problem Here?</small></strong> {{problem}}
+    <br/><strong><small>What’s The Problem Here?</small></strong> <br/>{{>pickN: 1d2 problem <br/>}}
 
 tables:
 
