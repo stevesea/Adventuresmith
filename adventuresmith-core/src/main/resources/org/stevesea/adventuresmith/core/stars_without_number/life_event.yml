@@ -1,0 +1,89 @@
+---
+templates:
+  - |
+    <h4>Life Event</h4>
+    <strong><small>What was the event’s final outcome?</small></strong> {{final_outcome}}
+    <br/>
+    <br/><strong><small>Who initiated the event?</small></strong> {{initiator}}
+    <br/>
+    <br/><strong><small>Which quality was most affected by the event?</small></strong> {{quality_affected}}
+    <br/>
+    <br/><strong><small>What conflict figured in the event?</small></strong> {{conflict}}
+    <br/>
+    <br/><strong><small>Another consequence of the event was…</small></strong> {{another_consequence}}
+    <br/>
+    <br/><strong><small>What other elements were involved?</small></strong> {{other_elements}}
+
+tables:
+  final_outcome:
+  - 1, Extremely positive in almost ways
+  - 2, Positive, but with a drawback or consequence
+  - 3, Negative, but with a silver lining for you
+  - 4, Completely negative in all ways that mattered
+
+  initiator:
+  - 1, A parent, family head, or work superior
+  - 2, A distant relation, perhaps unknown at the time
+  - 3, A professional or romantic rival or personal enemy
+  - 4, A lover, would-be or actual, or a spouse
+  - 5, A child or ward, or someone you protected
+  - 6, Someone who was a stranger at the time
+
+  quality_affected:
+  - 1, Your family's wealth
+  - 2, Your family's social standing or community respect
+  - 3, Your health and physical integrity
+  - 4, Your most important relationship
+  - 5, Your desired or intended career
+  - 6, Your personal reputation or social status
+  - 7, Your dearest personal ambition
+  - 8, Your relationship with the initiator
+
+  conflict:
+  - 1, A physical fight with someone
+  - 2, Trying not to lose a thing or fail in a duty
+  - 3, A struggle for wealth, to gain it or keep it
+  - 4, Vying for love, whether romantic or familial
+  - 5, Trying to win someone’s trust
+  - 6, A struggle with your own nature and personality
+  - 7, A trial of your professional skills
+  - 8, A competition with a rival in love, work, or war
+  - 9, A cruel betrayal of trust by you or one close to you
+  - 10, You against social rules that ensnare someone
+
+  another_consequence:
+  - 1, You made/lost a friend in the event
+  - 2, You incurred/are owed a debt
+  - 3, You earned/gave a scar, physical or mental
+  - 4, You believed/discovered a lie
+  - 5, You learned/botched a skill
+  - 6, You pleased/dismayed a relative
+  - 7, You offended/satisfied social expectations or laws
+  - 8, You angered/pleased an offworlder
+  - 9, You gained/lost local respect and social standing
+  - 10, You made/upset a shady associate
+  - 11, You gained/lost significant wealth
+  - 12, You gained/lost membership in a group
+
+
+  other_elements:
+  - 1, Your most precious place or refuge
+  - 2, A place far from home
+  - 3, An inherited thing or duty
+  - 4, A parent's choice
+  - 5, A mistake you made
+  - 6, A random stroke of luck
+  - 7, Offworlder interference
+  - 8, A serious physical or mental sickness
+  - 9, A career opportunity
+  - 10, Unearned reputation
+  - 11, A mischance of nature or natural disaster
+  - 12, A grave misunderstanding
+  - 13, Drugs or medicines
+  - 14, An unsavory local group
+  - 15, An important local faith
+  - 16, A harsh local custom
+  - 17, Someone else's dire mistake
+  - 18, A truth known only to you
+  - 19, Technology gone badly wrong or very right
+  - 20, Someone else's sacrifice or loss

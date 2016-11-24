@@ -1,0 +1,216 @@
+---
+templates:
+- |
+  <h4>Family Background - <em>Primitive World</em></h4>
+  {{primitive.status}}
+  <h6><em>Hardship: (optional)</em></h6>
+  {{primitive.hardships}}
+- |
+  <h4>Family Background - <em>Modern World</em></h4>
+  {{modern.status}}
+  <h6><em>Hardship: (optional)</em></h6>
+  {{modern.hardships}}
+- |
+  <h4>Family Background - <em>Spacer Habitat</em></h4>
+  {{spacer.status}}
+  <h6><em>Hardship: (optional)</em></h6>
+  {{spacer.hardships}}
+
+
+nested_tables:
+  primitive:
+    status:
+    - "{{primitive.status_low}}"
+    - "{{primitive.status_middle}}"
+    - "{{primitive.status_high}}"
+    status_low:
+    - Serfs or Slaves
+    - Prostitutes
+    - Bandits
+    - Heretics
+    - Skilled Criminal
+    - Water Pirates
+    - Laboring Artisans
+    - Mercenaries
+    - Elite Courtesans
+    - Cheating Traders
+    - Cruel Landlords
+    - Executioners
+    status_middle:
+    - Yeoman Farmers
+    - Unskilled Labor
+    - Entertainers
+    - Artists
+    - Small Traders
+    - Shop Owners
+    - Doctors
+    - Scribes or Clerks
+    - Rich Merchants
+    - Noble Physicians
+    - Mercenary Chiefs
+    - Foreign Traders
+    status_high:
+    - Village Headman
+    - Monastic Clergy
+    - Poor Gentry
+    - Scholars
+    - Worldly Clergy
+    - Minor Officials
+    - Modest Gentry
+    - Town Leader
+    - Great Officials
+    - High Priests
+    - Wealthy Gentry
+    - Nobles
+    hardships:
+    - A dire childhood illness has left you more fragile. -1 Constitution
+    - A hunting accident left you slightly lamed. -1 Dexterity
+    - Alien environments tax your system. -1 maximum System Strain when offworld.
+    - Before your feral psychic gift was suppressed, you lost 3 attribute points of your choice
+    - Computers are counterintuitive to you. Roll 1d6 instead of 2d6 with Computer skill checks
+    - Constant labor distracted you from much learning. -1 Intelligence
+    - Hunger and privation hindered your brain's early development. -1 Intelligence
+    - Malnutrition during an early famine stunted your growth. -1 Constitution
+    - Poor nutrition deprived you of your natural strength. -1 Strength
+    - Psychic powers unnerve you. You can't be a psychic and take -2 to saves induced by psionics
+    - You are always recognizable as a native of your world. Disguises fail rapidly as you give yourself
+    - You can't get used to offworld gravity, and compensation has hindered your reflexes. -1 Dexterity
+    - You feel deeply uncomfortable with all these new, alien customs and niceties. -1 Charisma
+    - You have difficulty recognizing bad choices in this new world. -1 Wisdom
+    - You tend to freeze up around strange tech. -2 to all Tech saving throws
+    - You were always the smallest and weakest of your siblings. -1 Strength
+    - You won a fight, but not without distracting scars. -1 Charisma
+    - You're a terrible driver. You roll 1d6 instead of 2d6 for all vehicle skill checks not made on a riding
+    - Your former kinsmen hate you for some reason, and will kill you if given the chance.
+    - Your senses are somewhat numbed by all you've encountered. -1 Wisdom
+  modern:
+    status:
+    - "{{modern.status_low}}"
+    - "{{modern.status_middle}}"
+    - "{{modern.status_high}}"
+    status_low:
+    - Beggars
+    - Prostitutes
+    - Thugs
+    - On Public Aid
+    - Skilled Criminal
+    - Journalists
+    - Enlisted Soldiers
+    - Truckers
+    - Elite Courtesan
+    - Corrupt Bureaucrat
+    - Slum Lord
+    - Gang Boss
+    status_middle:
+    - Agricultural Labor
+    - Unskilled Labor
+    - Entertainers
+    - Artists
+    - Military Officers
+    - Small Business
+    - Engineers
+    - Gov. Clerks
+    - Rich Business
+    - Tech Entrepreneur
+    - Wealthy Foreigner
+    - Heirs to Money
+    status_high:
+    - Community Head
+    - Clergy
+    - Public Intellectuals
+    - Academics
+    - Doctors
+    - Minor Officials
+    - Physicians
+    - Town Mayor
+    - Major Officials
+    - Social Celebrities
+    - Hit Artists
+    - Hereditary Rulers
+    hardships:
+    - An electrical accident caused some nerve damage. -1 Dexterity
+    - Culture-war reasons for hatred leave a group of your former neighbors wanting you ruined or dead.
+    - Heavy industrial pollution exposure while growing up has impaired your health. -1 Constitution
+    - Involvement in a chemical incident induced minor brain damage. -1 Intelligence
+    - Secure habit makes you take certain actions without thought. -1 Wisdom
+    - You are blind or crippled, but start with prosthetic cyberware that inflicts 1 System Strain
+    - You are unaccustomed to lengthy, sustained exertion. -1 Constitution
+    - You cultivated a fashionably unmuscular look in your youth. -1 Strength
+    - You deal poorly with primitives. -2 to all social skill checks with people from TL0, TL1, or TL2 cultures.
+    - You had a very sedentary youth with little exercise. -1 Strength
+    - You had cosmetic surgery done that's somewhat disturbing. -1 Charisma
+    - You have a congenital disease that needs minor TL4 medical treatment once a month to avoid serious harm.
+    - You have a hard time recognizing situations of physical danger. -1 Wisdom
+    - You suffered joint damage in youthful crime or athletics. -1 Dexterity
+    - You were the butt of your peers' amusement, and it scarred you. -1 Charisma
+    - You're addicted to some small luxury. No System Strain recovery unless you’ve indulged that day
+    - You're distracted by primitive conditions. No System Strain recovery when sleeping outdoors
+    - You're not accustomed to watchfulness. -1 to all Perception skill checks.
+    - You've focused on interesting trivia at the cost of deeper knowledge. -1 Intelligence
+    - Your situational awareness is underdeveloped. -2 on Evasion saving throws
+  spacer:
+    status:
+    - "{{spacer.status_low}}"
+    - "{{spacer.status_middle}}"
+    - "{{spacer.status_high}}"
+    status_low:
+    - Stowaways
+    - Prostitutes
+    - Petty Criminals
+    - Indentured Labor
+    - Skilled Criminal
+    - Space Miners
+    - Skilled Labor
+    - Intrasystem Pilots
+    - Elite Courtesans
+    - Cheating Traders
+    - Space Pirates
+    - Smugglers
+    status_middle:
+    - Space Hermits
+    - Unskilled Labor
+    - Entertainers
+    - Artists
+    - Small Traders
+    - Life Techs
+    - Worldly Clergy
+    - Astronautic Techs
+    - Rich Merchants
+    - Exotic Techs
+    - Lucky Miners
+    - Heirs to Wealth
+    status_high:
+    - Work Crew Boss
+    - Monastic Clergy
+    - Instructors
+    - Skilled Artists
+    - Ship Captains
+    - Ship Officers
+    - Medical Techs
+    - Astrogators
+    - Ship Owners
+    - Shipwrights
+    - Brilliant Techs
+    - Stellar Nobles
+    hardships:
+    - A pressure accident induced persistent low-level sensory damage. -1 Wisdom
+    - Agoraphobic. Can't sleep well or regain System Strain unless in an enclosed area
+    - Exposed to hard vacuum and heavy radiation in an accident; -1 Constitution.
+    - Extended low-gee exposure hindered muscle growth. -1 Strength
+    - Extremely limited hydroponic food supplies left you slightly stunted. -1 Strength
+    - Genetic damage. Sterile and cancerous. The latter stays in remission with regular TL4 treatment
+    - Inbred habitat population. Subtract 3 points from your attributes, divided as you choose
+    - Low-level radiation damage harmed your health. -2 to maximum System Strain allowed
+    - Perpetual tight spaces have caused some slight skeletal deformity. -1 Dexterity
+    - Serious life support mishap left you with a persistent xenofungal infection. -1 Constitution
+    - Severely allergic to planets. -1 to all skill checks planetside unless anti-allergens are used
+    - The cramped quarters of space habitats have warped your sense of propriety. -1 Charisma
+    - The omnipresent dangers of space drilled obsessive-compulsive behavior into you. -1 Wisdom
+    - Weak immune system due to filtered atmosphere. -2 to saves vs. disease or poison
+    - You can't get the knack of dirtside living. -1 to all Survival or non-space Athletics checks.
+    - You were framed for something; those connected with your home despise you.
+    - You're self-conscious over superficial radiation burns. -1 Charisma
+    - Your education was sharply limited to matters critical to your job. -1 Intelligence
+    - Your teachers taught you what was uplifting, not what was true. -1 Intelligence
+    - Zero-gee habits interfere with your terrestrial agility. -1 Dexterity
+

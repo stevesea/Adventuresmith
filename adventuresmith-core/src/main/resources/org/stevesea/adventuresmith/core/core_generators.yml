@@ -57,8 +57,13 @@ generators:
   - animal
   - architecture
   - backwater_spaceport
+  - charclass_expert
+  - charclass_psychic
+  - charclass_warrior
   - corporation
+  - family_background
   - heresy
+  - life_event
   - mandate_tech_hand_held
   - mandate_tech_worn
   - names_arabic
@@ -74,5 +79,6 @@ generators:
   - religion
   - room_dressing
   - scavenger_fleet
+  - temple_shrine
   stonetop:
   - minor_arcana

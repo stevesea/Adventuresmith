@@ -50,7 +50,7 @@ tables:
   - 7, A functioning vehicle of some kind.
   - 8, Useful equipment related to the building’s purpose.
   - 9, Nothing. Everything is ruined or worthless inside.
-  - "10, {{>pick: 1d9 worth_finding}} (Trapped/dangerous)"
+  - "10, {{>pick: 1d9 worth_finding}} <em>(Trapped/dangerous)</em>"
 
   dangers:
   - 1, Savage local fauna have nested in it.

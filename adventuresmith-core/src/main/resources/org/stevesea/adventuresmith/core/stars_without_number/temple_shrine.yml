@@ -1,0 +1,89 @@
+---
+templates:
+  - |
+    <h4>Temple or Shrine</h4>
+    <strong><small>How Important Is It?</small></strong> {{importance}}
+    <br/>
+    <br/><strong><small>What's its basic structure?</small></strong> {{structure}}
+    <br/>
+    <br/><strong><small>What kind of appearance?</small></strong> {{appearance}}
+    <br/>
+    <br/><strong><small>What problem does it face?</small></strong> {{problem}}
+    <br/>
+    <br/><strong><small>Potential Friends?</small></strong> {{friends}}
+    <br/>
+    <br/><strong><small>Potential Antagonists?</small></strong> {{antagonists}}
+
+tables:
+  importance:
+  - A trivial shrine important only to locals
+  - A significant temple important to nearby towns
+  - The most important temple in the region
+  - One of the greatest fanes of the world or nation
+
+  structure:
+  - Single grand temple with attached quarters
+  - Several smaller fanes with unattached quarters
+  - A building with many shrines and apartments
+  - One sacred temple with unattached buildings
+  - Natural worship site with supporting buildings
+  - Many small temples in the same general vicinity
+
+  appearance:
+  - Worn and battered, in poor repair from poverty
+  - Ancient but well-kept, though showing its age
+  - Advanced and modern, all fashionable lines
+  - Ethnically-specific construction styles and colors
+  - Dominated by a single motif of color or shape
+  - Luxuriantly ornamented as richly as possible
+  - Rustic and simple, built from local materials
+  - Gaudy and coarse in its appearance
+
+  problem:
+  - Poverty. The believers or temple are very poor
+  - Malfeasance. The temple leader is misusing money
+  - Simony. The leader is selling spiritual offices
+  - Avarice. The temple squeezes tenants or faithful
+  - Decay. Vital repairs are too costly
+  - Fanaticism. The faith is driven to sectarian excess
+  - Cynicism. The priests don't really believe in anything
+  - Peril. An outside group hates the temple bitterly
+  - Superstition. The priests are ignorant and venal
+  - Luxury. The priests crave only pleasures and leisure
+
+  friends:
+  - Local tradesman who deals with the priests
+  - Young acolyte who still thinks of leaving the clergy
+  - Scheming cleric who needs ignorant catspaws
+  - Weary high priest who needs help with the problem
+  - Temple guard with an interest in adventure
+  - Visiting scholar eager for information
+  - Cleric's young relative dreaming of the wide world
+  - Cheerful cleric seeking new converts for the faith
+  - Temple laborer with a great fund of gossip
+  - Schismatic cleric looking for support for reforms
+  - Wealthy local believer with an interest in novelty
+  - Beggar or indigent reliant on the shrine's charity
+
+
+  antagonists:
+  - High priest seeing conspiracies behind strangers
+  - Guardsman who thinks the PCs incipient thieves
+  - Troublemaking seductress who wants a new toy
+  - Fiery zealot witnessing unwitting PC blasphemy
+  - Temple laborer framing PCs for his own theft
+  - Cleric who thinks they're agents of a rival creed
+  - Cleric who absolutely refuses aid to nonbelievers
+  - Prophet who utters dark omens about the PCs
+  - Charlatan who tries to bilk PCs with dark warnings
+  - Temple servant who gossips against PCs pettishly
+  - Acolyte extorting help in a theft, lest he accuse
+  - Delusional, violent holy man who doesn't like PCs
+  - Embittered local who counts outsiders as trouble
+  - Pilgrim who thinks the PCs conspire against them
+  - Senile high priest who takes a pettish dislike to PCs
+  - Battleaxe abbess who expects PCs to do as told
+  - Rebel priest who tries to force PCs to aid his cause
+  - Sacred animal who just does not like the PCs
+  - Prophecy that coincidentally points to PCs as evil
+  - Zealot seeking glory through proving PCs evil

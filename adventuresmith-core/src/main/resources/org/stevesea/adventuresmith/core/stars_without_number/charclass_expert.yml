@@ -1,0 +1,81 @@
+---
+templates:
+- |
+  <h4>Expert</h4>
+  <strong><small>Skills:</small></strong> {{>pickN: 5 skills}}
+  <br/>
+  <br/><strong><small>Personal Skill Knacks:</small></strong> {{personal_skill_knacks}}
+  <br/>
+  <br/><strong><small>Technical Skill Knacks:</small></strong> {{tech_skill_knacks}}
+  <br/>
+  <em>
+  <br/><strong><small>Personal Consequences:</small></strong> {{consequences}}
+  <br/>
+  <br/><strong><small>Technical Problems:</small></strong> {{tech_problems}}
+  </em>
+
+tables:
+  skills:
+  - Artist
+  - Athletics
+  - Bureaucracy
+  - Business
+  - Culture/Any
+  - Exosuit
+  - Gambling
+  - History
+  - Instructor
+  - Language
+  - Navigation
+  - Perception
+  - Persuade
+  - Profession/Any
+  - Religion
+  - Science
+  - Security
+  - Stealth
+  - Steward
+  - Survival
+  - Tech/Any except Psitech
+  - Vehicle/Any
+  personal_skill_knacks:
+  - An inspiring leader. +1 to Leadership skill checks.
+  - Extremely glib. +1 to all checks involving lying.
+  - You can tell when someone’s trying to defraud you.
+  - Once per day, discern if someone’s lying to you.
+  - Unobtrusive. Enemies prefer to hit your friends first.
+  - Born linguist. Can convey basic words in any tongue.
+  - You sense impending betrayal 1 round in advance.
+  - Profitable work. Gain 2d6 x 100 credits.
+  consequences:
+  - You start out 1d10 x 1000 credits in debt to bad men.
+  - You’re wanted for a crime on a major world.
+  - An upset former acquaintance is hunting you.
+  - Someone dangerous expects you to do something.
+  - A rival is obsessed with foiling or outdoing you.
+  - Kneebreakers. Lose 1d4 attribute points of choice.
+  - Not physical. -2 to hit when in melee range.
+  - Mistrust your skills. Lose one skill level of choice.
+
+  tech_skill_knacks:
+  - Great with starships. +1 to all relevant skill checks.
+  - Drive it faster. All vehicles have +2 speed for you.
+  - Saboteur. Wreck a piece of tech in one round.
+  - Prepared. Always have one spare/hidden metatool.
+  - Healer. Roll 1d8+4 for all medical skill checks.
+  - Ghost. Roll 1d8+4 for all Stealth skill checks.
+  - Versatile Tech. No penalty on untrained Tech checks.
+  - Specialist. Roll 1d8+4 on one type of Tech check.
+  - Jury-rig any portable item in 1d6 minutes, once/day.
+  - Lucky. +2 on all Tech saving throws.
+  tech_problems:
+  - Chemical or plasma burns. -1 Charisma
+  - Crushed joints when something slipped. -1 Dexterity
+  - Industrial pollution overdose. -1 Constitution
+  - Untalkative. -1 to all Persuade checks.
+  - Excessive radiation exposure. -1 Constitution
+  - Something broke, and you owe 1d10 x 1000 credits.
+  - Picky. You take -1 on skill checks w/unfamiliar tools.
+  - Reckless. Pick one of your skills; roll 1d12 on checks.
+  - Too focused on minor details. -1 Wisdom
+  - Mistrust your skills. Lose one skill level of choice.

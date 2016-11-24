@@ -1,0 +1,71 @@
+---
+templates:
+- |
+  <h4>Warrior</h4>
+  <strong><small>Skills:</small></strong> {{>pickN: 3 skills}}
+  <br/>
+  <br/><strong><small>Battlefield Plunder:</small></strong> {{plunder}}
+  <br/>
+  <br/><strong><small>The Arts of War:</small></strong> {{arts_of_war}}
+  <br/>
+  <em>
+  <br/><strong><small>Scars You Earned:</small></strong> {{earned_scars}}
+  <br/>
+  <br/><strong><small>Prices You Paid:</small></strong> {{prices_paid}}
+  </em>
+
+tables:
+  skills:
+  - Athletics
+  - Combat/Any
+  - Exosuit
+  - Leadership
+  - Perception
+  - Profession/Any
+  - Stealth
+  - Survival
+  - Tactics
+
+  plunder:
+  - A superb weapon that gives +1 to hit and damage
+  - Small valuables worth 2d6 x 100 credits
+  - A superb Combat Field Uniform with base AC 3
+  - A case of 24 grenades, probably highly illegal
+  - A pretech monoblade that gives +2 to hit and damage
+  - 4 integrity stims, as per p. 57 of the rulebook
+  - A rocket launcher you “borrowed”, plus 3 rockets
+  - A government-supplied fake ID is still valid for you
+
+  arts_of_war:
+  - Notice ambushes one round before they spring
+  - Have special clearance to be armed at all times
+  - +1 to hit with a weapon you’ve used for six months
+  - When dying, aid attempts roll twice and take best
+  - Your first level’s hit die is 1d8+2 instead of 1d8
+  - Immune to knockout drugs and gases due to surgery
+  - Healing never does less than half maximum on you
+  - Reroll 1s on any damage dice you roll
+  - You have a contact for illegal weapons and armor
+  - Pick a class skill. Roll 1d8+4 for its skill checks
+
+  earned_scars:
+  - Shrapnel too dangerous to remove. -1 Constitution
+  - Missing a limb, but you’ve got prosthetic cyber
+  - Old wounds; need regular minor TL4 medical care
+  - Cranial trauma took its toll. -1 Intelligence
+  - You struggle to maintain your temper. -1 Wisdom
+  - Too much punishment. -2 to Physical Effect saves
+  - The doc didn’t fix you quite right. -1 Charisma
+  - Med chem tolerance. -1 to max System Strain
+
+  prices_paid:
+  - It’s hard to relate to civilians; -1 on social skill checks
+  - Nightmares; you can’t sleep restfully without meds
+  - Divorced and/or your kids deeply resent you
+  - An old nemesis still isn’t finished with you
+  - You killed someone you really shouldn’t have
+  - A justified (?) murder was covered up, imperfectly
+  - Your old allies think you betrayed them to the foe
+  - You can’t sleep well except behind a locked door
+  - If fighting, save vs. Mental Effect to not try to kill them
+  - Accidentally registered as dead; can’t get it fixed

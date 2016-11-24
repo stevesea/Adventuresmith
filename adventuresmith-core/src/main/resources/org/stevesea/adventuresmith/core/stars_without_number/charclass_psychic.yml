@@ -1,0 +1,101 @@
+---
+templates:
+- |
+  <h4>Psychic</h4>
+  <strong><small>Skills:</small></strong> {{skills}}
+  <br/>
+  <br/><strong><small>Psychic Knack:</small></strong> {{knacks}}
+  <br/>
+  <em>
+  <br/><strong><small>Training Flaws:</small></strong> {{training_flaws}}
+  </em>
+
+tables:
+  skills:
+  - Combat/Psitech
+  - Culture/Any
+  - History
+  - Perception
+  - Profession/Any
+  - Religion
+  - Tech/Medical
+  - Tech/Psitech
+
+  training_flaws:
+  - The education was punishing, with small, systemic traumas lingering long after. -2 maximum System Strain.
+  - The protocols for secondary training meshed poorly for you. You can’t master secondary discipline powers.
+  - One discipline remains a persistent blind spot. Randomly pick a discipline you don’t know; you can’t learn it.
+  - You never learned to restore your natural mental shields. You always fail saves versus telepathic powers.
+  - You have a phobic aversion to the torching process and can’t force yourself to do it. You cannot torch.
+  - Your telepathic aptitude is exceptionally weak. Targets gain a +2 on all saves versus your telepathy powers.
+  - Your body changes visibly with psionic use. Eyes glow, skin changes color, or other effect during power use.
+  - Your identity mentally bleeds through psionic power use. Targets always know you’re using a power on them.
+  - Psionic power use exhausts you. The first non-mastered power used in a day adds 1 System Strain.
+  - Your mastery is flawed. The first time you master a given discipline’s powers, you get -1 max System Strain.
+  - Your system is sensitive to psionic healing. You lose 1 more System Strain to each biopsionic use.
+  - You have a psychic block about certain people. Choose a role or type of person; your powers fail on them.
+  - Your metadimensional energy bleeds excessively. Your powers cause a sound in use audible to 10 meters.
+  - Heavy power use dazes you. If your power points hit zero, you are stunned for one round.
+  - Power use taxes your metabolism. If you use your powers in a day, you need twice as much food and drink.
+  - Your power use paralyzes the nerves of your vocal cords. You are mute for one round after power use.
+  - Your power use gives you nightmares. After using a non-mastered power, you can’t rest properly that night.
+  - Your powers bleed low levels of radiation, weakening your natural resistance. Always fail your radiation saves.
+  - Psychic energy scrambles comprehension centers. You can’t understand words for 1 round after power use.
+  - A subtle palsy has been induced by cerebral scarring. Lose 1d4 points of Dexterity or Strength, your choice.
+
+  knacks:
+  - "<em>Biospsionics</em>: {{biospsionics}}"
+  - "<em>Telepathy</em>: {{telepathy}}"
+  - "<em>Metapsionics</em>: {{metapsionics}}"
+  - "<em>Telekinesis</em>: {{telekinesis}}"
+  - "<em>Precognition</em>: {{precognition}}"
+  - "<em>Teleportation</em>: {{teleportation}}"
+
+  biospsionics:
+  - You can recognize any diseases in a person with one round of focus.
+  - You need to eat and drink only once every four days, regardless of exertions.
+  - Your bare-handed touch can inflict 1d8 damage on a living target. In combat, this takes a hit roll.
+  - You are personally immune to diseases that have not been engineered as bioweapons.
+  - Your System Strain maximum is increased by 2.
+  - You don't actually need to sleep.
+
+  telepathy:
+  - You always know when telepathy is being used on you or allies.
+  - You can tell if someone's lying when you're touching them.
+  - On a save, you can cause a telepathic probe to return false info.
+  - You sense the location of minds within 10 m.
+  - You can detect insanity in a person with one round of attention.
+  - You have conscious control over your emotions
+
+  metapsionics:
+  - You are immune to unwanted telepathy.
+  - Can make psionic activity nearby visible as light.
+  - Your first non-mastered power in a day is free.
+  - Once per day, expel 1d20 power points from a psychic in sight. If reduced to 0 power points, they’re stunned for one round.
+  - Psychics hit by you must make a save versus Mental Effect or lose their powers for 1 round.
+  - You and your actions are imperceptible to the discipline of precognition.
+
+
+  telekinesis:
+  - You never accidentally drop things and cannot be disarmed.
+  - You ignore falling damage.
+  - You never slip, trip, or accidentally fall.
+  - You never accidentally hit someone with a physical projectile or bullet.
+  - The first projectile or bullet aimed at you in a fight always misses.
+  - You can cross any solid surface, even if far too light to bear you.
+
+  precognition:
+  - You’re an unbeatable gambler at chance games.
+  - You always regain consciousness if in danger.
+  - If a random bad thing hits the group, it always prefers to befall another.
+  - Once per day, "save" a skill or hit roll. Use it later, and reroll it now.
+  - Once per week, replay your action for the turn from the start.
+  - Pick one uncommon danger – fire, falls, etc. You will never die from it.
+
+  teleportation:
+  - Once per round, freely teleport something from your pack to your hand or back.
+  - You always know exactly where you are.
+  - You can always teleport to a friend within your teleport range, even if their location is unknown.
+  - You can see and hear where you left for one minute after a teleport.
+  - Once per day, teleport to an otherwise-disallowed location within 10 meters.
+  - Once per week, you teleport twice per round.

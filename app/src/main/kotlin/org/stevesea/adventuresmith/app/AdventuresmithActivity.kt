@@ -452,9 +452,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                 SwnConstantsCustom.GROUP ->  {
                     when (grpId) {
                         "grp1" -> Ionicons.Icon.ion_planet // aliens, animals, worlds
-                        "grp2" -> Ionicons.Icon.ion_person_stalker // npcs, corps, religions
+                        "grp2" -> Ionicons.Icon.ion_person_stalker // corps, religions
                         "grp3" -> Ionicons.Icon.ion_edit // names
                         "grp4" -> CommunityMaterial.Icon.cmd_factory // tech, architecture
+                        "grp5" -> Ionicons.Icon.ion_person // chars, npcs
                         else -> CommunityMaterial.Icon.cmd_rocket
                     }
                 }
