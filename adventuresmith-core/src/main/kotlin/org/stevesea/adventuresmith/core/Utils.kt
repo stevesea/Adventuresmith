@@ -112,7 +112,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
     fun <T> deserialize(clazz: Class<T>,
                         resource_prefix : String,
                         locale: Locale,
-                        charset: Charset = StandardCharsets.UTF_8): T {
+                        charset: Charset = Charsets.UTF_8): T {
         val key = Triple(clazz.`package`.name, resource_prefix, locale)
         synchronized(cache) {
             val result = cache.get(key, object : Callable<T> {
