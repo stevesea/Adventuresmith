@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith.core.stars_without_number
 
 import com.github.salomonbrys.kodein.*
+import com.samskivert.mustache.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
@@ -87,7 +88,7 @@ data class WorldBundleDto(val world: WorldDto,
                           val worldRules: WorldRulesDto,
                           val names: DataDrivenGenDto)
 
-class SwnDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleDto>, KodeinAware {
+class SwnWorldDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
@@ -122,6 +123,124 @@ class SwnDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleD
         )
     }
 }
+data class SwnFactionTypeDto(val stats_input: List<Int>,
+                              val hp: Int,
+                              val primary_assets: Int,
+                              val secondary_assets: Int,
+                             val ntags: List<Int>)
+data class SwnFactionDto(val faction_types: Map<String,SwnFactionTypeDto>,
+                         val faction_type_chance: RangeMap,
+                         val goals: List<String>,
+                         val tags: List<String>,
+                         val assets: Map<String, Map<Int,List<String>>>,
+                         val template: String
+                      ) {
+    companion object Resource {
+        val resource_prefix = "faction"
+    }
+}
+class SwnFactionDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<SwnFactionDto>, KodeinAware {
+    val resourceDeserializer: CachingResourceDeserializer = instance()
+
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return resourceDeserializer.deserialize(
+                GeneratorMetaDto::class.java,
+                SwnConstantsCustom.GROUP + "/" + SwnFactionDto.resource_prefix + ".meta",
+                locale
+        )
+    }
+
+    override fun load(locale: Locale): SwnFactionDto {
+        return resourceDeserializer.deserialize(
+                SwnFactionDto::class.java,
+                SwnFactionDto.resource_prefix,
+                locale
+        )
+    }
+}
+
+data class SwnFactionModel(
+        val template : String,
+        val type: String,
+        val hp: Int,
+        val force: Int,
+        val cunning: Int,
+        val wealth: Int,
+        val goal: String,
+        val assets: List<String>,
+        val tags: List<String>
+)
+
+class SwnFactionModelGenerator(override val kodein: Kodein) :
+ModelGeneratorStrategy<SwnFactionDto, SwnFactionModel>,
+KodeinAware {
+    val shuffler: Shuffler = instance()
+
+    override fun transform(dto: SwnFactionDto): SwnFactionModel {
+        val ftype = shuffler.pick(dto.faction_type_chance)
+
+        val ftypeDto: SwnFactionTypeDto = dto.faction_types.get(ftype)!!
+
+        val statMap: MutableMap<String, Int> = mutableMapOf()
+        val stats: List<String> = shuffler.pickN<String>(listOf("force", "cunning", "wealth"), 3) as List<String>
+        val ntags = shuffler.pick(ftypeDto.ntags)
+
+        stats.zip(ftypeDto.stats_input) { it1, it2 -> statMap.put(it1, it2) }
+
+        // handle primary/secondaries for assets
+        val primary: String = stats.take(1)[0]
+        val secondaries = stats.takeLast(2)
+
+        val assets: MutableList<String> = mutableListOf()
+
+        val primaryVal: Int = statMap.get(primary)!!
+
+        val primaryAssets = dto.assets.get(primary).orEmpty()
+        val possibleAssets: MutableList<String> = mutableListOf()
+        for (v in 1..primaryVal) {
+            if (primaryAssets.containsKey(v)) {
+                possibleAssets.addAll(primaryAssets[v]!!)
+            }
+        }
+
+        assets.addAll(shuffler.pickN(possibleAssets, ftypeDto.primary_assets))
+
+        possibleAssets.clear()
+        for (s in secondaries) { // iterate over secondary stats
+            for (v in 1..statMap.get(s)!!) {
+                if (dto.assets[s].orEmpty().containsKey(v)) {
+                    possibleAssets.addAll(dto.assets[s].orEmpty()[v]!!)
+                }
+            }
+        }
+
+        assets.addAll(shuffler.pickN(possibleAssets, ftypeDto.secondary_assets))
+
+        return SwnFactionModel(
+                goal = shuffler.pick(dto.goals),
+                type = ftype.capitalize(),
+                force = statMap.get("force")!!,
+                cunning = statMap.get("cunning")!!,
+                wealth = statMap.get("wealth")!!,
+                hp = ftypeDto.hp,
+                tags = shuffler.pickN<String>(dto.tags, ntags) as List<String>,
+                assets = assets,
+                template = dto.template
+        )
+    }
+}
+
+class SwnFactionView : ViewStrategy<SwnFactionModel, String> {
+    override fun transform(model: SwnFactionModel): String {
+        return Mustache.compiler()
+                .escapeHTML(false)
+                .compile(model.template)
+                .execute(model)
+                .trim()
+    }
+}
+
+
 
 data class SwnWorldTagModel(val tags_and_flavor: Collection<Pair<String, String>>,
                             val enemies: Collection<String>,
@@ -286,7 +405,7 @@ val swnModule = Kodein.Module {
 
     bind<ModelGenerator<SwnWorldModel>>() with provider {
         BaseGenerator<WorldBundleDto, SwnWorldModel>(
-                loadingStrat = SwnDtoLoader(kodein),
+                loadingStrat = SwnWorldDtoLoader(kodein),
                 modelGeneratorStrat = SwnWorldModelGenerator(kodein)
         )
     }
@@ -297,8 +416,24 @@ val swnModule = Kodein.Module {
         )
     }
 
+    bind<ModelGenerator<SwnFactionModel>>() with provider {
+        BaseGenerator<SwnFactionDto, SwnFactionModel>(
+                loadingStrat = SwnFactionDtoLoader(kodein),
+                modelGeneratorStrat = SwnFactionModelGenerator(kodein)
+        )
+    }
+    bind<Generator>(SwnConstantsCustom.FACTION) with provider {
+        BaseGeneratorWithView<SwnFactionModel, String>(
+                modelGen = instance(),
+                viewTransform = SwnFactionView()
+        )
+    }
+
     bind<List<String>>(SwnConstantsCustom.GROUP) with singleton {
-        listOf(SwnConstantsCustom.WORLD)
+        listOf(
+                SwnConstantsCustom.WORLD,
+                SwnConstantsCustom.FACTION
+        )
     }
 }
 
@@ -306,6 +441,7 @@ object SwnConstantsCustom {
     val GROUP = getFinalPackageName(this.javaClass)
 
     val WORLD = "${GROUP}/world"
+    val FACTION = "${GROUP}/faction"
 
 
     val NAMES = "${GROUP}/names"

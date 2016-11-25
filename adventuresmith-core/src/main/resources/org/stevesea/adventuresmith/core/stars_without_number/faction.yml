@@ -1,0 +1,201 @@
+---
+# this template is not as feature-rich as our other templates, it's just
+# applied to a model created by the generator. the model context will have the
+# following properties:
+#    type -- Minor/Major/Hegemon
+#    force, cunning, wealth - ints 1-8
+#    hp
+#    goal
+#    tags (list)
+#    assets (list)
+#
+template: |
+  <h4>{{type}} Faction</h4>
+  <small>Force:</small> {{force}} <small>Cunning:</small> {{cunning}} <small>Wealth:</small> {{wealth}}
+  <br/><small>HP:</small> {{hp}}
+  <br/>
+  <br/><small><strong>Tags:</strong></small> {{#tags}}{{^-first}}, {{/-first}}{{this}}{{/tags}}
+  <br/>
+  <br/><small><strong>Goal:</strong></small> {{goal}}
+  <h5>Assets</h5>
+  {{#assets}}{{^-first}}<br/>{{/-first}}{{this}}{{/assets}}
+
+# how likely to get a faction of the given type
+# (note: this must match the keys below)
+faction_type_chance:
+- 1..4, minor
+- 5..6, major
+- 7, hegemon
+
+faction_types:
+  minor:
+    stats_input:
+    - 4
+    - 3
+    - 1
+    hp: 15
+    primary_assets: 1
+    secondary_assets: 1
+    ntags:
+    - 1
+
+  major:
+    stats_input:
+    - 6
+    - 5
+    - 3
+    hp: 29
+    primary_assets: 2
+    secondary_assets: 2
+    ntags:
+    - 1
+    - 1
+    - 1
+    - 2
+
+  hegemon:
+    stats_input:
+    - 8
+    - 7
+    - 5
+    hp: 49
+    primary_assets: 4
+    secondary_assets: 4
+    ntags:
+    - 2
+
+goals:
+- Military Conquest
+- Commercial Expansion
+- Intelligence Coup
+- Planetary Seizure
+- Expand Influence
+- Blood the Enemy
+- Peacable Kingdom
+- Destroy the Foe
+- Inside Enemy Territory
+- Invincible Valor
+- Wealth of Worlds
+
+tags:
+- Colonists
+- Deep Rooted
+- Eugenics Cult
+- Exchange Consulate
+- Fanatical
+- Imperialists
+- Machiavellian
+- Mercenary Group
+- Perimeter Agency
+- Pirates
+- Planetary Government
+- Plutocratic
+- Preceptor Archive
+- Psychic Academy
+- Savage
+- Scavengers
+- Secretive
+- Technical Expertise
+- Theocratic
+- Warlike
+
+assets:
+  force:
+    1:
+    - Security Personnel
+    - Hitmen
+    - Militia Unit
+    2:
+    - Heavy Drop Assets
+    - Elite Skirmishers
+    - Hardened Personnel
+    - Guerilla Populace
+    3:
+    - Zealots
+    - Cunning Trap
+    - Counterintel Unit
+    4:
+    - Beachhead Landers
+    - Extended Theater
+    - Strike Fleet
+    - Postech Infantry
+    5:
+    - Blockade Fleet
+    - Pretech Logistics
+    - Psychic Assassins
+    6:
+    - Pretech Infantry
+    - Planetary Defenses
+    - Gravtank Formation
+    7:
+    - Deep Strike Landers
+    - Integral Protocols
+    - Space Marines
+    8:
+    - Capital Fleet
+  cunning:
+    1:
+    - Smugglers
+    - Informers
+    - False Front
+    2:
+    - Lobbyists
+    - Saboteurs
+    - Blackmail
+    - Seductress
+    3:
+    - Cyberninjas
+    - Stealth
+    - Covert Shipping
+    4:
+    - Party Machine
+    - Vanguard Cadres
+    - Tripwire Cells
+    - Seditionists
+    5:
+    - Organization Moles
+    - Cracked Comms
+    - Boltholes
+    6:
+    - Transport Lockdown
+    - Covert Transit Net
+    - Demagogue
+    7:
+    - Popular Movement
+    - Book of Secrets
+    - Treachery
+    8:
+    - Panopticon Matrix
+  wealth:
+    1:
+    - Franchise
+    - Harvesters
+    - Local Investments
+    2:
+    - Freighter Contract
+    - Lawyers
+    - Union Toughs
+    - Surveyors
+    3:
+    - Postech Industry
+    - Laboratory
+    - Mercenaries
+    4:
+    - Shipping Combine
+    - Monopoly
+    - Medical Center
+    - Bank
+    5:
+    - Marketers
+    - Pretech Researchers
+    - Blockade Runners
+    6:
+    - Venture Capital
+    - R&D Department
+    - Commodities Broker
+    7:
+    - Pretech Manufactory
+    - Hostile Takeover
+    - Transit Web
+    8:
+    - Scavenger Fleet

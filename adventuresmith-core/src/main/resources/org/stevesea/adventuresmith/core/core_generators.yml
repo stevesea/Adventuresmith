@@ -50,7 +50,8 @@ generators:
   - steading
   - discovery
   stars_without_number:
-  # - world             Not converted completely to new template format
+  # - world          faction/world   Not converted completely to new template format
+  #- faction
   - abandoned_structure
   - adventure_seed
   - alien
