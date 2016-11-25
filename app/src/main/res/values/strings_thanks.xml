@@ -44,8 +44,9 @@
     </string>
     <string name="content_thanks"><![CDATA[
         <h1>Thanks!</h1>
-        Many people who helped during development: testing, ideas, encouragement, etc. An incomplete list includes
-        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, Jason Lutes, Eric Nieudan, Matthieu B, Luka Rejec, Joe Banner, Jeremy Strandberg, Aaron Griffin, and others!</p>
+        Many people helped during development — testing, ideas, encouragement, etc. An incomplete list includes
+        <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, Jason Lutes, Eric Nieudan, Matthieu B, Luka Rejec,
+        Joe Banner, Jeremy Strandberg, Aaron Griffin, and others!</p>
 
         <br/>
         <p>James D`Amato, Kat Kuhl, and others at http://oneshotpodcast.com/ — thank you for re-invigorating my love of RPGs! </p>
