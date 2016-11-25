@@ -54,15 +54,14 @@
     <h3>Welcome!</h3>
     <p>Select a category to begin.</p>
     <br/>
-    <p>To report problems or request enhancements, please visit <br/>https://github.com/stevesea/Adventuresmith</p>
-    ]]></string>
+    <p>To request enhancements or report problems, please visit <br/><br/>https://stevesea.github.io/Adventuresmith/</p>]]></string>
 
     <string name="about_app"><![CDATA[
     <h1>Adventuresmith</h1>
     <p>Version:</strong> %1$s (%2$d)</p>
+    <p>Adventuresmith is written and maintained by <strong>Steve Christensen</strong>.</p>
     <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
-    <p>If you find bugs, have suggestions, or want to help develop it, go to https://github.com/stevesea/Adventuresmith</p>
-    </ul>
+    <p>If you find bugs, have suggestions, or want to help, go to https://github.com/stevesea/Adventuresmith</p>
     ]]></string>
     <string name="about_thirdparty"><![CDATA[
     <h1>Thirdparty software libraries</h1>
@@ -75,7 +74,6 @@
     <p>Android-Iconics https://github.com/mikepenz/Android-Iconics</p>
     <p>Crashlytics/Answers - https://fabric.io</p>
     <p>LeakCanary https://github.com/square/leakcanary</p>
-    </ul>
     ]]></string>
 
 </resources>

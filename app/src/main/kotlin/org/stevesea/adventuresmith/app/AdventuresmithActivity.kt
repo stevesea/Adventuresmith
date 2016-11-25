@@ -308,6 +308,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.layoutManager = resultsGridLayoutMgr
         recycler_results.itemAnimator = DefaultItemAnimator()
         recycler_results.adapter = resultAdapter
+
+        if (savedInstanceState == null && resultAdapter !=  null) {
+            resultAdapter!!.add(ResultItem(getString(R.string.welcome_msg)))
+        }
     }
 
     private fun selectDrawerItem(drawerItemId: Long?) {
