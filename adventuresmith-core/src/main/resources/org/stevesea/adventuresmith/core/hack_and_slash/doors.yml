@@ -1,0 +1,152 @@
+---
+templates:
+- |
+  <h4>Door - {{doors.types}}</h4>
+  <strong><small>Unusual Features:</small></strong> {{doors.unusual_features}}
+  <br/>
+  <br/>{{doors.condition}}
+
+
+nested_tables:
+  doors:
+    types:
+    - 1..2, wood, simple (+2)
+    - 3..10, wood, good
+    - 11..14, wood, strong (-2)
+    - 15..18, stone (-4)
+    - 19..20, metal (-10)
+
+    unusual_features:
+    - 1, Door Slides Left/Right
+    - 2, Door Slides Up/Down
+    - 3, Door hinged on top
+    - 4, Knocker
+    - 5, Peephole
+    - 6, Window (% false image)
+    - 7, Door Spiked Closed
+    - 8, Doorbell
+    - 9, Doorknob falls off
+    - 10, Locking Bar
+    - 11, Binding Metal
+    - 12, Door Bolt
+    - 13, Wood Bracing
+    - 14, Door Chain
+    - 15, Sign hangs from door
+    - 16, Door is warped and will not reshut
+    - 17, Things nailed to the door
+    - 18, Door has a portal covering
+    - 19, Door is abnormal size
+    - 20, Door is strange shape
+    condition:
+    - 1..6, Free
+    - |
+      7..12,
+      Locked
+      <br/><small>lock quality:</small> {{doors.lock_quality}}
+    - 13..18, Stuck
+    - |
+      19..20,
+      Unusual, specially locked or trapped
+      <br/>{{>pick: 1d18 doors.condition}}
+      <br/>{{doors.special}}
+    special:
+    - 1..2, Wizard Locked
+    - 3..4, Padlocked
+    - 5..9, Trapped
+    - 10..11, Magically Trapped
+    - 12..19, Door has Unusual Features
+    - |
+      20,
+      Door is Special
+      <br/>{{doors.special_types}}
+    lock_quality:
+    - 1, Wretched +6/+30%
+    - 2..3, Poor +3/+15%
+    - 4..10, Fair 0/0%
+    - 11..13, Average -1/-5%
+    - 14..15, Good -2/-10%
+    - 16..17, Excellent -3/-15%
+    - 18, Strong -4/-20%
+    - 19, Very Strong -5/-25%
+    - "20, {{lock_quality_excellent}}"
+    lock_quality_excellent:
+    - 1..10, Fullproof -6/-30%
+    - 11..15, Superior -8/-40%
+    - 16..19, Masterful -12/-60%
+    - 20, Impossible -16/-80%
+
+    special_types:
+    - Without password, casts spell on those who pass through the door
+    - Door gates people elsewhere
+    - Door is trapped with symbol
+    - Every third time used, it casts a spell on any who pass
+    - Negation (as the wand) on magic items that pass through the door
+    - Door temporarily animates the dead
+    - Door Blinds/Feebleminds those that pass
+    - Door gives visions
+    - Door creates duplicates that attack or merge causing damage and confusion
+    - Door is electrified
+    - Door summons monsters
+    - Door is intelligent and aligned
+    - Door is polymorphed monster
+    - Door is an illusion
+    - Contact with door turns it into mud, sand, mire, dung
+    - Contact with door causes it to cast spell
+    - Doorknob falls off
+    - Door is thief proof
+    - Door is rotten
+    - Door has knocker
+    - Door is invisible
+    - Door is magnetized
+    - Door is hot
+    - Door hinged at the bottom
+    - Door teleport switches Player Character with Monster
+    - Door is coated in acid
+    - Door vanishes when closed
+    - Door glass steeled
+    - Door is a revolving door
+    - Door fakes noises for listeners
+    - Door locked, destroys weapons used to break it down
+    - Door is magically locked, it is unopenable unless the people who wish to pass knock politely.
+    - Door slams in players face
+    - Door is unopenable, but has distinctive lock. When distinctive key is found, door eats the key and remains unopenable.
+    - Carved in door is guardian. If door is forced/picked, guardian screams
+    - Door is a mirror
+    - Door teleports people past
+    - Door revolves on horizontal bar in middle
+    - Door is demi-human sized
+    - Door is on fire when touched
+    - Door is 5’-10’ off floor
+    - Door opens 5’-10’ above floor on other side
+    - Door has contact poison on surface
+    - Door only opens in, cannot be opened from inside
+    - A skeleton hangs on one side of the the door
+    - Door has continual light
+    - Door has silence cast on it
+    - Door requires password
+    - Door is covered in blood
+    - Door smells repulsive when touched
+    - Door is in invisible wall
+    - Door is sticky
+    - Door is curtain of darkness
+    - Door requires blade instead of key
+    - Door missing feature, will open after feature replaced
+    - Door is fake -> magic/trapped
+    - Door plays music when open
+    - Door is fire/acid/water etc. proof
+    - Door repels metal
+    - Door protected by demon
+    - Door prevents multiple passings
+    - Door doesn’t open in torchlight
+    - Door only opens with group effort
+    - Door is of a strange material (glass, bone, force, solid fire)
+    - Unopenable
+    - Door is covered in levers and lights. Pulling any lever electrocutes everyone and all lights change color
+    - Door magically gates / teleports to different area
+    - Using key on door sets off trap
+    - A talking door with a known password that the door must be tricked into saying
+    - Door is repaired after being knocked down
+    - Door is transparent from one side
+    - Door falls on anyone who opens it
+    - Door causes fear when touched with bare skin
+    - Door with a hand shaped doorknob

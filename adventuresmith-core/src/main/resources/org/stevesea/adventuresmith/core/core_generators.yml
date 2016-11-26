@@ -84,3 +84,8 @@ generators:
   - temple_shrine
   stonetop:
   - minor_arcana
+  hack_and_slash:
+  - doors
+  - empty_rooms
+  - tricks
+  - wfc
