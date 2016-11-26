@@ -75,3 +75,122 @@ templates:
 - Monsters are engaged in social activities and are not aggressive (tea party, parade)
 - Small or unusual creatures make a safe activity dangerous (ear mites on doors, a curse in a book)
 
+tables:
+
+  #TODO: use trick/trick-effects?
+  tricks:
+  - 1, Bait
+  - 2, Boon/Bane
+  - 3, Confusion/Misdrection
+  - 4, Defended
+  - 5, Puzzle
+  - 6, Quest
+  - 7, Random
+  - 8, Riddle
+  - 9, Secret
+  - 10, Shiny
+  - 11, Shop
+  - 12, Terraformer
+  - 13, Timewaster
+  - 14, Tool
+  - 15, Transmutation
+  - 16, Transport
+  - 17, Weirdness
+  - 18, Monster + Roll again
+  - 19, Trap + Roll Again
+  - 20, Treasure + Roll Again
+
+  trick_effects:
+  - Absorbs (air, magic, light, sound)
+  - Ability Scores (raises/lowers, switches)
+  - Activates / Deactivates
+  - Ages (grows/matures)
+  - Appearing / Disappearing (flaming letters, body parts)
+  - Animates (animated, alive, licks, pushes, moans, giggles)
+  - Anti-magic
+  - Attacks
+  - Banishes
+  - "Blesses / Curses (see appendix D: Curses)"
+  - Bonds (life-force, fortune)
+  - Changes (alignment, attribute, body, class, clothing, color, enchantments, looks, race, size (enlarges, reduces), temperature, weight)
+  - Collapses
+  - Conceals / Reveals
+  - Creates (food, music, spiked tentacles, object, thirst, cleanliness, useful item)
+  - Condition (nauseated, stunned)
+  - Converts (gold, food, weapons, magic, experience)
+  - Desaturates
+  - Decapitates
+  - Detect (invisible, undead, alignment, magic)
+  - Devours (soul, keys, teeth)
+  - Disintegrates
+  - Directs
+  - Distorts (confuses, mazes, fascinates)
+  - Disease (vomits)
+  - Divines (augury)
+  - Drops
+  - Duplicates (transcribes, mimics, copies, retains image, retains presentation)
+  - Entraps (adhesive, encases, iron cage, force field, bear trap, pins pocket dimension, portcullis, secret room, new level, new plane, magic jar, mosaic, painting, crystal, gem, traps soul, gates, quicksand)
+  - Enrages (courage, blood lust)
+  - Explodes / Implodes
+  - Fires (projectiles, spells, poison, disease)
+  - Floods (gas (see gas list), water, acid, lava/magma)
+  - Freezes (cold, stasis, suspended animation)
+  - Gas (blinding, acid, fear, nausea, disease, obscuring, poison, sleep, slowing, weakness, fire, laughing)
+  - Gravity (reverse, anti-, fluctuations)
+  - Greed Producing
+  - Heals (disease, poison, resurrects)
+  - Illusion
+  - Imitates (monster, water rippling, voices)
+  - Infects / Implants / Infests / Imbues
+  - Intelligent / Sentient (living)
+  - Insanity (hallucination)
+  - Incorporeal
+  - Invisible
+  - Knowledge / Ignorance (secrets)
+  - Light / Darkness (ignites, phosphorescent, flaming, glows in the dark)
+  - Loses / Gains (spell, literacy, speech, understanding, body part, magical ability, gills, wings, claws, fangs)
+  - Locks/Unlocks
+  - Memory
+  - Moves (floats, levitates, rolls / rolling, unstable)
+  - Metagame (all random values to be rolled by player are now automatically the statistical mean)
+  - Noise (silence, singing, humming, laughter, music, alarms)
+  - Opens (pit, door, cage)
+  - One Way
+  - Precipitation (hail, rain, eyeballs, fire, frogs, snakes, vermin, insects)
+  - Petrifies
+  - Polymorph (small harmless animal, frog)
+  - Planeshift
+  - Pivots / Spins
+  - Points
+  - Poisons / Purifies
+  - Quest/Geas
+  - Releases (coins, counterfeit, electricty, gems, jewels, magic items, map, monster, hazard, poison, weight)
+  - Repels / Attracts (metal)
+  - Replaces (internal organs)
+  - Reverses (age, alignment, gender, wear and tear)
+  - Rots
+  - Rises / Sinks
+  - Senses (blinds, deafens, feebleminds)
+  - Shifts
+  - Shrivels
+  - Shocks
+  - Shoots
+  - Smells
+  - Spells / Magic (enchants, recharges, increased effect)
+  - Sprays (beer, slime, shrapnel, cold, acid, boiling water, flaming oil/tar, sewage, mummy dust, poison dust, dust of sneezing and choking)
+  - Slides
+  - Slopes
+  - Steals
+  - Summons
+  - Suggest
+  - Switches (minds)
+  - Symbotic
+  - Smokes / Sparks / Glows
+  - Talks (asks, answers, alternate language, normal, nonsense, oinks, rhymes, sings, spellcasting, tells, telepathy, warns)
+  - Teleports
+  - Time (slows, stops, speeds up)
+  - Traps / Trapped
+  - Triggers
+  - Transmutes (elements, holy water, metals, people, weapons, food, gear, ground, air)
+  - Vents (acid, fire/magma, poison gas, stinking cloud, smoke, methane, boiling water, freezing water, sand, slime, steam, sulphur)
+  - Wish

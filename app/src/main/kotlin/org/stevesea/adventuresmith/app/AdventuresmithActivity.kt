@@ -469,6 +469,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
                 }
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley//CommunityMaterial.Icon.cmd_pine_tree
+                AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_cube_unfolded
                 else -> CommunityMaterial.Icon.cmd_help_circle
             }
         }

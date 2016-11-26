@@ -87,5 +87,6 @@ generators:
   hack_and_slash:
   - doors
   - empty_rooms
+  - things
   - tricks
   - wfc

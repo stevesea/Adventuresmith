@@ -1,9 +1,14 @@
 ---
 templates:
+- |
+  asdf
+
+imports:
+- things
 
 
 definitions:
-  rooms:
+  room_def:
     Amphitheater: |
       This is an oval or round room filled with seats around a central open area. The general idea
       is that spectators surround the central area, which is often used for combat.
@@ -453,347 +458,131 @@ definitions:
       This room is a park or garden-like area where animals are kept in cages or large enclosures.
       <em>(cages, bestiaries, dias, pedestal, walking paths, benches, statues)</em>
 
-tables:
-  room:
-  - empty room
-  - 'interesting room - perhaps 5-10% of the total room count
-  - monsters
-  - tricks
-  - treasure
-
-  tricks:
-  1, Bait
-  2, Boon/Bane
-  3, Confusion/Misdrection
-  4, Defended
-  5, Puzzle
-  6, Quest
-  7, Random
-  8, Riddle
-  9, Secret
-  10, Shiny
-  11, Shop
-  12, Terraformer
-  13, Timewaster
-  14, Tool
-  15, Transmutation
-  16, Transport
-  17, Weirdness
-  18, Monster + Roll again
-  19, Trap + Roll Again
-  20, Treasure + Roll Again
-
-  trick_effects:
-  - Absorbs (air, magic, light, sound)
-  - Ability Scores (raises/lowers, switches)
-  - Activates / Deactivates
-  - Ages (grows/matures)
-  - Appearing / Disappearing (flaming letters, body parts)
-  - Animates (animated, alive, licks, pushes, moans, giggles)
-  - Anti-magic
-  - Attacks
-  - Banishes
-  - "Blesses / Curses (see appendix D: Curses)"
-  - Bonds (life-force, fortune)
-  - Changes (alignment, attribute, body, class, clothing, color, enchantments, looks, race, size (enlarges, reduces), temperature, weight)
-  - Collapses
-  - Conceals / Reveals
-  - Creates (food, music, spiked tentacles, object, thirst, cleanliness, useful item)
-  - Condition (nauseated, stunned)
-  - Converts (gold, food, weapons, magic, experience)
-  - Desaturates
-  - Decapitates
-  - Detect (invisible, undead, alignment, magic)
-  - Devours (soul, keys, teeth)
-  - Disintegrates
-  - Directs
-  - Distorts (confuses, mazes, fascinates)
-  - Disease (vomits)
-  - Divines (augury)
-  - Drops
-  - Duplicates (transcribes, mimics, copies, retains image, retains presentation)
-  - Entraps (adhesive, encases, iron cage, force field, bear trap, pins pocket dimension, portcullis, secret room, new level, new plane, magic jar, mosaic, painting, crystal, gem, traps soul, gates, quicksand)
-  - Enrages (courage, blood lust)
-  - Explodes / Implodes
-  - Fires (projectiles, spells, poison, disease)
-  - Floods (gas (see gas list), water, acid, lava/magma)
-  - Freezes (cold, stasis, suspended animation)
-  - Gas (blinding, acid, fear, nausea, disease, obscuring, poison, sleep, slowing, weakness, fire, laughing)
-  - Gravity (reverse, anti-, fluctuations)
-  - Greed Producing
-  - Heals (disease, poison, resurrects)
-  - Illusion
-  - Imitates (monster, water rippling, voices)
-  - Infects / Implants / Infests / Imbues
-  - Intelligent / Sentient (living)
-  - Insanity (hallucination)
-  - Incorporeal
-  - Invisible
-  - Knowledge / Ignorance (secrets)
-  - Light / Darkness (ignites, phosphorescent, flaming, glows in the dark)
-  - Loses / Gains (spell, literacy, speech, understanding, body part, magical ability, gills, wings, claws, fangs)
-  - Locks/Unlocks
-  - Memory
-  - Moves (floats, levitates, rolls / rolling, unstable)
-  - Metagame (all random values to be rolled by player are now automatically the statistical mean)
-  - Noise (silence, singing, humming, laughter, music, alarms)
-  - Opens (pit, door, cage)
-  - One Way
-  - Precipitation (hail, rain, eyeballs, fire, frogs, snakes, vermin, insects)
-  - Petrifies
-  - Polymorph (small harmless animal, frog)
-  - Planeshift
-  - Pivots / Spins
-  - Points
-  - Poisons / Purifies
-  - Quest/Geas
-  - Releases (coins, counterfeit, electricty, gems, jewels, magic items, map, monster, hazard, poison, weight)
-  - Repels / Attracts (metal)
-  - Replaces (internal organs)
-  - Reverses (age, alignment, gender, wear and tear)
-  - Rots
-  - Rises / Sinks
-  - Senses (blinds, deafens, feebleminds)
-  - Shifts
-  - Shrivels
-  - Shocks
-  - Shoots
-  - Smells
-  - Spells / Magic (enchants, recharges, increased effect)
-  - Sprays (beer, slime, shrapnel, cold, acid, boiling water, flaming oil/tar, sewage, mummy dust, poison dust, dust of sneezing and choking)
-  - Slides
-  - Slopes
-  - Steals
-  - Summons
-  - Suggest
-  - Switches (minds)
-  - Symbotic
-  - Smokes / Sparks / Glows
-  - Talks (asks, answers, alternate language, normal, nonsense, oinks, rhymes, sings, spellcasting, tells, telepathy, warns)
-  - Teleports
-  - Time (slows, stops, speeds up)
-  - Traps / Trapped
-  - Triggers
-  - Transmutes (elements, holy water, metals, people, weapons, food, gear, ground, air)
-  - Vents (acid, fire/magma, poison gas, stinking cloud, smoke, methane, boiling water, freezing water, sand, slime, steam, sulphur)
-  - Wish
-
-  things_in_rooms:
-  - Altar
-  - Air (clear, foggy, steamy, hazy (dust, smoke), misted)
-  - Air Currents (breeze (slight, damp, gusting), cold, downdraft, still (chill, warm, hot), updraft, wind (strong, gusting, moaning))
-  - Arch
-  - Bed (feather, water, bunk, canopied, curtained, enclosed)
-  - Container (amblic, backpack, bale, bag, barrels, basket, bin, bread box, basin, beaker, bottle, bowl, box, bucket, cabinet, can, canister, canteen, carafe, case, cashbox, cask, casket, cauldron, chalice, chest, chest of drawers, closet, coffer, coffin, crate, cup, decanter, drinking glass, ewer, flask, foot locker, goblet, gourd, hamper, hatbox, hope chest, jar, jewelry box, jug, lock box, molds, music box, narrow-mouthed jar, pan, pannier, phial, pillbox, pitcher, portmanteau, pot, pottery, pottle, pouch, powder box, puzzle box, sack, satchel, sea chest, shadow box, shelves, strong box, spittoon, tinder box, trough, trunk, tub, urn, valise, vase and wineskin. Any of these may be broken, in shards, full, empty, or torn)
-  - Clock (small, grandfather, mantle, pocket watch, table, tall, wall)
-  - Clothing (apron, belt, blouse, bodkin, boots, braies, buskins, cap, cape, cowl, barbette and fillet, cloak, coat, coif, doublet, dress, fez, frock / pinafore, garter, gauntlets, girdle, gloves, gorget, gown, hat, habit, hood, hose, jerkin, jupon, kerchief, kirtle, leggings, linen, mantle, pantaloons, petticoat, pouch, purse, robe, sandals, scarf, shawl, shift, slippers, smock, stockings, surcoat, toga, trousers, tunic, veil, vest, wallet, wrapper)
-  - Decoration (arras, armorial bearings, bell, column (half), curtains, drapery, flag, fur, gilt/gilding, hide, inlay (ivory, metal, tile stone, wood), map, mirror, molding (plaster, wood carved), niche, paneling, paint, plaster, rail chair, relief (molded, sculpted, bas, high, sunken), sconce, sheeting (metal, stone), shield, skin, tile (mineral tile, wood), wallcloth, wallpaper, whitewash, weaving)
-  - Dias
-  - Clay / Dirt / Mud / Dust / Filth / Sand / Sewage
-  - Dome
-  - Fasteners (banding, bolt & nut, nail, peg, pin, cotter pin, clothespin, rivet, screw, strapping, washer)
-  - Fireplace (firepit)
-  - Forcefield
-  - Fountain / Lake / Pool / Font (holy, unholy, magical, poisoned, birdbath)
-  - Fresco / Mosaic / Painting (parchment / tiles)
-  - Furnishings (armchair, armoire, bedroll, bench, blanket, bookshelves, buffet, bunks, chair, coat rack, cots, couch, cresset, cupboard, cushion, desk, divan, end table, forge, furnace, futon, hamper, kneeling bench, lectern, loom, mat, mattress, oven, pallet, platters, pews, pillow, podium, quilt, rocking chair, sand table, screen, shelves, shrine, sofa, stool, stove, table, throne, torture equipment, tub, wall basin, workbench)
-  - Food / Waste (alcohol, butchery, carnage, cocoa, coffee, cooking oil, fish, flour, grain, herbs/spices, honey, lard, meat, molasses, nuts, salt (fish, meat), syrup (corn, maple), tea, toilet, vanilla, vinegar)
-  - Idol
-  - Illusion / Magic (crystal ball, magic circle, rune stones)
-  - Light (brazier, candles, candelabra, chandelier, coals, fire, lamp, lantern, oily rags, smoke, torches, torch stub, and wax)
-  - Markings (books, tomes /manuals, scrolls, runes, scratches, summoning runes, writing)
-  - Machine (buttons, crane, crank, gantry, hourglass, inclined plane, levers, metronome, pendulum, pulley, switch, sundial, telescope)
-  - Monster (you’ve got to be kidding me)
-  - Money (coins)
-  - Musical Instruments (bagpipes, bells, blocks, chimes, cymbals, didgeridoo drums, dulcimers, fiddles, fifes, flute, gongs, harp, horns, hurdy-gurdy, lutes, lyres, mandolins, ocarina, organ, pan pipes, recorders, tambourine, triangle, trumpet, whistle, and xylophone)
-  - Nests (web)
-  - Odors (acrid, chlorine, dank, earthy, fetid, manure, metallic, moldy, ozone, putrid, rotting vegetables, salty, smoky, stale, sulphurous, urine)
-  - Organic (animal parts (wings, bones), arms, ashes, bees, blood, bones, bugs, buzzing, dung, ears, eyeballs, feathers, fingers, fish, furs, guano, hides, horsehair, ichor, insects, legs, petrified body, pets, rats, skeletons (animal, human, monster, giant), skins, slime, snakes, spiders, toes, and vermin)
-  - Passage / Door / Hallway / Portal / Gate / Tunnel
-  - Pedestal
-  - Pillar / column
-  - Plant (flowers, fungi, fruit, leaves, mold, pipe weed, seeds, spores, straw, tobacco and trees)
-  - Restraints / Torture (bastinadoes, branding irons, cage (bird, animal), chains, chain with straps, clamps, cressets (wall), fetters, finger stocks, gags, gate, glue, grill, hooks, hoists, iron boot, iron maiden, irons (branding, poker), locks, manacles, needles and pins, padlocks, pillory, pliers, huge pot, portcullis, pressing board & weights, rack, ropes, stocks, strappado, tar, tongs, thumbscrews, “u” rack, vice, wheel, and whips)
-  - Sounds / Noises (bang/slam, bellow, bong, bubbling, buzzing, chirping, chanting, chiming, clanking, clashing, clicking, coughing, creaking, drumming, footsteps (ahead, approaching, behind, receding, side, faint), gong, grating, groaning, grunting, hissing, hooting, horn/trumpet, howling, humming, jingling, knocking, laughter, moaning, murmuring, music, rattling, ringing, roaring, rustling, scratching/scrabbling, screaming, scuttling, shuffling, slithering, snapping, sneezing, sobbing, splashing, splintering, squeaking, squealing, tapping, thud, thumping, tinkling, twanging, whining, whispering, whistling)
-  - Stairway (chute, elevators, ladders, shaft, slide)
-  - Statue
-  - Structure (alcove, balcony, barred window, bridge, catwalk, depressions, freestanding wall, glass window, hook, iron bar, mirrors, nails, pipes, protrusions, railing, rope bridge, stadium seating, stone slab and walking paths)
-  - Surface / Floor / Ceiling / Wall
-  - Tapestry (banners, carpets, and rugs)
-  - Traps (pit - see trap section)
-  - Trash/refuse (broken arrow, broken bottle, corroded chain, splintered club, bent coin, hilt, dung, dust, cracked flask, food scraps, fungus, guano, hair/fur, cracked hammerhead, badly dented helmet, bent rusted iron bar, leather boot, leaves & twigs, mold, handle, broken pole, pottery shards, rags, rotten rope, rubble & dirt, torn sack, rusted spike, sticks, small stones, straw, broken blade, loose teeth, loose fangs, torch stub, wax blobs, rotting wood.)
-  - Things (ashtray, ambergris, balls, beads, blocks, blotter, cards, chalk, comforter, cover, crystals, curios, cushion, dolls, doll houses, dye, fake jewelry, kaleidoscope, figurine, gambling chips, geode, gravels, gypsum, headdress, hook, humidor, ice chest, jacks, incense, incense burner, ivory, jewelry, lye, makeup, marbles, mask (animal, demonic, exotic, feather), metal ingots, metal sheets, mobile, offertory dish, oil, perfume, pipe (brass, briar, calabash, clay, corncob, meerschaum, stone, reamer), pitch, potash, practice targets, prayer wheel, puppets, quilt, reliquary, resin, ribbon, rosary, sand, seashells, sheets, symbol (holy, unholy), tablecloth, tack, tallow, tar, tiles (ceramic, slate), tea leaves, towel, toys, toy soldiers, trophies, turpentine, washcloth, whale bone, and wool)
-  - Tools (adhesive, astrolabe, alembic, adze, ankus (to prod animals with), anvil, athame (wood, gilded, bone, ivory) auger, awl, balance & weights, bangles, beaker, bell, bellows, belt axe, binoculars, bladder, block and tackle, bottle, bow drill, bowl, branding iron, brush, broom, buckle, stopper, callipers, candelabra, candlestick, cards, carding comb, carpenter’s square, cauldron, chain cutter, china, chisel, cigar cutter, clamp, cloth, coffin, combs, compass, cord, corkscrew, crowbar, crucible, cup, dice, drill bits, drill, drinking jack, drinking horn, dolls, door handles, dust pan, ewers, eye-patch, feather duster, file, finger-pick, fire poker, fish-hooks, flagon, forge, fork, game pieces, gavel, gimlet, grindstone, goblet, gouge, hangers, hammer, hatchet, hilt, hoe, hook, hollow reed, holy symbol, ink, ink pot, kettle, key ring, knives, ladle, loom, mallet, mantle, masks, maul, measuring (line, stick), mirrors, molds, mortar & pestle, monocle, mop, mug, nails, needles (knitting, other), nippers, offertory container, paint, pan, peg-legs, pickaxe, pitcher, pitchfork, pen case, planner, plates, platters, pliers, plow, plumb line, pots, potters wheel, pouches and small boxes, pulley, quill, rake, rasp, right angle, rope, salt cellar, saw, sawhorse, scissors, scepters, scythe, shears, shepherd’s crook, shovel, sledge, spade, spit, spikes, spoon,spyglass, straight edge, stein, string, thimble, thread, tiles, trays, tongs, toys, vestments, vise, wedge, wheelbarrow, whetstone, whitewash, wire, whistle, wrench, and yarn)
-  - Vehicle (boat, chariot, and wagon)
-  - Water (aquarium, bath, damp, moisture, puddle, trickle, river, stream, and waterway)
-  - Weapons / Armor (broken, cracked, dented, and rusted)
-  - Well
-
-
 nested_tables:
-  materials:
-    exterior:
-    - Adobe
-    - Brick
-    - Brick & Timber
-    - Cloth & Poles
-    - Rammed Earth
-    - Felt (Yurt)
-    - Grass & Poles
-    - Metal Sheet
-    - Matting
-    - Plaster Board & Timber
-    - Sod
-    - Stone
-    - Timber
-    - Wattle
-    - Wattle & Daub
-    interior:
-    - Bamboo
-    - Board
-    - Brick (Glazed, Mud)
-    - Cloth Drapery
-    - Frame & Paper
-    - Lath & Plaster
-    - Leather Curtain
-    - Rammed Earth
-    - Rattan
-    - Stone
-    - Tile
-    - Timber (log)
-    - Tin
-    - Wickerwork
-    floor:
-    - Clay
-    - Dirt (Packed)
-    - Stone (Flag, Field)
-    - Timber (Log, Split)
-    - Wood (Plank, Split)
-
-  room_tables:
+  rooms:
     types:
-    - Rooms of Public Assembly
-    - Rooms of Containment and Imprisonment
-    - Rooms of Pleasure and Relaxation
-    - Rooms of General Function
-    - Rooms of War and Conflict
-    - Rooms of Deities and Worship
-    - Rooms of Learning and Knowledge
-    - Rooms of Specific Utility
+    - "{{rooms.public_assembly}}"
+    - "{{rooms.containment}}"
+    - "{{rooms.pleasures}}"
+    - "{{rooms.general}}"
+    - "{{rooms.war_conflict}}"
+    - "{{rooms.deities}}"
+    - "{{rooms.learning}}"
+    - "{{rooms.specific_utility}}"
 
     public_assembly:
-    - 1, Assemblage
-    - 2..3, Antechamber
-    - 4, Amphitheater
-    - 5, Audience Hall
-    - 6, Courtroom
-    - 7, Great Hall
-    - 8, Throne Room
+    - "1, Assemblage"
+    - "2..3, Antechamber"
+    - "4, Amphitheater"
+    - "5, Audience Hall"
+    - "6, Courtroom"
+    - "7, Great Hall"
+    - "8, Throne Room"
     containment:
-    - 1, Aviary
-    - 2, Bestiary
-    - 3, Cage
-    - 4..5, Cell
-    - 6, Kennel
-    - 7, Oubliette
-    - 8, Padded Room
-    - 9, Pen
-    - 10, Prison
-    - 11, Stockade
-    - 12, Zoo
+    - "1, Aviary"
+    - "2, Bestiary"
+    - "3, Cage"
+    - "4..5, Cell"
+    - "6, Kennel"
+    - "7, Oubliette"
+    - "8, Padded Room"
+    - "9, Pen"
+    - "10, Prison"
+    - "11, Stockade"
+    - "12, Zoo"
     pleasures:
-    - 1, Arena
-    - 2..3, Banquet
-    - 4, Combat pit
-    - 5..6, Den
-    - 7, Game Room
-    - 8..9, Gallery
-    - 10, Harem
-    - 11, Maze
-    - 12..13, Museum
-    - 14, Music Room
-    - 15, Pool
-    - 16, Sauna
-    - 17, Seraglio
-    - 18, Statuary
-    - 19, Torture Chamber
-    - 20, Trophy Room
+    - "1, Arena"
+    - "2..3, Banquet"
+    - "4, Combat pit"
+    - "5..6, Den"
+    - "7, Game Room"
+    - "8..9, Gallery"
+    - "10, Harem"
+    - "11, Maze"
+    - "12..13, Museum"
+    - "14, Music Room"
+    - "15, Pool"
+    - "16, Sauna"
+    - "17, Seraglio"
+    - "18, Statuary"
+    - "19, Torture Chamber"
+    - "20, Trophy Room"
     general:
-    - 1, Bathroom
-    - 2, Bedroom
-    - 3, Cistern Room
-    - 4..5, Closet
-    - 6, Dining Room
-    - 7, Dressing Room
-    - 8, Foyer (Entry Room)
-    - 9, Hall
-    - 10, Lair
-    - 11, Larder / Pantry
-    - 12, Lounge
-    - 13, Map Room
-    - 14, Privy
-    - 15, Planning Room
-    - 16, Reception Chamber
-    - 17, Salon
-    - 18, Servants Dorm
-    - 19, Storage
-    - 20, Waiting Room
-    - 21, Wardrobe
-    - 22, Well Room
-    - 23, Vault
-    - 24, Vestibule
+    - "1, Bathroom"
+    - "2, Bedroom"
+    - "3, Cistern Room"
+    - "4..5, Closet"
+    - "6, Dining Room"
+    - "7, Dressing Room"
+    - "8, Foyer (Entry Room)"
+    - "9, Hall"
+    - "10, Lair"
+    - "11, Larder / Pantry"
+    - "12, Lounge"
+    - "13, Map Room"
+    - "14, Privy"
+    - "15, Planning Room"
+    - "16, Reception Chamber"
+    - "17, Salon"
+    - "18, Servants Dorm"
+    - "19, Storage"
+    - "20, Waiting Room"
+    - "21, Wardrobe"
+    - "22, Well Room"
+    - "23, Vault"
+    - "24, Vestibule"
     war_conflict:
-    - 1, Armory
-    - 2, Arsenal
-    - 3, Barracks
-    - 4, Guardroom
-    - 5, Gymnasium
-    - 6, Interrogation Room
-    - 7, Mess Hall
-    - 8, Training Room
+    - "1, Armory"
+    - "2, Arsenal"
+    - "3, Barracks"
+    - "4, Guardroom"
+    - "5, Gymnasium"
+    - "6, Interrogation Room"
+    - "7, Mess Hall"
+    - "8, Training Room"
     deities:
-    - 1, Chantry
-    - 2..3, Chapel
-    - 4, Crypt, Human
-    - 5, Crypt, Animal
-    - 6,  Confessional
-    - 7, Crematorium
-    - 8, Embalming Chamber
-    - 9, Meditation Chamber
-    - 10, Monk Cell
-    - 11, Mass Grave
-    - 12..13, Robing Room
-    - 14..15, Shrine
-    - 16, Scriptorium
-    - 17..18, Temple
-    - 19, Tomb
-    - 20, Vestiary
+    - "1, Chantry"
+    - "2..3, Chapel"
+    - "4, Crypt, Human"
+    - "5, Crypt, Animal"
+    - "6, Confessional"
+    - "7, Crematorium"
+    - "8, Embalming Chamber"
+    - "9, Meditation Chamber"
+    - "10, Monk Cell"
+    - "11, Mass Grave"
+    - "12..13, Robing Room"
+    - "14..15, Shrine"
+    - "16, Scriptorium"
+    - "17..18, Temple"
+    - "19, Tomb"
+    - "20, Vestiary"
     learning:
-    - 1, Classroom
-    - 2, Conjuring Room
-    - 3, Divination Chamber
-    - 4, Inscription Chamber
-    - 5, Laboratory
-    - 6..7, Library
-    - 8, Morgue
-    - 9, Observatory
-    - 10, Study
-    - 11, Solar
-    - 12, Summoning Room
+    - "1, Classroom"
+    - "2, Conjuring Room"
+    - "3, Divination Chamber"
+    - "4, Inscription Chamber"
+    - "5, Laboratory"
+    - "6..7, Library"
+    - "8, Morgue"
+    - "9, Observatory"
+    - "10, Study"
+    - "11, Solar"
+    - "12, Summoning Room"
     specific_utility:
-    - 1, Barn
-    - 2, Kitchen
-    - 3, Forge
-    - 4, Meeting Chamber
-    - 5, Mine
-    - 6..7, Office
-    - 8, Pool / Water Room
-    - 9, Stable
-    - 10, Treasury
-    - 11, Garage
-    - 12, Smokehouse
-    - 13, Tannery
-    - 14, Work Pit / Workshop
+    - "1, Barn"
+    - "2, Kitchen"
+    - "3, Forge"
+    - "4, Meeting Chamber"
+    - "5, Mine"
+    - "6..7, Office"
+    - "8, Pool / Water Room"
+    - "9, Stable"
+    - "10, Treasury"
+    - "11, Garage"
+    - "12, Smokehouse"
+    - "13, Tannery"
+    - "14, Work Pit / Workshop"
 
   interesting:
     interesting:

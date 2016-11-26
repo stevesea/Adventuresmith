@@ -1,21 +1,40 @@
 ---
 templates:
 - |
-  <h4>Door - {{doors.types}}</h4>
-  <strong><small>Unusual Features:</small></strong> {{doors.unusual_features}}
-  <br/>
-  <br/>{{doors.condition}}
-
+  <h4>Door</h4>
+  {{doors.types}}
+  {{doors.condition}}
 
 nested_tables:
   doors:
     types:
-    - 1..2, wood, simple (+2)
-    - 3..10, wood, good
-    - 11..14, wood, strong (-2)
-    - 15..18, stone (-4)
-    - 19..20, metal (-10)
-
+    - 1..2, Wood, Simple (+2)
+    - 3..10, Wood, Good
+    - 11..14, Wood, Strong (-2)
+    - 15..18, Stone (-4)
+    - 19..20, Metal (-10)
+    condition:
+    - 1..6, <h5>Free</h5>
+    - |
+      7..12,
+      <h5>Locked</h5> Lock Quality: {{doors.lock_quality}}
+    - 13..18, <h5>Stuck</h5>
+    - |
+      19..20,
+      {{>pick: 1d18 doors.condition}}
+      <h5>Special</h5>
+      {{doors.special}}
+    special:
+    - 1..2, Wizard Locked
+    - 3..4, Padlocked
+    - 5..9, Trapped
+    - 10..11, Magically Trapped
+    - |
+      12..19,
+      <small>Unusual Features:</small> {{doors.unusual_features}}
+    - |
+      20,
+      {{doors.special_types}}
     unusual_features:
     - 1, Door Slides Left/Right
     - 2, Door Slides Up/Down
@@ -37,28 +56,6 @@ nested_tables:
     - 18, Door has a portal covering
     - 19, Door is abnormal size
     - 20, Door is strange shape
-    condition:
-    - 1..6, Free
-    - |
-      7..12,
-      Locked
-      <br/><small>lock quality:</small> {{doors.lock_quality}}
-    - 13..18, Stuck
-    - |
-      19..20,
-      Unusual, specially locked or trapped
-      <br/>{{>pick: 1d18 doors.condition}}
-      <br/>{{doors.special}}
-    special:
-    - 1..2, Wizard Locked
-    - 3..4, Padlocked
-    - 5..9, Trapped
-    - 10..11, Magically Trapped
-    - 12..19, Door has Unusual Features
-    - |
-      20,
-      Door is Special
-      <br/>{{doors.special_types}}
     lock_quality:
     - 1, Wretched +6/+30%
     - 2..3, Poor +3/+15%
@@ -68,7 +65,7 @@ nested_tables:
     - 16..17, Excellent -3/-15%
     - 18, Strong -4/-20%
     - 19, Very Strong -5/-25%
-    - "20, {{lock_quality_excellent}}"
+    - "20, {{doors.lock_quality_excellent}}"
     lock_quality_excellent:
     - 1..10, Fullproof -6/-30%
     - 11..15, Superior -8/-40%
