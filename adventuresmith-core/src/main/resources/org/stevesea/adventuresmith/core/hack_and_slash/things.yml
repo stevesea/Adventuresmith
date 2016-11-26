@@ -11,10 +11,10 @@ tables:
   - Air Currents (breeze (slight, damp, gusting), cold, downdraft, still (chill, warm, hot), updraft, wind (strong, gusting, moaning))
   - Arch
   - Bed (feather, water, bunk, canopied, curtained, enclosed)
-  - Container (amblic, backpack, bale, bag, barrels, basket, bin, bread box, basin, beaker, bottle, bowl, box, bucket, cabinet, can, canister, canteen, carafe, case, cashbox, cask, casket, cauldron, chalice, chest, chest of drawers, closet, coffer, coffin, crate, cup, decanter, drinking glass, ewer, flask, foot locker, goblet, gourd, hamper, hatbox, hope chest, jar, jewelry box, jug, lock box, molds, music box, narrow-mouthed jar, pan, pannier, phial, pillbox, pitcher, portmanteau, pot, pottery, pottle, pouch, powder box, puzzle box, sack, satchel, sea chest, shadow box, shelves, strong box, spittoon, tinder box, trough, trunk, tub, urn, valise, vase and wineskin. Any of these may be broken, in shards, full, empty, or torn)
+  - "Container ({{>pickN: 5 things.container}}) (may be broken, in shards, full, empty, or torn)"
   - Clock (small, grandfather, mantle, pocket watch, table, tall, wall)
-  - Clothing (apron, belt, blouse, bodkin, boots, braies, buskins, cap, cape, cowl, barbette and fillet, cloak, coat, coif, doublet, dress, fez, frock / pinafore, garter, gauntlets, girdle, gloves, gorget, gown, hat, habit, hood, hose, jerkin, jupon, kerchief, kirtle, leggings, linen, mantle, pantaloons, petticoat, pouch, purse, robe, sandals, scarf, shawl, shift, slippers, smock, stockings, surcoat, toga, trousers, tunic, veil, vest, wallet, wrapper)
-  - Decoration (arras, armorial bearings, bell, column (half), curtains, drapery, flag, fur, gilt/gilding, hide, inlay (ivory, metal, tile stone, wood), map, mirror, molding (plaster, wood carved), niche, paneling, paint, plaster, rail chair, relief (molded, sculpted, bas, high, sunken), sconce, sheeting (metal, stone), shield, skin, tile (mineral tile, wood), wallcloth, wallpaper, whitewash, weaving)
+  - "Clothing ({{>pickN: 5 things.clothing}})"
+  - "Decoration ({{>pickN: 5 things.decoration}})"
   - Dias
   - Clay / Dirt / Mud / Dust / Filth / Sand / Sewage
   - Dome
@@ -24,7 +24,7 @@ tables:
   - Fountain / Lake / Pool / Font (holy, unholy, magical, poisoned, birdbath)
   - Fresco / Mosaic / Painting (parchment / tiles)
   - "Furnishings ({{>pickN: 5 things.furnishings}})"
-  - Food / Waste (alcohol, butchery, carnage, cocoa, coffee, cooking oil, fish, flour, grain, herbs/spices, honey, lard, meat, molasses, nuts, salt (fish, meat), syrup (corn, maple), tea, toilet, vanilla, vinegar)
+  - "Food / Waste ({{>pickN: 5 things.food_waste}})"
   - Idol
   - Illusion / Magic (crystal ball, magic circle, rune stones)
   - Light (brazier, candles, candelabra, chandelier, coals, fire, lamp, lantern, oily rags, smoke, torches, torch stub, and wax)
@@ -34,12 +34,12 @@ tables:
   - Money (coins)
   - "Musical Instruments ({{>pickN: 5 things.musical_instruments}})"
   - Nests (web)
-  - Odors (acrid, chlorine, dank, earthy, fetid, manure, metallic, moldy, ozone, putrid, rotting vegetables, salty, smoky, stale, sulphurous, urine)
+  - "Odors ({{>pickN: 2 things.odor}})"
   - "Organic ({{>pickN: 5 things.organic}})"
   - Passage / Door / Hallway / Portal / Gate / Tunnel
   - Pedestal
   - Pillar / column
-  - Plant (flowers, fungi, fruit, leaves, mold, pipe weed, seeds, spores, straw, tobacco and trees)
+  - "Plant ({{>pickN: 5 things.plant}})"
   - "Restraints / Torture ({{>pickN: 5 things.torture}})"
   - "Sounds / Noises ({{>pickN: 5 things.noises}})"
   - Stairway (chute, elevators, ladders, shaft, slide)
@@ -49,14 +49,244 @@ tables:
   - Tapestry (banners, carpets, and rugs)
   - Traps (pit - see trap section)
   - "Trash/refuse ({{>pickN: 5 things.trash}})"
-  - "Things ({{>pickN: 10 things.things}})"
-  - "Tools ({{>pickN: 10 things.tools}})"
+  - "Things ({{>pickN: 3 things.things}})"
+  - "Tools ({{>pickN: 3 things.tools}})"
   - Vehicle (boat, chariot, and wagon)
-  - Water (aquarium, bath, damp, moisture, puddle, trickle, river, stream, and waterway)
+  - "Water ({{>pickN: 2 things.water}})"
   - Weapons / Armor (broken, cracked, dented, and rusted)
   - Well
 nested_tables:
   things:
+    odor:
+    - acrid
+    - chlorine
+    - dank
+    - earthy
+    - fetid
+    - manure
+    - metallic
+    - moldy
+    - ozone
+    - putrid
+    - rotting vegetables
+    - salty
+    - smoky
+    - stale
+    - sulphurous
+    - urine
+    plant:
+    - flowers
+    - fungi
+    - fruit
+    - leaves
+    - mold
+    - pipe weed
+    - seeds
+    - spores
+    - straw
+    - tobacco
+    - trees
+    water:
+    - aquarium
+    - bath
+    - damp
+    - moisture
+    - puddle
+    - trickle
+    - river
+    - stream
+    - waterway
+
+    food_waste:
+    - alcohol
+    - butchery
+    - carnage
+    - cocoa
+    - coffee
+    - cooking oil
+    - fish
+    - flour
+    - grain
+    - herbs/spices
+    - honey
+    - lard
+    - meat
+    - molasses
+    - nuts
+    - salt (fish, meat)
+    - syrup (corn, maple)
+    - tea
+    - toilet
+    - vanilla
+    - vinegar
+
+    decoration:
+    - arras
+    - armorial bearings
+    - bell
+    - column (half)
+    - curtains
+    - drapery
+    - flag
+    - fur
+    - gilt/gilding
+    - hide
+    - inlay (ivory, metal, tile stone, wood)
+    - map
+    - mirror
+    - molding (plaster, wood carved)
+    - niche
+    - paneling
+    - paint
+    - plaster
+    - rail chair
+    - relief (molded, sculpted, bas, high, sunken)
+    - sconce
+    - sheeting (metal, stone)
+    - shield
+    - skin
+    - tile (mineral tile, wood)
+    - wallcloth
+    - wallpaper
+    - whitewash
+    - weaving
+
+    clothing:
+    - apron
+    - belt
+    - blouse
+    - bodkin
+    - boots
+    - braies
+    - buskins
+    - cap
+    - cape
+    - cowl
+    - barbette and fillet
+    - cloak
+    - coat
+    - coif
+    - doublet
+    - dress
+    - fez
+    - frock / pinafore
+    - garter
+    - gauntlets
+    - girdle
+    - gloves
+    - gorget
+    - gown
+    - hat
+    - habit
+    - hood
+    - hose
+    - jerkin
+    - jupon
+    - kerchief
+    - kirtle
+    - leggings
+    - linen
+    - mantle
+    - pantaloons
+    - petticoat
+    - pouch
+    - purse
+    - robe
+    - sandals
+    - scarf
+    - shawl
+    - shift
+    - slippers
+    - smock
+    - stockings
+    - surcoat
+    - toga
+    - trousers
+    - tunic
+    - veil
+    - vest
+    - wallet
+    - wrapper
+
+    container:
+    - amblic
+    - backpack
+    - bale
+    - bag
+    - barrels
+    - basket
+    - bin
+    - bread box
+    - basin
+    - beaker
+    - bottle
+    - bowl
+    - box
+    - bucket
+    - cabinet
+    - can
+    - canister
+    - canteen
+    - carafe
+    - case
+    - cashbox
+    - cask
+    - casket
+    - cauldron
+    - chalice
+    - chest
+    - chest of drawers
+    - closet
+    - coffer
+    - coffin
+    - crate
+    - cup
+    - decanter
+    - drinking glass
+    - ewer
+    - flask
+    - foot locker
+    - goblet
+    - gourd
+    - hamper
+    - hatbox
+    - hope chest
+    - jar
+    - jewelry box
+    - jug
+    - lock box
+    - molds
+    - music box
+    - narrow-mouthed jar
+    - pan
+    - pannier
+    - phial
+    - pillbox
+    - pitcher
+    - portmanteau
+    - pot
+    - pottery
+    - pottle
+    - pouch
+    - powder box
+    - puzzle box
+    - sack
+    - satchel
+    - sea chest
+    - shadow box
+    - shelves
+    - strong box
+    - spittoon
+    - tinder box
+    - trough
+    - trunk
+    - tub
+    - urn
+    - valise
+    - vase
+    - wineskin.
+
+
     musical_instruments:
     - bagpipes
     - bells

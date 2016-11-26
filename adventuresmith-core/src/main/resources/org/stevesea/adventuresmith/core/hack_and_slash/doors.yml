@@ -1,8 +1,7 @@
 ---
 templates:
 - |
-  <h4>Door</h4>
-  {{doors.types}}
+  <h4>Door - {{doors.types}}</h4>
   {{doors.condition}}
 
 nested_tables:
@@ -14,11 +13,11 @@ nested_tables:
     - 15..18, Stone (-4)
     - 19..20, Metal (-10)
     condition:
-    - 1..6, <h5>Free</h5>
+    - 1..6, <strong>Free</strong>
     - |
       7..12,
       <h5>Locked</h5> Lock Quality: {{doors.lock_quality}}
-    - 13..18, <h5>Stuck</h5>
+    - 13..18, <strong>Stuck</strong>
     - |
       19..20,
       {{>pick: 1d18 doors.condition}}
@@ -29,12 +28,8 @@ nested_tables:
     - 3..4, Padlocked
     - 5..9, Trapped
     - 10..11, Magically Trapped
-    - |
-      12..19,
-      <small>Unusual Features:</small> {{doors.unusual_features}}
-    - |
-      20,
-      {{doors.special_types}}
+    - "12..19, {{doors.unusual_features}}"
+    - "20, {{doors.special_types}}"
     unusual_features:
     - 1, Door Slides Left/Right
     - 2, Door Slides Up/Down

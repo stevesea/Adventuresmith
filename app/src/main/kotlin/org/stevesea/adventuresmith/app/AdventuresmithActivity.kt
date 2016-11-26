@@ -204,7 +204,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         try {
                             result = item.generator.generate(getCurrentLocale(resources))
                         } catch (e: Exception) {
-                            warn(e)
+                            warn(e.toString(), e)
                             result = e.toString()
                         }
 
