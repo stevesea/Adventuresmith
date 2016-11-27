@@ -1,0 +1,280 @@
+---
+templates:
+- |
+  <h4>Trap</h4>
+  {{trap_type}}
+
+definitions:
+  pit_trap_template: |
+    <strong><small>pit depth:</small></strong> {{pit_depth}}
+    <br/><strong><small>pit bottom:</small></strong> {{pit_bottom}}
+
+  trigger_template: |
+    <strong><small>trigger:</small></strong> {{triggers}}
+
+tables:
+  triggers: #IX
+  - 1..4, Latch/Switch
+  - 5..8, Pressure Plate
+  - 9..12, Tripwire
+  - 13, Proximity (mechanical)
+  - 14, Light Detection
+  - 15, Timed
+  - 16, Proximity (magical)
+  - 17, Sound (magical)
+  - 18..19, Visual (magical)
+  - 20, Touch (magical)
+
+
+  trap_type: #VIII
+  - |
+    1..4,
+    <h5>Pit</h5>
+    {{pit_lid}}
+  - |
+    5..8,
+    <h5>Ranged Attack</h5>
+    {{trigger_template}}
+    <br/>{{ranged_attack}}
+  - |
+    9..12,
+    <h5>Melee Attack</h5>
+    {{trigger_template}}
+    <br/>{{melee_attack}}
+  - |
+    13..14,
+    <h5>Spells</h5>
+    {{spells}}
+  - |
+    15..16,
+    <h5>Magical Devices</h5>
+    {{trigger_template}}
+    <br/>{{magic_device}}
+  - |
+    17..18,
+    <h5>Vents/Sprays</h5>
+    {{trigger_template}}
+    <br/>{{vents_sprays}}
+  - |
+    19,
+    <h5>Restraints/Hazards</h5>
+    {{trigger_template}}
+    <br/>{{restraints_hazards}}
+  - |
+    20,
+    {{special}}
+
+
+  special: #XVII
+  - |
+    1..8,
+    <h5>Trapped Pit</h5>
+    {{pit_lid}}
+    {{>pick: 1d15+4 trap_type}}
+  - |
+    9..12,
+    Hazardous: {{magic_device}}
+    {{>pick: 1d19 trap_type}}
+  - |
+    13..16,
+    Special Feature: {{effects}}
+  - |
+    17..20,
+    {{>pick: 1d19 trap_type}}
+    {{>pick: 1d19 trap_type}}
+
+  pit_lid:     #X
+  - |
+    1..3,
+    <strong><small>Pit Lid:</small></strong> Open
+    <br/>{{pit_trap_template}}
+  - |
+    4..6,
+    <strong><small>Pit Lid:</small></strong> Central Latch
+    <br/>{{pit_trap_template}}
+  - |
+    7..9,
+    <strong><small>Pit Lid:</small></strong> Edge Latch
+    <br/>{{pit_trap_template}}
+  - |
+    10..12,
+    <strong><small>Pit Lid:</small></strong> Breakaway
+    <br/>{{pit_trap_template}}
+  - |
+    13..15,
+    <strong><small>Pit Lid:</small></strong> Teeter-Totter
+    <br/>{{pit_trap_template}}
+  - |
+    16..18,
+    <strong><small>Pit Lid:</small></strong> Illusionary
+    <br/>{{pit_trap_template}}
+  - |
+    19..20,
+    <strong><small>Pit Lid - Lumberjack</h5>
+    <br/>{{pit_trap_template}}
+    <br/><strong><small>lumberjack pole:</small></strong> {{lumberjack_pole}}
+
+
+  pit_depth:   #Xa
+  - 1..12, 10’
+  - 13..16, 20’
+  - 17, 30’
+  - 18, 40’
+  - 19, 50’
+  - 20, 60’
+
+  lumberjack_pole: #Xb
+  - "1..12, Normal Pole"
+  - "13..14, Greased Pole"
+  - "15..16, Rolling Pole"
+  - "17..18, Rigged Pole (Breaks)"
+  - |
+    19..20,
+    Trapped Pole
+    <br/>{{>pick: 1d15+4 trap_type}}
+
+
+  pit_bottom: #Xc
+  - "1..8, Bare"
+  - "9..12, Spike (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "13..14, Spike (Poison) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "15..16, Spike (Rusty - chance of disease) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "17..18, Spike (Barbs - damage twice) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "19, Water"
+  - "20, {{pit_bottom_20}}"
+  pit_bottom_20:
+  - "1..10, Acid (damage: {{damage_range}})"
+  - "11..20, Trapped (See Table VIII)"
+
+  ranged_attack: #XI
+  - "1..3, Arrow (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "4..6, Bolt (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "7..9, Bullet (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "10..12, Dart (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "13..15, Javelin (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "16..18, Spear (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "19, Stone (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "20, {{ranged_attack_20}}"
+  ranged_attack_20:
+  - "1..10, Acid (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "11..29, Burning Coals (ThAC0: {{thac0}}, damage: {{damage_range}})"
+
+  melee_attack: #XII
+  - "1, Descending Blade (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "2, Crushing Block (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "3, Pendulum (ball) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "4, Pendulum (log) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "5, Pendulum (axe) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "6, Pendulum (scythe) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "7..13, Spear Thrust (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "14..20, Blade Slash (ThAC0: {{thac0}}, damage: {{damage_range}})"
+
+
+
+
+  spells: #XIII
+  - 1..2, Symbol
+  - 3..6, Alarm
+  - 6..7, Fire Trap
+  - 8..9, Wyvern Watch
+  - 10..11, Blade Barrier
+  - 12..13, Glyph of Warding
+  - 14..16, False Trap
+  - 17..18, Sepia Snake Sigil
+  - 19..20, Explosive Runes
+
+
+  magic_device: #XIV
+  - Acid Arrow
+  - Burning Hands
+  - Cone of Cold
+  - Lightning Bolt
+  - Fireball
+  - Silence
+  - Stinking Cloud
+  - Curse
+  - Chain Lightning
+  - Inflict Wounds
+  - Magic Missile
+  - Flame Strike
+  - Power Word Kill
+  - Prismatic Spray
+  - Cause Disease
+  - Summon Monster
+  - Phantasmal Killer
+  - Wall of Fire
+  - Web
+  - Sleep
+
+  vents_sprays: #XV
+  - "Slime (damage: {{damage_range}})"
+  - "2..3, Shrapnel (damage: {{damage_range}})"
+  - "Cold (damage: {{damage_range}})"
+  - "Acid (damage: {{damage_range}})"
+  - "Boiling Water (damage: {{damage_range}})"
+  - "6..7, Flaming Oil (damage: {{damage_range}})"
+  - "Sewage (damage: {{damage_range}})"
+  - "Mummy Dust"
+  - "Poison (damage: {{damage_range}})"
+  - "Dust of Sneezing & Choking"
+  - "Fire (damage: {{damage_range}})"
+  - "Stinking Cloud"
+  - "Smoke (damage: {{damage_range}})"
+  - "Methane (damage: {{damage_range}})"
+  - "Freezing Water (damage: {{damage_range}})"
+  - "Sand (damage: {{damage_range}})"
+  - "18..19, Steam (damage: {{damage_range}})"
+  - "Sulpher (damage: {{damage_range}})"
+
+  restraints_hazards: #XVI
+  - 1..2, Bear Trap
+  - 3..4, Caltrops
+  - 5..6, Greasy Oil
+  - 7..8, Cage
+  - 9..10, Ball Bearings
+  - 11..13, Monster
+  - 14..15, Darkness
+  - 16..17, Slope/Slide
+  - 18..19, Shifting Room
+  - 20, Teleporter
+
+  thac0: #XIX
+  - 1..6, 18
+  - 7..10, 16
+  - 11..14, 14
+  - 15..16, 12
+  - 17..18, 10
+  - 19..20, 8
+
+  damage_range: #XX
+  - 1
+  - 1d4-1
+  - 1d4
+  - 1d6
+  - 1d8
+  - 2d4
+  - 1d10
+  - 1d12
+  - 2d6
+  - 2d8
+  - 3d6
+  - 4d4
+  - 3d8
+  - 2d10
+  - 4d6
+  - 6d6
+  - 6d8
+  - 8d8
+  - 10d10
+  - Death
+
+
+  effects: # XVIII
+  - 1..3, Gas
+  - 4..5, Liquid
+  - 6, Never Miss
+  - 7..8, Onset Delay
+  - 9..14, Poison
+  - 15..18, Multiple Targets
+  - 19..20, Alchemical Device
+

@@ -105,6 +105,7 @@ tables:
   - trap + roll again
   - A magic item
 
+nested_tables:
   corridor_detail:
     footprints:
     - gnoll

@@ -86,10 +86,12 @@ generators:
   - minor_arcana
   hack_and_slash:
   - contents_of_pit
+  - corridors
   - curses
   - doors
   - empty_rooms
   - magic_pools
   - things
+  - traps
   - tricks
   - wfc
