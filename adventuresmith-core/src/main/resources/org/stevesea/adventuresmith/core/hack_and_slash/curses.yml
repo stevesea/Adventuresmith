@@ -1,0 +1,75 @@
+---
+templates:
+- "{{curses}}"
+
+tables:
+  curses:
+  - Outlined in fairy fire
+  - Teleport away magic items
+  - All drawn/held weapons float to ceiling
+  - Reverse Gravity
+  - Lose memorized spell
+  - Target of monster
+  - Gold to lead
+  - Paper becomes blank
+  - Animal Companion injured
+  - Drain charges
+  - Confusion/feeblemind/unconsciousness
+  - Hallucination/insanity
+  - Noise follows party
+  - Magic items produces unstable result
+  - Petrified
+  - Animated items
+  - Magic items cease to function
+  - Uncontrolled blinking
+  - Storm generation
+  - Paralyzed
+  - Must lie
+  - Must tell truth
+  - Must eat only meat
+  - Must not eat meat
+  - Nausea
+  - Disease
+  - Chronic nose bleeds/drooling
+  - Lycanthropy
+  - Cannot Speak
+  - Vision impaired/blinded
+  - Driven insane
+  - Feebleminded
+  - Crippled
+  - Warts
+  - Skin color
+  - Smelly
+  - Nearsighted
+  - Farsighted
+  - Taller
+  - Shorter
+  - Giant body part
+  - Small body part
+  - Grows new body part
+  - Loses body part
+  - Deaf
+  - Fits, crying/laughing/nervous tic
+  - Drunkenness
+  - Addiction
+  - Fanaticism
+  - Misanthropy
+  - Items never work when needed
+  - Stress causes physical change
+  - Cannot speak in front of Men/Women
+  - Skin itches constantly
+  - Face is frozen in twisted aspect (hideous grin, half twisted in grimace)
+  - Cannot stay still
+  - Catatonic
+  - Aphasia (word salad)
+  - Polymorphed
+  - Appear as hideous monster
+  - Penalty to saves
+  - Clumsy
+  - Change in values/morals
+  - Psychosis/Psychotic
+  - Kleptomania
+  - Grow / loses hair
+  - Chronic flatulence
+  - Albino
+  - Narcolepsy

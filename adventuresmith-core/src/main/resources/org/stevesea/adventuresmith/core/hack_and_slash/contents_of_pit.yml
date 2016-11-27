@@ -1,0 +1,106 @@
+---
+templates:
+- "{{contents_of_pit}}"
+
+tables:
+  contents_of_pit:
+  - Bent coins
+  - Arrowheads
+  - Gnawed Bones
+  - Offal
+  - Garbage
+  - Rags/Tatters
+  - Small Broken Stick
+  - Rusty Dagger
+  - Chain links
+  - Rotted leather straps
+  - Spikes
+  - Old Cheese
+  - Old Fruit
+  - Moldy Cheese
+  - Moldy Fruit
+  - Rotting meat
+  - Humanoid skull
+  - Humanoid skull, cracked
+  - Cobwebs
+  - Dead spider carcasses
+  - Beetle shells
+  - Monster
+  - Rat skeletons
+  - Hand axe with broken handle
+  - "{{>roll: 1d3}} 10gp or less precious stones"
+  - Iron nails
+  - Broken hammer
+  - A water sack
+  - A small steel flask
+  - A few human hands
+  - Spiked bucker
+  - Small metal mirror
+  - Pit of acid
+  - Dirty feathers
+  - Pair of throwing knives
+  - Snake skeleton
+  - Snake skin
+  - A broken ceramic jug
+  - A crushed tin cup
+  - Walls covered in grease / oil / lard.
+  - Chalk
+  - Brass ring
+  - "{{>roll: 3d4}} keys on iron ring"
+  - Water
+  - Burned out torch stubs
+  - 1 torch
+  - A candle
+  - Bloodstained cloak
+  - A mud stained left boot
+  - A shit stained right boot
+  - Phosphorescent mold
+  - Dice
+  - Incomplete deck of cards
+  - A game piece
+  - Lava
+  - Hard tack biscuts
+  - Iron rations
+  - Hat with hole in it
+  - Broken wooden ladder rungs
+  - 5’ broken wooden pole
+  - Blood stained left glove
+  - Right glove with unidentifiable stain
+  - Iron spike(s)
+  - Iron Hammer
+  - Empty canvas sack
+  - A second trap
+  - Rusted chain coif
+  - 15’ rope (cut)
+  - Bent silver amulet with broken chain
+  - Rusty or dented helm
+  - Scales
+  - Ivory scroll case
+  - Hay
+  - Urine
+  - Broken chair
+  - Dented cup
+  - Human skeleton with basic gear
+  - Smashed eggs
+  - Dried ears
+  - A humanoid head
+  - "{{>roll: 1d12}} eyeballs"
+  - "{{>roll: 1d4+1}} testes"
+  - A pile of skin
+  - Humanoid hair
+  - Hair
+  - Feces
+  - Humanoid limbs
+  - A skinned animal
+  - Humanoid torso
+  - Teeth
+  - Lantern
+  - Vial of Acid/Poison
+  - Shortsword +1
+  - Musical instrument
+  - A treasure map
+  - Book
+  - "{{>pickN: 2 contents_of_pit}}"
+  - "{{>pickN: 3 contents_of_pit}}"
+  - treasure
+  - a magic item

@@ -1,6 +1,8 @@
 ---
 templates:
-- "{{rooms.types}}"
+- |
+  {{rooms.types}}
+  {{interesting.chance}}
 
 imports:
 - things
@@ -884,6 +886,14 @@ nested_tables:
     - "14, {{room_def.Work_Pit_Workshop}}"
 
   interesting:
+    chance:
+    - 1..90,
+    - |
+      90..100,
+      <em>
+      <h5>Ways room might be interesting</h5>
+      {{interesting.interesting}}
+      </em>
     interesting:
     - "{{interesting.contain_something}}"
     - "{{interesting.unknown_purpose}}"

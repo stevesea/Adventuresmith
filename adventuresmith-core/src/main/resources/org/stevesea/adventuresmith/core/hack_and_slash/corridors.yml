@@ -1,0 +1,129 @@
+---
+templates:
+- "{{corridors_and_hallways}}"
+
+tables:
+  corridors_and_hallways:
+  - Completely spotless and clean
+  - Covered in straw
+  - Feces smeared on wall
+  - "Footprints - {{corridor_detail.footprints}}"
+  - Shelves line the walls
+  - Corridor peaks in the middle
+  - A pile of bolts lies in the center
+  - The bottom 4’ of the walls have reflective steel sheets bolted to them
+  - Cracks run along the walls
+  - The floor is covered in clay
+  - There is an open pit
+  - A vaulted ceiling
+  - Chains hang from the ceiling
+  - A few feathers lie on the ground
+  - A small alcove contains a privy
+  - Ripped tapestries hang on the wall
+  - Strange luminescent fungus grows on the ceiling
+  - The walls emit a bright light
+  - Ashes rest on the floor
+  - "The stone is painted - {{corridor_detail.paint}}"
+  - stone has fallen from the ceiling
+  - A small sapling grows out from the floor
+  - A message is scrawled on the wall
+  - Several bricks have runes engraved on them
+  - Nails are hammered into the wall 5’ off the ground
+  - "A corpse lies in the hallway - {{corridor_detail.corpse}}"
+  - The corridor is very hot
+  - Black ice covers the floor
+  - Tapestries line the walls
+  - Bas relief line the walls
+  - Mist fills the hallway
+  - Empty alcoves line the walls
+  - Alcoves with pedestals line the walls
+  - Alcoves with pedestals and busts line the walls
+  - The corridor is a catacomb (corpses line the walls)
+  - Sheets of darkness hang every 10’
+  - Braziers sit in the center of the hallway
+  - Insects cover the floor
+  - A man’s outfit lies discarded on the ground
+  - The corridor contains raised and lowered sections
+  - Rings made from brass are attached to wall 8’ off the ground
+  - Tiles line the hall
+  - A mosaic is on the floor
+  - The ceiling is collapsed
+  - The corridor is triangle shaped
+  - The corridor is spherical
+  - There are holes in the walls
+  - Paper litters the floor
+  - Stacks of bricks line the hall
+  - Glass panes block passage
+  - Roots grow through the ceiling
+  - Footsteps echo down the hall
+  - There is an echo
+  - All the doors in the corridor are open
+  - Flames lick up the walls
+  - Water covers the floor
+  - Smoke covers the ceiling
+  - The floor is electrified
+  - The floor is magnetic
+  - Stuffed giant insect heads line the hallway
+  - There is a painting of a door on the wall
+  - There is a painting of a corridor on the wall
+  - Skulls and bones litter the halls
+  - The corridor is an illusion
+  - A small streams flows down the center of the hallway
+  - There is a depression in the corridor
+  - A trail of sand leads down the hall
+  - A section of the hallway is made from crystal
+  - Semicircular grates line the wall bottoms
+  - Slippery slime covers the floor
+  - A transparent ceiling shows the sky above
+  - A hole leads to the surface, letting natural light in
+  - The floor contains several 1” diameter holes
+  - Rubble lines the hall
+  - Narrow recesses run floor to ceiling, at regular repeating distances
+  - Several flagstones click when stepped
+  - Fake tripwire
+  - small cages sit in alcoves in the walls
+  - A mop and bucket sit against the wall
+  - Roots grow up out of the floor
+  - Arches intersperse the hallway
+  - Brass poles with ropes run down the hall
+  - Blue light fills the hall
+  - Whispers sound to anyone who stands in the hall
+  - Illusions of monsters are in the corridor
+  - Hooks line the walls
+  - Moisture fills the hallway
+  - Copper coins lie on the floor
+  - A helmet is on the floor
+  - A filled weapons rack sits in an alcove
+  - Silver coins sit on the floor
+  - Bronze handles are attached to the wall
+  - Gems sit in sockets along the walls
+  - Gold coins rest on the floor
+  - A dead adventurer lies on the ground
+  - Platinum coins lie on the floor
+  - roll twice
+  - roll three times
+  - trap + roll again
+  - A magic item
+
+  corridor_detail:
+    footprints:
+    - gnoll
+    - slime trail
+    - boot
+    - something with a tail
+    paint:
+    - black
+    - green
+    - red
+    - white
+    - blue
+    - pink
+    - stripes
+    - polka dots
+    corpse:
+    - gnoll
+    - crab
+    - lizard man
+    - goblin
+    - rat
+    - spider

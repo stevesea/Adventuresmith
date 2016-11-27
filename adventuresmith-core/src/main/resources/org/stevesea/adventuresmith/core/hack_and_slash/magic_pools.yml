@@ -1,0 +1,281 @@
+---
+templates:
+- |
+  <h4>Magic Pool/Fountain</h4>
+  Number of drinks: {{num_drinks}}
+  <br/>Number of effects per drink: {{num_effects_per_drink_pos}} positive, {{num_effects_per_drink_neg}} negative
+  <br/>Duration: {{duration}}
+  <br/>
+  <br/>{{effect_type}}
+
+tables:
+  num_drinks:
+  - 1..8, 1
+  - 9..12, 2
+  - 13..15, 3
+  - 16..17, 4
+  - 18..19, 5
+  - 20, 6
+
+  num_effects_per_drink_pos:
+  - 1..7, 0
+  - 8..17, 1
+  - 18..19, 2
+  - 20, 3
+
+  num_effects_per_drink_neg:
+  - 1..12, 0
+  - 13..17, 1
+  - 18..19, 2
+  - 20, 3
+
+  duration:
+  - 1..9, 3-30 Rounds
+  - 10..16, 2-12 Turns
+  - 17..18, 2-24 Hours
+  - 19, 1-8 Days
+  - 20, {{duration_20}}
+  duration_20:
+  - 1..16, 1-6 Weeks
+  - 17..18, 1-4 Months
+  - 19..20, Permanently
+
+  effect_type:
+  - |
+    1..6,
+    {{enscrollment}}
+  - |
+    7..12,
+    Attribute: {{attribute}}
+  - |
+    13..17,
+    {{enchantment}}
+  - |
+    18..19,
+    Luck and Chance: {{luck_and_chance}}
+  - |
+    20,
+    Experience: {{experience}}
+
+  enscrollment:
+  - |
+    1..2,
+    <strong>Bravery/Cowardice</strong>
+    <br/>for the duration character receives +2 to hit and +4 saves vs. fear. Cowardice reverses the effect
+  - |
+    3..4,
+    <strong>Feather/Burden</strong>
+    <br/>For purposes of carrying capacity only, consider strength doubled when calculating encumbrance.
+    If burden, cut strength in half.
+  - |
+    5,
+    <strong>Toughness/Delicacy</strong>
+    <br/>The character gains a resistance to pain. Any damage the character receives is cut in half.
+    If delicacy damage is doubled.
+  - |
+    6,
+    <strong>Haste/Slow</strong>
+    <br/>The character is affected by the appropriate spell. System shock rolls for every period of time
+    (hour) to survive being hasted is reasonable.
+  - |
+    7..8,
+    <strong>Healing/Harming</strong> {{healing_harming}}
+  - |
+    9..10,
+    <strong>Resistance/Poison</strong>
+    <br/>Resistance gives a +4 bonus to poison saves. Poison gives poisoning type. Select
+    randomly from ingested poisons. If your system doesn’t use ingested poison types,
+    use {{healing_harming}}
+  - |
+    11..12,
+    <strong>Infravision/Blindness</strong>
+    <br/>As the spell. Attacking someone nullifies the effect for 1-4 rounds. Luminescence causes the
+    character to glow, shedding light for a 10’ radius
+  - |
+    13,
+    <strong>Invisibility/Luminescence</strong>
+  - |
+    14..15,
+    <strong>Knowledge/Forgetfulness.</strong>
+    <br/>Permanent.
+    <br/>{{knowledge}}
+  - |
+    16..17,
+    <strong>Protection/Effect vs {{protection}}</strong>
+    <br/>This result either gives the effect or provides immunity to it. Saving throws apply.
+  - |
+    18,
+    <strong>True-sight/Delusion</strong>
+    <br/>The character gains the benefit of true seeing, or the mental illness of delusion.
+  - |
+    19,
+    <strong>Immunity/Disease</strong>
+    <br/>Characters recieve +4 (+20%) on rolls to resist disease, or contract 1 random disease.
+  - |
+    20,
+    {{>pickN: 2 enscrollment <br/>}}
+
+  # Roll a d4. This determines the die of healing (d4, d6, d8, d10) then roll 2d4 to determine the number of dice to roll.
+  healing_harming:
+  - "{{>roll: 2d4}}d4"
+  - "{{>roll: 2d4}}d6"
+  - "{{>roll: 2d4}}d8"
+  - "{{>roll: 2d4}}d10"
+  protection:
+  - paralysis
+  - sleep
+  - petrification
+  - polymorph
+  - death
+  - disintegration
+  saving_throw:
+  - 1..3, Poison
+  - 4..6, Petrification
+  - 7..9, Paralyzation
+  - 10..12, Polymorph
+  - 13..14, Death Magic
+  - 15..17, Breath Weapon
+  - 18..19, Rods/Staves/Wands
+  - 20, Spells
+  detection:
+  - Evil
+  - Good
+  - Magic
+  - Traps
+  - Invisible
+  - Undead
+  - Charm
+  - Poison
+  speak_with:
+  - 1..5, animals
+  - 6..10, plants
+  - 11..13, stone
+  - 14..16, undead
+  - 17..18, dragons
+  - 19..20, monsters
+
+
+  knowledge:
+  - 1..8, Gain knowledge of the dungeon / amnesia
+  - 9..12, Gain/Lose one proficiency slot
+  - 13..14, Gain/Lose expertise in 1 weapon (+/-1)
+  - 15..18, Gain/Lose one skill
+  - 19..20, Gain knowledge of nearest treasure / amnesia
+
+  attribute:
+  - "1..2, Strength +/-{{>roll: 1d4}}"
+  - "3..4, Dexterity +/-{{>roll: 1d4}}"
+  - "5..6, Constitution +/-{{>roll: 1d4}}"
+  - "7..8, Intelligence +/-{{>roll: 1d4}}"
+  - "9..10, Wisdom +/-{{>roll: 1d4}}"
+  - "11..12, Charisma +/-{{>roll: 1d4}}"
+  - "13, Comeliness +/-{{>roll: 1d4}}"
+  - "14, Prime Requisite +/-{{>roll: 1d4}}"
+  - "15, Highest +/-{{>roll: 1d4}}"
+  - "16, Lowest +/-{{>roll: 1d4}}"
+  - "17, Closest to Mean +/-{{>roll: 1d4}}"
+  - "18, Size +/-{{>roll: 1d4}}\""
+  - "19, Speed +/-{{>roll: 1d4}}\""
+  - "20, {{>pickN: 2 attribute}}"
+
+  enchantment:
+  - |
+    Positive: {{enchantment_pos}}
+    <br/>Negative: {{enchantment_neg}}
+  enchantment_pos:
+  - Bless
+  - Strength
+  - Prayer
+  - Spider climb
+  - Clairaudience
+  - Clairvoyance
+  - Comp.Lang.
+  - Detection - {{detection}}
+  - Fly
+  - Mind blank
+  - Sanctuary
+  - Shield
+  - Speak with {{speak_with}}
+  - Water Breathing
+  - Enchant Weapon (+1-4)
+  - Enchant weapon (+2-5)
+  - Resistance
+  - Feather Fall
+  - Obscurement
+  - Gain Psionics
+  enchantment_neg:
+  - Curse (reverse of bless)
+  - Weakness
+  - Clumsy
+  - Deafness
+  - Feeblemind
+  - Confusion
+  - Maze
+  - Bestow Curse
+  - Delusion (as potion)
+  - Stunned (-4 to AC)
+  - Curse weapon (-1)
+  - Curse weapon (-1-4)
+  - Curse weapon (-2-5)
+  - Enraged/Berserk
+  - Geas/Quest
+  - Phobia (random)
+  - Babble
+  - Incorporeal
+  - Darkness
+  - User smells terrible
+
+  luck_and_chance:
+  - |
+    1..4,
+    +/- 1 on Saves (vs. {{saving_throw}})
+  - |
+    5..8,
+    +/- 2 on Saves (vs. {{saving_throw}})
+  - |
+    9..12,
+    +/- 3 on Saves (vs. {{saving_throw}})
+  - |
+    13..14,
+    Longevity/Aging (+)
+  - |
+    15..16,
+    Love/Enmity (+)
+  - |
+    17..18,
+    Blessed/Cursed by gods
+  - |
+    19,
+    Switch 2 stats (+)
+  - |
+    20,
+    Wish/Anti-Wish (+)
+
+  experience:
+  - |
+    1..4,
+    {{>roll: 1d6*100}} <small>1d6*100</small> (+)
+  - |
+    5..8,
+    {{>roll: 1d12*100}} <small>1d12*100</small> (+)
+  - |
+    9..12,
+    {{>roll: 2d10*200}} <small>2d10*200</small> (+)
+  - |
+    13..15,
+    {{>roll: 3d12*500}} <small>3d12*500</small> (+)
+  - |
+    16..17,
+    {{>roll: 1d12*1000}} <small>1d12*1000</small> (+)
+  - |
+    18,
+    +5%
+  - |
+    19,
+    +10%
+  - |
+    20,
+    +/- Level (+)
+
+
+

@@ -85,8 +85,11 @@ generators:
   stonetop:
   - minor_arcana
   hack_and_slash:
+  - contents_of_pit
+  - curses
   - doors
   - empty_rooms
+  - magic_pools
   - things
   - tricks
   - wfc
