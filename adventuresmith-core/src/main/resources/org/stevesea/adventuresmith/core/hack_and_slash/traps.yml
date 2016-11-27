@@ -35,11 +35,13 @@ tables:
     5..8,
     <h5>Ranged Attack</h5>
     {{trigger_template}}
+    <br/>
     <br/>{{ranged_attack}}
   - |
     9..12,
     <h5>Melee Attack</h5>
     {{trigger_template}}
+    <br/>
     <br/>{{melee_attack}}
   - |
     13..14,
@@ -49,16 +51,19 @@ tables:
     15..16,
     <h5>Magical Devices</h5>
     {{trigger_template}}
+    <br/>
     <br/>{{magic_device}}
   - |
     17..18,
     <h5>Vents/Sprays</h5>
     {{trigger_template}}
+    <br/>
     <br/>{{vents_sprays}}
   - |
     19,
     <h5>Restraints/Hazards</h5>
     {{trigger_template}}
+    <br/>
     <br/>{{restraints_hazards}}
   - |
     20,
@@ -78,6 +83,7 @@ tables:
   - |
     13..16,
     Special Feature: {{effects}}
+    {{>pick: 1d19 trap_type}}
   - |
     17..20,
     {{>pick: 1d19 trap_type}}
@@ -86,31 +92,31 @@ tables:
   pit_lid:     #X
   - |
     1..3,
-    <strong><small>Pit Lid:</small></strong> Open
+    <strong><small>pit lid:</small></strong> Open
     <br/>{{pit_trap_template}}
   - |
     4..6,
-    <strong><small>Pit Lid:</small></strong> Central Latch
+    <strong><small>pit lid:</small></strong> Central Latch
     <br/>{{pit_trap_template}}
   - |
     7..9,
-    <strong><small>Pit Lid:</small></strong> Edge Latch
+    <strong><small>pit lid:</small></strong> Edge Latch
     <br/>{{pit_trap_template}}
   - |
     10..12,
-    <strong><small>Pit Lid:</small></strong> Breakaway
+    <strong><small>pit lid:</small></strong> Breakaway
     <br/>{{pit_trap_template}}
   - |
     13..15,
-    <strong><small>Pit Lid:</small></strong> Teeter-Totter
+    <strong><small>pit lid:</small></strong> Teeter-Totter
     <br/>{{pit_trap_template}}
   - |
     16..18,
-    <strong><small>Pit Lid:</small></strong> Illusionary
+    <strong><small>pit lid:</small></strong> Illusionary
     <br/>{{pit_trap_template}}
   - |
     19..20,
-    <strong><small>Pit Lid - Lumberjack</h5>
+    <strong><small>pit lid:</small></strong> Lumberjack
     <br/>{{pit_trap_template}}
     <br/><strong><small>lumberjack pole:</small></strong> {{lumberjack_pole}}
 
@@ -136,10 +142,10 @@ tables:
 
   pit_bottom: #Xc
   - "1..8, Bare"
-  - "9..12, Spike (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "13..14, Spike (Poison) (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "15..16, Spike (Rusty - chance of disease) (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "17..18, Spike (Barbs - damage twice) (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "9..12, Spikes (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "13..14, Spikes (Poison) (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "15..16, Spikes (Rusty - chance of disease) (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "17..18, Spikes (Barbs - damage twice) (THAC0: {{thac0}}, damage: {{damage_range}})"
   - "19, Water"
   - "20, {{pit_bottom_20}}"
   pit_bottom_20:
@@ -147,27 +153,27 @@ tables:
   - "11..20, Trapped (See Table VIII)"
 
   ranged_attack: #XI
-  - "1..3, Arrow (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "4..6, Bolt (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "7..9, Bullet (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "10..12, Dart (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "13..15, Javelin (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "16..18, Spear (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "19, Stone (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "1..3, Arrow (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "4..6, Bolt (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "7..9, Bullet (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "10..12, Dart (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "13..15, Javelin (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "16..18, Spear (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "19, Stone (THAC0: {{thac0}}, damage: {{damage_range}})"
   - "20, {{ranged_attack_20}}"
   ranged_attack_20:
-  - "1..10, Acid (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "11..29, Burning Coals (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "1..10, Acid (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "11..29, Burning Coals (THAC0: {{thac0}}, damage: {{damage_range}})"
 
   melee_attack: #XII
-  - "1, Descending Blade (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "2, Crushing Block (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "3, Pendulum (ball) (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "4, Pendulum (log) (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "5, Pendulum (axe) (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "6, Pendulum (scythe) (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "7..13, Spear Thrust (ThAC0: {{thac0}}, damage: {{damage_range}})"
-  - "14..20, Blade Slash (ThAC0: {{thac0}}, damage: {{damage_range}})"
+  - "1, Descending Blade (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "2, Crushing Block (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "3, Pendulum (ball) (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "4, Pendulum (log) (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "5, Pendulum (axe) (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "6, Pendulum (scythe) (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "7..13, Spear Thrust (THAC0: {{thac0}}, damage: {{damage_range}})"
+  - "14..20, Blade Slash (THAC0: {{thac0}}, damage: {{damage_range}})"
 
 
 

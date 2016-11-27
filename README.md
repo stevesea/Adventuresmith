@@ -91,6 +91,11 @@ Attribution - ShareAlike 3.0 Unported license.
 http://www.sinenomine-pub.com/
 * Stars Without Number - content is from the free version of the SWN rule book
 
+### Courtney C Campbell
+http://hackslashmaster.blogspot.com/
+* Tricks, Empty Rooms, & Basic Trap Design - http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html
+
+
 ### Ben Milton
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
 
