@@ -1,3 +1,4 @@
 ---
 name: Traps
 collectionId: hack_and_slash
+priority: 100

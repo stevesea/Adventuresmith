@@ -1,8 +1,6 @@
 ---
 templates:
-- |
-  <h4>Trap</h4>
-  {{trap_type}}
+- "{{trap_type}}"
 
 definitions:
   pit_trap_template: |
@@ -29,39 +27,39 @@ tables:
   trap_type: #VIII
   - |
     1..4,
-    <h5>Pit</h5>
+    <h5>Pit Trap</h5>
     {{pit_lid}}
   - |
     5..8,
-    <h5>Ranged Attack</h5>
+    <h5>Ranged Attack Trap</h5>
     {{trigger_template}}
     <br/>
     <br/>{{ranged_attack}}
   - |
     9..12,
-    <h5>Melee Attack</h5>
+    <h5>Melee Attack Trap</h5>
     {{trigger_template}}
     <br/>
     <br/>{{melee_attack}}
   - |
     13..14,
-    <h5>Spells</h5>
+    <h5>Spell Trap</h5>
     {{spells}}
   - |
     15..16,
-    <h5>Magical Devices</h5>
+    <h5>Magical Device Trap</h5>
     {{trigger_template}}
     <br/>
     <br/>{{magic_device}}
   - |
     17..18,
-    <h5>Vents/Sprays</h5>
+    <h5>Vent/Spray Trap</h5>
     {{trigger_template}}
     <br/>
     <br/>{{vents_sprays}}
   - |
     19,
-    <h5>Restraints/Hazards</h5>
+    <h5>Restraint/Hazard Trap</h5>
     {{trigger_template}}
     <br/>
     <br/>{{restraints_hazards}}
@@ -73,15 +71,17 @@ tables:
   special: #XVII
   - |
     1..8,
-    <h5>Trapped Pit</h5>
+    <h5>Trapped Pit Trap</h5>
     {{pit_lid}}
     {{>pick: 1d15+4 trap_type}}
   - |
     9..12,
+    <h5>Hazardous Trap</h5>
     Hazardous: {{magic_device}}
     {{>pick: 1d19 trap_type}}
   - |
     13..16,
+    <h5>Special Feature Trap</h5>
     Special Feature: {{effects}}
     {{>pick: 1d19 trap_type}}
   - |
