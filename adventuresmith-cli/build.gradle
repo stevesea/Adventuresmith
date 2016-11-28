@@ -20,6 +20,8 @@
 
 apply plugin: 'java'
 apply plugin: "kotlin"
+apply plugin: 'application'
+
 
 // http://stackoverflow.com/questions/24870464/android-studio-with-java-library-module-unable-to-load-test-resources
 sourceSets {
@@ -40,34 +42,23 @@ task copyMainResources(type: Copy) {
 copyTestResources.dependsOn copyMainResources
 
 dependencies {
+    compile project(':adventuresmith-core')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'com.github.salomonbrys.kodein:kodein-android:3.1.0'
+    // for CLI, we'll use logback
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
+
+    compile group: 'com.beust', name: 'jcommander', version: '1.48'
 
     //compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-
-    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
-    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
-
-    // use a couple things from guava (resource cache and other things)
-    compile group: 'com.google.guava', name: 'guava', version: '19.0'
-
-    compile 'com.samskivert:jmustache:1.13'
-
-    // framework for dice expression parser
-    compile 'me.sargunvohra.lib:cakeparse:1.1.1'
-    compile 'io.github.microutils:kotlin-logging:1.4'
-
-    //compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
-
-    testCompile "junit:junit:$junit_version"
-    testCompile "org.mockito:mockito-core:$mockito_version"
-    testCompile "com.nhaarman:mockito-kotlin:0.10.0"
 }
-repositories {
-    mavenCentral()
-}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+// alternatives to gradle's application:
+//    https://github.com/libgdx/packr
+//    Capsule https://blog.paralleluniverse.co/2014/05/08/modern-java-pt2/
+mainClassName = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
