@@ -20,19 +20,54 @@
 
 package org.stevesea.adventuresmith.cli
 
-import com.beust.jcommander.Parameter
-import mu.KLoggable
+import com.beust.jcommander.*
+import mu.*
+import java.util.*
+
+
 
 // http://jcommander.org/
 // http://beust.com/weblog/2010/08/08/complex-line-command-syntaxes-with-jcommander/
 class CommandExercise {
-    var all: Boolean = true
+    @Parameter(names = arrayOf("--help","-h"), help = true)
+    var help: Boolean = false
 
+    @Parameter(names = arrayOf("--include", "-i"),
+            description = "include filter for generators")
+    var include: String = ""
+
+    @Parameter(names = arrayOf("--iterations", "-n"),
+            description = "how many cycles to run")
+    var iterations: Int = 25
+
+    @Parameter(names = arrayOf("--locale", "-l"),
+            description = "which locales to run")
+    var locales : List<String> =
+            listOf(Locale.FRANCE.toString(), Locale.US.toString())
+
+}
+
+class CommandMain {
+    @Parameter(names = arrayOf("--help","-h"), help = true)
+    var help: Boolean = false
 }
 
 object AdventuresmithCli : KLoggable {
     override val logger = logger()
     @JvmStatic fun main(args: Array<String>) {
         logger.info("Hello from logger!")
+        val cm = CommandMain()
+        val jc = JCommander(cm)
+        jc.setProgramName("adventuresmith-cli")
+
+        val coreExerciser = CommandExercise()
+        jc.addCommand("core-exerciser", coreExerciser)
+
+        jc.parse(*args)
+
+        if (cm.help) {
+            jc.usage()
+            return
+        }
     }
 }
