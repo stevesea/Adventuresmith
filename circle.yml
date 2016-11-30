@@ -9,6 +9,7 @@ general:
 
     artifacts:
         - /home/ubuntu/Adventuresmith/app/build/outputs/apk/
+        - /home/ubuntu/Adventuresmith/adventuresmith-cli/build/distributions/
 
 machine:
     java:
@@ -34,7 +35,7 @@ dependencies:
 # TODO: https://github.com/circleci/EspressoSample/blob/master/circle.yml
 test:
     override:
-        - (./gradlew test -PdisablePreDex):
+        - (./gradlew test adventuresmith-cli:distZip -PdisablePreDex):
             timeout: 1200
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
