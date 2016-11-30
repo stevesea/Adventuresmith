@@ -28,6 +28,7 @@ sourceSets {
     test {
         output.resourcesDir = output.classesDir
     }
+    main.java.srcDirs += 'src/main/kotlin'
 }
 //https://code.google.com/p/android/issues/detail?id=64887
 task copyTestResources(type: Copy) {
@@ -53,6 +54,7 @@ dependencies {
     //compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 sourceCompatibility = "1.7"
@@ -62,3 +64,15 @@ targetCompatibility = "1.7"
 //    https://github.com/libgdx/packr
 //    Capsule https://blog.paralleluniverse.co/2014/05/08/modern-java-pt2/
 mainClassName = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
+buildscript {
+    ext.kotlin_version = '1.0.5-2'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
+}

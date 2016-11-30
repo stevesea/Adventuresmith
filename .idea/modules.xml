@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/Adventuresmith.iml" filepath="$PROJECT_DIR$/Adventuresmith.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPGpad.iml" filepath="$PROJECT_DIR$/RPGpad.iml" />
       <module fileurl="file://$PROJECT_DIR$/adventuresmith-cli/adventuresmith-cli.iml" filepath="$PROJECT_DIR$/adventuresmith-cli/adventuresmith-cli.iml" />
-      <module fileurl="file://$PROJECT_DIR$/adventuresmith-cli/adventuresmith-cli.iml" filepath="$PROJECT_DIR$/adventuresmith-cli/adventuresmith-cli.iml" />
       <module fileurl="file://$PROJECT_DIR$/adventuresmith-core/adventuresmith-core.iml" filepath="$PROJECT_DIR$/adventuresmith-core/adventuresmith-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

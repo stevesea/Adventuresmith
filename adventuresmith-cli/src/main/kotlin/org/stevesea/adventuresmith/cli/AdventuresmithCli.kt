@@ -29,18 +29,18 @@ import java.util.*
 // http://jcommander.org/
 // http://beust.com/weblog/2010/08/08/complex-line-command-syntaxes-with-jcommander/
 class CommandExercise {
-    @Parameter(names = arrayOf("--help","-h"), help = true)
+    @field:Parameter(names = arrayOf("--help","-h"), help = true, description = "asdf")
     var help: Boolean = false
 
-    @Parameter(names = arrayOf("--include", "-i"),
+    @field:Parameter(names = arrayOf("--include", "-i"),
             description = "include filter for generators")
     var include: String = ""
 
-    @Parameter(names = arrayOf("--iterations", "-n"),
+    @field:Parameter(names = arrayOf("--iterations", "-n"),
             description = "how many cycles to run")
     var iterations: Int = 25
 
-    @Parameter(names = arrayOf("--locale", "-l"),
+    @field:Parameter(names = arrayOf("--locale", "-l"),
             description = "which locales to run")
     var locales : List<String> =
             listOf(Locale.FRANCE.toString(), Locale.US.toString())
@@ -48,7 +48,7 @@ class CommandExercise {
 }
 
 class CommandMain {
-    @Parameter(names = arrayOf("--help","-h"), help = true)
+    @field:Parameter(names = arrayOf("--help","-h"), help = true, description = "asdf")
     var help: Boolean = false
 }
 
