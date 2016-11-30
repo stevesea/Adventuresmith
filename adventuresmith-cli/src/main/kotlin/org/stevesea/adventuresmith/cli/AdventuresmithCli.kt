@@ -20,54 +20,127 @@
 
 package org.stevesea.adventuresmith.cli
 
-import com.beust.jcommander.*
 import mu.*
+import net.sourceforge.argparse4j.*
+import net.sourceforge.argparse4j.annotation.*
+import net.sourceforge.argparse4j.impl.*
+import net.sourceforge.argparse4j.inf.*
+import java.io.*
 import java.util.*
 
 
 
-// http://jcommander.org/
-// http://beust.com/weblog/2010/08/08/complex-line-command-syntaxes-with-jcommander/
-class CommandExercise {
-    @field:Parameter(names = arrayOf("--help","-h"), help = true, description = "asdf")
-    var help: Boolean = false
-
-    @field:Parameter(names = arrayOf("--include", "-i"),
-            description = "include filter for generators")
-    var include: String = ""
-
-    @field:Parameter(names = arrayOf("--iterations", "-n"),
-            description = "how many cycles to run")
-    var iterations: Int = 25
-
-    @field:Parameter(names = arrayOf("--locale", "-l"),
-            description = "which locales to run")
-    var locales : List<String> =
-            listOf(Locale.FRANCE.toString(), Locale.US.toString())
-
+class LocaleArgType : ArgumentType<Locale> {
+    override fun convert(parser: ArgumentParser?, arg: Argument?, value: String?): Locale {
+        try {
+            val split = value!!.split('-','_')
+            when (split.size ) {
+                1 -> return Locale(split[0])
+                2 -> return Locale(split[0].toLowerCase(), split[1])
+                else -> return Locale(split[0].toLowerCase(), split[1], split[3])
+            }
+        } catch (e: Exception) {
+            throw ArgumentParserException(e, parser)
+        }
+    }
 }
+class Options {
+    @Arg
+    var iterations: Int = 1
 
-class CommandMain {
-    @field:Parameter(names = arrayOf("--help","-h"), help = true, description = "asdf")
-    var help: Boolean = false
+    @Arg
+    var subcmd : String = ""
+
+    @Arg
+    var locale : Locale = Locale.US
+
+    @Arg
+    var fauxRandom: Int = -1
+
+    @Arg
+    var out : File? = null
+
+    override fun toString(): String {
+        return "Options(fauxRandom=$fauxRandom, iterations=$iterations, subcmd='$subcmd', locale=$locale, out=$out)"
+    }
+
+
 }
 
 object AdventuresmithCli : KLoggable {
+    val SUBCMD = "subcmd"
+    val SUBCMD_CORE_EXERCISE = "core-exercise"
+    val SUBCMD_RUN = "run"
     override val logger = logger()
     @JvmStatic fun main(args: Array<String>) {
         logger.info("Hello from logger!")
-        val cm = CommandMain()
-        val jc = JCommander(cm)
-        jc.setProgramName("adventuresmith-cli")
 
-        val coreExerciser = CommandExercise()
-        jc.addCommand("core-exerciser", coreExerciser)
+        val parser = ArgumentParsers
+                .newArgumentParser("adventuresmith-cli")
+                .description("A CLI interface to test Adventuresmith YaML files")
+                .epilog("Go to https://stevesea.github.io/Adventuresmith/ for more information")
+                .defaultHelp(true)
+        val subparsers = parser.addSubparsers()
+                .dest(SUBCMD)
+                .help("additional help")
 
-        jc.parse(*args)
+        val cmdExercise = subparsers.addParser(SUBCMD_CORE_EXERCISE)
+                .defaultHelp(true)
+                .help("exercise all the generators in Adventuresmith-core")
+        val cmdRun = subparsers.addParser(SUBCMD_RUN)
+                .defaultHelp(true)
+                .help("run a generator from the filesystem")
 
-        if (cm.help) {
-            jc.usage()
-            return
+        cmdExercise.addArgument("-i", "--iterations")
+                .metavar("N")
+                .setDefault(20)
+                .help("number of iterations")
+        cmdExercise.addArgument("-l", "--locale")
+                .metavar("L")
+                .type(LocaleArgType())
+                .setDefault(Locale.US)
+                .help("can be specified multiple times. generator(s) will be run in the given locales")
+        cmdExercise.addArgument("--out")
+                .type(Arguments.fileType().verifyCanWrite())
+                .help("Output file to which generator output will be written. If none given, will be " +
+                        "output to console")
+
+        cmdRun.addArgument("-i", "--iterations")
+                .type(Int::class.java)
+                .metavar("N")
+                .setDefault(1)
+                .help("number of iterations")
+        cmdRun.addArgument("-l", "--locale")
+                .metavar("L")
+                .nargs("+")
+                .setDefault(Locale.US.toString())
+                .help("locales")
+        cmdRun.addArgument("-R", "--fauxRandom")
+                .metavar("R")
+                .type(Int::class.java)
+                .setDefault(-1)
+                .help("Force the random # generator to always return the given number.")
+
+        val opts = Options()
+        try {
+            parser.parseArgs(args, opts)
+
+            when (opts.subcmd) {
+                SUBCMD_CORE_EXERCISE -> exercise(opts)
+                SUBCMD_RUN -> runGenerator()
+                else -> parser.printUsage()
+            }
+        }catch ( e: ArgumentParserException) {
+            parser.handleError(e);
+            System.exit(1);
         }
+    }
+
+    private fun runGenerator() {
+        logger.info("Running generator: ")
+    }
+
+    private fun exercise(opts: Options) {
+        logger.info("Exercising all generators! {}", opts)
     }
 }
