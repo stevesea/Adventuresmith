@@ -98,7 +98,7 @@ object AdventuresmithCli : KLoggable {
                     .metavar("L")
                     .type(LocaleArgType())
                     .setDefault(Locale.US)
-                    .help("can be specified multiple times. generator(s) will be run in the given locales")
+                    .help("generator(s) will be run in the given locale")
         }
         mapOf(
                 cmdRun to 1,
@@ -106,19 +106,25 @@ object AdventuresmithCli : KLoggable {
         ).forEach {
             it.key.addArgument("-i", "--iterations")
                     .metavar("N")
+                    .type(Int::class.java)
                     .setDefault(it.value)
                     .help("number of iterations")
         }
 
-        cmdExercise.addArgument("--out")
-                .type(Arguments.fileType().verifyCanWrite())
+        listOf(cmdRun, cmdExercise).forEach {
+            it.addArgument("-o", "--out")
+                .type(Arguments.fileType())
                 .help("Output file to which generator output will be written. If none given, will be output to console")
+        }
 
+        /*
+        TODO: use mockito?
         cmdRun.addArgument("-R", "--fauxRandom")
                 .metavar("R")
                 .type(Int::class.java)
                 .setDefault(-1)
                 .help("Force the random # generator to always return the given number.")
+        */
 
         val opts = Options()
         try {
@@ -146,12 +152,18 @@ object AdventuresmithCli : KLoggable {
         }
     }
 
-    private fun runGens(iterations: Int, locale: Locale, collId: String, grpId: String? = null) {
+    private fun runGens(opts: Options, locale: Locale, collId: String, grpId: String? = null) {
         AdventuresmithCore.getGeneratorsByGroup(locale, collId, grpId).forEach {
             it ->
                 val gen = it.value
-                val results = (1..iterations).map { gen.generate(locale) }.joinToString("\n")
-                logger.info("   -> {}\n{}", it.key.name, results)
+                val results = (1..opts.iterations).map { gen.generate(locale) }.joinToString("\n")
+                if (opts.out == null) {
+                    logger.info("   -> {}\n{}", it.key.name, results)
+                } else {
+                    logger.info("   -> {}", it.key.name)
+                    // TODO: this isn't efficient, should user buffered writer
+                    opts.out!!.appendText(results + "\n")
+                }
         }
     }
 
@@ -172,15 +184,21 @@ object AdventuresmithCli : KLoggable {
 
     private fun exercise(opts: Options) {
         val l = opts.locale
+        if (opts.out != null) {
+            if (opts.out!!.exists()) {
+                opts.out!!.delete()
+            }
+        }
+
         for (coll in AdventuresmithCore.getCollections(l)) {
             if (coll.groups == null || coll.groups!!.isEmpty()) {
                 logger.info("{} - {}", l, coll.name)
-                runGens(opts.iterations, l, coll.id)
+                runGens(opts, l, coll.id)
                 continue
             }
             for (grp in coll.groups!!.entries) {
                 logger.info("{} - {} / {}", l, coll.name, grp.value)
-                runGens(opts.iterations, l, coll.id, grp.key)
+                runGens(opts, l, coll.id, grp.key)
             }
         }
     }
