@@ -25,6 +25,7 @@ import net.sourceforge.argparse4j.*
 import net.sourceforge.argparse4j.annotation.*
 import net.sourceforge.argparse4j.impl.*
 import net.sourceforge.argparse4j.inf.*
+import org.stevesea.adventuresmith.core.*
 import java.io.*
 import java.util.*
 
@@ -63,18 +64,16 @@ class Options {
     override fun toString(): String {
         return "Options(fauxRandom=$fauxRandom, iterations=$iterations, subcmd='$subcmd', locale=$locale, out=$out)"
     }
-
-
 }
 
 object AdventuresmithCli : KLoggable {
     val SUBCMD = "subcmd"
     val SUBCMD_CORE_EXERCISE = "core-exercise"
+    val SUBCMD_CORE_LIST = "core-list"
     val SUBCMD_RUN = "run"
+
     override val logger = logger()
     @JvmStatic fun main(args: Array<String>) {
-        logger.info("Hello from logger!")
-
         val parser = ArgumentParsers
                 .newArgumentParser("adventuresmith-cli")
                 .description("A CLI interface to test Adventuresmith YaML files")
@@ -87,34 +86,34 @@ object AdventuresmithCli : KLoggable {
         val cmdExercise = subparsers.addParser(SUBCMD_CORE_EXERCISE)
                 .defaultHelp(true)
                 .help("exercise all the generators in Adventuresmith-core")
+        val cmdList = subparsers.addParser(SUBCMD_CORE_LIST)
+                .defaultHelp(true)
+                .help("list all the generators in Adventuresmith-core")
         val cmdRun = subparsers.addParser(SUBCMD_RUN)
                 .defaultHelp(true)
                 .help("run a generator from the filesystem")
 
-        cmdExercise.addArgument("-i", "--iterations")
-                .metavar("N")
-                .setDefault(20)
-                .help("number of iterations")
-        cmdExercise.addArgument("-l", "--locale")
-                .metavar("L")
-                .type(LocaleArgType())
-                .setDefault(Locale.US)
-                .help("can be specified multiple times. generator(s) will be run in the given locales")
+        listOf(cmdList, cmdRun, cmdExercise).forEach {
+            it.addArgument("-l", "--locale")
+                    .metavar("L")
+                    .type(LocaleArgType())
+                    .setDefault(Locale.US)
+                    .help("can be specified multiple times. generator(s) will be run in the given locales")
+        }
+        mapOf(
+                cmdRun to 1,
+                cmdExercise to 20
+        ).forEach {
+            it.key.addArgument("-i", "--iterations")
+                    .metavar("N")
+                    .setDefault(it.value)
+                    .help("number of iterations")
+        }
+
         cmdExercise.addArgument("--out")
                 .type(Arguments.fileType().verifyCanWrite())
-                .help("Output file to which generator output will be written. If none given, will be " +
-                        "output to console")
+                .help("Output file to which generator output will be written. If none given, will be output to console")
 
-        cmdRun.addArgument("-i", "--iterations")
-                .type(Int::class.java)
-                .metavar("N")
-                .setDefault(1)
-                .help("number of iterations")
-        cmdRun.addArgument("-l", "--locale")
-                .metavar("L")
-                .nargs("+")
-                .setDefault(Locale.US.toString())
-                .help("locales")
         cmdRun.addArgument("-R", "--fauxRandom")
                 .metavar("R")
                 .type(Int::class.java)
@@ -127,7 +126,8 @@ object AdventuresmithCli : KLoggable {
 
             when (opts.subcmd) {
                 SUBCMD_CORE_EXERCISE -> exercise(opts)
-                SUBCMD_RUN -> runGenerator()
+                SUBCMD_CORE_LIST -> list(opts)
+                SUBCMD_RUN -> runGenerator(opts)
                 else -> parser.printUsage()
             }
         }catch ( e: ArgumentParserException) {
@@ -136,11 +136,52 @@ object AdventuresmithCli : KLoggable {
         }
     }
 
-    private fun runGenerator() {
+    private fun runGenerator(opts: Options) {
         logger.info("Running generator: ")
     }
 
+    private fun listGens(locale: Locale, collId: String, grpId: String? = null) {
+        AdventuresmithCore.getGeneratorsByGroup(locale, collId, grpId).forEach {
+            it -> logger.info("   -> {}", it.key.name)
+        }
+    }
+
+    private fun runGens(iterations: Int, locale: Locale, collId: String, grpId: String? = null) {
+        AdventuresmithCore.getGeneratorsByGroup(locale, collId, grpId).forEach {
+            it ->
+                val gen = it.value
+                val results = (1..iterations).map { gen.generate(locale) }.joinToString("\n")
+                logger.info("   -> {}\n{}", it.key.name, results)
+        }
+    }
+
+    private fun list(opts: Options) {
+        val l = opts.locale
+        for (coll in AdventuresmithCore.getCollections(l)) {
+            if (coll.groups == null || coll.groups!!.isEmpty()) {
+                logger.info("{} - {}", l, coll.name)
+                listGens(l, coll.id)
+                continue
+            }
+            for (grp in coll.groups!!.entries) {
+                logger.info("{} - {} / {}", l, coll.name, grp.value)
+                listGens(l, coll.id, grp.key)
+            }
+        }
+    }
+
     private fun exercise(opts: Options) {
-        logger.info("Exercising all generators! {}", opts)
+        val l = opts.locale
+        for (coll in AdventuresmithCore.getCollections(l)) {
+            if (coll.groups == null || coll.groups!!.isEmpty()) {
+                logger.info("{} - {}", l, coll.name)
+                runGens(opts.iterations, l, coll.id)
+                continue
+            }
+            for (grp in coll.groups!!.entries) {
+                logger.info("{} - {} / {}", l, coll.name, grp.value)
+                runGens(opts.iterations, l, coll.id, grp.key)
+            }
+        }
     }
 }
