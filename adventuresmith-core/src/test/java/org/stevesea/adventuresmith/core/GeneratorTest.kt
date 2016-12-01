@@ -81,7 +81,7 @@ class GeneratorTest {
             extend(base)
 
             bind<Generator>(testKey) with provider {
-                DataDrivenGenerator(testKey, base)
+                DataDrivenGeneratorForResources(testKey, base)
             }
         }
 

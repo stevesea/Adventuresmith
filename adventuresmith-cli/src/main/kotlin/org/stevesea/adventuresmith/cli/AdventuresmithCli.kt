@@ -61,6 +61,9 @@ class Options {
     @Arg
     var out : File? = null
 
+    @Arg
+    var input : File? = null
+
     override fun toString(): String {
         return "Options(fauxRandom=$fauxRandom, iterations=$iterations, subcmd='$subcmd', locale=$locale, out=$out)"
     }
@@ -117,6 +120,14 @@ object AdventuresmithCli : KLoggable {
                 .help("Output file to which generator output will be written. If none given, will be output to console")
         }
 
+        // TODO: for exerciser, allow filter by generator id
+
+        cmdRun.addArgument("input")
+                .type(Arguments.fileType().verifyCanRead())
+                .metavar("FILE")
+                .required(true)
+                .help("generator input file")
+
         /*
         TODO: use mockito?
         cmdRun.addArgument("-R", "--fauxRandom")
@@ -143,7 +154,14 @@ object AdventuresmithCli : KLoggable {
     }
 
     private fun runGenerator(opts: Options) {
-        logger.info("Running generator: ")
+        val generator = AdventuresmithCore.getGenerator(opts.input!!)
+
+        val results = (1..opts.iterations).map { generator.generate(opts.locale) }.joinToString("\n")
+        if (opts.out == null) {
+            logger.info("Running generator: {}\n{}", opts.input!!.name, results)
+        } else {
+            logger.info("Running generator: {} -> {}", opts.input!!.name, opts.out!!.name)
+        }
     }
 
     private fun listGens(locale: Locale, collId: String, grpId: String? = null) {

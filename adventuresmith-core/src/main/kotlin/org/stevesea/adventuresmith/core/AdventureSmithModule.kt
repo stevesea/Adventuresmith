@@ -93,6 +93,11 @@ object AdventuresmithCore : KodeinAware {
         }
         return result.toSortedSet()
     }
+
+    fun getGenerator(input: File) : Generator {
+        val genFactory: (File) -> DataDrivenGeneratorForFiles = kodein.factory()
+        return genFactory.invoke(input)
+    }
 }
 
 val generatorModule = Kodein.Module {
@@ -120,6 +125,12 @@ val generatorModule = Kodein.Module {
     bind<DataDrivenGenDtoCachingResourceLoader>() with factory { resource_prefix: String ->
         DataDrivenGenDtoCachingResourceLoader(resource_prefix, kodein)
     }
+    bind<DataDrivenGenDtoFileDeserializer>() with factory { input: File ->
+        DataDrivenGenDtoFileDeserializer(input, kodein)
+    }
+    bind<DataDrivenGeneratorForFiles>() with factory { input: File ->
+        DataDrivenGeneratorForFiles(input, kodein)
+    }
     bind<DataDrivenDtoTemplateProcessor>() with provider {
         DataDrivenDtoTemplateProcessor(kodein)
     }
@@ -145,7 +156,7 @@ val generatorModule = Kodein.Module {
                 genList.add(genStr)
 
                 bind<Generator>(genStr) with provider {
-                    DataDrivenGenerator(genStr, kodein)
+                    DataDrivenGeneratorForResources(genStr, kodein)
                 }
             }
         }

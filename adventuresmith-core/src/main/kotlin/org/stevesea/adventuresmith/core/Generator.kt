@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith.core
 
 
+import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.collect.*
 import com.samskivert.mustache.*
@@ -146,7 +147,66 @@ class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, overrid
     }
 }
 
-class DataDrivenGenerator(
+class DataDrivenGenDtoFileDeserializer(val input: File, override val kodein: Kodein) :
+        DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware {
+    val objectReader : ObjectReader = instance()
+
+    // TODO: based on locale, switch file path to read
+    override fun load(locale: Locale): DataDrivenGenDto {
+        return input.bufferedReader().use {
+            objectReader.forType(DataDrivenGenDto::class.java).readValue(it)
+        }
+    }
+
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        val metaName = input.nameWithoutExtension + ".meta.yml"
+        return File(metaName).bufferedReader().use {
+            objectReader.forType(GeneratorMetaDto::class.java).readValue(it)
+        }
+    }
+}
+class DataDrivenGeneratorForFiles(
+        val input: File,
+        override val kodein: Kodein) : Generator, KodeinAware {
+
+    val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
+    val shuffler: Shuffler = instance()
+    val dtoMerger: DtoMerger = instance()
+    val loaderFactory: (File) -> DataDrivenGenDtoFileDeserializer = factory()
+    override fun generate(locale: Locale): String {
+        try {
+            val dto = loaderFactory.invoke(input).load(locale)
+
+            val context = dtoMerger.mergeDtos(gatherDtoResources(dto, locale))
+            val template = shuffler.pick(dto.templates)
+
+            return templateProcessor.processTemplate(template, context)
+        } catch (ex: Exception) {
+            throw IOException("problem running generator ${input.name} (locale: ${locale}): ${ex.toString()}", ex)
+        }
+    }
+
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return loaderFactory.invoke(input).getMetadata(locale)
+    }
+
+    fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale): List<DataDrivenGenDto> {
+        val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
+
+        dto.imports?.let {
+            for (sibling in dto.imports) {
+
+                val inDir = input.absoluteFile.parentFile
+                val sibling_file = File(inDir, sibling + ".yml")
+                val d = loaderFactory.invoke(sibling_file).load(locale)
+                results.addAll(gatherDtoResources(d, locale))
+            }
+        }
+        return results
+    }
+}
+
+class DataDrivenGeneratorForResources(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
 

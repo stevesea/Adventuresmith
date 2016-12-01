@@ -79,7 +79,7 @@ object LocaleAwareResourceFinder {
 
     /**
      * our resources are going to be YaML
-     * TODO: seems like we could merge dtos
+     * TODO: seems like we could merge dtos from multiple languages here
      */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
         val fnames_precendence_order = locale_names(name, locale, ext)
@@ -101,7 +101,7 @@ object LocaleAwareResourceFinder {
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
     val objectReader : ObjectReader = instance()
-    val maxSize = 100L
+    val maxSize = 50L
 
     val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
             .maximumSize(maxSize)
@@ -132,10 +132,10 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
         val str = Resources.toString(url, charset)
         try {
             val result: T = objectReader.forType(clazz).readValue(str)
-
             return result
         } catch (ex: Exception) {
             throw IOException("problem reading file ${url} (locale: ${locale}) - ${ex.toString()}", ex)
         }
     }
 }
+
