@@ -158,9 +158,10 @@ object AdventuresmithCli : KLoggable {
 
         val results = (1..opts.iterations).map { generator.generate(opts.locale) }.joinToString("\n")
         if (opts.out == null) {
-            logger.info("Running generator: {}\n{}", opts.input!!.name, results)
+            logger.info("Running generator: {}\n{}", opts.input!!.normalize(), results)
         } else {
-            logger.info("Running generator: {} -> {}", opts.input!!.name, opts.out!!.name)
+            logger.info("Running generator: {} -> {}", opts.input!!.normalize(), opts.out!!.absolutePath)
+            opts.out!!.writeText(results)
         }
     }
 

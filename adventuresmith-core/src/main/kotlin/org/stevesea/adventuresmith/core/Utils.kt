@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
 import com.google.common.cache.*
 import com.google.common.io.*
+import mu.*
 import java.io.*
 import java.net.*
 import java.nio.charset.*
@@ -38,6 +39,7 @@ fun getFinalPackageName(clz : Class<Any> ) : String {
 /**
  * attempts to find things similar to a ResourceBundle
  *
+ * <pre>
  * If a ResourceBundle class for the specified Locale does not exist, getBundle tries to
  * find the closest match. For example, if ButtonLabel_fr_CA_UNIX is the desired class and
  * the default Locale is en_US, getBundle will look for classes in the following order:
@@ -49,8 +51,10 @@ fun getFinalPackageName(clz : Class<Any> ) : String {
  *   ButtonLabel_en_US
  *   ButtonLabel_en
  *   ButtonLabel
+ * </pre>
  */
-object LocaleAwareResourceFinder {
+object LocaleAwareResourceFinder : KLoggable {
+    override val logger = logger()
     private fun locale_names(name: String, locale: Locale, ext: String) : List<String> {
         // look for things similar to a resource bundle:
 
@@ -86,9 +90,20 @@ object LocaleAwareResourceFinder {
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
         val foundList = urls.filterNotNull()
         if (foundList.isEmpty()) {
-            throw IllegalArgumentException("Unable to find any resources matching $name. Looked in: ${clazz.`package`.name} Tried: $fnames_precendence_order ")
+            throw FileNotFoundException("Unable to find any resources matching $name. Looked in: ${clazz.`package`.name} Tried: $fnames_precendence_order ")
         }
         return foundList.first()
+    }
+
+    fun findBestFile(f: File, locale: Locale, ext: String = ".yml") : File {
+        val fnorm = File(f.parentFile, f.nameWithoutExtension).absolutePath
+        val fnames_precendence_order = locale_names(fnorm, locale, ext)
+        val files = fnames_precendence_order.filter { File(it).exists() }.map{File(it)}
+        if (files.isEmpty()) {
+            throw FileNotFoundException("Unable to find files matching '$fnorm'. Tried: $fnames_precendence_order")
+        }
+        //logger.info("file {}", files.first())
+        return files.first()
     }
 }
 
