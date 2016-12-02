@@ -83,7 +83,7 @@ object LocaleAwareResourceFinder : KLoggable {
 
     /**
      * our resources are going to be YaML
-     * TODO: seems like we could merge dtos from multiple languages here
+     * TODO: instead of picking best, seems like we could gather dtos from multiple languages here and combine
      */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
         val fnames_precendence_order = locale_names(name, locale, ext)
