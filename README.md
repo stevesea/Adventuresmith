@@ -39,12 +39,10 @@ Want to keep up with development? Here's my G+ collection: https://plus.google.c
 
 Google Play: https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith
 
-#### FAQ: "but, I don't have Android! when can I run this on iOS?"
+## Wiki/FAQ
 
-iOS support is something I want to implement, but in the meantime you _can_ run Android apps on
-your desktop in a Chrome browser using ARC Welder.
-
-Here are some instructions: https://plus.google.com/111334816577377987512/posts/cTJQokyMx76
+If you're interested in creating generators, or want to run Adventuresmith on the desktop, there
+are instructions on the wiki: https://github.com/stevesea/Adventuresmith/wiki
 
 ## Screenshots
 
