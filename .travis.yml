@@ -26,7 +26,7 @@ android:
 
 before_install:
   - chmod +x gradlew
-script: ./gradlew test adventuresmith-cli:distZip
+script: ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:distZip
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock

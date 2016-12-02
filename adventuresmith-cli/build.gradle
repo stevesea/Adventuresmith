@@ -77,18 +77,24 @@ repositories {
     mavenCentral()
 }
 
+// to run this:
+//   gradlew adventuresmith-cli:run -PgenFile=<fname>
 run {
-    args += "core-list"
+    args += ["run",
+             "--i", "${findProperty('genIter') ?: 1}",
+             "--locale", "${findProperty('genLocale') ?: 'en_US'}",
+             "${findProperty('genFile') ?: 'src/dist/examples/items.yml'}"]
 }
 
 // could also do:
 
-/*
-task(runSimple, dependsOn: 'classes', type: JavaExec) {
-    main = 'com.mrhaki.java.Simple'
+task(runList, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
     classpath = sourceSets.main.runtimeClasspath
-    args 'mrhaki'
-    systemProperty 'simple.message', 'Hello '
+    args 'core-list'
 }
-*/
-
+task(runExercise, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
+    classpath = sourceSets.main.runtimeClasspath
+    args 'core-exercise'
+}

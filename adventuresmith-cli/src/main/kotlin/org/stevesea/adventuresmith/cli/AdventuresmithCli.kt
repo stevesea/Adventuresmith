@@ -50,6 +50,9 @@ class Options {
     var iterations: Int = 1
 
     @Arg
+    var filter: String = ""
+
+    @Arg
     var subcmd : String = ""
 
     @Arg
@@ -120,10 +123,11 @@ object AdventuresmithCli : KLoggable {
                 .help("Output file to which generator output will be written. If none given, will be output to console")
         }
 
-        // TODO: for exerciser, allow filter by generator id
+        cmdExercise.addArgument("--filter")
+                .help("filter which generators to run")
 
         cmdRun.addArgument("input")
-                .type(Arguments.fileType().verifyCanRead())
+                .type(Arguments.fileType().verifyExists().verifyCanRead())
                 .metavar("FILE")
                 .required(true)
                 .help("generator input file")
@@ -190,12 +194,12 @@ object AdventuresmithCli : KLoggable {
         val l = opts.locale
         for (coll in AdventuresmithCore.getCollections(l)) {
             if (coll.groups == null || coll.groups!!.isEmpty()) {
-                logger.info("{} - {}", l, coll.name)
+                logger.info("{} - {} ({})", l, coll.name, coll.id)
                 listGens(l, coll.id)
                 continue
             }
             for (grp in coll.groups!!.entries) {
-                logger.info("{} - {} / {}", l, coll.name, grp.value)
+                logger.info("{} - {} / {} ({}/{})", l, coll.name, grp.value, coll.id, grp.key)
                 listGens(l, coll.id, grp.key)
             }
         }
@@ -211,12 +215,18 @@ object AdventuresmithCli : KLoggable {
 
         for (coll in AdventuresmithCore.getCollections(l)) {
             if (coll.groups == null || coll.groups!!.isEmpty()) {
-                logger.info("{} - {}", l, coll.name)
+                if (!opts.filter.isNullOrEmpty() && !coll.id.toLowerCase().startsWith(opts.filter.toLowerCase())) {
+                    continue
+                }
+                logger.info("{} - {} ({})", l, coll.name, coll.id)
                 runGens(opts, l, coll.id)
                 continue
             }
             for (grp in coll.groups!!.entries) {
-                logger.info("{} - {} / {}", l, coll.name, grp.value)
+                if (!opts.filter.isNullOrEmpty() && !"${coll.id}/${grp.key}".toLowerCase().startsWith(opts.filter.toLowerCase())) {
+                    continue
+                }
+                logger.info("{} - {} / {} ({}/{})", l, coll.name, grp.value, coll.id, grp.key)
                 runGens(opts, l, coll.id, grp.key)
             }
         }
