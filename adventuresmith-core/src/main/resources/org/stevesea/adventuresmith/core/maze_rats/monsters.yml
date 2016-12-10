@@ -3,17 +3,30 @@ templates:
 - |
   <h4>Monster</h4>
   {{monster.forms}}
-  <br/> <em>effect:</em> {{magic.effects}}
-  <br/> <em>element:</em> {{magic.elements}}
-  <br/> <em>form:</em> {{magic.forms}}
+  <br/>&nbsp;&nbsp;<em>effect:</em> {{magic.effects}}
+  <br/>&nbsp;&nbsp;<em>element:</em> {{magic.elements}}
+  <br/>&nbsp;&nbsp;<em>form:</em> {{magic.forms}}
   <br/>
-  <br/><strong><small>Features:</small><strong> {{monster.features}}
-  <br/><strong><small>Traits:</small><strong> {{monster.traits}}
-  <br/><strong><small>Abilities:</small><strong> {{monster.abilities}}
-  <br/><strong><small>Tactics:</small><strong> {{monster.tactics}}
-  <br/><strong><small>Personality:</small><strong> {{monster.personalities}}
-  <br/><strong><small>Weakness:</small><strong> {{monster.weakness}}
+  <br/><strong><small>Features:</small></strong> {{monster_spec.features}}
+  <br/><strong><small>Traits:</small></strong> {{monster_spec.traits}}
+  <br/><strong><small>Abilities:</small></strong> {{monster_spec.abilities}}
+  <br/><strong><small>Tactics:</small></strong> {{monster.tactics}}
+  <br/><strong><small>Personality:</small></strong> {{monster.personalities}}
+  <br/><strong><small>Weakness:</small></strong> {{monster.weakness}}
 
 imports:
 - maze_rats_base
+
+nested_tables:
+  # sometimes it's fun to have more to choose from, supply a chance that multiple entries will be output
+  monster_spec:
+    abilities:
+    - "1..8, {{monster.abilities}}"
+    - "9..10, {{>pickN: 2 monster.abilities}}"
+    traits:
+    - "1..8, {{monster.traits}}"
+    - "9..10, {{>pickN: 2 monster.traits}}"
+    features:
+    - "1..8, {{monster.features}}"
+    - "9..10, {{>pickN: 2 monster.features}}"
 

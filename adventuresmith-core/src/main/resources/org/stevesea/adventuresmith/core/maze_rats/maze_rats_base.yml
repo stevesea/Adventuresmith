@@ -247,7 +247,7 @@ tables:
   - Forked tongue
   - Gender swap
   - Hunchback
-  - "{{items}}-form"
+  - "{{items.items}}-form"
   - Long arms
   - Lose all hair
   - Loses teeth
@@ -646,10 +646,10 @@ nested_tables:
     goals:
     - A better life
     - Acceptance
-    - "Acquire {{items}}"
-    - "Craft {{items}}"
+    - "Acquire {{items.items}}"
+    - "Craft {{items.items}}"
     - "Destroy {{factions.factions}}"
-    - "Destroy {{items}}"
+    - "Destroy {{items.items}}"
     - Enlightenment
     - Fame
     - "Acquire {{factions.factions}}"
