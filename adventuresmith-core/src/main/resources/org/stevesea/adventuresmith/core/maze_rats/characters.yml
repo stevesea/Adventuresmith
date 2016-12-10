@@ -7,13 +7,15 @@ templates:
   <br/><strong><small>Appearance: </small></strong> {{characters.appearance}}, {{characters.physical_detail}}
   <br/><strong><small>Background: </small></strong> {{characters.background}}
   <br/><strong><small>Clothing: </small></strong> {{characters.clothing}}
-  <br/><strong><small>Personality: </small></strong> {{characters.personality}}
+  <br/><strong><small>Personality: </small></strong> {{characters.personalities}}
   <br/><strong><small>Mannerism: </small></strong> {{characters.mannerism}}
   <h5>Starting Feature</h5>
   {{player_characters.starting_feature}}
   <h5>Equipment & Gear</h5>
   {{>pickN: 6 player_characters.items}}
   <br/>{{>pickN: 2 items.weapons}}
+
+# TODO: secrets, reputation, etc?
 
 imports:
 - maze_rats_base
@@ -36,7 +38,7 @@ nested_tables:
     starting_feature:
     - A +1 attack bonus
     - A single spell slot
-    - {{path}}
+    - "{{player_characters.path}}"
     path:
     - "Briarborn: Tracking, foraging, survival"
     - "Fingersmith: Tinkering, picking locks or pockets"

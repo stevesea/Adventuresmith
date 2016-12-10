@@ -14,7 +14,7 @@ templates:
   - In the stocks
   - Inconvenient pet
   - Insulted a noble
-  - "Insulted {{factions}}"
+  - "Insulted {{factions.factions}}"
   - Joined a cult
   - Letter of thanks
   - Lost
@@ -36,3 +36,6 @@ templates:
   - Thrown in jail
   - Unruly mob
   - Wrong clothes
+
+imports:
+- maze_rats_base

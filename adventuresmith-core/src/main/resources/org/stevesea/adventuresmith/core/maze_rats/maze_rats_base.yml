@@ -297,7 +297,7 @@ tables:
   - "\"{{monster.features}}\""
   - "\"{{monster.traits}}\""
   - Must sing
-  - "New personality - {{personalities}}"
+  - "New personality - {{characters.personalities}}"
   - Says thoughts
   - Sees dead people
   omens_catastrophes:
@@ -578,8 +578,8 @@ nested_tables:
     - Erases evidence
     - Excellent liar
     - Extremely rich
-    - "{{faction}}-leader"
-    - "{{faction}}-member"
+    - "{{factions.factions}}-leader"
+    - "{{factions.factions}}-member"
     - Feared
     - Fortified base
     - Gorgeous
@@ -648,19 +648,19 @@ nested_tables:
     - Acceptance
     - "Acquire {{items}}"
     - "Craft {{items}}"
-    - "Destroy {{factions}}"
+    - "Destroy {{factions.factions}}"
     - "Destroy {{items}}"
     - Enlightenment
     - Fame
-    - "Acquire {{factions}}"
+    - "Acquire {{factions.factions}}"
     - Freedom
     - Glory
     - "Impress NPC ({{npc_occupation.select}})"
     - Infamy
-    - "Infiltrate {{faction}}"
+    - "Infiltrate {{faction.factions}}"
     - Justice
     - "Kidnap NPC ({{npc_occupation.select}})"
-    - "Lead {{faction}}"
+    - "Lead {{factions.factions}}"
     - Learning
     - "Locate NPC ({{npc_occupation.select}})"
     - Love
@@ -669,13 +669,13 @@ nested_tables:
     - Reach location
     - "Rescue NPC ({{npc_occupation.select}})"
     - Resolve dispute
-    - "Restore {{faction}}"
+    - "Restore {{factions.factions}}"
     - Reveal a secret
     - Revenge
-    - "Sabotage {{faction}}"
+    - "Sabotage {{factions.factions}}"
     - Serve a deity
     - Serve evil
-    - "Serve {{faction}}"
+    - "Serve {{factions.factions}}"
     - Serve ideology
     - Serve leader
     - Serve the needy
@@ -997,6 +997,43 @@ nested_tables:
     - Tumbler
     - Villin
   characters:
+    methods:
+    - Alchemy
+    - Blackmail
+    - Bluster
+    - Bribery
+    - Bullying
+    - Bureaucracy
+    - Charm
+    - Commerce
+    - Cronies
+    - Debate
+    - Deceit
+    - Deduction
+    - Eloquence
+    - Espionage
+    - Fast-talking
+    - Favors
+    - Hard Work
+    - Humor
+    - Investigation
+    - Legal Maneuvers
+    - Manipulation
+    - Misdirection
+    - Money
+    - Nagging
+    - Negotiation
+    - Persistence
+    - Piety
+    - Prepartion
+    - Quick Wit
+    - Research
+    - Rumors
+    - Sabotage
+    - Teamwork
+    - Theft
+    - Threats
+    - Violence
     appearance:
     - Aquiline
     - Athletic
@@ -1145,7 +1182,7 @@ nested_tables:
     - Undersized
     - Wine-stained
     - Worn out
-    personality:
+    personalities:
     - Bitter
     - Brave
     - Cautious
@@ -1488,11 +1525,11 @@ nested_tables:
 
   monster:
     forms:
-    - "1..4, {{animals.forms_base}}"
+    - "1..4, {{animal.forms}}"
     - "5, {{>pickN: 2 animal.aerial +}}"
     - "6, {{>pickN: 2 animal.terrestrial +}}"
     - "7, {{>pickN: 2 animal.aquatic +}}"
-    - "8, {{>pickN: 2 animal.forms_base +}}"
+    - "8, {{>pickN: 2 animal.forms +}}"
 
     features:
     - Antlers
@@ -1700,7 +1737,7 @@ nested_tables:
     - Mistletoe
     - Moonlight
     - Music
-    - "{{methods}}"
+    - "{{characters.methods}}"
     - Phylactery
     - "{{magic.physical_elements}}"
     - Puzzles
@@ -1712,7 +1749,457 @@ nested_tables:
     - True Name
     - "{{valuable_materials}}"
     - Weak Spot
-    - "{{weapon_items}}"
+    - "{{items.weapons}}"
     - Wine
     - Wormwood
+  city:
+    themes:
+    - "{{animal.forms}}"
+    - Aristocracy
+    - Art
+    - Bureaucracy
+    - Castes
+    - Catacombs
+    - "{{city.activities}}"
+    - "{{city.events}}"
+    - Crime families
+    - Cruelty
+    - "{{city.districts}}"
+    - "{{divine_domains}}"
+    - "{{factions.factions}}"
+    - Festivals
+    - Feuds
+    - Intrigue
+    - "{{buildings.lower_class}}"
+    - Martial law
+    - Meritocracy
+    - "{{npc_occupation.select}}"
+    - Opulence
+    - "{{magic.physical_elements}}"
+    - Pilgrimages
+    - Piracy
+    - Plutocracy
+    - Poverty
+    - Rituals
+    - Slavery
+    - Spices
+    - Theocracy
+    - Thievery
+    - Trade
+    - Tyranny
+    - "{{buildings.upper_class}}"
+    - Wizardry
+    - Xenophobia
+    events:
+    - Assassination
+    - Carnival
+    - Conscription
+    - Coronation
+    - Coup
+    - Cult activity
+    - Curfew
+    - Discovery
+    - Earthquake
+    - "{{factions.factions}} war"
+    - Fashion trend
+    - Fire
+    - Flood
+    - Heavy fog
+    - Heavy taxes
+    - Holy day
+    - Hysteria
+    - Inquisition
+    - Insurrection
+    - Invasion
+    - Jailbreak
+    - Mass eviction
+    - Mass pardon
+    - Negotiations
+    - Plague
+    - Proclamation
+    - Prohibition
+    - Public games
+    - Refugees
+    - Rioting
+    - Roundup
+    - Scandal
+    - Serial killer
+    - Shortage
+    - Tournament
+    - Trial
+    districts:
+    - Catacombs
+    - "{{npc_occupation.civilized}}"
+    - Construction
+    - Crafts
+    - Criminality
+    - Culture
+    - Dining
+    - Education
+    - Entertainment
+    - Finance
+    - Foreigners
+    - Ghettoes
+    - Government
+    - Graveyards
+    - Green space
+    - Industrialization
+    - Judgement
+    - Livestock
+    - Marketplace
+    - Memorials
+    - Military
+    - Opulence
+    - Pollution
+    - Poverty
+    - Punishment
+    - Religion
+    - Science
+    - Trade
+    - Trash
+    - "{{npc_occupation.underworld}}"
+    - "{{buildings.upper_class}}"
+    - "{{buildings.lower_class}}"  # ???? TODO: typo in 4.1?
+    - Vices
+    - "{{npc_occupation.wilderness}}"
+    - Wizardry
+    - Wonders
+
+    activities:
+    - Abduct
+    - Beg
+    - Brawl
+    - Burgle
+    - Celebrate
+    - Chase
+    - Construct
+    - Cook
+    - Dance
+    - Duel
+    - "{{dungeon.activities}}"
+    - Execute
+    - Extinguish
+    - Extort
+    - Follow
+    - Gamble
+    - Haul
+    - Interrogate
+    - Marry
+    - "{{missions}}"
+    - Mourn
+    - Party
+    - Patrol
+    - Perform
+    - Play
+    - Preach
+    - Process
+    - Proclaim
+    - Protest
+    - Release
+    - Repair
+    - Riot
+    - Rob
+    - Search
+    - Sell
+    - "{{wilderness.activities}}"
+    tactical_building_features:
+    - "{{animal.forms}} nests"
+    - Balconies
+    - Basement access
+    - Brightly lit
+    - Broken furniture
+    - Broken glass
+    - Cabinets
+    - Carpeted floors
+    - Chandeliers
+    - Crawlspaces
+    - Drain pipes
+    - Dumbwaiters
+    - Echoing marble
+    - Hanging chains
+    - Huge fireplace
+    - Narrow ledges
+    - Open windows
+    - Ornate weapons
+    - Overgrown
+    - Patrols
+    - Piles of trash
+    - Pillars
+    - Rotting ceiling
+    - Rotting floors
+    - Rotting walls
+    - Screens
+    - Servant passages
+    - Sewer access
+    - Shadowy alcoves
+    - Skylights
+    - Spyholes
+    - Staircases
+    - Tall bookshelves
+    - Unlit
+    - Watchdogs
+    - Window drapes
+    tactical_street_features:
+    - Arcade
+    - Awnings
+    - Balconies
+    - Barricades
+    - Bridge
+    - Canal
+    - Carriages
+    - Catwalks
+    - "{{city.activities}}"
+    - Climbable walls
+    - Clotheslines
+    - Crowd
+    - Dead end
+    - Dense fog
+    - Downpour
+    - "{{dungeon.activities}}"
+    - Flooding
+    - Food stalls
+    - Fountain
+    - Gates
+    - Ladders
+    - Livestock
+    - Muddy
+    - Overgrown
+    - Roof access
+    - Roof gardens
+    - Sewer access
+    - Sinkhole
+    - Slick
+    - Steep roofs
+    - Steep streets
+    - Steps
+    - Torn up street
+    - Vermin swarms
+    - Well
+    - "{{wilderness.activities}}"
+
+
+  buildings:
+    upper_class:
+    - Academy
+    - Alchemist
+    - Archive
+    - Art dealer
+    - Barber
+    - Bookbinder
+    - Bookseller
+    - Castle
+    - Clockmaker
+    - Clothier
+    - Courthouse
+    - Furrier
+    - Gallery
+    - Garden
+    - Haberdashery
+    - Jeweler
+    - Law office
+    - Locksmith
+    - Lounge
+    - Manor
+    - Museum
+    - Observatory
+    - Opera house
+    - Park
+    - Physician
+    - Printer
+    - Public baths
+    - Restaurant
+    - Salon
+    - Stables
+    - Taxidermist
+    - Temple
+    - Tobacconist
+    - Townhouse
+    - Winery
+    - Zoo
+    lower_class:
+    - Apothecary
+    - Asylum
+    - Baker
+    - Brewery
+    - Butcher
+    - Candlemaker
+    - Catacombs
+    - Cheesemaker
+    - Criminal den
+    - Curiosity shop
+    - Dock
+    - Fighting pit
+    - Forge
+    - Fortuneteller
+    - Gambling hall
+    - Leatherworks
+    - Marketplace
+    - Mason
+    - Mill
+    - Moneylender
+    - Orphanage
+    - Outfitter
+    - Prison
+    - Sewers
+    - Shipyards
+    - Shrine
+    - Stockyard
+    - Stonecarver
+    - Tattooist
+    - Tavern
+    - Theater
+    - Veterinarian
+    - Warehouse
+    - Watchtower
+    - Weaver
+    - Workshop
+    rooms:
+    - Arboretum
+    - Attrium
+    - Attic
+    - Aviary
+    - Ballroom
+    - Baths
+    - Bed chamber
+    - Cabinet
+    - Chapel
+    - Cloakroom
+    - Dining room
+    - Dressing room
+    - "{{dungeon.rooms}}"
+    - Garden
+    - Garret
+    - Greenhouse
+    - Junk room
+    - Kitchen
+    - Larder
+    - Library
+    - Map room
+    - Menagerie
+    - Mews
+    - Nursery
+    - Pantry
+    - Parlor
+    - Privy
+    - Root cellar
+    - Saucery
+    - Scullery
+    - Smoking room
+    - Spicery
+    - Still room
+    - Study
+    - Trophy room
+    - Wardrobe
+  factions:
+    factions:
+    - Art movement
+    - Beggar's guild
+    - Black market
+    - Brotherhood
+    - City guard
+    - Conspiracy
+    - Craft guild
+    - Crime family
+    - Crime ring
+    - Dark cult
+    - Explorer's club
+    - Free company
+    - Gourmand club
+    - Heist crew
+    - Heretical sect
+    - High council
+    - Hired killers
+    - Local militia
+    - National church
+    - Noble house
+    - Outlander clan
+    - Outlaw gang
+    - Politcal party
+    - Religious order
+    - Religious sect
+    - Resistance
+    - Royal army
+    - Royal house
+    - Scholar's circle
+    - Secret society
+    - Spy network
+    - Street artists
+    - Street gang
+    - Street musicians
+    - Theater troupe
+    - Trade company
+    traits:
+    - Bankrupt
+    - Bureaucratic
+    - Charitable
+    - Confused
+    - Connected
+    - Corrupt
+    - Decadent
+    - Decaying
+    - Delusional
+    - Divided
+    - Dwindling
+    - Efficient
+    - Esoteric
+    - Expanding
+    - Hunted
+    - Incompetent
+    - Incorruptible
+    - Insane
+    - Insular
+    - Manipulative
+    - Martial
+    - "{{characters.personalities}}"
+    - Pious
+    - Popular
+    - Righteous
+    - Ruthless
+    - Secret
+    - Subversive
+    - Suppressed
+    - Threatened
+    - Thriving
+    - Unpopular
+    - Up-and-coming
+    - Wealthy
+    - Well-prepared
+    - Xenophobic
+    goals:
+    - Advise leader
+    - Avoid detection
+    - Awaken being
+    - Collect artifacts
+    - Construct base
+    - "Control {{factions.factions}}"
+    - Control politics
+    - Create artifact
+    - "Create {{monster.forms}}"
+    - "Defeat {{factions.factions}}"
+    - Defend borders
+    - Defend leader
+    - Destroy artifacts
+    - Destroy being
+    - Destroy villain
+    - Enforce law
+    - Enrich members
+    - Entertain
+    - Exchange goods
+    - Hear rumors
+    - Indulge tastes
+    - "Infiltrate {{factions.factions}}"
+    - Map the wild
+    - Overthrow order
+    - Preserve lineage
+    - Preserve lore
+    - Produce goods
+    - Promote arts
+    - Promote craft
+    - Purge traitors
+    - Sell services
+    - Share knowledge
+    - Spread beliefs
+    - Summon evil
+    - Survive
+    - Transport goods
 

@@ -1,28 +1,28 @@
 ---
 nested_tables:
   magic:
-    templates:
-    - "{{physical_effects}} + {{physical_forms}}"
-    - "{{physical_effects}} + {{ethereal_forms}}"
-    - "{{ethereal_effects}} + {{physical_forms}}"
-    - "{{ethereal_effects}} + {{ethereal_forms}}"
-    - "{{physical_elements}} + {{physical_forms}}"
-    - "{{physical_elements}} + {{ethereal_forms}}"
-    - "{{ethereal_elements}} + {{physical_forms}}"
-    - "{{ethereal_elements}} + {{ethereal_forms}}"
-    - "{{physical_effects}} + {{physical_elements}}"
-    - "{{physical_effects}} + {{ethereal_elements}}"
-    - "{{ethereal_effects}} + {{physical_elements}}"
-    - "{{ethereal_effects}} + {{ethereal_elements}}"
+    spells:
+    - "{{magic.physical_effects}} + {{magic.physical_forms}}"
+    - "{{magic.physical_effects}} + {{magic.ethereal_forms}}"
+    - "{{magic.ethereal_effects}} + {{magic.physical_forms}}"
+    - "{{magic.ethereal_effects}} + {{magic.ethereal_forms}}"
+    - "{{magic.physical_elements}} + {{magic.physical_forms}}"
+    - "{{magic.physical_elements}} + {{magic.ethereal_forms}}"
+    - "{{magic.ethereal_elements}} + {{magic.physical_forms}}"
+    - "{{magic.ethereal_elements}} + {{magic.ethereal_forms}}"
+    - "{{magic.physical_effects}} + {{magic.physical_elements}}"
+    - "{{magic.physical_effects}} + {{magic.ethereal_elements}}"
+    - "{{magic.ethereal_effects}} + {{magic.physical_elements}}"
+    - "{{magic.ethereal_effects}} + {{magic.ethereal_elements}}"
     effects:
-    - "{{physical_effects}}"
-    - "{{ethereal_effects}}"
+    - "{{magic.physical_effects}}"
+    - "{{magic.ethereal_effects}}"
     elements:
-    - "{{physical_elements}}"
-    - "{{ethereal_elements}}"
+    - "{{magic.physical_elements}}"
+    - "{{magic.ethereal_elements}}"
     forms:
-    - "{{physical_forms}}"
-    - "{{ethereal_forms}}"
+    - "{{magic.physical_forms}}"
+    - "{{magic.ethereal_forms}}"
     physical_effects:
     - Animating
     - Attracting
@@ -97,7 +97,7 @@ nested_tables:
     - Wine
     - Wood
     - Worm
-    physical_form:
+    physical_forms:
     - Altar
     - Armor
     - Arrow

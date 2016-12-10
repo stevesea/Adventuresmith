@@ -1,6 +1,6 @@
 ---
 templates:
-- "{{magic.templates}}"
+- "{{magic.spells}}"
 
 imports:
 - magic
