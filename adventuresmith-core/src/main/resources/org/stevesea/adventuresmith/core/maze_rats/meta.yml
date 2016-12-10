@@ -1,5 +1,13 @@
-name: Maze Rats 0.1
+name: Maze Rats
 id: maze_rats
 priority: 100
 credit: Ben Milton
 url: "http://questingblog.com/maze-rats/"
+priority: 0
+groups:
+  grp1: Characters
+  grp9: Maze Rats 0.1
+attribution: |
+  Created by <strong>Ben Milton</strong> or "Questing Beast" on YouTube.
+  <p>The text of <em>Maze Rats</em> is released under a CC BY 4.0 license
+  https://creativecommons.org/licenses/by/4.0/</p>

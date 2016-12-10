@@ -1,8 +1,5 @@
 ---
 templates:
-  - "{{potion_effects}}"
-tables:
-  potion_effects:
   - 1-hour vampirism
   - Alter face
   - Alter voice

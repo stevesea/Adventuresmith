@@ -1,8 +1,5 @@
 ---
 templates:
-  - "{{afflictions}}"
-tables:
-  afflictions:
   - Ages backwards
   - Always honest
   - Always whispers
