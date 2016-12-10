@@ -1526,10 +1526,10 @@ nested_tables:
   monster:
     forms:
     - "1..4, {{animal.forms}}"
-    - "5, {{>pickN: 2 animal.aerial +}}"
-    - "6, {{>pickN: 2 animal.terrestrial +}}"
-    - "7, {{>pickN: 2 animal.aquatic +}}"
-    - "8, {{>pickN: 2 animal.forms +}}"
+    - "5, {{>pickN: 2 animal.aerial &nbsp;+&nbsp;}}"
+    - "6, {{>pickN: 2 animal.terrestrial &nbsp;+&nbsp;}}"
+    - "7, {{>pickN: 2 animal.aquatic &nbsp;+&nbsp;}}"
+    - "8, {{>pickN: 2 animal.forms &nbsp;+&nbsp;}}"
 
     features:
     - Antlers
