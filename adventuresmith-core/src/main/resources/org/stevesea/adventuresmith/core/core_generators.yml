@@ -11,12 +11,12 @@ generators:
   #- chars   Not converted completely to new template format
   - spells
   maze_rats:
-  - afflictions
-  - characters
-  - items
-  - magic
-  - monsters
-  - potion_effects
+  - mr01_afflictions
+  - mr01_characters
+  - mr01_items
+  - mr01_magic
+  - mr01_monsters
+  - mr01_potion_effects
   perilous_wilds:
   - place_names
   - region_names

@@ -12,7 +12,7 @@ templates:
 # a list of other input data files that should be loaded into the context.
 # they _must_ be located next to this file
 imports:
-- names
+- mr01_names
 
 tables:
   personality:

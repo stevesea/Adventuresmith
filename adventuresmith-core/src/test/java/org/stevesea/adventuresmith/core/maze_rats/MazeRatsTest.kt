@@ -28,13 +28,12 @@ import java.util.*
 object MrConstants {
     private val GROUP = getFinalPackageName(this.javaClass)
 
-    val AFFLICTIONS = "${GROUP}/afflictions"
-    val POTION_EFFECTS = "${GROUP}/potion_effects"
-    val ITEM = "${GROUP}/items"
-    val MAGIC = "${GROUP}/magic"
-    val MONSTER = "${GROUP}/monsters"
-    val CHAR = "${GROUP}/characters"
-
+    val AFFLICTIONS = "${GROUP}/mr01_afflictions"
+    val POTION_EFFECTS = "${GROUP}/mr01_potion_effects"
+    val ITEM = "${GROUP}/mr01_items"
+    val MAGIC = "${GROUP}/mr01_magic"
+    val MONSTER = "${GROUP}/mr01_monsters"
+    val CHAR = "${GROUP}/mr01_characters"
 }
 
 class MazeRatsTest {
