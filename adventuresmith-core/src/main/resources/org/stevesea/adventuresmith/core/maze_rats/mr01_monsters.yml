@@ -8,7 +8,7 @@ templates:
 - "{{effect}} {{creature}} {{creature}}"
 
 imports:
-- magic
+- mr01_magic
 
 tables:
   creature:

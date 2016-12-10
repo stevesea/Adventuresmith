@@ -17,6 +17,14 @@ generators:
   - mr01_magic
   - mr01_monsters
   - mr01_potion_effects
+  - after_the_party
+  - animals
+  - characters
+  - insanities
+  - monsters
+  - mutations
+  - omens_catastrophes
+  - spells
   perilous_wilds:
   - place_names
   - region_names

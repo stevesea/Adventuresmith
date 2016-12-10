@@ -1,0 +1,6 @@
+---
+templates:
+- "{{insanities}}"
+
+imports:
+- maze_rats_base

@@ -8,7 +8,7 @@ templates:
 - "{{form}} {{item}}"
 
 imports:
-- magic
+- mr01_magic
 
 tables:
   item:

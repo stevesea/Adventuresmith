@@ -1,0 +1,1718 @@
+---
+# this file is pretty bloated -- lots of interrelated tables made it
+# hard to pick a good hierarchy of imports without cycles
+
+imports:
+- magic
+
+tables:
+  valuable_materials:
+  - Alabaster
+  - Amber
+  - Aquamarine
+  - Azurite
+  - Beryl
+  - Black Pearl
+  - Bloodstone
+  - Bone China
+  - Chalcedony
+  - Cinnabar
+  - Coral
+  - Diamond
+  - Ebony
+  - Emerald
+  - Fire Agate
+  - Garnet
+  - Gold
+  - Ivory
+  - Jade
+  - Jasper
+  - Jet
+  - Lapis Lazuli
+  - Malachite
+  - Moonstone
+  - Onyx
+  - Opal
+  - Pearl
+  - Platinum
+  - Porcelain
+  - Ruby
+  - Sapphire
+  - Serpentine
+  - Silver
+  - Star Iron
+  - Topaz
+  - Turquoise
+  books:
+  - Alchemy
+  - Art
+  - Astrology
+  - Blackmail
+  - Charts & maps
+  - Conspiracies
+  - Cookbook
+  - Criminals
+  - Divination
+  - Etiquette
+  - Fashion
+  - Genealogy
+  - Hagiography
+  - History
+  - Journal
+  - Language
+  - Laws
+  - Letters
+  - Lost empires
+  - Lost places
+  - Love poems
+  - Monsters
+  - Mythology
+  - Odd customs
+  - Oratory
+  - Propaganda
+  - Prophecies
+  - Siegecraft
+  - Songs
+  - State secrets
+  - Sword fighting
+  - Theology
+  - Treasures
+  - War chronicle
+  - Who's who
+  - Witch-hunting
+  potions:
+  - "{{animal.forms}}-form"
+  - Body swap
+  - Camouflage
+  - Control animals
+  - "Control element ({{magic.elements}})"
+  - Cure affliction
+  - Detect evil
+  - Detect gold
+  - Detect hidden
+  - Direction sense
+  - "{{magic.elements}}-form"
+  - "{{magic.elements}}-skin"
+  - Extra arm
+  - Flight
+  - Ghost-speech
+  - Heat vision
+  - "{{insanities}}"
+  - Invulnerable
+  - "{{items.items}}-form"
+  - Magic immunity
+  - "{{monster.abilities}}"
+  - "{{monster.features}}"
+  - "{{monster.traits}}"
+  - "{{mutations}}"
+  - Night vision
+  - "Spell: {{magic.templates}}"
+  - Restore health
+  - Speed
+  - Stretchy
+  - Super-jump
+  - Super-strength
+  - Telekinesis
+  - Tongues
+  - Water-breathing
+  - Water-walking
+  magical_ingredients:
+  - Ancient liquor
+  - "{{animal.forms}}"
+  - Blind eye
+  - Boiled cat
+  - "Book page - {{books}}"
+  - Bottled fog
+  - Coffin nail
+  - Corpse's hair
+  - Crossroad dust
+  - Cultist entrails
+  - "{{edible_plant}}"
+  - Exotic spice
+  - Killer's hand
+  - King's tooth
+  - Last breath
+  - Liar's tongue
+  - Lightning bolt
+  - Lodestone
+  - Monk's vow
+  - "{{monster.features}}"
+  - Newborn's cry
+  - Oil portrait
+  - "{{magic.physical_elements}}"
+  - "{{poisonous_plant}}"
+  - "{{potions}}"
+  - Pyre ember
+  - Queen bee
+  - Queen's blood
+  - Ship's barnacle
+  - Star-metal
+  - Thief's finger
+  - Tomb flower
+  - "{{valuable_materials}}"
+  - Wedding ring
+  - Widow's tears
+  - Wizard skull
+  divine_domains:
+  - "{{animal.forms}}"
+  - Balance
+  - Betrayal
+  - Chance
+  - Chaos
+  - Conquest
+  - Cycles
+  - Death
+  - Destiny
+  - Dreams
+  - "{{magic.elements}}"
+  - Gateways
+  - Judgement
+  - Love
+  - Memory
+  - Monsters
+  - Moon
+  - Motherhood
+  - "{{npc_occupation.select}}"
+  - Oaths
+  - Order
+  - Plague
+  - Purification
+  - Reason
+  - Schemes
+  - Secrets
+  - Storms
+  - Summer
+  - Sun
+  - The Forge
+  - The Sea
+  - The Wild
+  - Time
+  - Underworld
+  - Wealth
+  - Winter
+  missions:
+  - Apprehend
+  - Assassinate
+  - Blackmail
+  - Burgle
+  - Chart
+  - Convince
+  - Deface
+  - Defraud
+  - Deliver
+  - Destroy
+  - Discredit
+  - Escort
+  - Exfiltrate
+  - Extort
+  - Follow
+  - Frame
+  - Impersonate
+  - Impress
+  - Infiltrate
+  - Interrogate
+  - Investigate
+  - Kidnap
+  - Locate
+  - Plant
+  - Protect
+  - Raid
+  - Replace
+  - Retrieve
+  - Rob
+  - Ruin
+  - Sabotage
+  - Smuggle
+  - Surveil
+  - Take Over
+  - Terrorize
+  - Threaten
+  mutations:
+  - Ages
+  - Attracts birds
+  - Child-form
+  - Corpulence
+  - Covered in hair
+  - "{{animal.forms}} arms"
+  - "{{animal.forms}} eyes"
+  - "{{animal.forms}} head"
+  - "{{animal.forms}} legs"
+  - "{{animal.forms}} mouth"
+  - "{{animal.forms}} skin"
+  - "{{animal.forms}}-form"
+  - Cyclops
+  - Extra arms
+  - Extra eyes
+  - Extra legs
+  - Forked tongue
+  - Gender swap
+  - Hunchback
+  - "{{items}}-form"
+  - Long arms
+  - Lose all hair
+  - Loses teeth
+  - "{{monster.features}}"
+  - "{{monster.traits}}"
+  - No eyes
+  - No mouth
+  - "{{magic.physical_elements}}-skin"
+  - Second face
+  - Sheds skin
+  - Shrinks
+  - Skin boils
+  - Slime trail
+  - Translucent skin
+  - Weeps blood
+  insanities:
+  - Always lies
+  - Always polite
+  - "\"{{animal.forms}}-form\""
+  - Cannot count
+  - Cannot lie
+  - Faceblind
+  - Fears birds
+  - Fears blood
+  - Fears books
+  - Fears darkness
+  - Fears fire
+  - Fears gold
+  - Fears horses
+  - Fears iron
+  - Fears music
+  - Fears own hand
+  - Fears PC
+  - Fears rain
+  - Fears rivers
+  - Fears silence
+  - Fears sleep
+  - Fears sunlight
+  - Fears the moon
+  - Fears trees
+  - "\"Genius\""
+  - "\"Gorgeous\""
+  - Hates violence
+  - "\"Invisible\""
+  - "\"Invulnerable\""
+  - "\"{{monster.abilities}}\""
+  - "\"{{monster.features}}\""
+  - "\"{{monster.traits}}\""
+  - Must sing
+  - "New personality - {{personalities}}"
+  - Says thoughts
+  - Sees dead people
+  omens_catastrophes:
+  - All iron rusts
+  - Animals die
+  - "Animals mutate ({{mutations}})"
+  - Birds attack
+  - City appears
+  - Deadly fog
+  - Dream plague
+  - Endless night
+  - Endless rain
+  - Endless storm
+  - Endless twilight
+  - Endless winter
+  - Fae return
+  - Forest appears
+  - Forgetfulness
+  - Graves open
+  - Lamentations
+  - Maggots
+  - "Mass insanity - {{insanities}}"
+  - "Mass mutation - {{mutations}}"
+  - Mass slumber
+  - Meteor strike
+  - Mirrors speak
+  - No stars
+  - Outsider appears
+  - People shrink
+  - People vanish
+  - Plants wither
+  - Portal opens
+  - Rifts open
+  - Shadows speak
+  - Space distorts
+  - Stones speak
+  - Total silence
+  - Tower appears
+  - Water to blood
+
+nested_tables:
+  treasure:
+    items:
+    - Alchemy recipe
+    - Amulet
+    - Astrolabe
+    - Blueprints
+    - Calligraphy
+    - Carpet
+    - Compass
+    - Contract
+    - Crown
+    - Crystal
+    - Deed
+    - Embroidery
+    - Fine china
+    - Fine liquor
+    - Instrument
+    - Magical book
+    - Microscope
+    - Music box
+    - Orrery
+    - Painting
+    - Perfume
+    - Prayer book
+    - Printing block
+    - Rare textile
+    - Royal robes
+    - Saint's relic
+    - Scrimshaw
+    - Sextant
+    - Sheet music
+    - Signet ring
+    - Silverware
+    - Spices
+    - Spyglass
+    - Tapestry
+    - Telescope
+    - Treasure map
+    traits:
+    - Altered
+    - Ancient
+    - Blessed
+    - Bulky
+    - Compact
+    - Consumable
+    - Cultural Value
+    - Cursed
+    - Damaged
+    - Disguised
+    - Draws enemies
+    - "{{magic.effects}}"
+    - "{{magic.elements}}"
+    - Embellished
+    - Encoded
+    - Exotic
+    - Extra-planar
+    - Famous
+    - Forbidden
+    - Fragile
+    - Heavy
+    - Immomvable
+    - Impracticable
+    - Indestructible
+    - Intelligent
+    - Masterwork
+    - Military value
+    - Non-human
+    - Owned
+    - Partial
+    - Politcal value
+    - Religious value
+    - Repaired
+    - Royal
+    - Toxic
+    - Vile
+  items:
+    items:
+    - "{{items.misc}}"
+    - "{{items.worn}}"
+    - "{{items.weapons}}"
+    - "{{items.tools}}"
+    misc:
+    - Bowl
+    - Brass bell
+    - Brooch
+    - Carved figurine
+    - Cup
+    - Deck of cards
+    - Drawing
+    - Foreign coin
+    - Game piece
+    - Glass eye
+    - Glass jar
+    - Hair comb
+    - Handkerchief
+    - Hinged box
+    - Hourglass
+    - Human tooth
+    - Hunting horn
+    - Loaded dice
+    - Long fork
+    - Numbered key
+    - Oil lamp
+    - Old doll
+    - Paint pot
+    - Pencil
+    - Purse
+    - Quill pen
+    - Salve
+    - Scissors
+    - Scroll
+    - Sealed letter
+    - Sewing needle
+    - Shaving razor
+    - Silver button
+    - Skull
+    - Tobacco pipe
+    - Wine bottle
+    worn:
+    - Belt
+    - Blouse
+    - Boots
+    - Bracelet
+    - Breastplate
+    - Brigandine
+    - Cincture
+    - Cloak
+    - Coat
+    - Dress
+    - Earing
+    - Eyepatch
+    - Gauntlets
+    - Glove
+    - Gown
+    - Hat
+    - Helmet
+    - Hose
+    - Leather armor
+    - Locket
+    - Mail Shirt
+    - Mask
+    - Necklace
+    - Padded armor
+    - Plate mail
+    - Ring
+    - Robe
+    - Sandals
+    - Scarf
+    - Shirt
+    - Shoes
+    - Skirt
+    - Slippers
+    - Socks
+    - Trousers
+    - Veil
+    weapons:
+    - Arming sword
+    - Backsword
+    - Battleaxe
+    - Blowpipe
+    - Claymore
+    - Club
+    - Crossbow
+    - Cutlass
+    - Dagger
+    - Flail
+    - Flanged mace
+    - Glaive
+    - Halberd
+    - Hammer
+    - Hatchet
+    - Horsebow
+    - Hunting knife
+    - Lance
+    - Longbow
+    - Longsword
+    - Mace
+    - Maul
+    - Morningstar
+    - Pike
+    - Scimitar
+    - Shortbow
+    - Sickle
+    - Sling
+    - Spear
+    - Staff
+    - Stake
+    - Stiletto
+    - Throwing axe
+    - Warhammer
+    - Warpick
+    - Whip
+    tools:
+    - Acid flask
+    - Bear trap
+    - Bellows
+    - Bolt-cutters
+    - Chain
+    - Chisel
+    - Crowbar
+    - Door ram
+    - Ear trumpet
+    - Fire oil
+    - Fishing hook
+    - Goggles
+    - Grappling hook
+    - Grease
+    - Hacksaw
+    - Hammer
+    - Hand drill
+    - Lantern
+    - Lens
+    - Lock/key
+    - Lockpicks
+    - Manacles
+    - Metal file
+    - Mortar/pestle
+    - Needle
+    - Pickaxe
+    - Pitchfork
+    - Pliers
+    - Pole
+    - Pulleys
+    - Rope
+    - Scissors
+    - Shovel
+    - Spikes
+    - Steel wire
+    - Tongs
+  npc:
+    assets:
+    - Authority
+    - Avoids detection
+    - Calls in favors
+    - Charming
+    - Cooks the books
+    - Erases evidence
+    - Excellent liar
+    - Extremely rich
+    - "{{faction}}-leader"
+    - "{{faction}}-member"
+    - Feared
+    - Fortified base
+    - Gorgeous
+    - Hears rumors
+    - Huge family
+    - Huge library
+    - Impersonator
+    - Interrogator
+    - Knows a guy
+    - Knows a way in
+    - Launders money
+    - Learned
+    - Local celebrity
+    - Local knowledge
+    - Loyal henchmen
+    - Middling oracle
+    - Nothing to lose
+    - Owns the guards
+    - Powerful spouse
+    - Procures gear
+    - Pulls the strings
+    - Secret lab
+    - Sells contraband
+    - Smuggles goods
+    - Spy network
+    - War hero
+    liabilities:
+    - Addiction
+    - Alcoholic
+    - Corrupt ally
+    - Coward
+    - Decadent
+    - Forbidden love
+    - Gambler
+    - Glutton
+    - Greedy
+    - Heretic
+    - Huge debts
+    - Imposter
+    - "Insanity: {{insanities}}"
+    - Jealous
+    - Leaves evidence
+    - Many enemies
+    - Misinformed
+    - Money trail
+    - Narcissist
+    - Needs medicine
+    - OCD
+    - Paranoid
+    - Partyer
+    - Poor equipment
+    - Protective
+    - Scandalous
+    - Softhearted
+    - Strict routines
+    - Superstitious
+    - Suspicious
+    - Temper
+    - Trusting
+    - Vulnerable base
+    - Wanted
+    - Weak-willed
+    - Widely despised
+    goals:
+    - A better life
+    - Acceptance
+    - "Acquire {{items}}"
+    - "Craft {{items}}"
+    - "Destroy {{factions}}"
+    - "Destroy {{items}}"
+    - Enlightenment
+    - Fame
+    - "Acquire {{factions}}"
+    - Freedom
+    - Glory
+    - "Impress NPC ({{npc_occupation.select}})"
+    - Infamy
+    - "Infiltrate {{faction}}"
+    - Justice
+    - "Kidnap NPC ({{npc_occupation.select}})"
+    - "Lead {{faction}}"
+    - Learning
+    - "Locate NPC ({{npc_occupation.select}})"
+    - Love
+    - Mastery
+    - Power
+    - Reach location
+    - "Rescue NPC ({{npc_occupation.select}})"
+    - Resolve dispute
+    - "Restore {{faction}}"
+    - Reveal a secret
+    - Revenge
+    - "Sabotage {{faction}}"
+    - Serve a deity
+    - Serve evil
+    - "Serve {{faction}}"
+    - Serve ideology
+    - Serve leader
+    - Serve the needy
+    - Wealth
+    misfortunes:
+    - Abandoned
+    - Addicted
+    - Arrested
+    - Blackmailed
+    - Burgled
+    - Challenged
+    - Condemned
+    - Crippled
+    - Cursed
+    - Defrauded
+    - Demoted
+    - Depressed
+    - Discredited
+    - Dismissed
+    - Disowned
+    - Exiled
+    - Famished
+    - Forgotten
+    - Framed
+    - Haunted
+    - Humiliated
+    - Impoverished
+    - Kidnapped
+    - Lost
+    - Mobbed
+    - Mutilated
+    - Overworked
+    - Poisoned
+    - Pursued
+    - Rejected
+    - Replaced
+    - Robbed
+    - Sick
+    - Sued
+    - Suspected
+    - Transformed
+
+  npc_occupation:
+    select:
+    - "{{npc_occupation.civilized}}"
+    - "{{npc_occupation.underworld}}"
+    - "{{npc_occupation.wilderness}}"
+    civilized:
+    - Acolyte
+    - Actor
+    - Apothecary
+    - Baker
+    - Barber
+    - Blacksmith
+    - Brewer
+    - Bureaucrat
+    - Butcher
+    - Carpenter
+    - Clockmaker
+    - Courier
+    - Courtier
+    - Diplomat
+    - Fishmonger
+    - Guard
+    - Haberdasher
+    - Innkeeper
+    - Item-seller
+    - Jeweler
+    - Knight
+    - Locksmith
+    - Mason
+    - Miller
+    - Musician
+    - Noble
+    - Painter
+    - Priest
+    - Scholar
+    - Scribe
+    - Sculptor
+    - Shipwright
+    - Soldier
+    - Tailor
+    - Taxidermist
+    - Wigmaker
+    underworld:
+    - Alchemist
+    - Beggar-prince
+    - Blackmailer
+    - Bounty-hunter
+    - Chimney sweep
+    - Coin-clipper
+    - Contortionist
+    - Counterfeiter
+    - Cultist
+    - Cutpurse
+    - Debt-collector
+    - Deserter
+    - Fence
+    - Fortuneteller
+    - Galley slave
+    - Gambler
+    - Gravedigger
+    - Headsman
+    - Hedge knight
+    - Highwayman
+    - Housebreaker
+    - Kidnapper
+    - Mad prophet
+    - Mountebank
+    - Peddler
+    - Pit-fighter
+    - Poisoner
+    - Rat-catcher
+    - Scrivener
+    - Sellsword
+    - Slave
+    - Smuggler
+    - Street performer
+    - Tattooist
+    - Urchin
+    - Usurer
+
+    wilderness:
+    - Apiarist
+    - Bandit
+    - Caravan Guard
+    - Caravaneer
+    - Druid
+    - Exile
+    - Explorer
+    - Farmer
+    - Fisherman
+    - Forager
+    - Fugitive
+    - Hedge wizard
+    - Hermit
+    - Hunter
+    - Messenger
+    - Minstrel
+    - Monk
+    - Monster hunter
+    - Outlander
+    - Tinker
+    - Pilgrim
+    - Poacher
+    - Raider
+    - Ranger
+    - Sage
+    - Scavenger
+    - Scout
+    - Shepherd
+    - Seer
+    - Surveyor
+    - Tinker
+    - Tomb raider
+    - Trader
+    - Trapper
+    - Witch
+    - Woodcutter
+
+  names:
+    name:
+    - "1..7, {{names.firstname}} {{names.surname}}"
+    # snooty
+    - "{{surnames.upper_class}} {{surnames.upper_class}}"
+    surname:
+    - "{{surnames.upper_class}}"
+    - "{{surnames.lower_class}}"
+    firstname:
+    - "{{names.male}}"
+    - "{{names.female}}"
+    female:
+    - Adelaide
+    - Alma
+    - Barsaba
+    - Beatrix
+    - Bianca
+    - Cleopha
+    - Clover
+    - Constance
+    - Damaris
+    - Daphne
+    - Demona
+    - Elsbeth
+    - Esme
+    - Fern
+    - Hester
+    - Hippolyta
+    - Jessamine
+    - Jilly
+    - Morgot
+    - Minerva
+    - Nerissa
+    - Odette
+    - Olga
+    - Orchid
+    - Pepper
+    - Phoebe
+    - Piety
+    - Poppy
+    - Silence
+    - Sybil
+    - Trillby
+    - Tuesday
+    - Ursula
+    - Vivian
+    - Wendy
+    - Zora
+    male:
+    - Balthazar
+    - Basil
+    - Bertram
+    - Blaxton
+    - Chadwick
+    - Clovis
+    - Destrian
+    - Ellis
+    - Erasmus
+    - Faustus
+    - Finn
+    - Fitzhugh
+    - Florian
+    - Fox
+    - Godwin
+    - Hannibal
+    - Jasper
+    - Jiles
+    - Jules
+    - Leopold
+    - Merrick
+    - Mortimer
+    - Ogden
+    - Orion
+    - Oswald
+    - Percival
+    - Peregrine
+    - Quentin
+    - Redmaine
+    - Reinhold
+    - Silas
+    - Stilton
+    - Stratford
+    - Tenpiece
+    - Waverly
+    - Webster
+  surnames:
+    upper_class:
+    - Belvedere
+    - Bithesea
+    - Calaver
+    - Carvolo
+    - De Rippe
+    - Droll
+    - Dunlow
+    - Edevane
+    - Erelong
+    - Febland
+    - Fernsby
+    - Fisk
+    - Gastrell
+    - Girdwood
+    - Gorgon
+    - Grimeson
+    - Gruger
+    - Hitheryon
+    - La Margue
+    - Malmora
+    - Miter
+    - Oblington
+    - Onymous
+    - Phillifent
+    - Portendorfer
+    - Romatert
+    - Rothery
+    - Skorbeck
+    - Slora
+    - Southwark
+    - Stavish
+    - Vandermeer
+    - Wellbelove
+    - Westergren
+    - Wexley
+    - Wilberforce
+    lower_class:
+    - Barrow
+    - Beetleman
+    - Berrycloth
+    - Birdwhistle
+    - Bobich
+    - Chips
+    - Coffin
+    - Crumpling
+    - Culpepper
+    - Dankworth
+    - Digworthy
+    - Dreggs
+    - Gimble
+    - Graveworm
+    - Greelish
+    - Hardwick
+    - Hatman
+    - Hovel
+    - Knibbs
+    - Midnighter
+    - Needle
+    - Nethercoat
+    - Pestle
+    - Relish
+    - Rumbold
+    - Rummage
+    - Sallow
+    - Saltmarsh
+    - Silverless
+    - Skitter
+    - Slee
+    - Slitherly
+    - Stoker
+    - Tarwater
+    - Tumbler
+    - Villin
+  characters:
+    appearance:
+    - Aquiline
+    - Athletic
+    - Barrel-Chested
+    - Boney
+    - Brawny
+    - Brutish
+    - Bullnecked
+    - Chiseled
+    - Coltish
+    - Corpulent
+    - Craggy
+    - Delicate
+    - Furrowed
+    - Gaunt
+    - Gorgeous
+    - Grizzled
+    - Haggard
+    - Handsome
+    - Hideous
+    - Lanky
+    - Pudgy
+    - Ripped
+    - Rosy
+    - Scrawny
+    - Sinewy
+    - Slender
+    - Slumped
+    - Solid
+    - Square-Jawed
+    - Statuesque
+    - Towering
+    - Trim
+    - Weathered
+    - Willowy
+    - Wiry
+    - Wrinkled
+    physical_detail:
+    - Acid scars
+    - Battle scars
+    - Birthmark
+    - Braided hair
+    - Brand mark
+    - Broken nose
+    - Bronze skinned
+    - Burn scars
+    - Bushy eyebrows
+    - Curly hair
+    - Dark skinned
+    - Dreadlocks
+    - Exotic accent
+    - Flogging scars
+    - Freckles
+    - Gold tooth
+    - Hoarse voice
+    - Huge beard
+    - Long hair
+    - Melodious voice
+    - Missing ear
+    - Missing teeth
+    - Mustache
+    - Muttonchops
+    - Nine fingers
+    - Oiled hair
+    - One-eyed
+    - Pale skinned
+    - Piercings
+    - Ritual scars
+    - Sallow skin
+    - Shaved head
+    - Sunburned
+    - Tangled hair
+    - Tattoos
+    - Topknot
+    background:
+    - Alchemist
+    - Beggar-prince
+    - Blackmailer
+    - Bounty-hunter
+    - Chimney sweep
+    - Coin-clipper
+    - Contortionist
+    - Counterfeiter
+    - Cultist
+    - Cutpurse
+    - Debt-collector
+    - Deserter
+    - Fence
+    - Fortuneteller
+    - Galley slave
+    - Gambler
+    - Gravedigger
+    - Headsman
+    - Hedge knight
+    - Highwayman
+    - Housebreaker
+    - Kidnapper
+    - Mad prophet
+    - Mountebank
+    - Peddler
+    - Pit-fighter
+    - Poisoner
+    - Rat-catcher
+    - Scrivener
+    - Sellsword
+    - Slave
+    - Smuggler
+    - Street performer
+    - Tattooist
+    - Urchin
+    - Usurer
+    clothing:
+    - Antique
+    - Battle-torn
+    - Bedraggled
+    - Blood-stained
+    - Ceremonial
+    - Dated
+    - Decaying
+    - Eccentric
+    - Elegant
+    - Embroidered
+    - Exotic
+    - Fashionable
+    - Flamboyant
+    - Food-stained
+    - Formal
+    - Frayed
+    - Frumpy
+    - Garish
+    - Grimy
+    - Haute couture
+    - Lacey
+    - Livery
+    - Mud-stained
+    - Ostentatious
+    - Oversized
+    - Patched
+    - Patterned
+    - Perfumed
+    - Practical
+    - Rumpled
+    - Sigils
+    - Singed
+    - Tasteless
+    - Undersized
+    - Wine-stained
+    - Worn out
+    personality:
+    - Bitter
+    - Brave
+    - Cautious
+    - Chipper
+    - Contrary
+    - Cowardly
+    - Cunning
+    - Driven
+    - Entitled
+    - Gregarious
+    - Grumpy
+    - Heartless
+    - Honor-bound
+    - Hotheaded
+    - Inquisitive
+    - Irascible
+    - Jolly
+    - Know-it-all
+    - Lazy
+    - Loyal
+    - Menacing
+    - Mopey
+    - Nervous
+    - Protective
+    - Righteous
+    - Rude
+    - Sarcastic
+    - Savage
+    - Scheming
+    - Serene
+    - Spacey
+    - Stoic
+    - Stubborn
+    - Stuck-up
+    - Suspicious
+    - Wisecracking
+    mannerism:
+    - Anecdotes
+    - Breathy
+    - Chuckles
+    - Clipped
+    - Cryptic
+    - Deep voice
+    - Drawl
+    - Enunciates
+    - Flowery speech
+    - Gravelly voice
+    - Highly formal
+    - Hypnotic
+    - Interrupts
+    - Laconic
+    - Laughs
+    - Long pauses
+    - Melodious
+    - Monotone
+    - Mumbles
+    - Narrates
+    - Overly casual
+    - Quaint sayings
+    - Rambles
+    - Random facts
+    - Rapid-fire
+    - Rhyming
+    - Robotic
+    - Slow speech
+    - Speechifies
+    - Squeaky
+    - Street slang
+    - Stutters
+    - Talks to self
+    - Trails off
+    - Very loud
+    - Whispers
+    secrets:
+    - Addicted
+    - Artificial
+    - Assassin
+    - Bankrupt
+    - Beholden
+    - Counterspy
+    - Cultist
+    - Demigod
+    - Evil lineage
+    - Exile
+    - Fence
+    - Fugitive
+    - Ghost
+    - Has a child
+    - Heretic
+    - Highborn
+    - Huge fortune
+    - Illusion
+    - Insurrectionist
+    - Low born
+    - Married
+    - Mind-controlled
+    - "Misfortune: {{npc.misfortunes}}"
+    - Monster hunter
+    - Non-human
+    - "{{npc_occupation.select}}"
+    - Polygamist
+    - Protects relic
+    - Scandalous birth
+    - Secret police
+    - Serial killer
+    - Smuggler
+    - Spy
+    - Time traveler
+    - Transformed
+    - War criminal
+    reputations:
+    - Ambitious
+    - Authoritative
+    - Boor
+    - Borrower
+    - Celebrity
+    - Charitable
+    - Cheat
+    - Dangerous
+    - Entertainer
+    - Gossip
+    - Hardworking
+    - Holy
+    - Honest
+    - Hypochondriac
+    - Idiot
+    - Influential
+    - Layabout
+    - Leader
+    - Misanthrope
+    - Miser
+    - Nieghborly
+    - Nutjob
+    - Obnoxious
+    - Overeducated
+    - Partier
+    - Pious
+    - Proper
+    - Prophet of doom
+    - Repulsive
+    - Respected
+    - Riffraff
+    - Scandalous
+    - Slime ball
+    - Terrifying
+    - Weirdo
+    - Wise
+    hobbies:
+    - Archaeology
+    - Art collecting
+    - Bad fiction
+    - Calligraphy
+    - Card games
+    - Clockwork
+    - Collecting cats
+    - Cuisine
+    - Dark lore
+    - Dog breeding
+    - Embroidery
+    - Exercise
+    - Falconry
+    - Fashion
+    - Fishing
+    - Foreign Cultures
+    - Gardening
+    - History
+    - Horseracing
+    - Hunting
+    - Instrument
+    - Knitting
+    - Lawn games
+    - Mountaineering
+    - Opera
+    - Painting
+    - Poetry
+    - Puzzle-solving
+    - Riddling
+    - Science
+    - Sculpture
+    - Sketching
+    - Smoking
+    - Theater
+    - Weaving
+    - Whiskey
+    relationships:
+    - Adviser
+    - Blackmailer
+    - Business partner
+    - Business rival
+    - Buyer
+    - Captor
+    - Client
+    - Confidant
+    - Debtor
+    - Disciple
+    - Guardian
+    - Henchman
+    - Idol
+    - Informant
+    - Master
+    - Mentor
+    - Nemesis
+    - Offspring
+    - Parent
+    - Patron
+    - Politcal Rival
+    - Prisoner
+    - Protégé
+    - Quarry
+    - Right hand
+    - Romantic rival
+    - Servant
+    - Sibling
+    - Social rival
+    - Spouse
+    - Stalker
+    - Suitor
+    - Supplicant
+    - Supplier
+    - Sweetheart
+    - Unrequited love
+
+
+  animal:
+    forms:
+    - "{{animal.aerial}}"
+    - "{{animal.terrestrial}}"
+    - "{{animal.aquatic}}"
+    aerial:
+    - Albatross
+    - Bat
+    - Beetle
+    - Bird of Paradise
+    - Butterfly
+    - Condor
+    - Crane
+    - Crow
+    - Dragonfly
+    - Eagle
+    - Falcon
+    - Firefly
+    - Flamingo
+    - Fly
+    - Flying Squirrel
+    - Goose
+    - Gull
+    - Hummingbird
+    - Kingfisher
+    - Locust
+    - Magpie
+    - Mantis
+    - Mockingbird
+    - Mosquito
+    - Moth
+    - Owl
+    - Parrot
+    - Peacock
+    - Pelican
+    - Pteranodon
+    - Rooster
+    - Sparrow
+    - Swan
+    - Vulture
+    - Wasp
+    - Woodpecker
+    terrestrial:
+    - Ant
+    - Ape
+    - Armadillo
+    - Badger
+    - Bear
+    - Boar
+    - Caterpillar
+    - Centipede
+    - Chameleon
+    - Cockroach
+    - Deer
+    - Elephant
+    - Ferret
+    - Fox
+    - Giraffe
+    - Goat
+    - Horse
+    - Human
+    - Mole
+    - Ostrich
+    - Ox
+    - Porcupine
+    - Rabbit
+    - Raccoon
+    - Rat
+    - Rhinocerous
+    - Scorpion
+    - Sheep
+    - Slug
+    - Snail
+    - Snake
+    - Spider
+    - Squirrel
+    - Tiger
+    - Wolf
+    - Wolverine
+    aquatic:
+    - Alligator
+    - Amoeba
+    - Anglerfish
+    - Beaver
+    - Clam
+    - Crab
+    - Dolphin
+    - Eel
+    - Frog
+    - Hippopotamus
+    - Jellyfish
+    - Leech
+    - Lobster
+    - Manatee
+    - Manta Ray
+    - Muskrat
+    - Narwhal
+    - Newt
+    - Octopus
+    - Otter
+    - Penguin
+    - Platypus
+    - Pufferfish
+    - Salamander
+    - Sea Anemone
+    - Sea Urchin
+    - Seahorse
+    - Seal
+    - Shark
+    - Shrimp
+    - Squid
+    - Swordfish
+    - Tadpole
+    - Turtle
+    - Walrus
+    - Whale
+
+  monster:
+    forms:
+    - "1..4, {{animals.forms_base}}"
+    - "5, {{>pickN: 2 animal.aerial +}}"
+    - "6, {{>pickN: 2 animal.terrestrial +}}"
+    - "7, {{>pickN: 2 animal.aquatic +}}"
+    - "8, {{>pickN: 2 animal.forms_base +}}"
+
+    features:
+    - Antlers
+    - Beak
+    - Carapace
+    - Claws
+    - Compound Eyes
+    - Eye Stalks
+    - Fangs
+    - Fins
+    - Fur
+    - Gills
+    - Hooves
+    - Horns
+    - Legless
+    - Long tongue
+    - Many-eyed
+    - Many-limbed
+    - Mucus
+    - Pincers
+    - Plates
+    - Plumage
+    - Proboscis
+    - Scales
+    - Segments
+    - Shaggy hair
+    - Shell
+    - Spikes
+    - Spinnerets
+    - Spines
+    - Stinger
+    - Suction cups
+    - Tail
+    - Talons
+    - Tentacles
+    - Trunk
+    - Tusks
+    - Wings
+    traits:
+    - Amphibious
+    - Bloated
+    - Brittle
+    - Cannibal
+    - Clay-like
+    - Colossal
+    - Crystaline
+    - Decaying
+    - "{{magic.ethereal_elements}}"
+    - Ethereal
+    - Ever-young
+    - Eyeless
+    - Fearless
+    - Fluffy
+    - Fungal
+    - Gelatinous
+    - Geometric
+    - Hardened
+    - Illusory
+    - Intelligent
+    - Iridescent
+    - Luminous
+    - Many-headed
+    - Mechanical
+    - "{{magic.physical_elements}}"
+    - Planar
+    - Reflective
+    - Rubbery
+    - Shadowy
+    - Sharp
+    - Skeletal
+    - Slimy
+    - Sticky
+    - Stinking
+    - Tiny
+    - Translucent
+    abilities:
+    - Absorbing
+    - Acid blood
+    - Anti-magic
+    - Blinding
+    - Breath weapon
+    - Camouflaging
+    - Duplicating
+    - Electric
+    - Entangling
+    - "{{magic.ethereal_effects}}"
+    - Exploding
+    - Flying
+    - Gaze weapon
+    - Hypnotizing
+    - Impervious
+    - Invisible
+    - Life-draining
+    - Magnetic
+    - Mimicking
+    - Mind-Reading
+    - Paralyzing
+    - Phasing
+    - "{{magic.physical_effects}}"
+    - Poisonous
+    - Radioactive
+    - Regenerating
+    - Shapeshifting
+    - Spell-casting
+    - Stealthy
+    - Strangling
+    - Super-strength
+    - Telekinetic
+    - Teleporting
+    - Vampiric
+    - Wall-Crawling
+    tactics:
+    - Ambush
+    - Call for support
+    - Capture
+    - Charge
+    - Climb foes
+    - Compel worship
+    - Create barrier
+    - Deceive
+    - Demand duel
+    - Disorient
+    - Encircle
+    - Evade
+    - Gang up
+    - Gather strength
+    - Go berserk
+    - Harry
+    - Hurl foes
+    - Immobilize
+    - Manipulate
+    - Mock
+    - Monologue
+    - Order minion
+    - Protect leader
+    - Protect self
+    - Scatter foes
+    - Stalk
+    - Steal from
+    - Swarm
+    - Target insolent
+    - Target leader
+    - Target nearest
+    - Target richest
+    - Target strongest
+    - Target weakest
+    - Toy with
+    - Use terrain
+    personalities:
+    - Alien
+    - Aloof
+    - Bored
+    - Cautious
+    - Cowardly
+    - Curious
+    - Devious
+    - Distractible
+    - Educated
+    - Embittered
+    - Envious
+    - Erudite
+    - Fanatical
+    - Forgetful
+    - Generous
+    - Hateful
+    - Honorable
+    - Humble
+    - Jaded
+    - Jovial
+    - Legalistic
+    - Manipulative
+    - Megalomaniac
+    - Melancholy
+    - Meticulous
+    - Mystical
+    - Obsessive
+    - Out of Touch
+    - Paranoid
+    - Polite
+    - Psychopathic
+    - Sophisticated
+    - Touchy
+    - Unimpressed
+    - Vain
+    - Xenophobic
+    weakness:
+    - Bells
+    - Birdsong
+    - Children
+    - Cold
+    - Cold Iron
+    - Competition
+    - Conversation
+    - Deformity
+    - Flattery
+    - Flowers
+    - Gifts
+    - Gold
+    - Heat
+    - Holy Icon
+    - Holy Waters
+    - Home Cooking
+    - "{{insanities}}"
+    - Mirrors
+    - Mistletoe
+    - Moonlight
+    - Music
+    - "{{methods}}"
+    - Phylactery
+    - "{{magic.physical_elements}}"
+    - Puzzles
+    - Riddles
+    - Rituals
+    - Silver
+    - Sunlight
+    - Tears
+    - True Name
+    - "{{valuable_materials}}"
+    - Weak Spot
+    - "{{weapon_items}}"
+    - Wine
+    - Wormwood
+

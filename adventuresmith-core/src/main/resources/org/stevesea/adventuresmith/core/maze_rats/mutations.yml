@@ -1,0 +1,6 @@
+---
+templates:
+- "{{mutations}}"
+
+imports:
+- maze_rats_base

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{omens_catastrophes}}"
+
+imports:
+- maze_rats_base

@@ -1,0 +1,81 @@
+---
+templates:
+- |
+  <h4>Character - {{names.name}}</h4>
+  {{player_characters.abilities}}
+  <br/>
+  <br/><strong><small>Appearance: </small></strong> {{characters.appearance}}, {{characters.physical_detail}}
+  <br/><strong><small>Background: </small></strong> {{characters.background}}
+  <br/><strong><small>Clothing: </small></strong> {{characters.clothing}}
+  <br/><strong><small>Personality: </small></strong> {{characters.personality}}
+  <br/><strong><small>Mannerism: </small></strong> {{characters.mannerism}}
+  <h5>Starting Feature</h5>
+  {{player_characters.starting_feature}}
+  <h5>Equipment & Gear</h5>
+  {{>pickN: 6 player_characters.items}}
+  <br/>{{>pickN: 2 items.weapons}}
+
+imports:
+- maze_rats_base
+
+definitions:
+  labels:
+    str: <strong><small>Strength:</small></strong>
+    dex: <strong><small>Dexterity:</small></strong>
+    wil: <strong><small>Willpower:</small></strong>
+
+nested_tables:
+  player_characters:
+    abilities:
+    - "{{labels.str}} +2 {{labels.dex}} +1 {{labels.wil}} +0"
+    - "{{labels.str}} +2 {{labels.dex}} +0 {{labels.wil}} +1"
+    - "{{labels.str}} +1 {{labels.dex}} +2 {{labels.wil}} +0"
+    - "{{labels.str}} +0 {{labels.dex}} +2 {{labels.wil}} +1"
+    - "{{labels.str}} +1 {{labels.dex}} +0 {{labels.wil}} +2"
+    - "{{labels.str}} +0 {{labels.dex}} +1 {{labels.wil}} +2"
+    starting_feature:
+    - A +1 attack bonus
+    - A single spell slot
+    - {{path}}
+    path:
+    - "Briarborn: Tracking, foraging, survival"
+    - "Fingersmith: Tinkering, picking locks or pockets"
+    - "Roofrunner: Climbing, leaping, balancing"
+    - "Shadowjack: Moving silently, hiding in shadows"
+    items:
+    - Animal Scent
+    - Bear Trap
+    - Bedroll
+    - Caltrops
+    - Chain (10ft)
+    - Chalk
+    - Chisel
+    - Crowbar
+    - Fishing Net
+    - Glass Marbles
+    - Glue
+    - Grappling Hook
+    - Grease
+    - Hacksaw
+    - Hammer
+    - Hand drill
+    - Horn
+    - Iron spikes
+    - Iron tongs
+    - Lantern and Oil
+    - Large Sack
+    - Lockpicks (3)
+    - Manacles
+    - Medicine (3)
+    - Metal file
+    - Rations (3)
+    - Rope (50 ft)
+    - Steel wire
+    - Shovel
+    - Steel mirror
+    - Ten Foot Pole
+    - Tinderbox
+    - Torch
+    - Vial of Acid
+    - Vial of Poison
+    - Waterskin
