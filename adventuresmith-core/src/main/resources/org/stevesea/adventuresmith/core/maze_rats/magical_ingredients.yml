@@ -1,0 +1,6 @@
+---
+templates:
+- "{{magical_ingredients}}"
+
+imports:
+- maze_rats_base

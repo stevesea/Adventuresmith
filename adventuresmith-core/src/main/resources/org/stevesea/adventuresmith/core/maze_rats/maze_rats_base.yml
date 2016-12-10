@@ -6,6 +6,80 @@ imports:
 - magic
 
 tables:
+  edible_plants:
+  - Acorns
+  - Apples
+  - Asparagus
+  - Blackberries
+  - Blueberries
+  - Carrots
+  - Cattail
+  - Cherries
+  - Chickweed
+  - Chicory
+  - Clover
+  - Dandelion
+  - Dead-nettle
+  - Elderberries
+  - Fireweed
+  - Gooseberries
+  - Hazelnuts
+  - Henbit
+  - Hickory nuts
+  - Honeysuckle
+  - Leeks
+  - Milk thistle
+  - Mint
+  - Mulberries
+  - Mushrooms
+  - Mustard
+  - Onion
+  - Pecans
+  - Persimmons
+  - Raspberries
+  - Strawberries
+  - Walnuts
+  - Watercress
+  - Wild garlic
+  - Wild grapes
+  - Wood sorrel
+  poisonous_plants:
+  - Angel's Trumpet
+  - Baneberry
+  - Belladona
+  - Black Truffle
+  - Bleeding Heart
+  - Celandine
+  - Cocklebur
+  - Columbine
+  - Crowncup
+  - Death Cap
+  - Dumbcane
+  - Foxglove
+  - Hemlock
+  - Hogweed
+  - Holly
+  - Horse Chestnut
+  - Hyacinth
+  - Ivy
+  - Jessamine
+  - Kudu
+  - Larkspur
+  - Mandrake
+  - Mangrove
+  - Mistletoe
+  - Moonflower
+  - Nightshade
+  - Oleander
+  - Ragwort
+  - Reindeer Lichen
+  - Snakeweed
+  - Spindle
+  - Stinkhorn
+  - Waxcap
+  - Wine-Cap
+  - Wolfsbane
+  - Wormwood
   valuable_materials:
   - Alabaster
   - Amber
@@ -81,32 +155,32 @@ tables:
   - Who's who
   - Witch-hunting
   potions:
-  - "{{animal.forms}}-form"
+  - "Animal-form <em>{{animal.forms}}</em>"
   - Body swap
   - Camouflage
   - Control animals
-  - "Control element ({{magic.elements}})"
+  - "Control element <em>({{magic.elements}})</em>"
   - Cure affliction
   - Detect evil
   - Detect gold
   - Detect hidden
   - Direction sense
-  - "{{magic.elements}}-form"
-  - "{{magic.elements}}-skin"
+  - "Element-form <em>{{magic.elements}}</em>"
+  - "Element-skin <em>{{magic.elements}}</em>"
   - Extra arm
   - Flight
   - Ghost-speech
   - Heat vision
-  - "{{insanities}}"
+  - "Insanity <em>{{insanities}}</em>"
   - Invulnerable
-  - "{{items.items}}-form"
+  - "Item-form <em>{{items.items}}</em>"
   - Magic immunity
-  - "{{monster.abilities}}"
-  - "{{monster.features}}"
-  - "{{monster.traits}}"
-  - "{{mutations}}"
+  - "Monster ability <em>{{monster.abilities}}</em>"
+  - "Monster ability <em>{{monster.features}}</em>"
+  - "Monster ability <em>{{monster.traits}}</em>"
+  - "Mutation <em>{{mutations}}</em>"
   - Night vision
-  - "Spell: {{magic.templates}}"
+  - "Spell: {{magic.spells}}"
   - Restore health
   - Speed
   - Stretchy
@@ -118,16 +192,16 @@ tables:
   - Water-walking
   magical_ingredients:
   - Ancient liquor
-  - "{{animal.forms}}"
+  - "Animal <em>{{animal.forms}}</em>"
   - Blind eye
   - Boiled cat
-  - "Book page - {{books}}"
+  - "Book page <em>{{books}}</em>"
   - Bottled fog
   - Coffin nail
   - Corpse's hair
   - Crossroad dust
   - Cultist entrails
-  - "{{edible_plant}}"
+  - "Edible plant <em>{{edible_plants}}</em>"
   - Exotic spice
   - Killer's hand
   - King's tooth
@@ -136,12 +210,12 @@ tables:
   - Lightning bolt
   - Lodestone
   - Monk's vow
-  - "{{monster.features}}"
+  - "Monster feature <em>{{monster.features}}</em>"
   - Newborn's cry
   - Oil portrait
-  - "{{magic.physical_elements}}"
-  - "{{poisonous_plant}}"
-  - "{{potions}}"
+  - "Physical element <em>{{magic.physical_elements}}</em>"
+  - "Poisonous Plant <em>{{poisonous_plants}}</em>"
+  - "Potion <em>{{potions}}</em>"
   - Pyre ember
   - Queen bee
   - Queen's blood
@@ -149,12 +223,12 @@ tables:
   - Star-metal
   - Thief's finger
   - Tomb flower
-  - "{{valuable_materials}}"
+  - "Valueable Material <em>{{valuable_materials}}</em>"
   - Wedding ring
   - Widow's tears
   - Wizard skull
   divine_domains:
-  - "{{animal.forms}}"
+  - "Animal <em>{{animal.forms}}</em>"
   - Balance
   - Betrayal
   - Chance
@@ -164,7 +238,7 @@ tables:
   - Death
   - Destiny
   - Dreams
-  - "{{magic.elements}}"
+  - "Element <em>{{magic.elements}}</em>"
   - Gateways
   - Judgement
   - Love
@@ -172,7 +246,7 @@ tables:
   - Monsters
   - Moon
   - Motherhood
-  - "{{npc_occupation.select}}"
+  - "NPC <em>{{npc_occupation.select}}</em>"
   - Oaths
   - Order
   - Plague
@@ -233,13 +307,13 @@ tables:
   - Child-form
   - Corpulence
   - Covered in hair
-  - "{{animal.forms}} arms"
-  - "{{animal.forms}} eyes"
-  - "{{animal.forms}} head"
-  - "{{animal.forms}} legs"
-  - "{{animal.forms}} mouth"
-  - "{{animal.forms}} skin"
-  - "{{animal.forms}}-form"
+  - "Animal arms <em>{{animal.forms}}</em>"
+  - "Animal eyes <em>{{animal.forms}}</em>"
+  - "Animal head <em>{{animal.forms}}</em>"
+  - "Animal legs <em>{{animal.forms}}</em>"
+  - "Animal mouth <em>{{animal.forms}}</em>"
+  - "Animal skin <em>{{animal.forms}}</em>"
+  - "Animal-form <em>{{animal.forms}}</em>"
   - Cyclops
   - Extra arms
   - Extra eyes
@@ -247,15 +321,15 @@ tables:
   - Forked tongue
   - Gender swap
   - Hunchback
-  - "{{items.items}}-form"
+  - "Item-form <em>{{items.items}}</em>"
   - Long arms
   - Lose all hair
   - Loses teeth
-  - "{{monster.features}}"
-  - "{{monster.traits}}"
+  - "Monster feature <em>{{monster.features}}</em>"
+  - "Monster trait <em>{{monster.traits}}</em>"
   - No eyes
   - No mouth
-  - "{{magic.physical_elements}}-skin"
+  - "Physical element-skin <em>{{magic.physical_elements}}</em>"
   - Second face
   - Sheds skin
   - Shrinks
@@ -266,7 +340,7 @@ tables:
   insanities:
   - Always lies
   - Always polite
-  - "\"{{animal.forms}}-form\""
+  - "\"Animal-form <em>{{animal.forms}}</em>\""
   - Cannot count
   - Cannot lie
   - Faceblind
@@ -293,17 +367,17 @@ tables:
   - Hates violence
   - "\"Invisible\""
   - "\"Invulnerable\""
-  - "\"{{monster.abilities}}\""
-  - "\"{{monster.features}}\""
-  - "\"{{monster.traits}}\""
+  - "\"Monster ability <em>{{monster.abilities}}</em>\""
+  - "\"Monster feature <em>{{monster.features}}</em>\""
+  - "\"Monster trait <em>{{monster.traits}}</em>\""
   - Must sing
-  - "New personality - {{characters.personalities}}"
+  - "New personality - <em>{{characters.personalities}}</em>"
   - Says thoughts
   - Sees dead people
   omens_catastrophes:
   - All iron rusts
   - Animals die
-  - "Animals mutate ({{mutations}})"
+  - "Animals mutate <em>{{mutations}}</em>"
   - Birds attack
   - City appears
   - Deadly fog
@@ -319,8 +393,8 @@ tables:
   - Graves open
   - Lamentations
   - Maggots
-  - "Mass insanity - {{insanities}}"
-  - "Mass mutation - {{mutations}}"
+  - "Mass insanity <em>{{insanities}}</em>"
+  - "Mass mutation <em>{{mutations}}</em>"
   - Mass slumber
   - Meteor strike
   - Mirrors speak
@@ -389,8 +463,8 @@ nested_tables:
     - Damaged
     - Disguised
     - Draws enemies
-    - "{{magic.effects}}"
-    - "{{magic.elements}}"
+    - "Effect <em>{{magic.effects}}</em>"
+    - "Element <em>{{magic.elements}}</em>"
     - Embellished
     - Encoded
     - Exotic
@@ -578,8 +652,8 @@ nested_tables:
     - Erases evidence
     - Excellent liar
     - Extremely rich
-    - "{{factions.factions}}-leader"
-    - "{{factions.factions}}-member"
+    - "Faction-leader <em>{{factions.factions}}</em>"
+    - "Faction-member <em>{{factions.factions}}</em>"
     - Feared
     - Fortified base
     - Gorgeous
@@ -619,7 +693,7 @@ nested_tables:
     - Heretic
     - Huge debts
     - Imposter
-    - "Insanity: {{insanities}}"
+    - "Insanity <em>{{insanities}}</em>"
     - Jealous
     - Leaves evidence
     - Many enemies
@@ -646,36 +720,36 @@ nested_tables:
     goals:
     - A better life
     - Acceptance
-    - "Acquire {{items.items}}"
-    - "Craft {{items.items}}"
-    - "Destroy {{factions.factions}}"
-    - "Destroy {{items.items}}"
+    - "Acquire item <em>{{items.items}}</em>"
+    - "Craft item <em>{{items.items}}</em>"
+    - "Destroy faction <em>{{factions.factions}}</em>"
+    - "Destroy item <em>{{items.items}}</em>"
     - Enlightenment
     - Fame
-    - "Acquire {{factions.factions}}"
+    - "Acquire faction <em>{{factions.factions}}</em>"
     - Freedom
     - Glory
-    - "Impress NPC ({{npc_occupation.select}})"
+    - "Impress NPC <em>{{npc_occupation.select}}</em>"
     - Infamy
-    - "Infiltrate {{factions.factions}}"
+    - "Infiltrate faction <em>{{factions.factions}}</em>"
     - Justice
-    - "Kidnap NPC ({{npc_occupation.select}})"
-    - "Lead {{factions.factions}}"
+    - "Kidnap NPC <em>{{npc_occupation.select}}</em>"
+    - "Lead faction <em>{{factions.factions}}</em>"
     - Learning
-    - "Locate NPC ({{npc_occupation.select}})"
+    - "Locate NPC <em>{{npc_occupation.select}}</em>"
     - Love
     - Mastery
     - Power
     - Reach location
-    - "Rescue NPC ({{npc_occupation.select}})"
+    - "Rescue NPC <em>{{npc_occupation.select}}</em>"
     - Resolve dispute
-    - "Restore {{factions.factions}}"
+    - "Restore faction <em>{{factions.factions}}</em>"
     - Reveal a secret
     - Revenge
-    - "Sabotage {{factions.factions}}"
+    - "Sabotage faction <em>{{factions.factions}}</em>"
     - Serve a deity
     - Serve evil
-    - "Serve {{factions.factions}}"
+    - "Serve faction <em>{{factions.factions}}</em>"
     - Serve ideology
     - Serve leader
     - Serve the needy
@@ -1121,7 +1195,7 @@ nested_tables:
     - "Misfortune: {{npc.misfortunes}}"
     - Monster hunter
     - Non-human
-    - "{{npc_occupation.select}}"
+    - "NPC <em>{{npc_occupation.select}}</em>"
     - Polygamist
     - Protects relic
     - Scandalous birth
@@ -1571,7 +1645,7 @@ nested_tables:
     - Holy Icon
     - Holy Waters
     - Home Cooking
-    - "{{insanities}}"
+    - "Insanity <em>{{insanities}}</em>"
     - Mirrors
     - Mistletoe
     - Moonlight
@@ -1605,14 +1679,14 @@ nested_tables:
     - Cruelty
     - "{{city.districts}}"
     - "{{divine_domains}}"
-    - "{{factions.factions}}"
+    - "Faction <em>{{factions.factions}}</em>"
     - Festivals
     - Feuds
     - Intrigue
     - "{{buildings.lower_class}}"
     - Martial law
     - Meritocracy
-    - "{{npc_occupation.select}}"
+    - "NPC <em>{{npc_occupation.select}}</em>"
     - Opulence
     - "{{magic.physical_elements}}"
     - Pilgrimages
@@ -1639,7 +1713,7 @@ nested_tables:
     - Curfew
     - Discovery
     - Earthquake
-    - "{{factions.factions}} war"
+    - "Faction war <em>{{factions.factions}}</em>"
     - Fashion trend
     - Fire
     - Flood
@@ -1818,6 +1892,9 @@ nested_tables:
 
 
   buildings:
+    buildings:
+    - "{{buildings.upper_class}}"
+    - "{{buildings.lower_class}}"
     upper_class:
     - Academy
     - Alchemist
@@ -2010,11 +2087,11 @@ nested_tables:
     - Awaken being
     - Collect artifacts
     - Construct base
-    - "Control {{factions.factions}}"
+    - "Control faction <em>{{factions.factions}}</em>"
     - Control politics
     - Create artifact
     - "Create {{monster.forms}}"
-    - "Defeat {{factions.factions}}"
+    - "Defeat faction <em>{{factions.factions}}</em>"
     - Defend borders
     - Defend leader
     - Destroy artifacts
@@ -2026,7 +2103,7 @@ nested_tables:
     - Exchange goods
     - Hear rumors
     - Indulge tastes
-    - "Infiltrate {{factions.factions}}"
+    - "Infiltrate faction <em>{{factions.factions}}</em>"
     - Map the wild
     - Overthrow order
     - Preserve lineage
@@ -2041,4 +2118,828 @@ nested_tables:
     - Summon evil
     - Survive
     - Transport goods
+  wilderness:
+    regions:
+    - Ashy
+    - Badlands
+    - Bay
+    - Beach
+    - Delta
+    - Desert
+    - Dry lands
+    - Dune sea
+    - Dust bowl
+    - Fjords
+    - Flood lands
+    - Foothills
+    - Forest
+    - Glaciers
+    - Heath
+    - Highlands
+    - Hills
+    - Ice fields
+    - Jungle
+    - Lowlands
+    - Mesas
+    - Moor
+    - Mountains
+    - Petrified forest
+    - Plains
+    - Rainforest
+    - Riverlands
+    - Salt Pan
+    - Savanna
+    - Steppe
+    - Taiga
+    - Thickets
+    - Tundra
+    - Volcanic plain
+    - Wetlands
+    - Woodlands
+    landmarks:
+    - Bog
+    - Boulder field
+    - Butte
+    - Cave
+    - Cliff
+    - Crag
+    - Crater
+    - Creek
+    - Crossing
+    - Ditch
+    - Field
+    - Forest
+    - Grove
+    - Hill
+    - Hollow
+    - Hot springs
+    - Lair
+    - Lake
+    - Lakebed
+    - Marsh
+    - Mesa
+    - Moor
+    - Pass
+    - Pit
+    - Pond
+    - Rapids
+    - Ravine
+    - Ridge
+    - Rise
+    - River
+    - Rockslide
+    - Spring
+    - Swamp
+    - Thickets
+    - Valley
+    - Waterfall
+    structures:
+    - Altar
+    - Aqueduct
+    - Bandit's camp
+    - Battlefield
+    - Bonfire
+    - Bridge
+    - Cairn
+    - Crossroads
+    - Crypt
+    - Dam
+    - Dungeon
+    - Farm
+    - Ford
+    - Fortress
+    - Gallows
+    - Graveyard
+    - Hedge
+    - Hunter's camp
+    - Inn
+    - Lumber camp
+    - Mine
+    - Monastery
+    - Monument
+    - Orchard
+    - Outpost
+    - Pasture
+    - Ruin
+    - Seclusion
+    - Shack
+    - Shrine
+    - Standing stone
+    - Temple
+    - Village
+    - Wall
+    - Watchtower
+    - Waystone
+    region_traits:
+    - Ashen
+    - Blasted
+    - Blighted
+    - Broken
+    - Consuming
+    - Corrupted
+    - Creeping
+    - Desolate
+    - "{{dungeon.trait}}"
+    - Eternal
+    - "{{magic.ethereal_effects}}"
+    - Forsaken
+    - Frozen
+    - Haunted
+    - Howling
+    - Jagged
+    - Lonely
+    - Misty
+    - Perilous
+    - Petrified
+    - Phantasmal
+    - Ravenous
+    - Savage
+    - Shadowy
+    - Shifting
+    - Shivering
+    - Sinister
+    - Sinking
+    - Smoldering
+    - Sweltering
+    - Thorny
+    - Thundering
+    - Torrential
+    - "{{magic.physical_effects}}"
+    - Wandering
+    - Withered
+    discoveries:
+    - Blood stains
+    - Bones
+    - Broken weapons
+    - Burrow
+    - "{{city.activities}}"
+    - "NPC: {{npc_occupation.civilized}}"
+    - Cut ropes
+    - Dead animal
+    - "{{dungeon.activities}}"
+    - Food scraps
+    - Grave marker
+    - Human corpse
+    - "{{items.items}}"
+    - "Lost NPC: {{npc_occupation.select}}"
+    - "Magical effect <em>{{magic.effects}}</em>"
+    - Map
+    - Message
+    - Migration
+    - "Mutation: {{mutations}}"
+    - "Nest: {{animal.forms}}"
+    - Portal
+    - Resources
+    - Rift
+    - Strange plant
+    - "Stunned NPC: {{npc_occupation.select}}"
+    - Supplies
+    - Torn flag
+    - "Tracks: {{animal.forms}}"
+    - Trap
+    - Treasure cache
+    - "NPC: {{npc_occupation.underworld}}"
+    - "{{wilderness.activities}}"
+    - "{{wilderness.landmarks}}"
+    - "{{wilderness.structures}}"
+    - "NPC: {{npc_occupation.wilderness}}"
+    - Wizard fight
+    activities:
+    - Ambush
+    - Argue
+    - Birth
+    - Build
+    - Bury
+    - Capture
+    - "{{city.activities}}"
+    - Convene
+    - Demolish
+    - Die
+    - Duel
+    - "{{dungeon.activities}}"
+    - Eat
+    - Excavate
+    - Feast
+    - Felling
+    - Fish
+    - Flee
+    - Forage
+    - Hunt
+    - March
+    - Raid
+    - Rescue
+    - Rest
+    - Sacrifice
+    - Scout
+    - Sing
+    - Skin
+    - Skirmish
+    - Slay
+    - Sleep
+    - Swim
+    - Track
+    - Trap
+    - Wander
+    - Worship
+    hazards:
+    - Avalanche
+    - Blizzard
+    - Brushfire
+    - Cloudburst
+    - Cyclone
+    - Dense fog
+    - Downpour
+    - Drizzle
+    - Dust storm
+    - Earthquake
+    - Eruption
+    - Flooding
+    - Forest fire
+    - Hail
+    - Heat wave
+    - Hurricane
+    - Ice storm
+    - Light mist
+    - Locust swarm
+    - Magma flow
+    - Meteor strike
+    - Monsoon
+    - Mudflow
+    - Mudslide
+    - Predator
+    - Quicksand
+    - Rain of frogs
+    - Rockslide
+    - Sandstorm
+    - Sleet
+    - Snow
+    - Stampede
+    - Thunderstorm
+    - Tsunami
+    - Whirlpool
+    - Windstorm
+  inn:
+    adjectives:
+    - Bellowing
+    - Blazing
+    - Bleak
+    - Blessed
+    - Bloody
+    - Crimson
+    - Cunning
+    - Copper
+    - Dancing
+    - Dead
+    - Drunken
+    - Flying
+    - Ghastly
+    - Golden
+    - Helpful
+    - Hideous
+    - Howling
+    - Hungry
+    - Moldy
+    - Muttering
+    - Nimble
+    - Oozing
+    - Petrified
+    - Prancing
+    - Romantic
+    - Salty
+    - Singing
+    - Shivering
+    - Shrieking
+    - Silver
+    - Smoking
+    - Thirsty
+    - Wicked
+    - Tipsy
+    - Whistling
+    - Wanton
+    nouns:
+    - Axe
+    - Barrel
+    - Bear
+    - Bell
+    - Boot
+    - Bowl
+    - Bucket
+    - Candle
+    - Cock
+    - Cow
+    - Dragon
+    - Egg
+    - Elephant
+    - Flea
+    - Fork
+    - Giant
+    - Griffin
+    - Hart
+    - Hog
+    - Hound
+    - Lamb
+    - Lion
+    - Mackerel
+    - Maid
+    - Monk
+    - Moon
+    - Pipe
+    - Prince
+    - Rat
+    - Skull
+    - Spoon
+    - Star
+    - Swan
+    - Sword
+    - Whale
+    - Wife
+    quirks:
+    - 100 years in past
+    - Always night
+    - Animal fights
+    - Bard duels
+    - Bigger inside
+    - Black market
+    - Brand new
+    - Cannibals
+    - "{{city.activities}}"
+    - Constant party
+    - Dancing contest
+    - Dead drop
+    - "{{dungeon.forms}}"
+    - Expensive
+    - "Faction hangout <em>{{factions.factions}}</em>"
+    - "Faction trait <em>{{factions.traits}}</em>"
+    - Famous chef
+    - Fey patrons
+    - Fight club
+    - Five floors
+    - Ghost staff
+    - Haunted
+    - Hideout
+    - "Inn / {{buildings.buildings}}"
+    - Magic sword
+    - Magically moves
+    - Mercs for hire
+    - "NPC hangout {{npc_occupations.select}}"
+    - Preaching
+    - Secure storage
+    - Staff are kids
+    - Talking painting
+    - Underground
+    - VIP lounge
+    - Voice in well
+    - Women only
+  dungeon:
+    entrances:
+    - All libraries
+    - Beaver dam
+    - Behind waterfall
+    - Chalk rectangle
+    - Chest bottom
+    - Chimney
+    - Cupboard
+    - Dolmen shadow
+    - Down a well
+    - Fiery pit
+    - Fog road
+    - Forest spring
+    - Giant book
+    - Gypsy wagon
+    - Hollow tree
+    - Huge keyhole
+    - Iron maiden
+    - Living tattoo
+    - Magic painting
+    - Man-shaped hole
+    - Maze potion
+    - Mirror
+    - Monster mouth
+    - Monster wound
+    - Narrow alley
+    - Rain door
+    - Sewer grate
+    - Sudden rift
+    - Tidal cave
+    - Tower top
+    - Tree roots
+    - Under the bed
+    - Unfolded map
+    - Up a tree
+    - Whirlpool
+    - Wine barrel
+    forms:
+    - Arena
+    - Asylum
+    - Aviary
+    - Bank
+    - Baths
+    - Body
+    - "{{buildings.rooms}}"
+    - Casino
+    - Catacombs
+    - Cave
+    - Court
+    - "{{dungeon.rooms}}"
+    - Forge
+    - Garden
+    - Hideout
+    - Hotel
+    - "{{buildings.lower_class}}"
+    - Laboratory
+    - Library
+    - Market
+    - Mine
+    - Monastery
+    - Museum
+    - Nursery
+    - Orphanage
+    - Palace
+    - Prison
+    - Sewer
+    - Ship
+    - Slave pit
+    - Temple
+    - Theater
+    - "{{buildings.upper_class}}"
+    - University
+    - Vault
+    - Zoo
+    layouts:
+    - Ant colony
+    - Central hub
+    - Claustrophobic
+    - Crisscrossing
+    - Curved
+    - Disorienting
+    - Galleria
+    - Geometric
+    - Gonzo
+    - Haphazard
+    - Highly regular
+    - Honeycomb
+    - Intertwined
+    - Isolated wings
+    - Layered
+    - Linear
+    - Loops
+    - Many corridors
+    - Mazes
+    - "Mix of layouts: {{>pickN: 1d2+1 dungeon.layouts}}"
+    - Multiple hubs
+    - No corridors
+    - Open plan
+    - Open voids
+    - Organic
+    - Oversized
+    - Recursive
+    - Repetitive
+    - Sprawling
+    - Suspended
+    - Symbol shape
+    - Tall and narrow
+    - Themed zones
+    - Vertical
+    - Winding
+    - Ziggurat
+    ruination:
+    - Arcane disaster
+    - Army invasion
+    - Cannibalism
+    - Civil war
+    - Collapse
+    - Crystal growth
+    - Curse
+    - Degeneration
+    - Earthquake
+    - Eruption
+    - Evil unearthed
+    - Experiments
+    - Explosion
+    - Famine
+    - Fire
+    - Flooding
+    - Fungus
+    - Haunting
+    - Ice
+    - "Insanity: {{insanities}}"
+    - Lava flow
+    - Magical sleep
+    - Melted
+    - Monster attack
+    - "Mutation: {{mutations}}"
+    - Outsider attack
+    - Overgrowth
+    - Petrification
+    - Plague
+    - Planar overlay
+    - Poison gas
+    - Resources gone
+    - Revolt
+    - Risen dead
+    - Too many traps
+    - War
+    rewards:
+    - Ancient lore
+    - Animal ally
+    - Army
+    - Blessing
+    - Blueprints
+    - Cultural artifact
+    - Enemy weakness
+    - Faction ally
+    - Forewarning
+    - Guide
+    - Holy relic
+    - Influential ally
+    - Instructions
+    - Jewels
+    - Key
+    - Lost formula
+    - Machine
+    - "Magic item <em>{{items.items}}</em>"
+    - Magical ally
+    - Map
+    - Martial ally
+    - Masterpiece
+    - "Monster ally <em>{{monster.forms}}</em>"
+    - Oracle
+    - Piles of loot
+    - Planar portal
+    - Prophecy
+    - Renown
+    - Spell
+    - Transformation
+    - Transport
+    - "Treasure item <em>{{treasure.items}}</em>"
+    - Uncovered plot
+    - "Valuable material <em>{{valuable_materials}}</em>"
+    - Vision
+    - Weapon
+    activities:
+    - Besiege
+    - Capture
+    - "{{city.activities}}"
+    - Collect
+    - Construct
+    - Control
+    - Deliver
+    - Demolish
+    - Escape
+    - Feed
+    - Fortify
+    - Guard
+    - Hide
+    - Hunt
+    - Loot
+    - Map
+    - Mine
+    - "Monster tactic: {{monster.tactics}}"
+    - Negotiate
+    - Patrol
+    - Perform ritual
+    - Purge
+    - Question
+    - Raid
+    - Repair
+    - Rescue
+    - Research
+    - Revive
+    - Riddle
+    - Scavenge
+    - Seize
+    - Tunnel
+    - Unearth
+    - Vandalize
+    - "{{wilderness.activities}}"
+    - Worship
+    rooms:
+    - Armory
+    - Banquet hall
+    - Barracks
+    - "{{buildings.rooms}}"
+    - Catacombs
+    - Cavern
+    - Chasm
+    - Courtyard
+    - Crypt
+    - Dormitory
+    - Fighting pit
+    - Forge
+    - Fountain
+    - Gate house
+    - Guard room
+    - Kennel
+    - "{{buildings.lower_class}}"
+    - Laboratory
+    - Mess hall
+    - Mine shaft
+    - Museum
+    - Oubliette
+    - Pool
+    - Prison
+    - Record room
+    - Shrine
+    - Slaughterhouse
+    - Stables
+    - Storeroom
+    - Throne room
+    - Torture room
+    - Treasury
+    - "{{buildings.upper_class}}"
+    - Vault
+    - Well
+    - Workshop
+    room_details:
+    - Bas-relief
+    - Blood trail
+    - Bones
+    - Chains
+    - Chalk marks
+    - Claw marks
+    - Corpses
+    - Cracked beams
+    - Crumbling walls
+    - Decaying food
+    - Decaying nest
+    - Dripping water
+    - Fading murals
+    - Faint breeze
+    - Faint footsteps
+    - Fallen pillars
+    - Fungus
+    - Furniture
+    - Graffiti
+    - Mosaics
+    - Recent repairs
+    - Rotting books
+    - Rubble
+    - Shed skin
+    - Slime trails
+    - Spider webs
+    - Stalactites
+    - Stench
+    - Smoke stains
+    - Thick dust
+    - Torn clothes
+    - Tree roots
+    - Unusual smell
+    - Vibrations
+    - Vines
+    - Whispers
+    tricks:
+    - Absorption
+    - Activation
+    - Animation
+    - Blessings
+    - Communication
+    - Confusion
+    - Consumption
+    - Creation
+    - Curses
+    - Deception
+    - Duplication
+    - "{{magic.ethereal_effects}}"
+    - Exchange
+    - Imprisonment
+    - Instructions
+    - Mind-control
+    - "{{missions}}"
+    - Mood-alteration
+    - Nullifcation
+    - "{{magic.physical_effects}}"
+    - Planeshift
+    - Protection
+    - Rejuvenation
+    - Release
+    - Reversal
+    - Rotation
+    - Scrying
+    - Size-alteration
+    - Summoning
+    - Theft
+    - Time-alteration
+    - Transformation
+    - Transmutation
+    - Transportation
+    - Wonder
+    hazards:
+    - Acid drip
+    - Bloodsuckers
+    - Cave-in
+    - Choking dust
+    - Crude oil
+    - Crystal shards
+    - Deafening noise
+    - Dense fog
+    - Ensnaring vines
+    - Fallen floor
+    - Flooding
+    - Freezing
+    - Geysers
+    - Magma
+    - Magnetic field
+    - Mud flow
+    - Narrow ledge
+    - Narrow passage
+    - Poison goo
+    - Poison plants
+    - Precipice
+    - Quicksand
+    - Radiation
+    - Rockslide
+    - Rotten ceiling
+    - Rotten floor
+    - Sinkhole
+    - Slippery slope
+    - Spider webs
+    - Spores
+    - Steam vents
+    - Strong winds
+    - Tar pit
+    - Tight passage
+    - Toppling object
+    - Toxic fumes
+  trap:
+    effects:
+    - Acid pool
+    - Adhesive
+    - Alarm
+    - Armor melts
+    - Bear trap
+    - Blinding spray
+    - Blunt pendulum
+    - Boiling tar
+    - Collapsing floor
+    - Crocodile pit
+    - Crushing walls
+    - Deep pit
+    - Falling cage
+    - Falling ceiling
+    - Fills with sand
+    - Flooding
+    - Giant magnet
+    - Hard vacuum
+    - Lava flow
+    - Lightning
+    - Living statues
+    - Missile fire
+    - "Monster freed <em>{{monster.forms}}</em>"
+    - Net trap
+    - Pendulum blade
+    - Poison gas
+    - Poison needle
+    - Quicksand
+    - Rage gas
+    - Rolling boulder
+    - Room freezes
+    - Room on fire
+    - Sleeping gas
+    - Spiked pit
+    - Tombs open
+    - Wall spikes
+    triggers:
+    - Blow
+    - Break
+    - Burn
+    - Choice
+    - Countdown
+    - Darkness
+    - Drain
+    - Eat
+    - Insert
+    - Kill
+    - Knock
+    - Light
+    - Magic
+    - Melody
+    - Noise
+    - Open
+    - Phrase
+    - Pour
+    - Press
+    - Proximity
+    - Pull
+    - Read
+    - Reflect
+    - Release
+    - Remove
+    - Retrieve
+    - Rudeness
+    - Shut
+    - Sit
+    - Sleep
+    - Slide
+    - Touch
+    - Turn
+    - Unbalance
+    - Unearth
+    - Write
+
+
+
+
+
+
+
 

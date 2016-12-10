@@ -1,0 +1,8 @@
+---
+templates:
+- |
+  <h4>Book - {{books}}</h4>
+  Questions answered: {{>roll: 1d6}}
+
+imports:
+- maze_rats_base

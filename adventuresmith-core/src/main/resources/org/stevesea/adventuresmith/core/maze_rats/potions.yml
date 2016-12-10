@@ -1,0 +1,15 @@
+---
+templates:
+- |
+  <h4>Potion - {{potions}}</h4>
+  {{flavor_text}}
+
+
+imports:
+- maze_rats_base
+
+tables:
+  flavor_text:
+  - "1..14, Still effective"
+  - "15..17, Gone bad or prepared incorrectly. <br/>May cause mutation: {{mutations}}"
+  - "18..20, Gone bad or prepared incorrectly. <br/>May cause insanity: {{insanities}}"

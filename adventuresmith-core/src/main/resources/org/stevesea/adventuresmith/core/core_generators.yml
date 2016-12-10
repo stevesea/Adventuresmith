@@ -19,13 +19,16 @@ generators:
   - mr01_potion_effects
   - after_the_party
   - animals
+  - books
   - characters
   - divine_domains
   - insanities
+  - magical_ingredients
   - missions
   - misfortunes
   - monsters
   - mutations
+  - potions
   - names
   - npcs
   - omens_catastrophes

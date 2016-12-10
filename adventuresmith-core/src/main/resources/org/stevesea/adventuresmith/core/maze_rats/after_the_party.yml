@@ -14,7 +14,7 @@ templates:
   - In the stocks
   - Inconvenient pet
   - Insulted a noble
-  - "Insulted {{factions.factions}}"
+  - "Insulted faction <em>{{factions.factions}}</em>"
   - Joined a cult
   - Letter of thanks
   - Lost
