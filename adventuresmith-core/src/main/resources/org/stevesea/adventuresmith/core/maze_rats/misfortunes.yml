@@ -1,0 +1,6 @@
+---
+templates:
+- "{{npc.misfortunes}}"
+
+imports:
+- maze_rats_base

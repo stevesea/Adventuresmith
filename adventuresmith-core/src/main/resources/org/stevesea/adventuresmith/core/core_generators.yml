@@ -20,9 +20,14 @@ generators:
   - after_the_party
   - animals
   - characters
+  - divine_domains
   - insanities
+  - missions
+  - misfortunes
   - monsters
   - mutations
+  - names
+  - npcs
   - omens_catastrophes
   - spells
   perilous_wilds:

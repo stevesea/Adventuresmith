@@ -1,0 +1,32 @@
+---
+templates:
+- |
+  <h4>NPC - {{names.name}}</h4>
+  {{npc_occupation.select}}
+  <br/>
+  <br/><strong><small>Appearance: </small></strong> {{characters.appearance}}, {{characters.physical_detail}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} clothing
+  <br/><strong><small>Background: </small></strong> {{characters.background}}
+  <br/><strong><small>Personality: </small></strong> {{characters.personalities}}
+  <br/><strong><small>Mannerism: </small></strong> {{characters.mannerism}}
+  <br/>
+  <br/><strong><small>Relationship: </small></strong> {{characters.relationships}}
+  <br/>
+  <br/><strong><small>Methods: </small></strong> {{characters.methods}}
+  <br/><strong><small>Hobbies: </small></strong> {{characters.hobbies}}
+  <br/>
+  <br/><strong><small>Assets: </small></strong> {{npc.assets}}
+  <br/><strong><small>Liabilities: </small></strong> {{npc.liabilities}}
+  <br/>
+  <br/><strong><small>Goals: </small></strong> {{npc.goals}}
+  <br/>
+  <br/><strong><small>Misfortunes: </small></strong> {{npc.misfortunes}}
+  <br/><strong><small>Secrets: </small></strong> {{characters.secrets}}
+  <br/>
+  <br/><strong><small>Reputation: </small></strong> {{characters.reputations}}
+
+
+
+imports:
+- maze_rats_base
+- names

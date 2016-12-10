@@ -1,0 +1,15 @@
+---
+# TODO: location
+templates:
+- |
+  <h4>Mission - {{missions}}</h4>
+  <strong><small>Item: </small></strong>{{items.items}}
+  <br/>
+  <br/><strong><small>NPCs: </small></strong> {{npc_occupation.select}}
+  <br/>
+  <br/><strong><small>Factions: </small></strong> {{factions.factions}}
+  <br/>
+  <br/><strong><small>Location: </small></strong> TBD
+
+imports:
+- maze_rats_base

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{divine_domains}}"
+
+imports:
+- maze_rats_base
