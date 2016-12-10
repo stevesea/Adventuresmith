@@ -67,6 +67,7 @@ dependencies {
     testCompile "junit:junit:$junit_version"
     testCompile "org.mockito:mockito-core:$mockito_version"
     testCompile "com.nhaarman:mockito-kotlin:0.10.0"
+    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
 }
 repositories {
     mavenCentral()
