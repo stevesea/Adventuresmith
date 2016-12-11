@@ -55,7 +55,14 @@
     <h3>Welcome!</h3>
     <p>Select a category to begin.</p>
     <br/>
-    <p>To request enhancements or report problems, please visit <br/><br/>https://stevesea.github.io/Adventuresmith/</p>]]></string>
+    <p>If you are interested in creating generators, adding translations, or want to run
+    Adventuresmith on the desktop, check out the wiki:
+    <br/><br/>
+    https://github.com/stevesea/Adventuresmith/wiki</p>
+    <p>To request enhancements or report problems, please visit
+    <br/><br/>https://stevesea.github.io/Adventuresmith/</p>
+
+    ]]></string>
 
     <string name="about_app"><![CDATA[
     <h1>Adventuresmith</h1>

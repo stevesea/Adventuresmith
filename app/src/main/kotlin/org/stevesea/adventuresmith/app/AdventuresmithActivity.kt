@@ -489,7 +489,17 @@ class AdventuresmithActivity : AppCompatActivity(),
 
             return when(id) {
                 DiceConstants.CollectionName -> CommunityMaterial.Icon.cmd_dice_6
-                AdventuresmithCore.MazeRats -> CommunityMaterial.Icon.cmd_castle
+                AdventuresmithCore.MazeRats -> {
+                    when (grpId) {
+                        "grpChar" -> Ionicons.Icon.ion_android_people
+                        "grpCity" -> CommunityMaterial.Icon.cmd_castle
+                        "grpWild" -> CommunityMaterial.Icon.cmd_pine_tree
+                        "grpMaze" -> CommunityMaterial.Icon.cmd_view_dashboard
+                        "grpItems" -> CommunityMaterial.Icon.cmd_diamond
+                        "grpMisc" -> CommunityMaterial.Icon.cmd_dice_d20
+                        else -> CommunityMaterial.Icon.cmd_cube_unfolded
+                    }
+                }
                 FotfConstants.GROUP -> Ionicons.Icon.ion_map
                 AdventuresmithCore.FourthPage -> CommunityMaterial.Icon.cmd_numeric_4_box_outline
                 AdventuresmithCore.PerilousWilds -> {
@@ -512,8 +522,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         else -> CommunityMaterial.Icon.cmd_rocket
                     }
                 }
-                AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley//CommunityMaterial.Icon.cmd_pine_tree
-                AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_cube_unfolded
+                AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
+                AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
                 else -> CommunityMaterial.Icon.cmd_help_circle
             }
         }
