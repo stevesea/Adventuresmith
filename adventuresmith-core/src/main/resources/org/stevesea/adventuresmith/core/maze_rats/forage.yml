@@ -1,0 +1,9 @@
+---
+templates:
+- |
+  <strong>Edible:</strong> {{edible_plants}}
+  <br/>
+  <br/><strong>Poisonous:</strong> {{poisonous_plants}}
+
+imports:
+- maze_rats_base

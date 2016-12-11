@@ -95,7 +95,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         var previousWasExpandable = false
         for (coll in generatorCollections) {
-            info("collection: ${coll}")
+            debug("collection: ${coll}")
 
             if (coll.groups != null && coll.groups!!.isNotEmpty()) {
                 // has groups, create header & children
@@ -170,12 +170,12 @@ class AdventuresmithActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_adventuresmith)
-        info("onCreate")
+        debug("onCreate")
 
         setSupportActionBar(toolbar)
 
-        info("width: ${resources.configuration.screenWidthDp}")
-        info("height: ${resources.configuration.screenHeightDp}")
+        debug("width: ${resources.configuration.screenWidthDp}")
+        debug("height: ${resources.configuration.screenHeightDp}")
 
         collapsing_toolbar.title = ""
 
@@ -251,10 +251,10 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         // re-apply the filter if there is one
                         if (currentFilter != null) {
-                            info("Applying filter '$currentFilter'")
+                            debug("Applying filter '$currentFilter'")
                             resultAdapter!!.filter(currentFilter)
                         }
-                        info("Number of items ${resultAdapter!!.adapterItemCount}")
+                        debug("Number of items ${resultAdapter!!.adapterItemCount}")
 
                         Answers.getInstance().logCustom(
                                 CustomEvent("Generated Result")

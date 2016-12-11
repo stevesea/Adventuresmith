@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <strong>Inn:</strong> {{inn.inns}}
+  {{inn_quirks}}
+
+imports:
+- maze_rats_base
+
+tables:
+  inn_quirks:
+  - "1..8, "
+  - "9..10, <br/><br/><strong><small>Quirk:</small></strong> {{inn.quirks}}"
+

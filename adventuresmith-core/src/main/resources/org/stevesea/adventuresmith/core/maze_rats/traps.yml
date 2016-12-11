@@ -1,0 +1,9 @@
+---
+templates:
+- |
+  <strong>Trap Effect:</strong> {{trap.effects}}
+  <br/>
+  <br/><strong>Trap Trigger:</strong> {{trap.triggers}}
+
+imports:
+- maze_rats_base

@@ -473,7 +473,7 @@ nested_tables:
     - Forbidden
     - Fragile
     - Heavy
-    - Immomvable
+    - Immovable
     - Impracticable
     - Indestructible
     - Intelligent
@@ -2380,6 +2380,9 @@ nested_tables:
     - Whirlpool
     - Windstorm
   inn:
+    inns:
+    - "{{inn.adjectives}} {{inn.nouns}}"
+    - "{{>pickN: 2 inn.nouns &nbsp;&amp;&nbsp;}}"
     adjectives:
     - Bellowing
     - Blazing

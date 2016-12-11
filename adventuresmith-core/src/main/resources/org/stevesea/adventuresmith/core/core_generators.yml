@@ -20,21 +20,28 @@ generators:
   - after_the_party
   - animals
   - books
+  - buildings
   - characters
+  - city
+  - district
   - divine_domains
   - factions
+  - forage
+  - inns
   - insanities
   - items
   - magical_ingredients
-  - missions
   - misfortunes
+  - missions
   - monsters
   - mutations
   - names
   - npcs
   - omens_catastrophes
+  - pick_pocket
   - potions
   - spells
+  - traps
   - treasure
   perilous_wilds:
   - place_names

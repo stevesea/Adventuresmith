@@ -1,0 +1,10 @@
+---
+templates:
+- |
+  <h4>Building - {{buildings.buildings}}</h4>
+  <strong>Rooms:</strong> {{>pickN: 1d3+1 buildings.rooms}}
+  <br/>
+  <br/><strong>Features:</strong> {{>pickN: 1d3+2 city.tactical_building_features}}
+
+imports:
+- maze_rats_base

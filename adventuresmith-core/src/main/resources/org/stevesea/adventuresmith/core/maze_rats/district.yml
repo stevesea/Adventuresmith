@@ -1,0 +1,12 @@
+---
+templates:
+- |
+  <h5>District - {{city.districts}}</h5>
+  <strong>Activities:</strong> {{>pickN: 2 city.activities}}
+  <br/>
+  <br/><strong>Street Features:</strong> {{>pickN: 2 city.tactical_street_features}}
+
+imports:
+- maze_rats_base
+
+
