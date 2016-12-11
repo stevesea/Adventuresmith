@@ -68,6 +68,8 @@ class AdventuresmithActivity : AppCompatActivity(),
     var resultAdapter : FastItemAdapter<ResultItem>? = null
     var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
 
+    var currentFilter : String? = null
+
     val sharedPreferences: SharedPreferences by lazy {
         applicationContext.defaultSharedPreferences
     }
@@ -238,6 +240,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                             }
 
                             resultAdapter!!.add(0, ResultItem(result.orEmpty()))
+                        }
+                        if (currentFilter != null) {
+                            resultAdapter!!.filter(currentFilter)
                         }
 
                         recycler_results.scrollToPosition(0)
@@ -429,12 +434,14 @@ class AdventuresmithActivity : AppCompatActivity(),
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
                     resultAdapter!!.filter(newText)
+                    currentFilter = newText
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     resultAdapter!!.filter(query)
+                    currentFilter = query
                     appbar.setExpanded(false,false)
                     return true
                 }
