@@ -1,9 +1,8 @@
 ---
 templates:
 - |
-  <h4>Monster</h4>
-  {{monster.forms}}
-  <br/>&nbsp;&nbsp;<em>effect:</em> {{magic.effects}}
+  <h4>Monster - {{monster.forms}}</h4>
+  &nbsp;&nbsp;<em>effect:</em> {{magic.effects}}
   <br/>&nbsp;&nbsp;<em>element:</em> {{magic.elements}}
   <br/>&nbsp;&nbsp;<em>form:</em> {{magic.forms}}
   <br/>

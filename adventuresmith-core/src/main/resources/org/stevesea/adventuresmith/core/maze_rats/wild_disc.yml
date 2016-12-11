@@ -1,0 +1,11 @@
+---
+templates:
+- |
+  <strong>Wildreness Discovery </strong>
+  <br/>
+  <br/>{{wilderness.discoveries}}
+
+imports:
+- maze_rats_base
+
+

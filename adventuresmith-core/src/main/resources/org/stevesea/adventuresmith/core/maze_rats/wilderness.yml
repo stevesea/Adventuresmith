@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  <h4>Wildreness Region </h4>
+  {{wilderness.region_traits}} {{wilderness.regions}}
+  <br/>
+  <br/><strong>Activities:</strong> {{>pickN: 1d2+2 wilderness.activities}}
+  <br/>
+  <br/><strong>Hazards:</strong> {{>pickN: 1d2+2 wilderness.hazards}}
+
+imports:
+- maze_rats_base
+
+

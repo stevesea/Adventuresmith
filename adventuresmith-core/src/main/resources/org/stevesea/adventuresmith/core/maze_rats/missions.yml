@@ -8,8 +8,6 @@ templates:
   <br/><strong><small>NPCs: </small></strong> {{npc_occupation.select}}
   <br/>
   <br/><strong><small>Factions: </small></strong> {{factions.factions}}
-  <br/>
-  <br/><strong><small>Location: </small></strong> TBD
 
 imports:
 - maze_rats_base

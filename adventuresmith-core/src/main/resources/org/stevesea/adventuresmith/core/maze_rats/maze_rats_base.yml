@@ -2240,7 +2240,8 @@ nested_tables:
     - Corrupted
     - Creeping
     - Desolate
-    - "{{dungeon.trait}}"
+    # TODO: asked Ben, not sure what should go there
+    #- "{{dungeon.trait}}"
     - Eternal
     - "{{magic.ethereal_effects}}"
     - Forsaken

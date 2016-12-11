@@ -43,6 +43,8 @@ generators:
   - spells
   - traps
   - treasure
+  - wild_disc
+  - wilderness
   perilous_wilds:
   - place_names
   - region_names
