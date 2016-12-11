@@ -1,0 +1,9 @@
+---
+templates:
+- |
+  <strong>Dungeon Trick</strong> - {{dungeon.tricks}}
+
+imports:
+- maze_rats_base
+
+

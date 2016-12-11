@@ -1,0 +1,16 @@
+---
+templates:
+- |
+  <h4>Dungeon</h4>
+  <strong>Entrance:</strong> {{dungeon.entrances}}
+  <br/><strong>Form:</strong> {{dungeon.forms}}
+  <br/><strong>Ruination:</strong> {{dungeon.ruinations}}
+  <br/>
+  <br/><strong>Reward:</strong> {{dungeon.rewards}}
+  <br/>
+  <br/><strong>Activities:</strong> {{>pickN: 1d2+2 dungeon.activities}}
+
+imports:
+- maze_rats_base
+
+

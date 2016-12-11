@@ -25,6 +25,9 @@ generators:
   - city
   - district
   - divine_domains
+  - dungeon
+  - dungeon_room
+  - dungeon_trick
   - factions
   - forage
   - inns

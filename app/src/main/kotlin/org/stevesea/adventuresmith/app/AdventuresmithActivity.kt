@@ -91,8 +91,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
-        //info("Generators: $generatorCollections")
-
         var previousWasExpandable = false
         for (coll in generatorCollections) {
             debug("collection: ${coll}")
