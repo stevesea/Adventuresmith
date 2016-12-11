@@ -73,7 +73,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     val sharedPreferences: SharedPreferences by lazy {
         applicationContext.defaultSharedPreferences
     }
-    val GENERATE_MANY_NUM = 10
+    val GENERATE_MANY_NUM = 12
     val SETTING_GEN_MANY = "GenerateMany"
     var settingsGenerateMany : Boolean
         get() {
@@ -229,23 +229,32 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (item == null)
                             return false
 
+
                         val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
+                        val resultItems : MutableList<String> = mutableListOf()
                         for (i in 1..num_to_generate) {
-                            var result: String? = null
                             try {
-                                result = item.generator.generate(getCurrentLocale(resources))
+                                resultItems.add(item.generator.generate(getCurrentLocale(resources)))
                             } catch (e: Exception) {
                                 warn(e.toString(), e)
-                                result = e.toString()
+                                resultItems.add(e.toString())
                             }
-
-                            resultAdapter!!.add(0, ResultItem(result.orEmpty()))
                         }
+                        // disable filter before adding any results
                         if (currentFilter != null) {
-                            resultAdapter!!.filter(currentFilter)
+                            resultAdapter!!.filter(null)
                         }
+
+                        resultAdapter!!.add(0, resultItems.map{ResultItem(it)})
 
                         recycler_results.scrollToPosition(0)
+
+                        // re-apply the filter if there is one
+                        if (currentFilter != null) {
+                            info("Applying filter '$currentFilter'")
+                            resultAdapter!!.filter(currentFilter)
+                        }
+                        info("Number of items ${resultAdapter!!.adapterItemCount}")
 
                         Answers.getInstance().logCustom(
                                 CustomEvent("Generated Result")
