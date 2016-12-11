@@ -2486,7 +2486,7 @@ nested_tables:
     - Magic sword
     - Magically moves
     - Mercs for hire
-    - "NPC hangout {{npc_occupations.select}}"
+    - "NPC hangout {{npc_occupation.select}}"
     - Preaching
     - Secure storage
     - Staff are kids
