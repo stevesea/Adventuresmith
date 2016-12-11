@@ -2,3 +2,4 @@
 name: Animal
 collectionId: maze_rats
 groupId: grpChar
+priority: 2000

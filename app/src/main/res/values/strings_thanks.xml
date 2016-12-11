@@ -54,7 +54,6 @@
     <string name="welcome_msg"><![CDATA[
     <h3>Welcome!</h3>
     <p>Select a category to begin.</p>
-    <br/>
     <p>If you are interested in creating generators, adding translations, or want to run
     Adventuresmith on the desktop, check out the wiki:
     <br/><br/>

@@ -1,4 +1,5 @@
 ---
-name: Pick Pocket
+name: Pick Pocket / Loot
 collectionId: maze_rats
 groupId: grpItems
+priority: 2000
