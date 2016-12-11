@@ -22,17 +22,20 @@ generators:
   - books
   - characters
   - divine_domains
+  - factions
   - insanities
+  - items
   - magical_ingredients
   - missions
   - misfortunes
   - monsters
   - mutations
-  - potions
   - names
   - npcs
   - omens_catastrophes
+  - potions
   - spells
+  - treasure
   perilous_wilds:
   - place_names
   - region_names

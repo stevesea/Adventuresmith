@@ -1,0 +1,10 @@
+---
+templates:
+- |
+  <h4>Treasure - {{treasure.items}}</h4>
+  {{treasure.traits}}
+  <br/>
+  <br/><strong><small>Valuable Materials:</small></strong> {{valuable_materials}}
+
+imports:
+- maze_rats_base

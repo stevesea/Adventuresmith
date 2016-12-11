@@ -1,0 +1,6 @@
+---
+templates:
+- "{{items.items}}"
+
+imports:
+- maze_rats_base

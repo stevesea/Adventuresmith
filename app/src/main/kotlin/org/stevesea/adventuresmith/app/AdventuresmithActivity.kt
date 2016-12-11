@@ -38,6 +38,7 @@ import com.mikepenz.iconics.*
 import com.mikepenz.iconics.typeface.*
 import com.mikepenz.ionicons_typeface_library.*
 import com.mikepenz.materialdrawer.*
+import com.mikepenz.materialdrawer.interfaces.*
 import com.mikepenz.materialdrawer.model.*
 import com.mikepenz.materialdrawer.model.interfaces.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
@@ -47,6 +48,8 @@ import org.stevesea.adventuresmith.core.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.util.*
+
+
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
@@ -65,6 +68,18 @@ class AdventuresmithActivity : AppCompatActivity(),
     var resultAdapter : FastItemAdapter<ResultItem>? = null
     var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
 
+    val sharedPreferences: SharedPreferences by lazy {
+        applicationContext.defaultSharedPreferences
+    }
+    val GENERATE_MANY_NUM = 10
+    val SETTING_GEN_MANY = "GenerateMany"
+    var settingsGenerateMany : Boolean
+        get() {
+            return sharedPreferences.getBoolean(SETTING_GEN_MANY, false)
+        }
+        set(value) {
+            sharedPreferences.edit().putBoolean(SETTING_GEN_MANY, value).apply()
+        }
 
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         info("Creating navDrawerItems")
@@ -118,6 +133,18 @@ class AdventuresmithActivity : AppCompatActivity(),
                 previousWasExpandable = false
             }
         }
+        result.add(SectionDrawerItem()
+                .withName(R.string.section_header_settings))
+        result.add(SecondarySwitchDrawerItem()
+                .withName(R.string.settings_generate_many)
+                .withChecked(settingsGenerateMany)
+                .withIcon(CommunityMaterial.Icon.cmd_stackoverflow)
+                .withOnCheckedChangeListener(object : OnCheckedChangeListener {
+                    override fun onCheckedChanged(drawerItem: IDrawerItem<*, *>?, buttonView: CompoundButton?, isChecked: Boolean) {
+                        settingsGenerateMany = isChecked
+                    }
+                })
+        )
         result.add(DividerDrawerItem())
         // final items are for attribution & about
         result.add(SecondaryDrawerItem()
@@ -200,15 +227,18 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (item == null)
                             return false
 
-                        var result : String? = null
-                        try {
-                            result = item.generator.generate(getCurrentLocale(resources))
-                        } catch (e: Exception) {
-                            warn(e.toString(), e)
-                            result = e.toString()
-                        }
+                        val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
+                        for (i in 1..num_to_generate) {
+                            var result: String? = null
+                            try {
+                                result = item.generator.generate(getCurrentLocale(resources))
+                            } catch (e: Exception) {
+                                warn(e.toString(), e)
+                                result = e.toString()
+                            }
 
-                        resultAdapter!!.add(0, ResultItem(result.orEmpty()))
+                            resultAdapter!!.add(0, ResultItem(result.orEmpty()))
+                        }
 
                         recycler_results.scrollToPosition(0)
 

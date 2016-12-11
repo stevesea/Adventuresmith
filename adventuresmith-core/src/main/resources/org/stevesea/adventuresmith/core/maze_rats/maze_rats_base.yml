@@ -494,6 +494,7 @@ nested_tables:
     - "{{items.worn}}"
     - "{{items.weapons}}"
     - "{{items.tools}}"
+    - "{{treasure.items}}"
     misc:
     - Bowl
     - Brass bell
