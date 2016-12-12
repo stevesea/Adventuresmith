@@ -155,30 +155,30 @@ tables:
   - Who's who
   - Witch-hunting
   potions:
-  - "Animal-form <em>{{animal.forms}}</em>"
+  - "{{animal.forms}}-form"
   - Body swap
   - Camouflage
   - Control animals
-  - "Control element <em>({{magic.elements}})</em>"
+  - "Control {{magic.elements}}"
   - Cure affliction
   - Detect evil
   - Detect gold
   - Detect hidden
   - Direction sense
-  - "Element-form <em>{{magic.elements}}</em>"
-  - "Element-skin <em>{{magic.elements}}</em>"
+  - "{{magic.elements}}-form"
+  - "{{magic.elements}}-skin"
   - Extra arm
   - Flight
   - Ghost-speech
   - Heat vision
-  - "Insanity <em>{{insanities}}</em>"
+  - "Insanity - <em>{{insanities}}</em>"
   - Invulnerable
-  - "Item-form <em>{{items.items}}</em>"
+  - "{{items.items}}-form"
   - Magic immunity
-  - "Monster ability <em>{{monster.abilities}}</em>"
-  - "Monster ability <em>{{monster.features}}</em>"
-  - "Monster ability <em>{{monster.traits}}</em>"
-  - "Mutation <em>{{mutations}}</em>"
+  - "{{monster.abilities}}"
+  - "{{monster.features}}"
+  - "{{monster.traits}}"
+  - "Mutation - <em>{{mutations}}</em>"
   - Night vision
   - "Spell: {{magic.spells}}"
   - Restore health
@@ -192,16 +192,16 @@ tables:
   - Water-walking
   magical_ingredients:
   - Ancient liquor
-  - "Animal <em>{{animal.forms}}</em>"
+  - "{{animal.forms}}"
   - Blind eye
   - Boiled cat
-  - "Book page <em>{{books}}</em>"
+  - "Book page - <em>{{books}}</em>"
   - Bottled fog
   - Coffin nail
   - Corpse's hair
   - Crossroad dust
   - Cultist entrails
-  - "Edible plant <em>{{edible_plants}}</em>"
+  - "{{edible_plants}}"
   - Exotic spice
   - Killer's hand
   - King's tooth
@@ -210,12 +210,12 @@ tables:
   - Lightning bolt
   - Lodestone
   - Monk's vow
-  - "Monster feature <em>{{monster.features}}</em>"
+  - "{{monster.features}}"
   - Newborn's cry
   - Oil portrait
-  - "Physical element <em>{{magic.physical_elements}}</em>"
-  - "Poisonous Plant <em>{{poisonous_plants}}</em>"
-  - "Potion <em>{{potions}}</em>"
+  - "{{magic.physical_elements}}"
+  - "{{poisonous_plants}}"
+  - "Potion - <em>{{potions}}</em>"
   - Pyre ember
   - Queen bee
   - Queen's blood
@@ -223,12 +223,12 @@ tables:
   - Star-metal
   - Thief's finger
   - Tomb flower
-  - "Valueable Material <em>{{valuable_materials}}</em>"
+  - "{{valuable_materials}}"
   - Wedding ring
   - Widow's tears
   - Wizard skull
   divine_domains:
-  - "Animal <em>{{animal.forms}}</em>"
+  - "{{animal.forms}}"
   - Balance
   - Betrayal
   - Chance
@@ -238,7 +238,7 @@ tables:
   - Death
   - Destiny
   - Dreams
-  - "Element <em>{{magic.elements}}</em>"
+  - "{{magic.elements}}"
   - Gateways
   - Judgement
   - Love
@@ -246,7 +246,7 @@ tables:
   - Monsters
   - Moon
   - Motherhood
-  - "NPC <em>{{npc_occupation.select}}</em>"
+  - "NPC <em>({{npc_occupation.select}})</em>"
   - Oaths
   - Order
   - Plague
@@ -307,13 +307,13 @@ tables:
   - Child-form
   - Corpulence
   - Covered in hair
-  - "Animal arms <em>{{animal.forms}}</em>"
-  - "Animal eyes <em>{{animal.forms}}</em>"
-  - "Animal head <em>{{animal.forms}}</em>"
-  - "Animal legs <em>{{animal.forms}}</em>"
-  - "Animal mouth <em>{{animal.forms}}</em>"
-  - "Animal skin <em>{{animal.forms}}</em>"
-  - "Animal-form <em>{{animal.forms}}</em>"
+  - "{{animal.forms}} arms"
+  - "{{animal.forms}} eyes"
+  - "{{animal.forms}} head"
+  - "{{animal.forms}} legs"
+  - "{{animal.forms}} mouth"
+  - "{{animal.forms}} skin"
+  - "{{animal.forms}}-form"
   - Cyclops
   - Extra arms
   - Extra eyes
@@ -321,15 +321,15 @@ tables:
   - Forked tongue
   - Gender swap
   - Hunchback
-  - "Item-form <em>{{items.items}}</em>"
+  - "{{items.items}}-form"
   - Long arms
   - Lose all hair
   - Loses teeth
-  - "Monster feature <em>{{monster.features}}</em>"
-  - "Monster trait <em>{{monster.traits}}</em>"
+  - "{{monster.features}}"
+  - "Trait: {{monster.traits}}"
   - No eyes
   - No mouth
-  - "Physical element-skin <em>{{magic.physical_elements}}</em>"
+  - "{{magic.physical_elements}}-skin"
   - Second face
   - Sheds skin
   - Shrinks
@@ -340,7 +340,7 @@ tables:
   insanities:
   - Always lies
   - Always polite
-  - "\"Animal-form <em>{{animal.forms}}</em>\""
+  - "\"{{animal.forms}}-form\""
   - Cannot count
   - Cannot lie
   - Faceblind
@@ -367,9 +367,9 @@ tables:
   - Hates violence
   - "\"Invisible\""
   - "\"Invulnerable\""
-  - "\"Monster ability <em>{{monster.abilities}}</em>\""
-  - "\"Monster feature <em>{{monster.features}}</em>\""
-  - "\"Monster trait <em>{{monster.traits}}</em>\""
+  - "\"Ability: {{monster.abilities}}\""
+  - "\"{{monster.features}}\""
+  - "\"Trait: {{monster.traits}}\""
   - Must sing
   - "New personality - <em>{{characters.personalities}}</em>"
   - Says thoughts
@@ -377,7 +377,7 @@ tables:
   omens_catastrophes:
   - All iron rusts
   - Animals die
-  - "Animals mutate <em>{{mutations}}</em>"
+  - "Animals mutate - <em>{{mutations}}</em>"
   - Birds attack
   - City appears
   - Deadly fog
@@ -393,8 +393,8 @@ tables:
   - Graves open
   - Lamentations
   - Maggots
-  - "Mass insanity <em>{{insanities}}</em>"
-  - "Mass mutation <em>{{mutations}}</em>"
+  - "Mass insanity - <em>{{insanities}}</em>"
+  - "Mass mutation - <em>{{mutations}}</em>"
   - Mass slumber
   - Meteor strike
   - Mirrors speak
@@ -463,8 +463,8 @@ nested_tables:
     - Damaged
     - Disguised
     - Draws enemies
-    - "Effect <em>{{magic.effects}}</em>"
-    - "Element <em>{{magic.elements}}</em>"
+    - "{{magic.effects}}"
+    - "{{magic.elements}}"
     - Embellished
     - Encoded
     - Exotic
@@ -654,8 +654,8 @@ nested_tables:
     - Erases evidence
     - Excellent liar
     - Extremely rich
-    - "Faction-leader <em>{{factions.factions}}</em>"
-    - "Faction-member <em>{{factions.factions}}</em>"
+    - "Faction-leader - <em>{{factions.factions}}</em>"
+    - "Faction-member - <em>{{factions.factions}}</em>"
     - Feared
     - Fortified base
     - Gorgeous
@@ -695,7 +695,7 @@ nested_tables:
     - Heretic
     - Huge debts
     - Imposter
-    - "Insanity <em>{{insanities}}</em>"
+    - "Insanity - <em>{{insanities}}</em>"
     - Jealous
     - Leaves evidence
     - Many enemies
@@ -722,36 +722,36 @@ nested_tables:
     goals:
     - A better life
     - Acceptance
-    - "Acquire item <em>{{items.items}}</em>"
-    - "Craft item <em>{{items.items}}</em>"
-    - "Destroy faction <em>{{factions.factions}}</em>"
-    - "Destroy item <em>{{items.items}}</em>"
+    - "Acquire item <em>({{items.items}})</em>"
+    - "Craft item <em>({{items.items}})</em>"
+    - "Destroy faction <em>({{factions.factions}})</em>"
+    - "Destroy item <em>({{items.items}})</em>"
     - Enlightenment
     - Fame
-    - "Acquire faction <em>{{factions.factions}}</em>"
+    - "Acquire faction <em>({{factions.factions}})</em>"
     - Freedom
     - Glory
-    - "Impress NPC <em>{{npc_occupation.select}}</em>"
+    - "Impress NPC <em>({{npc_occupation.select}})</em>"
     - Infamy
-    - "Infiltrate faction <em>{{factions.factions}}</em>"
+    - "Infiltrate faction <em>({{factions.factions}})</em>"
     - Justice
-    - "Kidnap NPC <em>{{npc_occupation.select}}</em>"
-    - "Lead faction <em>{{factions.factions}}</em>"
+    - "Kidnap NPC <em>({{npc_occupation.select}})</em>"
+    - "Lead faction <em>({{factions.factions}})</em>"
     - Learning
-    - "Locate NPC <em>{{npc_occupation.select}}</em>"
+    - "Locate NPC <em>({{npc_occupation.select}})</em>"
     - Love
     - Mastery
     - Power
     - Reach location
-    - "Rescue NPC <em>{{npc_occupation.select}}</em>"
+    - "Rescue NPC <em>({{npc_occupation.select}})</em>"
     - Resolve dispute
-    - "Restore faction <em>{{factions.factions}}</em>"
+    - "Restore faction <em>({{factions.factions}})</em>"
     - Reveal a secret
     - Revenge
-    - "Sabotage faction <em>{{factions.factions}}</em>"
+    - "Sabotage faction <em>({{factions.factions}})</em>"
     - Serve a deity
     - Serve evil
-    - "Serve faction <em>{{factions.factions}}</em>"
+    - "Serve faction <em>({{factions.factions}})</em>"
     - Serve ideology
     - Serve leader
     - Serve the needy
@@ -1197,7 +1197,7 @@ nested_tables:
     - "Misfortune: {{npc.misfortunes}}"
     - Monster hunter
     - Non-human
-    - "NPC <em>{{npc_occupation.select}}</em>"
+    - "NPC <em>({{npc_occupation.select}})</em>"
     - Polygamist
     - Protects relic
     - Scandalous birth
@@ -1647,7 +1647,7 @@ nested_tables:
     - Holy Icon
     - Holy Waters
     - Home Cooking
-    - "Insanity <em>{{insanities}}</em>"
+    - "Insanity - <em>{{insanities}}</em>"
     - Mirrors
     - Mistletoe
     - Moonlight
@@ -1681,14 +1681,14 @@ nested_tables:
     - Cruelty
     - "{{city.districts}}"
     - "{{divine_domains}}"
-    - "Faction <em>{{factions.factions}}</em>"
+    - "Faction <em>({{factions.factions}})</em>"
     - Festivals
     - Feuds
     - Intrigue
     - "{{buildings.lower_class}}"
     - Martial law
     - Meritocracy
-    - "NPC <em>{{npc_occupation.select}}</em>"
+    - "NPC <em>({{npc_occupation.select}})</em>"
     - Opulence
     - "{{magic.physical_elements}}"
     - Pilgrimages
@@ -1715,7 +1715,7 @@ nested_tables:
     - Curfew
     - Discovery
     - Earthquake
-    - "Faction war <em>{{factions.factions}}</em>"
+    - "Faction war <em>({{factions.factions}})</em>"
     - Fashion trend
     - Fire
     - Flood
@@ -2089,11 +2089,11 @@ nested_tables:
     - Awaken being
     - Collect artifacts
     - Construct base
-    - "Control faction <em>{{factions.factions}}</em>"
+    - "Control faction <em>({{factions.factions}})</em>"
     - Control politics
     - Create artifact
-    - "Create {{monster.forms}}"
-    - "Defeat faction <em>{{factions.factions}}</em>"
+    - "Create monster <em>({{monster.forms}})</em>"
+    - "Defeat faction <em>({{factions.factions}})</em>"
     - Defend borders
     - Defend leader
     - Destroy artifacts
@@ -2105,7 +2105,7 @@ nested_tables:
     - Exchange goods
     - Hear rumors
     - Indulge tastes
-    - "Infiltrate faction <em>{{factions.factions}}</em>"
+    - "Infiltrate faction <em>({{factions.factions}})</em>"
     - Map the wild
     - Overthrow order
     - Preserve lineage
@@ -2284,7 +2284,7 @@ nested_tables:
     - Human corpse
     - "{{items.items}}"
     - "Lost NPC: {{npc_occupation.select}}"
-    - "Magical effect <em>{{magic.effects}}</em>"
+    - "{{magic.effects}}"
     - Map
     - Message
     - Migration
@@ -2473,8 +2473,8 @@ nested_tables:
     - Dead drop
     - "{{dungeon.forms}}"
     - Expensive
-    - "Faction hangout <em>{{factions.factions}}</em>"
-    - "Faction trait <em>{{factions.traits}}</em>"
+    - "Faction hangout <em>({{factions.factions}})</em>"
+    - "Faction trait <em>({{factions.traits}})</em>"
     - Famous chef
     - Fey patrons
     - Fight club
@@ -2662,12 +2662,12 @@ nested_tables:
     - Key
     - Lost formula
     - Machine
-    - "Magic item <em>{{items.items}}</em>"
+    - "Magic item <em>({{items.items}})</em>"
     - Magical ally
     - Map
     - Martial ally
     - Masterpiece
-    - "Monster ally <em>{{monster.forms}}</em>"
+    - "Monster ally <em>({{monster.forms}})</em>"
     - Oracle
     - Piles of loot
     - Planar portal
@@ -2676,9 +2676,9 @@ nested_tables:
     - Spell
     - Transformation
     - Transport
-    - "Treasure item <em>{{treasure.items}}</em>"
+    - "Treasure item <em>({{treasure.items}})</em>"
     - Uncovered plot
-    - "Valuable material <em>{{valuable_materials}}</em>"
+    - "Valuable material <em>({{valuable_materials}})</em>"
     - Vision
     - Weapon
     activities:
@@ -2699,7 +2699,7 @@ nested_tables:
     - Loot
     - Map
     - Mine
-    - "Monster tactic: {{monster.tactics}}"
+    - "{{monster.tactics}}"
     - Negotiate
     - Patrol
     - Perform ritual
@@ -2889,7 +2889,7 @@ nested_tables:
     - Lightning
     - Living statues
     - Missile fire
-    - "Monster freed <em>{{monster.forms}}</em>"
+    - "Monster freed <em>({{monster.forms}})</em>"
     - Net trap
     - Pendulum blade
     - Poison gas
@@ -2940,11 +2940,3 @@ nested_tables:
     - Unbalance
     - Unearth
     - Write
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@ templates:
   {{player_characters.abilities}}
   <br/>{{player_characters.starting_feature}}
   <br/>
-  <br/><strong><small>Appearance: </small></strong> {{characters.appearance}}, {{characters.physical_detail}}
+  <br/><strong><small>Appearance: </small></strong> {{characters.appearance}}, {{characters.physical_detail}},
   <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} clothing
   <br/><strong><small>Background: </small></strong> {{characters.background}}
   <br/><strong><small>Personality: </small></strong> {{characters.personalities}}
