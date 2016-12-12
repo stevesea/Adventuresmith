@@ -1,5 +1,4 @@
 ---
-# TODO: location
 templates:
 - |
   <h4>Mission - {{missions}}</h4>

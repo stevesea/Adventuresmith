@@ -2,7 +2,7 @@
 templates:
 - |
   <h4>Faction - {{factions.factions}}</h4>
-  {{factions.traits}}
+  <strong><small>Traits:</small></strong> {{factions.traits}}
   <br/>
   <br/><strong><small>Goal:</small></strong> {{factions.goals}}
 

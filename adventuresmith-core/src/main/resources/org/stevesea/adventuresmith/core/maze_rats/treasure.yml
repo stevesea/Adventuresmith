@@ -2,7 +2,7 @@
 templates:
 - |
   <h4>Treasure - {{treasure.items}}</h4>
-  {{treasure.traits}}
+  <strong><small>Trait:</small></strong> {{treasure.traits}}
   <br/>
   <br/><strong><small>Valuable Materials:</small></strong> {{valuable_materials}}
 

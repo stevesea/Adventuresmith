@@ -8,7 +8,7 @@ templates:
   <br/>
   <br/><strong>Reward:</strong> {{dungeon.rewards}}
   <br/>
-  <br/><strong>Activities:</strong> {{>pickN: 1d2+2 dungeon.activities}}
+  <br/><strong>Activities:</strong> {{>pickN: 1d3 dungeon.activities}}
 
 imports:
 - maze_rats_base

@@ -489,6 +489,7 @@ nested_tables:
     - Toxic
     - Vile
   items:
+    equipment:
     items:
     - "{{items.misc}}"
     - "{{items.worn}}"
@@ -1773,7 +1774,7 @@ nested_tables:
     - Trash
     - "{{npc_occupation.underworld}}"
     - "{{buildings.upper_class}}"
-    - "{{buildings.lower_class}}"  # ???? TODO: typo in 4.1?
+    - "{{buildings.lower_class}}"
     - Vices
     - "{{npc_occupation.wilderness}}"
     - Wizardry
@@ -2240,8 +2241,7 @@ nested_tables:
     - Corrupted
     - Creeping
     - Desolate
-    # TODO: asked Ben, not sure what should go there
-    #- "{{dungeon.trait}}"
+    - "{{dungeon.tricks}}"
     - Eternal
     - "{{magic.ethereal_effects}}"
     - Forsaken

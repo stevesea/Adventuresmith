@@ -15,8 +15,6 @@ templates:
   <br/>
   <br/>{{>pickN: 2 items.weapons}}
 
-# TODO: secrets, reputation, etc?
-
 imports:
 - maze_rats_base
 - names

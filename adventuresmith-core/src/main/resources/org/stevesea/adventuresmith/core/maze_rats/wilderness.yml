@@ -1,12 +1,16 @@
 ---
 templates:
 - |
-  <h4>Wildreness Region </h4>
-  {{wilderness.region_traits}} {{wilderness.regions}}
+  <h4>Wilderness Region - {{wilderness.regions}}</h4>
+  <strong>Trait:</strong> {{wilderness.region_traits}}
   <br/>
-  <br/><strong>Activities:</strong> {{>pickN: 1d2+2 wilderness.activities}}
+  <br/><strong>Activities:</strong> {{>pickN: 1d2+1 wilderness.activities}}
   <br/>
-  <br/><strong>Hazards:</strong> {{>pickN: 1d2+2 wilderness.hazards}}
+  <br/><strong>Hazards:</strong> {{>pickN: 1d2+1 wilderness.hazards}}
+  <br/>
+  <br/><strong>Landmarks:</strong> {{>pickN: 1d2+1 wilderness.landmarks}}
+  <br/>
+  <br/><strong>Structures:</strong> {{>pickN: 1d2+1 wilderness.structures}}
 
 imports:
 - maze_rats_base

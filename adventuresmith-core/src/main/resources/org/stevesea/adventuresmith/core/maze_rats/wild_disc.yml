@@ -1,9 +1,6 @@
 ---
 templates:
-- |
-  <strong>Wildreness Discovery </strong>
-  <br/>
-  <br/>{{wilderness.discoveries}}
+- "Wilderness Discovery - <strong>{{wilderness.discoveries}}</strong>"
 
 imports:
 - maze_rats_base

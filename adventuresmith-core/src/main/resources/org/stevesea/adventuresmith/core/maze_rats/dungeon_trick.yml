@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  <strong>Dungeon Trick</strong> - {{dungeon.tricks}}
+  Dungeon Trick - <strong>{{dungeon.tricks}}</strong>
 
 imports:
 - maze_rats_base
