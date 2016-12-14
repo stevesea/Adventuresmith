@@ -27,7 +27,7 @@ tables:
   - The walls emit a bright light
   - Ashes rest on the floor
   - "The stone is painted - {{corridor_detail.paint}}"
-  - stone has fallen from the ceiling
+  - Stone has fallen from the ceiling
   - A small sapling grows out from the floor
   - A message is scrawled on the wall
   - Several bricks have runes engraved on them
@@ -84,7 +84,7 @@ tables:
   - Narrow recesses run floor to ceiling, at regular repeating distances
   - Several flagstones click when stepped
   - Fake tripwire
-  - small cages sit in alcoves in the walls
+  - Small cages sit in alcoves in the walls
   - A mop and bucket sit against the wall
   - Roots grow up out of the floor
   - Arches intersperse the hallway
@@ -103,8 +103,8 @@ tables:
   - Gold coins rest on the floor
   - A dead adventurer lies on the ground
   - Platinum coins lie on the floor
-  - "{{>pickN: 2 corridors_and_hallways}}"
-  - "{{>pickN: 3 corridors_and_hallways}}"
+  - "{{>pickN: 2 corridors_and_hallways <br/>}}"
+  - "{{>pickN: 3 corridors_and_hallways <br/>}}"
   - |
     {{corridors_and_hallways}}
     {{trap_type}}
