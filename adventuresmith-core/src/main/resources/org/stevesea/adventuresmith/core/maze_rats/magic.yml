@@ -1,4 +1,115 @@
 ---
+tables:
+  mutations:
+  - Ages
+  - Attracts birds
+  - Child-form
+  - Corpulence
+  - Covered in hair
+  - "{{animal.forms}} arms"
+  - "{{animal.forms}} eyes"
+  - "{{animal.forms}} head"
+  - "{{animal.forms}} legs"
+  - "{{animal.forms}} mouth"
+  - "{{animal.forms}} skin"
+  - "{{animal.forms}}-form"
+  - Cyclops
+  - Extra arms
+  - Extra eyes
+  - Extra legs
+  - Forked tongue
+  - Gender swap
+  - Hunchback
+  - "{{items.items}}-form"
+  - Long arms
+  - Lose all hair
+  - Loses teeth
+  - "{{monster.features}}"
+  - "Trait: {{monster.traits}}"
+  - No eyes
+  - No mouth
+  - "{{magic.physical_elements}}-skin"
+  - Second face
+  - Sheds skin
+  - Shrinks
+  - Skin boils
+  - Slime trail
+  - Translucent skin
+  - Weeps blood
+  insanities:
+  - Always lies
+  - Always polite
+  - "\"{{animal.forms}}-form\""
+  - Cannot count
+  - Cannot lie
+  - Faceblind
+  - Fears birds
+  - Fears blood
+  - Fears books
+  - Fears darkness
+  - Fears fire
+  - Fears gold
+  - Fears horses
+  - Fears iron
+  - Fears music
+  - Fears own hand
+  - Fears PC
+  - Fears rain
+  - Fears rivers
+  - Fears silence
+  - Fears sleep
+  - Fears sunlight
+  - Fears the moon
+  - Fears trees
+  - "\"Genius\""
+  - "\"Gorgeous\""
+  - Hates violence
+  - "\"Invisible\""
+  - "\"Invulnerable\""
+  - "\"Ability: {{monster.abilities}}\""
+  - "\"{{monster.features}}\""
+  - "\"Trait: {{monster.traits}}\""
+  - Must sing
+  - "New personality - <em>{{characters.personalities}}</em>"
+  - Says thoughts
+  - Sees dead people
+  omens_catastrophes:
+  - All iron rusts
+  - Animals die
+  - "Animals mutate - <em>{{mutations}}</em>"
+  - Birds attack
+  - City appears
+  - Deadly fog
+  - Dream plague
+  - Endless night
+  - Endless rain
+  - Endless storm
+  - Endless twilight
+  - Endless winter
+  - Fae return
+  - Forest appears
+  - Forgetfulness
+  - Graves open
+  - Lamentations
+  - Maggots
+  - "Mass insanity - <em>{{insanities}}</em>"
+  - "Mass mutation - <em>{{mutations}}</em>"
+  - Mass slumber
+  - Meteor strike
+  - Mirrors speak
+  - No stars
+  - Outsider appears
+  - People shrink
+  - People vanish
+  - Plants wither
+  - Portal opens
+  - Rifts open
+  - Shadows speak
+  - Space distorts
+  - Stones speak
+  - Total silence
+  - Tower appears
+  - Water to blood
 nested_tables:
   magic:
     spells:

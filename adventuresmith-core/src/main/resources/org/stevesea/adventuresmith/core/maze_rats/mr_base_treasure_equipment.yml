@@ -1,0 +1,384 @@
+---
+tables:
+
+  valuable_materials:
+  - Alabaster
+  - Amber
+  - Aquamarine
+  - Azurite
+  - Beryl
+  - Black Pearl
+  - Bloodstone
+  - Bone China
+  - Chalcedony
+  - Cinnabar
+  - Coral
+  - Diamond
+  - Ebony
+  - Emerald
+  - Fire Agate
+  - Garnet
+  - Gold
+  - Ivory
+  - Jade
+  - Jasper
+  - Jet
+  - Lapis Lazuli
+  - Malachite
+  - Moonstone
+  - Onyx
+  - Opal
+  - Pearl
+  - Platinum
+  - Porcelain
+  - Ruby
+  - Sapphire
+  - Serpentine
+  - Silver
+  - Star Iron
+  - Topaz
+  - Turquoise
+  books:
+  - Alchemy
+  - Art
+  - Astrology
+  - Blackmail
+  - Charts & maps
+  - Conspiracies
+  - Cookbook
+  - Criminals
+  - Divination
+  - Etiquette
+  - Fashion
+  - Genealogy
+  - Hagiography
+  - History
+  - Journal
+  - Language
+  - Laws
+  - Letters
+  - Lost empires
+  - Lost places
+  - Love poems
+  - Monsters
+  - Mythology
+  - Odd customs
+  - Oratory
+  - Propaganda
+  - Prophecies
+  - Siegecraft
+  - Songs
+  - State secrets
+  - Sword fighting
+  - Theology
+  - Treasures
+  - War chronicle
+  - Who's who
+  - Witch-hunting
+  potions:
+  - "{{animal.forms}}-form"
+  - Body swap
+  - Camouflage
+  - Control animals
+  - "Control {{magic.elements}}"
+  - Cure affliction
+  - Detect evil
+  - Detect gold
+  - Detect hidden
+  - Direction sense
+  - "{{magic.elements}}-form"
+  - "{{magic.elements}}-skin"
+  - Extra arm
+  - Flight
+  - Ghost-speech
+  - Heat vision
+  - "Insanity - <em>{{insanities}}</em>"
+  - Invulnerable
+  - "{{items.items}}-form"
+  - Magic immunity
+  - "{{monster.abilities}}"
+  - "{{monster.features}}"
+  - "{{monster.traits}}"
+  - "Mutation - <em>{{mutations}}</em>"
+  - Night vision
+  - "Spell: {{magic.spells}}"
+  - Restore health
+  - Speed
+  - Stretchy
+  - Super-jump
+  - Super-strength
+  - Telekinesis
+  - Tongues
+  - Water-breathing
+  - Water-walking
+  magical_ingredients:
+  - Ancient liquor
+  - "{{animal.forms}}"
+  - Blind eye
+  - Boiled cat
+  - "Book page - <em>{{books}}</em>"
+  - Bottled fog
+  - Coffin nail
+  - Corpse's hair
+  - Crossroad dust
+  - Cultist entrails
+  - "{{edible_plants}}"
+  - Exotic spice
+  - Killer's hand
+  - King's tooth
+  - Last breath
+  - Liar's tongue
+  - Lightning bolt
+  - Lodestone
+  - Monk's vow
+  - "{{monster.features}}"
+  - Newborn's cry
+  - Oil portrait
+  - "{{magic.physical_elements}}"
+  - "{{poisonous_plants}}"
+  - "Potion - <em>{{potions}}</em>"
+  - Pyre ember
+  - Queen bee
+  - Queen's blood
+  - Ship's barnacle
+  - Star-metal
+  - Thief's finger
+  - Tomb flower
+  - "{{valuable_materials}}"
+  - Wedding ring
+  - Widow's tears
+  - Wizard skull
+
+nested_tables:
+
+  treasure:
+    items:
+    - Alchemy recipe
+    - Amulet
+    - Astrolabe
+    - Blueprints
+    - Calligraphy
+    - Carpet
+    - Compass
+    - Contract
+    - Crown
+    - Crystal
+    - Deed
+    - Embroidery
+    - Fine china
+    - Fine liquor
+    - Instrument
+    - Magical book
+    - Microscope
+    - Music box
+    - Orrery
+    - Painting
+    - Perfume
+    - Prayer book
+    - Printing block
+    - Rare textile
+    - Royal robes
+    - Saint's relic
+    - Scrimshaw
+    - Sextant
+    - Sheet music
+    - Signet ring
+    - Silverware
+    - Spices
+    - Spyglass
+    - Tapestry
+    - Telescope
+    - Treasure map
+    traits:
+    - Altered
+    - Ancient
+    - Blessed
+    - Bulky
+    - Compact
+    - Consumable
+    - Cultural Value
+    - Cursed
+    - Damaged
+    - Disguised
+    - Draws enemies
+    - "{{magic.effects}}"
+    - "{{magic.elements}}"
+    - Embellished
+    - Encoded
+    - Exotic
+    - Extra-planar
+    - Famous
+    - Forbidden
+    - Fragile
+    - Heavy
+    - Immovable
+    - Impracticable
+    - Indestructible
+    - Intelligent
+    - Masterwork
+    - Military value
+    - Non-human
+    - Owned
+    - Partial
+    - Politcal value
+    - Religious value
+    - Repaired
+    - Royal
+    - Toxic
+    - Vile
+  items:
+    equipment:
+    items:
+    - "{{items.misc}}"
+    - "{{items.worn}}"
+    - "{{items.weapons}}"
+    - "{{items.tools}}"
+    - "{{treasure.items}}"
+    misc:
+    - Bowl
+    - Brass bell
+    - Brooch
+    - Carved figurine
+    - Cup
+    - Deck of cards
+    - Drawing
+    - Foreign coin
+    - Game piece
+    - Glass eye
+    - Glass jar
+    - Hair comb
+    - Handkerchief
+    - Hinged box
+    - Hourglass
+    - Human tooth
+    - Hunting horn
+    - Loaded dice
+    - Long fork
+    - Numbered key
+    - Oil lamp
+    - Old doll
+    - Paint pot
+    - Pencil
+    - Purse
+    - Quill pen
+    - Salve
+    - Scissors
+    - Scroll
+    - Sealed letter
+    - Sewing needle
+    - Shaving razor
+    - Silver button
+    - Skull
+    - Tobacco pipe
+    - Wine bottle
+    worn:
+    - Belt
+    - Blouse
+    - Boots
+    - Bracelet
+    - Breastplate
+    - Brigandine
+    - Cincture
+    - Cloak
+    - Coat
+    - Dress
+    - Earing
+    - Eyepatch
+    - Gauntlets
+    - Glove
+    - Gown
+    - Hat
+    - Helmet
+    - Hose
+    - Leather armor
+    - Locket
+    - Mail Shirt
+    - Mask
+    - Necklace
+    - Padded armor
+    - Plate mail
+    - Ring
+    - Robe
+    - Sandals
+    - Scarf
+    - Shirt
+    - Shoes
+    - Skirt
+    - Slippers
+    - Socks
+    - Trousers
+    - Veil
+    weapons:
+    - Arming sword
+    - Backsword
+    - Battleaxe
+    - Blowpipe
+    - Claymore
+    - Club
+    - Crossbow
+    - Cutlass
+    - Dagger
+    - Flail
+    - Flanged mace
+    - Glaive
+    - Halberd
+    - Hammer
+    - Hatchet
+    - Horsebow
+    - Hunting knife
+    - Lance
+    - Longbow
+    - Longsword
+    - Mace
+    - Maul
+    - Morningstar
+    - Pike
+    - Scimitar
+    - Shortbow
+    - Sickle
+    - Sling
+    - Spear
+    - Staff
+    - Stake
+    - Stiletto
+    - Throwing axe
+    - Warhammer
+    - Warpick
+    - Whip
+    tools:
+    - Acid flask
+    - Bear trap
+    - Bellows
+    - Bolt-cutters
+    - Chain
+    - Chisel
+    - Crowbar
+    - Door ram
+    - Ear trumpet
+    - Fire oil
+    - Fishing hook
+    - Goggles
+    - Grappling hook
+    - Grease
+    - Hacksaw
+    - Hammer
+    - Hand drill
+    - Lantern
+    - Lens
+    - Lock/key
+    - Lockpicks
+    - Manacles
+    - Metal file
+    - Mortar/pestle
+    - Needle
+    - Pickaxe
+    - Pitchfork
+    - Pliers
+    - Pole
+    - Pulleys
+    - Rope
+    - Scissors
+    - Shovel
+    - Spikes
+    - Steel wire
+    - Tongs

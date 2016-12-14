@@ -1,0 +1,753 @@
+---
+tables:
+  divine_domains:
+  - "{{animal.forms}}"
+  - Balance
+  - Betrayal
+  - Chance
+  - Chaos
+  - Conquest
+  - Cycles
+  - Death
+  - Destiny
+  - Dreams
+  - "{{magic.elements}}"
+  - Gateways
+  - Judgement
+  - Love
+  - Memory
+  - Monsters
+  - Moon
+  - Motherhood
+  - "NPC <em>({{npc_occupation.select}})</em>"
+  - Oaths
+  - Order
+  - Plague
+  - Purification
+  - Reason
+  - Schemes
+  - Secrets
+  - Storms
+  - Summer
+  - Sun
+  - The Forge
+  - The Sea
+  - The Wild
+  - Time
+  - Underworld
+  - Wealth
+  - Winter
+  missions:
+  - Apprehend
+  - Assassinate
+  - Blackmail
+  - Burgle
+  - Chart
+  - Convince
+  - Deface
+  - Defraud
+  - Deliver
+  - Destroy
+  - Discredit
+  - Escort
+  - Exfiltrate
+  - Extort
+  - Follow
+  - Frame
+  - Impersonate
+  - Impress
+  - Infiltrate
+  - Interrogate
+  - Investigate
+  - Kidnap
+  - Locate
+  - Plant
+  - Protect
+  - Raid
+  - Replace
+  - Retrieve
+  - Rob
+  - Ruin
+  - Sabotage
+  - Smuggle
+  - Surveil
+  - Take Over
+  - Terrorize
+  - Threaten
+
+nested_tables:
+  npc:
+    assets:
+    - Authority
+    - Avoids detection
+    - Calls in favors
+    - Charming
+    - Cooks the books
+    - Erases evidence
+    - Excellent liar
+    - Extremely rich
+    - "Faction-leader - <em>{{factions.factions}}</em>"
+    - "Faction-member - <em>{{factions.factions}}</em>"
+    - Feared
+    - Fortified base
+    - Gorgeous
+    - Hears rumors
+    - Huge family
+    - Huge library
+    - Impersonator
+    - Interrogator
+    - Knows a guy
+    - Knows a way in
+    - Launders money
+    - Learned
+    - Local celebrity
+    - Local knowledge
+    - Loyal henchmen
+    - Middling oracle
+    - Nothing to lose
+    - Owns the guards
+    - Powerful spouse
+    - Procures gear
+    - Pulls the strings
+    - Secret lab
+    - Sells contraband
+    - Smuggles goods
+    - Spy network
+    - War hero
+    liabilities:
+    - Addiction
+    - Alcoholic
+    - Corrupt ally
+    - Coward
+    - Decadent
+    - Forbidden love
+    - Gambler
+    - Glutton
+    - Greedy
+    - Heretic
+    - Huge debts
+    - Imposter
+    - "Insanity - <em>{{insanities}}</em>"
+    - Jealous
+    - Leaves evidence
+    - Many enemies
+    - Misinformed
+    - Money trail
+    - Narcissist
+    - Needs medicine
+    - OCD
+    - Paranoid
+    - Partyer
+    - Poor equipment
+    - Protective
+    - Scandalous
+    - Softhearted
+    - Strict routines
+    - Superstitious
+    - Suspicious
+    - Temper
+    - Trusting
+    - Vulnerable base
+    - Wanted
+    - Weak-willed
+    - Widely despised
+    goals:
+    - A better life
+    - Acceptance
+    - "Acquire item <em>({{items.items}})</em>"
+    - "Craft item <em>({{items.items}})</em>"
+    - "Destroy faction <em>({{factions.factions}})</em>"
+    - "Destroy item <em>({{items.items}})</em>"
+    - Enlightenment
+    - Fame
+    - "Acquire faction <em>({{factions.factions}})</em>"
+    - Freedom
+    - Glory
+    - "Impress NPC <em>({{npc_occupation.select}})</em>"
+    - Infamy
+    - "Infiltrate faction <em>({{factions.factions}})</em>"
+    - Justice
+    - "Kidnap NPC <em>({{npc_occupation.select}})</em>"
+    - "Lead faction <em>({{factions.factions}})</em>"
+    - Learning
+    - "Locate NPC <em>({{npc_occupation.select}})</em>"
+    - Love
+    - Mastery
+    - Power
+    - Reach location
+    - "Rescue NPC <em>({{npc_occupation.select}})</em>"
+    - Resolve dispute
+    - "Restore faction <em>({{factions.factions}})</em>"
+    - Reveal a secret
+    - Revenge
+    - "Sabotage faction <em>({{factions.factions}})</em>"
+    - Serve a deity
+    - Serve evil
+    - "Serve faction <em>({{factions.factions}})</em>"
+    - Serve ideology
+    - Serve leader
+    - Serve the needy
+    - Wealth
+    misfortunes:
+    - Abandoned
+    - Addicted
+    - Arrested
+    - Blackmailed
+    - Burgled
+    - Challenged
+    - Condemned
+    - Crippled
+    - Cursed
+    - Defrauded
+    - Demoted
+    - Depressed
+    - Discredited
+    - Dismissed
+    - Disowned
+    - Exiled
+    - Famished
+    - Forgotten
+    - Framed
+    - Haunted
+    - Humiliated
+    - Impoverished
+    - Kidnapped
+    - Lost
+    - Mobbed
+    - Mutilated
+    - Overworked
+    - Poisoned
+    - Pursued
+    - Rejected
+    - Replaced
+    - Robbed
+    - Sick
+    - Sued
+    - Suspected
+    - Transformed
+
+  npc_occupation:
+    select:
+    - "{{npc_occupation.civilized}}"
+    - "{{npc_occupation.underworld}}"
+    - "{{npc_occupation.wilderness}}"
+    civilized:
+    - Acolyte
+    - Actor
+    - Apothecary
+    - Baker
+    - Barber
+    - Blacksmith
+    - Brewer
+    - Bureaucrat
+    - Butcher
+    - Carpenter
+    - Clockmaker
+    - Courier
+    - Courtier
+    - Diplomat
+    - Fishmonger
+    - Guard
+    - Haberdasher
+    - Innkeeper
+    - Item-seller
+    - Jeweler
+    - Knight
+    - Locksmith
+    - Mason
+    - Miller
+    - Musician
+    - Noble
+    - Painter
+    - Priest
+    - Scholar
+    - Scribe
+    - Sculptor
+    - Shipwright
+    - Soldier
+    - Tailor
+    - Taxidermist
+    - Wigmaker
+    underworld:
+    - Alchemist
+    - Beggar-prince
+    - Blackmailer
+    - Bounty-hunter
+    - Chimney sweep
+    - Coin-clipper
+    - Contortionist
+    - Counterfeiter
+    - Cultist
+    - Cutpurse
+    - Debt-collector
+    - Deserter
+    - Fence
+    - Fortuneteller
+    - Galley slave
+    - Gambler
+    - Gravedigger
+    - Headsman
+    - Hedge knight
+    - Highwayman
+    - Housebreaker
+    - Kidnapper
+    - Mad prophet
+    - Mountebank
+    - Peddler
+    - Pit-fighter
+    - Poisoner
+    - Rat-catcher
+    - Scrivener
+    - Sellsword
+    - Slave
+    - Smuggler
+    - Street performer
+    - Tattooist
+    - Urchin
+    - Usurer
+
+    wilderness:
+    - Apiarist
+    - Bandit
+    - Caravan Guard
+    - Caravaneer
+    - Druid
+    - Exile
+    - Explorer
+    - Farmer
+    - Fisherman
+    - Forager
+    - Fugitive
+    - Hedge wizard
+    - Hermit
+    - Hunter
+    - Messenger
+    - Minstrel
+    - Monk
+    - Monster hunter
+    - Outlander
+    - Tinker
+    - Pilgrim
+    - Poacher
+    - Raider
+    - Ranger
+    - Sage
+    - Scavenger
+    - Scout
+    - Shepherd
+    - Seer
+    - Surveyor
+    - Tinker
+    - Tomb raider
+    - Trader
+    - Trapper
+    - Witch
+    - Woodcutter
+  characters:
+    methods:
+    - Alchemy
+    - Blackmail
+    - Bluster
+    - Bribery
+    - Bullying
+    - Bureaucracy
+    - Charm
+    - Commerce
+    - Cronies
+    - Debate
+    - Deceit
+    - Deduction
+    - Eloquence
+    - Espionage
+    - Fast-talking
+    - Favors
+    - Hard Work
+    - Humor
+    - Investigation
+    - Legal Maneuvers
+    - Manipulation
+    - Misdirection
+    - Money
+    - Nagging
+    - Negotiation
+    - Persistence
+    - Piety
+    - Prepartion
+    - Quick Wit
+    - Research
+    - Rumors
+    - Sabotage
+    - Teamwork
+    - Theft
+    - Threats
+    - Violence
+    appearance:
+    - Aquiline
+    - Athletic
+    - Barrel-Chested
+    - Boney
+    - Brawny
+    - Brutish
+    - Bullnecked
+    - Chiseled
+    - Coltish
+    - Corpulent
+    - Craggy
+    - Delicate
+    - Furrowed
+    - Gaunt
+    - Gorgeous
+    - Grizzled
+    - Haggard
+    - Handsome
+    - Hideous
+    - Lanky
+    - Pudgy
+    - Ripped
+    - Rosy
+    - Scrawny
+    - Sinewy
+    - Slender
+    - Slumped
+    - Solid
+    - Square-Jawed
+    - Statuesque
+    - Towering
+    - Trim
+    - Weathered
+    - Willowy
+    - Wiry
+    - Wrinkled
+    physical_detail:
+    - Acid scars
+    - Battle scars
+    - Birthmark
+    - Braided hair
+    - Brand mark
+    - Broken nose
+    - Bronze skinned
+    - Burn scars
+    - Bushy eyebrows
+    - Curly hair
+    - Dark skinned
+    - Dreadlocks
+    - Exotic accent
+    - Flogging scars
+    - Freckles
+    - Gold tooth
+    - Hoarse voice
+    - Huge beard
+    - Long hair
+    - Melodious voice
+    - Missing ear
+    - Missing teeth
+    - Mustache
+    - Muttonchops
+    - Nine fingers
+    - Oiled hair
+    - One-eyed
+    - Pale skinned
+    - Piercings
+    - Ritual scars
+    - Sallow skin
+    - Shaved head
+    - Sunburned
+    - Tangled hair
+    - Tattoos
+    - Topknot
+    background:
+    - Alchemist
+    - Beggar-prince
+    - Blackmailer
+    - Bounty-hunter
+    - Chimney sweep
+    - Coin-clipper
+    - Contortionist
+    - Counterfeiter
+    - Cultist
+    - Cutpurse
+    - Debt-collector
+    - Deserter
+    - Fence
+    - Fortuneteller
+    - Galley slave
+    - Gambler
+    - Gravedigger
+    - Headsman
+    - Hedge knight
+    - Highwayman
+    - Housebreaker
+    - Kidnapper
+    - Mad prophet
+    - Mountebank
+    - Peddler
+    - Pit-fighter
+    - Poisoner
+    - Rat-catcher
+    - Scrivener
+    - Sellsword
+    - Slave
+    - Smuggler
+    - Street performer
+    - Tattooist
+    - Urchin
+    - Usurer
+    clothing:
+    - Antique
+    - Battle-torn
+    - Bedraggled
+    - Blood-stained
+    - Ceremonial
+    - Dated
+    - Decaying
+    - Eccentric
+    - Elegant
+    - Embroidered
+    - Exotic
+    - Fashionable
+    - Flamboyant
+    - Food-stained
+    - Formal
+    - Frayed
+    - Frumpy
+    - Garish
+    - Grimy
+    - Haute couture
+    - Lacey
+    - Livery
+    - Mud-stained
+    - Ostentatious
+    - Oversized
+    - Patched
+    - Patterned
+    - Perfumed
+    - Practical
+    - Rumpled
+    - Sigils
+    - Singed
+    - Tasteless
+    - Undersized
+    - Wine-stained
+    - Worn out
+    personalities:
+    - Bitter
+    - Brave
+    - Cautious
+    - Chipper
+    - Contrary
+    - Cowardly
+    - Cunning
+    - Driven
+    - Entitled
+    - Gregarious
+    - Grumpy
+    - Heartless
+    - Honor-bound
+    - Hotheaded
+    - Inquisitive
+    - Irascible
+    - Jolly
+    - Know-it-all
+    - Lazy
+    - Loyal
+    - Menacing
+    - Mopey
+    - Nervous
+    - Protective
+    - Righteous
+    - Rude
+    - Sarcastic
+    - Savage
+    - Scheming
+    - Serene
+    - Spacey
+    - Stoic
+    - Stubborn
+    - Stuck-up
+    - Suspicious
+    - Wisecracking
+    mannerism:
+    - Anecdotes
+    - Breathy
+    - Chuckles
+    - Clipped
+    - Cryptic
+    - Deep voice
+    - Drawl
+    - Enunciates
+    - Flowery speech
+    - Gravelly voice
+    - Highly formal
+    - Hypnotic
+    - Interrupts
+    - Laconic
+    - Laughs
+    - Long pauses
+    - Melodious
+    - Monotone
+    - Mumbles
+    - Narrates
+    - Overly casual
+    - Quaint sayings
+    - Rambles
+    - Random facts
+    - Rapid-fire
+    - Rhyming
+    - Robotic
+    - Slow speech
+    - Speechifies
+    - Squeaky
+    - Street slang
+    - Stutters
+    - Talks to self
+    - Trails off
+    - Very loud
+    - Whispers
+    secrets:
+    - Addicted
+    - Artificial
+    - Assassin
+    - Bankrupt
+    - Beholden
+    - Counterspy
+    - Cultist
+    - Demigod
+    - Evil lineage
+    - Exile
+    - Fence
+    - Fugitive
+    - Ghost
+    - Has a child
+    - Heretic
+    - Highborn
+    - Huge fortune
+    - Illusion
+    - Insurrectionist
+    - Low born
+    - Married
+    - Mind-controlled
+    - "Misfortune: {{npc.misfortunes}}"
+    - Monster hunter
+    - Non-human
+    - "NPC <em>({{npc_occupation.select}})</em>"
+    - Polygamist
+    - Protects relic
+    - Scandalous birth
+    - Secret police
+    - Serial killer
+    - Smuggler
+    - Spy
+    - Time traveler
+    - Transformed
+    - War criminal
+    reputations:
+    - Ambitious
+    - Authoritative
+    - Boor
+    - Borrower
+    - Celebrity
+    - Charitable
+    - Cheat
+    - Dangerous
+    - Entertainer
+    - Gossip
+    - Hardworking
+    - Holy
+    - Honest
+    - Hypochondriac
+    - Idiot
+    - Influential
+    - Layabout
+    - Leader
+    - Misanthrope
+    - Miser
+    - Nieghborly
+    - Nutjob
+    - Obnoxious
+    - Overeducated
+    - Partier
+    - Pious
+    - Proper
+    - Prophet of doom
+    - Repulsive
+    - Respected
+    - Riffraff
+    - Scandalous
+    - Slime ball
+    - Terrifying
+    - Weirdo
+    - Wise
+    hobbies:
+    - Archaeology
+    - Art collecting
+    - Bad fiction
+    - Calligraphy
+    - Card games
+    - Clockwork
+    - Collecting cats
+    - Cuisine
+    - Dark lore
+    - Dog breeding
+    - Embroidery
+    - Exercise
+    - Falconry
+    - Fashion
+    - Fishing
+    - Foreign Cultures
+    - Gardening
+    - History
+    - Horseracing
+    - Hunting
+    - Instrument
+    - Knitting
+    - Lawn games
+    - Mountaineering
+    - Opera
+    - Painting
+    - Poetry
+    - Puzzle-solving
+    - Riddling
+    - Science
+    - Sculpture
+    - Sketching
+    - Smoking
+    - Theater
+    - Weaving
+    - Whiskey
+    relationships:
+    - Adviser
+    - Blackmailer
+    - Business partner
+    - Business rival
+    - Buyer
+    - Captor
+    - Client
+    - Confidant
+    - Debtor
+    - Disciple
+    - Guardian
+    - Henchman
+    - Idol
+    - Informant
+    - Master
+    - Mentor
+    - Nemesis
+    - Offspring
+    - Parent
+    - Patron
+    - Politcal Rival
+    - Prisoner
+    - Protégé
+    - Quarry
+    - Right hand
+    - Romantic rival
+    - Servant
+    - Sibling
+    - Social rival
+    - Spouse
+    - Stalker
+    - Suitor
+    - Supplicant
+    - Supplier
+    - Sweetheart
+    - Unrequited love

@@ -1,0 +1,350 @@
+---
+nested_tables:
+
+  animal:
+    forms:
+    - "{{animal.aerial}}"
+    - "{{animal.terrestrial}}"
+    - "{{animal.aquatic}}"
+    aerial:
+    - Albatross
+    - Bat
+    - Beetle
+    - Bird of Paradise
+    - Butterfly
+    - Condor
+    - Crane
+    - Crow
+    - Dragonfly
+    - Eagle
+    - Falcon
+    - Firefly
+    - Flamingo
+    - Fly
+    - Flying Squirrel
+    - Goose
+    - Gull
+    - Hummingbird
+    - Kingfisher
+    - Locust
+    - Magpie
+    - Mantis
+    - Mockingbird
+    - Mosquito
+    - Moth
+    - Owl
+    - Parrot
+    - Peacock
+    - Pelican
+    - Pteranodon
+    - Rooster
+    - Sparrow
+    - Swan
+    - Vulture
+    - Wasp
+    - Woodpecker
+    terrestrial:
+    - Ant
+    - Ape
+    - Armadillo
+    - Badger
+    - Bear
+    - Boar
+    - Caterpillar
+    - Centipede
+    - Chameleon
+    - Cockroach
+    - Deer
+    - Elephant
+    - Ferret
+    - Fox
+    - Giraffe
+    - Goat
+    - Horse
+    - Human
+    - Mole
+    - Ostrich
+    - Ox
+    - Porcupine
+    - Rabbit
+    - Raccoon
+    - Rat
+    - Rhinocerous
+    - Scorpion
+    - Sheep
+    - Slug
+    - Snail
+    - Snake
+    - Spider
+    - Squirrel
+    - Tiger
+    - Wolf
+    - Wolverine
+    aquatic:
+    - Alligator
+    - Amoeba
+    - Anglerfish
+    - Beaver
+    - Clam
+    - Crab
+    - Dolphin
+    - Eel
+    - Frog
+    - Hippopotamus
+    - Jellyfish
+    - Leech
+    - Lobster
+    - Manatee
+    - Manta Ray
+    - Muskrat
+    - Narwhal
+    - Newt
+    - Octopus
+    - Otter
+    - Penguin
+    - Platypus
+    - Pufferfish
+    - Salamander
+    - Sea Anemone
+    - Sea Urchin
+    - Seahorse
+    - Seal
+    - Shark
+    - Shrimp
+    - Squid
+    - Swordfish
+    - Tadpole
+    - Turtle
+    - Walrus
+    - Whale
+
+
+  monster:
+    forms:
+    - "1..4, {{animal.forms}}"
+    - "5, {{>pickN: 2 animal.aerial &nbsp;+&nbsp;}}"
+    - "6, {{>pickN: 2 animal.terrestrial &nbsp;+&nbsp;}}"
+    - "7, {{>pickN: 2 animal.aquatic &nbsp;+&nbsp;}}"
+    - "8, {{>pickN: 2 animal.forms &nbsp;+&nbsp;}}"
+
+    features:
+    - Antlers
+    - Beak
+    - Carapace
+    - Claws
+    - Compound Eyes
+    - Eye Stalks
+    - Fangs
+    - Fins
+    - Fur
+    - Gills
+    - Hooves
+    - Horns
+    - Legless
+    - Long tongue
+    - Many-eyed
+    - Many-limbed
+    - Mucus
+    - Pincers
+    - Plates
+    - Plumage
+    - Proboscis
+    - Scales
+    - Segments
+    - Shaggy hair
+    - Shell
+    - Spikes
+    - Spinnerets
+    - Spines
+    - Stinger
+    - Suction cups
+    - Tail
+    - Talons
+    - Tentacles
+    - Trunk
+    - Tusks
+    - Wings
+    traits:
+    - Amphibious
+    - Bloated
+    - Brittle
+    - Cannibal
+    - Clay-like
+    - Colossal
+    - Crystaline
+    - Decaying
+    - "{{magic.ethereal_elements}}"
+    - Ethereal
+    - Ever-young
+    - Eyeless
+    - Fearless
+    - Fluffy
+    - Fungal
+    - Gelatinous
+    - Geometric
+    - Hardened
+    - Illusory
+    - Intelligent
+    - Iridescent
+    - Luminous
+    - Many-headed
+    - Mechanical
+    - "{{magic.physical_elements}}"
+    - Planar
+    - Reflective
+    - Rubbery
+    - Shadowy
+    - Sharp
+    - Skeletal
+    - Slimy
+    - Sticky
+    - Stinking
+    - Tiny
+    - Translucent
+    abilities:
+    - Absorbing
+    - Acid blood
+    - Anti-magic
+    - Blinding
+    - Breath weapon
+    - Camouflaging
+    - Duplicating
+    - Electric
+    - Entangling
+    - "{{magic.ethereal_effects}}"
+    - Exploding
+    - Flying
+    - Gaze weapon
+    - Hypnotizing
+    - Impervious
+    - Invisible
+    - Life-draining
+    - Magnetic
+    - Mimicking
+    - Mind-Reading
+    - Paralyzing
+    - Phasing
+    - "{{magic.physical_effects}}"
+    - Poisonous
+    - Radioactive
+    - Regenerating
+    - Shapeshifting
+    - Spell-casting
+    - Stealthy
+    - Strangling
+    - Super-strength
+    - Telekinetic
+    - Teleporting
+    - Vampiric
+    - Wall-Crawling
+    tactics:
+    - Ambush
+    - Call for support
+    - Capture
+    - Charge
+    - Climb foes
+    - Compel worship
+    - Create barrier
+    - Deceive
+    - Demand duel
+    - Disorient
+    - Encircle
+    - Evade
+    - Gang up
+    - Gather strength
+    - Go berserk
+    - Harry
+    - Hurl foes
+    - Immobilize
+    - Manipulate
+    - Mock
+    - Monologue
+    - Order minion
+    - Protect leader
+    - Protect self
+    - Scatter foes
+    - Stalk
+    - Steal from
+    - Swarm
+    - Target insolent
+    - Target leader
+    - Target nearest
+    - Target richest
+    - Target strongest
+    - Target weakest
+    - Toy with
+    - Use terrain
+    personalities:
+    - Alien
+    - Aloof
+    - Bored
+    - Cautious
+    - Cowardly
+    - Curious
+    - Devious
+    - Distractible
+    - Educated
+    - Embittered
+    - Envious
+    - Erudite
+    - Fanatical
+    - Forgetful
+    - Generous
+    - Hateful
+    - Honorable
+    - Humble
+    - Jaded
+    - Jovial
+    - Legalistic
+    - Manipulative
+    - Megalomaniac
+    - Melancholy
+    - Meticulous
+    - Mystical
+    - Obsessive
+    - Out of Touch
+    - Paranoid
+    - Polite
+    - Psychopathic
+    - Sophisticated
+    - Touchy
+    - Unimpressed
+    - Vain
+    - Xenophobic
+    weakness:
+    - Bells
+    - Birdsong
+    - Children
+    - Cold
+    - Cold Iron
+    - Competition
+    - Conversation
+    - Deformity
+    - Flattery
+    - Flowers
+    - Gifts
+    - Gold
+    - Heat
+    - Holy Icon
+    - Holy Waters
+    - Home Cooking
+    - "Insanity - <em>{{insanities}}</em>"
+    - Mirrors
+    - Mistletoe
+    - Moonlight
+    - Music
+    - "{{characters.methods}}"
+    - Phylactery
+    - "{{magic.physical_elements}}"
+    - Puzzles
+    - Riddles
+    - Rituals
+    - Silver
+    - Sunlight
+    - Tears
+    - True Name
+    - "{{valuable_materials}}"
+    - Weak Spot
+    - "{{items.weapons}}"
+    - Wine
+    - Wormwood
