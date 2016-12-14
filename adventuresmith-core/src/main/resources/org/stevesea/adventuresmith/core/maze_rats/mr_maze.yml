@@ -1,0 +1,447 @@
+---
+nested_tables:
+  dungeon:
+    entrances:
+    - All libraries
+    - Beaver dam
+    - Behind waterfall
+    - Chalk rectangle
+    - Chest bottom
+    - Chimney
+    - Cupboard
+    - Dolmen shadow
+    - Down a well
+    - Fiery pit
+    - Fog road
+    - Forest spring
+    - Giant book
+    - Gypsy wagon
+    - Hollow tree
+    - Huge keyhole
+    - Iron maiden
+    - Living tattoo
+    - Magic painting
+    - Man-shaped hole
+    - Maze potion
+    - Mirror
+    - Monster mouth
+    - Monster wound
+    - Narrow alley
+    - Rain door
+    - Sewer grate
+    - Sudden rift
+    - Tidal cave
+    - Tower top
+    - Tree roots
+    - Under the bed
+    - Unfolded map
+    - Up a tree
+    - Whirlpool
+    - Wine barrel
+    forms:
+    - Arena
+    - Asylum
+    - Aviary
+    - Bank
+    - Baths
+    - Body
+    - "{{buildings.rooms}}"
+    - Casino
+    - Catacombs
+    - Cave
+    - Court
+    - "{{dungeon.rooms}}"
+    - Forge
+    - Garden
+    - Hideout
+    - Hotel
+    - "{{buildings.lower_class}}"
+    - Laboratory
+    - Library
+    - Market
+    - Mine
+    - Monastery
+    - Museum
+    - Nursery
+    - Orphanage
+    - Palace
+    - Prison
+    - Sewer
+    - Ship
+    - Slave pit
+    - Temple
+    - Theater
+    - "{{buildings.upper_class}}"
+    - University
+    - Vault
+    - Zoo
+    layouts:
+    - Ant colony
+    - Central hub
+    - Claustrophobic
+    - Crisscrossing
+    - Curved
+    - Disorienting
+    - Galleria
+    - Geometric
+    - Gonzo
+    - Haphazard
+    - Highly regular
+    - Honeycomb
+    - Intertwined
+    - Isolated wings
+    - Layered
+    - Linear
+    - Loops
+    - Many corridors
+    - Mazes
+    - "Mix of layouts: {{>pickN: 1d2+1 dungeon.layouts}}"
+    - Multiple hubs
+    - No corridors
+    - Open plan
+    - Open voids
+    - Organic
+    - Oversized
+    - Recursive
+    - Repetitive
+    - Sprawling
+    - Suspended
+    - Symbol shape
+    - Tall and narrow
+    - Themed zones
+    - Vertical
+    - Winding
+    - Ziggurat
+    ruinations:
+    - Arcane disaster
+    - Army invasion
+    - Cannibalism
+    - Civil war
+    - Collapse
+    - Crystal growth
+    - Curse
+    - Degeneration
+    - Earthquake
+    - Eruption
+    - Evil unearthed
+    - Experiments
+    - Explosion
+    - Famine
+    - Fire
+    - Flooding
+    - Fungus
+    - Haunting
+    - Ice
+    - "Insanity: {{insanities}}"
+    - Lava flow
+    - Magical sleep
+    - Melted
+    - Monster attack
+    - "Mutation: {{mutations}}"
+    - Outsider attack
+    - Overgrowth
+    - Petrification
+    - Plague
+    - Planar overlay
+    - Poison gas
+    - Resources gone
+    - Revolt
+    - Risen dead
+    - Too many traps
+    - War
+    rewards:
+    - Ancient lore
+    - Animal ally
+    - Army
+    - Blessing
+    - Blueprints
+    - Cultural artifact
+    - Enemy weakness
+    - Faction ally
+    - Forewarning
+    - Guide
+    - Holy relic
+    - Influential ally
+    - Instructions
+    - Jewels
+    - Key
+    - Lost formula
+    - Machine
+    - "Magic item <em>({{items.items}})</em>"
+    - Magical ally
+    - Map
+    - Martial ally
+    - Masterpiece
+    - "Monster ally <em>({{monster.forms}})</em>"
+    - Oracle
+    - Piles of loot
+    - Planar portal
+    - Prophecy
+    - Renown
+    - Spell
+    - Transformation
+    - Transport
+    - "Treasure item <em>({{treasure.items}})</em>"
+    - Uncovered plot
+    - "Valuable material <em>({{valuable_materials}})</em>"
+    - Vision
+    - Weapon
+    activities:
+    - Besiege
+    - Capture
+    - "{{city.activities}}"
+    - Collect
+    - Construct
+    - Control
+    - Deliver
+    - Demolish
+    - Escape
+    - Feed
+    - Fortify
+    - Guard
+    - Hide
+    - Hunt
+    - Loot
+    - Map
+    - Mine
+    - "{{monster.tactics}}"
+    - Negotiate
+    - Patrol
+    - Perform ritual
+    - Purge
+    - Question
+    - Raid
+    - Repair
+    - Rescue
+    - Research
+    - Revive
+    - Riddle
+    - Scavenge
+    - Seize
+    - Tunnel
+    - Unearth
+    - Vandalize
+    - "{{wilderness.activities}}"
+    - Worship
+    rooms:
+    - Armory
+    - Banquet hall
+    - Barracks
+    - "{{buildings.rooms}}"
+    - Catacombs
+    - Cavern
+    - Chasm
+    - Courtyard
+    - Crypt
+    - Dormitory
+    - Fighting pit
+    - Forge
+    - Fountain
+    - Gate house
+    - Guard room
+    - Kennel
+    - "{{buildings.lower_class}}"
+    - Laboratory
+    - Mess hall
+    - Mine shaft
+    - Museum
+    - Oubliette
+    - Pool
+    - Prison
+    - Record room
+    - Shrine
+    - Slaughterhouse
+    - Stables
+    - Storeroom
+    - Throne room
+    - Torture room
+    - Treasury
+    - "{{buildings.upper_class}}"
+    - Vault
+    - Well
+    - Workshop
+    room_details:
+    - Bas-relief
+    - Blood trail
+    - Bones
+    - Chains
+    - Chalk marks
+    - Claw marks
+    - Corpses
+    - Cracked beams
+    - Crumbling walls
+    - Decaying food
+    - Decaying nest
+    - Dripping water
+    - Fading murals
+    - Faint breeze
+    - Faint footsteps
+    - Fallen pillars
+    - Fungus
+    - Furniture
+    - Graffiti
+    - Mosaics
+    - Recent repairs
+    - Rotting books
+    - Rubble
+    - Shed skin
+    - Slime trails
+    - Spider webs
+    - Stalactites
+    - Stench
+    - Smoke stains
+    - Thick dust
+    - Torn clothes
+    - Tree roots
+    - Unusual smell
+    - Vibrations
+    - Vines
+    - Whispers
+    tricks:
+    - Absorption
+    - Activation
+    - Animation
+    - Blessings
+    - Communication
+    - Confusion
+    - Consumption
+    - Creation
+    - Curses
+    - Deception
+    - Duplication
+    - "{{magic.ethereal_effects}}"
+    - Exchange
+    - Imprisonment
+    - Instructions
+    - Mind-control
+    - "{{missions}}"
+    - Mood-alteration
+    - Nullifcation
+    - "{{magic.physical_effects}}"
+    - Planeshift
+    - Protection
+    - Rejuvenation
+    - Release
+    - Reversal
+    - Rotation
+    - Scrying
+    - Size-alteration
+    - Summoning
+    - Theft
+    - Time-alteration
+    - Transformation
+    - Transmutation
+    - Transportation
+    - Wonder
+    hazards:
+    - Acid drip
+    - Bloodsuckers
+    - Cave-in
+    - Choking dust
+    - Crude oil
+    - Crystal shards
+    - Deafening noise
+    - Dense fog
+    - Ensnaring vines
+    - Fallen floor
+    - Flooding
+    - Freezing
+    - Geysers
+    - Magma
+    - Magnetic field
+    - Mud flow
+    - Narrow ledge
+    - Narrow passage
+    - Poison goo
+    - Poison plants
+    - Precipice
+    - Quicksand
+    - Radiation
+    - Rockslide
+    - Rotten ceiling
+    - Rotten floor
+    - Sinkhole
+    - Slippery slope
+    - Spider webs
+    - Spores
+    - Steam vents
+    - Strong winds
+    - Tar pit
+    - Tight passage
+    - Toppling object
+    - Toxic fumes
+  trap:
+    effects:
+    - Acid pool
+    - Adhesive
+    - Alarm
+    - Armor melts
+    - Bear trap
+    - Blinding spray
+    - Blunt pendulum
+    - Boiling tar
+    - Collapsing floor
+    - Crocodile pit
+    - Crushing walls
+    - Deep pit
+    - Falling cage
+    - Falling ceiling
+    - Fills with sand
+    - Flooding
+    - Giant magnet
+    - Hard vacuum
+    - Lava flow
+    - Lightning
+    - Living statues
+    - Missile fire
+    - "Monster freed <em>({{monster.forms}})</em>"
+    - Net trap
+    - Pendulum blade
+    - Poison gas
+    - Poison needle
+    - Quicksand
+    - Rage gas
+    - Rolling boulder
+    - Room freezes
+    - Room on fire
+    - Sleeping gas
+    - Spiked pit
+    - Tombs open
+    - Wall spikes
+    triggers:
+    - Blow
+    - Break
+    - Burn
+    - Choice
+    - Countdown
+    - Darkness
+    - Drain
+    - Eat
+    - Insert
+    - Kill
+    - Knock
+    - Light
+    - Magic
+    - Melody
+    - Noise
+    - Open
+    - Phrase
+    - Pour
+    - Press
+    - Proximity
+    - Pull
+    - Read
+    - Reflect
+    - Release
+    - Remove
+    - Retrieve
+    - Rudeness
+    - Shut
+    - Sit
+    - Sleep
+    - Slide
+    - Touch
+    - Turn
+    - Unbalance
+    - Unearth
+    - Write

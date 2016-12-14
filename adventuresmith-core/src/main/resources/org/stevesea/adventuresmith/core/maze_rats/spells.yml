@@ -3,4 +3,4 @@ templates:
 - "{{magic.spells}}"
 
 imports:
-- magic
+- mr_magic

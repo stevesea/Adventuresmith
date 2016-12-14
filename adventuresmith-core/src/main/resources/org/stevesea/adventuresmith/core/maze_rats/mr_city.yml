@@ -1,0 +1,456 @@
+---
+nested_tables:
+
+  city:
+    themes:
+    - "{{animal.forms}}"
+    - Aristocracy
+    - Art
+    - Bureaucracy
+    - Castes
+    - Catacombs
+    - "{{city.activities}}"
+    - "{{city.events}}"
+    - Crime families
+    - Cruelty
+    - "{{city.districts}}"
+    - "{{divine_domains}}"
+    - "Faction <em>({{factions.factions}})</em>"
+    - Festivals
+    - Feuds
+    - Intrigue
+    - "{{buildings.lower_class}}"
+    - Martial law
+    - Meritocracy
+    - "NPC <em>({{npc_occupation.select}})</em>"
+    - Opulence
+    - "{{magic.physical_elements}}"
+    - Pilgrimages
+    - Piracy
+    - Plutocracy
+    - Poverty
+    - Rituals
+    - Slavery
+    - Spices
+    - Theocracy
+    - Thievery
+    - Trade
+    - Tyranny
+    - "{{buildings.upper_class}}"
+    - Wizardry
+    - Xenophobia
+    events:
+    - Assassination
+    - Carnival
+    - Conscription
+    - Coronation
+    - Coup
+    - Cult activity
+    - Curfew
+    - Discovery
+    - Earthquake
+    - "Faction war <em>({{factions.factions}})</em>"
+    - Fashion trend
+    - Fire
+    - Flood
+    - Heavy fog
+    - Heavy taxes
+    - Holy day
+    - Hysteria
+    - Inquisition
+    - Insurrection
+    - Invasion
+    - Jailbreak
+    - Mass eviction
+    - Mass pardon
+    - Negotiations
+    - Plague
+    - Proclamation
+    - Prohibition
+    - Public games
+    - Refugees
+    - Rioting
+    - Roundup
+    - Scandal
+    - Serial killer
+    - Shortage
+    - Tournament
+    - Trial
+    districts:
+    - Catacombs
+    - "{{npc_occupation.civilized}}"
+    - Construction
+    - Crafts
+    - Criminality
+    - Culture
+    - Dining
+    - Education
+    - Entertainment
+    - Finance
+    - Foreigners
+    - Ghettoes
+    - Government
+    - Graveyards
+    - Green space
+    - Industrialization
+    - Judgement
+    - Livestock
+    - Marketplace
+    - Memorials
+    - Military
+    - Opulence
+    - Pollution
+    - Poverty
+    - Punishment
+    - Religion
+    - Science
+    - Trade
+    - Trash
+    - "{{npc_occupation.underworld}}"
+    - "{{buildings.upper_class}}"
+    - "{{buildings.lower_class}}"
+    - Vices
+    - "{{npc_occupation.wilderness}}"
+    - Wizardry
+    - Wonders
+
+    activities:
+    - Abduct
+    - Beg
+    - Brawl
+    - Burgle
+    - Celebrate
+    - Chase
+    - Construct
+    - Cook
+    - Dance
+    - Duel
+    - "{{dungeon.activities}}"
+    - Execute
+    - Extinguish
+    - Extort
+    - Follow
+    - Gamble
+    - Haul
+    - Interrogate
+    - Marry
+    - "{{missions}}"
+    - Mourn
+    - Party
+    - Patrol
+    - Perform
+    - Play
+    - Preach
+    - Process
+    - Proclaim
+    - Protest
+    - Release
+    - Repair
+    - Riot
+    - Rob
+    - Search
+    - Sell
+    - "{{wilderness.activities}}"
+    tactical_building_features:
+    - "{{animal.forms}} nests"
+    - Balconies
+    - Basement access
+    - Brightly lit
+    - Broken furniture
+    - Broken glass
+    - Cabinets
+    - Carpeted floors
+    - Chandeliers
+    - Crawlspaces
+    - Drain pipes
+    - Dumbwaiters
+    - Echoing marble
+    - Hanging chains
+    - Huge fireplace
+    - Narrow ledges
+    - Open windows
+    - Ornate weapons
+    - Overgrown
+    - Patrols
+    - Piles of trash
+    - Pillars
+    - Rotting ceiling
+    - Rotting floors
+    - Rotting walls
+    - Screens
+    - Servant passages
+    - Sewer access
+    - Shadowy alcoves
+    - Skylights
+    - Spyholes
+    - Staircases
+    - Tall bookshelves
+    - Unlit
+    - Watchdogs
+    - Window drapes
+    tactical_street_features:
+    - Arcade
+    - Awnings
+    - Balconies
+    - Barricades
+    - Bridge
+    - Canal
+    - Carriages
+    - Catwalks
+    - "{{city.activities}}"
+    - Climbable walls
+    - Clotheslines
+    - Crowd
+    - Dead end
+    - Dense fog
+    - Downpour
+    - "{{dungeon.activities}}"
+    - Flooding
+    - Food stalls
+    - Fountain
+    - Gates
+    - Ladders
+    - Livestock
+    - Muddy
+    - Overgrown
+    - Roof access
+    - Roof gardens
+    - Sewer access
+    - Sinkhole
+    - Slick
+    - Steep roofs
+    - Steep streets
+    - Steps
+    - Torn up street
+    - Vermin swarms
+    - Well
+    - "{{wilderness.activities}}"
+
+
+  buildings:
+    buildings:
+    - "{{buildings.upper_class}}"
+    - "{{buildings.lower_class}}"
+    upper_class:
+    - Academy
+    - Alchemist
+    - Archive
+    - Art dealer
+    - Barber
+    - Bookbinder
+    - Bookseller
+    - Castle
+    - Clockmaker
+    - Clothier
+    - Courthouse
+    - Furrier
+    - Gallery
+    - Garden
+    - Haberdashery
+    - Jeweler
+    - Law office
+    - Locksmith
+    - Lounge
+    - Manor
+    - Museum
+    - Observatory
+    - Opera house
+    - Park
+    - Physician
+    - Printer
+    - Public baths
+    - Restaurant
+    - Salon
+    - Stables
+    - Taxidermist
+    - Temple
+    - Tobacconist
+    - Townhouse
+    - Winery
+    - Zoo
+    lower_class:
+    - Apothecary
+    - Asylum
+    - Baker
+    - Brewery
+    - Butcher
+    - Candlemaker
+    - Catacombs
+    - Cheesemaker
+    - Criminal den
+    - Curiosity shop
+    - Dock
+    - Fighting pit
+    - Forge
+    - Fortuneteller
+    - Gambling hall
+    - Leatherworks
+    - Marketplace
+    - Mason
+    - Mill
+    - Moneylender
+    - Orphanage
+    - Outfitter
+    - Prison
+    - Sewers
+    - Shipyards
+    - Shrine
+    - Stockyard
+    - Stonecarver
+    - Tattooist
+    - Tavern
+    - Theater
+    - Veterinarian
+    - Warehouse
+    - Watchtower
+    - Weaver
+    - Workshop
+    rooms:
+    - Arboretum
+    - Attrium
+    - Attic
+    - Aviary
+    - Ballroom
+    - Baths
+    - Bed chamber
+    - Cabinet
+    - Chapel
+    - Cloakroom
+    - Dining room
+    - Dressing room
+    - "{{dungeon.rooms}}"
+    - Garden
+    - Garret
+    - Greenhouse
+    - Junk room
+    - Kitchen
+    - Larder
+    - Library
+    - Map room
+    - Menagerie
+    - Mews
+    - Nursery
+    - Pantry
+    - Parlor
+    - Privy
+    - Root cellar
+    - Saucery
+    - Scullery
+    - Smoking room
+    - Spicery
+    - Still room
+    - Study
+    - Trophy room
+    - Wardrobe
+  factions:
+    factions:
+    - Art movement
+    - Beggar's guild
+    - Black market
+    - Brotherhood
+    - City guard
+    - Conspiracy
+    - Craft guild
+    - Crime family
+    - Crime ring
+    - Dark cult
+    - Explorer's club
+    - Free company
+    - Gourmand club
+    - Heist crew
+    - Heretical sect
+    - High council
+    - Hired killers
+    - Local militia
+    - National church
+    - Noble house
+    - Outlander clan
+    - Outlaw gang
+    - Politcal party
+    - Religious order
+    - Religious sect
+    - Resistance
+    - Royal army
+    - Royal house
+    - Scholar's circle
+    - Secret society
+    - Spy network
+    - Street artists
+    - Street gang
+    - Street musicians
+    - Theater troupe
+    - Trade company
+    traits:
+    - Bankrupt
+    - Bureaucratic
+    - Charitable
+    - Confused
+    - Connected
+    - Corrupt
+    - Decadent
+    - Decaying
+    - Delusional
+    - Divided
+    - Dwindling
+    - Efficient
+    - Esoteric
+    - Expanding
+    - Hunted
+    - Incompetent
+    - Incorruptible
+    - Insane
+    - Insular
+    - Manipulative
+    - Martial
+    - "{{characters.personalities}}"
+    - Pious
+    - Popular
+    - Righteous
+    - Ruthless
+    - Secret
+    - Subversive
+    - Suppressed
+    - Threatened
+    - Thriving
+    - Unpopular
+    - Up-and-coming
+    - Wealthy
+    - Well-prepared
+    - Xenophobic
+    goals:
+    - Advise leader
+    - Avoid detection
+    - Awaken being
+    - Collect artifacts
+    - Construct base
+    - "Control faction <em>({{factions.factions}})</em>"
+    - Control politics
+    - Create artifact
+    - "Create monster <em>({{monster.forms}})</em>"
+    - "Defeat faction <em>({{factions.factions}})</em>"
+    - Defend borders
+    - Defend leader
+    - Destroy artifacts
+    - Destroy being
+    - Destroy villain
+    - Enforce law
+    - Enrich members
+    - Entertain
+    - Exchange goods
+    - Hear rumors
+    - Indulge tastes
+    - "Infiltrate faction <em>({{factions.factions}})</em>"
+    - Map the wild
+    - Overthrow order
+    - Preserve lineage
+    - Preserve lore
+    - Produce goods
+    - Promote arts
+    - Promote craft
+    - Purge traitors
+    - Sell services
+    - Share knowledge
+    - Spread beliefs
+    - Summon evil
+    - Survive
+    - Transport goods

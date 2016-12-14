@@ -1,0 +1,455 @@
+---
+
+tables:
+  edible_plants:
+  - Acorns
+  - Apples
+  - Asparagus
+  - Blackberries
+  - Blueberries
+  - Carrots
+  - Cattail
+  - Cherries
+  - Chickweed
+  - Chicory
+  - Clover
+  - Dandelion
+  - Dead-nettle
+  - Elderberries
+  - Fireweed
+  - Gooseberries
+  - Hazelnuts
+  - Henbit
+  - Hickory nuts
+  - Honeysuckle
+  - Leeks
+  - Milk thistle
+  - Mint
+  - Mulberries
+  - Mushrooms
+  - Mustard
+  - Onion
+  - Pecans
+  - Persimmons
+  - Raspberries
+  - Strawberries
+  - Walnuts
+  - Watercress
+  - Wild garlic
+  - Wild grapes
+  - Wood sorrel
+  poisonous_plants:
+  - Angel's Trumpet
+  - Baneberry
+  - Belladona
+  - Black Truffle
+  - Bleeding Heart
+  - Celandine
+  - Cocklebur
+  - Columbine
+  - Crowncup
+  - Death Cap
+  - Dumbcane
+  - Foxglove
+  - Hemlock
+  - Hogweed
+  - Holly
+  - Horse Chestnut
+  - Hyacinth
+  - Ivy
+  - Jessamine
+  - Kudu
+  - Larkspur
+  - Mandrake
+  - Mangrove
+  - Mistletoe
+  - Moonflower
+  - Nightshade
+  - Oleander
+  - Ragwort
+  - Reindeer Lichen
+  - Snakeweed
+  - Spindle
+  - Stinkhorn
+  - Waxcap
+  - Wine-Cap
+  - Wolfsbane
+  - Wormwood
+
+nested_tables:
+
+  wilderness:
+    regions:
+    - Ashy
+    - Badlands
+    - Bay
+    - Beach
+    - Delta
+    - Desert
+    - Dry lands
+    - Dune sea
+    - Dust bowl
+    - Fjords
+    - Flood lands
+    - Foothills
+    - Forest
+    - Glaciers
+    - Heath
+    - Highlands
+    - Hills
+    - Ice fields
+    - Jungle
+    - Lowlands
+    - Mesas
+    - Moor
+    - Mountains
+    - Petrified forest
+    - Plains
+    - Rainforest
+    - Riverlands
+    - Salt Pan
+    - Savanna
+    - Steppe
+    - Taiga
+    - Thickets
+    - Tundra
+    - Volcanic plain
+    - Wetlands
+    - Woodlands
+    landmarks:
+    - Bog
+    - Boulder field
+    - Butte
+    - Cave
+    - Cliff
+    - Crag
+    - Crater
+    - Creek
+    - Crossing
+    - Ditch
+    - Field
+    - Forest
+    - Grove
+    - Hill
+    - Hollow
+    - Hot springs
+    - Lair
+    - Lake
+    - Lakebed
+    - Marsh
+    - Mesa
+    - Moor
+    - Pass
+    - Pit
+    - Pond
+    - Rapids
+    - Ravine
+    - Ridge
+    - Rise
+    - River
+    - Rockslide
+    - Spring
+    - Swamp
+    - Thickets
+    - Valley
+    - Waterfall
+    structures:
+    - Altar
+    - Aqueduct
+    - Bandit's camp
+    - Battlefield
+    - Bonfire
+    - Bridge
+    - Cairn
+    - Crossroads
+    - Crypt
+    - Dam
+    - Dungeon
+    - Farm
+    - Ford
+    - Fortress
+    - Gallows
+    - Graveyard
+    - Hedge
+    - Hunter's camp
+    - Inn
+    - Lumber camp
+    - Mine
+    - Monastery
+    - Monument
+    - Orchard
+    - Outpost
+    - Pasture
+    - Ruin
+    - Seclusion
+    - Shack
+    - Shrine
+    - Standing stone
+    - Temple
+    - Village
+    - Wall
+    - Watchtower
+    - Waystone
+    region_traits:
+    - Ashen
+    - Blasted
+    - Blighted
+    - Broken
+    - Consuming
+    - Corrupted
+    - Creeping
+    - Desolate
+    - "{{dungeon.tricks}}"
+    - Eternal
+    - "{{magic.ethereal_effects}}"
+    - Forsaken
+    - Frozen
+    - Haunted
+    - Howling
+    - Jagged
+    - Lonely
+    - Misty
+    - Perilous
+    - Petrified
+    - Phantasmal
+    - Ravenous
+    - Savage
+    - Shadowy
+    - Shifting
+    - Shivering
+    - Sinister
+    - Sinking
+    - Smoldering
+    - Sweltering
+    - Thorny
+    - Thundering
+    - Torrential
+    - "{{magic.physical_effects}}"
+    - Wandering
+    - Withered
+    discoveries:
+    - Blood stains
+    - Bones
+    - Broken weapons
+    - Burrow
+    - "{{city.activities}}"
+    - "NPC: {{npc_occupation.civilized}}"
+    - Cut ropes
+    - Dead animal
+    - "{{dungeon.activities}}"
+    - Food scraps
+    - Grave marker
+    - Human corpse
+    - "{{items.items}}"
+    - "Lost NPC: {{npc_occupation.select}}"
+    - "{{magic.effects}}"
+    - Map
+    - Message
+    - Migration
+    - "Mutation: {{mutations}}"
+    - "Nest: {{animal.forms}}"
+    - Portal
+    - Resources
+    - Rift
+    - Strange plant
+    - "Stunned NPC: {{npc_occupation.select}}"
+    - Supplies
+    - Torn flag
+    - "Tracks: {{animal.forms}}"
+    - Trap
+    - Treasure cache
+    - "NPC: {{npc_occupation.underworld}}"
+    - "{{wilderness.activities}}"
+    - "{{wilderness.landmarks}}"
+    - "{{wilderness.structures}}"
+    - "NPC: {{npc_occupation.wilderness}}"
+    - Wizard fight
+    activities:
+    - Ambush
+    - Argue
+    - Birth
+    - Build
+    - Bury
+    - Capture
+    - "{{city.activities}}"
+    - Convene
+    - Demolish
+    - Die
+    - Duel
+    - "{{dungeon.activities}}"
+    - Eat
+    - Excavate
+    - Feast
+    - Felling
+    - Fish
+    - Flee
+    - Forage
+    - Hunt
+    - March
+    - Raid
+    - Rescue
+    - Rest
+    - Sacrifice
+    - Scout
+    - Sing
+    - Skin
+    - Skirmish
+    - Slay
+    - Sleep
+    - Swim
+    - Track
+    - Trap
+    - Wander
+    - Worship
+    hazards:
+    - Avalanche
+    - Blizzard
+    - Brushfire
+    - Cloudburst
+    - Cyclone
+    - Dense fog
+    - Downpour
+    - Drizzle
+    - Dust storm
+    - Earthquake
+    - Eruption
+    - Flooding
+    - Forest fire
+    - Hail
+    - Heat wave
+    - Hurricane
+    - Ice storm
+    - Light mist
+    - Locust swarm
+    - Magma flow
+    - Meteor strike
+    - Monsoon
+    - Mudflow
+    - Mudslide
+    - Predator
+    - Quicksand
+    - Rain of frogs
+    - Rockslide
+    - Sandstorm
+    - Sleet
+    - Snow
+    - Stampede
+    - Thunderstorm
+    - Tsunami
+    - Whirlpool
+    - Windstorm
+  inn:
+    inns:
+    - "{{inn.adjectives}} {{inn.nouns}}"
+    - "{{>pickN: 2 inn.nouns &nbsp;&amp;&nbsp;}}"
+    adjectives:
+    - Bellowing
+    - Blazing
+    - Bleak
+    - Blessed
+    - Bloody
+    - Crimson
+    - Cunning
+    - Copper
+    - Dancing
+    - Dead
+    - Drunken
+    - Flying
+    - Ghastly
+    - Golden
+    - Helpful
+    - Hideous
+    - Howling
+    - Hungry
+    - Moldy
+    - Muttering
+    - Nimble
+    - Oozing
+    - Petrified
+    - Prancing
+    - Romantic
+    - Salty
+    - Singing
+    - Shivering
+    - Shrieking
+    - Silver
+    - Smoking
+    - Thirsty
+    - Wicked
+    - Tipsy
+    - Whistling
+    - Wanton
+    nouns:
+    - Axe
+    - Barrel
+    - Bear
+    - Bell
+    - Boot
+    - Bowl
+    - Bucket
+    - Candle
+    - Cock
+    - Cow
+    - Dragon
+    - Egg
+    - Elephant
+    - Flea
+    - Fork
+    - Giant
+    - Griffin
+    - Hart
+    - Hog
+    - Hound
+    - Lamb
+    - Lion
+    - Mackerel
+    - Maid
+    - Monk
+    - Moon
+    - Pipe
+    - Prince
+    - Rat
+    - Skull
+    - Spoon
+    - Star
+    - Swan
+    - Sword
+    - Whale
+    - Wife
+    quirks:
+    - 100 years in past
+    - Always night
+    - Animal fights
+    - Bard duels
+    - Bigger inside
+    - Black market
+    - Brand new
+    - Cannibals
+    - "{{city.activities}}"
+    - Constant party
+    - Dancing contest
+    - Dead drop
+    - "{{dungeon.forms}}"
+    - Expensive
+    - "Faction hangout <em>({{factions.factions}})</em>"
+    - "Faction trait <em>({{factions.traits}})</em>"
+    - Famous chef
+    - Fey patrons
+    - Fight club
+    - Five floors
+    - Ghost staff
+    - Haunted
+    - Hideout
+    - "Inn / {{buildings.buildings}}"
+    - Magic sword
+    - Magically moves
+    - Mercs for hire
+    - "NPC hangout {{npc_occupation.select}}"
+    - Preaching
+    - Secure storage
+    - Staff are kids
+    - Talking painting
+    - Underground
+    - VIP lounge
+    - Voice in well
+    - Women only
