@@ -2,6 +2,9 @@
 templates:
 - "{{corridors_and_hallways}}"
 
+imports:
+- traps
+
 tables:
   corridors_and_hallways:
   - Completely spotless and clean
@@ -100,9 +103,11 @@ tables:
   - Gold coins rest on the floor
   - A dead adventurer lies on the ground
   - Platinum coins lie on the floor
-  - roll twice
-  - roll three times
-  - trap + roll again
+  - "{{>pickN: 2 corridors_and_hallways}}"
+  - "{{>pickN: 3 corridors_and_hallways}}"
+  - |
+    {{corridors_and_hallways}}
+    {{trap_type}}
   - A magic item
 
 nested_tables:
