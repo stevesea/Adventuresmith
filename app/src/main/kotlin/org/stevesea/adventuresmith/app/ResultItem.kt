@@ -24,8 +24,10 @@ import android.os.*
 import android.support.v7.widget.*
 import android.view.*
 import android.widget.*
+import com.mikepenz.fastadapter.commons.utils.*
 import com.mikepenz.fastadapter.items.*
 import com.mikepenz.fastadapter.utils.*
+import com.mikepenz.materialize.util.*
 import org.stevesea.adventuresmith.*
 import java.util.concurrent.atomic.*
 
@@ -49,9 +51,13 @@ class ResultItem(val htmlTxt: String) :
     override fun bindView(holder: ViewHolder, payloads: List<*>?) {
         super.bindView(holder, payloads)
         holder.itemText.text = (spannedText)
+
+        val ctx = holder.itemText.getContext()
+        //set the background for the item
+        UIUtils.setBackground(holder.itemText, FastAdapterUIUtils.getSelectableBackground(ctx, R.color.resultCardBg, true));
     }
 
-    class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
+    class ViewHolder(val v: View?) : RecyclerView.ViewHolder(v) {
         val itemText = v!!.findViewById(R.id.result_list_item_text) as TextView
     }
 

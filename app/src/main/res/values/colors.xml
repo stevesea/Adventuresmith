@@ -23,6 +23,7 @@
     <color name="divider">@color/md_grey_400</color>
 
     <color name="resultCardBg">@color/colorPrimaryLightLight</color>
+    <color name="resultCardBgSelected">@color/colorPrimaryLight</color>
     <!--
      solarized
     http://ethanschoonover.com/solarized#features

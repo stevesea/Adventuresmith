@@ -34,6 +34,7 @@ import com.crashlytics.android.answers.*
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
+import com.mikepenz.fastadapter_extensions.*
 import com.mikepenz.iconics.*
 import com.mikepenz.iconics.typeface.*
 import com.mikepenz.ionicons_typeface_library.*
@@ -41,6 +42,7 @@ import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.interfaces.*
 import com.mikepenz.materialdrawer.model.*
 import com.mikepenz.materialdrawer.model.interfaces.*
+import com.mikepenz.materialize.util.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.R
@@ -48,6 +50,12 @@ import org.stevesea.adventuresmith.core.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.util.*
+
+
+
+
+
+
 
 
 
@@ -67,6 +75,8 @@ class AdventuresmithActivity : AppCompatActivity(),
     private var drawer: Drawer? = null
     var resultAdapter : FastItemAdapter<ResultItem>? = null
     var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
+
+    var actionModeHelper: ActionModeHelper? = null
 
     var currentFilter : String? = null
 
@@ -177,17 +187,32 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         collapsing_toolbar.title = ""
 
+
         resultAdapter = FastItemAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
                 .withSelectOnLongClick(true)
                 .withPositionBasedStateManagement(true)
-                .withOnLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
+                .withOnPreClickListener(object : FastAdapter.OnClickListener<ResultItem> {
+                    override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
+                        //we handle the default onClick behavior for the actionMode. This will return null if it didn't do anything and you can handle a normal onClick
+                        val res = actionModeHelper!!.onClick(item)
+                        return res ?: false
+                    }
+                })
+                .withOnPreLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
                     override fun onLongClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
-                        if (v == null || item == null)
-                            return false
 
-                        return false
+                        val actionMode = actionModeHelper!!.onLongClick(this@AdventuresmithActivity, position)
+
+                        if (actionMode != null) {
+                            //we want color our CAB
+                            findViewById(R.id.action_mode_bar).setBackgroundColor(UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
+                                    R.attr.colorPrimary, R.color.material_drawer_primary))
+                        }
+
+                        //if we have no actionMode we do not consume the event
+                        return actionMode != null
                     }
                 }) as FastItemAdapter<ResultItem>
 
@@ -201,6 +226,46 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
             }
         })
+
+        actionModeHelper = ActionModeHelper(resultAdapter, R.menu.result_select_menu, object : android.support.v7.view.ActionMode.Callback {
+            override fun onActionItemClicked(mode: android.support.v7.view.ActionMode?, item: MenuItem?): Boolean {
+
+                /*
+
+
+                // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
+                // TODO: https://gist.github.com/mediavrog/5625602
+                /*
+                ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
+                ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
+                clipboard.setPrimaryClip(clipData)
+                */
+
+                val intent = Intent()
+                intent.setAction(Intent.ACTION_SEND)
+                intent.setType("text/html")
+                intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
+                intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
+
+                v.context.startActivity(Intent.createChooser(intent,
+                        v.context.getString(R.string.action_share)))
+                 */
+                mode!!.finish()
+                return true // consume
+            }
+
+            override fun onCreateActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+                return true
+            }
+
+            override fun onDestroyActionMode(mode: android.support.v7.view.ActionMode?) {
+            }
+
+            override fun onPrepareActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+                return false
+            }
+        })
+
         buttonAdapter = FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
@@ -208,7 +273,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                     override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
                             return false
-
 
                         val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
                         val resultItems : MutableList<String> = mutableListOf()
@@ -413,10 +477,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                 CommunityMaterial.Icon.cmd_delete)
                 .color(Color.WHITE)
                 .actionBar()
+        /*
         menu.findItem(R.id.action_share).icon = IconicsDrawable(this,
                 CommunityMaterial.Icon.cmd_share_variant)
                 .color(Color.WHITE)
                 .actionBar()
+                */
         menu.findItem(R.id.search).icon = IconicsDrawable(this,
                 CommunityMaterial.Icon.cmd_magnify)
                 .color(Color.WHITE)
@@ -458,28 +524,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 // expand buttons
                 appbar.setExpanded(true, true)
                 return true
-            } else if (item.itemId == R.id.action_share) {
-                /*
-
-
-                        // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
-                        // TODO: https://gist.github.com/mediavrog/5625602
-                        /*
-                        ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
-                        ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
-                        clipboard.setPrimaryClip(clipData)
-                        */
-
-                        val intent = Intent()
-                        intent.setAction(Intent.ACTION_SEND)
-                        intent.setType("text/html")
-                        intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
-                        intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
-
-                        v.context.startActivity(Intent.createChooser(intent,
-                                v.context.getString(R.string.action_share)))
-                 */
-
             }
         }
         return super.onOptionsItemSelected(item)
