@@ -51,14 +51,6 @@ import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.util.*
 
-
-
-
-
-
-
-
-
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
                               val groupId: String? = null)
@@ -73,16 +65,140 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
-    var resultAdapter : FastItemAdapter<ResultItem>? = null
-    var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
+    val resultAdapter : FastItemAdapter<ResultItem> by lazy {
+        val result = FastItemAdapter<ResultItem>()
+                .withSelectable(true)
+                .withMultiSelect(true)
+                .withSelectOnLongClick(true)
+                .withPositionBasedStateManagement(true)
+                .withOnPreClickListener(object : FastAdapter.OnClickListener<ResultItem> {
+                    override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
+                        //we handle the default onClick behavior for the actionMode. This will return null if it didn't do anything and you can handle a normal onClick
+                        val res = actionModeHelper.onClick(item)
+                        return res ?: false
+                    }
+                })
+                .withOnPreLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
+                    override fun onLongClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
 
-    var actionModeHelper: ActionModeHelper? = null
+                        val actionMode = actionModeHelper.onLongClick(this@AdventuresmithActivity, position)
+
+                        if (actionMode != null) {
+                            //we want color our CAB
+                            findViewById(R.id.action_mode_bar).setBackgroundColor(UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
+                                    R.attr.colorPrimary, R.color.material_drawer_primary))
+                        }
+
+                        //if we have no actionMode we do not consume the event
+                        return actionMode != null
+                    }
+                }) as FastItemAdapter<ResultItem>
+
+        result.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+            override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
+                if (item == null || constraint == null)
+                    return false
+
+                //return true if we should filter it out
+                //return false to keep it
+                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
+            }
+        })
+        result
+    }
+    val buttonAdapter : FastItemAdapter<GeneratorButton> by lazy {
+
+        FastItemAdapter<GeneratorButton>()
+                .withSelectable(false)
+                .withPositionBasedStateManagement(true)
+                .withOnClickListener(object : FastAdapter.OnClickListener<GeneratorButton> {
+                    override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
+                        if (item == null)
+                            return false
+
+                        val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
+                        val resultItems : MutableList<String> = mutableListOf()
+                        for (i in 1..num_to_generate) {
+                            try {
+                                resultItems.add(item.generator.generate(getCurrentLocale(resources)))
+                            } catch (e: Exception) {
+                                warn(e.toString(), e)
+                                resultItems.add(e.toString())
+                            }
+                        }
+                        // disable filter before adding any results
+                        if (currentFilter != null) {
+                            resultAdapter.filter(null)
+                        }
+
+                        resultAdapter.add(0, resultItems.map{ResultItem(it)})
+
+                        recycler_results.scrollToPosition(0)
+
+                        // re-apply the filter if there is one
+                        if (currentFilter != null) {
+                            debug("Applying filter '$currentFilter'")
+                            resultAdapter.filter(currentFilter)
+                        }
+                        debug("Number of items ${resultAdapter.adapterItemCount}")
+
+                        Answers.getInstance().logCustom(
+                                CustomEvent("Generated Result")
+                                        .putCustomAttribute("CollectionId", item.meta.collectionId)
+                                        .putCustomAttribute("GroupId", "${item.meta.groupId}")
+                                        .putCustomAttribute("Name", item.meta.name)
+                        )
+                        return true
+                    }
+                })
+                as FastItemAdapter<GeneratorButton>
+    }
+
+    val actionModeHelper: ActionModeHelper by lazy {
+        ActionModeHelper(resultAdapter, R.menu.result_select_menu, object : android.support.v7.view.ActionMode.Callback {
+            override fun onActionItemClicked(mode: android.support.v7.view.ActionMode?, item: MenuItem?): Boolean {
+
+                /*
+                // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
+                // TODO: https://gist.github.com/mediavrog/5625602
+                /*
+                ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
+                ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
+                clipboard.setPrimaryClip(clipData)
+                */
+
+                val intent = Intent()
+                intent.setAction(Intent.ACTION_SEND)
+                intent.setType("text/html")
+                intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
+                intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
+
+                v.context.startActivity(Intent.createChooser(intent,
+                        v.context.getString(R.string.action_share)))
+                 */
+                mode!!.finish()
+                return true // consume
+            }
+
+            override fun onCreateActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+                return true
+            }
+
+            override fun onDestroyActionMode(mode: android.support.v7.view.ActionMode?) {
+            }
+
+            override fun onPrepareActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+                return false
+            }
+        })
+    }
 
     var currentFilter : String? = null
 
     val sharedPreferences: SharedPreferences by lazy {
         applicationContext.defaultSharedPreferences
     }
+
     val GENERATE_MANY_NUM = 12
     val SETTING_GEN_MANY = "GenerateMany"
     var settingsGenerateMany : Boolean
@@ -187,130 +303,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         collapsing_toolbar.title = ""
 
-
-        resultAdapter = FastItemAdapter<ResultItem>()
-                .withSelectable(true)
-                .withMultiSelect(true)
-                .withSelectOnLongClick(true)
-                .withPositionBasedStateManagement(true)
-                .withOnPreClickListener(object : FastAdapter.OnClickListener<ResultItem> {
-                    override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
-                        //we handle the default onClick behavior for the actionMode. This will return null if it didn't do anything and you can handle a normal onClick
-                        val res = actionModeHelper!!.onClick(item)
-                        return res ?: false
-                    }
-                })
-                .withOnPreLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
-                    override fun onLongClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
-
-                        val actionMode = actionModeHelper!!.onLongClick(this@AdventuresmithActivity, position)
-
-                        if (actionMode != null) {
-                            //we want color our CAB
-                            findViewById(R.id.action_mode_bar).setBackgroundColor(UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
-                                    R.attr.colorPrimary, R.color.material_drawer_primary))
-                        }
-
-                        //if we have no actionMode we do not consume the event
-                        return actionMode != null
-                    }
-                }) as FastItemAdapter<ResultItem>
-
-        resultAdapter!!.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
-            override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
-                if (item == null || constraint == null)
-                    return false
-
-                //return true if we should filter it out
-                //return false to keep it
-                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
-            }
-        })
-
-        actionModeHelper = ActionModeHelper(resultAdapter, R.menu.result_select_menu, object : android.support.v7.view.ActionMode.Callback {
-            override fun onActionItemClicked(mode: android.support.v7.view.ActionMode?, item: MenuItem?): Boolean {
-
-                /*
-
-
-                // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
-                // TODO: https://gist.github.com/mediavrog/5625602
-                /*
-                ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
-                ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
-                clipboard.setPrimaryClip(clipData)
-                */
-
-                val intent = Intent()
-                intent.setAction(Intent.ACTION_SEND)
-                intent.setType("text/html")
-                intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
-                intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
-
-                v.context.startActivity(Intent.createChooser(intent,
-                        v.context.getString(R.string.action_share)))
-                 */
-                mode!!.finish()
-                return true // consume
-            }
-
-            override fun onCreateActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
-                return true
-            }
-
-            override fun onDestroyActionMode(mode: android.support.v7.view.ActionMode?) {
-            }
-
-            override fun onPrepareActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
-                return false
-            }
-        })
-
-        buttonAdapter = FastItemAdapter<GeneratorButton>()
-                .withSelectable(false)
-                .withPositionBasedStateManagement(true)
-                .withOnClickListener(object : FastAdapter.OnClickListener<GeneratorButton> {
-                    override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
-                        if (item == null)
-                            return false
-
-                        val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
-                        val resultItems : MutableList<String> = mutableListOf()
-                        for (i in 1..num_to_generate) {
-                            try {
-                                resultItems.add(item.generator.generate(getCurrentLocale(resources)))
-                            } catch (e: Exception) {
-                                warn(e.toString(), e)
-                                resultItems.add(e.toString())
-                            }
-                        }
-                        // disable filter before adding any results
-                        if (currentFilter != null) {
-                            resultAdapter!!.filter(null)
-                        }
-
-                        resultAdapter!!.add(0, resultItems.map{ResultItem(it)})
-
-                        recycler_results.scrollToPosition(0)
-
-                        // re-apply the filter if there is one
-                        if (currentFilter != null) {
-                            debug("Applying filter '$currentFilter'")
-                            resultAdapter!!.filter(currentFilter)
-                        }
-                        debug("Number of items ${resultAdapter!!.adapterItemCount}")
-
-                        Answers.getInstance().logCustom(
-                                CustomEvent("Generated Result")
-                                        .putCustomAttribute("CollectionId", item.meta.collectionId)
-                                        .putCustomAttribute("GroupId", "${item.meta.groupId}")
-                                        .putCustomAttribute("Name", item.meta.name)
-                        )
-                        return true
-                    }
-                })
-                as FastItemAdapter<GeneratorButton>
-
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
                 .withSavedInstance(savedInstanceState)
@@ -365,7 +357,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val buttonGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.buttonCols))
         buttonGridLayoutMgr.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val item = buttonAdapter!!.getAdapterItem(position)
+                val item = buttonAdapter.getAdapterItem(position)
                 if (item == null) {
                     return btnSpanRegular
                 }
@@ -386,8 +378,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_buttons.itemAnimator = DefaultItemAnimator()
         recycler_buttons.adapter = buttonAdapter
 
-
-
         //val resultsGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.resultCols))
         val resultsGridLayoutMgr = StaggeredGridLayoutManager(
                 resources.getInteger(R.integer.resultCols),
@@ -397,8 +387,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.itemAnimator = DefaultItemAnimator()
         recycler_results.adapter = resultAdapter
 
-        if (savedInstanceState == null && resultAdapter !=  null) {
-            resultAdapter!!.add(ResultItem(getString(R.string.welcome_msg)))
+        if (savedInstanceState == null) {
+            resultAdapter.add(ResultItem(getString(R.string.welcome_msg)))
         }
     }
 
@@ -415,13 +405,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         currentDrawerItemId = drawerItemId
 
-        buttonAdapter!!.clear()
+        buttonAdapter.clear()
         val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
         for (g in generators) {
-            buttonAdapter!!.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+            buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
         }
-        resultAdapter!!.clear()
-        resultAdapter!!.notifyAdapterDataSetChanged()
+        resultAdapter.clear()
+        resultAdapter.notifyAdapterDataSetChanged()
         appbar.setExpanded(true, true)
 
         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
@@ -433,7 +423,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     private val BUNDLE_RESULT_ITEMS = AdventuresmithActivity::class.java.name + ".resultItems"
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        resultAdapter!!.saveInstanceState(outState)
+        resultAdapter.saveInstanceState(outState)
 
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
@@ -441,7 +431,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         val results : ArrayList<ResultItem> = ArrayList()
-        results.addAll(resultAdapter!!.adapterItems)
+        results.addAll(resultAdapter.adapterItems)
         outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
 
         super.onSaveInstanceState(outState)
@@ -454,11 +444,11 @@ class AdventuresmithActivity : AppCompatActivity(),
         // NOTE: currentDrawerItem _may_ have saved null
         selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
-        resultAdapter!!.clear()
-        resultAdapter!!.add(restoredResults)
+        resultAdapter.clear()
+        resultAdapter.add(restoredResults)
 
-        buttonAdapter!!.withSavedInstanceState(savedInstanceState)
-        resultAdapter!!.withSavedInstanceState(savedInstanceState)
+        buttonAdapter.withSavedInstanceState(savedInstanceState)
+        resultAdapter.withSavedInstanceState(savedInstanceState)
     }
 
     override fun onBackPressed() {
@@ -492,14 +482,14 @@ class AdventuresmithActivity : AppCompatActivity(),
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    resultAdapter!!.filter(newText)
+                    resultAdapter.filter(newText)
                     currentFilter = newText
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    resultAdapter!!.filter(query)
+                    resultAdapter.filter(query)
                     currentFilter = query
                     appbar.setExpanded(false,false)
                     return true
@@ -519,8 +509,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (item != null) {
             if (item.itemId == R.id.action_clear) {
                 // clear results
-                resultAdapter!!.clear()
-                resultAdapter!!.notifyDataSetChanged()
+                resultAdapter.clear()
+                resultAdapter.notifyDataSetChanged()
                 // expand buttons
                 appbar.setExpanded(true, true)
                 return true
