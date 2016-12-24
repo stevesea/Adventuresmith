@@ -65,8 +65,10 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
-    var resultAdapter : FastItemAdapter<ResultItem>? = null
-    var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
+    var resultItemAdapter : ItemAdapter<ResultItem>? = null
+    var buttonItemAdapter : ItemAdapter<GeneratorButton>? = null
+    var resultAdapter : FastAdapter<ResultItem>? = null
+    var buttonAdapter : FastAdapter<GeneratorButton>? = null
 
     var currentFilter : String? = null
 
@@ -177,7 +179,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         collapsing_toolbar.title = ""
 
-        resultAdapter = FastItemAdapter<ResultItem>()
+        resultAdapter = FastAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
                 .withSelectOnLongClick(true)
@@ -207,9 +209,11 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         return true
                     }
-                }) as FastItemAdapter<ResultItem>
+                }) as FastAdapter<ResultItem>
+        resultItemAdapter = ItemAdapter<ResultItem>()
+        resultItemAdapter!!.wrap(resultAdapter)
 
-        resultAdapter!!.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+        resultItemAdapter!!.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
             override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
                 if (item == null || constraint == null)
                     return false
@@ -219,7 +223,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
             }
         })
-        buttonAdapter = FastItemAdapter<GeneratorButton>()
+        buttonAdapter = FastAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
                 .withOnClickListener(object : FastAdapter.OnClickListener<GeneratorButton> {
@@ -240,19 +244,19 @@ class AdventuresmithActivity : AppCompatActivity(),
                         }
                         // disable filter before adding any results
                         if (currentFilter != null) {
-                            resultAdapter!!.filter(null)
+                            resultItemAdapter!!.filter(null)
                         }
 
-                        resultAdapter!!.add(0, resultItems.map{ResultItem(it)})
+                        resultItemAdapter!!.add(0, resultItems.map{ResultItem(it)})
 
                         recycler_results.scrollToPosition(0)
 
                         // re-apply the filter if there is one
                         if (currentFilter != null) {
                             debug("Applying filter '$currentFilter'")
-                            resultAdapter!!.filter(currentFilter)
+                            resultItemAdapter!!.filter(currentFilter)
                         }
-                        debug("Number of items ${resultAdapter!!.adapterItemCount}")
+                        debug("Number of items ${resultItemAdapter!!.adapterItemCount}")
 
                         Answers.getInstance().logCustom(
                                 CustomEvent("Generated Result")
@@ -263,7 +267,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                         return true
                     }
                 })
-                as FastItemAdapter<GeneratorButton>
+                as FastAdapter<GeneratorButton>
+
+        buttonItemAdapter = ItemAdapter<GeneratorButton>()
+        buttonItemAdapter!!.wrap(buttonAdapter)
 
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
@@ -319,7 +326,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val buttonGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.buttonCols))
         buttonGridLayoutMgr.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val item = buttonAdapter!!.getAdapterItem(position)
+                val item = buttonItemAdapter!!.getAdapterItem(position)
                 if (item == null) {
                     return btnSpanRegular
                 }
@@ -352,7 +359,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.adapter = resultAdapter
 
         if (savedInstanceState == null && resultAdapter !=  null) {
-            resultAdapter!!.add(ResultItem(getString(R.string.welcome_msg)))
+            resultItemAdapter!!.add(ResultItem(getString(R.string.welcome_msg)))
         }
     }
 
@@ -369,13 +376,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         currentDrawerItemId = drawerItemId
 
-        buttonAdapter!!.clear()
+        buttonItemAdapter!!.clear()
         val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
         for (g in generators) {
-            buttonAdapter!!.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+            buttonItemAdapter!!.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
         }
-        resultAdapter!!.clear()
-        resultAdapter!!.notifyAdapterDataSetChanged()
+        resultItemAdapter!!.clear()
+        resultItemAdapter!!.notifyDataSetChanged()
         appbar.setExpanded(true, true)
 
         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
@@ -395,7 +402,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         val results : ArrayList<ResultItem> = ArrayList()
-        results.addAll(resultAdapter!!.adapterItems)
+        results.addAll(resultItemAdapter!!.adapterItems)
         outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
 
         super.onSaveInstanceState(outState)
@@ -408,8 +415,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         // NOTE: currentDrawerItem _may_ have saved null
         selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
-        resultAdapter!!.clear()
-        resultAdapter!!.add(restoredResults)
+        resultItemAdapter!!.clear()
+        resultItemAdapter!!.add(restoredResults)
 
         buttonAdapter!!.withSavedInstanceState(savedInstanceState)
         resultAdapter!!.withSavedInstanceState(savedInstanceState)
@@ -440,14 +447,14 @@ class AdventuresmithActivity : AppCompatActivity(),
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    resultAdapter!!.filter(newText)
+                    resultItemAdapter!!.filter(newText)
                     currentFilter = newText
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    resultAdapter!!.filter(query)
+                    resultItemAdapter!!.filter(query)
                     currentFilter = query
                     appbar.setExpanded(false,false)
                     return true
@@ -466,8 +473,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         if (item != null && item.itemId == R.id.action_clear) {
             // clear results
-            resultAdapter!!.clear()
-            resultAdapter!!.notifyAdapterDataSetChanged()
+            resultItemAdapter!!.clear()
+            resultItemAdapter!!.notifyDataSetChanged()
             // expand buttons
             appbar.setExpanded(true,true)
             return true

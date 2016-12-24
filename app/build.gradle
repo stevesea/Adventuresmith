@@ -14,17 +14,17 @@ androidGitVersion {
 }
 
 ext {
-    androidSupportVersion = '24.2.0'
+    androidSupportVersion = '25.1.0'
     ankoVersion = '0.9'
 }
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "org.steavesea.adventuresmith"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode androidGitVersion.code()
         versionName androidGitVersion.name()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -123,10 +123,12 @@ dependencies {
     compile 'com.mikepenz:community-material-typeface:1.7.22.1@aar'
     compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
 
-    // note: this brings in fastadapter
-    compile('com.mikepenz:materialdrawer:5.6.0@aar') {
+    compile('com.mikepenz:materialdrawer:5.8.1@aar') {
         transitive = true
+        exclude module: "fastadapter"
     }
+
+    compile 'com.mikepenz:fastadapter:2.1.0@aar'
     compile "com.mikepenz:materialize:1.0.0@aar"
 
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
