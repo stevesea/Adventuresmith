@@ -166,24 +166,16 @@ class AdventuresmithActivity : AppCompatActivity(),
             }
             override fun onActionItemClicked(mode: android.support.v7.view.ActionMode?, item: MenuItem?): Boolean {
 
-                /*
                 // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
                 // TODO: https://gist.github.com/mediavrog/5625602
-                /*
-                ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
-                ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
-                clipboard.setPrimaryClip(clipData)
-                */
 
-                val intent = Intent()
-                intent.setAction(Intent.ACTION_SEND)
-                intent.setType("text/html")
-                intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
-                intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
 
-                v.context.startActivity(Intent.createChooser(intent,
-                        v.context.getString(R.string.action_share)))
-                 */
+                val intent = Intent(android.content.Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                //intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "")
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{it.spannedText.toString()}.joinToString("\n"))
+                startActivity(Intent.createChooser(intent, null))
+
                 mode!!.finish()
                 showUsualToolbar()
                 return true // consume
