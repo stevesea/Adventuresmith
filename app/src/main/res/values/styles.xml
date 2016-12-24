@@ -18,6 +18,8 @@
         <item name="material_drawer_selected_text">@color/colorPrimaryDark</item>
         <item name="material_drawer_header_selection_text">@color/material_drawer_dark_primary_text</item>
 
+        <item name="windowActionModeOverlay">true</item>
+
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
