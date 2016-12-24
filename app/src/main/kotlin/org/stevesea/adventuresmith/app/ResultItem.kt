@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith.app
 
 import android.os.*
+import android.support.v4.content.*
 import android.support.v7.widget.*
 import android.view.*
 import android.widget.*
@@ -54,7 +55,7 @@ class ResultItem(val htmlTxt: String) :
 
         val ctx = holder.itemText.getContext()
         //set the background for the item
-        UIUtils.setBackground(holder.itemText, FastAdapterUIUtils.getSelectableBackground(ctx, R.color.resultCardBg, true));
+        UIUtils.setBackground(holder.itemText, FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true));
     }
 
     class ViewHolder(val v: View?) : RecyclerView.ViewHolder(v) {
