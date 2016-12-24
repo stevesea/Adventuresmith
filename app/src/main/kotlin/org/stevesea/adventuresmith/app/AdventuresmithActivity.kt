@@ -33,7 +33,7 @@ import android.widget.*
 import com.crashlytics.android.answers.*
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
-import com.mikepenz.fastadapter.adapters.*
+import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.iconics.*
 import com.mikepenz.iconics.typeface.*
 import com.mikepenz.ionicons_typeface_library.*
@@ -65,10 +65,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
-    var resultItemAdapter : ItemAdapter<ResultItem>? = null
-    var buttonItemAdapter : ItemAdapter<GeneratorButton>? = null
-    var resultAdapter : FastAdapter<ResultItem>? = null
-    var buttonAdapter : FastAdapter<GeneratorButton>? = null
+    var resultAdapter : FastItemAdapter<ResultItem>? = null
+    var buttonAdapter : FastItemAdapter<GeneratorButton>? = null
 
     var currentFilter : String? = null
 
@@ -179,7 +177,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         collapsing_toolbar.title = ""
 
-        resultAdapter = FastAdapter<ResultItem>()
+        resultAdapter = FastItemAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
                 .withSelectOnLongClick(true)
@@ -189,31 +187,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (v == null || item == null)
                             return false
 
-                        // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
-                        // TODO: https://gist.github.com/mediavrog/5625602
-                        /*
-                        ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
-                        ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
-                        clipboard.setPrimaryClip(clipData)
-                        */
-                        //Snackbar.make(v, "Shared...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
-
-                        val intent = Intent()
-                        intent.setAction(Intent.ACTION_SEND)
-                        intent.setType("text/html")
-                        intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
-                        intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
-
-                        v.context.startActivity(Intent.createChooser(intent,
-                                v.context.getString(R.string.action_share)))
-
-                        return true
+                        return false
                     }
-                }) as FastAdapter<ResultItem>
-        resultItemAdapter = ItemAdapter<ResultItem>()
-        resultItemAdapter!!.wrap(resultAdapter)
+                }) as FastItemAdapter<ResultItem>
 
-        resultItemAdapter!!.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+        resultAdapter!!.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
             override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
                 if (item == null || constraint == null)
                     return false
@@ -223,7 +201,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
             }
         })
-        buttonAdapter = FastAdapter<GeneratorButton>()
+        buttonAdapter = FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
                 .withOnClickListener(object : FastAdapter.OnClickListener<GeneratorButton> {
@@ -244,19 +222,19 @@ class AdventuresmithActivity : AppCompatActivity(),
                         }
                         // disable filter before adding any results
                         if (currentFilter != null) {
-                            resultItemAdapter!!.filter(null)
+                            resultAdapter!!.filter(null)
                         }
 
-                        resultItemAdapter!!.add(0, resultItems.map{ResultItem(it)})
+                        resultAdapter!!.add(0, resultItems.map{ResultItem(it)})
 
                         recycler_results.scrollToPosition(0)
 
                         // re-apply the filter if there is one
                         if (currentFilter != null) {
                             debug("Applying filter '$currentFilter'")
-                            resultItemAdapter!!.filter(currentFilter)
+                            resultAdapter!!.filter(currentFilter)
                         }
-                        debug("Number of items ${resultItemAdapter!!.adapterItemCount}")
+                        debug("Number of items ${resultAdapter!!.adapterItemCount}")
 
                         Answers.getInstance().logCustom(
                                 CustomEvent("Generated Result")
@@ -267,10 +245,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         return true
                     }
                 })
-                as FastAdapter<GeneratorButton>
-
-        buttonItemAdapter = ItemAdapter<GeneratorButton>()
-        buttonItemAdapter!!.wrap(buttonAdapter)
+                as FastItemAdapter<GeneratorButton>
 
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
@@ -326,7 +301,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val buttonGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.buttonCols))
         buttonGridLayoutMgr.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val item = buttonItemAdapter!!.getAdapterItem(position)
+                val item = buttonAdapter!!.getAdapterItem(position)
                 if (item == null) {
                     return btnSpanRegular
                 }
@@ -359,7 +334,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.adapter = resultAdapter
 
         if (savedInstanceState == null && resultAdapter !=  null) {
-            resultItemAdapter!!.add(ResultItem(getString(R.string.welcome_msg)))
+            resultAdapter!!.add(ResultItem(getString(R.string.welcome_msg)))
         }
     }
 
@@ -376,13 +351,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         currentDrawerItemId = drawerItemId
 
-        buttonItemAdapter!!.clear()
+        buttonAdapter!!.clear()
         val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
         for (g in generators) {
-            buttonItemAdapter!!.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+            buttonAdapter!!.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
         }
-        resultItemAdapter!!.clear()
-        resultItemAdapter!!.notifyDataSetChanged()
+        resultAdapter!!.clear()
+        resultAdapter!!.notifyAdapterDataSetChanged()
         appbar.setExpanded(true, true)
 
         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
@@ -402,7 +377,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         val results : ArrayList<ResultItem> = ArrayList()
-        results.addAll(resultItemAdapter!!.adapterItems)
+        results.addAll(resultAdapter!!.adapterItems)
         outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
 
         super.onSaveInstanceState(outState)
@@ -415,8 +390,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         // NOTE: currentDrawerItem _may_ have saved null
         selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
-        resultItemAdapter!!.clear()
-        resultItemAdapter!!.add(restoredResults)
+        resultAdapter!!.clear()
+        resultAdapter!!.add(restoredResults)
 
         buttonAdapter!!.withSavedInstanceState(savedInstanceState)
         resultAdapter!!.withSavedInstanceState(savedInstanceState)
@@ -438,6 +413,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                 CommunityMaterial.Icon.cmd_delete)
                 .color(Color.WHITE)
                 .actionBar()
+        menu.findItem(R.id.action_share).icon = IconicsDrawable(this,
+                CommunityMaterial.Icon.cmd_share_variant)
+                .color(Color.WHITE)
+                .actionBar()
         menu.findItem(R.id.search).icon = IconicsDrawable(this,
                 CommunityMaterial.Icon.cmd_magnify)
                 .color(Color.WHITE)
@@ -447,14 +426,14 @@ class AdventuresmithActivity : AppCompatActivity(),
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    resultItemAdapter!!.filter(newText)
+                    resultAdapter!!.filter(newText)
                     currentFilter = newText
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    resultItemAdapter!!.filter(query)
+                    resultAdapter!!.filter(query)
                     currentFilter = query
                     appbar.setExpanded(false,false)
                     return true
@@ -471,13 +450,37 @@ class AdventuresmithActivity : AppCompatActivity(),
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        if (item != null && item.itemId == R.id.action_clear) {
-            // clear results
-            resultItemAdapter!!.clear()
-            resultItemAdapter!!.notifyDataSetChanged()
-            // expand buttons
-            appbar.setExpanded(true,true)
-            return true
+        if (item != null) {
+            if (item.itemId == R.id.action_clear) {
+                // clear results
+                resultAdapter!!.clear()
+                resultAdapter!!.notifyDataSetChanged()
+                // expand buttons
+                appbar.setExpanded(true, true)
+                return true
+            } else if (item.itemId == R.id.action_share) {
+                /*
+
+
+                        // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
+                        // TODO: https://gist.github.com/mediavrog/5625602
+                        /*
+                        ClipboardManager clipboard = v.getContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager;
+                        ClipData clipData = ClipData.newHtmlText(v.getContext().getString(R.string.app_name), plainTxt, htmlTxt)
+                        clipboard.setPrimaryClip(clipData)
+                        */
+
+                        val intent = Intent()
+                        intent.setAction(Intent.ACTION_SEND)
+                        intent.setType("text/html")
+                        intent.putExtra(Intent.EXTRA_TEXT, item.spannedText.toString())
+                        intent.putExtra(Intent.EXTRA_HTML_TEXT, item.htmlTxt)
+
+                        v.context.startActivity(Intent.createChooser(intent,
+                                v.context.getString(R.string.action_share)))
+                 */
+
+            }
         }
         return super.onOptionsItemSelected(item)
     }

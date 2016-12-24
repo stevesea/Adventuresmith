@@ -23,8 +23,7 @@ package org.stevesea.adventuresmith.app
 import android.os.*
 import android.support.v7.app.*
 import android.support.v7.widget.*
-import com.mikepenz.fastadapter.*
-import com.mikepenz.fastadapter.adapters.*
+import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_attribution.*
 import org.stevesea.adventuresmith.R
@@ -33,7 +32,7 @@ import java.util.*
 
 class AttributionActivity : AppCompatActivity() {
 
-    fun getAttributions(adapter: ItemAdapter<ResultItem>, locale: Locale) {
+    fun getAttributions(adapter: FastItemAdapter<ResultItem>, locale: Locale) {
         val colls = AdventuresmithCore.getCollections(locale)
 
         for (coll in colls) {
@@ -74,11 +73,11 @@ class AttributionActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
-        val fastAdapter : FastAdapter<ResultItem> = FastAdapter<ResultItem>()
+        val itemAdapter : FastItemAdapter<ResultItem> = FastItemAdapter<ResultItem>()
                 .withSelectable(false)
                 .withMultiSelect(false)
                 .withPositionBasedStateManagement(false)
-        val itemAdapter = ItemAdapter<ResultItem>()
+                as FastItemAdapter<ResultItem>
 
 
         val resultsGridLayoutMgr = StaggeredGridLayoutManager(
@@ -87,7 +86,7 @@ class AttributionActivity : AppCompatActivity() {
 
         recycler_attribution.layoutManager = resultsGridLayoutMgr
         recycler_attribution.itemAnimator = DefaultItemAnimator()
-        recycler_attribution.adapter = itemAdapter.wrap(fastAdapter)
+        recycler_attribution.adapter = itemAdapter
 
         itemAdapter.add(ResultItem(getString(R.string.artwork_advsmith)))
         itemAdapter.add(ResultItem(getString(R.string.content_thanks)))

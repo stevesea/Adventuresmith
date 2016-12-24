@@ -9,8 +9,12 @@
         app:showAsAction="collapseActionView|ifRoom" />
 
     <item
+        android:id="@+id/action_share"
+        android:title="@string/action_share"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_clear"
-        android:icon="@android:drawable/ic_menu_delete"
         app:showAsAction="ifRoom"
         android:title="@string/action_clear"
         />

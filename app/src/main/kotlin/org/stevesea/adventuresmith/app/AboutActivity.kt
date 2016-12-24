@@ -24,8 +24,7 @@ import android.content.pm.*
 import android.os.*
 import android.support.v7.app.*
 import android.support.v7.widget.*
-import com.mikepenz.fastadapter.*
-import com.mikepenz.fastadapter.adapters.*
+import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_about.*
 import org.stevesea.adventuresmith.R
@@ -56,11 +55,11 @@ class AboutActivity : AppCompatActivity() {
                 .withStatusBarPadding(true)
                 .build()
 
-        val fastAdapter : FastAdapter<ResultItem> = FastAdapter<ResultItem>()
+        val itemAdapter : FastItemAdapter<ResultItem> = FastItemAdapter<ResultItem>()
                 .withSelectable(false)
                 .withMultiSelect(false)
                 .withPositionBasedStateManagement(false)
-        val itemAdapter = ItemAdapter<ResultItem>()
+                as FastItemAdapter<ResultItem>
 
         val resultsGridLayoutMgr = StaggeredGridLayoutManager(
                 resources.getInteger(R.integer.resultCols),
@@ -68,7 +67,7 @@ class AboutActivity : AppCompatActivity() {
 
         recycler_about.layoutManager = resultsGridLayoutMgr
         recycler_about.itemAnimator = DefaultItemAnimator()
-        recycler_about.adapter = itemAdapter.wrap(fastAdapter)
+        recycler_about.adapter = itemAdapter
 
         itemAdapter.add(ResultItem(String.format(getString(R.string.about_app), versionName, versionCode)))
         itemAdapter.add(ResultItem(getString(R.string.about_thirdparty)))
