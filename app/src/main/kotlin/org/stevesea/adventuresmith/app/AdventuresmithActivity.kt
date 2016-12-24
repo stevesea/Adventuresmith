@@ -156,6 +156,14 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     val actionModeHelper: ActionModeHelper by lazy {
         ActionModeHelper(resultAdapter, R.menu.result_select_menu, object : android.support.v7.view.ActionMode.Callback {
+            private fun hideUsualToolbar() {
+                appbar.visibility = View.GONE
+                appbar.setExpanded(false, false)
+            }
+            private fun showUsualToolbar() {
+                appbar.visibility = View.VISIBLE
+                appbar.setExpanded(true, true)
+            }
             override fun onActionItemClicked(mode: android.support.v7.view.ActionMode?, item: MenuItem?): Boolean {
 
                 /*
@@ -177,17 +185,21 @@ class AdventuresmithActivity : AppCompatActivity(),
                         v.context.getString(R.string.action_share)))
                  */
                 mode!!.finish()
+                showUsualToolbar()
                 return true // consume
             }
 
             override fun onCreateActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+                hideUsualToolbar()
                 return true
             }
 
             override fun onDestroyActionMode(mode: android.support.v7.view.ActionMode?) {
+                showUsualToolbar()
             }
 
             override fun onPrepareActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+                hideUsualToolbar()
                 return false
             }
         })
