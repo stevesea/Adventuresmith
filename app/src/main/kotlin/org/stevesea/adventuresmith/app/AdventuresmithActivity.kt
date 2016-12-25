@@ -68,7 +68,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
 
     val resultAdapter : FastItemAdapter<ResultItem> by lazy {
-        val result = FastItemAdapter<ResultItem>()
+        val res = FastItemAdapter<ResultItem>()
                 .withSelectable(true)
                 .withMultiSelect(true)
                 .withSelectOnLongClick(true)
@@ -79,6 +79,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val res = actionModeHelper.onClick(item)
                         info("pre-click: position: $position, helperResult: $res ")
                         return res ?: false
+                    }
+                })
+                .withOnClickListener(object : FastAdapter.OnClickListener<ResultItem> {
+                    override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
+                        info("on-click: position: $position")
+                        return false
                     }
                 })
                 .withOnPreLongClickListener( object : FastAdapter.OnLongClickListener<ResultItem> {
@@ -97,7 +103,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
                 }) as FastItemAdapter<ResultItem>
 
-        result.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+        res.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
             override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
                 if (item == null || constraint == null)
                     return false
@@ -107,10 +113,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
             }
         })
-        result
+        res
     }
     val buttonAdapter : FastItemAdapter<GeneratorButton> by lazy {
-
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
@@ -182,6 +187,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                 mode!!.finish()
                 showUsualToolbar()
+                resultAdapter.deselect()
                 return true // consume
             }
 
@@ -338,6 +344,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val drawerItemId = drawerItem.identifier
                         if (drawerIdToGroup.containsKey(drawerItemId)) {
+                            resultAdapter.deselect()
                             selectDrawerItem(drawerItemId)
                             return false
                         } else if (drawerItemId == ID_ABOUT) {
