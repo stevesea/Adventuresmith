@@ -49,6 +49,7 @@ import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
+import java.text.*
 import java.util.*
 
 data class CollectionAndGroup(val collectionId: String,
@@ -57,6 +58,7 @@ data class CollectionAndGroup(val collectionId: String,
 
 class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger {
+    private val DATE_FORMATTER = SimpleDateFormat.getDateTimeInstance()
 
     private var currentDrawerItemId: Long? = null
     val drawerIdToGroup : MutableMap<Long, CollectionAndGroup> = mutableMapOf()
@@ -177,12 +179,17 @@ class AdventuresmithActivity : AppCompatActivity(),
                 // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
                 // TODO: https://gist.github.com/mediavrog/5625602
 
+                val ts = DATE_FORMATTER.format(GregorianCalendar.getInstance().time)
+                val subj = "${applicationContext.getString(R.string.app_name)} $ts"
+                val content = resultAdapter.selectedItems.map{it.htmlTxt}.joinToString("\n<hr/>\n")
+                debug("subject: $subj")
+                debug("content: $content")
 
                 val intent = Intent(android.content.Intent.ACTION_SEND)
-                intent.type = "text/plain"
-                //intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "")
-                intent.putExtra(android.content.Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{it.spannedText.toString()}.joinToString("\n"))
-                intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map{it.htmlTxt}.joinToString("\n"))
+                intent.type = "text/html"
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, subj)
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, content)
+                //intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map{it.htmlTxt}.joinToString("\n<hr/>\n"))
                 startActivity(Intent.createChooser(intent, null))
 
                 mode!!.finish()
@@ -527,14 +534,12 @@ class AdventuresmithActivity : AppCompatActivity(),
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        if (item != null) {
-            if (item.itemId == R.id.action_clear) {
-                // clear results
-                resultAdapter.clear()
-                // expand buttons
-                appbar.setExpanded(true, true)
-                return true
-            }
+        if (item != null && item.itemId == R.id.action_clear) {
+            // clear results
+            resultAdapter.clear()
+            // expand buttons
+            appbar.setExpanded(true, true)
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
