@@ -174,6 +174,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 intent.type = "text/plain"
                 //intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "")
                 intent.putExtra(android.content.Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{it.spannedText.toString()}.joinToString("\n"))
+                intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map{it.htmlTxt}.joinToString("\n"))
                 startActivity(Intent.createChooser(intent, null))
 
                 mode!!.finish()
