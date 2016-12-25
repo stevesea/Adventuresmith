@@ -344,7 +344,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val drawerItemId = drawerItem.identifier
                         if (drawerIdToGroup.containsKey(drawerItemId)) {
-                            resultAdapter.deselect()
                             selectDrawerItem(drawerItemId)
                             return false
                         } else if (drawerItemId == ID_ABOUT) {
@@ -425,8 +424,13 @@ class AdventuresmithActivity : AppCompatActivity(),
         for (g in generators) {
             buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
         }
+        // NOTE: doing deselect after the clear resulted in crash
+        resultAdapter.deselect()
+        if (actionModeHelper.isActive) {
+            actionModeHelper.actionMode.finish()
+        }
         resultAdapter.clear()
-        resultAdapter.notifyAdapterDataSetChanged()
+        appbar.visibility = View.VISIBLE
         appbar.setExpanded(true, true)
 
         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
@@ -527,7 +531,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             if (item.itemId == R.id.action_clear) {
                 // clear results
                 resultAdapter.clear()
-                resultAdapter.notifyDataSetChanged()
                 // expand buttons
                 appbar.setExpanded(true, true)
                 return true
