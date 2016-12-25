@@ -65,6 +65,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
+
+
     val resultAdapter : FastItemAdapter<ResultItem> by lazy {
         val result = FastItemAdapter<ResultItem>()
                 .withSelectable(true)
@@ -75,6 +77,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
                         //we handle the default onClick behavior for the actionMode. This will return null if it didn't do anything and you can handle a normal onClick
                         val res = actionModeHelper.onClick(item)
+                        info("pre-click: position: $position, helperResult: $res ")
                         return res ?: false
                     }
                 })
@@ -454,6 +457,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         buttonAdapter.withSavedInstanceState(savedInstanceState)
         resultAdapter.withSavedInstanceState(savedInstanceState)
+
+        resultAdapter.deselect()
     }
 
     override fun onBackPressed() {
