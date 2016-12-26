@@ -179,23 +179,24 @@ class AdventuresmithActivity : AppCompatActivity(),
                 // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
                 // TODO: https://gist.github.com/mediavrog/5625602
 
-                val ts = DATE_FORMATTER.format(GregorianCalendar.getInstance().time)
-                val subj = "${applicationContext.getString(R.string.app_name)} $ts"
-                val content = resultAdapter.selectedItems.map{it.htmlTxt}.joinToString("\n<hr/>\n")
-                debug("subject: $subj")
-                debug("content: $content")
+                if (item != null && item.itemId == R.id.action_share) {
+                    val ts = DATE_FORMATTER.format(GregorianCalendar.getInstance().time)
+                    val subj = "${applicationContext.getString(R.string.app_name)} $ts"
+                    debug("subject: $subj")
 
-                val intent = Intent(android.content.Intent.ACTION_SEND)
-                intent.type = "text/html"
-                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, subj)
-                intent.putExtra(android.content.Intent.EXTRA_TEXT, content)
-                //intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map{it.htmlTxt}.joinToString("\n<hr/>\n"))
-                startActivity(Intent.createChooser(intent, null))
+                    val intent = Intent(android.content.Intent.ACTION_SEND)
+                    intent.type = "text/plain"
+                    intent.putExtra(android.content.Intent.EXTRA_SUBJECT, subj)
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, resultAdapter.selectedItems.map { it.spannedText.toString() }.joinToString("\n#########\n"))
+                    intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
+                    startActivity(Intent.createChooser(intent, null))
 
-                mode!!.finish()
-                showUsualToolbar()
-                resultAdapter.deselect()
-                return true // consume
+                    mode!!.finish()
+                    showUsualToolbar()
+                    resultAdapter.deselect()
+                    return true // consume
+                }
+                return false
             }
 
             override fun onCreateActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
