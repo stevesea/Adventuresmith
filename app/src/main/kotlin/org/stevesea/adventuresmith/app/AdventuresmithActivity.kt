@@ -186,14 +186,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                     val subj = "${applicationContext.getString(R.string.app_name)} $ts"
                     debug("subject: $subj")
 
-                    val sb = SpannableStringBuilder()
-                    resultAdapter.selectedItems.forEach { sb.append(sb); sb.append("\n############################\n") }
-                    // resultAdapter.selectedItems.map { it.spannedText.toString() }.joinToString("\n#########\n")
-
                     val intent = Intent(android.content.Intent.ACTION_SEND)
                     intent.type = "text/plain"
                     intent.putExtra(android.content.Intent.EXTRA_SUBJECT, subj)
-                    intent.putExtra(android.content.Intent.EXTRA_TEXT, sb)
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{ it.spannedText.toString() }.joinToString("\n#############\n"))
                     intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
                     startActivity(Intent.createChooser(intent, null))
 
