@@ -887,7 +887,7 @@ nested_tables:
 
   interesting:
     chance:
-    - 1..90,
+    - 1..89,
     - |
       90..100,
       <em>

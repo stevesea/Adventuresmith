@@ -25,6 +25,7 @@ import com.fasterxml.jackson.core.*
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.databind.annotation.*
 import com.fasterxml.jackson.databind.deser.std.*
+import com.google.common.base.Throwables
 import java.util.*
 
 /**
@@ -66,16 +67,25 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
 
             if (words.size == 2) {
                 val rangeStr = words[0]
+                var itemRange : IntRange? = null
                 try {
-                    val itemRange = strToIntRange(p, rangeStr)
-                    result.with(itemRange, words[1].trim())
+                    itemRange = strToIntRange(p, rangeStr)
+                    // able to parse range, can it be added to the map? (if not, probably a colliding range, throw exception)
+                    try {
+                        result.with(itemRange, words[1].trim())
+                    } catch (e: IllegalArgumentException) {
+                        throw JsonMappingException(p, "${e.message} - '$str'")
+                    }
                     itemNum = itemRange.endInclusive + 1
-                } catch (e: Exception) {
+                } catch (e: IllegalArgumentException) {
                     //some problem parsing the range. just turn the whole thing into a single item
+                    // this handles case of there being a comma in string, but isn't actually a <range>, <val>
                     result.with(itemNum, str)
                     itemNum++
+                } catch (e: Exception) {
+                    Throwables.propagateIfInstanceOf(e, JsonMappingException::class.java)
+                    throw JsonMappingException(p, "${e.message} - '$str'")
                 }
-                // next item num is at end of the latest range
             } else {
                 result.with(itemNum, str)
                 itemNum++
@@ -97,7 +107,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
             val end = words[1].trim().toInt()
             return IntRange(start,end)
         } catch (e: NumberFormatException) {
-            throw JsonMappingException(p, "bad format for range : '%s'. Must be <Start>..<End> or <Int>. %s".format(rangeStr, e.message))
+            throw IllegalArgumentException("bad format for range : '%s'. Must be <Start>..<End> or <Int>. %s".format(rangeStr, e.message))
         }
     }
 }
@@ -134,7 +144,7 @@ class RangeMap(
     fun with(newRange: IntRange, value: String) : RangeMap {
         for (range in ranges) {
             if (!range.intersect(newRange).isEmpty()) {
-                throw IllegalArgumentException("Invalid range -- already included")
+                throw IllegalArgumentException("Invalid range $newRange already included in RangeMap")
             }
         }
         ranges.add(newRange)

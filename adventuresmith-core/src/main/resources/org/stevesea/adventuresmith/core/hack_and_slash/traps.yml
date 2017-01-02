@@ -176,18 +176,18 @@ tables:
   - "14..20, Blade Slash (THAC0: {{thac0}}, damage: {{damage_range}})"
 
 
-
-
+  # NOTE: overlapping entries in source doc == 3..6, 6..7. solved by having entries 7,21 for Fire Trap
   spells: #XIII
   - 1..2, Symbol
   - 3..6, Alarm
-  - 6..7, Fire Trap
+  - 7, Fire Trap
   - 8..9, Wyvern Watch
   - 10..11, Blade Barrier
   - 12..13, Glyph of Warding
   - 14..16, False Trap
   - 17..18, Sepia Snake Sigil
   - 19..20, Explosive Runes
+  - 21, Fire Trap
 
 
   magic_device: #XIV
@@ -212,13 +212,14 @@ tables:
   - Web
   - Sleep
 
+  # NOTE: overlapping entries in table in source doc, now this is a 21-item list
   vents_sprays: #XV
   - "Slime (damage: {{damage_range}})"
   - "2..3, Shrapnel (damage: {{damage_range}})"
   - "Cold (damage: {{damage_range}})"
   - "Acid (damage: {{damage_range}})"
   - "Boiling Water (damage: {{damage_range}})"
-  - "6..7, Flaming Oil (damage: {{damage_range}})"
+  - "7..8, Flaming Oil (damage: {{damage_range}})"
   - "Sewage (damage: {{damage_range}})"
   - "Mummy Dust"
   - "Poison (damage: {{damage_range}})"
@@ -229,7 +230,7 @@ tables:
   - "Methane (damage: {{damage_range}})"
   - "Freezing Water (damage: {{damage_range}})"
   - "Sand (damage: {{damage_range}})"
-  - "18..19, Steam (damage: {{damage_range}})"
+  - "19..20, Steam (damage: {{damage_range}})"
   - "Sulpher (damage: {{damage_range}})"
 
   restraints_hazards: #XVI
