@@ -51,24 +51,18 @@
         <br/>
         <p>James D`Amato, Kat Kuhl, and others at http://oneshotpodcast.com/ — thank you for re-invigorating my love of RPGs! </p>
     ]]></string>
-    <string name="welcome_msg"><![CDATA[
-    <h3>Welcome!</h3>
-    <p>Select a category to begin.</p>
-    <p>If you are interested in creating generators, adding translations, or want to run
-    Adventuresmith on the desktop, check out the wiki:
-    <br/><br/>
-    https://github.com/stevesea/Adventuresmith/wiki</p>
-    <p>To request enhancements or report problems, please visit
-    <br/><br/>https://stevesea.github.io/Adventuresmith/</p>
-
-    ]]></string>
 
     <string name="about_app"><![CDATA[
     <h1>Adventuresmith</h1>
     <p>Version:</strong> %1$s (%2$d)</p>
     <p>Adventuresmith is written and maintained by <strong>Steve Christensen</strong>.</p>
     <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
-    <p>If you find bugs, have suggestions, or want to help, go to https://github.com/stevesea/Adventuresmith</p>
+    <p>If you are interested in creating generators, adding translations, or want to run
+    Adventuresmith on the desktop, check out the wiki:
+    <br/><br/>
+    https://github.com/stevesea/Adventuresmith/wiki</p>
+    <p>To request enhancements or report problems, please visit
+    <br/><br/>https://stevesea.github.io/Adventuresmith/</p>
     ]]></string>
     <string name="about_thirdparty"><![CDATA[
     <h1>Thirdparty software libraries</h1>
