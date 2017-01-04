@@ -38,6 +38,7 @@ object AdventuresmithCore : KodeinAware {
     // the tag for the resource-generators held in core
     val RESOURCE_GENERATORS = "resource_generators"
 
+    val BehindTheTables = "behind_the_tables"
     val MazeRats = "maze_rats"
     val FourthPage = "fourth_page"
     val PerilousWilds = "perilous_wilds"
