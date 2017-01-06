@@ -597,6 +597,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpCity" -> CommunityMaterial.Icon.cmd_city
                         "grpSenses" -> CommunityMaterial.Icon.cmd_eye
                         "grpVehicles" -> CommunityMaterial.Icon.cmd_truck
+                        "grpNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
                         else -> CommunityMaterial.Icon.cmd_memory
                     }
                 }

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{instacitizen.templates}}"
+
+imports:
+- npcs
