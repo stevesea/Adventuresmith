@@ -1,0 +1,6 @@
+---
+templates:
+- "{{area_events.templates}}"
+
+imports:
+- details

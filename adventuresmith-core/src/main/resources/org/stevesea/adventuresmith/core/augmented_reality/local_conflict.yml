@@ -1,0 +1,6 @@
+---
+templates:
+- "{{local_conflict.templates}}"
+
+imports:
+- details

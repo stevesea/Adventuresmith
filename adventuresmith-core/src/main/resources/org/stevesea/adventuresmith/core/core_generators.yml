@@ -3,7 +3,10 @@
 # not every generator is listed here, but most are.
 generators:
   augmented_reality:
+  - area_events
   - downtown
+  - local_conflict
+  - quirky_interiors
   fourth_page:
   - artifact
   - dungeon

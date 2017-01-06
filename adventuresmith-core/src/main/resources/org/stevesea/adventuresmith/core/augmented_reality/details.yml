@@ -1,14 +1,14 @@
 ---
 
 nested_tables:
-  details:
-    quirky_interiors:
+  quirky_interiors:
+    templates:
     - |
-      Style: {{details.quirky_interiors_style}}
-      State: {{details.quirky_interiors_state}}
-      Unusual Feature: {{details.quirky_interiors_unusual_feature}}
-      Secret: {{details.quirky_interiors_secret}}
-    quirky_interiors_style:
+      <h4>Quirky Interior - {{quirky_interiors.style}}</h4>
+      <strong><small>State:</small></strong> {{quirky_interiors.state}}
+      <br/><strong><small>Unusual Feature:</small></strong> {{quirky_interiors.unusual_feature}}
+      <br/><strong><small>Secret:</small></strong> {{quirky_interiors.secret}}
+    style:
     - Minimalist
     - Industrial
     - Shabby-Chic
@@ -16,11 +16,11 @@ nested_tables:
     - Brushed Steel
     - Polymer Baroque
     - Gothic
-    - rustic
+    - Rustic
     - Office Beige
     - Hexagonal Tiles
-    quirky_interiors_state:
-    - untidy
+    state:
+    - Untidy
     - Pristine
     - Sterile
     - Cramped
@@ -30,7 +30,7 @@ nested_tables:
     - Organised
     - Cluttered
     - Feng Shui
-    quirky_interiors_unusual_feature:
+    unusual_feature:
     - Hydroponics
     - Scavenged Furniture
     - Holograms
@@ -38,10 +38,10 @@ nested_tables:
     - Artificial Plants
     - Strange Acoustics
     - Weird Smell (see P12)
-    - remote Assistants
+    - Remote Assistants
     - legacy Tech (see P10)
     - Exotic Pet
-    quirky_interiors_secret:
+    secret:
     - Cameras
     - Microphone
     - Privacy Screen
@@ -53,11 +53,44 @@ nested_tables:
     - Weapons Cache
     - Hidden Stash
 
-    local_conflict:
+  area_events:
+    templates:
     - |
-      {{>pickN: 2 details.local_conflict_group &nbsp;vs.&nbsp;}}
-      Source: {{details.local_conflict_source}}
-    local_conflict_group:
+      {{area_events.a}}
+      <br/><em>leading to...</em>
+      <br/>{{area_events.b}}
+    a:
+    - Gang Block War (see P26)
+    - Corporate Sweep (see P22)
+    - Man-Made Disaster
+    - Political unrest
+    - Development/Investment
+    - Area lock Down
+    - Police Withdrawal
+    - Enhanced Security
+    - New Clade Established
+    - Mob War
+    b:
+    - Collateral Damage
+    - Evictions
+    - Diminished Infrastructure
+    - Fear
+    - Gentrification
+    - Rebellion
+    - Chaos
+    - Curfews
+    - Unification/Community Cohesion
+    - Rapidly Escalating Fatalities
+
+
+  local_conflict:
+    templates:
+    - |
+      <h4>Local Conflict</h4>
+      {{local_conflict.group}} vs. {{local_conflict.group}}
+      <br/>
+      <br/><strong><small>Source:</small></strong> {{local_conflict.source}}
+    group:
     - Street Gang (see P26)
     - Corporate Aristocrat (see P22)
     - Fixer Network (see P30)
@@ -68,7 +101,7 @@ nested_tables:
     - Transient Clan
     - Indentured Workers
     - Media Web
-    local_conflict_source:
+    source:
     - Treachery
     - Adultery
     - Fraud Or Theft
@@ -78,19 +111,20 @@ nested_tables:
     - love
     - Folly
     - Paranoia
-    - "Rivalry: {{details.local_conflict_rivalry}}"
-    local_conflict_rivalry:
+    - "Rivalry: {{local_conflict.rivalry}}"
+    rivalry:
     - 1..5, Within Same Group
-    - "6..10, Different Group - {{details.local_conflict_group}}"
+    - "6..10, Different Group - {{local_conflict.group}}"
 
-    urban_sickness:
+  urban_sickness:
+    templates:
     - |
-      Symptoms: {{details.urban_sickness_symptoms}}
-      Cause: {{details.urban_sickness_cause}}
+      <strong><small>Symptoms:</small></strong> {{urban_sickness.symptoms}}
+      <br/><strong><small>Cause:</small></strong> {{urban_sickness.cause}}
     - |
-      Malady: {{details.urban_sickness_symptoms}}
-      Cause: {{details.urban_sickness_cause}}
-    urban_sickness_symptoms:
+      <strong><small>Malady:</small></strong> {{urban_sickness.malady}}
+      <br/><strong><small>Cause:</small></strong> {{urban_sickness.cause}}
+    symptoms:
     - Difficulty Breathing
     - Lesions/redness/lumps
     - Immunodeficiency
@@ -101,7 +135,7 @@ nested_tables:
     - Vomiting/Diarrhea
     - Silvery Grey Emissions
     - Red Watery Eyes/Painful
-    urban_sickness_cause:
+    cause:
     - Bad Air/Pollutants/Smoking
     - Jankey uV levels/Toxic rain
     - Pollutants/Chemical Soup
@@ -112,7 +146,7 @@ nested_tables:
     - Junkfood/Pollutants/Toxins
     - Nanite Infused Air/rejection
     - Bad Air/Pollutants/Toxins
-    urban_sickness_malady:
+    malady:
     - Emphysema
     - Skin Cancer
     - Toxic Shock

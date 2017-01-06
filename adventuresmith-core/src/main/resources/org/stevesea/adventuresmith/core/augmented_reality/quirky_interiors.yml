@@ -1,0 +1,6 @@
+---
+templates:
+- "{{quirky_interiors.templates}}"
+
+imports:
+- details
