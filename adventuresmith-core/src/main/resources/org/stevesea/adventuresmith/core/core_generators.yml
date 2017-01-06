@@ -2,6 +2,8 @@
 
 # not every generator is listed here, but most are.
 generators:
+  augmented_reality:
+  - downtown
   fourth_page:
   - artifact
   - dungeon

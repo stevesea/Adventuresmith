@@ -592,6 +592,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                 }
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
+                AdventuresmithCore.AugmentedReality -> {
+                    when (grpId) {
+                        "grpCity" -> CommunityMaterial.Icon.cmd_city
+                        else -> CommunityMaterial.Icon.cmd_memory
+                    }
+                }
                 else -> CommunityMaterial.Icon.cmd_help_circle
             }
         }

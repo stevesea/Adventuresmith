@@ -1,0 +1,188 @@
+---
+templates:
+- "{{downtown.templates}}"
+
+imports:
+- details
+
+nested_tables:
+  downtown:
+    templates:
+    - |
+      <h4>The Downtown - {{downtown.select_row}}</h4>
+      Number of floors: {{>roll: 1d10}}
+      <br/>Features: {{>pickN: 1d3 downtown.building_features}}
+    select_row:
+    - "{{downtown.row1}}"
+    - "{{downtown.row2}}"
+    - "{{downtown.row3}}"
+    - "{{downtown.row4}}"
+    - "{{downtown.row5}}"
+    - "{{downtown.row6}}"
+    - "{{downtown.row7}}"
+    - "{{downtown.row8}}"
+    - "{{downtown.row9}}"
+    - "{{downtown.row10}}"
+    row1:
+    - 1..2, Pharmacy
+    - 3..4, Consumer Electronics
+    - 5, Art Dealer or Gallery
+    - 6, Auto or Robotics Repair
+    - 7..9, Storage Units or Warehousing
+    - 10, Legal Firm
+    row2:
+    - 1..2, Religious Building
+    - 3..4, Capsule Hotel
+    - 5, Data Storage
+    - 6..8, Low Rent Housing Project
+    - 9..10, Grocery Store or Hypermarket
+    row3:
+    - 1, Elevated Rail or Road Overpass
+    - 2..4, Fast Food Franchise
+    - 5..6, Police Precinct
+    - 7, School or College
+    - 8..9, Government Building
+    - 10, Garage or Parking Block
+    row4:
+    - 1..4, Office Block
+    - 5..6, Public Transport Hub
+    - 7..8, Hospital or Clinic
+    - 9..10, Department Store
+    row5:
+    - 1..3, Body Augmentation Clinic
+    - 4..5, Luxury Apartments
+    - 6..7, New Media Company
+    - 8..9, Industrial
+    - 10, Security Tech
+    row6:
+    - 1..2, Vehicle Showroom
+    - 3..4, Fashion Boutique
+    - 5..7, Commercial Cybernetics
+    - 8, Mall
+    - 9, VRcade
+    - 10, Gym
+    row7:
+    - 1..2, Leisureplex
+    - 3..7, Apartment Block or Hab Stack
+    - 8..10, Nightclub
+    row8:
+    - 1, Underpass
+    - 2..4, Hotel
+    - 5..6, Ripperdoc
+    - 7..8, 3D Print Fabrication
+    - 9..10, Courier or Bulk Transport Company
+    row9:
+    - 1..3, Bar
+    - 4..5, Restaurant
+    - 6..7, Pop-Up Market
+    - 8..9, Coffee Shop
+    - 10, Taxi Firm
+    row10:
+    - 1..2, Pocket Park
+    - 3..4, Suburban Housing
+    - 5, Movie Theatre
+    - 6, Weapons Tech or Sales
+    - 7..8, Multi-Level Car Park
+    - 9, Bank
+    - 10, Antiques
+    building_features:
+    - Extreme Security Protocols
+    - Decrepit And rundown
+    - Graffitipocalypse/Street Art Heavy
+    - Obvious Gang Turf (see P26)
+    - Back room Brothel
+    - Newly renovated
+    - Unusually Busy
+    - Empty/Quiet
+    - Inadequate Security
+    - High Tech Equipment
+    - Abandoned Edifice
+    - "Repurposed As… {{downtown.building_features}}"
+    - Front For Corporate Activity (see P22)
+    - Front For Criminal Activity
+    - Hidden Squatters
+    - Obscured By Ad Screens (see P15)
+    - ‘Grown’ By Nanites
+    - Incomplete
+    - Self Sufficient
+    - Crumbling Cheapcrete
+    - War Zone
+    - Fire Damage
+    - Not A Building, But Mobile
+    - Elaborate Balconies
+    - Years Of Clumsy Modification
+    - For Sale/To-let
+    - Bright Emoji Glyphs And Graphics
+    - reinforced for repair Work
+    - Extremely leaky
+    - Gothic Style
+    - Chic And Minimalist
+    - Brutalist
+    - Encased In Plastic Siding
+    - labyrinthine
+    - Skywalks To Other Buildings
+    - Industrial Style
+    - Anti-Drone System
+    - Nano Immune System
+    - People Queue To Enter
+    - Well Guarded
+    - AI Guardian
+    - Ar Heavy (see P17)
+    - Selective Access
+    - Buggy Security Net (see P43)
+    - Taken Over By Junkies
+    - Foreign Ghetto
+    - Sweatshop Conditions
+    - utilised Solely For Storage
+    - Veiled Behind Polymer Sheeting
+    - All Windows Damaged
+    - External utilities
+    - Extensive Solar Grid And Fog Catchers
+    - Bad Epoxy repairs
+    - unpleasant Micro-Climate
+    - Infested With rogue remotes
+    - Self Aware
+    - Cellular Black Hole
+    - Mainly Populated By Hoarders
+    - Accumulated Trash Heaps
+    - Unusual Smell (see P12)
+    - Very Few Working lights
+    - A riot Of Satellite Dishes
+    - Very Noisy utilities
+    - Catastrophically Polluted
+    - unfinished Extension Or Empty levels
+    - Permadamp
+    - legacy Infrastructure (see P11)
+    - Bad Wiring; High EMF; Black Outs
+    - Patrolled By Hired rent-A-Cops (see P29)
+    - Aggressively Enforced No-Parking Zone
+    - Windows Boarded With Opaque Acrylic
+    - Main Entrance Out Of Order
+    - Several Trashed Cars Out Front
+    - Being Audited By Fanatical City Inspectors
+    - Wind Tunnel
+    - Tinted Glass And Carbon Nano-Tubes
+    - Homeless Magnet
+    - Shakes When Trucks Pass
+    - Completely Automated
+    - Exotic/Foreign Architecture
+    - Obvious Corporate Sponsor
+    - Endorsed By Celebutant
+    - Promotes religion
+    - Independent Nation State
+    - Family Owned
+    - Scheduled For Demolition
+    - rat Or roach Problem
+    - Security Camera Overkill
+    - A Crime Scene
+    - Target Of Net Terrorism
+    - Malfunctioning Incessant Alarm
+    - Slowly Collapsing Or Subsiding
+    - under Surveillance
+    - Enforced No Fly Zone
+    - Prone To Flooding
+    - Ecologically Sound; No Carbon Footprint
+    - Popular With Particular Subculture
+    - Totally Sterile
+    - Extensive Drone Docks
+    - "Causes Sickness. {{details.urban_sickness}}"

@@ -43,6 +43,7 @@ object AdventuresmithCore : KodeinAware {
     val PerilousWilds = "perilous_wilds"
     val Stonetop = "stonetop"
     val HackSlash = "hack_and_slash"
+    val AugmentedReality = "augmented_reality"
 
     override val kodein: Kodein by Kodein.lazy {
         import(adventureSmithModule)

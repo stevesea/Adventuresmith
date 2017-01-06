@@ -1,0 +1,127 @@
+---
+
+nested_tables:
+  details:
+    quirky_interiors:
+    - |
+      Style: {{details.quirky_interiors_style}}
+      State: {{details.quirky_interiors_state}}
+      Unusual Feature: {{details.quirky_interiors_unusual_feature}}
+      Secret: {{details.quirky_interiors_secret}}
+    quirky_interiors_style:
+    - Minimalist
+    - Industrial
+    - Shabby-Chic
+    - (Bio)Organic
+    - Brushed Steel
+    - Polymer Baroque
+    - Gothic
+    - rustic
+    - Office Beige
+    - Hexagonal Tiles
+    quirky_interiors_state:
+    - untidy
+    - Pristine
+    - Sterile
+    - Cramped
+    - Spacious
+    - Cavernous
+    - Biohazard
+    - Organised
+    - Cluttered
+    - Feng Shui
+    quirky_interiors_unusual_feature:
+    - Hydroponics
+    - Scavenged Furniture
+    - Holograms
+    - Monochromatic
+    - Artificial Plants
+    - Strange Acoustics
+    - Weird Smell (see P12)
+    - remote Assistants
+    - legacy Tech (see P10)
+    - Exotic Pet
+    quirky_interiors_secret:
+    - Cameras
+    - Microphone
+    - Privacy Screen
+    - Separate lAN
+    - Hidden room
+    - Escape route
+    - Custodian AI
+    - Weapon Sensor
+    - Weapons Cache
+    - Hidden Stash
+
+    local_conflict:
+    - |
+      {{>pickN: 2 details.local_conflict_group &nbsp;vs.&nbsp;}}
+      Source: {{details.local_conflict_source}}
+    local_conflict_group:
+    - Street Gang (see P26)
+    - Corporate Aristocrat (see P22)
+    - Fixer Network (see P30)
+    - Netrunner Collective (see P44)
+    - Solo Condotta/PMC (see P36)
+    - Criminal Syndicate
+    - Drug Dealers
+    - Transient Clan
+    - Indentured Workers
+    - Media Web
+    local_conflict_source:
+    - Treachery
+    - Adultery
+    - Fraud Or Theft
+    - Addiction
+    - Ambition
+    - Madness
+    - love
+    - Folly
+    - Paranoia
+    - "Rivalry: {{details.local_conflict_rivalry}}"
+    local_conflict_rivalry:
+    - 1..5, Within Same Group
+    - "6..10, Different Group - {{details.local_conflict_group}}"
+
+    urban_sickness:
+    - |
+      Symptoms: {{details.urban_sickness_symptoms}}
+      Cause: {{details.urban_sickness_cause}}
+    - |
+      Malady: {{details.urban_sickness_symptoms}}
+      Cause: {{details.urban_sickness_cause}}
+    urban_sickness_symptoms:
+    - Difficulty Breathing
+    - Lesions/redness/lumps
+    - Immunodeficiency
+    - Lethargy/Weight loss
+    - Flaky/Spots/Blisters
+    - Hair loss/Discolouration
+    - Unpleasant Odour
+    - Vomiting/Diarrhea
+    - Silvery Grey Emissions
+    - Red Watery Eyes/Painful
+    urban_sickness_cause:
+    - Bad Air/Pollutants/Smoking
+    - Jankey uV levels/Toxic rain
+    - Pollutants/Chemical Soup
+    - Vitamin Deficiency/Junkfood
+    - Pollutants/Chemical Soup
+    - Pollutants/Chemical Soup
+    - Pollutants/Chemical Soup
+    - Junkfood/Pollutants/Toxins
+    - Nanite Infused Air/rejection
+    - Bad Air/Pollutants/Toxins
+    urban_sickness_malady:
+    - Emphysema
+    - Skin Cancer
+    - Toxic Shock
+    - Malnutrition
+    - Messed up Skin
+    - Alopecia
+    - BO/Body Funk
+    - Gastric Catastrophe
+    - Grey Sweats
+    - Burning Eyes
+
+
