@@ -1,0 +1,6 @@
+---
+templates:
+- "{{senses.sights}}"
+
+imports:
+- sense_and_the_city

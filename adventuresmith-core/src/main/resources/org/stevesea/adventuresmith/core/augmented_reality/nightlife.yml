@@ -1,0 +1,6 @@
+---
+templates:
+- "{{nightlife.templates}}"
+
+imports:
+- details

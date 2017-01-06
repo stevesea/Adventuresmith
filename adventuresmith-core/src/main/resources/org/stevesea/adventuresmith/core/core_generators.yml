@@ -3,10 +3,20 @@
 # not every generator is listed here, but most are.
 generators:
   augmented_reality:
+  - alternative_business
   - area_events
+  - augmented_reality
   - downtown
+  - infotainment
   - local_conflict
+  - nightlife
   - quirky_interiors
+  - sights
+  - smells
+  - sounds
+  - vehicle_river
+  - vehicle_road
+  - vehicle_sky
   fourth_page:
   - artifact
   - dungeon

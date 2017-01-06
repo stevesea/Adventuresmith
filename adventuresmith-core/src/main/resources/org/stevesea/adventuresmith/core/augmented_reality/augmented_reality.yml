@@ -1,0 +1,6 @@
+---
+templates:
+- "{{augmented_reality.templates}}"
+
+imports:
+- details

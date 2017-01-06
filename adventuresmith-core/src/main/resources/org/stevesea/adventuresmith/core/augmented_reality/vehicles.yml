@@ -1,0 +1,138 @@
+---
+
+nested_tables:
+  vehicles:
+    road_templates:
+    - |
+      <h4>Vehicle - {{vehicles.road}}</h4>
+      <strong><small>Activity:</small></strong> {{vehicle_features.activity}}
+      <br/><strong><small>Notable Feature:</small></strong> {{vehicle_features.notable}}
+      <br/><strong><small>Condition:</small></strong> {{vehicle_features.condition}}
+    sky_templates:
+    - |
+      {{vehicles.sky}}
+      <br/><em>currently...</em>
+      <br/>{{vehicles.sky_currently}}"
+    river_templates:
+    - "{{vehicles.river}}"
+    road:
+    - Armoured Intercity Bus
+    - Carbon-Fibre Pedicab (see P20)
+    - GEV Taxi (Air Cushion) (see P20)
+    - Automated uber/AI Taxi Sedan
+    - Food/SCOP* Vending Truck
+    - Cyclist(s)
+    - Police Patrol Car
+    - Small City Electric
+    - Limousine
+    - Sports Car
+    - HMMWV (Humvee)
+    - Suburban utility Vehicle (SuV)
+    - Estate Car/Stationwagon
+    - Moped/Scooter
+    - 4x4/MrAP
+    - Very Heavy Goods Vehicle
+    - Armoured Truck
+    - Police Van
+    - Sports Motorcycle
+    - Utility Van/Minivan
+    - Refrigerated Transport
+    - Off road Motorcycle
+    - Flatbed/Pick-up
+    - Tram/Metro-Train
+    - Hatchback
+    - Classic Car
+    - Aero using road Wheels
+    - Luxury Sedan
+    - Monowheel
+    - Hazardous Container Truck
+    - Three-Wheeler
+    - Waste Management Truck
+    - Automated road Sweeper
+    - Police Motorcycle
+    - Courier/Delivery Van
+    - Scrap Built rickshaw (see P20)
+    - Standard Sedan
+    - Mobile Home/rV/MoPad
+    - Muscle Car/roadster
+    - Construction Vehicle
+    - Fire Tender
+    - Buggy/ATV
+    - Powered Armour rickshaw (Cradle)
+    - EMT/Paramedic/Ambulance
+    - Armoured Personnel Carrier
+    - Quad Bike
+    - Tow Truck (roll again for tow)
+    - Car/Vehicle/PA Transporter
+    - Regular City Bus (1-3 decks)
+    - Trike
+    sky:
+    - Luxury Aero/limo
+    - Utility Aero Transport
+    - Aerobus/Aerocab (see P20)
+    - Helicopter/Tilt-rotor
+    - Ad Blimp (see P15)
+    - Gunship (aero or chopper)
+    - Drone Cluster/uAV
+    - Police Aero
+    - Aero Sedan
+    - EMT/Paramedic Aero
+    sky_currently:
+    - Banking
+    - Descending
+    - Ascending
+    - Hovering
+    - Circling
+    # note: source doce has speeding/in-pursuit on one line
+    - Speeding
+    - "In Pursuit of {{vehicles.sky}}"
+    - Cruising
+    - Weaving
+    - Overtaking
+    - "Clipping (hit: {{vehicles.sky}})"
+
+    river:
+    - A long, thin, high-powered speedboat (‘cigarette’ boat) races past
+    - An air-cushion taxi GEV (Ground Effect Vehicle), slips down to the water (see P20)
+    - A garishly illuminated party boat, packed with revellers, loud music (see P38)
+    - A quiet and unassuming modern houseboat, moored to the embankment
+    - An improvised submersible surfaces, seemingly lost, crew appear to be armed
+    - An automated cargo transport barge, weaving through traffic using GPS
+    - Clusters of detritus, plastics and thick yellow foam float on the oily surface
+    - Clearly marked security hydrofoil, slowly patrolling, HMGs and searchlights
+    - Rescue Service tug, hi-vis wearing crew dredging bloated bodies from the water
+    - A local go-gang has ‘upgraded’ to tricked-out jet skis and are causing havoc
+  vehicle_features:
+    activity:
+    - Speeding
+    - Braking Hard
+    - Parking
+    - Pulling Into Traffic
+    - Overtaking
+    - Break Down
+    - Crawling
+    - Collides With…
+    - U-Turn
+    - Reversing
+    notable:
+    - Extremely loud Music
+    - Biodiesel Conversion
+    - Runs Silent
+    - Religious Iconography
+    - Too Many Passengers
+    - Polymorphic Coating
+    - Overloaded With Cargo
+    - Excessive Bumper Stickers
+    - Low rider
+    - Off road Tires
+    condition:
+    - More Dirt Than Paint
+    - Factory Fresh
+    - Rust Bucket
+    - Held Together By Epoxy
+    - Well Maintained
+    - Partial respray
+    - Mobile Trashcan
+    - Burned Out Engine
+    - Dents And Scratches
+    - Overtly Armoured

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{alternative_businesses.templates}}"
+
+imports:
+- details

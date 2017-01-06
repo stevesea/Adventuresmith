@@ -1,0 +1,310 @@
+---
+nested_tables:
+  infotainment:
+    templates:
+    - |
+      <h4>Infotainment</h4>
+      <strong><small>Brand Name:</small></strong> {{infotainment.brand_name}}
+      <br/><strong><small>Range:</small></strong> {{infotainment.range}}
+      <br/><strong><small>Product Line:</small></strong> {{infotainment.product_line}}
+      <br/><strong><small>Marketing Style:</small></strong> {{infotainment.marketing_style}}
+    brand_name:
+    - NoLogo
+    - Matsushira
+    - Al Emaar
+    - Horizon
+    - De Santo
+    - Ellis-Itami
+    - Osprey
+    - Numan-lloyd
+    - Modus
+    - Cortex
+    range:
+    - Phoenix
+    - Omni
+    - AEX
+    - Luxuria
+    - Solaris
+    - Rapide
+    - Hydra
+    - Eco+
+    - Nexus
+    - Platina
+    product_line:
+    - Cyber/Bio/Nanoware
+    - Car/Motorcycle/AV
+    - Foodstuff/Drink
+    - Clothing/lifestyle
+    - Personal Service
+    - Computing/Comms
+    - Personal Defense
+    - Pharmaceuticals
+    - Cosmetics/Scent
+    - Travel/Vacation
+    marketing_style:
+    - Loud Hard Sell
+    - Cartoony/Manga
+    - Sexualised
+    - Sophisticated
+    - Abstract
+    - Humorous
+    - Gender Specific
+    - Cheap
+    - Exotic/Arty
+    - Aspirational
+  senses:
+    smells:
+    - Cigarette Smoke
+    - Cheap Perfume
+    - Expensive Cologne
+    - Exhaust Fumes
+    - Stale refuse
+    - Urine
+    - Vomit
+    - Burning Plastic
+    - Ash
+    - Acrid Chemicals
+    - Cordite
+    - Blood
+    - Wet Hair
+    - Motor Oil
+    - Faeces
+    - Soda Pop Sweetness
+    - Noodles
+    - Rubber
+    - Burnt Meat
+    - Dirty Sneakers
+    - Fried Food
+    - Beer
+    - Perfumed Bleach
+    - Body Odour
+    - Varnish
+    - Insecticide
+    - Soap
+    - Sulphur
+    - Hairspray
+    - Printed Polyamides
+    - Hydraulic Fluid
+    - Coffee
+    - Resin
+    - Antiseptic
+    - Candy
+    - Mint
+    - Salt
+    - Tea
+    - Fresh Sweat
+    - Infected Tissue
+    - Paint
+    - Mold & Mildew
+    - Baby Powder
+    - Acid
+    - Feet
+    - Cinnamon
+    - Leather
+    - Lemon Zest
+    - Damp
+    - Rot
+    - Overheated Circuit Board
+    - Cigars
+    - Floral Scent
+    - Pizza
+    - Spices
+    - Lavender
+    - Sewage
+    - Pine
+    - Crack Cocaine
+    - Cat Piss
+    - Gas
+    - Latex
+    - French Fries
+    - New Cyberlimb Smell
+    - Sex
+    - Menthol
+    - Cheese
+    - Wet Concrete
+    - Disinfectant
+    - Polythene
+    - Nail Varnish
+    - Whiskey
+    - Coconut Oil
+    - Vinyl
+    - Wine
+    - Acetone
+    - Cookies
+    - Ammonia
+    - Biodiesel
+    - Polish
+    - Printer Toner
+    - Dust
+    - Glass Cleaner
+    - Musty
+    - Opiates
+    - Raw Meat
+    - Laminate
+    - Weed/Skunk
+    - Drains
+    - Thinners
+    - Old Food
+    - Incense
+    - Fused Wiring
+    - Lube
+    - Sour Milk
+    - Garlic
+    - Alcohol Sanitiser
+    - Cheap Aftershave
+    - Gun Oil
+    - "{{>pickN: 2 senses.smells}}"
+    sounds:
+    - Building Alarm
+    - Barking Dogs
+    - Incoherent Shouting
+    - A Single Gunshot
+    - Ventilation System
+    - Car Doors Slamming
+    - Loud Television
+    - Children
+    - Aerocar Overhead
+    - Catchy Corporate Jingle
+    - The Screech Of Tires
+    - Pedestrian Crosswalk
+    - Rattle Cans In use
+    - Heavy Gunfire
+    - Sobbing
+    - Channeled Winds
+    - Hum Of A Cleaning ‘Bot
+    - Buzzing Of Flies
+    - Rattle Of Chains
+    - Arcade Machines
+    - Breaking Glass
+    - Text Alert
+    - An rPG launching
+    - Sirens Inbound
+    - Running
+    - Subway rumble
+    - A loud Argument
+    - Drill Or Power Saw
+    - Road Traffic Accident
+    - Hellfire Street Preacher
+    - Loud Energetic Music
+    - Laughter
+    - Hydraulics
+    - A reversing Vehicle
+    - An Annoying ringtone
+    - Sexual Activity
+    - Police radio Chatter
+    - Loose Door Or Gate
+    - Group Chanting
+    - Popular Theme Tune
+    - Chesty Coughing
+    - Vehicle Alarm
+    - Steady Footsteps
+    - Automated Warning
+    - Beating Of Heavy rain
+    - Garbled loudspeaker
+    - Exchange Of Gunfire
+    - Background ‘Muzak’
+    - Gutteral Screaming
+    - A Call To Prayer
+    - Loose Piping
+    - Helicopter Overhead
+    - The Buzz Of Neon
+    - A revving Engine
+    - An Impromptu rave
+    - Water Pump
+    - Road Works
+    - Right Wing Talk radio
+    - Foreign Busker
+    - Ice Cream Truck
+    - Distant Explosion
+    - Car Horn
+    - UAV/Drone Motor
+    - Tumbling Trash Cans
+    - Evangelical Broadcast
+    - Very Heavy Transport
+    - Running Water
+    - Drunk Singing
+    - Skateboards
+    - Tattoo Gun
+    - Rolling Cans
+    - Obvious Porno
+    - Riot Or Demo
+    - Overhead Train
+    - Cats Fighting
+    - Shrill Whistling
+    - Bug Zapper
+    - Street Hawker
+    - Car Chase
+    - Chilling War Cry
+    - Motorcycles
+    - Crackle Of Flames
+    - Door Buzzer
+    - An Anguished Cry
+    - Sneaker Squeak
+    - Scraping Metal
+    - Splashing
+    - Noisy Printer
+    - Laser Fire
+    - Jingle Of Keys
+    - Quiet Conversation
+    - Sirens Outbound
+    - Aerocar landing
+    - Frying Food
+    - A Brawl
+    - Doors Slamming
+    - Ads (see next page)
+    - Thunder
+    - Hissing White Noise
+    - "{{>pickN: 2 senses.sounds}}"
+    sights:
+    - 1..2, Armoured cops bundle violently reluctant vagrant into ErA-plated squad car
+    - 3..4, A bus shelter made entirely of screens showing flashy commercials (see below)
+    - 5..6, Searchlights playing across the cloud cover and projecting branding (see below)
+    - 7..8, A brightly lit aerocab taking off in a cloud of exhaust fumes, rainwater and trash
+    - 9..10, AC vents in the sidewalk emitting a thick cloud of vapour
+    - 11..12, Every underlit face on the street is concentrating solely on their phone
+    - 13..14, An ancient looking geriatric lopes past strapped into a linear assistance frame
+    - 15..16, A vid-blogger in full, wearable array, blatantly recording the scene
+    - 17..18, The nearest building has an intermittently flickering security light
+    - 19..20, Your view is blocked by a lumbering hi-vis recycling collection truck
+    - 21..22, A cluster of kids vaping, lED-lit clouds from under designer pollution hoods
+    - 23..24, A pair of bicycle couriers race one another through crawling traffic
+    - 25..26, Gritty, chemical infused sediment sloughing off a nearby rooftop
+    - 27..28, A large building-mounted flatscreen showing… (see table top right)
+    - 29..30, unattended roadworks, the area coned off and lit for safety for no good reason
+    - 31..32, An automated noodle vending truck, jingle playing, folds open and deploys nearby
+    - 33..34, A flock of scabrous-looking pigeons suddenly taking flight
+    - 35..36, A busy metro platform, full to capacity with disgruntled, rain-soaked commuters
+    - 37..38, An abandoned cybernetic limb lies forlornly by the kerb
+    - 39..40, Animated street art that twists and turns across two adjoining walls
+    - 41..42, Frantic homeless people, washing vehicle windscreens before the lights change
+    - 43..44, The flashing orange lights of a fat, dirty-yellow street sweeping remote
+    - 45..46, A nearby dataterm is missing it’s screen and is stuffed with trash
+    - 47..48, Your way is barred by a precarious heap of obsolete electronics
+    - 49..50, The rainbow incandescence of oil on a large puddle of dirty water
+    - 51..52, The substandard cheapcrete is pockmarked by years of corrosive rains
+    - 53..54, A loaded pizza delivery drone hovering about three meters above the ground
+    - 55..56, A wage-slave arguing with her phone’s onboard AI, before breaking down crying
+    - 57..58, An orange, multi-limbed, window cleaning remote clambers up the building facade
+    - 59..60, A long, silent queue for a blocky, exhaust stained, kerb-side Euthanasia Booth™
+    - 61..62, All the nearby street signs are gang-tagged over to the point of being use
+    - 63..64, Filthy red and white plastic Jersey barriers block most of the sidewalk
+    - 65..66, An overpass or skywalk covered in colourful advertising animatics (see below)
+    - 67..68, There are crowds of fast moving people swarming absolutely everywhere
+    - 69..70, The scorched shell of a gutted vid-phone kiosk
+    - 71..72, Pedestrians flooding across the nearest intersection, en masse, both ways
+    - 73..74, A group of screeching street kids running along the overhead rail lines
+    - 75..76, A thick pea soup fog rolling down the streets and alleyways
+    - 77..78, All the street lights for this entire block just went out
+    - 79..80, rivers of rain-borne trash race along in the choked gutters
+    - 81..82, A small crowd of people gawping upwards at a potential jumper
+    - 83..84, A tight formation of drones races down the street, just above head height
+    - 85..86, A group of sex workers on a nearby street corner, approaching cars (see P21)
+    - 87..88, An out-of-order ATM threatens violent action to passers by who stray too close
+    - 89..90, unnervingly, there is absolutely no-one about
+    - 91..92, A pedicab operator struggling with heat exhaustion or dehydration (see P20)
+    - 93..94, A row of vendomats coated in layers of gang tags, going back many years
+    - 95..96, A GEV taxi takes a corner hard, throwing up polluted water, trash and crud (see P20)
+    - 97..98, An energetic street preacher giving a digital presentation on Cybernetic Jesus®
+    - 99..100, The sidewalk consists of slabs of flickering screens, showing adverts (see below)
+    # NOTE: source content has following as 10..11 (already picked)
+    - 101..102, A heavy rainwater cascade falls from damaged guttering

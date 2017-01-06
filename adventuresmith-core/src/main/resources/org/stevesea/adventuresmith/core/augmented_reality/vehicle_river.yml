@@ -1,0 +1,6 @@
+---
+templates:
+- "{{vehicles.river_templates}}"
+
+imports:
+- vehicles

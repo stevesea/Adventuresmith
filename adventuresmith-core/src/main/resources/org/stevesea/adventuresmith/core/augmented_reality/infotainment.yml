@@ -1,0 +1,6 @@
+---
+templates:
+- "{{infotainment.templates}}"
+
+imports:
+- sense_and_the_city

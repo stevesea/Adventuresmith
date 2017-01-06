@@ -1,5 +1,55 @@
 ---
 
+imports:
+- sense_and_the_city
+
+
+tables:
+  street_uses:
+  - Power plant from main battle tank, used as a generator for a squat or shanty
+  - Hydroponics rig from scrapped research ship, used to breed modified food-algae
+  - Atmosphere recycling taken from orbital work shack, for a sealed environment
+  - Automotive industry robotic arms fitted with tasers, utilised for entrance security
+  - Chinese banking servers, used as a fixer’s offline data archive
+  - Shipping container homes, mounted on scaffolding with industrial adhesives
+  - Aircraft seating used as makeshift furniture, within parachute nylon shelters
+  - Downed corporate surveillance drone, reconfigured to enable secure phone calls
+  - Salvaged fast food friers and ovens, co-opted for mass drug production
+  - Outmoded clinical CAT scanner, jury-rigged into rudimentary security screen
+  legacy_infrastructure:
+  - Decommissioned subway tunnel, accessible from building, and vice versa
+  - Off site telecoms junction box, once served the local neighborhood
+  - Condemned slum quarantined with concrete seal, or biohazard containment zone
+  - Interconnected basements and foundation voids, poorly secured
+  - Sealed sub-basement parking for previous building, with still functioning elevator
+  - Forgotten floor following remodelling work, accessible through crawl space
+  - Disused loading or maintenance bay, with hidden goods elevator
+  - Undocumented Cold War bomb shelter or bunker network
+  - Exposed air venting system, leading to moth-balled sub-basement laboratory
+  - Unused utilities still feed into buildings, accessible from empty sewerage system
+  legacy_data:
+  - Obsolete, reformatted data vault, deep underground, poor information hygiene
+  - Hard drive archive in the roof space, or located off site in purpose built library
+  - Zero Day Exploit via overlooked archeonet (the earlier website; uses an old OS)
+  - Cloud account, covertly syncing data from devices in it’s proximity
+  - Ancient dial-up modem, still linked to the network, acts as possible back door
+  - Web cameras on unused computers, still accessible via the net
+  - Unauthorised porn or gaming account, log in still active, possible exploit
+  - Previously defeated hacking attempt left old code gate decrypted and open
+  - Networked but obsolete peripherals remain powered on and in standby mode
+  - Partially de-rezzed AI ‘ghost’ haunts the network and is, by now, quite insane
+  big_screen:
+  - Video gaming event
+  - Highlights from major sporting event
+  - System error message/connection failure
+  - The time and date
+  - The latest news headlines and lottery result
+  - Infomercial/Advertainment (see below)
+  - The weather forecast/air quality statistics
+  - Pornography (hacked and then squirtcast?)
+  - Music videos or movie trailers
+  - Traffic information
+
 nested_tables:
   quirky_interiors:
     templates:
@@ -39,7 +89,7 @@ nested_tables:
     - Strange Acoustics
     - Weird Smell (see P12)
     - Remote Assistants
-    - legacy Tech (see P10)
+    - Legacy Tech (see P10)
     - Exotic Pet
     secret:
     - Cameras
@@ -108,13 +158,65 @@ nested_tables:
     - Addiction
     - Ambition
     - Madness
-    - love
+    - Love
     - Folly
     - Paranoia
     - "Rivalry: {{local_conflict.rivalry}}"
     rivalry:
     - 1..5, Within Same Group
     - "6..10, Different Group - {{local_conflict.group}}"
+
+  alternative_businesses:
+    templates:
+    - |
+      <h4>Business - {{alternative_businesses.type}}</h4>
+      <strong><small>Quality:</small></strong> {{alternative_businesses.quality}}
+      <br/><strong><small>Security:</small></strong> {{alternative_businesses.security}}
+      <br/><strong><small>Status:</small></strong> {{alternative_businesses.status}}
+    type:
+    - 3D Printshop
+    - AR Designer
+    - City-Farm Stack
+    - Cyber Support
+    - Info Bank
+    - Assist Frames
+    - Retro Crafts
+    - SCOP Franchise
+    - Sim Sense
+    - Puppet rental
+    quality:
+    - Mom 'n Pop
+    - Discount
+    - Local loyalty
+    - Exclusive
+    - Reliable Brand
+    - Mass Market
+    - Fashionable
+    - Luxury Brand
+    - High End luxury
+    - Bespoke/Custom
+    security:
+    - None
+    - Cameras & Alarm
+    - Armed Owner
+    - Local Gang
+    - Security Guard(s)
+    - 24 Hour Security
+    - Biometrics
+    - Drones
+    - Guard Animal
+    - State-of-the-Art
+    status:
+    - Start up
+    - Closing Down
+    - Struggling
+    - Profitable
+    - High Demand
+    - Haemorrhaging
+    - For Sale
+    - Franchise
+    - Criminal Front
+    - Bad reputation
 
   urban_sickness:
     templates:
@@ -159,3 +261,94 @@ nested_tables:
     - Burning Eyes
 
 
+  nightlife:
+    templates:
+    - |
+      <h4>Nightlife - {{nightlife.bar_or_club}}</h4>
+      <strong><small>Status:</small></strong> {{nightlife.status}}
+      <br/><strong><small>Security:</small></strong> {{nightlife.security}}
+      <br/><strong><small>Vibe:</small></strong> {{nightlife.vibe}}
+
+    bar_or_club:
+    - Below Zero
+    - Dubculture
+    - The Danceteria
+    - Club Synapse
+    - Atrocity
+    - Storm
+    - The Dispensary
+    - Ryumi’s
+    - The Black room
+    - The Flesh Café
+    status:
+    - New Owner(s)
+    - Closing Down
+    - Drug Problem
+    - Violence Problem
+    - Criminal Owned
+    - Bad reputation
+    - Student Crowd
+    - Under Surveillance
+    - War Zone
+    - Best Bands/DJs
+    security:
+    - None
+    - Cameras & Alarm
+    - Armed Owner
+    - Local Gang
+    - Armed Bouncers
+    - 24 Hour Security
+    - Hired Thugs
+    - Weapon Scanners
+    - Cyborg Bouncers
+    - State-of-the-Art
+    vibe:
+    - Total Dive
+    - Atmospheric
+    - Gang Turf
+    - Fashionable
+    - PermaParty
+    - Sleazy
+    - Quiet
+    - Franchise
+    - Popular
+    - Exclusive
+
+  augmented_reality:
+    templates:
+    - |
+      <h4>Aug. Reality - {{augmented_reality.type}}</h4>
+      <strong><small>Aesthetic:</small></strong> {{augmented_reality.aesthetic}}
+      <br/><strong><small>Image Style:</small></strong> {{augmented_reality.image_style}}
+    type:
+    - Direction
+    - Logo Storm
+    - Assistant
+    - Blipvert
+    - Political
+    - Promotion*
+    - Advice
+    - Menu System
+    - Filter
+    - Prohibition
+    aesthetic:
+    - Typographic Overlays
+    - Bright And Garish Glyphs
+    - Animated Persona
+    - see That’s Infotainment (P15)
+    - Emotive Imagery
+    - Rapid Motion/Distracting
+    - Reassuring Infomemes
+    - Unobtrusive And Integrated
+    - Fantastical And Otherworldly
+    - Bold/Dramatic/Authorative
+    image_style:
+    - Crisp/Bright
+    - Animated 3-D
+    - High resolution
+    - Sophisticated
+    - Cheap/low resolution
+    - Clear, Yet Subtle
+    - Technical/Sci-fi
+    - Surreal/Immersive/Arty
+    - Flat Vector Graphics

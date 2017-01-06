@@ -1,0 +1,6 @@
+---
+templates:
+- "{{vehicles.sky_templates}}"
+
+imports:
+- vehicles

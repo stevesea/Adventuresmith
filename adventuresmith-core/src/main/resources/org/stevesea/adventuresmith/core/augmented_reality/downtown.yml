@@ -185,4 +185,4 @@ nested_tables:
     - Popular With Particular Subculture
     - Totally Sterile
     - Extensive Drone Docks
-    - "Causes Sickness. {{details.urban_sickness}}"
+    - "Causes Sickness. {{urban_sickness.templates}}"

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{vehicles.road_templates}}"
+
+imports:
+- vehicles
