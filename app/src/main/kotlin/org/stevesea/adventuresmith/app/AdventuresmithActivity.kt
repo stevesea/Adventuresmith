@@ -595,6 +595,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.AugmentedReality -> {
                     when (grpId) {
                         "grpCity" -> CommunityMaterial.Icon.cmd_city
+                        "grpSenses" -> CommunityMaterial.Icon.cmd_eye
+                        "grpVehicles" -> CommunityMaterial.Icon.cmd_truck
                         else -> CommunityMaterial.Icon.cmd_memory
                     }
                 }

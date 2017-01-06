@@ -4,7 +4,8 @@ priority: 100
 url: http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games
 credit: Paul D. Gallagher / Geist Hack Games
 attribution: |
-  <cite>Augmented Reality</cite> was designed and compiled by <strong>Paul D. Gallagher</strong>. (Geist at at http://neuralarchive.blogspot.co.uk)
+  <cite>Augmented Reality</cite> was designed and compiled by <strong>Paul D. Gallagher</strong>.
+  <br/>(Geist at http://neuralarchive.blogspot.co.uk)
   <p>© Geist Hack Games 2017</p>
 
   <blockquote>
@@ -19,5 +20,7 @@ attribution: |
   </blockquote>
 groups:
   grpCity: City
+  grpSenses: Senses…
+  grpVehicles: Vehicles
 
 

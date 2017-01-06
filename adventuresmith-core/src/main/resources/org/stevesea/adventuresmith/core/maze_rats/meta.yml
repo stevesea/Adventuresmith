@@ -1,9 +1,8 @@
 name: Maze Rats
 id: maze_rats
-priority: 100
 credit: Ben Milton
 url: "http://questingblog.com/maze-rats/"
-priority: 0
+priority: 100
 groups:
   grpChar: Characters & NPCs
   grpCity: The City
