@@ -1,0 +1,439 @@
+---
+templates:
+- "{{gangs.templates}}"
+
+imports:
+- details
+
+
+nested_tables:
+  gangs:
+    templates:
+    - |
+      <h4>Street Gang - {{gangs.names_a}} {{gangs.names_b}}</h4>
+      {{gangs.themes_1}}
+      <br/>{{gangs.themes_2}}
+      <br/>{{gangs.themes_3}}
+      <br/>
+      <br/>{{gangs.activities}}
+      <br/>
+      <br/>{{gangs.relationships}}
+      <h5>What are they up to?</h5>
+      {{gangs.currently}}
+      <h5>What’s the deal with these guys?</h5>
+      {{gangs.rumors}}
+      <h5>NPCs</h5>
+      {{>pickN: 3 gangs.npc_main}}
+      <h5>Other NPCs</h5>
+      {{>pickN: 3 gangs.npc_other}}
+
+    names_a:
+    - Cortical
+    - Subway
+    - Radical
+    - Binary
+    - Fragile
+    - Hate
+    - Electric
+    - Mobile
+    - Endgame
+    - Bubblegum
+    - Biological
+    - Shaolin
+    - Chrome
+    - Polymer
+    - Rudeboy
+    - Terminal
+    - Shadow
+    - Subsonic
+    - Chemical
+    - Chosen
+    - Toxic
+    - Steel
+    - Waffen
+    - Cannibal
+    - Panzer
+    - Gun
+    - Disposable
+    - Iron
+    - Speedball
+    - AK
+    - Liquid
+    - Junky
+    - Instant
+    - Zone
+    - Sushi
+    - Lucifer’s
+    - Remodelled
+    - Faceless
+    - Vampire
+    - Crosstown
+    - Aryan
+    - Spirit
+    - Nomad
+    - Hydraulic
+    - Fractal
+    - Brain
+    - Screaming
+    - Lucid
+    - Napalm
+    - Happy
+    names_b:
+    - Dogs
+    - Assassins
+    - Dragons
+    - Prophets
+    - Machine
+    - Society
+    - Freaks
+    - Girls
+    - Militia
+    - Atrocity
+    - Impulse
+    - Rippers
+    - Savages
+    - Riot
+    - Apocalypse
+    - Storm
+    - Soldiers
+    - Cult
+    - Loas
+    - Kidz
+    - Ghosts
+    - Church
+    - Technicals
+    - Clowns
+    - Fists
+    - Sharks
+    - Boys
+    - Maniacs
+    - Ultimates
+    - Legends
+    - Killaz
+    - Bullets
+    - Revolvers
+    - Bosses
+    - Thugs
+    - Babies
+    - Army
+    - Fanatics
+    - Daddies
+    - Chaos
+    - Hammer
+    - Method
+    - Clan
+    - Terror
+    - State
+    - Wasters
+    - Shards
+    - Moderns
+    - Harvest
+    - Losers
+    themes_1:
+    - Neo-Primitive
+    - Soft-armoured
+    - VR Game Playing
+    - Neon-Punk
+    - Drone utilising
+    - Patriarchal
+    - LAN-linked
+    - Augment Heavy
+    - Spike Covered
+    - Ex-Convict
+    - Biomodified
+    - Blade Wielding
+    - Body Modified
+    - Gun Fetishist
+    - Rastafarian
+    - SimStim rigged
+    - Tech-Ninja
+    - Mood Chipping
+    - Voodoo Practicing
+    - Chip-Hop Fan
+    - Grime-Punk
+    - Death Metal Fan
+    - Skinhead
+    - Blood Stained
+    - Armour Plated
+    - Couture Stealing
+    - Military Surplus
+    - WoW Inspired
+    - Risk Taking
+    - African-Tribal
+    - Ultraviolent
+    - Drug Dependent
+    - War Painted
+    - Rag Enshrouded
+    - Buddha-Faced
+    - Emo-Goth
+    - Goggle Wearing
+    - Androgynous
+    - Blood Drinking
+    - Road Armoured
+    - Heavily Tattooed
+    - Neo-luddite
+    - Goth-Punk
+    - Industrial-Tech
+    - Tech Savvy
+    - Net Dependent
+    - Radical
+    - Ar Manipulating
+    - Afro-Haired
+    - Neon-raver
+    themes_2:
+    - Wirehead
+    - Nerve Boosted
+    - Frame Assisted
+    - Scavenger
+    - Info-Socialist
+    - Sports Fan
+    - Sex Predator
+    - All Female
+    - Doom Cult
+    - Transgender
+    - Brain Damaged
+    - Skill Chipping
+    - Scrap Tech
+    - Dog-Faced
+    - Racist
+    - Media Savvy
+    - Parkour
+    - Alcoholic
+    - Drug Cooking
+    - Political
+    - Tech-Junkie
+    - Evangelical
+    - Übermensch
+    - Juggalo
+    - Cyborg
+    - Psychotic
+    - War Veteran
+    - Armour Clad
+    - Rich Kid
+    - Drug Enhanced
+    - Home Invading
+    - Cannibal
+    - Suicidal
+    - Homeless
+    - Steroid using
+    - Pseudo-Satanic
+    - Militant
+    - Mask Wearing
+    - Asexual
+    - Anarchist
+    - Alt-right
+    - Religious
+    - Peddle Biking
+    - Psychotic
+    - Eco-Socialist
+    - Philosophical
+    - Feminist
+    - Political
+    - Multi-optic
+    - Anti-Corporate
+    themes_3:
+    - Combat Gang
+    - Skaters
+    - Martial Artists
+    - Tech-Jackers
+    - Party Artistes
+    - Street Fighters
+    - Wireheads
+    - Go-Gang
+    - Boosters
+    - Combat Gang
+    - Boosters
+    - Martial Artists
+    - Chromers
+    - Boosters
+    - Combat Gang
+    - Chromers
+    - Combat Gang
+    - Party Artistes
+    - Cultists
+    - Combat Gang
+    - Boosters
+    - Chromers
+    - Moto-Cultists
+    - Pranksters
+    - Street Fighters
+    - Street Kids
+    - Nihilists
+    - Chromers
+    - Skaters
+    - Guardians
+    - Boosters
+    - Street Kids
+    - Combat Gang
+    - Guardians
+    - Street Fighters
+    - Nihilists
+    - Boosters
+    - Nihilists
+    - Skaters
+    - Go-Gang
+    - Policlub
+    - Guardians
+    - Go-Gang
+    - Chromers
+    - Policlub
+    - Nihilists
+    - Boosters
+    - Pranksters
+    - Chromers
+    - Party Artistes
+    activities:
+    - Deal in prohibited neural boosts, intellect stims, sakawa charms
+    - Operate a stash house in the old Metro system and fence goods
+    - Import, crack and distribute Vr games and Hong Kong action sims
+    - Hack and tap electronic infrastructure, for a price
+    - Will put on one hell of a party in exchange for hot information
+    - Trade in counterfeit sportswear, tickets and fan merchandise
+    - Supply banned pornographic SimStims and vid-chips
+    - Sell Chiba-grade imported black market implants and upgrades
+    - Prolific dumpster-divers and parts-hunters; trade and exchange
+    - Premier suppliers of street level gender reassignment technology
+    - Leader hires out her most neurologically damaged boys as muscle
+    - Currently making a killing in the underground fighting scene
+    - Bargain basement prices for spectacular acts of arson
+    - Specialists in smash and grab jobs, for money and firearms
+    - Own and operate a warehouse nightclub in the factory district
+    - Digital surveillance and stalking, seamless manipulation of video
+    - Happy to be hired as rooftop street guides and expert sneaks
+    - Doctor common drugs, altering their composition and legality
+    - Take protection money, cook drugs and provide bespoke curses
+    - Work protection on a number of chip-hop bars and clubs
+    - 3D-print their own implanted weapons (fragile)
+    - Several members are skilled Ar coders
+    - Make their money dealing in heavy weapons and stolen cars
+    - Grow synthetic opium in hydroponic blisters and sell it on
+    - Target small-fry fixers and gangers and steal their shit to sell on
+    - Sell stolen fashions, counterfeits and cloned credit cards
+    - Professional-level hits and heists, unfettered by rules of warfare
+    - Promise them in-game bitcoins and they’ll perform any ‘quest’
+    - Fat allowances and legal back-up allow extreme road race stunts
+    - Smuggle russian military hardware and protect ‘their’ hab stacks
+    - Slave traffickers and suppliers of stolen consumer electronics
+    - Suspected organ-leggers and kidnappers
+    - Experts at depopulating hab stacks quickly and brutally
+    - Brew their own alcohol, trade it for SCOP; do gig work for SCOP
+    - Skin-traders and flesh peddlars, buy and sell pretty young things
+    - Find and sell corpses or parts to the body banks
+    - Self-styled free-company, market themselves as street condottieri
+    - Fence and sell black market cybernetic limbs of dubious origin
+    - Selling synthesized copies of virulent, manufactured HIVPlus strain
+    - Will consider any job for new bikes or fuel; flaky, unpredictable
+    - Frighteningly good propagandists and excellent rent-a-thugs
+    - Paid to protect a number of local Christian agri-businesses
+    - No-questions-asked bike courier service, as well as ride-by hits
+    - Taken over a wrecking yard so they can just, ya know, wreck stuff
+    - Minifacture their own flechette weapons and needleguns
+    - Run an angst-soaked cloud forum, behind a secure pay wall
+    - Hormone-farm captive young males to sell online
+    - Blackmail and harass prominent civil servants and create fake news
+    - Carjacking and auto theft, as well as elaborate respraying
+    - Do a roaring trade in illegally downloaded, DrM-free music
+    relationships:
+    - Turf war with…
+    - Steal from…
+    - Merger with…
+    - Rivalry with…
+    - Employed by…
+    - Preys on…
+    - Despises…
+    - Trades with…
+    - Actively targets…
+    - Protected by…
+    - Jealous of…
+    - Turf war with…
+    - Betrayed by…
+    - Wary of…
+    - Monitored by…
+    - Employs…
+    - Trades with…
+    - Owe money to…
+    - Insulted MC of…
+    - Supplied by…
+    - Turf war with…
+    - Allied to…
+    - Despises…
+    - Targeted by…
+    - Protects…
+    - Terrified of…
+    - Amused by…
+    - Humiliated by…
+    - Threatened by…
+    - Turf war with…
+    - Works with…
+    - Despises…
+    - Trades with…
+    - Tend to avoid…
+    - Trades with…
+    - Wary of…
+    - Turf war with…
+    - Make use of…
+    - Rivalry with…
+    - Tend to avoid…
+    - In talks with…
+    - Make use of…
+    - Threatened by…
+    - Owe money to…
+    - Trades with…
+    - Turf war with…
+    - Want to destroy…
+    - Wary of…
+    - Buys from…
+    - Allied to… (1-2)
+    npc_main:
+    - Gang leader/Boss
+    - Gang Elder
+    - Gang Juve/Noob
+    - Gang Champion
+    - Gang Scout
+    - Gang leader’s Main Squeeze
+    - Gang leader’s leftenant
+    - Gang leader’s Main rival In Gang
+    - Gang’s loose Cannon
+    - Gang Expert (steers gang’s main biz)
+    npc_other:
+    - Kid Wannabe
+    - Loyal Gunman (ex-member)
+    - Sheltered Fugitive
+    - Gang Member’s Kid
+    - Former Gang Boss, Now Disgraced
+    - Gang leader’s Secret Concubine
+    - Gang’s Techie or ripperdoc
+    - Invalided Gang Member
+    - Gang’s Fixer
+    - Gang’s Idiot (the liability)
+
+    currently:
+    - Picking a fight with someone they don’t like - store owner, passer by, hab resident
+    - Marking the local area with gang tags - AR, spray paint, pens, animatic stickers
+    - Shaking down the locals with threats and intimidation - for money, booze, sex
+    - Raving to their favourite music/propaganda, extremely loudly
+    - Getting wasted, or psyching themselves up before a fight or a raid
+    - Facing down cops/security/another gang - as far as they can get without a fight
+    - Participating in tests of skill or daring among themselves
+    - Making a deliberate attempt at being visible, strengthening presence in the area
+    - Engaged in their main biz, or negotiating employment with another party
+    - "{{>pickN: 2 gangs.currently}}"
+    rumors:
+    - The gang is in danger of being destroyed by a more powerful rival gang.
+    - |
+      The gang are showing symptoms of having contracted a disease.
+      <br/>
+      <br/>{{urban_sickness.templates}}
+    - |
+      The gang knows of hidden ways through the city or into a building.
+      <br/>
+      <br/>{{legacy_infrastructure}}
+    - The gang have procured (or manufactured) a dangerous narcotic or toxin
+    - The gang harbours an exile or outcast from a wealthy and powerful family
+    - The gang have discovered valuable technology lost by powerful NPC
+    - The gang has a splinter cell of powerful members, who are impossible to control
+    - The gang are grabbing runaways for corporate experiments, and getting bolder
+    - A member has fallen in love with a rival gang member and fled, knowing too much
+    - The gang has access to unusual cybernetics, and it’s drawing attention to them
+
+
