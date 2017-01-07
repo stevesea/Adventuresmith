@@ -1,0 +1,6 @@
+---
+templates:
+- "{{corporations.projects}}"
+
+imports:
+- corporations

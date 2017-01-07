@@ -6,6 +6,10 @@ generators:
   - alternative_business
   - area_events
   - augmented_reality
+  - boardroom_manoeuvres
+  - cabbies
+  - company_resources
+  - corporate_aristocrats
   - downtown
   - infotainment
   - instacitizen
@@ -15,9 +19,12 @@ generators:
   - sights
   - smells
   - sounds
+  - street_walkers
+  - tattoo
   - vehicle_river
   - vehicle_road
   - vehicle_sky
+  - vices
   fourth_page:
   - artifact
   - dungeon

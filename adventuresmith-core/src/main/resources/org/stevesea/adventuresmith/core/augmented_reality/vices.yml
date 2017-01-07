@@ -1,0 +1,6 @@
+---
+templates:
+- "{{vices.templates}}"
+
+imports:
+- npcs

@@ -25,20 +25,20 @@ nested_tables:
     - Ill fitting clothes and bad teeth
     - Pair of skinny plastic cyber arms
     - Garish pink jaw, yellow acrylic teeth
-    - rugged, practical and outdoorsy
+    - Rugged, practical and outdoorsy
     - Substandard gender reassignment
     - Prominent implant branding
     - Dreadlocks, worn leather coat
     3:
     - Seems eerily artificial, very attractive
-    - unintelligent, aggressive, pock marks
+    - Unintelligent, aggressive, pock marks
     - Mismatched optics, black turtle neck
     - Overweight and dirty, layered cloths
     - Engorged musculature due to grafts
     - Furtive and on edge, unkempt, tattoos
     - Misshapen by heavy augmentation
     - Narcotic haze, fidgety hands, shabby
-    - loud, camp, and showy, anaemic
+    - Loud, camp, and showy, anaemic
     - Weary, apathetic, animated clothing
     4:
     - Acts deaf but isn't, knows people
@@ -46,7 +46,7 @@ nested_tables:
     - Shy and apologetic, rubber raincoat
     - Oily skin, constantly checks watch
     - Oddball dress sense, way too literal
-    - long hair, metal fan in downtime
+    - Long hair, metal fan in downtime
     - Trashy, overtly sexual, self-loathing
     - Overclocked nervous system, sweats
     - Conservative, business-like
@@ -144,3 +144,104 @@ nested_tables:
     - 7..8, Emergency Worker (EMT, nurse, paramedic, fire fighter)
     - 9, Government Agent
     - 10, Scientist
+
+  tattoo:
+    templates:
+    - |
+      <h4>Tattoo - {{tattoo.what}}</h4>
+      <strong><small>Style:</small></strong> {{tattoo.style}}
+      <br/><strong><small>Where:</small></strong> {{tattoo.where}}
+
+    what:
+    - Skulls/Bones
+    - Roses/Flowers
+    - Crossed Guns/Blades
+    - Snake/reptile
+    - Dragon/Mythical Beast
+    - Animal/Predator
+    - Nautical
+    - Script/Message/Numbers
+    - Geometric/Abstract
+    - Technology/Circuitry
+    style:
+    - Mexican/Aztec
+    - Pixilated/Computerised
+    - Photorealistic Colour/Grey
+    - Migratory/Animated
+    - Oriental
+    - Tribal
+    - Rockabilly Punk
+    - Solid Monotone Graphics
+    - Neon Glow
+    - Old School Blue Ink
+    where:
+    - Back/Shoulders
+    - Bicep/Forearm
+    - Hip/Groin
+    - Face/Scalp
+    - Stomach
+    - Lower leg/Calf
+    - Thigh
+    - Ribs/Chest
+    - Neck/Collar Bone
+    - Buttock(s)
+
+  street_walkers:
+    templates:
+    - |
+      <h4>Street Walker</h4>
+      <strong><small>Sex Worker:</small></strong> {{street_walkers.sex_workers}}
+      <br/><strong><small>Identifies As...:</small></strong> {{street_walkers.identifies}}
+
+    sex_workers:
+    - Elegant Full Body Conversion, Aesthetically Pleasing
+    - Augmented genitalia and tactile sensory upgrades
+    - lean, attractive, loaded with hallucinatory pheromones
+    - Battered synthetic, needs repairs, garish vinyl clothing
+    - All limbs replaced with double-jointed cybernetics
+    - Illegally young, brash, dead eyed - nearby junkie pimp
+    - Disabled exotic bioform, assisted by linear frame
+    - Overweight, excessive make up, narcotic dependency
+    - Old, has local knowledge, skilled, clean medical record
+    - Neural cutouts, detached, implanted recorder suite
+    identifies:
+    - Gay Male
+    - Cis Straight Female
+    - Transgender M to F
+    - Transgender F to M
+    - Bisexual Female
+    - Cis Straight Male
+    - Gay Female
+    - Partial M to F; Bi-Male
+    - Pansexual Male
+    - Pansexual Female
+
+  vices:
+    templates:
+    - |
+      <h4>What's their poison?</h4>
+      <strong><small>Peccadillo, Vice, Addiction:</small></strong> {{vices.vices}}
+      <br/><strong><small>Level of Need:</small></strong> {{vices.level_of_need}}
+
+    vices:
+    - Child-like Sex Dolls or Synthetics
+    - Prohibited Designer Narcotics
+    - Street legal, But Harmful - Alcohol/Caffeine/Nicotine
+    - SimStim/SimSense/Vr Gaming
+    - Atrocity Images or Footage
+    - Prostitutes (Secretly Same Sex?) (see below)
+    - Pornographic Material (Particular Acts or Fetish?)
+    - Bizarre Fetish Wear or Activity
+    - Pain/Sexual Violence (Towards Self or Others)
+    - Abuses Synthetic (or real) Animals
+    level_of_need:
+    - Take It Or leave It
+    - Light Interest
+    - Ghoulish Fascination
+    - If The Opportunity Arises
+    - Regular routine user
+    - Intrinsic To Personality
+    - Only To Destress
+    - Needed To Function
+    - Unhealthy Obsession
+    - All Consuming

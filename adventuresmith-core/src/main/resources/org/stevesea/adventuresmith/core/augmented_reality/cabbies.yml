@@ -1,0 +1,225 @@
+---
+templates:
+- "{{cabbies.templates}}"
+
+
+imports:
+- details
+- npcs
+- sense_and_the_city
+
+nested_tables:
+  cabbies:
+    templates:
+    - |
+      <h4>Cabbie</h4>
+      <strong><small>Appearance:</small></strong> {{cabbies.appearance}}
+      <br/><strong><small>Nationality:</small></strong> {{cabbies.nationality}}
+      <br/><strong><small>Conversation Topic:</small></strong> {{cabbies.conversation_topic}}
+      <br/><strong><small>Demeanour:</small></strong> {{cabbies.demeanour}}
+      <br/>
+      <br/><strong><small>Smell:</small></strong> {{senses.smells}}
+    appearance:
+    - Armoured up
+    - Unwashed
+    - Chain smoker
+    - Goggles & tech
+    - Fat, eating junk
+    - Looks exhausted
+    - "Sick & shaking ({{urban_sickness.symptoms}})"
+    - Fresh implant(s)
+    - Well groomed
+    - Way too young…
+    - Pock-marked
+    - Half-starved
+    - Heavily tattooed
+    - Charms & symbols
+    - Army fatigues
+    - Fully cyborged
+    - Hardwired in
+    - Transvestite
+    - Tribal scarring
+    - Oversized optics
+    - Chromed teeth
+    - Slick with sweat
+    - Atrophied limb
+    - Twitches
+    - Polythene coverall
+    - Layered T-shirts
+    - Four handguns
+    - Excessive vaping
+    - Filthy baseball cap
+    - Scruffy looking
+    - Facial burn scars
+    - Constant texting
+    - Designer coat
+    - HuD Visor
+    - Respirator
+    - Mirrorshades
+    - Slab-headed
+    - Surplus flight suit
+    - Geriatric
+    - Creaking leathers
+    - Jury-rigged IV drip
+    - Bright blue hair
+    - Bullet earrings
+    - Wearable cameras
+    - Autoshotgun
+    - Has no legs
+    - Alopecia
+    - Thin cyberarms
+    - Aviator glasses
+    - Pale green optics
+    nationality:
+    - Russian
+    - Jamaican
+    - French
+    - Sikh Indian
+    - Libyan
+    - Nigerian
+    - Uzbek
+    - American
+    - Chinese
+    - German
+    - Dutch
+    - Mexican
+    - Scottish
+    - Irish
+    - Syrian
+    - Ukrainian
+    - Thai
+    - Mongolian
+    - Somali
+    - Local
+    - Saudi
+    - Portuguese
+    - Local
+    - Innuit
+    - Spanish
+    - Turkish
+    - Danish
+    - Latvian
+    - Romany
+    - Greek
+    - Local
+    - Romanian
+    - Finn
+    - Flemish
+    - Pakistani
+    - Italian
+    - Siberian
+    - Local
+    - Bulgarian
+    - South African
+    - Malay
+    - Kenyan
+    - Tibetan
+    - Polish
+    - Swedish
+    - Hungarian
+    - Congolese
+    - Moldovan
+    - Afghan
+    - Kashmiri
+    conversation_topic:
+    - The state of the city
+    - Big combat sports fan
+    - Driverless vehicles
+    - Gangs in the area
+    - Their huge family
+    - Extreme alt-politics
+    - Their tricked out vehicle
+    - The ecopocalypse
+    - Conspiracy theories
+    - Cod philosophy
+    - Classic rock music
+    - How connected they are
+    - The erratic weather
+    - Favourite TV shows
+    - Cyberware brands
+    - The recent/ongoing war
+    - They used to be rich
+    - Racist tirades
+    - Corporate gossip (fake)
+    - Kung-fu movies
+    - Was once a surgeon
+    - Their sexual conquests
+    - Reality TV shows suck
+    - Their deep dislike of Ar
+    - Their pet synthetic goat
+    - Global politics
+    - The spectre of terrorism
+    - Hi-tech weaponry
+    - Their many ex-partners
+    - Their work on their PhD
+    - Their missing daughter
+    - Rampant crime
+    - The latest Vr games
+    - Their favourite eateries
+    - Info-Socialist revolution
+    - Their aggressive cancer
+    - Disdain for the police
+    - Was once a pilot
+    - Today’s youth/drugs
+    - The rich/poor divide
+    - Desire to be an actor
+    - The ethics of cloning
+    - Endorses brands (paid)
+    - Making own net show
+    - Pushing PCs for a job
+    - The welfare system
+    - Getting out the business
+    - Extreme sex SimStims
+    - State of their slum-cube
+    - How they live in the cab
+    demeanour:
+    - Friendly/Helpful
+    - Aggressive
+    - Detached/Bored
+    - Robotic
+    - Overly Cautious
+    - Humorous
+    - Inquisitive/Nosy
+    - Drunk/Stoned
+    - Uncommunicative
+    - Extremely Positive
+    - Surly
+    - Lecherous
+    - Servile
+    - Superstitious
+    - Abrupt
+    - Devout/religious
+    - Boastful
+    - Flamboyant
+    - Careless/Clumsy
+    - Suicidal
+    - Distracted
+    - Cynical
+    - Has Tourettes
+    - Argumentative
+    - Unpredictable
+    - Nervous
+    - Ashamed
+    - Charming
+    - Incoherent
+    - Noisy/Interrupts
+    - 1000 Yard Stare
+    - Ambitious
+    - Calm
+    - Arrogant
+    - Grumpy
+    - Law Abiding
+    - Depressive
+    - Sensible
+    - Greedy
+    - Respectful
+    - Volatile/Touchy
+    - Judgemental
+    - Vulgar/rude
+    - Furtive
+    - Patronising
+    - Foolish/Stupid
+    - Grateful
+    - Lonely
+    - Tuneful/Musical
+    - Naive

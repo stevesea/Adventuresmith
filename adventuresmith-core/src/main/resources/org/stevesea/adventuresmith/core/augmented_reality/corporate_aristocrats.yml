@@ -1,0 +1,323 @@
+---
+templates:
+- "{{corporate_aristocrats.templates}}"
+
+
+nested_tables:
+  corporate_aristocrats:
+    templates:
+    - |
+      <h4>Corp. Aristocrat - {{corporate_aristocrats.firstname}} {{corporate_aristocrats.surname}}</h4>
+      {{corporate_aristocrats.detail_1}}
+      <br/>{{corporate_aristocrats.detail_2}}
+      <br/>{{corporate_aristocrats.detail_3}}
+      <br/>
+      <br/>{{corporate_aristocrats.relationship}}
+
+    firstname:
+    - Christian
+    - Maria
+    - Arkady
+    - Olena
+    - Asari
+    - Oliver
+    - Dominique
+    - Edward
+    - Tamara
+    - Dr Narindar
+    - Namiko
+    - Logan
+    - George
+    - Adam
+    - Victoria
+    - James
+    - Benjamin
+    - Katsuto
+    - William
+    - Lewis
+    - Armando
+    - Victor
+    - Abigail
+    - Todd
+    - Hannah
+    - Catherine
+    - Jean Paul
+    - Peter
+    - Mohana
+    - Yi Xue
+    - Fatima
+    - Col. Charles
+    - Paulo
+    - Terence
+    - Genevieve
+    - Dr Cameron
+    - Poppy
+    - Isobella
+    - Michelle
+    - Wolfgang
+    - Stephen
+    - Adelle
+    - Simon
+    - Charlotte
+    - Cordelia
+    - Prof. rachel
+    - Marcus
+    - Leonid
+    - Rosaline
+    - Ibrahim
+    surname:
+    - Moretta
+    - Moretta
+    - Komarov
+    - Komarov
+    - Nwokolo
+    - Young
+    - Taylor-lloyd
+    - Huang
+    - Preston
+    - Malhotra
+    - Ashworth
+    - Ashworth
+    - Kaufman
+    - Hamilton
+    - Hamilton
+    - Arellano
+    - Moore
+    - Nakamura
+    - Rochford
+    - Norton
+    - Cordova
+    - Constantine
+    - Constantine
+    - McAlister
+    - McAlister
+    - Dubois
+    - Dubois
+    - Muller
+    - Muller
+    - Song
+    - Rasheed
+    - Weigel
+    - Giovanni
+    - Cook
+    - Di Stefano
+    - Di Stefano
+    - Jacquet
+    - Jacquet
+    - Bachman
+    - Bachman
+    - Gaskell
+    - Davis
+    - Clark
+    - Clark
+    - Granger
+    - Granger
+    - Shepperton
+    - Ortov
+    - Williams
+    - Al-Harmah
+    detail_1:
+    - Buys endangered species, and mutilates them
+    - Drowns orphans in private swimming pool
+    - Androids of dead loved ones, used as servants
+    - Collects and catalogues DNA samples of rivals
+    - She lacks confidence and is extremely paranoid
+    - Compulsively records women while they sleep
+    - Hurts herself under stress
+    - Addicted to expensive synthetic opioids
+    - Enjoys watching people die
+    - Has a fondness for injured/disabled women
+    - Desires the top job at all costs
+    - Personal hacker collective headed by wayward nephew
+    - Likes his women completely devoid of hair
+    - Once a spy for an ecoterrorist commune
+    - Literally afraid of being at street level
+    - Enjoys the sound of people crying
+    - Has a private army of desperate down-and-outs
+    - Worships the net, as if it were a divine entity
+    - Asexual
+    - Despises the voices of all those around him
+    - Derives pleasure from the fear of others
+    - Has a paralyzing fear of the Biotech Division
+    - Believes the board are hostile to her, afraid to leave
+    - Under the influence of a rogue AI
+    - Requires nutrient baths several times a day
+    - Serial adulterer; compelled by faulty sex implant
+    - Always tells the truth
+    - Wants revenge on the CEO for unknown reasons
+    - Overly reliant on complex prediction algorithms
+    - Wants to die, but afraid of the afterlife
+    - Seeks to dominate fixer networks for own ends
+    - Haunted by digital ghosts of those he’s had killed
+    - A cosmetically altered double, living the dream
+    - Born in 1952, but looks only 25 years old
+    - Hates her implants; they make her feel sick
+    - Blackmailed into submission by orbital clade
+    - Secret second life as a high class callgirl
+    - Wants to kill her twin sister and main rival
+    - Surprisingly normal
+    - Has ‘precognitive’ dreams manipulated by a hacker
+    - Despises both daylight and bright artificial lighting
+    - Only wears clothes made by the indentured poor
+    - Closely monitors the children of business rivals
+    - Desires the utter destruction of the city
+    - A downlinked AI masquerading as human
+    - Obsessed with obscure, expensive fashion
+    - Believes the corporate elite are slaves to AIs
+    - Blackmailing corporates for money and favours
+    - Powerful intrusion software, but can’t work it
+    - Was in love with someone the PCs killed
+    detail_2:
+    - Controls black tech imports
+    - Bribes the staff of her rivals
+    - Breeds biogenetic horrors
+    - Finest art collection in city
+    - Hoards ‘occult’ objects
+    - Collector of antique technology
+    - Owns swathes of farmplexes
+    - Breeds & trains combat clones
+    - Owns & operates sex resorts
+    - Well regarded psychotherapist
+    - Security extremely loyal to
+    - Owns assemblery districts
+    - Expert in corporate law
+    - Head of International retail
+    - Old money aristocratic family
+    - Health & Safety Executive
+    - Exceptionally skilled hacker
+    - Head of Administration
+    - Head of BioDivision r&D
+    - Media Operations liaison
+    - Monitors company AI stable
+    - Current Chief Executive Officer
+    - Wife; controls access to CEO
+    - Popular decadent socialite
+    - Famous society tastemaker
+    - Highly cosmetically enhanced
+    - Importer of pharmaceuticals
+    - Employs the finest chefs
+    - Internal Security Director
+    - Poached from major rival
+    - Black Operations Executive
+    - Decorated combat veteran
+    - Skilled investigator
+    - Handsome economist
+    - Award winning marketeer
+    - CEO’s Physician
+    - Public relations Executive
+    - Human resources Executive
+    - Company Security operative
+    - Oversees sales divisions
+    - Funniest company employee
+    - Uniformed Security Manager
+    - CEO’s Personal Assistant
+    - Digital Security Executive
+    - Lovely child; society darling
+    - Expert in cybernetic systems
+    - Undervalued and overlooked
+    - Universally feared
+    - Resource management
+    - Enhanced killer of some renown
+    detail_3:
+    - Wears silk, furs and a monocle
+    - Black eyes, red trouser suits
+    - Short, bald, gruff, distracted
+    - Alcoholic, odd yet attractive
+    - Scarlett-haired, spiteful
+    - One-eyed, uses an assist frame
+    - Intense, passionate, green eyes
+    - Crude, jocular, artificial jaw
+    - Rotund, elegant, sarcastic
+    - Obsequious, sharp intellect
+    - Proud, pitiless, pale blue eyes
+    - Mincing, meek, ruthless
+    - Hairless, eager and awkward
+    - Plodding, multi-lingual, talkative
+    - Limp, opulent, over privileged
+    - Furtive, argumentative, cynical
+    - Old, decrepit, almost immobile
+    - Chubby, ruddy, bespectacled
+    - Tedious, wheedling, androgynous
+    - Light, frivolous, ironic hipster
+    - Dark haired, wears body armour
+    - Weak voice, thin-fingered, cold
+    - Highly strung, middle-aged, pale
+    - Gracious, intelligent, seems kind
+    - Touchy, easily riled, sharp style
+    - Sentimental, fragile, wears white
+    - Recounts outrageous stories
+    - Nervous, sweaty, sloppy
+    - Open, friendly, business-like
+    - Brusque, aging, cunning, twisted
+    - Loyal to CEO, quiet, unassuming
+    - Grim, warlike, unbending, PTSD
+    - Somber, patient, sympathetic
+    - Greedy, lusty, barbaric and blunt
+    - Understated, wears gloves, OCD
+    - Bulging eyes, veiny, creepy
+    - Jewel-covered fashionista, vain
+    - Abrupt, impatient, germ phobia
+    - Suspicious, excitable, hot temper
+    - Wary, detached, thin, aged
+    - Universally liked, fat, generous
+    - Energetic, black humour, bored
+    - Thin, wiry, long-nosed, stylish
+    - White-haired, speaks in whispers
+    - Radiant, innocent, foolish
+    - Frivolous, envious, insecure
+    - Bitter, scarred, suspicious
+    - Exposes/frames enemies, fearless
+    - Arrogant, devious, patronising
+    - Dark-eyed, clever, religious
+    relationship:
+    - Married to…
+    - Sleeps with…
+    - Father of…
+    - Rivalry with…
+    - Student of…
+    - Enamored of…
+    - Worried about…
+    - Works for…
+    - Blackmailing…
+    - Suspicious of…
+    - Daughter of…
+    - Schemes with…
+    - Jealous of…
+    - Married to…
+    - Assaulted by…
+    - Seeks aid of…
+    - Served by…
+    - Owes money to…
+    - Insulted by…
+    - Seeks service of…
+    - Influence over…
+    - Married to…
+    - Enamored of…
+    - Married to…
+    - Will betray…
+    - Married to…
+    - Trusts only…
+    - Married to…
+    - Friend of…
+    - Lusts after…
+    - Rivalry with…
+    - Trusts only…
+    - Annoys…
+    - Makes use of…
+    - Married to…
+    - Lusts after…
+    - Twin sister of…
+    - Seeks aid of…
+    - Married to…
+    - Only enjoys…
+    - Irritates…
+    - Friend of…
+    - Son of…
+    - Suspicious of…
+    - Adopted by…
+    - Worries about…
+    - Seeks help of…
+    - Curious about…
+    - Manipulating…
+    - Works for…
+

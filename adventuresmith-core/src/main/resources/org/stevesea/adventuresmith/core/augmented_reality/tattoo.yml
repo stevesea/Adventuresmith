@@ -1,0 +1,6 @@
+---
+templates:
+- "{{tattoo.templates}}"
+
+imports:
+- npcs
