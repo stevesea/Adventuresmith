@@ -11,9 +11,11 @@ generators:
   - company_resources
   - corporate_aristocrats
   - downtown
+  - fixers
   - gangs
   - infotainment
   - instacitizen
+  - jobs
   - local_conflict
   - nightlife
   - quirky_interiors

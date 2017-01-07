@@ -1,0 +1,33 @@
+---
+
+nested_tables:
+  armed_response:
+    first_responders:
+    - 1..2, Plainclothes Detectives Clearly marked POLICE vests, flashing their ID badges
+    - "3..5, Uniformed Officers - Basic cops"
+    - "6..8, Uniformed Officers - Basic cops (wearing riot gear)"
+    - 9..10, Tactical response unit Special operations/SWAT team - milspec load out
+    department:
+    - 1..4, City/Corporate Police Same thing, only difference is who’s paying them
+    - 5..6, Corporate Security Protecting company property, area or personnel
+    - 7..8, Private Security Company Commercial law enforcement contractors
+    - 9, Special Police Agency Immigration/Bomb Squad/Customs/Traffic etc.
+    - "10, National Police Agency FBI/FSB or Militarized Police (eg: Guardia Civil/MPs)"
+    response_level:
+    - 1..6, There are enough officers and support present to handle the current situation
+    - 7..9, looks like they’ve bitten off more than they can chew, requesting support
+    - 10, The officers are way out of their depth, pinned down, need immediate back up
+    job_sheet:
+    - 1, Approaching a suspect or suspects, or have just arrested a suspect or suspects
+    - 2..3, Performing a street patrol, area or building search or conducting vehicle search
+    - 4, Conducting an operation - raid, stake out, goods seizure
+    - 5, Dealing with an apparent hostage situation or a suspect device
+    - 6..7, Stopping citizens for questioning or performing stop-and-search operation
+    - 8..9, In pursuit of suspect, either on foot or in vehicles
+    - 10, Cordoning off the area (searching for suspect/securing a crime scene)
+    back_up:
+    - "1..4, {{>roll: 1d6}} Support Drones Cameras, Tasers, Flechette Weapons"
+    - "5..6, Uniformed Officers {{>roll: 1d3}} Patrol Cars, Armoured Officers, SMGs/Shotguns"
+    - 7..8, SWAT Team Heavy/Hard Armour, Combat rifles, Augmented
+    - 9, Heavy Support remote Teleoperated Walker, HMG and/or Missiles
+    - 10, Powered Armour Suit Heavy Weapon, ECM, Grenade launchers

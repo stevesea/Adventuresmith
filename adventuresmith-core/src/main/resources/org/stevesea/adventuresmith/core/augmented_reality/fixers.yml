@@ -1,0 +1,271 @@
+---
+templates:
+- "{{fixers.templates}}"
+
+nested_tables:
+  fixers:
+    templates:
+    - |
+      <h4>Fixers &amp; Facemen - {{fixers.name}}</h4>
+      {{fixers.occupation}}
+      <br/>{{fixers.detail}}
+      <br/>
+      <br/>{{fixers.appearance}}
+      <br/>
+      <br/>{{fixers.relationships}}
+
+    name:
+    - Olivia Chain
+    - Rob ‘Infidel’ Castro
+    - Gemini Benedict
+    - The Mask Maker
+    - Bradley Darrow
+    - Usman ‘Emir’ Kasim
+    - Mr Blank
+    - Alison Wonderland
+    - Ingenuity Jones
+    - The Chemist
+    - Darius November
+    - Mondo Hernandez
+    - Leon ‘The Tsar’ Arkov
+    - Sister Mercy
+    - Wise Melon
+    - The Babel-Mother
+    - Miguel Fernandez
+    - Able Kane
+    - Desmond Crisis
+    - Slick Franklin
+    - Wendel Goldberg
+    - Pappa Midnight
+    - Reality Black
+    - Adolf Hipster
+    - Mr Skin
+    - Viper’ Joe DeMarco
+    - Tanglegenes
+    - Charisma Valentine
+    - The Spider Sisters
+    - Veracity Solomon
+    - General Grabber
+    - Henry Jericho
+    - Warsaw
+    - Lucius Warbaby
+    - Jacob Smolensky
+    - Simon Church
+    - Octavius Ballinger
+    - Dr Ishimura
+    - Friday Dias
+    - Kim Nguyen
+    - Oni Tokugawa
+    - Zero Ballard
+    - The Shaper
+    - Ferdinand Kingston
+    - Harry-san
+    - Rico Eisendüller
+    - October Talisi
+    - Mickey The roach
+    - The Somalian
+    - Dr Fassbinder
+    detail:
+    - Despises being based out of the local Consumertopia™
+    - Once an indentured child, tends to sympathise too much
+    - Many implants, diminished empathy, she’s not afraid to kill
+    - Records all business conversations covertly, just in case
+    - Lives an opulent lifestyle well beyond his means
+    - Head of the so-called Flesh Cartel, self-styled King of Pimps
+    - Into cheap sex dolls, leaving scars due to latex allergies
+    - Hormone-locked teen transsexual; outrageous flirt
+    - Some-time stripper and cam girl, lover taught her to shoot
+    - Relishes the power his tailored drugs give him over others
+    - Struggles with a debilitating narcotic dependency
+    - Desperate to keep his children a secret from his enemies
+    - Being blackmailed by corporate aristocrat Fatima rasheed
+    - Cold, soulless narcissist, proud of her migrating glo-tatts
+    - Chubby, jovial and a registered independent nation-state
+    - Just one AI of a distributed identinet, with shared awareness
+    - Deep cover cop, losing himself to his current artificial life
+    - Surprisingly conservative, suburban, family-centric lifestyle
+    - Unassuming ex-ganger, ex-Catholic priest, ex-porn actor
+    - Determined to make enough money to leave city behind
+    - Trying hard to care for elderly father permalinked to porn sims
+    - Well connected across the Pacific Prosperity Sphere
+    - Extremely ambitious, with an obvious superiority complex
+    - Unfortunate racist and obsessive-compulsive neat freak
+    - Must painfully inject nanites hourly due to congenital illness
+    - Paranoid, wears spiderweave body-glove under clothing
+    - Obsessively collects snakes, liking them more than people
+    - Secretly employed by corporation, follows their instructions
+    - Twin clones, supermodel hot, operate Orbital Mafia franchise
+    - Back doors for Cambodian data-havens, but fears reprisals
+    - Hypochondriac; terrified his cheap organ implants will fail
+    - Openly gay, secretly straight, desperately addicted to sex
+    - Can only be reached by using a particular hacked pay phone
+    - Over-confident emancipated juvenile; sexual deviant
+    - Walking the line between worlds exacerbates heart problem
+    - Goods traceable by cops to avoid brainwipe sentence
+    - Believes he is a synthetic controlled by corporations
+    - Finances a stable of Freak Fighters, all of whom he despises
+    - Disgusted by the work he does, he drinks to block it out
+    - Financed by the Binh Xuyen, but looking for a way out
+    - Aggressive vigilance suite protects tiered neural processors
+    - Overly enthusiastic and extremely sadistic; loves music
+    - Loaded with enough intelligent bioplastic that he can’t die
+    - The strippers at his club are all biomodded clones of himself
+    - Stressed due to several secret families with different women
+    - Has the best of intentions, but is deeply unreliable
+    - Self-doubt, but wants to be head-hunted by a corporation
+    - No self worth, always high, easily distracted
+    - Suffers from PTSD, nightmares, has poorly timed flashbacks
+    - Struck off, operates a failing back street clinic, depressed
+    occupation:
+    - Talent Agent
+    - Repoman
+    - Black Marketeer
+    - Identities Broker
+    - Transporter/Mover
+    - Skin Trader/Pimp
+    - Personality Smuggler
+    - Tech Dealer
+    - Secrets Hunter
+    - Drug Designer
+    - Wheelman
+    - Talent Scout
+    - Syndicate Diplomat
+    - Drug Pusher
+    - Go-Between
+    - Hacker Stable
+    - Tech Fence
+    - Prowler/Thief
+    - Smuggler
+    - Squealer
+    - Bookie
+    - Gun runner
+    - Procurement
+    - Electronics Handler
+    - Blackmailer
+    - Data Crypt Owner
+    - Nanotech Dealer
+    - Mediator
+    - Loansharks
+    - Information Broker
+    - Weapon Fence
+    - Ghost Accountant
+    - Gang liaison
+    - Finder
+    - Bent lawyer
+    - Vehicle Dealer
+    - Contract Facilitator
+    - Bioware Fence
+    - Digital Manipulator
+    - Madam
+    - Troubleshooter
+    - Persuader
+    - Bioware Handler
+    - Club Owner
+    - Landlord
+    - Med Tech Dealer
+    - Negotiator
+    - Synth Pimp
+    - Cleaner
+    - Implant Dealer
+    appearance:
+    - Boxy, plain, emotion suppression chips
+    - Skinny jeans, vinyl bomber jacket, joker
+    - Elfin, humourless, pale duster, blue hair
+    - Muscular, balding, sophisticated, diligent
+    - Well groomed, youthful, boastful, snob
+    - Ostentatious, traditional, bearded, careful
+    - Blistered, strong cologne, shiny blue suit
+    - Willowy, hauntingly beautiful, kimonos
+    - Tall, lithe and busty, probing, determined
+    - Oily, obsequious, formal and spiteful
+    - Pale, shaky, numerous vehicle link plugs
+    - Approachable, guarded, sharp dresser
+    - Shaven head, grey suit, bulky, sombre
+    - Exhibitionist, tease, clear vinyl raincoat
+    - Fat, confident, well-mannered, Mao suits
+    - Geisha-chic, teenage girl, dark eyed, cold
+    - Deep turquoise leather coat, friendly
+    - Impeccably dressed, punctual, vindictive
+    - Neo-romantic floppy fringe, tux, relaxed
+    - Nervous, cautious, trenchcoat, greasy hair
+    - Tired and frazzled, thinning curly hair, fat
+    - Tech-savvy, confident, ebony skinned
+    - Arrogant, condescending, casual dress
+    - Inappropriate, knowledgeable, on-trend
+    - Small, unwashed, world weary, tired
+    - Black suits & shirts, gold tie, aggressive
+    - Limps, thin-limbed, pastey, loose silks
+    - Conservative trouser suits, on edge, delays
+    - Seductive, elegant, hot tempered, black
+    - Easily pleased, layered hoodies, shades
+    - Middle-aged, dark denim, big revolvers
+    - Flamboyant, mincing, fidgets, gloved
+    - Grubby punk, pumped, baritone voice
+    - Oversized army jacket, cigars, big gun
+    - Chunky, crumpled suit, sweaty, balding
+    - Sergio Tacchini track suits, anxious, tag
+    - Expensive shirts, gold rings, robotic
+    - Smoker, inscrutable, leisure suits, clean
+    - Reeks of booze, dirty jeans, serious
+    - Soft face, scarlett bobbed hair, ruthless
+    - Monovisor, suit, raincoat, katana, calm
+    - Turtle necks, chrome hands, wild eyed
+    - Old, emaciated, bitter and suicidal
+    - Hawaiian shirts, cargo pants, gregarious
+    - Squat, solid, stubbled chin, dark vinyl coat
+    - Enthusiastic, knitwear, sandals, ponytail
+    - Coffee-skinned, afro weave, violet lipstick
+    - Coverall, micro tools, air hypo, giddy
+    - Tall, lean, narrow-faced, red suit, dreads
+    - Long black hair, goatee, lethargic, cynical
+    relationships:
+    - Secretly adores…
+    - Sleeping with…
+    - Apprentice of…
+    - Did work for…
+    - Owes money to…
+    - Influence over…
+    - Lusts after…
+    - Trusts only…
+    - On-off lover of…
+    - Has control of…
+    - On the books of…
+    - Seeks aid of…
+    - Obsessed with…
+    - Friend of…
+    - Irritates…
+    - Suspicious of…
+    - Works with…
+    - Makes use of…
+    - Wary of…
+    - Owes money to…
+    - Owed money by…
+    - Won’t work with…
+    - Friend of…
+    - Despises…
+    - Makes use of…
+    - Manipulating…
+    - Trusts only…
+    - Lusts after…
+    - Trust only…
+    - Owes favour to…
+    - In love with…
+    - Makes use of…
+    - Friend of…
+    - Makes use of…
+    - Works for…
+    - Will betray…
+    - Seeks aid of…
+    - Makes use of…
+    - Was married to…
+    - Sleeping with…
+    - Rivalry with…
+    - Tried to kill…
+    - Father of…
+    - Worries about…
+    - Annoyed by…
+    - Makes use of…
+    - Disgusted by…
+    - Jealous of…
+    - Deep dislike of…
+    - Deals with…
