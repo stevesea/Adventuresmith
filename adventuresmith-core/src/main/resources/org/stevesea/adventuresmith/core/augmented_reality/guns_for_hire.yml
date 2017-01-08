@@ -1,0 +1,270 @@
+---
+templates:
+- "{{guns_for_hire.templates}}"
+
+nested_tables:
+  guns_for_hire:
+    templates:
+    - |
+      <h4>Gun for Hire - {{guns_for_hire.name}}</h4>
+      {{guns_for_hire.desc}}
+      <br/>{{guns_for_hire.weapons}}
+      <br/>
+      <br/>{{guns_for_hire.appearance}}
+      <br/>
+      <br/>{{guns_for_hire.relationships}}
+    name:
+    - Darkus Garvey
+    - Logan Tanner
+    - The Pink Panzer
+    - Vincent Conrad
+    - Jinjiro Yasuda
+    - Hiroshima Black
+    - Plastic Bernard
+    - Dominic West
+    - Tango Sinclair
+    - Janik The Ghost
+    - Napoleon Dean
+    - Trixie Paladin
+    - Terence Van Stratten
+    - Nip lacey
+    - Spiros Giannopoulos
+    - Demi Oblique
+    - Mike Bravo
+    - Storm Haussmann
+    - Indigo Jones
+    - Mildred Gaia
+    - Joe Montero
+    - Chance Baptiste
+    - Oliver McKee
+    - Saber Numan
+    - Zaneta Zone
+    - Brandon Skinner
+    - Mina radisson
+    - Johnny Namibia
+    - Aisha Hussein
+    - Boyd Blackwood
+    - Emmanuel King
+    - Huey Ventura
+    - Lorenzo Babylon
+    - Thaddeus Schwartz
+    - Lazarus Mendez
+    - Maria Goldovskoya
+    - Sady Sakura
+    - Rudolph Washington
+    - Angel De Santo
+    - Dien Bien Phu
+    - Otto Kruger
+    - Pandora Frost
+    - Buntaro ‘Bushi’ Tanaka
+    - Scarlett Harvest
+    - Ryan Edwards
+    - Slade Bennett
+    - Splicer Takeda
+    - Kurt Kellerman
+    - Heywood Nash
+    - Manuel Override
+    desc:
+    - Maddeningly faulty cyberaudio feeds him your comms
+    - Elite spec-ops in the Polar War, tired of fighting, sociopath
+    - Camp, flirtatious, enjoys intimidating straights, brutal brawler
+    - Engaged in messy affair with unstable corporate aristocrat
+    - Rogue vat-grown killer, protects paralysed gene-tech he loves
+    - Gaijin with minor yakuza gumi, despised, mole for russians
+    - Unapologetic hipster, support from Armenian hacker clade
+    - Lives in exquisite houseboat, requires seclusion to stay sane
+    - Overweight Hawaiian, raised in foster homes, big drinker
+    - Vagrant combat veteran with augmentation sickness
+    - Hounded by AI telemarketers, doesn't know why
+    - Just one last job and the luxury beach house in Goa is hers
+    - Anti-depressants laced with nanites control his decisions
+    - Underage and overclocked, way too eager to prove herself
+    - Thinks he’s a major player, has a lot of cousins called Spiros
+    - Argentine marine, autonomous defense net rebels against her
+    - Heavily invested in Vornheim Vr game, won't risk losing levels
+    - Frustrated surrealist artist, single mother, skilled killer
+    - Crippled as child, skeleton rebuilt, in constant pain, tough
+    - Linear-frame-enhanced kick boxer, listens to K-Pop pre-op
+    - Cyborg veteran of Kashmir Emergency, won’t leave witnesses
+    - Late stage AIDS-2, needs immunoboosters, nothing to lose
+    - Post-combat cleansing ritual using sage and Bible verse
+    - Mutilated in Freak Fight bout, suspects crime syndicate boss
+    - Former VDV paratrooper, Moldova veteran on war crimes list
+    - Rumoured junkie, actually diabetic, saving for neo-pancreas
+    - Convert to Islam, featureless gunmetal face, six red optics
+    - Devout, worships the Papal AI as a god
+    - Ex-Saudi GID, thermoptic camo, synthetic endorphin addict
+    - Cyberoptics feed his view to media brother who's using him
+    - Former head of security, killed execs family; she’s guilt-ridden
+    - Doesn’t listen, tends to hit wrong targets, cannot drive
+    - KGB wheelman, Olympic skier and hunted whistleblower
+    - Former airport cleaner, conned into job by crime syndicate
+    - Can't reconcile job with married life, excellent danger sense
+    - Svetlana Series 9 sex synthetic, fights severe violent urges
+    - Cares for crippled mentor, finds obligation a tiresome burden
+    - Indentured to fixer handler, treated as property
+    - Orbital assassin, amphetamine user, bright neon-green eyes
+    - Conflicted Buddhist, connoisseur of classic Blues artists
+    - Writes pithy anonymous diary blog, plans to write book
+    - Classically-trained pianist, combat medic, lives in her car
+    - Yogic guru, clean living, obsidian cyberarms, pansexual
+    - Looks like young Madonna, denies it; pink plastic cyberarm
+    - Wealthy with an impressive property portfolio, soldiers for fun
+    - Nazi Country & Western fan, feels most alive post-kill
+    - Wants to be master of own destiny, denies he's trapped
+    - No regard for collateral damage, keeps tropical fish
+    - Lost entire family to wasting plague, inconsolable, suicidal
+    - Glitchy GPS, no direction sense, trackable, argumentative
+    weapons:
+    - Flechette pistols
+    - Teleoperated drones
+    - Hydraulic fists, bites
+    - Aware weapons lAN
+    - Spider venom rounds
+    - Ornate monokatana
+    - Hunter-seeker rounds
+    - Pearl handled Glock
+    - Bulky laser rifle
+    - Scoped needle-rifle
+    - Monowire mines
+    - Implanted zhi dao
+    - Exploding munitions
+    - Nerve-burner bombs
+    - 3D printed QBZ-95
+    - Railgun sniper
+    - Compound bow
+    - Sleek microwavers
+    - Dissolving Nanorounds
+    - Martial art techniques
+    - Antique uZI, SOPMODs
+    - Auto grenade launcher
+    - Drum-fed AK74
+    - Self-destructing gun
+    - Twin compact SMGs
+    - Charm-covered Steyr
+    - Liquid nitrogen rounds
+    - Camo autoshotgun
+    - Ornate bladed fingers
+    - Incendiary rounds
+    - Flechette adapted M4
+    - Screamer grenades
+    - Big polymer revolvers
+    - Hands-free trigger
+    - Rifle with chatty AI
+    - Cortex bomb
+    - Bright Plastic SMG
+    - Chinese SMG clone
+    - Caseless KrISS Vector
+    - Brace of small pistols
+    - Scanner shielded gun
+    - Inbuilt Scorpion SMGs
+    - Crippler rounds
+    - Taser, monoknives
+    - Compact stutter-laser
+    - Disposable pistols
+    - Toxin-loaded needlers
+    - Underslung blinder
+    - Full spectrum targeter
+    - Belt-fed chaingun
+    appearance:
+    - Big, black, worn leather duster, irritable
+    - Sadistic, tattooed smart-armour link points
+    - Full body cyborg, crudely sprayed pink
+    - Likeable pothead, buff, always wears black
+    - Chips different personalities, sharp suits
+    - Suited, armour skin, afraid of dark, Ir eyes
+    - Quiff, beard, tattoo sleeves, ear spacers
+    - Wears purple, plays sax, mood swings
+    - Pragmatic, funny, wears black duster
+    - Hobo-chic, beanie hat, beard, tenacious
+    - Bleached spikes, wraparounds, agitated
+    - Brushed aluminium body armour, focussed
+    - Sensitive to strong smells, heavy armour
+    - Teen, skinny jeans, army boots, hoodies
+    - Outmoded implants, retro-70s fashion
+    - Daddy issues, wears figure-hugging black
+    - Distracted, fantasist, wears black denim
+    - Motocross leathers, cyberbike, feminist
+    - Grey camo armour vest, always angry
+    - Lithe West Indian, faint hex-pattern on skin
+    - Scarred, dented, guarded, loose jumpsuit
+    - Cynical, risk taker, sickly, wears layers
+    - Theatrical, serious, black Ts, shades
+    - Wheezing, scarred, sportswear, gold chains
+    - Vicious, Vr-trained clone, tight leathers
+    - Bald, goatee, utility vest, superstitious
+    - Slim cyborg, conservative, chaste, classy
+    - Red leather jacket, corn rows, obsessive
+    - Athletic, hijab, full mirrored smart-visor
+    - Short mohawk, long coat, trusting
+    - Insanely ruthless, stylish, hunted
+    - Defensive, literal, squat, padded jackets
+    - Furtive, physically fit, chic, intimidating
+    - Sloppy, unprofessional, cheap casuals
+    - Hen pecked, camos, buzz cut, rational
+    - Callous, irrational, needy, loose clothes
+    - Wirey, short, girlish, Harajuku style, tired
+    - Uneducated, easily manipulated, tagged
+    - Super-model looks, cat like grace, cold
+    - Shaved head, fame seeker, baggy combats
+    - Designer stubble, camo armoured jacket
+    - Muscular, tall, casuals, do-rags
+    - Self absorbed, baggy flight suits, sneakers
+    - Biker jacket, fingerless gloves, prude
+    - Well groomed, expensive clothes, open
+    - Plaid flannel, denim, cracked brown leather
+    - Long, lank, black hair, chrome eyes, gaunt
+    - Effeminate, black silks, raincoat, quick
+    - Carries photos, depressed, bulky flak vest
+    - Gum chewer, olive drab armour, moustache
+    relationships:
+    - Knows of…
+    - Wants to kill…
+    - Lusts after…
+    - Friends with…
+    - Worked with…
+    - Owes favour to…
+    - Jealous of…
+    - Irritates…
+    - Looking for…
+    - Hiding from…
+    - Owes money to…
+    - Suspicious of…
+    - Obsessed with…
+    - Makes use of…
+    - In love with…
+    - Friends with…
+    - Interested in…
+    - Concerned for…
+    - Trusts only…
+    - Unimpressed by…
+    - Manipulating…
+    - Wary of…
+    - Betrayed…
+    - Worked with…
+    - Intimidates…
+    - Attracted to…
+    - In love with…
+    - Afraid of…
+    - Rivalry with…
+    - Knows all about…
+    - Won’t work with…
+    - Worked with…
+    - Makes use of…
+    - Despises…
+    - Irritates…
+    - Sleeping with…
+    - Was lover of…
+    - Seeks aid of…
+    - Friends with…
+    - Suspicious of…
+    - Lusts after…
+    - Tried to kill…
+    - Annoyed by…
+    - Disgusted by…
+    - Hates…
+    - Manipulating…
+    - Irritated by…
+    - Bored by…
+    - Trusts only…
+    - Rival of…

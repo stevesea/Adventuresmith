@@ -1,0 +1,65 @@
+---
+templates:
+- "{{tech_details.templates}}"
+
+
+nested_tables:
+  tech_details:
+    templates:
+    - |
+      <h4>Technical Details</h4>
+      <h5>Condition of Found (or Stolen) Technology</h5>
+      {{tech_details.condition}}
+      <h5>Type of Device</h5>
+      {{tech_details.type}}
+      <h5>So, what’s on that thing anyway?</h5>
+      {{tech_details.whats_on_thing}}
+      <h5>Where's it been?</h5>
+      {{tech_details.wheres_it_been}}
+
+    condition:
+    - Checquered history, well used, possible damaged
+    - State-of-the-art, designer, cutting edge aesthetics
+    - Buggy and unpredictable, resets to factory default
+    - Sought after but unstable r&D prototype, defective
+    - Obvious foreign counterfeit, compatibility issues
+    - Sturdy, basic, idiot-proof, in good working order
+    - Military spec, bomb-proof, very robust, ugly
+    - Elegant design, but fragile, possibly bespoke
+    - unlicensed clone copy, brand new, can’t be updated
+    - Intuitive interface, plug-and-play, modular design
+    type:
+    - Weapon
+    - Computer/Tablet/HD
+    - Drone/remote
+    - Cybernetic Implant
+    - Cell Phone/Agent
+    - SimStim rig
+    - Cybermodem
+    - Diagnostic Scanner
+    - Cam/recorder/Bug
+    - 3D Printer/Peripheral
+
+    whats_on_thing:
+    - Contacts list - a mix of pure gold and the depressingly mundane
+    - Schematics - possibly of a building, vehicle, or a new cybernetics design
+    - Compromising Image Files (GM needs to determine of who)
+    - Chemical or Pharmaceutical Formulas - either new or cleverly adapted
+    - Unreleased Beta Gaming Apps - copy protected; eagerly anticipated by fans
+    - Illegally Downloaded Music - some tracks prerelease; copy protections removed
+    - Black Ops Project - an extraction/wetwork/adulterating pharms/neo-disease etc.
+    - Weapons Tech r&D Data - aware weaponry systems or cutting edge mods
+    - Presentation For Forthcoming Biotech launch - impressive production values
+    - V-Mail Conversation Threads - regards one or more of the above (roll again twice)
+
+    wheres_it_been:
+    - Stolen - the original owner(s) want it found and returned, offering a reward
+    - Misplaced - the owner(s) lost it and are desperate to find the device
+    - Traded - the device has been through several owners in recent months
+    - Found On Corpse - the device was obtained by scavengers after finding the body
+    - used For Crime - the device was used to commit crime, forensically compromised
+    - Thrown Away - device mistakenly discarded and is believed to no longer exist
+    - Hidden - the device was secreted somewhere with the intention of later retrieval
+    - Hacked - device was infiltrated from outside source, discarded, back doors intact
+    - Found In Vehicle - device was taken from an abandoned or stolen vehicle
+    - Sold On - the device was sold as it was no longer required, or money was needed

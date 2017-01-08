@@ -1,0 +1,115 @@
+---
+templates:
+- "{{trash}}"
+
+imports:
+- technical_details
+
+tables:
+  trash:
+  - Junkfood box, weak jingle as batteries die
+  - Sealed but dented soda can, out of date
+  - Fresh half-eaten burger, slurpy of soda ice
+  - Discarded shrink wrap with QRS code label
+  - Thick wad of hard, grey chewing gum
+  - Half a blister pack of common pain killers
+  - Plastic business card, high rank exec
+  - 2 feet of old nylon rope, frayed ends
+  - Intact polymer cargo pallet, slightly worn
+  - Large, stained, plastic tarp
+  - Foil wrap of brown powder, hypodermic
+  - Wet, pale corpse - did they just move?
+  - Ribbed condom, usure if it’s been used
+  - Balled-up nitrile gloves, stained
+  - Half a case of individually sealed diapers
+  - Discarded field dressing, still moist
+  - Urban scavenger (raccoon, dog, fox, cat)
+  - Plasticuffs, cut apart, winking red lED
+  - Unused pack of disposable ear plugs
+  - Gun - hot, cheap or damaged, or all three?
+  - Half-used spray can of expanding foam
+  - Partial bag of cement-like powder
+  - Dispenser gun of ‘liquid nails’ adhesive
+  - Handful of new looking nuts and bolts
+  - "{{>roll: 1d10}} bricks or cinderblocks"
+  - Opened box of large ceramic tiles
+  - Large sheet of drywall, some damage
+  - 5 litre can of paint, half empty
+  - Grubby plastic bag of spraypaint cans
+  - Length of heavy pipe
+  - Solid looking, uPVC door, minor damage
+  - Broken toilet seat
+  - Damaged appliance, possible repairable
+  - Worn swivel chair, tatty but functional
+  - Rust-stained satellite dish
+  - Battered desk fan, electric motor intact
+  - Abandoned memory foam mattress
+  - Small, dented vacuuming robot
+  - Handleless teflon-coated frying pan
+  - Discarded detergent bottles or tubs
+  - Length of silicone hose from a vehicle
+  - Hubcap in good condition
+  - Half-empty 2.5 litre of cheap motor oil
+  - Small, downed drone, onboard camera
+  - Scrapped auto-trashcan, low AI distressed
+  - Folding scooter missing wheel/battery
+  - Full set of worn tyres for a hatchback
+  - Compact scissor-jack, chipped, worn
+  - Shopping cart, RFID emitting trace signal
+  - Well-used electric screwdriver, jammed
+  - Damaged flat-screen television
+  - Flaking laser pointer, with dead batteries
+  - Lonely wireless earbud
+  - Cybernetic implant, damaged or incomplete
+  - |
+    Dumped external hard drive
+    <br/>
+    <br/>{{tech_details.whats_on_thing}}
+  - Biometrically locked JPEG viewer
+  - Standard battery, 20% charge remaining
+  - Obsolete surveillance camera
+  - ‘retired’ synthetic, missing limb(s)
+  - Assisted sleep console, induces seizures
+  - Plastic Christmas tree, partially melted
+  - Toy ride-in car, polymer shell, electric motor
+  - Crumpled, rolled poster, recent idol singer
+  - Broken statuette of Ganesh
+  - Handful of collectible cards for CCG
+  - Realistic looking plastic Police badge
+  - Brightly coloured toy gun, quite realistic
+  - Plush toy animal, shabby, stained
+  - Bouquet of dying flowers still in cellophane
+  - Spool of electric cable, has been cut
+  - Discarded newspapers or magazines
+  - PVC box of flat-packed cardboard boxes
+  - Flyers bundled together with rubber bands
+  - |
+    Hardcopy printouts
+    <br/>
+    <br/>{{tech_details.whats_on_thing}}
+  - Thin, flexible metal sheet, purpose unknown
+  - Refuse sack of polystyrene chips
+  - Assorted sizes of tatty bubblewrap sheets
+  - Plastic tub of assorted glass bottles
+  - Heat sealed clear sacks of shredded papers
+  - Latex Halloween or fancy dress mask
+  - Single kevlar safety glove
+  - Scratched mirrorshade sunglasses
+  - Single designer shoe, scuffing on heel
+  - Disposable rain poncho, minor tears
+  - Bullet scarred armour, reduced protection
+  - Retractable cheap umbrella, misshapen
+  - Motorcycle helmet, with hairline fracture
+  - Purse or wallet, no money, ID still inside
+  - Bag, briefcase or backpack, worn - empty?
+  - Tupperware contains human stool sample
+  - Human body part, not at all fresh
+  - Unidentifiable goo, revolting chemical smell
+  - Torn foil sheeting from broken fog catcher
+  - Pitiful, dying animal (rat, cat, bird, dog)
+  - Sub-par 3D printed object, melting in rain
+  - Rain-soaked, discoloured undergarments
+  - Pile of ash in the shape of a person
+  - Broken glass scattered all over area
+  - Cluster of recently smoked cigarette butts
+  - Minced meat and hair, possibly also teeth

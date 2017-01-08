@@ -6,28 +6,40 @@ generators:
   - alternative_business
   - area_events
   - augmented_reality
+  - bio_horrors
   - boardroom_manoeuvres
   - cabbies
   - company_resources
   - corporate_aristocrats
   - downtown
   - fixers
+  - freak_fighters
   - gangs
+  - gigs
+  - guns_for_hire
+  - hackable_assets
+  - hackers
   - infotainment
   - instacitizen
   - jobs
   - local_conflict
   - nightlife
+  - one_mans_trash
+  - ops
   - quirky_interiors
   - sights
   - smells
   - sounds
   - street_walkers
   - tattoo
+  - trespass
   - vehicle_river
   - vehicle_road
   - vehicle_sky
+  - vendomat
   - vices
+  - weather
+  - whats_on_corpse
   fourth_page:
   - artifact
   - dungeon

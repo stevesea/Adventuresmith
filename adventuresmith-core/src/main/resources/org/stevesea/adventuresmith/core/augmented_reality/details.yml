@@ -5,6 +5,61 @@ imports:
 
 
 tables:
+  music_styles:
+  - Black Ambient
+  - Photonic Wave
+  - Xhosa Trance
+  - Industrial Grind House
+  - Eurozeit Groove
+  - Chip Hop
+  - Glitchcore
+  - Machine-Soul Dub
+  - Toxic Ska
+  - Anthemic NeoPunk
+  vid_show:
+  - Implant Fixers (reality/comedy)
+  - Simsense & Sensibility (drama)
+  - Zone runner Xtreme (gameshow)
+  - Crash & Burn (hacking competition)
+  - My Two Clones (sitcom)
+  - Atomic Geisha Dojo (gameshow)
+  - Personality Adjustment (reality)
+  - The Clade (soap opera)
+  - Fracture Point (cop show)
+  - Alt Cult Zero (documentary)
+  online_presence:
+  - Impossibly dull, mainly life memes
+  - Sickening, cute, GIF-heavy, juvenile
+  - Dominated by political viewpoint
+  - Social Justice Champion
+  - Work related self-promotion
+  - Fan of unlikely musical genre
+  - Lonely - desperate to make friends
+  - Mainly family and friends (lots)
+  - Sexually predatory, catfish/stalker
+  - Hobby focused (gaming/making)
+  fads:
+  - Everybody loves neutraceuticals
+  - Weatherproof glowing ponchos
+  - Slacktivist angst-lit forums
+  - Smeat™ (smart meat; pick flavour)
+  - Zone dancing in public places
+  - Expensive Sumo Food® kale shakes
+  - randomiser-app-driven conversation
+  - Freak Fighter brand endorsements
+  - Info-socialism - secret-free society
+  - Fabrics change colour with mood
+  vendomat:
+  - <h4>Hot/Cold Beverages</h4> Coffee, tea, cocoa, sodas, water, juice, shakes, energy drinks
+  - <h4>Hot/Cold Food</h4> Burritos, noodles, burgers, fries, SCOP, sandwiches, ‘sushi’
+  - <h4>Stimulants</h4> Cigarettes, cigars, e-cig fluid, patches, caffeine tabs, alcohol
+  - <h4>Travel Packs</h4> Toiletries, travel guides, cosmetics, sanitaries, sunglasses
+  - <h4>Electronics</h4> Headphones, batteries, phones, torches, cameras, radios
+  - <h4>Personal Defense</h4> Tasers, pepper spray, telescoping batons, polymer oneshots
+  - <h4>Clothing</h4> rainwear, underclothes, thermals, hats, t-shirts, socks
+  - <h4>Media</h4> Newsprint, digital music, games, films, simstim, e-books
+  - <h4>Pharmaceuticals</h4> Medicines, contraceptives, first aid, sensory aids, vitamins
+  - <h4>Snacks</h4> Gum, candy, chips/crisps, popcorn, nuts, cryo-dried fruits
   street_uses:
   - Power plant from main battle tank, used as a generator for a squat or shanty
   - Hydroponics rig from scrapped research ship, used to breed modified food-algae
@@ -169,7 +224,7 @@ nested_tables:
   alternative_businesses:
     templates:
     - |
-      <h4>Business - {{alternative_businesses.type}}</h4>
+      <h4>{{alternative_businesses.type}}</h4>
       <strong><small>Quality:</small></strong> {{alternative_businesses.quality}}
       <br/><strong><small>Security:</small></strong> {{alternative_businesses.security}}
       <br/><strong><small>Status:</small></strong> {{alternative_businesses.status}}

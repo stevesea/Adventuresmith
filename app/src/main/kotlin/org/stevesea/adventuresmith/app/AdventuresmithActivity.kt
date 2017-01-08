@@ -594,11 +594,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
                 AdventuresmithCore.AugmentedReality -> {
                     when (grpId) {
-                        "grpCity" -> CommunityMaterial.Icon.cmd_city
-                        "grpSenses" -> CommunityMaterial.Icon.cmd_eye
-                        "grpVehicles" -> CommunityMaterial.Icon.cmd_truck
                         "grpNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
-                        else -> CommunityMaterial.Icon.cmd_memory
+                        "grpCorps" -> CommunityMaterial.Icon.cmd_factory
+                        "grpSenses" -> CommunityMaterial.Icon.cmd_eye
+                        "grpEncounters" -> CommunityMaterial.Icon.cmd_human_greeting // run?
+                        "grpCity" -> CommunityMaterial.Icon.cmd_city
+                        "grpLoot" -> CommunityMaterial.Icon.cmd_cash // memory, chip?
+                        else -> CommunityMaterial.Icon.cmd_nfc_variant
                     }
                 }
                 else -> CommunityMaterial.Icon.cmd_help_circle

@@ -1,0 +1,270 @@
+---
+templates:
+- "{{hackers.templates}}"
+
+nested_tables:
+  hackers:
+    templates:
+    - |
+      <h4>Hacker - {{hackers.name}}</h4>
+      {{hackers.desc}}
+      <br/>{{hackers.detail}}
+      <br/>
+      <br/>{{hackers.appearance}}
+      <br/>
+      <br/>{{hackers.relationships}}
+    name:
+    - Phreakworm
+    - Spiderhead
+    - The Venomous Pao
+    - Robotnik
+    - The Shadow Sphere
+    - Agent Orange
+    - Javier Script
+    - Kid Terminal
+    - Feedfetcher
+    - Mr ∞
+    - Lady Probability
+    - Chip Boy
+    - Pixelgeist
+    - Datamancer
+    - Modal Fraction
+    - Deathwatch
+    - Neurocide
+    - Zauberer
+    - Patient Zero
+    - Fractal Artifice
+    - Winston Smith
+    - Quantum Clan
+    - Mr Peepers
+    - Seraphim
+    - Billy Headcrash
+    - Dancer
+    - The Invisible Hand
+    - Oblivia 404
+    - Infobahn
+    - Hungry Ghost
+    - Cortical Mafia
+    - Jake/Finn/Beemo
+    - Synaptica
+    - Phantom Paradigm
+    - Mother_Bored
+    - Bit Rat
+    - Daemonbot
+    - Samizdat
+    - Lexicon Bandit
+    - Happy Panda
+    - Mod.Net
+    - Heatseeker
+    - Solid State
+    - Chaos Theory
+    - The Havoc
+    - Fuzzy logic
+    - Wardroids
+    - White Knight
+    - ROMinatrix
+    - Underscourge
+    desc:
+    - Undermines elections in Third World countries, because he can
+    - Creates netsites for several street gangs, can muster help fast
+    - Turing Authority agent, under cover, working on major sting
+    - Escaped from latvian data harvesters, has price on his head
+    - Collective formed by ex-Transmission Felonies cop
+    - Works for the bank he hacks, now targeted for assassination
+    - Confined to ghetto-built mobility walker run on laptop batteries
+    - Runs collective for corporate uncle, who thinks he's an idiot
+    - Guarded by a pair of tactically enhanced German Shepherds
+    - Functionally a human server, sitting on millions
+    - High aptitude, actually result of drugs tests in orphanarium
+    - Appears to be a script kiddie, successful exploit royalty farmer
+    - Clinically dead 3 times, wears a defib rig, surprisingly chipper
+    - Spends all his time in sensory deprivation tank
+    - Blinded as a child, navigates entire life via net overlays
+    - Maintains clones in exowombs, in hidden cold storage facility
+    - Adept at cracking people's neural interface networks
+    - Tanzanian ‘sorcerer’, skims identities to sell to the syndicates
+    - Apparently in a coma, mercenary accomplices cover for him
+    - Wrote a dementia triggering software routine, afraid to sell it
+    - No clue his entire life is monitored by company handlers
+    - Exceptional programmer, builds in exploits, fears discovery
+    - Uplifted chimpanzee, fiercely protected by militant ecoclade
+    - Child prodigy, invalid daughter of experimental neuroscientist
+    - Experienced darknet scout, haunted by malicious dataforms
+    - Synthetic, used as meatspace ‘avatar’ of another hacker (roll)
+    - Rogue marketing AI, curates online Museum of Dangerous Art
+    - Targeted for extraction by several major transnationals
+    - Ousted darling Vrchitect, sells access to hidden labyrinths
+    - Former forensic system analyst, partial mindwipe
+    - Squeals to corporation if hired, well paid, makes excuses
+    - Unremarkable 18 year old triplet nerds, secret geniuses
+    - Rewired neural pathways push her intelligence beyond normal
+    - Intelligent hotel system, trades in guests' secrets, very wealthy
+    - Middle-aged housewife, was in debt, continues for the rush
+    - Linkjacker specialising in compromising interfaced gear
+    - Rogue nanite hive-mind, hiding in a hab stack's vent system
+    - Self-righteous ethical hacktivist, has to make political statement
+    - Information hygiene specialist, excels at covering any tracks
+    - Notorious lOltroll, gleefully puts others in real danger
+    - Deals in downloadable skill apps and customised software
+    - Suffers Amazon War flashbacks, agoraphobic hoarder
+    - Runs distribution of dark servers, launders data and bitcoin
+    - Planning data heist, network map tattooed on missing person
+    - Uses amphetamines to gain edge, just fucking him up
+    - Compelled to swat soft targets, knows she shouldn't
+    - S. Korean professional gamers, transition to big time net crime
+    - Drug addicted Net regulator, knows systems’ weak points
+    - Manipulated by AIs, believes aliens have chosen her
+    - Traffic control AI, masquerades as a human teen with ASD
+    detail:
+    - Wanted by African union
+    - Degree educated anarchist
+    - Tracking emergent intelligences
+    - Thick accent, security conscious
+    - Never, ever seen in meatspace
+    - Exhausted, caffeine addicted
+    - Strategic genius, connected
+    - Used by collective for his money
+    - Brilliant cryptographer
+    - Living black banking node
+    - Wanted by biotech company
+    - Buys back doors, rents them out
+    - Reroutes courier drones for fixer
+    - Teleoperates spiderform shells
+    - Travels in secure AI-driven car
+    - Secreting own ‘ghost’ across net
+    - Subverts implants for own use
+    - Superstitious sakawa devotee
+    - Situation awareness for solos
+    - Several fixers aware of his work
+    - Reconfigures obsolete software
+    - Considering finally going legit
+    - Sought-after security consultant
+    - Supports rebel insurgency
+    - Vindictively alters enemies’ IDs
+    - 3D printing an army of drones
+    - Successful online drug dealer
+    - Telemetric sniper
+    - Courted by syndicate bosses
+    - Conflict averse by State design
+    - Covertly records everything
+    - Remote vehicle-jackers
+    - Sideline in pirate hunting
+    - Stolen Mossad virus adaptation
+    - Infamous node saboteur
+    - Virtual cosplayer club president
+    - Financing transhuman revolt
+    - Sub-par Ar ‘street artist’
+    - Mines archeosystems for data
+    - Engineers violent flash mobs
+    - Lives in decommissioned sub
+    - Expert MOuT co-ordinator
+    - Hostile and deadly black ICE
+    - Tagging and tracking homeless
+    - Recon via subverted appliances
+    - Ghost-hacked by desperate cop
+    - Being used by corrupt manager
+    - Under Turing investigation
+    - Hosts popular Vr sex dungeon
+    - Intimately knows the city streets
+    appearance:
+    - Army fatigues, manipulative
+    - Short red mohawk, bondage pants
+    - Reliable, obsessive, clean cut
+    - Thin, bald, wild eyed, submissive
+    - Translucent, shadowy avatars
+    - Cheap suit, unkempt, nervous
+    - Grubby, dishevelled, paraplegic
+    - Wears labelled casuals, arrogant
+    - Cosmonaut suit, catheter, bright
+    - Slick hair, sharp suit, confident
+    - Humourless, kawaii-punk, tomboy
+    - Late 20s, sophisticated, ruthless
+    - Spiritual, hippy, infosocialist
+    - Malnourished, pastey, dank
+    - African, child soldier, gregarious
+    - Wealthy, suave, fatalist, drinker
+    - Untrusting, baggy clothes, caps
+    - Skeletal, tribal scars, chrome teeth
+    - Sterile stasis tank, philosophical
+    - T-shirts, jeans, sneakers, torn
+    - Slight, scruffy, shuffling, weak
+    - Hyperactive, 3/4 pants, paranoid
+    - Hairy, smelly, tasteful aesthete
+    - Bed-ridden, trapped, unloved
+    - Leather coat, skin cut, bruiser
+    - Serene, tidy, meticulous, plastic
+    - Presents as gaunt Victorian gent
+    - Young, serious, severe short bob
+    - Slacks, loafers, tailored shirts
+    - Stuttering, intelligent, frustrated
+    - Sly, overweight, pork pie hat
+    - Long hair, beanies, Ts, juvenile
+    - Distant, fidgety, emaciated
+    - Only hear a smooth, baritone voice
+    - Pear-shaped, leather jacket, boots
+    - Androgynous girl, talks too fast
+    - Scattering of slightly silvered dust
+    - Pale, bleached dreads, patronising
+    - Cuban exile, tech coveralls, cigar
+    - Obese, curly hair, spots, obnoxious
+    - Toned, vest, lounge pants, stares
+    - Sweats, unwashed, gruff, afraid
+    - Tall, imposing, Slavic, smart coat
+    - Driven, chain smokes, agitated
+    - Tremors, vacant eyes, bad teeth
+    - Frumpy, short hair, kaftan, twitch
+    - Korean teens in sportswear
+    - Stained shirt, tie, shakes, furtive
+    - Mannish, scarlet curls, vest tops
+    - Floppy hair, sullen (vidchat only)
+    relationships:
+    - Owes favour to…
+    - Suspicious of…
+    - Interested in…
+    - Hiding from…
+    - Student of…
+    - Make use of…
+    - Friend of…
+    - Seeks aid of…
+    - Looking for…
+    - Associate of…
+    - Was partner of…
+    - Schemes with…
+    - Rivalry with…
+    - Trusts only…
+    - Seeks service of…
+    - Seeks aid of…
+    - Avoids…
+    - Will betray…
+    - Seeks work of…
+    - Influence over…
+    - Jealous of…
+    - Curious about…
+    - Fond of…
+    - Seeks service of…
+    - Unsure about…
+    - Obvious to…
+    - Manipulates…
+    - In love with…
+    - Friend of…
+    - Seeks aid of…
+    - Irritated by…
+    - Crush on…
+    - Curious about…
+    - Suspicious of…
+    - Aunt of…
+    - In the way of…
+    - Make use of…
+    - Was student of…
+    - Despises…
+    - Messes with…
+    - Friend of…
+    - Used by…
+    - Suspicious of…
+    - Seeks service of…
+    - Influence over…
+    - Trying to help…
+    - Seek aid of…
+    - Use service of…
+    - Intrigued by…
+    - Blackmails…

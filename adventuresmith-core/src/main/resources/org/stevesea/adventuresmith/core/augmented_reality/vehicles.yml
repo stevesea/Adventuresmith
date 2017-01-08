@@ -4,15 +4,14 @@ nested_tables:
   vehicles:
     road_templates:
     - |
-      <h4>Vehicle - {{vehicles.road}}</h4>
+      <h4>{{vehicles.road}}</h4>
       <strong><small>Activity:</small></strong> {{vehicle_features.activity}}
       <br/><strong><small>Notable Feature:</small></strong> {{vehicle_features.notable}}
       <br/><strong><small>Condition:</small></strong> {{vehicle_features.condition}}
     sky_templates:
     - |
-      {{vehicles.sky}}
-      <br/><em>currently...</em>
-      <br/>{{vehicles.sky_currently}}
+      <h4>{{vehicles.sky}}</h4>
+      <em>Currently...</em> {{vehicles.sky_currently}}
     river_templates:
     - "{{vehicles.river}}"
     road:
@@ -27,10 +26,10 @@ nested_tables:
     - Limousine
     - Sports Car
     - HMMWV (Humvee)
-    - Suburban utility Vehicle (SuV)
+    - Suburban utility Vehicle (SUV)
     - Estate Car/Stationwagon
     - Moped/Scooter
-    - 4x4/MrAP
+    - 4x4/MRAP
     - Very Heavy Goods Vehicle
     - Armoured Truck
     - Police Van
@@ -83,7 +82,7 @@ nested_tables:
     - Ascending
     - Hovering
     - Circling
-    # note: source doce has speeding/in-pursuit on one line
+    # note: source doc has speeding/in-pursuit on one line
     - Speeding
     - "In Pursuit of {{vehicles.sky}}"
     - Cruising

@@ -1,0 +1,140 @@
+---
+templates:
+- "{{hackable.templates}}"
+
+
+nested_tables:
+  hackable:
+    templates:
+    - |
+      <h4>{{hackable.select_row}}</h4>
+      Security Level: {{>roll: 1d10}}
+      <br/>Linked Systems: {{>roll: 1d10}}
+      <br/>How many rounds before sysadmin notices spurious activity? {{>roll: 1d10}}
+      <h5>Quirks</h5>
+      {{>pickN: 1d2 hackable.bugs <br/>}}
+    select_row:
+    - "{{hackable.row1}}"
+    - "{{hackable.row2}}"
+    - "{{hackable.row3}}"
+    - "{{hackable.row4}}"
+    - "{{hackable.row5}}"
+    - "{{hackable.row6}}"
+    - "{{hackable.row7}}"
+    - "{{hackable.row8}}"
+    - "{{hackable.row9}}"
+    - "{{hackable.row10}}"
+    row1:
+    - 1..2, Smart Appliance (with camera or microphone)
+    - 3..4, Environmental Sensor System
+    - 5, Intelligent Washroom
+    - 6, Ad Blimp
+    - 7..9, Advertising Broadcast System
+    - 10, Active GPS Device
+    row2:
+    - 1..2, Tablet
+    - 3..4, Local Server or Computer
+    - 5, Motion Sensor
+    - 6..8, Laptop
+    - 9..10, Maintenance Robot
+    row3:
+    - 1, Remote Loader
+    - 2..4, Fire Safety or Evacuation System
+    - 5..6, Drone
+    - 7, Site's Defense Network
+    - 8..9, Taffic Light System or Adaptable Smart Lanes
+    - 10, WiFi Toy
+    row4:
+    - 1..4, Driverless Car/Aero
+    - 5..6, Hub, Router, or Exchange
+    - 7..8, Security Camera or CCTV
+    - 9..10, Driver Assist Link
+    row5:
+    - 1..3, Elevators
+    - 4..5, Cybermodem
+    - 6..7, Cellular Comms Mast or Satellite Receiver
+    - 8..9, Automated Heavy Transport Vehicle
+    - 10, Mobile Trash Can
+    row6:
+    - 1..2, Construction Remote or Concrete Printer
+    - 3..4, TV Console
+    - 5..7, 3D Printer(s)
+    - 8, Synthetic's Neural Net
+    - 9, Wireless Smart Gun
+    - 10, Anti-Nanite Immune System
+    row7:
+    - 1..2, Mobility Assistance Linear Frame
+    - 3, RFID Tag
+    - 4..7, Smartphone or Agent
+    - 8..10, Augmented Reality Projector Hub
+    row8:
+    - 1, Accoustic Weapon System
+    - 2..4, Neural Processor
+    - 5..6, Wearable Meds Dispenser
+    - 7..8, HUD Visor or Goggles
+    - 9..10, Infant Monitoring System
+    row9:
+    - 1..3, Utilities Monitoring System
+    - 4..5, Self-Serve Recharging or Refuelling Point
+    - 6..7, Public Vid-Phone
+    - 8..9, Saleable AR Tagged Consumables
+    - 10, Smart Morph-Wear
+    row10:
+    - 1..2, Manufacturing Robot
+    - 3..4, Vendomat
+    - 5, Bio-Monitor
+    - 6, Bodycam or Go-Pro
+    - 7..8, Payment Reader (chip/pin or contactless)
+    - 9, TacNet Comms
+    - 10, CyperPet Processor
+    bugs:
+    - Overzealous defensive software
+    - Harbours malicious virus
+    - Being assessed by sysadmin
+    - Layers of legacy programming
+    - Randomly goes into standby mode
+    - Badly formatted Ar plug-in
+    - Installing software upgrade
+    - Hacker currently querying system
+    - ROM overloaded by surplus apps
+    - Recently reset to factory defaults
+    - Inquisitive low-grade AI assistant
+    - Requires biometric verification
+    - Auto-downloads to linked device
+    - Net connection keeps dropping out
+    - Incompatible operating system
+    - Pop-up pandemic
+    - Software conflicts, glitchy
+    - Processor overclocked
+    - Active ‘vigilance suite’ warns user
+    - Tendency to stall or hang
+    - Malware sifting for linked devices
+    - Missing system tools/utilities
+    - Errors with user interface display
+    - Physically damaged, or faulty
+    - Non-standard reprogramming
+    - "{{>roll: 1d6}} software subroutines triggered"
+    - Logs recently tampered with
+    - Overheating (heat sink failing)
+    - Heavily encrypted for device type
+    - Constant security warnings
+    - Non-intuitive user interface
+    - Hogging the local bandwidth
+    - Prone to system crashes
+    - Uses badly patched legacy code
+    - File sharing denied
+    - Configured for periodic back-up
+    - Insufficient internal battery life
+    - Reveals a scheduled exploit (short)
+    - ‘Access Denied’ system file errors
+    - Reboots the system at random
+    - Requires admin password
+    - Can only handle minimal processes
+    - User interface in foreign language
+    - Discomforting feedback
+    - 3rd party updaters need unchecking
+    - Menu options it shouldn’t have
+    - In the process of being stolen
+    - Running slow, searching for updates
+    - Feeds log and data to manufacturer
+    - Tagged and monitored by rogue AI

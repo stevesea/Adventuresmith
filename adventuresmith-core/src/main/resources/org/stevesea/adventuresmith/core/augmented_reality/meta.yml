@@ -19,9 +19,12 @@ attribution: |
   gamesmasters to let their twisted imaginations shine through, without slowing down the action.</p>
   </blockquote>
 groups:
-  grpCity: City
-  grpSenses: Senses…
-  grpVehicles: Vehicles
   grpNPCs: NPCs
+  grpCorps: Corps & Cops
+  grpSenses: Sense & the City
+  grpEncounters: Encounters & Jobs
+  grpCity: Buildings & Assets
+  grpLoot: Technology & Items
+
 
 
