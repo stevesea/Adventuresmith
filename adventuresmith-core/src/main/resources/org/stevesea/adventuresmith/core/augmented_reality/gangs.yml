@@ -12,9 +12,9 @@ nested_tables:
     - |
       {{gangs.template_no_npc}}
       <h5>NPCs</h5>
-      {{>pickN: 3 gangs.npc_main}}
+      {{>pickN: 3 gangs.npc_main <br/>}}
       <h5>Other NPCs</h5>
-      {{>pickN: 3 gangs.npc_other}}
+      {{>pickN: 3 gangs.npc_other <br/>}}
     template_no_npc:
     - |
       <h5>{{gangs.names_a}} {{gangs.names_b}}</h5>
@@ -180,7 +180,7 @@ nested_tables:
     - Tech Savvy
     - Net Dependent
     - Radical
-    - Ar Manipulating
+    - AR Manipulating
     - Afro-Haired
     - Neon-raver
     themes_2:
@@ -288,7 +288,7 @@ nested_tables:
     activities:
     - Deal in prohibited neural boosts, intellect stims, sakawa charms
     - Operate a stash house in the old Metro system and fence goods
-    - Import, crack and distribute Vr games and Hong Kong action sims
+    - Import, crack and distribute VR games and Hong Kong action sims
     - Hack and tap electronic infrastructure, for a price
     - Will put on one hell of a party in exchange for hot information
     - Trade in counterfeit sportswear, tickets and fan merchandise
@@ -307,7 +307,7 @@ nested_tables:
     - Take protection money, cook drugs and provide bespoke curses
     - Work protection on a number of chip-hop bars and clubs
     - 3D-print their own implanted weapons (fragile)
-    - Several members are skilled Ar coders
+    - Several members are skilled AR coders
     - Make their money dealing in heavy weapons and stolen cars
     - Grow synthetic opium in hydroponic blisters and sell it on
     - Target small-fry fixers and gangers and steal their shit to sell on
