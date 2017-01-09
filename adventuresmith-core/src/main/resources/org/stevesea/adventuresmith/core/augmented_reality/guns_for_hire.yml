@@ -6,7 +6,7 @@ nested_tables:
   guns_for_hire:
     templates:
     - |
-      <h4>Gun for Hire - {{guns_for_hire.name}}</h4>
+      <h5>{{guns_for_hire.name}}</h5>
       {{guns_for_hire.desc}}
       <br/>{{guns_for_hire.weapons}}
       <br/>

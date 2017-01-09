@@ -6,7 +6,7 @@ nested_tables:
   fixers:
     templates:
     - |
-      <h4>Fixers &amp; Facemen - {{fixers.name}}</h4>
+      <h5>{{fixers.name}}</h5>
       {{fixers.occupation}}
       <br/>{{fixers.detail}}
       <br/>

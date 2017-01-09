@@ -3,15 +3,21 @@ templates:
 - "{{downtown.templates}}"
 
 imports:
+- armed_response
+- corporations
 - details
+- gangs
+- hackable_assets
+- sense_and_the_city
 
 nested_tables:
   downtown:
     templates:
     - |
-      <h4>The Downtown - {{downtown.select_row}}</h4>
+      <h4>{{downtown.select_row}}</h4>
       Number of floors: {{>roll: 1d10}}
-      <br/>Features: {{>pickN: 1d3 downtown.building_features}}
+      <br/>
+      <br/>{{>pickN: 1d2 downtown.building_features <br/>}}
     select_row:
     - "{{downtown.row1}}"
     - "{{downtown.row2}}"
@@ -89,7 +95,9 @@ nested_tables:
     - Extreme Security Protocols
     - Decrepit And rundown
     - Graffitipocalypse/Street Art Heavy
-    - Obvious Gang Turf (see P26)
+    - |
+      Obvious Gang Turf
+      {{gangs.templates}}
     - Back room Brothel
     - Newly renovated
     - Unusually Busy
@@ -98,10 +106,17 @@ nested_tables:
     - High Tech Equipment
     - Abandoned Edifice
     - "Repurposed As… {{downtown.building_features}}"
-    - Front For Corporate Activity (see P22)
+    - |
+      Front For Corporate Activity
+      <br/>
+      <br/>{{corporations.projects}}
+      <br/>{{corporations.resources}}
     - Front For Criminal Activity
     - Hidden Squatters
-    - Obscured By Ad Screens (see P15)
+    - |
+      Obscured By Ad Screens
+      <br/>
+      <br/>{{infotainment.templates}}
     - ‘Grown’ By Nanites
     - Incomplete
     - Self Sufficient
@@ -113,13 +128,13 @@ nested_tables:
     - Years Of Clumsy Modification
     - For Sale/To-let
     - Bright Emoji Glyphs And Graphics
-    - reinforced for repair Work
+    - Reinforced for repair Work
     - Extremely leaky
     - Gothic Style
     - Chic And Minimalist
     - Brutalist
     - Encased In Plastic Siding
-    - labyrinthine
+    - Labyrinthine
     - Skywalks To Other Buildings
     - Industrial Style
     - Anti-Drone System
@@ -127,34 +142,50 @@ nested_tables:
     - People Queue To Enter
     - Well Guarded
     - AI Guardian
-    - Ar Heavy (see P17)
+    - |
+      AR Heavy
+      <br/>
+      <br/>{{augmented_reality.templates}}
     - Selective Access
-    - Buggy Security Net (see P43)
+    - |
+      Buggy Security Net
+      <br/>
+      <br/>{{>pickN: 1d2 hackable.bugs <br/>}}
     - Taken Over By Junkies
     - Foreign Ghetto
     - Sweatshop Conditions
-    - utilised Solely For Storage
+    - Utilised Solely For Storage
     - Veiled Behind Polymer Sheeting
     - All Windows Damaged
     - External utilities
     - Extensive Solar Grid And Fog Catchers
     - Bad Epoxy repairs
-    - unpleasant Micro-Climate
+    - Unpleasant Micro-Climate
     - Infested With rogue remotes
     - Self Aware
     - Cellular Black Hole
     - Mainly Populated By Hoarders
     - Accumulated Trash Heaps
-    - Unusual Smell (see P12)
+    - |
+      Unusual Smell
+      <br/>
+      <br/>{{senses.smells}}
     - Very Few Working lights
     - A riot Of Satellite Dishes
     - Very Noisy utilities
     - Catastrophically Polluted
-    - unfinished Extension Or Empty levels
+    - Unfinished Extension Or Empty levels
     - Permadamp
-    - legacy Infrastructure (see P11)
+    - |
+      Legacy Infrastructure
+      <br/>
+      <br/>{{legacy_infrastructure}}
     - Bad Wiring; High EMF; Black Outs
-    - Patrolled By Hired rent-A-Cops (see P29)
+    - |
+      Patrolled By Hired rent-A-Cops
+      <br/>
+      <br/>{{armed_response.response_level}}
+      <br/>{{armed_response.job_sheet}}
     - Aggressively Enforced No-Parking Zone
     - Windows Boarded With Opaque Acrylic
     - Main Entrance Out Of Order
@@ -172,13 +203,13 @@ nested_tables:
     - Independent Nation State
     - Family Owned
     - Scheduled For Demolition
-    - rat Or roach Problem
+    - Rat or Roach Problem
     - Security Camera Overkill
     - A Crime Scene
     - Target Of Net Terrorism
     - Malfunctioning Incessant Alarm
     - Slowly Collapsing Or Subsiding
-    - under Surveillance
+    - Under Surveillance
     - Enforced No Fly Zone
     - Prone To Flooding
     - Ecologically Sound; No Carbon Footprint

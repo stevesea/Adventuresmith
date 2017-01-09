@@ -5,14 +5,13 @@ templates:
 
 imports:
 - details
-- npcs
 - sense_and_the_city
 
 nested_tables:
   cabbies:
     templates:
     - |
-      <h4>Cabbie</h4>
+      <h5>Cabbie</h5>
       <strong><small>Appearance:</small></strong> {{cabbies.appearance}}
       <br/><strong><small>Nationality:</small></strong> {{cabbies.nationality}}
       <br/><strong><small>Conversation Topic:</small></strong> {{cabbies.conversation_topic}}

@@ -15,7 +15,7 @@ nested_tables:
     - "10, National Police Agency FBI/FSB or Militarized Police (eg: Guardia Civil/MPs)"
     response_level:
     - 1..6, There are enough officers and support present to handle the current situation
-    - 7..9, looks like they’ve bitten off more than they can chew, requesting support
+    - 7..9, Looks like they’ve bitten off more than they can chew, requesting support
     - 10, The officers are way out of their depth, pinned down, need immediate back up
     job_sheet:
     - 1, Approaching a suspect or suspects, or have just arrested a suspect or suspects

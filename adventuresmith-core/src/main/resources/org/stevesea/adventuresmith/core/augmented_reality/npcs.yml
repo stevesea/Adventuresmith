@@ -1,4 +1,11 @@
 ---
+imports:
+- cabbies
+- fixers
+- gangs
+- guns_for_hire
+- hackers
+
 nested_tables:
   first_impressions:
     select:
@@ -65,9 +72,22 @@ nested_tables:
   instacitizen:
     templates:
     - |
-      <h4>Instacitizen - {{instacitizen.select_row}}</h4>
-      Gender: {{instacitizen.gender}}
-      <br/>First Impressions: {{first_impressions.select}}
+      <h4>{{instacitizen.select_row}}</h4>
+      {{>accum: instacitizen-extra Gender: %[[instacitizen.gender]]%}}
+      %[[>get: instacitizen-extra <br/>]]%
+      <h5>First Impressions</h5>
+      {{>pickN: 1d3 first_impressions.select <br/>}}
+      {{instacitizen.template_tattoo}}
+      {{instacitizen.template_vices}}
+
+    # add some color, maybe
+    template_vices:
+    - 1..5,
+    - 6..8, {{vices.templates}}
+    template_tattoo:
+    - 1..3,
+    - 4..6, {{tattoo.templates}}
+
     gender:
     - Male
     - Female
@@ -87,18 +107,18 @@ nested_tables:
     - 3..4, Bouncer or Private Security
     - 5, Aero Pilot
     - 6, Researcher or Data Analyst
-    - 7..9, Street Gang Thug (see P26)
+    - "7..9, Street Gang Thug {{>accum: instacitizen-extra %[[gangs.template_no_npc]]%}}"
     - 10, Lab Worker
     row2:
     - 1..2, Street Kid(s)
     - 3..4, Gambler or Con Artist
     - 5, Uber or Limo Driver
-    - 6..8, Fixer (see P30)
+    - "6..8, Fixer {{>accum: instacitizen-extra %[[fixers.templates]]%}}"
     - 9..10, Designer
     row3:
     - 1, Pimp
     - 2..4, Corporate Worker
-    - 5..6, Sex Worker or Puppet (see P21)
+    - "5..6, Sex Worker or Puppet {{>accum: instacitizen-extra <br/>%[[street_walkers.templates]]%}}"
     - 7, Celeb
     - 8..9, City Beat Cop
     - 10, Company Exec
@@ -108,16 +128,16 @@ nested_tables:
     - 7..8, Freelance Media
     - 9..10, Thief or Fence
     row5:
-    - 1..3, Hacker (see P44)
+    - "1..3, Hacker {{>accum: instacitizen-extra %[[hackers.templates]]%}}"
     - 4..5, Military Veteran
     - 6..7, Syndicate Footsoldier
     - 8..9, Smuggler
     - 10, Bounty Hunter
     row6:
-    - 1..2, Cabbie (see P20)
+    - "1..2, Cabbie {{>accum: instacitizen-extra %[[cabbies.templates]]%}}"
     - 3..4, Homeless Person
     - 5..7, Drug Dealer
-    - 8, Street Gang Boss (see P26)
+    - "8, Street Gang Boss {{>accum: instacitizen-extra %[[gangs.template_no_npc]]%}}"
     - 9, City Inspector or Auditor
     - 10, Syndicate Boss
     row7:
@@ -134,7 +154,7 @@ nested_tables:
     - 1..3, Detective
     - 4..5, Online Business Person
     - 6..7, Store Manager
-    - 8..9, Solo or Mercenary (see P36)
+    - "8..9, Solo or Mercenary {{>accum: instacitizen-extra %[[guns_for_hire.templates]]%}}"
     - 10, Killer or Psycho
     row10:
     - 1..2, Transport Worker
@@ -148,7 +168,7 @@ nested_tables:
   tattoo:
     templates:
     - |
-      <h4>Tattoo - {{tattoo.what}}</h4>
+      <h5>Tattoo - {{tattoo.what}}</h5>
       <strong><small>Style:</small></strong> {{tattoo.style}}
       <br/><strong><small>Where:</small></strong> {{tattoo.where}}
 
@@ -189,8 +209,7 @@ nested_tables:
   street_walkers:
     templates:
     - |
-      <h4>Street Walker</h4>
-      <strong><small>Sex Worker:</small></strong> {{street_walkers.sex_workers}}
+      {{street_walkers.sex_workers}}
       <br/><strong><small>Identifies As...:</small></strong> {{street_walkers.identifies}}
 
     sex_workers:
@@ -219,7 +238,7 @@ nested_tables:
   vices:
     templates:
     - |
-      <h4>What's their poison?</h4>
+      <h5>What's their poison?</h5>
       <strong><small>Peccadillo, Vice, Addiction:</small></strong> {{vices.vices}}
       <br/><strong><small>Level of Need:</small></strong> {{vices.level_of_need}}
 
@@ -229,7 +248,7 @@ nested_tables:
     - Street legal, But Harmful - Alcohol/Caffeine/Nicotine
     - SimStim/SimSense/Vr Gaming
     - Atrocity Images or Footage
-    - Prostitutes (Secretly Same Sex?) (see below)
+    - Prostitutes
     - Pornographic Material (Particular Acts or Fetish?)
     - Bizarre Fetish Wear or Activity
     - Pain/Sexual Violence (Towards Self or Others)

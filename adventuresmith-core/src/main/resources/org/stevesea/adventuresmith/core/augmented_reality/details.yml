@@ -93,17 +93,6 @@ tables:
   - Previously defeated hacking attempt left old code gate decrypted and open
   - Networked but obsolete peripherals remain powered on and in standby mode
   - Partially de-rezzed AI ‘ghost’ haunts the network and is, by now, quite insane
-  big_screen:
-  - Video gaming event
-  - Highlights from major sporting event
-  - System error message/connection failure
-  - The time and date
-  - The latest news headlines and lottery result
-  - Infomercial/Advertainment (see below)
-  - The weather forecast/air quality statistics
-  - Pornography (hacked and then squirtcast?)
-  - Music videos or movie trailers
-  - Traffic information
 
 nested_tables:
   quirky_interiors:
@@ -142,9 +131,9 @@ nested_tables:
     - Monochromatic
     - Artificial Plants
     - Strange Acoustics
-    - Weird Smell (see P12)
+    - "Weird Smell <br/>{{senses.smells}}"
     - Remote Assistants
-    - Legacy Tech (see P10)
+    - "Legacy Tech <br/>{{legacy_data}}"
     - Exotic Pet
     secret:
     - Cameras
@@ -165,8 +154,8 @@ nested_tables:
       <br/><em>leading to...</em>
       <br/>{{area_events.b}}
     a:
-    - Gang Block War (see P26)
-    - Corporate Sweep (see P22)
+    - Gang Block War
+    - Corporate Sweep
     - Man-Made Disaster
     - Political unrest
     - Development/Investment
@@ -187,39 +176,6 @@ nested_tables:
     - Unification/Community Cohesion
     - Rapidly Escalating Fatalities
 
-
-  local_conflict:
-    templates:
-    - |
-      <h4>Local Conflict</h4>
-      {{local_conflict.group}} vs. {{local_conflict.group}}
-      <br/>
-      <br/><strong><small>Source:</small></strong> {{local_conflict.source}}
-    group:
-    - Street Gang (see P26)
-    - Corporate Aristocrat (see P22)
-    - Fixer Network (see P30)
-    - Netrunner Collective (see P44)
-    - Solo Condotta/PMC (see P36)
-    - Criminal Syndicate
-    - Drug Dealers
-    - Transient Clan
-    - Indentured Workers
-    - Media Web
-    source:
-    - Treachery
-    - Adultery
-    - Fraud Or Theft
-    - Addiction
-    - Ambition
-    - Madness
-    - Love
-    - Folly
-    - Paranoia
-    - "Rivalry: {{local_conflict.rivalry}}"
-    rivalry:
-    - 1..5, Within Same Group
-    - "6..10, Different Group - {{local_conflict.group}}"
 
   alternative_businesses:
     templates:
@@ -319,7 +275,7 @@ nested_tables:
   nightlife:
     templates:
     - |
-      <h4>Nightlife - {{nightlife.bar_or_club}}</h4>
+      <h5>{{nightlife.bar_or_club}}</h5>
       <strong><small>Status:</small></strong> {{nightlife.status}}
       <br/><strong><small>Security:</small></strong> {{nightlife.security}}
       <br/><strong><small>Vibe:</small></strong> {{nightlife.vibe}}
@@ -372,7 +328,7 @@ nested_tables:
   augmented_reality:
     templates:
     - |
-      <h4>Aug. Reality - {{augmented_reality.type}}</h4>
+      <h5>AR - {{augmented_reality.type}}</h5>
       <strong><small>Aesthetic:</small></strong> {{augmented_reality.aesthetic}}
       <br/><strong><small>Image Style:</small></strong> {{augmented_reality.image_style}}
     type:
@@ -390,7 +346,7 @@ nested_tables:
     - Typographic Overlays
     - Bright And Garish Glyphs
     - Animated Persona
-    - see That’s Infotainment (P15)
+    - "{{infotainment.templates}}"
     - Emotive Imagery
     - Rapid Motion/Distracting
     - Reassuring Infomemes

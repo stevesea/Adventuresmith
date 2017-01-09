@@ -3,4 +3,42 @@ templates:
 - "{{local_conflict.templates}}"
 
 imports:
+- corporate_aristocrats
 - details
+- gangs
+- npcs
+
+nested_tables:
+  local_conflict:
+    templates:
+    - |
+      <h4>Local Conflict</h4>
+      {{local_conflict.group}} vs. {{local_conflict.group}}
+      <br/>
+      <br/><strong><small>Source:</small></strong> {{local_conflict.source}}
+    group:
+    - "Street Gang {{gangs.templates}}"
+    - "Corporate Aristocrat {{corporate_aristocrats.templates}}"
+    - Fixer Network
+    - Netrunner Collective
+    - Solo Condotta/PMC
+    - Criminal Syndicate
+    - Drug Dealers
+    - Transient Clan
+    - Indentured Workers
+    - Media Web
+    source:
+    - Treachery
+    - Adultery
+    - Fraud Or Theft
+    - Addiction
+    - Ambition
+    - Madness
+    - Love
+    - Folly
+    - Paranoia
+    - "Rivalry: {{local_conflict.rivalry}}"
+    rivalry:
+    - 1..5, Within Same Group
+    - "6..10, Different Group - {{local_conflict.group}}"
+

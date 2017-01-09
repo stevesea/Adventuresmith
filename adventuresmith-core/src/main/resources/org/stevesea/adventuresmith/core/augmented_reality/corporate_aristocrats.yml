@@ -7,7 +7,7 @@ nested_tables:
   corporate_aristocrats:
     templates:
     - |
-      <h4>Corp. Aristocrat - {{corporate_aristocrats.firstname}} {{corporate_aristocrats.surname}}</h4>
+      <h4>{{corporate_aristocrats.firstname}} {{corporate_aristocrats.surname}}</h4>
       {{corporate_aristocrats.detail_1}}
       <br/>{{corporate_aristocrats.detail_2}}
       <br/>{{corporate_aristocrats.detail_3}}

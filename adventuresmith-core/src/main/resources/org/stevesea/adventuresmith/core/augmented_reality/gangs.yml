@@ -10,7 +10,14 @@ nested_tables:
   gangs:
     templates:
     - |
-      <h4>Street Gang - {{gangs.names_a}} {{gangs.names_b}}</h4>
+      {{gangs.template_no_npc}}
+      <h5>NPCs</h5>
+      {{>pickN: 3 gangs.npc_main}}
+      <h5>Other NPCs</h5>
+      {{>pickN: 3 gangs.npc_other}}
+    template_no_npc:
+    - |
+      <h5>{{gangs.names_a}} {{gangs.names_b}}</h5>
       {{gangs.themes_1}}
       <br/>{{gangs.themes_2}}
       <br/>{{gangs.themes_3}}
@@ -22,10 +29,6 @@ nested_tables:
       {{gangs.currently}}
       <h5>What’s the deal with these guys?</h5>
       {{gangs.rumors}}
-      <h5>NPCs</h5>
-      {{>pickN: 3 gangs.npc_main}}
-      <h5>Other NPCs</h5>
-      {{>pickN: 3 gangs.npc_other}}
 
     names_a:
     - Cortical

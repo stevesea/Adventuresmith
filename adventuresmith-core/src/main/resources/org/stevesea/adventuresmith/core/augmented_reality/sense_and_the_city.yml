@@ -1,9 +1,23 @@
 ---
+tables:
+  big_screen:
+  - Video gaming event
+  - Highlights from major sporting event
+  - System error message/connection failure
+  - The time and date
+  - The latest news headlines and lottery result
+  - |
+    Infomercial/Advertainment
+    {{infotainment.templates}}
+  - The weather forecast/air quality statistics
+  - Pornography (hacked and then squirtcast?)
+  - Music videos or movie trailers
+  - Traffic information
 nested_tables:
   infotainment:
     templates:
     - |
-      <h4>Infotainment</h4>
+      <h5>Infotainment</h5>
       <strong><small>Brand Name:</small></strong> {{infotainment.brand_name}}
       <br/><strong><small>Range:</small></strong> {{infotainment.range}}
       <br/><strong><small>Product Line:</small></strong> {{infotainment.product_line}}
@@ -251,14 +265,16 @@ nested_tables:
     - Frying Food
     - A Brawl
     - Doors Slamming
-    - Ads (see next page)
+    - |
+      Ads
+      {{infotainment.templates}}
     - Thunder
     - Hissing White Noise
     - "{{>pickN: 2 senses.sounds}}"
     sights:
     - 1..2, Armoured cops bundle violently reluctant vagrant into ErA-plated squad car
-    - 3..4, A bus shelter made entirely of screens showing flashy commercials (see below)
-    - 5..6, Searchlights playing across the cloud cover and projecting branding (see below)
+    - "3..4, A bus shelter made entirely of screens showing flashy commercials"
+    - "5..6, Searchlights playing across the cloud cover and projecting branding"
     - 7..8, A brightly lit aerocab taking off in a cloud of exhaust fumes, rainwater and trash
     - 9..10, AC vents in the sidewalk emitting a thick cloud of vapour
     - 11..12, Every underlit face on the street is concentrating solely on their phone
@@ -269,7 +285,7 @@ nested_tables:
     - 21..22, A cluster of kids vaping, lED-lit clouds from under designer pollution hoods
     - 23..24, A pair of bicycle couriers race one another through crawling traffic
     - 25..26, Gritty, chemical infused sediment sloughing off a nearby rooftop
-    - 27..28, A large building-mounted flatscreen showing… (see table top right)
+    - 27..28, A large building-mounted flatscreen showing… ({{big_screen}})
     - 29..30, unattended roadworks, the area coned off and lit for safety for no good reason
     - 31..32, An automated noodle vending truck, jingle playing, folds open and deploys nearby
     - 33..34, A flock of scabrous-looking pigeons suddenly taking flight
@@ -288,7 +304,7 @@ nested_tables:
     - 59..60, A long, silent queue for a blocky, exhaust stained, kerb-side Euthanasia Booth™
     - 61..62, All the nearby street signs are gang-tagged over to the point of being use
     - 63..64, Filthy red and white plastic Jersey barriers block most of the sidewalk
-    - 65..66, An overpass or skywalk covered in colourful advertising animatics (see below)
+    - "65..66, An overpass or skywalk covered in colourful advertising animatics"
     - 67..68, There are crowds of fast moving people swarming absolutely everywhere
     - 69..70, The scorched shell of a gutted vid-phone kiosk
     - 71..72, Pedestrians flooding across the nearest intersection, en masse, both ways
@@ -298,13 +314,13 @@ nested_tables:
     - 79..80, rivers of rain-borne trash race along in the choked gutters
     - 81..82, A small crowd of people gawping upwards at a potential jumper
     - 83..84, A tight formation of drones races down the street, just above head height
-    - 85..86, A group of sex workers on a nearby street corner, approaching cars (see P21)
+    - 85..86, A group of sex workers on a nearby street corner, approaching cars
     - 87..88, An out-of-order ATM threatens violent action to passers by who stray too close
     - 89..90, unnervingly, there is absolutely no-one about
-    - 91..92, A pedicab operator struggling with heat exhaustion or dehydration (see P20)
+    - 91..92, A pedicab operator struggling with heat exhaustion or dehydration
     - 93..94, A row of vendomats coated in layers of gang tags, going back many years
-    - 95..96, A GEV taxi takes a corner hard, throwing up polluted water, trash and crud (see P20)
+    - 95..96, A GEV taxi takes a corner hard, throwing up polluted water, trash and crud
     - 97..98, An energetic street preacher giving a digital presentation on Cybernetic Jesus®
-    - 99..100, The sidewalk consists of slabs of flickering screens, showing adverts (see below)
+    - "99..100, The sidewalk consists of slabs of flickering screens, showing adverts"
     # NOTE: source content has following as 10..11 (already picked)
     - 101..102, A heavy rainwater cascade falls from damaged guttering

@@ -1,5 +1,10 @@
 ---
 
+imports:
+- cabbies
+- details
+- sense_and_the_city
+
 nested_tables:
   vehicles:
     road_templates:
@@ -16,8 +21,12 @@ nested_tables:
     - "{{vehicles.river}}"
     road:
     - Armoured Intercity Bus
-    - Carbon-Fibre Pedicab (see P20)
-    - GEV Taxi (Air Cushion) (see P20)
+    - |
+      Carbon-Fibre Pedicab
+      {{cabbies.templates}}
+    - |
+      GEV Taxi (Air Cushion)
+      {{cabbies.templates}}
     - Automated uber/AI Taxi Sedan
     - Food/SCOP* Vending Truck
     - Cyclist(s)
@@ -50,7 +59,9 @@ nested_tables:
     - Automated road Sweeper
     - Police Motorcycle
     - Courier/Delivery Van
-    - Scrap Built rickshaw (see P20)
+    - |
+      Scrap Built rickshaw
+      {{cabbies.templates}}
     - Standard Sedan
     - Mobile Home/rV/MoPad
     - Muscle Car/roadster
@@ -63,14 +74,18 @@ nested_tables:
     - Quad Bike
     - Tow Truck (roll again for tow)
     - Car/Vehicle/PA Transporter
-    - Regular City Bus (1-3 decks)
+    - "Regular City Bus ({{>roll: 1d3}} decks)"
     - Trike
     sky:
     - Luxury Aero/Limo
     - Utility Aero Transport
-    - Aerobus/Aerocab (see P20)
+    - |
+      Aerobus/Aerocab
+      {{cabbies.templates}}
     - Helicopter/Tilt-Rotor
-    - Ad Blimp (see P15)
+    - |
+      Ad Blimp
+      {{infotainment.templates}}
     - Gunship (aero or chopper)
     - Drone Cluster/UAV
     - Police Aero
@@ -92,8 +107,11 @@ nested_tables:
 
     river:
     - A long, thin, high-powered speedboat (‘cigarette’ boat) races past
-    - An air-cushion taxi GEV (Ground Effect Vehicle), slips down to the water (see P20)
-    - A garishly illuminated party boat, packed with revellers, loud music (see P38)
+    - |
+      An air-cushion taxi GEV (Ground Effect Vehicle), slips down to the water
+      {{cabbies.templates}}
+    - |
+      A garishly illuminated party boat, packed with revellers, loud music ({{music_styles}})
     - A quiet and unassuming modern houseboat, moored to the embankment
     - An improvised submersible surfaces, seemingly lost, crew appear to be armed
     - An automated cargo transport barge, weaving through traffic using GPS

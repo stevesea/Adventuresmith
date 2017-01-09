@@ -6,7 +6,7 @@ nested_tables:
   hackers:
     templates:
     - |
-      <h4>Hacker - {{hackers.name}}</h4>
+      <h5>{{hackers.name}}</h5>
       {{hackers.desc}}
       <br/>{{hackers.detail}}
       <br/>
