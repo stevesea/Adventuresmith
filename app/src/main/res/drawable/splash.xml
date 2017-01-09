@@ -22,8 +22,16 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@color/md_white_1000"/>
+    <!--
     <item
         android:drawable="@drawable/ic_advsmth_splasha"
         android:top="200dp"
         android:bottom="200dp"/>
+        -->
+    <item>
+        <bitmap
+            android:src="@drawable/advsmth_splashb"
+            android:gravity="center|clip_horizontal"
+            />
+    </item>
 </layer-list>
