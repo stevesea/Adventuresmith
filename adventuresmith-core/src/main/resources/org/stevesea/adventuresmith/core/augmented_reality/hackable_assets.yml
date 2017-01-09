@@ -10,6 +10,7 @@ nested_tables:
       <h4>{{hackable.select_row}}</h4>
       Security Level: {{>roll: 1d10}}
       <br/>Linked Systems: {{>roll: 1d10}}
+      <br/>
       <br/>How many rounds before sysadmin notices spurious activity? {{>roll: 1d10}}
       <h5>Quirks</h5>
       {{>pickN: 1d2 hackable.bugs <br/>}}

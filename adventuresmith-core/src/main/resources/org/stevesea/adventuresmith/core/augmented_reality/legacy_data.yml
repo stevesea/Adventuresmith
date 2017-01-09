@@ -1,0 +1,6 @@
+---
+templates:
+- "{{legacy_data}}"
+
+imports:
+- details

@@ -1,21 +1,6 @@
 ---
-templates:
-- "{{tech_details.templates}}"
-
-
 nested_tables:
   tech_details:
-    templates:
-    - |
-      <h4>Technical Details</h4>
-      <h5>Condition of Found (or Stolen) Technology</h5>
-      {{tech_details.condition}}
-      <h5>Type of Device</h5>
-      {{tech_details.type}}
-      <h5>So, what’s on that thing anyway?</h5>
-      {{tech_details.whats_on_thing}}
-      <h5>Where's it been?</h5>
-      {{tech_details.wheres_it_been}}
 
     condition:
     - Checquered history, well used, possible damaged

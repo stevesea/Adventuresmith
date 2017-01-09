@@ -1,0 +1,9 @@
+---
+templates:
+- |
+  <h5>{{tech_details.type}}</h5>
+  {{tech_details.condition}}
+
+
+imports:
+- technical_details

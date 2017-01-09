@@ -98,7 +98,7 @@ nested_tables:
   quirky_interiors:
     templates:
     - |
-      <h4>Quirky Interior - {{quirky_interiors.style}}</h4>
+      <h5>{{quirky_interiors.style}}</h5>
       <strong><small>State:</small></strong> {{quirky_interiors.state}}
       <br/><strong><small>Unusual Feature:</small></strong> {{quirky_interiors.unusual_feature}}
       <br/><strong><small>Secret:</small></strong> {{quirky_interiors.secret}}
@@ -151,7 +151,9 @@ nested_tables:
     templates:
     - |
       {{area_events.a}}
-      <br/><em>leading to...</em>
+      <br/>
+      <br/>&nbsp;&nbsp;&nbsp;<em>leading to...</em>
+      <br/>
       <br/>{{area_events.b}}
     a:
     - Gang Block War
@@ -337,7 +339,7 @@ nested_tables:
     - Assistant
     - Blipvert
     - Political
-    - Promotion*
+    - Promotion
     - Advice
     - Menu System
     - Filter

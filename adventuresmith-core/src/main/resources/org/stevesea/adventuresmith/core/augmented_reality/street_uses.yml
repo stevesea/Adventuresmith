@@ -1,0 +1,6 @@
+---
+templates:
+- "{{street_uses}}"
+
+imports:
+- details

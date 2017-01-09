@@ -1,0 +1,6 @@
+---
+imports:
+- armed_response
+
+templates:
+- "{{armed_response.first_responders}}"

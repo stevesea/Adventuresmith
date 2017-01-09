@@ -1,0 +1,6 @@
+---
+templates:
+- "{{legacy_infrastructure}}"
+
+imports:
+- details

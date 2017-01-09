@@ -6,12 +6,16 @@ generators:
   - alternative_business
   - area_events
   - augmented_reality
+  - backup
   - bio_horrors
   - boardroom_manoeuvres
   - cabbies
   - company_resources
+  - condition
   - corporate_aristocrats
+  - department
   - downtown
+  - first_responders
   - fixers
   - freak_fighters
   - gangs
@@ -22,14 +26,19 @@ generators:
   - infotainment
   - instacitizen
   - jobs
+  - job_sheet
+  - legacy_data
+  - legacy_infrastructure
   - local_conflict
   - nightlife
   - one_mans_trash
   - ops
   - quirky_interiors
+  - response_level
   - sights
   - smells
   - sounds
+  - street_uses
   - street_walkers
   - tattoo
   - trespass
@@ -40,6 +49,8 @@ generators:
   - vices
   - weather
   - whats_on_corpse
+  - whats_on_thing
+  - where_has_it_been
   fourth_page:
   - artifact
   - dungeon

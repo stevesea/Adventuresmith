@@ -1,0 +1,7 @@
+---
+templates:
+- "{{tech_details.wheres_it_been}}"
+
+
+imports:
+- technical_details

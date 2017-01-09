@@ -12,13 +12,13 @@ nested_tables:
   local_conflict:
     templates:
     - |
-      <h4>Local Conflict</h4>
+      <h4>Local Conflict</h4>{{>accum: local_conflict-extra <br/><strong><small>Source:</small></strong> {{local_conflict.source}}}}
       {{local_conflict.group}} vs. {{local_conflict.group}}
       <br/>
-      <br/><strong><small>Source:</small></strong> {{local_conflict.source}}
+      %[[>get: local_conflict-extra <br/>]]%
     group:
-    - "Street Gang {{gangs.templates}}"
-    - "Corporate Aristocrat {{corporate_aristocrats.templates}}"
+    - "Street Gang {{>accum: local_conflict-extra <blockquote>%[[gangs.templates]]%</blockquote>}}"
+    - "Corporate Aristocrat {{>accum: local_conflict-extra <blockquote>%[[corporate_aristocrats.templates]]%</blockquote>}}"
     - Fixer Network
     - Netrunner Collective
     - Solo Condotta/PMC

@@ -1,0 +1,7 @@
+---
+templates:
+- "{{tech_details.whats_on_thing}}"
+
+
+imports:
+- technical_details

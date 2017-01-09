@@ -8,53 +8,53 @@ tables:
   - 3..4, Major Corporation
   - 5..6, local Cartel
   whats_on_corpse:
-  - <h4>Scrap of paper </h4>Work-in-progress death haiku scrawled on hotel note paper
-  - <h4>Human eyeball </h4>In climate controlled transparent jar, residential address on label
-  - <h4>Blister pack of pills </h4>Half-taken medication for virulently contagious illness
-  - "<h4>Plain clip-on IFF tag </h4>{{iff_tag}} ({{>roll: 1d3}} days)"
-  - <h4>Smooth plastic blob </h4>Memory-plastic knife, requires a sharp tap to reconfigure blade
-  - "<h4>Ziplock of grey dust </h4>{{>roll: 1d6}} ‘doses’ of surveillance nanites; need transmission frequency"
-  - <h4>Used pregnancy test </h4>The low grade AI just can’t wait to tell you the good news…
-  - <h4>Battered e-cig </h4>The liquid well contains 12ml of a previously unknown narcotic
-  - <h4>Three 7.62 bullets </h4>One of which is laser-etched with a PC’s name
-  - <h4>Plastic envelope </h4>Keycard and address for very hidden, very private cyber clinic
-  - <h4>Packet of condoms </h4>Expensive, with STD detection sensors, phone number on back
-  - <h4>‘Fitbit’ biomonitor </h4>Hack reveals owner’s movements, heart-rate and drug intake
-  - "<h4>DeStress Xpress </h4>{{>roll: 1d6}} anti-anxiety capsules, laced with tracking nanites"
-  - <h4>Small grey brick </h4>Carbon nanobar, required substrate for illegal nano fabricators
-  - <h4>Business plasticard </h4>Contact details for a gig-economy agent at ‘reputelligent Inc’.
-  - <h4>Fancy boots </h4>Synthetic crocodile skin Chelsea boots, hideously expensive
-  - <h4>Cybernetic hand </h4>Spare chromed hand, fitted with flashlight and motion sensor
-  - <h4>Chinese cigarettes </h4>Rare, prohibited imports, only one fixer known to smuggle them
-  - <h4>25ml plastic bottle </h4>Labelled as NanoBrite dental hygiene fluid, contains DNA sample
-  - <h4>Shrink wrapped cell </h4>Unused vendomat burner phone, monitored by corporation
-  - <h4>Puck-like disk </h4>Olive drab casing, cyrillic script on how to use the monowire mine
-  - <h4>Plush ‘Hello Kitty’ </h4>Tiny T-shirt states “let them eat chaos”, grenade hidden inside
-  - <h4>Unlocked datastick </h4>Contains 500GB of banned Jihadipop tracks, DRM still intact
-  - <h4>Painted filter mask </h4>Anti-pollution rebreather, daubed in gang colours
-  - <h4>40mm resin figurine </h4>Religious icon, showing Nelson Mandela healing a blind woman
-  - <h4>3D printed ring </h4>Ornate white gold wedding ring, unique, worn on a neck chain
-  - <h4>Small bodycam </h4>Memory chip reveals meeting with prominent fixer hours ago
-  - <h4>Small metal key </h4>Key for a safety deposit box (303) at nearby monorail station
-  - <h4>Medical aid card </h4>Belongs to person with different face and gender to the corpse
-  - <h4>Body lotto ticket </h4>25% chance that the owner’s death resulted in a winning number
-  - <h4>Durable glass vial </h4>Containing a live venomous spider and eggs, not natural breed
-  - <h4>Loose RFID tag </h4>Angry pimp hunting for the prostitute it used to be implanted in
-  - <h4>1KG pack of ‘flour’ </h4>Calcium feed for nano-enhanced killer; stops the nano eating him
-  - <h4>Blue lipstick </h4>Loaded with aggressive immunosuppressing toxin
-  - "<h4>Plastic motel key </h4>The room it opens contains {{>roll: 1d6}} bound, unconscious street kids"
-  - <h4>Thumb-sized fob </h4>Remote with agonizing dog-whistle effect on neural processors
-  - <h4>3 chromed ‘almonds’ </h4>Small situational awareness drones, feed view back to user
-  - "<h4>Baggy of blue hexes </h4>Contaminated or adulterated speed-like narcotics ({{>roll: 1d6}} doses)"
-  - <h4>Visitor’s pass card </h4>For geodesic-covered gated community (good for D3 days)
-  - <h4>Cheap airhypo </h4>With three cassettes of insulin and one of an opiate derivative
-  - <h4>Wad of receipts </h4>One for expensive neural backup, upload performed yesterday
-  - <h4>‘Breguet’ wristwatch </h4>Prohibitively expensive, bespoke craftsmanship, easily traced
-  - <h4>Police ID </h4>Same name and face as corpse, but expertly crafted forgery
-  - <h4>Foil wrapped ooze </h4>Pale & pink ‘jellypig’ bioweapon, smothers and dissolves target
-  - "<h4>Vac-sealed Flish™ </h4>{{>roll: 1d6}} questionably nutritious artificial fish flesh sticks, each 3\" long"
-  - <h4>Silver hip flask </h4>Engraved with elite unit crest, holds ‘Shanghai White’ vodka
-  - <h4>Printed photo of PC </h4>Folded acetate photo, with date 3 days hence penned in border
-  - <h4>Black, logo’d card </h4>Corporate loyalty card, entitles bearer to generous discounts
-  - <h4>Stubby aerosol can </h4>Spray-on dry shampoo, also changes hair colour and texture
-  - <h4>Boxy palmtop GPS </h4>Active icon shows target on the move less than half a mile away
+  - <h5>Scrap of paper </h5>Work-in-progress death haiku scrawled on hotel note paper
+  - <h5>Human eyeball </h5>In climate controlled transparent jar, residential address on label
+  - <h5>Blister pack of pills </h5>Half-taken medication for virulently contagious illness
+  - "<h5>Plain clip-on IFF tag </h5>{{iff_tag}} ({{>roll: 1d3}} days)"
+  - <h5>Smooth plastic blob </h5>Memory-plastic knife, requires a sharp tap to reconfigure blade
+  - "<h5>Ziplock of grey dust </h5>{{>roll: 1d6}} ‘doses’ of surveillance nanites; need transmission frequency"
+  - <h5>Used pregnancy test </h5>The low grade AI just can’t wait to tell you the good news…
+  - <h5>Battered e-cig </h5>The liquid well contains 12ml of a previously unknown narcotic
+  - <h5>Three 7.62 bullets </h5>One of which is laser-etched with a PC’s name
+  - <h5>Plastic envelope </h5>Keycard and address for very hidden, very private cyber clinic
+  - <h5>Packet of condoms </h5>Expensive, with STD detection sensors, phone number on back
+  - <h5>‘Fitbit’ biomonitor </h5>Hack reveals owner’s movements, heart-rate and drug intake
+  - "<h5>DeStress Xpress </h5>{{>roll: 1d6}} anti-anxiety capsules, laced with tracking nanites"
+  - <h5>Small grey brick </h5>Carbon nanobar, required substrate for illegal nano fabricators
+  - <h5>Business plasticard </h5>Contact details for a gig-economy agent at ‘reputelligent Inc’.
+  - <h5>Fancy boots </h5>Synthetic crocodile skin Chelsea boots, hideously expensive
+  - <h5>Cybernetic hand </h5>Spare chromed hand, fitted with flashlight and motion sensor
+  - <h5>Chinese cigarettes </h5>Rare, prohibited imports, only one fixer known to smuggle them
+  - <h5>25ml plastic bottle </h5>Labelled as NanoBrite dental hygiene fluid, contains DNA sample
+  - <h5>Shrink wrapped cell </h5>Unused vendomat burner phone, monitored by corporation
+  - <h5>Puck-like disk </h5>Olive drab casing, cyrillic script on how to use the monowire mine
+  - <h5>Plush ‘Hello Kitty’ </h5>Tiny T-shirt states “let them eat chaos”, grenade hidden inside
+  - <h5>Unlocked datastick </h5>Contains 500GB of banned Jihadipop tracks, DRM still intact
+  - <h5>Painted filter mask </h5>Anti-pollution rebreather, daubed in gang colours
+  - <h5>40mm resin figurine </h5>Religious icon, showing Nelson Mandela healing a blind woman
+  - <h5>3D printed ring </h5>Ornate white gold wedding ring, unique, worn on a neck chain
+  - <h5>Small bodycam </h5>Memory chip reveals meeting with prominent fixer hours ago
+  - <h5>Small metal key </h5>Key for a safety deposit box (303) at nearby monorail station
+  - <h5>Medical aid card </h5>Belongs to person with different face and gender to the corpse
+  - <h5>Body lotto ticket </h5>25% chance that the owner’s death resulted in a winning number
+  - <h5>Durable glass vial </h5>Containing a live venomous spider and eggs, not natural breed
+  - <h5>Loose RFID tag </h5>Angry pimp hunting for the prostitute it used to be implanted in
+  - <h5>1KG pack of ‘flour’ </h5>Calcium feed for nano-enhanced killer; stops the nano eating him
+  - <h5>Blue lipstick </h5>Loaded with aggressive immunosuppressing toxin
+  - "<h5>Plastic motel key </h5>The room it opens contains {{>roll: 1d6}} bound, unconscious street kids"
+  - <h5>Thumb-sized fob </h5>Remote with agonizing dog-whistle effect on neural processors
+  - <h5>3 chromed ‘almonds’ </h5>Small situational awareness drones, feed view back to user
+  - "<h5>Baggy of blue hexes </h5>Contaminated or adulterated speed-like narcotics ({{>roll: 1d6}} doses)"
+  - <h5>Visitor’s pass card </h5>For geodesic-covered gated community (good for D3 days)
+  - <h5>Cheap airhypo </h5>With three cassettes of insulin and one of an opiate derivative
+  - <h5>Wad of receipts </h5>One for expensive neural backup, upload performed yesterday
+  - <h5>‘Breguet’ wristwatch </h5>Prohibitively expensive, bespoke craftsmanship, easily traced
+  - <h5>Police ID </h5>Same name and face as corpse, but expertly crafted forgery
+  - <h5>Foil wrapped ooze </h5>Pale & pink ‘jellypig’ bioweapon, smothers and dissolves target
+  - "<h5>Vac-sealed Flish™ </h5>{{>roll: 1d6}} questionably nutritious artificial fish flesh sticks, each 3\" long"
+  - <h5>Silver hip flask </h5>Engraved with elite unit crest, holds ‘Shanghai White’ vodka
+  - <h5>Printed photo of PC </h5>Folded acetate photo, with date 3 days hence penned in border
+  - <h5>Black, logo’d card </h5>Corporate loyalty card, entitles bearer to generous discounts
+  - <h5>Stubby aerosol can </h5>Spray-on dry shampoo, also changes hair colour and texture
+  - <h5>Boxy palmtop GPS </h5>Active icon shows target on the move less than half a mile away
