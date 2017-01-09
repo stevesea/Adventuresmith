@@ -1,12 +1,12 @@
 ---
 templates:
-- <h4>Mobile AR Ad Hub</h4> Supplied body rig outputs ‘augverts’ as you wander streets
-- <h4>Human CCTV</h4> Cyberoptics required, must allow remote access & sign NDA
-- <h4>Gig Groomer</h4> Given a quota of potential gig workers to sign up for agent
-- <h4>Hygiene Dispenser</h4>Loiter in lobbies wearing a tank full of hand sanitiser
-- <h4>Substrate Fairy</h4> Find and collect recyclables to be reused for 3D printing
-- <h4>Organ Surrogate</h4> Mature cloned organs prior to implantation
-- <h4>Meds Manager</h4> Deliver medications to the old and infirm, ensure ingestion
-- <h4>Brand Spammer</h4> Promote brand/product/ideology to strangers in public
-- <h4>Pest Microwaver</h4> Issued with RFID tagged microwaver to zap vermin
-- <h4>Drone Repoman</h4> Trace and recover downed courier drones
+- <h5>Mobile AR Ad Hub</h5> Supplied body rig outputs ‘augverts’ as you wander streets
+- <h5>Human CCTV</h5> Cyberoptics required, must allow remote access & sign NDA
+- <h5>Gig Groomer</h5> Given a quota of potential gig workers to sign up for agent
+- <h5>Hygiene Dispenser</h5>Loiter in lobbies wearing a tank full of hand sanitiser
+- <h5>Substrate Fairy</h5> Find and collect recyclables to be reused for 3D printing
+- <h5>Organ Surrogate</h5> Mature cloned organs prior to implantation
+- <h5>Meds Manager</h5> Deliver medications to the old and infirm, ensure ingestion
+- <h5>Brand Spammer</h5> Promote brand/product/ideology to strangers in public
+- <h5>Pest Microwaver</h5> Issued with RFID tagged microwaver to zap vermin
+- <h5>Drone Repoman</h5> Trace and recover downed courier drones

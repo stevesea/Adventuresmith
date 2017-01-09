@@ -20,10 +20,10 @@ attribution: |
   </blockquote>
 groups:
   grpNPCs: NPCs
-  grpCorps: Corps & Cops
   grpSenses: Sense & the City
   grpEncounters: Encounters & Jobs
   grpCity: Buildings & Assets
+  grpCorps: Corps & Cops
   grpLoot: Technology & Items
 
 

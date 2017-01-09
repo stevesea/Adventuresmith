@@ -50,16 +50,16 @@ tables:
   - Info-socialism - secret-free society
   - Fabrics change colour with mood
   vendomat:
-  - <h4>Hot/Cold Beverages</h4> Coffee, tea, cocoa, sodas, water, juice, shakes, energy drinks
-  - <h4>Hot/Cold Food</h4> Burritos, noodles, burgers, fries, SCOP, sandwiches, ‘sushi’
-  - <h4>Stimulants</h4> Cigarettes, cigars, e-cig fluid, patches, caffeine tabs, alcohol
-  - <h4>Travel Packs</h4> Toiletries, travel guides, cosmetics, sanitaries, sunglasses
-  - <h4>Electronics</h4> Headphones, batteries, phones, torches, cameras, radios
-  - <h4>Personal Defense</h4> Tasers, pepper spray, telescoping batons, polymer oneshots
-  - <h4>Clothing</h4> rainwear, underclothes, thermals, hats, t-shirts, socks
-  - <h4>Media</h4> Newsprint, digital music, games, films, simstim, e-books
-  - <h4>Pharmaceuticals</h4> Medicines, contraceptives, first aid, sensory aids, vitamins
-  - <h4>Snacks</h4> Gum, candy, chips/crisps, popcorn, nuts, cryo-dried fruits
+  - <h5>Hot/Cold Beverages</h5> Coffee, tea, cocoa, sodas, water, juice, shakes, energy drinks
+  - <h5>Hot/Cold Food</h5> Burritos, noodles, burgers, fries, SCOP, sandwiches, ‘sushi’
+  - <h5>Stimulants</h5> Cigarettes, cigars, e-cig fluid, patches, caffeine tabs, alcohol
+  - <h5>Travel Packs</h5> Toiletries, travel guides, cosmetics, sanitaries, sunglasses
+  - <h5>Electronics</h5> Headphones, batteries, phones, torches, cameras, radios
+  - <h5>Personal Defense</h5> Tasers, pepper spray, telescoping batons, polymer oneshots
+  - <h5>Clothing</h5> rainwear, underclothes, thermals, hats, t-shirts, socks
+  - <h5>Media</h5> Newsprint, digital music, games, films, simstim, e-books
+  - <h5>Pharmaceuticals</h5> Medicines, contraceptives, first aid, sensory aids, vitamins
+  - <h5>Snacks</h5> Gum, candy, chips/crisps, popcorn, nuts, cryo-dried fruits
   street_uses:
   - Power plant from main battle tank, used as a generator for a squat or shanty
   - Hydroponics rig from scrapped research ship, used to breed modified food-algae
@@ -182,7 +182,7 @@ nested_tables:
   alternative_businesses:
     templates:
     - |
-      <h4>{{alternative_businesses.type}}</h4>
+      <h5>{{alternative_businesses.type}}</h5>
       <strong><small>Quality:</small></strong> {{alternative_businesses.quality}}
       <br/><strong><small>Security:</small></strong> {{alternative_businesses.security}}
       <br/><strong><small>Status:</small></strong> {{alternative_businesses.status}}
