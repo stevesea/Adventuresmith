@@ -93,6 +93,10 @@ http://www.sinenomine-pub.com/
 http://hackslashmaster.blogspot.com/
 * Tricks, Empty Rooms, & Basic Trap Design - http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html
 
+### Paul D. Gallagher / Geist Hack Games
+http://neuralarchive.blogspot.co.uk
+* Augmented Reality - http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games
+
 
 ### Ben Milton
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
