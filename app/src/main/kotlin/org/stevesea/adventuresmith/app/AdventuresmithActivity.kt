@@ -25,6 +25,7 @@ import android.content.*
 import android.content.res.*
 import android.graphics.*
 import android.os.*
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.*
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
@@ -81,13 +82,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                     override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
                         //we handle the default onClick behavior for the actionMode. This will return null if it didn't do anything and you can handle a normal onClick
                         val res = actionModeHelper.onClick(item)
-                        info("pre-click: position: $position, helperResult: $res ")
+                        //info("pre-click: position: $position, helperResult: $res ")
                         return res ?: false
                     }
                 })
                 .withOnClickListener(object : FastAdapter.OnClickListener<ResultItem> {
                     override fun onClick(v: View?, adapter: IAdapter<ResultItem>?, item: ResultItem?, position: Int): Boolean {
-                        info("on-click: position: $position")
+                        //info("on-click: position: $position")
                         return false
                     }
                 })
@@ -233,6 +234,49 @@ class AdventuresmithActivity : AppCompatActivity(),
             sharedPreferences.edit().putBoolean(SETTING_GEN_MANY, value).apply()
         }
 
+    val shuffler = AdventuresmithCore.shuffler
+
+    val headerImages = listOf(
+            R.drawable.header_graphic
+            //R.drawable.beast_dragon_false_prophet,
+            //R.drawable.dragon,
+            //R.drawable.elephant_dragon,
+            //R.drawable.armored_angels,
+            //R.drawable.pheonix,
+            //R.drawable.mmanticore
+            //R.drawable.werewolf
+    )
+    val bkgImages = listOf(
+            //R.drawable.armored_angels,
+            //R.drawable.alexander_great_chariot,
+            //R.drawable.bards_are_monsters,
+            R.drawable.seven_headed_dragon,
+            //R.drawable.batman,
+            //R.drawable.death_king_arthur,
+            //R.drawable.death_lion,
+            R.drawable.demon_glasses,
+            R.drawable.fallen_angels,
+            //R.drawable.pheonix,
+            //R.drawable.mmanticore,
+            //R.drawable.fallen_angels_2,
+            //R.drawable.falling_demons,
+            //R.drawable.feed_beast,
+            //R.drawable.fool_riding_goat,
+            //R.drawable.hell,
+            //R.drawable.hellmouth,
+            //R.drawable.hellmouth2,
+            //R.drawable.horsemen_of_apocalypse
+            //R.drawable.infernus,
+            R.drawable.initial_d
+            //R.drawable.sawtooth,
+            //R.drawable.snailfight,
+            //R.drawable.scenes_in_hell,
+            //R.drawable.st_anthony_lobster_devil,
+            //R.drawable.st_george_and_dragon,
+            //R.drawable.sword_scythe,
+            //R.drawable.wound_man
+    )
+
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
@@ -327,11 +371,38 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         collapsing_toolbar.title = ""
 
+        bkg_image.setImageResource(shuffler.pick(bkgImages))
+
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
+                .withCompactStyle(false)
                 .withSavedInstance(savedInstanceState)
-                .withHeaderBackground(R.drawable.header_graphic)
-                .withHeaderBackgroundScaleType(ImageView.ScaleType.FIT_XY)
+                .withHeaderBackground(shuffler.pick(headerImages))
+                .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
+                .withProfileImagesVisible(false)
+                .withCloseDrawerOnProfileListClick(false)
+                .addProfiles(
+                        // TOOD: rather than profiles... if we're always gonna have 2 choices, just stick another settings toggle?
+                        ProfileDrawerItem()
+                                .withName("Organize by...")
+                                .withEmail("Supplement")
+                                //.withNameShown(true)
+                                .withTextColorRes(R.color.textPrimary)
+                                .withSelectedTextColorRes(R.color.colorPrimaryDark)
+                                .withSelectedColorRes(R.color.colorPrimaryLightLight)
+                                .withIcon(IconicsDrawable(this, CommunityMaterial.Icon.cmd_arrow_left)
+                                        .colorRes(R.color.colorPrimaryDark)
+                                ),
+                        ProfileDrawerItem()
+                                .withName("Organize by...")
+                                .withEmail("Functionality")
+                                .withTextColorRes(R.color.textPrimary)
+                                .withSelectedTextColorRes(R.color.colorPrimaryDark)
+                                .withSelectedColorRes(R.color.colorPrimaryLightLight)
+                                .withIcon(IconicsDrawable(this, CommunityMaterial.Icon.cmd_arrow_right)
+                                        .colorRes(R.color.colorPrimaryDark)
+                                )
+                )
                 .build()
 
         val drawerBuilder = DrawerBuilder()
@@ -422,7 +493,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (collGrp == null)
             return
 
-        info("selected: ${collGrp.name}")
+        //info("selected: ${collGrp.name}")
 
         toolbar.title = collGrp.name
 

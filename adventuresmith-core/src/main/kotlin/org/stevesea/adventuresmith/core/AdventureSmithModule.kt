@@ -49,6 +49,10 @@ object AdventuresmithCore : KodeinAware {
         import(adventureSmithModule)
     }
 
+    val shuffler : Shuffler by lazy {
+        kodein.instance<Shuffler>()
+    }
+
     val generators : Map<String,Generator> by lazy {
         val generators :  MutableMap<String, Generator> = mutableMapOf()
 
