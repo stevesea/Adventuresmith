@@ -13,28 +13,28 @@ nested_tables:
     - Land Grab
     - Tracking Consumers
     - Testing New Drugs
-    - Altering Consumer law
+    - Altering Consumer Law
     - Manipulating Market
     - Stockpiling Medicines
     - Corrupting Technology
-    - Targeting rivals
+    - Targeting Rivals
     - Subliminal Advertising
     - Eliminate Flawed Stock
     - Rigging Safety Standards
     - Full Blown Civil War
-    - Undermine rival Brand
+    - Undermine Rival Brand
     - Offworld Banking Scam
-    - Covering up Insane AI
+    - Covering Up Insane AI
     - Testing New Bioware
     - Harvesting Organs
     - Management Cull
-    - Buying up Patents
-    - Fixing Stock levels
+    - Buying Up Patents
+    - Fixing Stock Levels
     - Interdepartment War
     - Enforcing Copyright
     - Creating Subsidiaries
-    - Product Flaw Cover up
-    - New Product launch
+    - Product Flaw Cover Up
+    - New Product Launch
     - Department Merger
     - Brainwashing key figures
     - Abducting Street kids
@@ -43,15 +43,15 @@ nested_tables:
     - Bid For Nation Status
     - Hostile Takeover
     - Arming Street Gangs
-    - Targeting undesirables
+    - Targeting Undesirables
     - Collecting Biometrics
     - Testing New Synthetics
-    - Quantum Net launch
+    - Quantum Net Launch
     - Buy Minor Nation State
     - Testing New Cyberware
     - Political Assassination
     - Blackmailing Scientists
-    - Extract rival Employee
+    - Extract Rival Employee
     - Hire Hostile Hackers
     - Preparing To Defect
     - Looking For Own Cure
@@ -63,10 +63,10 @@ nested_tables:
     - Cloning Self
     - Damaged Brand Salvage
     - Create False Charity
-    - Assassinate rivals
+    - Assassinate Rivals
     - Adulterating Medicines
     - Engineered Promotion
-    - Planning rival’s Exile
+    - Planning Rival’s Exile
     - Being Head-Hunted
     - Faking Own Death
     - Lost Bioweapon
@@ -74,23 +74,23 @@ nested_tables:
     - Internal Investigation
     - Automating Jobs
     - Creating A War
-    - Buying law Enforcers
+    - Buying Law Enforcers
     - Real-Estate Purchases
     - Phantom Accounting
     - Adulterating Foods
     - Manipulating Expenses
-    - Doctoring records
+    - Doctoring Records
     - Wrecking Ecosystem
     - Targeting Employees
     - Creates Net Exploits
     - Purchasing Start-ups
-    - Eliminate r&D Failure
+    - Eliminate R&D Failure
     - Supporting Coup
     - Covering up Blackmail
     - Slashing Wages
     - Buying Bankers
-    - Framing rival(s)
-    - Intimidate reviewers
+    - Framing Rival(s)
+    - Intimidate Reviewers
     - Wants To Be CEO
     - Bribes Oversight Group
     - Triggering Civil War
@@ -100,14 +100,14 @@ nested_tables:
     - Controlling Alt-Media
     - Creating Monopoly
     - False Advertising
-    - Cutting Job roles
+    - Cutting Job Roles
     - Will Destroy Company
 
     #Company Resources
     resources:
     - Fixer Network
     - Bought City Officials
-    - Naive underlings
+    - Naive Underlings
     - Foreign Head-of-State
     - Compromised AI
     - Weaponised Insects
@@ -119,7 +119,7 @@ nested_tables:
     - Compromised Comms
     - Mercenary Contractors
     - Surveillance Drones
-    - Loyal law Firm
+    - Loyal Law Firm
     - Duped Actors
     - Independent Hit Team
     - Whistleblowers
@@ -143,8 +143,8 @@ nested_tables:
     - Weaponised Homeless
     - Soulless Cyborg
     - Aggressive Hacker
-    - Conned legislators
-    - Their Own lover(s)
+    - Conned Legislators
+    - Their Own Lover(s)
     - Company Audit Team
     - Designer Toxins
     - Sex Synthetics
@@ -157,7 +157,7 @@ nested_tables:
     - Combat Economists
     - Ambitious Courtiers
     - R&D Nanoweapons
-    - City law Enforcers
+    - City Law Enforcers
     - Company’s Black Ops
     - Autonomous Software
     - Adulterated Chipware
@@ -166,7 +166,7 @@ nested_tables:
     - Hacking Collective
     - Celebrity Stable
     - Criminal Syndicate
-    - Junkie relative
+    - Junkie Relative
     - Hazardous Virtuals
     - Internal Investigators
     - Controlling Drug Supply
@@ -178,7 +178,7 @@ nested_tables:
     - Private Bodyguards
     - Own Family Fortune
     - Tracking Nanites
-    - SimStim users
+    - SimStim Users
     - Image Consultants
     - Private Investigators
     - AI System Designer
@@ -200,7 +200,7 @@ nested_tables:
     - Elite Programmers
     - Intelligence Agency
     - Cheap Gunmen
-    - Unstable remotes
+    - Unstable Remotes
     - Creative Techies
-    - Private laboratory
-    - Deceived rival
+    - Private Laboratory
+    - Deceived Rival

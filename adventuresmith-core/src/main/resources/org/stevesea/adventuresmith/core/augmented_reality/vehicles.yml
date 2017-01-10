@@ -27,7 +27,7 @@ nested_tables:
     - |
       GEV Taxi (Air Cushion)
       {{cabbies.templates}}
-    - Automated uber/AI Taxi Sedan
+    - Automated Uber/AI Taxi Sedan
     - Food/SCOP* Vending Truck
     - Cyclist(s)
     - Police Patrol Car
@@ -35,7 +35,7 @@ nested_tables:
     - Limousine
     - Sports Car
     - HMMWV (Humvee)
-    - Suburban utility Vehicle (SUV)
+    - Suburban Utility Vehicle (SUV)
     - Estate Car/Stationwagon
     - Moped/Scooter
     - 4x4/MRAP
@@ -45,22 +45,22 @@ nested_tables:
     - Sports Motorcycle
     - Utility Van/Minivan
     - Refrigerated Transport
-    - Off road Motorcycle
+    - Off Road Motorcycle
     - Flatbed/Pick-up
     - Tram/Metro-Train
     - Hatchback
     - Classic Car
-    - Aero using road Wheels
+    - Aero Using Road Wheels
     - Luxury Sedan
     - Monowheel
     - Hazardous Container Truck
     - Three-Wheeler
     - Waste Management Truck
-    - Automated road Sweeper
+    - Automated Road Sweeper
     - Police Motorcycle
     - Courier/Delivery Van
     - |
-      Scrap Built rickshaw
+      Scrap Built Rickshaw
       {{cabbies.templates}}
     - Standard Sedan
     - Mobile Home/rV/MoPad
@@ -132,7 +132,7 @@ nested_tables:
     - U-Turn
     - Reversing
     notable:
-    - Extremely loud Music
+    - Extremely Loud Music
     - Biodiesel Conversion
     - Runs Silent
     - Religious Iconography
@@ -140,15 +140,15 @@ nested_tables:
     - Polymorphic Coating
     - Overloaded With Cargo
     - Excessive Bumper Stickers
-    - Low rider
-    - Off road Tires
+    - Low Rider
+    - Off Road Tires
     condition:
     - More Dirt Than Paint
     - Factory Fresh
     - Rust Bucket
     - Held Together By Epoxy
     - Well Maintained
-    - Partial respray
+    - Partial Respray
     - Mobile Trashcan
     - Burned Out Engine
     - Dents And Scratches

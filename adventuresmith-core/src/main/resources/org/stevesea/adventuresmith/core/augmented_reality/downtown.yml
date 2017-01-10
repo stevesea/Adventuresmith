@@ -93,13 +93,13 @@ nested_tables:
     - 10, Antiques
     building_features:
     - Extreme Security Protocols
-    - Decrepit And rundown
+    - Decrepit And Rundown
     - Graffitipocalypse/Street Art Heavy
     - |
       Obvious Gang Turf
       {{gangs.templates}}
-    - Back room Brothel
-    - Newly renovated
+    - Back Room Brothel
+    - Newly Renovated
     - Unusually Busy
     - Empty/Quiet
     - Inadequate Security
@@ -128,8 +128,8 @@ nested_tables:
     - Years Of Clumsy Modification
     - For Sale/To-let
     - Bright Emoji Glyphs And Graphics
-    - Reinforced for repair Work
-    - Extremely leaky
+    - Reinforced for Repair Work
+    - Extremely Leaky
     - Gothic Style
     - Chic And Minimalist
     - Brutalist
@@ -157,11 +157,11 @@ nested_tables:
     - Utilised Solely For Storage
     - Veiled Behind Polymer Sheeting
     - All Windows Damaged
-    - External utilities
+    - External Utilities
     - Extensive Solar Grid And Fog Catchers
-    - Bad Epoxy repairs
+    - Bad Epoxy Repairs
     - Unpleasant Micro-Climate
-    - Infested With rogue remotes
+    - Infested With Rogue Remotes
     - Self Aware
     - Cellular Black Hole
     - Mainly Populated By Hoarders
@@ -170,11 +170,11 @@ nested_tables:
       Unusual Smell
       <br/>
       <br/>{{senses.smells}}
-    - Very Few Working lights
-    - A riot Of Satellite Dishes
-    - Very Noisy utilities
+    - Very Few Working Lights
+    - A Riot Of Satellite Dishes
+    - Very Noisy Utilities
     - Catastrophically Polluted
-    - Unfinished Extension Or Empty levels
+    - Unfinished Extension Or Empty Levels
     - Permadamp
     - |
       Legacy Infrastructure
@@ -182,7 +182,7 @@ nested_tables:
       <br/>{{legacy_infrastructure}}
     - Bad Wiring; High EMF; Black Outs
     - |
-      Patrolled By Hired rent-A-Cops
+      Patrolled By Hired Rent-A-Cops
       <br/>
       <br/>{{armed_response.response_level}}
       <br/>{{armed_response.job_sheet}}
@@ -199,7 +199,7 @@ nested_tables:
     - Exotic/Foreign Architecture
     - Obvious Corporate Sponsor
     - Endorsed By Celebutant
-    - Promotes religion
+    - Promotes Religion
     - Independent Nation State
     - Family Owned
     - Scheduled For Demolition

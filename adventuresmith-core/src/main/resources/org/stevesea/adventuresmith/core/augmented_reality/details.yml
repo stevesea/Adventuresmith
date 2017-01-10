@@ -19,7 +19,7 @@ tables:
   vid_show:
   - Implant Fixers (reality/comedy)
   - Simsense & Sensibility (drama)
-  - Zone runner Xtreme (gameshow)
+  - Zone Runner Xtreme (gameshow)
   - Crash & Burn (hacking competition)
   - My Two Clones (sitcom)
   - Atomic Geisha Dojo (gameshow)
@@ -139,9 +139,9 @@ nested_tables:
     - Cameras
     - Microphone
     - Privacy Screen
-    - Separate lAN
-    - Hidden room
-    - Escape route
+    - Separate LAN
+    - Hidden Room
+    - Escape Route
     - Custodian AI
     - Weapon Sensor
     - Weapons Cache
@@ -159,9 +159,9 @@ nested_tables:
     - Gang Block War
     - Corporate Sweep
     - Man-Made Disaster
-    - Political unrest
+    - Political Unrest
     - Development/Investment
-    - Area lock Down
+    - Area Lock Down
     - Police Withdrawal
     - Enhanced Security
     - New Clade Established
@@ -196,17 +196,17 @@ nested_tables:
     - Retro Crafts
     - SCOP Franchise
     - Sim Sense
-    - Puppet rental
+    - Puppet Rental
     quality:
     - Mom 'n Pop
     - Discount
-    - Local loyalty
+    - Local Loyalty
     - Exclusive
     - Reliable Brand
     - Mass Market
     - Fashionable
     - Luxury Brand
-    - High End luxury
+    - High End Luxury
     - Bespoke/Custom
     security:
     - None
@@ -220,7 +220,7 @@ nested_tables:
     - Guard Animal
     - State-of-the-Art
     status:
-    - Start up
+    - Start Up
     - Closing Down
     - Struggling
     - Profitable
@@ -229,7 +229,7 @@ nested_tables:
     - For Sale
     - Franchise
     - Criminal Front
-    - Bad reputation
+    - Bad Reputation
 
   urban_sickness:
     templates:
@@ -243,16 +243,16 @@ nested_tables:
     - Difficulty Breathing
     - Lesions/redness/lumps
     - Immunodeficiency
-    - Lethargy/Weight loss
+    - Lethargy/Weight Loss
     - Flaky/Spots/Blisters
-    - Hair loss/Discolouration
+    - Hair Loss/Discolouration
     - Unpleasant Odour
     - Vomiting/Diarrhea
     - Silvery Grey Emissions
     - Red Watery Eyes/Painful
     cause:
     - Bad Air/Pollutants/Smoking
-    - Jankey uV levels/Toxic rain
+    - Jankey UV Levels/Toxic Rain
     - Pollutants/Chemical Soup
     - Vitamin Deficiency/Junkfood
     - Pollutants/Chemical Soup
@@ -266,7 +266,7 @@ nested_tables:
     - Skin Cancer
     - Toxic Shock
     - Malnutrition
-    - Messed up Skin
+    - Messed Up Skin
     - Alopecia
     - BO/Body Funk
     - Gastric Catastrophe
@@ -291,7 +291,7 @@ nested_tables:
     - Storm
     - The Dispensary
     - Ryumi’s
-    - The Black room
+    - The Black Room
     - The Flesh Café
     status:
     - New Owner(s)
@@ -299,7 +299,7 @@ nested_tables:
     - Drug Problem
     - Violence Problem
     - Criminal Owned
-    - Bad reputation
+    - Bad Reputation
     - Student Crowd
     - Under Surveillance
     - War Zone
@@ -358,9 +358,9 @@ nested_tables:
     image_style:
     - Crisp/Bright
     - Animated 3-D
-    - High resolution
+    - High Resolution
     - Sophisticated
-    - Cheap/low resolution
+    - Cheap/low Resolution
     - Clear, Yet Subtle
     - Technical/Sci-fi
     - Surreal/Immersive/Arty

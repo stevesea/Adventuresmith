@@ -148,7 +148,7 @@ nested_tables:
     - Body Modified
     - Gun Fetishist
     - Rastafarian
-    - SimStim rigged
+    - SimStim Rigged
     - Tech-Ninja
     - Mood Chipping
     - Voodoo Practicing
@@ -388,15 +388,15 @@ nested_tables:
     - Buys from…
     - Allied to… (1-2)
     npc_main:
-    - Gang leader/Boss
+    - Gang Leader/Boss
     - Gang Elder
     - Gang Juve/Noob
     - Gang Champion
     - Gang Scout
-    - Gang leader’s Main Squeeze
-    - Gang leader’s leftenant
-    - Gang leader’s Main rival In Gang
-    - Gang’s loose Cannon
+    - Gang Leader’s Main Squeeze
+    - Gang Leader’s Leftenant
+    - Gang Leader’s Main Rival In Gang
+    - Gang’s Loose Cannon
     - Gang Expert (steers gang’s main biz)
     npc_other:
     - Kid Wannabe
@@ -404,8 +404,8 @@ nested_tables:
     - Sheltered Fugitive
     - Gang Member’s Kid
     - Former Gang Boss, Now Disgraced
-    - Gang leader’s Secret Concubine
-    - Gang’s Techie or ripperdoc
+    - Gang Leader’s Secret Concubine
+    - Gang’s Techie or Ripperdoc
     - Invalided Gang Member
     - Gang’s Fixer
     - Gang’s Idiot (the liability)

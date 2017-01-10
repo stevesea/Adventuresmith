@@ -6,7 +6,7 @@ nested_tables:
     - 1..2, Plainclothes Detectives Clearly marked POLICE vests, flashing their ID badges
     - "3..5, Uniformed Officers - Basic cops"
     - "6..8, Uniformed Officers - Basic cops (wearing riot gear)"
-    - 9..10, Tactical response unit Special operations/SWAT team - milspec load out
+    - 9..10, Tactical Response Unit Special operations/SWAT team - milspec load out
     department:
     - 1..4, City/Corporate Police Same thing, only difference is who’s paying them
     - 5..6, Corporate Security Protecting company property, area or personnel
@@ -28,6 +28,6 @@ nested_tables:
     back_up:
     - "1..4, {{>roll: 1d6}} Support Drones Cameras, Tasers, Flechette Weapons"
     - "5..6, Uniformed Officers {{>roll: 1d3}} Patrol Cars, Armoured Officers, SMGs/Shotguns"
-    - 7..8, SWAT Team Heavy/Hard Armour, Combat rifles, Augmented
-    - 9, Heavy Support remote Teleoperated Walker, HMG and/or Missiles
-    - 10, Powered Armour Suit Heavy Weapon, ECM, Grenade launchers
+    - 7..8, SWAT Team Heavy/Hard Armour, Combat Rifles, Augmented
+    - 9, Heavy Support Remote Teleoperated Walker, HMG and/or Missiles
+    - 10, Powered Armour Suit Heavy Weapon, ECM, Grenade Launchers

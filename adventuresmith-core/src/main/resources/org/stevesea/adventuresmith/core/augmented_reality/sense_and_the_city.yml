@@ -72,7 +72,7 @@ nested_tables:
     - Cheap Perfume
     - Expensive Cologne
     - Exhaust Fumes
-    - Stale refuse
+    - Stale Refuse
     - Urine
     - Vomit
     - Burning Plastic
@@ -181,7 +181,7 @@ nested_tables:
     - Catchy Corporate Jingle
     - The Screech Of Tires
     - Pedestrian Crosswalk
-    - Rattle Cans In use
+    - Rattle Cans In Use
     - Heavy Gunfire
     - Sobbing
     - Channeled Winds
@@ -191,21 +191,21 @@ nested_tables:
     - Arcade Machines
     - Breaking Glass
     - Text Alert
-    - An rPG launching
+    - An RPG Launching
     - Sirens Inbound
     - Running
-    - Subway rumble
-    - A loud Argument
+    - Subway Rumble
+    - A Loud Argument
     - Drill Or Power Saw
     - Road Traffic Accident
     - Hellfire Street Preacher
     - Loud Energetic Music
     - Laughter
     - Hydraulics
-    - A reversing Vehicle
-    - An Annoying ringtone
+    - A Reversing Vehicle
+    - An Annoying Ringtone
     - Sexual Activity
-    - Police radio Chatter
+    - Police Radio Chatter
     - Loose Door Or Gate
     - Group Chanting
     - Popular Theme Tune
@@ -213,8 +213,8 @@ nested_tables:
     - Vehicle Alarm
     - Steady Footsteps
     - Automated Warning
-    - Beating Of Heavy rain
-    - Garbled loudspeaker
+    - Beating Of Heavy Rain
+    - Garbled Loudspeaker
     - Exchange Of Gunfire
     - Background ‘Muzak’
     - Gutteral Screaming
@@ -222,11 +222,11 @@ nested_tables:
     - Loose Piping
     - Helicopter Overhead
     - The Buzz Of Neon
-    - A revving Engine
-    - An Impromptu rave
+    - A Revving Engine
+    - An Impromptu Rave
     - Water Pump
     - Road Works
-    - Right Wing Talk radio
+    - Right Wing Talk Radio
     - Foreign Busker
     - Ice Cream Truck
     - Distant Explosion
@@ -261,7 +261,7 @@ nested_tables:
     - Jingle Of Keys
     - Quiet Conversation
     - Sirens Outbound
-    - Aerocar landing
+    - Aerocar Landing
     - Frying Food
     - A Brawl
     - Doors Slamming
@@ -272,7 +272,7 @@ nested_tables:
     - Hissing White Noise
     - "{{>pickN: 2 senses.sounds}}"
     sights:
-    - 1..2, Armoured cops bundle violently reluctant vagrant into ErA-plated squad car
+    - 1..2, Armoured cops bundle violently reluctant vagrant into ERA-plated squad car
     - "3..4, A bus shelter made entirely of screens showing flashy commercials"
     - "5..6, Searchlights playing across the cloud cover and projecting branding"
     - 7..8, A brightly lit aerocab taking off in a cloud of exhaust fumes, rainwater and trash

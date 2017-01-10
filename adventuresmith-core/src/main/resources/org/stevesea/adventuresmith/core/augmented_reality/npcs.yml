@@ -200,7 +200,7 @@ nested_tables:
     - Hip/Groin
     - Face/Scalp
     - Stomach
-    - Lower leg/Calf
+    - Lower Leg/Calf
     - Thigh
     - Ribs/Chest
     - Neck/Collar Bone
@@ -254,11 +254,11 @@ nested_tables:
     - Pain/Sexual Violence (Towards Self or Others)
     - Abuses Synthetic (or real) Animals
     level_of_need:
-    - Take It Or leave It
+    - Take It Or Leave It
     - Light Interest
     - Ghoulish Fascination
     - If The Opportunity Arises
-    - Regular routine user
+    - Regular Routine User
     - Intrinsic To Personality
     - Only To Destress
     - Needed To Function
