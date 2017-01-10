@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- brown -->
-    <color name="colorPrimary">@color/md_brown_500</color>
-    <color name="colorPrimaryDark">@color/md_brown_700</color>
-    <color name="colorPrimaryDarkDark">@color/md_brown_900</color>
+    <color name="colorPrimary">@color/md_brown_700</color>
+    <color name="colorPrimaryDark">@color/md_brown_900</color>
     <color name="colorPrimaryLight">@color/md_brown_100</color>
     <color name="colorPrimaryLightLight">@color/md_brown_50</color>
 
-    <!-- transparent brown 500-->
-    <color name="buttonBackgroundTransparent">#dd795548</color>
+    <!-- transparent brown 900-->
+    <color name="buttonBackgroundTransparent">#aa3E2723</color>
 
     <!-- cyan -->
     <color name="colorAccent">@color/md_cyan_500</color>
     <color name="colorAccentDark">@color/md_cyan_700</color>
-    <color name="colorAccentDarkDark">@color/md_cyan_900</color>
     <color name="colorAccentLight">@color/md_cyan_100</color>
-    <color name="colorAccentLightLight">@color/md_cyan_50</color>
 
     <!-- -->
     <color name="textPrimary">@color/md_grey_900</color>
@@ -42,6 +39,7 @@
     -->
 
     <!-- http://ethanschoonover.com/solarized -->
+    <!--
     <color name="solarizedBase00">#657b83</color>
     <color name="solarizedBase01">#586e75</color>
     <color name="solarizedBase02">#073642</color>
@@ -57,5 +55,6 @@
     <color name="solarizedBlue">#268bd2</color>
     <color name="solarizedCyan">#2aa198</color>
     <color name="solarizedGreen">#859900</color>
+    -->
 
 </resources>
