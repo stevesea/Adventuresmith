@@ -30,7 +30,7 @@ results from multiple tables, etc.
 
 Bugs? Feature Requests? You can provide feedback here: https://github.com/stevesea/Adventuresmith/issues
 
-Want to keep up with development? Here's my G+ collection: https://plus.google.com/u/0/collection/AannkB
+Want to keep up with development? Here's the G+ community: https://plus.google.com/communities/101389134352217517231
 
 ## Downloads
 
@@ -89,6 +89,10 @@ http://www.sinenomine-pub.com/
 ### Courtney C Campbell
 http://hackslashmaster.blogspot.com/
 * Tricks, Empty Rooms, & Basic Trap Design - http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html
+
+### Paul D. Gallagher / Geist Hack Games
+http://neuralarchive.blogspot.co.uk
+* Augmented Reality - http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games
 
 
 ### Ben Milton
