@@ -45,6 +45,7 @@ import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.interfaces.*
 import com.mikepenz.materialdrawer.model.*
 import com.mikepenz.materialdrawer.model.interfaces.*
+import com.mikepenz.materialize.MaterializeBuilder
 import com.mikepenz.materialize.util.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
 import org.jetbrains.anko.*
@@ -295,6 +296,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         .withName(coll.name)
                         .withIcon(getCollectionIcon(coll.id))
                         .withIdentifier(com.google.common.base.Objects.hashCode(coll.id).toLong())
+                        .withDescription(coll.desc)
+                        .withDescriptionTextColorRes(R.color.textSecondary)
                         .withSelectable(false)
                         .withIsExpanded(false)
                 for (grp in coll.groups!!.entries) {
@@ -323,6 +326,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         .withIdentifier(navId)
                         .withSelectable(true)
                         .withDescription(coll.desc)
+                        .withDescriptionTextColorRes(R.color.textSecondary)
                 )
                 previousWasExpandable = false
             }
@@ -357,17 +361,23 @@ class AdventuresmithActivity : AppCompatActivity(),
         return result
     }
 
+    fun useStaticNavbar() : Boolean  {
+        return resources.getDimension(R.dimen.navigation_menu_width) > 0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         setContentView(R.layout.activity_adventuresmith)
-        debug("onCreate")
 
         setSupportActionBar(toolbar)
 
-        debug("width: ${resources.configuration.screenWidthDp}")
-        debug("height: ${resources.configuration.screenHeightDp}")
+        MaterializeBuilder()
+                .withActivity(this)
+                .withFullscreen(false)
+                .withStatusBarPadding(true)
+                .build()
 
         collapsing_toolbar.title = ""
 
@@ -375,10 +385,11 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
-                .withCompactStyle(false)
+                .withCompactStyle(useStaticNavbar())
                 .withSavedInstance(savedInstanceState)
                 .withHeaderBackground(shuffler.pick(headerImages))
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
+                /*
                 .withProfileImagesVisible(false)
                 .withCloseDrawerOnProfileListClick(false)
                 .addProfiles(
@@ -403,13 +414,14 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         .colorRes(R.color.colorPrimaryDark)
                                 )
                 )
+                */
                 .build()
 
         val drawerBuilder = DrawerBuilder()
                 .withActivity(this)
                 .withHasStableIds(true)
                 .withToolbar(toolbar)
-                .withAccountHeader(drawerHeader!!)
+                .withAccountHeader(drawerHeader!!, false)
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(getNavDrawerItems(getCurrentLocale(resources)))
@@ -439,7 +451,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
                 })
 
-        if (resources.getDimension(R.dimen.navigation_menu_width) > 0) {
+        if (useStaticNavbar()) {
             drawer = drawerBuilder.buildView()
             nav_tablet.addView(drawer!!.slider)
         } else {

@@ -7,7 +7,8 @@
     <color name="colorPrimaryLightLight">@color/md_brown_50</color>
 
     <!-- transparent brown 900-->
-    <color name="buttonBackgroundTransparent">#aa3E2723</color>
+    <color name="buttonBackgroundTransparent">#cc3E2723</color>
+    <color name="resultBackgroundTransparent">#993E2723</color>
 
     <!-- cyan -->
     <color name="colorAccent">@color/md_cyan_500</color>
