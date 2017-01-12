@@ -28,18 +28,18 @@ I'm not planning to turn this into a general-purpose random table engine. But, I
 interested in complicated random generation involving multiple dice, interrelated
 results from multiple tables, etc.
 
-Bugs? Feature Requests? You can provide feedback here: https://github.com/stevesea/Adventuresmith/issues
+Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
 
-Want to keep up with development? Here's the G+ community: https://plus.google.com/communities/101389134352217517231
+Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
 
 ## Downloads
 
-Google Play: https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith
+[Google Play](https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith)
 
 ## Wiki/FAQ
 
 If you're interested in creating generators, or want to run Adventuresmith on the desktop, there
-are instructions on the wiki: https://github.com/stevesea/Adventuresmith/wiki
+are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 
 ## Screenshots
 
@@ -61,8 +61,8 @@ Application launch icon, splash screen logo, and nav-drawer-header logo were cre
 <br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://briantchristensen.com/Adventuresmith" rel="cc:morePermissions">http://briantchristensen.com/Adventuresmith</a>.
 
 ### Icons
-* This application uses icons from https://materialdesignicons.com/
-* This application uses icons from http://ionicons.com/
+* This application uses icons from [https://materialdesignicons.com/](https://materialdesignicons.com/)
+* This application uses icons from [http://ionicons.com/](http://ionicons.com/)
 
 ### Public Domain
 TODO: enter attribution for public domain images from illuminated manuscripts
@@ -74,7 +74,7 @@ NOTE: this README may be out-of-date, but the app itself has a 'Attribution & Th
 that lists all the content contained within it.
 
 ### Jason Lutes
-http://lampblackandbrimstone.blogspot.com/
+[Lampblack & Brimstone](http://lampblackandbrimstone.blogspot.com/)
 * the Perilous Wilds
 * Freebooters on the Frontier
 
@@ -83,19 +83,21 @@ French translation of Freebooters on the Frontier, released under Creative Commo
 Attribution - ShareAlike 3.0 Unported license.
 
 ### Kevin Crawford / Sine Nomine Publishing
-http://www.sinenomine-pub.com/
+[Sine Nomine Publishing](http://www.sinenomine-pub.com/)
 * Stars Without Number - content is from the free version of the SWN rule book
 
 ### Courtney C Campbell
-http://hackslashmaster.blogspot.com/
+[Hack & Slash blog](http://hackslashmaster.blogspot.com/)
 * Tricks, Empty Rooms, & Basic Trap Design - http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html
 
 ### Paul D. Gallagher / Geist Hack Games
-http://neuralarchive.blogspot.co.uk
+[Neural Archive blog](http://neuralarchive.blogspot.co.uk)
 * Augmented Reality - http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games
 
 
 ### Ben Milton
+[Maze Rats](http://questingblog.com/downloads/)
+* Maze Rats 4.1 
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
 
 ### Jeremy Strandberg
@@ -111,8 +113,8 @@ http://neuralarchive.blogspot.co.uk
 Adventuresmith source code is licensed under [GNU General Public License, version 3 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0).
 
 ### 3rd party Software Libraries
-* MaterialDrawer https://github.com/mikepenz/MaterialDrawer
-* FastAdapter https://github.com/mikepenz/fastadapter
-* AndroidIconics https://github.com/mikepenz/Android-Iconics
-* Crashlytics/Answers/Beta - https://fabric.io
-* LeakCanary https://github.com/square/leakcanary
+* [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
+* [FastAdapter](https://github.com/mikepenz/fastadapter)
+* [AndroidIconics](https://github.com/mikepenz/Android-Iconics)
+* [Crashlytics/Answers/Beta](https://fabric.io)
+* [LeakCanary](https://github.com/square/leakcanary)
