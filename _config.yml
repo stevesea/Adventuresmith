@@ -2,7 +2,7 @@ title: Adventuresmith
 description: Generate tabletop RPG nonsense at the push of a button! (on Android)
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-time-machine
+theme: jekyll-theme-cayman
 
 gems:
   - jekyll-mentions
