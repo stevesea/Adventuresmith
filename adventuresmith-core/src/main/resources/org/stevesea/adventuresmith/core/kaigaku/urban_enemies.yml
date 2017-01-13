@@ -1,0 +1,33 @@
+---
+templates:
+- "{{urban_enemies.templates}}"
+
+nested_tables:
+  urban_enemies:
+    templates:
+    - |
+      <strong><small>Appearance:</small></strong> {{urban_enemies.appearance}}
+      <br/><strong><small>Weapon:</small></strong> {{urban_enemies.weapon}}
+      <br/>
+      <br/><strong><small>Abilities:</small></strong> {{urban_enemies.abilities}}
+    appearance:
+    - Missing Limb
+    - Missing Eye
+    - Large Scar
+    - Impossibly Tall
+    - Bulky
+    - Very Short
+    weapon:
+    - Kanabo
+    - Jitte
+    - Sai
+    - Wakizashi
+    - Bo Staff
+    - Pistola or Granada
+    abilities:
+    - "Intimidation: Make a Constitution save or have Disadvantage on attacks against this foe"
+    - "Rouse: Call in a thug with half HD and no abilities on a roll of 1 in 1d6 each round"
+    - "Sneak: Intelligence save or next attack from this enemy gives you Disadvantage to defend"
+    - "Hidden Weapon: On 1 in 1d6 every round this enemy gets an extra attack with a small weapon"
+    - "Toss Sand: Dexterity save or be blinded for a round"
+    - "Crazed: -2 AP, +2 damage to attacks"

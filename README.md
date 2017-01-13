@@ -100,7 +100,7 @@ Attribution - ShareAlike 3.0 Unported license.
 
 ### Ben Milton
 [Maze Rats](http://questingblog.com/downloads/)
-* Maze Rats 4.1 
+* Maze Rats 4.1
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
 
 ### Jeremy Strandberg
@@ -109,6 +109,8 @@ Attribution - ShareAlike 3.0 Unported license.
 ### Mike Riverso
 * the Fourth Page generators for World of Dungeons. Licensed under the Creative Commons Attribute 3.0 Unported License. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
 
+### Jacob DC Ross / Thunderegg Productions
+* [Kaigaku](http://www.drivethrurpg.com/product/186267/Kaigaku-RPG)
 
 ## Software
 

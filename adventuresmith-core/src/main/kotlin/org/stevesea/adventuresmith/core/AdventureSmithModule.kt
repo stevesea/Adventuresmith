@@ -40,6 +40,7 @@ object AdventuresmithCore : KodeinAware {
 
     val MazeRats = "maze_rats"
     val FourthPage = "fourth_page"
+    val Kaigaku = "kaigaku"
     val PerilousWilds = "perilous_wilds"
     val Stonetop = "stonetop"
     val HackSlash = "hack_and_slash"

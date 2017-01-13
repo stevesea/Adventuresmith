@@ -677,6 +677,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 }
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
+                AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
                 AdventuresmithCore.AugmentedReality -> {
                     when (grpId) {
                         "grpNPCs" -> CommunityMaterial.Icon.cmd_account_multiple

@@ -1,0 +1,43 @@
+---
+templates:
+- "{{court_enemies.templates}}"
+
+nested_tables:
+  court_enemies:
+    templates:
+    - |
+      <strong><small>Intent:</small></strong> {{court_enemies.intent}}
+      <br/><strong><small>Asset:</small></strong> {{court_enemies.asset}}
+      <br/><strong><small>Desire:</small></strong> {{court_enemies.desire}}
+      {{court_enemies.yojimbo_chance}}
+    intent:
+    - Hostile
+    - Neutral
+    - Favorable
+    - Masked Hostility
+    asset:
+    - Secrets
+    - Wealth
+    - Ear of the Local Lord
+    - Biting Wit
+    - Military Resources
+    - Underworld Contacts
+    desire:
+    - Precious Item
+    - Audience with a VIP
+    - Relationship
+    - Business
+    - Alliance
+    - Illicit Info/Items
+    yojimbo_chance:
+    - 1..2,
+    - |
+      <br/>
+      <br/><strong><small>Yojimbo:</small></strong> {{court_enemies.yojimbo}}
+    yojimbo:
+    - "Durable: +1d4 AP"
+    - "Savage: +1d4 damage per attack"
+    - "Swift: Impose Disadvantage on Initiative rolls"
+    - "Duelist: Impose Disadvantage on rolls in a duel"
+    - "Hardy: +1 HP per HD"
+    - "Fast: Can move up to Far Away and still attack"

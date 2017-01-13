@@ -1,0 +1,27 @@
+---
+templates:
+- "{{battlefield_enemies.templates}}"
+
+nested_tables:
+  battlefield_enemies:
+    templates:
+    - |
+      <strong><small>Type:</small></strong> {{battlefield_enemies.type}}
+      <br/>
+      <br/><strong><small>Abilities:</small></strong> {{battlefield_enemies.abilities}}
+    type:
+    - Mounted Lancer (w/Yari)
+    - Mounted Lancer (w/Naginata)
+    - Infantry (w/Katana)
+    - Infantry (w/Naginata)
+    - Archer
+    - Mounted Archer
+    abilities:
+    - "Atsumichi: Imposes Disadvantage during duels"
+    - "Kakujima: Does double damage on boats, beaches or within buildings"
+    - "Kondo: Can heal HD*d6 HP once per battle"
+    - "Morimoto: Has 2 granadas"
+    - "Shirai: Wisdom check or suffer Disadvantage for HD rounds"
+    - "Toguchi: Imposes Disadvantage when you roll Initiative"
+    - "Watanabe: All HD rolled for HP equal 8"
+    - "Lesser Clan: Select another ability from this list"

@@ -1,0 +1,41 @@
+---
+templates:
+- "{{animals.templates}}"
+
+nested_tables:
+  animals:
+    templates:
+    - |
+      <strong><small>Type:</small></strong> {{animals.type}}
+      <br/><strong><small>Aspect:</small></strong> {{animals.aspect}}
+      <br/><strong><small>Instinct:</small></strong> {{animals.instinct}}
+      <br/>
+      <br/><strong><small>Abilities:</small></strong> {{animals.abilities}}
+    type:
+    - Reptile
+    - Avian
+    - Mammal
+    - Insect
+    - Amphibious
+    - Plant
+    aspect:
+    - Herding Herbivore
+    - Easily Domesticated
+    - Exotic and Beautiful
+    - Pack Predator
+    - Lone Predator
+    - Lone Herbivore
+    instinct:
+    - Flee on Sight
+    - Flee Stronger Foes
+    - Flee if Attacked
+    - Retailate if Attacked
+    - Attack Weaker Foes
+    - Attack on Sight
+    abilities:
+    - Attack from Far Away
+    - Impose Disadvantage on Hiding or Running Rolls
+    - Venom (Constitution save or take 1d6 for HD/3 rounds)
+    - Call in Reinforcements (another of same creature with 1/2 HD and no abilities on a roll of 1 in 1d6 each round)
+    - Heal 1d6 HP per round
+    - Double Armor Points

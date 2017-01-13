@@ -51,6 +51,12 @@ generators:
   - whats_on_corpse
   - whats_on_thing
   - where_has_it_been
+  kaigaku:
+  - animals
+  - battlefield_enemies
+  - battlefield_peril
+  - court_enemies
+  - urban_enemies
   fourth_page:
   - artifact
   - dungeon
