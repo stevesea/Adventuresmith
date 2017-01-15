@@ -1,6 +1,6 @@
 ---
 templates:
-- "{{part1}}{{part2}} {{part3} {{desc}}"
+- "{{part1}}{{part2}} {{part3}} {{desc}}"
 
 tables:
   part1:

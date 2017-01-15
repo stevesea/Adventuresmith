@@ -738,6 +738,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpFantMonsters" -> CommunityMaterial.Icon.cmd_paw
                         "grpFantMagic" -> CommunityMaterial.Icon.cmd_auto_fix
                         "grpFantSettings" -> CommunityMaterial.Icon.cmd_castle
+                        "grpFantTreasure" -> CommunityMaterial.Icon.cmd_diamond
 
                         "Science Fiction" -> Ionicons.Icon.ion_planet
                         "grpSciFiShip" -> CommunityMaterial.Icon.cmd_rocket
