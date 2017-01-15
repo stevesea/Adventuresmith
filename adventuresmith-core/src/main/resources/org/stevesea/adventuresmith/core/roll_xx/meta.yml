@@ -1,0 +1,82 @@
+name: Roll XX
+id: roll_xx
+priority: 100
+url: http://www.drivethrurpg.com/product/108917/Roll-XX
+credit: The Sentinels of Meregoth / Neoplastic Press
+hasGroupHierarchy: true
+groups:
+  grpFantNPCs: Fantasy / NPCs
+  grpFantAdvSeed: Fantasy / Adventure Seeds
+  grpFantChars: Fantasy / Characters
+  grpFantMonsters: Fantasy / Monsters
+  grpFantMagic: Fantasy / Magic
+  grpFantSettings: Fantasy / Settings
+  grpSuperHeroes: Superheroes / Heroes
+  grpSuperVillains: Superheroes / Villains
+  grpSuperAdvSeed: Superheroes / Adventure Seeds
+  grpSciFiShip: Science Fiction / Starships
+  grpSciFiAdvSeed: Science Fiction / Adventure Seeds
+  #grpHorror: Horror
+  #grpModern: Modern
+attribution: |
+  <blockquote>
+  <p>Roll XX is a system-agnostic book of random tables for fantasy, sci-fi, superheroes, and horror role-playing games.
+  <br/>Packed with adventure hooks, story seeds, NPCs, magic items, spaceships, demons, and locations, Roll XX features 90 questions and 1800 answers.
+  <br/>And it's open-source!</p>
+  <p>
+  Roll XX: Double Damage is a book of random tables for fantasy role-playing games. Packed with adventure seeds, dungeon encounters, NPCs, magic items, treasure, and locations, Roll XX features 20 questions and 450 answers.
+  <br/>It also includes an ugly-as-sin monster generator in the back with over 10,000,000,000 murderous combinations.
+  <br/>And it's open-source!
+  </p>
+  <p>http://www.drivethrurpg.com/product/113448/Roll-XX-Double-Damage</p>
+  </blockquote>
+
+
+#characters
+
+#Where are the bodies hidden?...........59
+#What's the story behind those scars?60
+#What’s the cryptic clue in anagram form?.........61
+#Why can't you see the entity?............62
+#What are his/her vices?....63
+#What euphemism applies at this particular crime scene?..64
+#What's changing your memories?.....65
+#What's under your skin?..66
+#Who are They, exactly?....67
+#What is the murderer's signature?....68
+#What's under the bed?......69
+#Which part of the body is it?..............70
+#Where did those bites come from?....71
+#What's this soul worth?....72
+#What will you do to make it stop?.....73
+#What kind of sanguiphages are swarming from the crypt?74
+#What's hanging from the ceiling?.....75
+#What noise is coming from the other room?......76
+#Why do you love this so much?..........77
+#What kind of monster is it?................78
+#What part of the zombie story is this?................79
+#What is casting that shadow?............80
+#How do you cure it?..........81
+#How did it escape?............82
+#Why does he look familiar?................83
+#What is in that hole?.........84
+#What was that sound?.......85
+#
+#
+#
+#MODERN.............86
+#What's in the suitcase that's worth $10,000 USD?...............87
+#What is the unit's primary objective?.................88
+#What are her areas of expertise?.......89
+#What does it smell like?....90
+#What types of insects are in the room?...............91
+#What’s in the swimming pool?...........92
+#What kind of liquid is in that bottle?.93
+#What's this agent's callsign/nickname/handle?.................94
+#What's the unsuspecting sentry saying into his radio?.......95
+#What kind of magic is it?..96
+#What’s the name of this secret society?..............97
+#What's your secret?..........98
+#Where is it all going down tonight?..99
+#Whose fingerprints are all over the place?.......100
+#What's in the duffel bag?101

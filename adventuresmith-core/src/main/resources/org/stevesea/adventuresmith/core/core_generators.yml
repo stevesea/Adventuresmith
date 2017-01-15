@@ -181,3 +181,53 @@ generators:
   - traps
   - tricks
   - wfc
+  roll_xx:
+  - fant_assassins
+  - fant_barbarian
+  - fant_believe
+  - fant_cleric
+  - fant_dragon
+  - fant_dungeon
+  - fant_elves
+  - fant_frost_dragon
+  - fant_hybrid
+  - fant_locked_door
+  - fant_mage_truth
+  - fant_miscast_spell
+  - fant_necromancer
+  - fant_oath
+  - fant_orc_chieftan
+  - fant_potion
+  - fant_queen
+  - fant_rider
+  - fant_seraching
+  - fant_shopkeeper
+  - fant_sky
+  - fant_sorcerors
+  - fant_stole_blade
+  - fant_time_period
+  - fant_treasure_chest
+  - fant_wand
+  - fant_warrior_armor
+  - scifi_ancient_terminal
+  - scifi_anomaly
+  - scifi_bounty_hunter
+  - scifi_escape
+  - scifi_land
+  - scifi_malfunction
+  - scifi_passengers
+  - scifi_rubble
+  - scifi_starship_type
+  - scifi_went_dark
+  - scifi_xenomorph
+  - supers_aliens
+  - supers_connections
+  - supers_origin
+  - supers_protecting
+  - supers_useless_power
+  - supers_villain_lair
+  - supers_villain_rant
+  - supers_villain_target
+  - supers_villain_threat
+  - supers_weakness
+  - supers_who_the_heck

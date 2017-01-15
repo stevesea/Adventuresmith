@@ -101,6 +101,7 @@ data class CollectionMetaDto(val url: String? = null,
                              val desc: String? = null,
                              val credit: String? = null,
                              val attribution: String? = null,
+                             val hasGroupHierarchy: Boolean = false,
                              val groups: Map<String, String>? = null) : Comparable<CollectionMetaDto> {
     override fun compareTo(other: CollectionMetaDto): Int {
         return ComparisonChain.start()

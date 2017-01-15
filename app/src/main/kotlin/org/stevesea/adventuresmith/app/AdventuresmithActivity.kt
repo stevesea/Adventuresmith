@@ -285,39 +285,85 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
-        var previousWasExpandable = false
         for (coll in generatorCollections) {
             debug("collection: ${coll}")
 
             if (coll.groups != null && coll.groups!!.isNotEmpty()) {
+
                 // has groups, create header & children
-                val expandableItem = ExpandableDrawerItem()
-                        .withName(coll.name)
-                        .withIcon(getCollectionIcon(coll.id))
-                        .withIdentifier(com.google.common.base.Objects.hashCode(coll.id).toLong())
-                        .withDescription(coll.desc)
-                        .withDescriptionTextColorRes(R.color.textSecondary)
-                        .withSelectable(false)
-                        .withIsExpanded(false)
-                for (grp in coll.groups!!.entries) {
-                    val navId = com.google.common.base.Objects.hashCode(coll.id, grp.key).toLong()
-                    drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}" , groupId = grp.key))
-                    val childItem = SecondaryDrawerItem()
-                            .withName(grp.value)
-                            .withIcon(getCollectionIcon(coll.id, grp.key))
-                            .withIdentifier(navId)
-                            .withSelectable(true)
-                            .withLevel(2)
-                    expandableItem.withSubItems(childItem)
+                if (coll.hasGroupHierarchy) {
+
+                    val rootExpandableItem = ExpandableDrawerItem()
+                            .withName(coll.name)
+                            .withIcon(getCollectionIcon(coll.id))
+                            .withIdentifier(coll.id.hashCode().toLong())
+                            .withDescription(coll.desc)
+                            .withDescriptionTextColorRes(R.color.textSecondary)
+                            .withSelectable(false)
+                            .withIsExpanded(false)
+
+                    val groupGroupMap : MutableMap<String, ExpandableDrawerItem> = mutableMapOf()
+                    for (grp in coll.groups!!.entries) {
+                        val navId = com.google.common.base.Objects.hashCode(coll.id, grp.key).toLong()
+                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
+
+                        val words = grp.value.split("/", limit = 2).map { it.trim() }
+                        val grpGrp = words[0]
+                        val subGrpName = words[1]
+
+                        val subGrpItem = SecondaryDrawerItem()
+                                .withName(subGrpName)
+                                .withIcon(getCollectionIcon(coll.id, grp.key))
+                                .withIdentifier(navId)
+                                .withSelectable(true)
+                                .withLevel(3)
+
+                        var groupGroupItem = groupGroupMap.get(grpGrp)
+                        if (groupGroupItem == null) {
+                            groupGroupItem = ExpandableDrawerItem()
+                                    .withName(grpGrp)
+                                    .withLevel(2)
+                                    .withSelectable(false)
+                                    .withIsExpanded(false)
+                                    .withIdentifier(grpGrp.hashCode().toLong())
+                                    //.withIcon(getCollectionIcon(coll.id, grpGrp))
+                                    .withSubItems(subGrpItem)
+                            groupGroupMap.put(grpGrp, groupGroupItem)
+                        } else {
+                            groupGroupItem.withSubItems(subGrpItem)
+                        }
+                    }
+                    groupGroupMap.values.forEach {
+                        rootExpandableItem.withSubItems(it)
+                    }
+
+                    result.add(rootExpandableItem)
+
+                } else {
+                    val expandableItem = ExpandableDrawerItem()
+                            .withName(coll.name)
+                            .withIcon(getCollectionIcon(coll.id))
+                            .withIdentifier(coll.id.hashCode().toLong())
+                            .withDescription(coll.desc)
+                            .withDescriptionTextColorRes(R.color.textSecondary)
+                            .withSelectable(false)
+                            .withIsExpanded(false)
+                    for (grp in coll.groups!!.entries) {
+                        val navId = com.google.common.base.Objects.hashCode(coll.id, grp.key).toLong()
+                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
+                        val childItem = SecondaryDrawerItem()
+                                .withName(grp.value)
+                                .withIcon(getCollectionIcon(coll.id, grp.key))
+                                .withIdentifier(navId)
+                                .withSelectable(true)
+                                .withLevel(2)
+                        expandableItem.withSubItems(childItem)
+                    }
+                    result.add(expandableItem)
                 }
-                result.add(expandableItem)
-                previousWasExpandable = true
             } else {
-                if (previousWasExpandable) {
-                    //result.add(DividerDrawerItem())
-                }
                 // no groups, just create item
-                val navId = com.google.common.base.Objects.hashCode(coll.id).toLong()
+                val navId = coll.id.hashCode().toLong()
                 drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = coll.name))
                 result.add(PrimaryDrawerItem()
                         .withName(coll.name)
@@ -327,7 +373,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                         .withDescription(coll.desc)
                         .withDescriptionTextColorRes(R.color.textSecondary)
                 )
-                previousWasExpandable = false
             }
         }
         result.add(SectionDrawerItem()
@@ -678,6 +723,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
                 AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
+                AdventuresmithCore.RollXX -> CommunityMaterial.Icon.cmd_format_superscript
                 AdventuresmithCore.AugmentedReality -> {
                     when (grpId) {
                         "grpNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
