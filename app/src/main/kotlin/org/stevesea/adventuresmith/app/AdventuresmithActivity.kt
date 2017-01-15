@@ -747,12 +747,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "Modern" -> CommunityMaterial.Icon.cmd_city
                         "grpModernChars" -> CommunityMaterial.Icon.cmd_account
                         "grpModernRoomDressing" -> CommunityMaterial.Icon.cmd_city
-                        "grpModernMissions" -> CommunityMaterial.Icon.cmd_emoticon_cool
+                        "grpModernMissions" -> CommunityMaterial.Icon.cmd_puzzle // cmd_emoticon_cool
 
                         "Horror" -> CommunityMaterial.Icon.cmd_ghost
                         "grpHorrorChars" -> CommunityMaterial.Icon.cmd_emoticon_devil
                         "grpHorrorMonsters" -> CommunityMaterial.Icon.cmd_duck
-                        "grpHorrorRoomDressing" -> CommunityMaterial.Icon.cmd_home_variant
+                        "grpHorrorSights" -> CommunityMaterial.Icon.cmd_eye
+                        "grpHorrorSounds" -> CommunityMaterial.Icon.cmd_face_profile
                         "grpHorrorAdvSeeds" -> Ionicons.Icon.ion_bonfire
 
                         else -> CommunityMaterial.Icon.cmd_format_superscript
