@@ -67,9 +67,6 @@ Application launch icon, splash screen logo, and nav-drawer-header logo were cre
 * This application uses icons from [https://materialdesignicons.com/](https://materialdesignicons.com/)
 * This application uses icons from [http://ionicons.com/](http://ionicons.com/)
 
-### Public Domain
-TODO: enter attribution for public domain images from illuminated manuscripts
-
 ## Content
 Adventuresmith uses content from the following sources
 
@@ -91,12 +88,15 @@ Attribution - ShareAlike 3.0 Unported license.
 
 ### Courtney C Campbell
 [Hack & Slash blog](http://hackslashmaster.blogspot.com/)
-* Tricks, Empty Rooms, & Basic Trap Design - http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html
+* [Tricks, Empty Rooms, & Basic Trap Design](http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html)
 
 ### Paul D. Gallagher / Geist Hack Games
 [Neural Archive blog](http://neuralarchive.blogspot.co.uk)
-* Augmented Reality - http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games
+* [Augmented Reality](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
 
+### The Sentinels of Meregoth / Neoplastic Press
+* [Roll XX](http://www.drivethrurpg.com/product/108917/Roll-XX)
+* [Roll XX: Double Damage](http://www.drivethrurpg.com/product/113448/Roll-XX-Double-Damage)
 
 ### Ben Milton
 [Maze Rats](http://questingblog.com/downloads/)
@@ -104,7 +104,7 @@ Attribution - ShareAlike 3.0 Unported license.
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
 
 ### Jeremy Strandberg
-* Minor Arcana Generator for Stonetop https://plus.google.com/collection/c0dRb
+* [Minor Arcana Generator for Stonetop](https://plus.google.com/collection/c0dRb)
 
 ### Mike Riverso
 * the Fourth Page generators for World of Dungeons. Licensed under the Creative Commons Attribute 3.0 Unported License. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/

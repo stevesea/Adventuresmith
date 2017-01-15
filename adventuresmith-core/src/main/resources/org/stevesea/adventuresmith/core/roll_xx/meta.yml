@@ -5,25 +5,24 @@ url: http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press
 credit: The Sentinels of Meregoth / Neoplastic Press
 hasGroupHierarchy: true
 groups:
-  grpFantNPCs: Fantasy / NPCs
   grpFantAdvSeed: Fantasy / Adventure Seeds
   grpFantChars: Fantasy / Characters
-  grpFantMonsters: Fantasy / Monsters
   grpFantMagic: Fantasy / Magic
+  grpFantMonsters: Fantasy / Monsters
+  grpFantNPCs: Fantasy / NPCs
   grpFantSettings: Fantasy / Settings
+  grpHorrorAdvSeeds: Horror / Adventure Seeds
   grpHorrorChars: Horror / Characters
   grpHorrorMonsters: Horror / Monsters
   grpHorrorSettings: Horror / Settings
-  grpHorrorAdvSeeds: Horror / Adventure Seeds
+  grpModernAdvSeeds: Modern / Adventure Seeds
   grpModernChars: Modern / Characters
   grpModernSettings: Modern / Settings
-  grpModernAdvSeeds: Modern / Adventure Seeds
-  grpSciFiShip: Science Fiction / Starships
   grpSciFiAdvSeed: Science Fiction / Adventure Seeds
+  grpSciFiShip: Science Fiction / Starships
+  grpSuperAdvSeed: Superheroes / Adventure Seeds
   grpSuperHeroes: Superheroes / Heroes
   grpSuperVillains: Superheroes / Villains
-  grpSuperAdvSeed: Superheroes / Adventure Seeds
-
 attribution: |
   <blockquote>
   <p>Roll XX is a system-agnostic book of random tables for fantasy, sci-fi, superheroes, and horror role-playing games.
