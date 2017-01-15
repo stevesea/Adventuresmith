@@ -737,7 +737,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpFantChars" -> CommunityMaterial.Icon.cmd_account
                         "grpFantMonsters" -> CommunityMaterial.Icon.cmd_paw
                         "grpFantMagic" -> CommunityMaterial.Icon.cmd_auto_fix
-                        "grpFantSettings" -> CommunityMaterial.Icon.cmd_castle
+                        "grpFantDungeonDressing" -> CommunityMaterial.Icon.cmd_castle
                         "grpFantTreasure" -> CommunityMaterial.Icon.cmd_diamond
 
                         "Science Fiction" -> Ionicons.Icon.ion_planet
@@ -745,14 +745,14 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpSciFiAdvSeed" -> CommunityMaterial.Icon.cmd_robot
 
                         "Modern" -> CommunityMaterial.Icon.cmd_city
-                        "grpModernChars" -> CommunityMaterial.Icon.cmd_account_multiple
-                        "grpModernSettings" -> CommunityMaterial.Icon.cmd_city
-                        "grpModernAdvSeeds" -> CommunityMaterial.Icon.cmd_comment_question_outline
+                        "grpModernChars" -> CommunityMaterial.Icon.cmd_account
+                        "grpModernRoomDressing" -> CommunityMaterial.Icon.cmd_city
+                        "grpModernMissions" -> CommunityMaterial.Icon.cmd_emoticon_cool
 
                         "Horror" -> CommunityMaterial.Icon.cmd_ghost
                         "grpHorrorChars" -> CommunityMaterial.Icon.cmd_emoticon_devil
                         "grpHorrorMonsters" -> CommunityMaterial.Icon.cmd_duck
-                        "grpHorrorSettings" -> CommunityMaterial.Icon.cmd_home_variant
+                        "grpHorrorRoomDressing" -> CommunityMaterial.Icon.cmd_home_variant
                         "grpHorrorAdvSeeds" -> Ionicons.Icon.ion_bonfire
 
                         else -> CommunityMaterial.Icon.cmd_format_superscript
