@@ -11,7 +11,7 @@
 
     <!-- -->
     <integer name="buttonCols">10</integer>
-    <integer name="buttonSpanLong">4</integer>
+    <integer name="buttonSpanLong">5</integer>
     <integer name="buttonSpanRegular">3</integer>
     <integer name="buttonSpanShort">2</integer>
 
