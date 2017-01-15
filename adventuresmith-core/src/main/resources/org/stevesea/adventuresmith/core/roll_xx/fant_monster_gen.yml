@@ -1,0 +1,135 @@
+---
+templates:
+- |
+  <h5>The {{name}}</h5>
+  {{desc}} monster {{pattern}} {{victims}}
+  <br/>
+  <br/>Its body is {{appearance1}} {{appearance2}}, and it has {{appendage}}
+  <br/>
+  <br/>{{abilities}}
+  <br/>
+  <br/>{{defenses}}
+  <br/>
+  <br/>{{attributes}}
+
+tables:
+  name:
+  - Kalimiaq
+  - Gaurindiac
+  - Qarothaq
+  - Vassaruom
+  - Zovilian
+  - Akrinoth
+  - Phosogris
+  - Orgrot
+  - Shuroziam
+  - Chagoma
+  desc:
+  - This skin-harvesting
+  - This brutal
+  - This music-loving
+  - This trap-laying
+  - This shimmering
+  - This foul
+  - This fastidious
+  - This impure
+  - This sweet-smelling
+  - This terrifying
+
+  pattern:
+  - feeds upon
+  - torments
+  - guides and instructs
+  - kills the loved ones of
+  - attacks
+  - collects the genitals of
+  - harvests
+  - creates art from the hair of
+  - eviscerates
+  - wears the skin of
+
+  victims:
+  - murderers.
+  - religious leaders.
+  - false prophets.
+  - criminals.
+  - virgins.
+  - the suicidal.
+  - the insane.
+  - adventurers.
+  - the wealthy.
+  - prostitutes.
+
+  appearance1:
+  - lean and
+  - somewhat
+  - grotesquely
+  - scaly and
+  - almost
+  - covered in sores and
+  - mostly
+  - decayed and
+  - vaguely
+  - deformed and
+
+  appearance2:
+  - reptilian
+  - amorphous
+  - squamous
+  - arachnid
+  - humanoid
+  - lupine
+  - serpentine
+  - transparent
+  - luminescent
+  - skeletal
+
+  appendage:
+  - two large wings.
+  - a dozen ropelike tentacles that undulate slowly.
+  - large crab-like claws.
+  - the voice of a child.
+  - a scorpion-like tail.
+  - several gaping mouths.
+  - necrotic buboes that violently burst upon physical contact.
+  - long, serrated mandibles.
+  - jagged teeth jutting from a wide, flat mouth.
+  - the face of a beautiful woman.
+
+  abilities:
+  - Knows a low-level spell; can cast it once per day.
+  - Knows a low-level spell; can cast it at will.
+  - Knows a high-level spell; can cast it once per day.
+  - Knows 1-5 low-level spells; can cast them once per day.
+  - Knows 1-5 low-level spells; can cast them at will.
+  - Knows 1-5 high-level spells; can cast them once per day.
+  - Knows 1-10 low-level spells; can cast them once per day.
+  - Knows 1-10 low-level spells; can cast them at will.
+  - Knows 1-10 high-level spells; can cast them once per day.
+  - "{{>pickN: 2 abilities <br/>}}"
+
+  defenses:
+  - Can only be struck by magic weapons.
+  - Immune to sleep/hypnosis spells.
+  - Half damage from edged weapons.
+  - Immune to cold-based attacks.
+  - Regenerates damage over time.
+  - High level of resistance to magic.
+  - Can only be struck by silver weapons.
+  - Immune to fire-based attacks.
+  - |
+    {{>pick: 1d8 defenses}}
+    <br/>{{>pick: 1d8 defenses}}
+  - "Defenses: None"
+
+  attributes:
+  - Low armor, low health, low intelligence.
+  - Low armor, medium health, low intelligence.
+  - Medium armor, low health, low intelligence.
+  - Low armor, medium health, medium intelligence.
+  - Medium armor, medium health, medium intelligence.
+  - Medium armor, high health, medium intelligence.
+  - High armor, medium health, medium intelligence.
+  - Medium armor, high health, medium intelligence.
+  - High armor, high health, medium intelligence.
+  - High armor, high health, high intelligence.

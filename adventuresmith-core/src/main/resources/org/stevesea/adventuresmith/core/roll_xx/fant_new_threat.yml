@@ -1,0 +1,41 @@
+---
+templates:
+- |
+  It is the {{part1}} {{part2}} which {{ability}}
+
+tables:
+  part1:
+  - Ash
+  - Iron
+  - Blood
+  - Scarlet
+  - Ivory
+  - Winged
+  - Plague
+  - Swamp
+  - Spirit
+  - Dark
+
+  part2:
+  - Troll,
+  - Goblin,
+  - Orc,
+  - Wolf,
+  - Bugbear,
+  - Hobgoblin,
+  - Ogre,
+  - Serpent,
+  - Minotaur,
+  - Golem,
+
+  ability:
+  - feeds upon the energy of wizards, clerics, and other spell casters.
+  - is invisible to elves, dwarves, and other demihumans.
+  - can’t be harmed by non-magical weapons.
+  - is able to cast low-level offensive magics, and carries a potion of healing.
+  - tries to incite paralyzing fear in the strongest member of the party.
+  - handsomely rewards anyone who can answer its riddle.
+  - increases its strength in direct proportion to the extent of its injury.
+  - fights from beyond the range of melee weapons.
+  - has the ability to hypnotize and turn friendly adventurers against each other.
+  - and its bite injects a fearsome poison into its victims.

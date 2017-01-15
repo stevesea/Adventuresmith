@@ -1,0 +1,27 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+tables:
+  part1:
+  - Reeking of decay, the bipedal Sinew Golem, wrought from the hide-bound bones of an ancient Scarlet Dragon,
+  - The automaton, made from broken swords held together by silk from a dozen Crimson Recluse spiders (arranged in the shape of a three-legged and three-armed monstrosity),
+  - Accompanied by the hiss of steam and the smell of sulfur, the demonic clockwork known as the Abyssal Simulacrum
+  - Legs and arms jutting at random from a triple-spined torso, the Unspeakable Endeavor, a nightmarish assembly of stitched limbs from various victims,
+  - Staring dully into space until awakened by the smell of meat, the enchanted suit of plate mail known as the Carnivore
+  - Constructed from dwarven bolts, gnomish gears, and orcish blades, the insectile killing machine known as the Flenser
+  - Birthed from the war factories of Ryakk, designed by a halfgnome/half-goblin scientist, the Manufactured Man
+  - Having emerged from the deep recesses of the null void between the galaxies, the Cosmic Construct
+  - Forged secretly in the Infinite Crypt by dwarven master craftsmen working with forbidden blueprints, the Dungeon Golem
+  - Hastily cobbled together by outnumbered orc technicians during the battle of Shit Peak, the Elf-Mangler 6000
+  part2:
+  - was brought to life by accident in the tunnels below Caer Dynulenn, when a halfling thief opened the Book of Wrongdoing to the page on golem creation.
+  - seeks only to learn about the strange place it now inhabits.
+  - was constructed by the Shade-Wards of Goblinbane Peak, who then took their own lives so that none would ever know the Ritual of Banishment.
+  - was instructed to defend relentlessly the first person that it encountered
+  - has fallen into deep disrepair, as its the central core is leaking radiation and must be sealed to prevent an explosion.
+  - is malfunctioning, as its primary motivator has been removed and logic circuits overridden.
+  - has awakened after eons of slumber to cull the unruly organics.
+  - is now collecting samples and purging (then seeding) habitable realms.
+  - is on a methodical and ruthless hunt for its creator.
+  - was enchanted by a western Necromancer and tasked with guarding the Crypt of Aurexon until the day that the truce with the Orcish Khan was broken.

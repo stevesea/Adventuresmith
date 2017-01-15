@@ -1,0 +1,27 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+tables:
+  part1:
+  - A dozen Scorpion Arrows and
+  - The Silver Crown of Qialac and
+  - Leather Armor of Skulking and
+  - A scroll of Lesser Demon Summoning and
+  - A potion of Limb Regeneration and
+  - Six dragon teeth on a gold necklace and
+  - A silken bag containing 10 dead butterflies and
+  - The engraving of a pretty young maiden and
+  - A Drowsy Whistle and
+  - A master-crafted slingshot, 6 silver ball bearings, and
+  part2:
+  - 1, A verdant agate worth 10 gold.
+  - 2, 15 platinum pieces.
+  - 3, A red pearl worth 200 gold.
+  - 4, 1,741 gold pieces.
+  - 5, a fist-sized hunk of chalcedony worth 100 gold.
+  - 6, the recipe for Goblin Sauce, worth 500 gold to the cannibalistic halflings of the Infinite Crypt.
+  - 7, the bloodthirsty parasite that killed him.
+  - 8, a unicorn’s horn.
+  - 9, an aphrodesiac labeled HEALING.
+  - 10, a crystalline flask of sweet-smelling acid that eats through flesh, bone, and wood, but not stone or metal.

@@ -1,0 +1,28 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+tables:
+  part1:
+  - Gurza Kai, a blasted land of ash and acrid smoke;
+  - Shael-Geth, an infinite maze of narrow corridors;
+  - Xabelziakam, land of dripping sorrows and grief;
+  - Sugrithe, a chasm of infinite darkness;
+  - Felorath, adorned with stalactites composed of human remains;
+  - Wyhrra, a place of impregnata roaming in search of hosts;
+  - Li’Crast, where vast scarlet windmills turn slowly;
+  - Mictlan, where aborted children scour the plains for fresh meat;
+  - Niflheim, frost-rimed birthplace of the Bloodless;
+  - Youdu, home of offices, records, judges, and justice;
+
+  part2:
+  - the demon’s treasure chest includes a foul-mouthed Broadsword of Venom that despises humans.
+  - there, its lair is booby-trapped, but contains a hastily-scrawled ransom note.
+  - among its possessions is a diary outlining a battle plan for a raid on a manticore’s lair.
+  - in that hellish realm, it hoards the bones of its prey, which it arranges into letters that spell out prophecy.
+  - it knows the whereabouts of the missing Magistrate.
+  - "where the fiend keeps its prized possession: the Book of Truths."
+  - there, it keeps Scarlet Bane, an ever-burning dagger that inflicts excruciating pain, but no damage.
+  - where it hunts its captives for sport.
+  - in its Hall of Curiosities is a pile of skulls, one of which can sometimes foretell events that will transpire within the next hour.
+  - there, it maintains a manor and estate.

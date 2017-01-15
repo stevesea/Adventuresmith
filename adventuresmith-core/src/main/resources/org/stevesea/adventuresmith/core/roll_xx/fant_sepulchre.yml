@@ -1,0 +1,29 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+
+tables:
+  part1:
+  - A cubit-long platinum brooch in the shape of a bough, decorated with leaves of chaceldony and jade, wrapped in pages torn from the Book of Divine Sadism;
+  - An elixir of bright green Khulagran Goblin Sweat, stored within a glass vial labeled DRAGON STRENGTH;
+  - A wooden cup, wax-lined, hosting a wide array of deciduous leaves precisely carved in relief;
+  - A crucifix made of bone and antlers - sharp calcified veins wrap about it and lend it an ominous air;
+  - A human skull bedecked with precious stones;
+  - A hefty crown with a pair of golden ram horns, their barbed points incredibly sharp to the touch;
+  - A wax candle, half burned - its drippings running sideways instead of down;
+  - A crystal globe that hovers two inches from its base;
+  - The dried remains of a dragon’s paw, scales still shimmering and talons curved in upon themselves;
+  - A porcelain doll that is crafted with such perfection that it appears to breathe;
+
+  part2:
+  - those who make contact with it may be afflicted with an insatiable desire to quaff every potion they see for the span of a single day.
+  - the first person who lays eyes upon it will hear a paper-thin voice whispering the sordid tale of the treasure-hungry rogue who ensconced it herein.
+  - it feels heavier and heavier as it travels further from its resting place.
+  - the tiny inscription engraved upon it translates roughly to “USE WITHOUT SPIRIT”.
+  - whoever touches it will be accursed, and will be hunted by a single murderous undead that will not rest until slain.
+  - its value varies from buyer to buyer, but Lord Qalonto will pay dearly to have it returned to him.
+  - in the light of the sun, it will reveal its true nature -- that of a mighty weapon suited to its bearer (but in darkness, it changes back until exposed to daylight once more).
+  - when carried upon someone’s person, it increases strength and fortitude, but afflicts the bearer with the worst luck.
+  - it allows the bearer to heal injuries four times before it turns into dust, its magic forever gone.
+  - anyone who looks upon it risks being afflicted with lycanthropy.

@@ -1,0 +1,30 @@
+---
+templates:
+- |
+  {{type}}
+  <br/>
+  <br/>...and it offers: {{offer}}
+
+tables:
+  type:
+  - A still-dripping protodemon, genitalia exposed.
+  - A purple-robed suprademon, crown of thorns upon its brow.
+  - An astrodemon with galaxies in its endless black eyes.
+  - A rotting necrodemon, tattered flesh hanging from its bones.
+  - A disguised cryptodemon in the form of a wood nymph.
+  - An imperceptible nanodemon hidden in a character’s bowels.
+  - A colossal megademon upon which the adventurers walk.
+  - A terrestrial pseudodemon that tries to pass for infernal.
+  - An angelic contrademon that has turned on its malefic brethren.
+  - A neodemon with a blunderbuss and automated carriage.
+  offer:
+  - to kill a single human (of the party’s choosing).
+  - a slightly gnawed corpse on a rope with neat things stuffed inside.
+  - an enchanted weapon that hates its wielder and complains often.
+  - mediocre coitus.
+  - infernal secrets of its kind, forbidden and delicious.
+  - a chest full of gold (a mutilated torso with a golden dagger in it).
+  - a cart full of human slaves, branded with its hellish sigil.
+  - a way out of this maze (death).
+  - Revivicum, a magic wand in the form of a wooden stake that straps to the caster’s forearm; seven times, it may be used to reverse the effects of undead, turning wights and ghouls and such back into their original selves. After that, it rots away.
+  - a spellbook of considerable value to those who seek power (though it does have a tendency to leech strength from its owner).

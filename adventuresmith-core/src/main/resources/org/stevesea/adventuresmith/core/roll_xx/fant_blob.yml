@@ -1,0 +1,41 @@
+---
+templates:
+- |
+  It is the {{part1}} {{part2}} which {{ability}}
+
+tables:
+  part1:
+  - Amber
+  - Fuchsia
+  - Aqua
+  - Yellow
+  - Azure
+  - Violet
+  - Cerulean
+  - Orange
+  - Indigo
+  - Beige
+
+  part2:
+  - Slime,
+  - Goo,
+  - Ooze,
+  - Mucus,
+  - Sludge,
+  - Jelly,
+  - Fungus,
+  - Gel,
+  - Mire,
+  - Dreck,
+
+  ability:
+  - takes double damage from silver.
+  - is repelled by clerics as though undead.
+  - eats through gold and silver.
+  - is paralyzed by cold of any kind.
+  - can paralyze with a successful attack.
+  - is unaffected by magic attacks
+  - is dissolved by healing potions.
+  - can infect its victim with Dripping Rot.
+  - takes double damage from fire attacks.
+  - is immune to non-magical weapons.

@@ -1,0 +1,28 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+tables:
+  part1:
+  - He mistakes you for his relative -- the one
+  - You resemble the person from the handbill
+  - He shares a past with you, and knows that you are the one
+  - He wants to fight the one
+  - He has orders to interrogate the person
+  - He’s pretty confident that your race makes you someone
+  - One of the members of your party is someone
+  - He has been tricked into believing that it is you
+  - He is blood-bound to repay a debt to a person
+  - Your clothing exactly matches the description of someone
+
+  part2:
+  - who helped to heal his sick child.
+  - who might have massacred the entire population of a local village.
+  - who could be of royal rank and privilege.
+  - who attempted to assassinate Sir Godrick.
+  - who killed Moruk and defended the people from his scourge.
+  - who poisoned the locals with tainted mead.
+  - who single-handedly defeated five of the King’s best men.
+  - who murdered his wife.
+  - who will pay for some inside information.
+  - who rescued the King’s daughter from the Stone Behemoth.

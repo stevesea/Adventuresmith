@@ -1,0 +1,29 @@
+---
+templates:
+- |
+  {{cast}} and they {{twist}}
+
+tables:
+  cast:
+  - The Stalwart Champions of Nephren-Ka,
+  - Six deserters from Queen Felicienne's Royal Guard,
+  - A cadre of goblin warriors led by a Death Priest,
+  - Six arrogant noblemen known as Lord Bellamy's Companions,
+  - A foul-mouthed Necromancer and a Lich Prince,
+  - King Delarax of Miravell, necrophiliac and plunderer,
+  - Emperor Kestril, enslaver of the Hill Gnomes,
+  - The thrice-damned undead thief, Glapok the Shadow,
+  - Lady Khavax Unbeheld and her blind retinue,
+  - Six kobold shamans and their mute orc slave,
+
+  twist:
+  - have a crude map that shows its location.
+  - will immediately kill anyone else that seeks it.
+  - have contracted a hideous (and soon fatal) disease.
+  - believe they've found it (but all they have are baubles).
+  - wish to join forces, but only if the treasure's split evenly.
+  - have laid vicious traps throughout this dungeon.
+  - mean to find it and destroy it with fire.
+  - will offer to work together and split the bounty fifty-fifty.
+  - have no interest in communicating with anyone else, or even acknowledging those that they encounter.
+  - are horribly wounded, and in need of help, which they will repay with valuable information.

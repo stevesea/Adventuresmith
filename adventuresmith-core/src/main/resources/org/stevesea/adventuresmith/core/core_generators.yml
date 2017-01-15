@@ -183,32 +183,53 @@ generators:
   - wfc
   roll_xx:
   - fant_assassins
+  - fant_automaton
   - fant_barbarian
+  - fant_banquet
   - fant_believe
+  - fant_bird_beak
+  - fant_blob
   - fant_cleric
+  - fant_dark_secret
+  - fant_demon_from
+  - fant_demon_kind
   - fant_dragon
   - fant_dungeon
   - fant_elves
+  - fant_enchanted_jewelry
   - fant_frost_dragon
+  - fant_guard
+  - fant_hirer
   - fant_hybrid
   - fant_locked_door
   - fant_mage_truth
+  - fant_medical_procedure
   - fant_miscast_spell
+  - fant_monster_gen
+  - fant_obelisk
   - fant_necromancer
+  - fant_new_threat
   - fant_oath
   - fant_orc_chieftan
   - fant_potion
   - fant_queen
   - fant_rider
+  - fant_search_corpse
   - fant_searching
+  - fant_sepulchre
   - fant_shopkeeper
   - fant_sky
   - fant_sorcerors
+  - fant_sprung_trap
   - fant_stole_blade
+  - fant_summoned
   - fant_time_period
   - fant_treasure_chest
+  - fant_treasure_seeker
+  - fant_wall_runes
   - fant_wand
   - fant_warrior_armor
+  - fant_where_going
   - horror_bites
   - horror_bodies_hidden
   - horror_body_part

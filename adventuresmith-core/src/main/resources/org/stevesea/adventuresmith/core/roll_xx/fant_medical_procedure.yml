@@ -1,0 +1,27 @@
+---
+templates:
+- "The {{part1}} is trying to perform a {{part2}}"
+
+tables:
+  part1:
+  - Intoxicated skinner
+  - Half-blind blacksmith
+  - Palsied weaver
+  - Irascible saddlemaker
+  - Terrified pastry cook
+  - Dull-witted armorer
+  - Battle-scarred prostitute
+  - Clumsy shoemaker
+  - Addled tanner
+  - Sexually aroused clergyman
+  part2:
+  - Hot clyster, but the formula’s all wrong.
+  - Amputation, and the saw's not sharp enough.
+  - Lancing a boil, but keeps missing.
+  - Applying sterile egg white, but that wasn't an egg.
+  - Lithotomy, but it's appendicitis, not a kidneystone.
+  - Trepanning, and so far, so good.
+  - Opium-soaked sponge with a straw in it, hard to fuck that up.
+  - Delivering baby, looks like it's coming out feet-first.
+  - Pulling teeth, hard to get a good grip with these things.
+  - Extracting fragmented arrowhead, should probably just quit now.

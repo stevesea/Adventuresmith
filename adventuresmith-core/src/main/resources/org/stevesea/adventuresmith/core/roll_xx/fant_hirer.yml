@@ -1,0 +1,29 @@
+---
+templates:
+- |
+  {{char}} {{twist}}
+
+tables:
+  char:
+  - Nels Greywall, sadistic Margrave of the Eastern Reach,
+  - Qibilah Kephtan, duty-bound priestess of Nephthys,
+  - Elspeth Llydion, blue-robed Illusionist driven by vengeance,
+  - Cleantha Aethelwine, avaricious halfling Princess,
+  - King Razican IV, lover of prolonged torture,
+  - Talevayle the Lame, once a mighty warrior,
+  - Lady Kenabel, fiercest of the Taurian Knights,
+  - Rygos Xerus, servant of the darkest of gods,
+  - The slaver and procurer Jennastra Tahks,
+  - Velag the Paindrinker, left hand of the Queen,
+
+  twist:
+  - who plans to murder the party when they return.
+  - who cares not for the gold that they find on their journey.
+  - and secret member of the dreaded Ordal Sodality.
+  - whose hatred of the party will result in bloodshed.
+  - who demands half of all discovered treasures.
+  - who insists upon a Demonic Oath of Silence.
+  - whose sole desire is to hear the tales told afterwards.
+  - who pays with worthless stones enchanted to look like gems.
+  - who will reward the party with the location of their hated foes.
+  - who will deliver unto the adventurers the promised secrets of immortality (by attempting to turn them into zombies).

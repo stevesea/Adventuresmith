@@ -1,0 +1,27 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+tables:
+  part1:
+  - A slender reed
+  - A wriggling, jade-skinned lizard
+  - A crumpled leather glove
+  - A neatly-rolled parchment
+  - An ornate golden key
+  - A faded piece of tapestry
+  - A jewel-covered egg
+  - A thin, sharp-tipped dagger
+  - A frock of silky blond hair
+  - An exquisite-looking amulet
+  part2:
+  - that heals minor injuries when destroyed.
+  - that summons a lesser demon when touched.
+  - worth a hundred gold coins.
+  - that the King would kill for.
+  - that repels ghouls.
+  - which the bird stole from an elven lord.
+  - that bestows the curse of lycanthropy.
+  - that is half-covered in blood.
+  - that turns to dust when you touch it.
+  - that exactly matches the final element of the Prophecy.

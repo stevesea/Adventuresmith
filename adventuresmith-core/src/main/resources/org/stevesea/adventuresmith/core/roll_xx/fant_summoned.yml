@@ -1,0 +1,27 @@
+---
+templates:
+- "{{part1}} {{part2}}"
+
+tables:
+  part1:
+  - From the swirling green smoke comes
+  - From a towering inferno comes
+  - From a bottomless dank well comes
+  - From the discarded skin of the priest’s body comes
+  - From the blackest corner of the darkness surrounding you bellows
+  - Hulking, putrid globes of clay roll past you to form
+  - Clawing up from the uneven ground beneath you rises
+  - Dropped at you from the mouth of a flying serpent, you now face
+  - A blood sigil hovers before you, and slowly transforms into
+  - You hear the loosening of chains and the screaming, just before you come face to face with
+  part2:
+  - the three tortured souls of the Demon Kings of Lys.
+  - a two-headed gorgon with acid dripping from her scales.
+  - a hulking shadow minotaur carrying a diamond axe.
+  - the enchanted skeleton of the Barillion Chimaera.
+  - the conjoined troll monstrosities, Jrg’hu and Jhrs’tu.
+  - the unblinking, stalked eyes of a Siege Crab.
+  - a gargantuan Homunculus, spurting blood from its nostrils.
+  - a pitiless version of yourself from another world.
+  - a Dark Colossus; its metal joints rasp and grind as it brandishes a massive broadsword.
+  - a rune-scribed undead basilisk with a pulsing red soul-jar embedded in its chest.

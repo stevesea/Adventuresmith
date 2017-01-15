@@ -1,0 +1,27 @@
+---
+templates:
+- "{{part1}} which happens to be sought by: {{part2}}"
+
+tables:
+  part1:
+  - The rotting corpse of Szenka Palgar, royal apothecary,
+  - Detailed instructions for the Ritual of Abnegation,
+  - A speckled cockatrice egg, laid within the past hour,
+  - An unremarkable staff, save the triskelion carved on its handle,
+  - A lion’s paw, preserved in crystal,
+  - A key to the catacombs that lie beneath the Hallowed Cathedral,
+  - The translation to the last stanza of the Fortuna Incantatem,
+  - The Mask of Rengar, perfectly preserved,
+  - The Imperium Aeris, which grants mastery over the air,
+  - The Eiddrel Stone, which magnifies the powers of other items,
+  part2:
+  - Jorland Skerra, roving bard and playwright; he is convinced its discovery will increase his fame.
+  - Aislynn Crane, peasant girl; she has stolen a sorcerer’s tome and needs it to learn her first spell (or else awful things will happen).
+  - Circe Ellutia, once-feared necromancer who has recently suffered a decline in skill and reputation.
+  - Salvadore Domingua, profiteer and smuggler of elite goods.
+  - Adreana Malnacida, Mother of Disease and Carrion.
+  - Thangelos IV, the Thrice-Damned King, disguised as a peasant.
+  - Laraitza Red-Sail, pirate queen and known oath-breaker.
+  - Chance Jackdaw, brigand of High Crowell, believed long-dead.
+  - a boneless dragon in a cart hauled by wights and ghouls.
+  - Areth Cestra, lich prince, and Viola Crane, necrophiliac princess.

@@ -1,0 +1,49 @@
+---
+templates:
+- "{{part1}}{{part2}} {{part3} {{desc}}"
+
+tables:
+  part1:
+  - Raven
+  - Shadow
+  - Dragon
+  - Griffin
+  - Frost
+  - Wyrm
+  - Cloak
+  - Fire
+  - Dagger
+  - Spider
+  part2:
+  - stone
+  - wood
+  - cloud
+  - blade
+  - haven
+  - dale
+  - crest
+  - bone
+  - light
+  - hill
+  part3:
+  - Castle,
+  - Manor,
+  - Dungeon,
+  - Keep,
+  - Fortress,
+  - Isle,
+  - Tower,
+  - Stronghold,
+  - Bastion,
+  - Glade,
+  desc:
+  - where the screams of the tormented still echo.
+  - home of the Mongrel Brigadiers and their one-eyed mistress.
+  - where Liza Necrova plots her revenge.
+  - birthplace of the Avankol Bloodline and the Bastard Regent.
+  - where vampires milk the veins of nymphs.
+  - a place of great wealth and conniving power-mongers.
+  - the origin of the Plague of Bloodletting that ravaged Sokara.
+  - now a blighted ruin inhabited by cannibalistic Oracles.
+  - where the dead walk and are building a peaceful Necropolis.
+  - the site of the weekly Slaughter of Virgins to satisfy Kansereb.

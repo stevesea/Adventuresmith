@@ -1,0 +1,44 @@
+---
+templates:
+- |
+  {{entree}} {{side}}
+  <br/>
+  <br/>However... {{twist}}
+
+tables:
+  entree:
+  - Spit-roasted mutton
+  - Pork stew
+  - Blank-manger
+  - Salted beef
+  - Smoked herring
+  - Mortrews
+  - Chicken dumplings
+  - Broiled mackerel
+  - Eels
+  - Beef pie
+
+  side:
+  - and salted stockfish.
+  - and crab meat.
+  - on a sauce-soaked trencher.
+  - with brown figs in rose sugar.
+  - and honeyed apples.
+  - with pears and plums.
+  - and lampreys in jelly.
+  - with beans and onions.
+  - and shelled oysters.
+  - and peas with saffron.
+
+  twist:
+  - the guests seated around the table have been gutted, their entrails looped around the plates and tureens.
+  - the food is poisoned with ventral nectar.
+  - the entire table is illusory, and there's a pit trap beneath it.
+  - to touch a morsel is an insult to the Queen.
+  - the food's been there for a year, and it's rotted away.
+  - it’s all covered in orc spittle.
+  - the dead wizard sprawled over the plates is rather unappetizing.
+  - the food's contaminated with the Crimson Spill.
+  - it all tastes absolutely horrific.
+  - the food is actually made of bits of gelatinous cube that have been dyed and molded into appetizing shapes.
+

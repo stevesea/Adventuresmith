@@ -1,0 +1,28 @@
+---
+templates:
+- "{{part1}} and {{part2}}"
+
+tables:
+  part1:
+  - A spring-loaded mechanism fires 1-4 spikes, laced with manticore venom,
+  - The statue's mouth drops open and sprays acid 10 feet in a 120-degree arc,
+  - Zombies ensorcelled with invisibility spells are released from their invisible chains,
+  - Condor-sized brown bats pour from a hole in the plaster walls, their mouths frothing,
+  - Intense light emanates from the trigger, temporarily blinding any adventurer in the area,
+  - Candlesticks slowly rise from the floor and light themselves,
+  - Mocking laughter echoes through the room,
+  - Each character sees a hideous doppelganger grin and wave, for just a second, and then the vile reflections are gone,
+  - A sorcerous sigil ignites the air before them, burning brightly for an instant,
+  - They realize just how fucked they actually are,
+
+  part2:
+  - a chute in the ceiling drops a pair of longsword-wielding skeletons into the room.
+  - a Gate opens in the center of the room, summoning an entity from the Abyss.
+  - a Clockwork Servitor emerges from a secret door to attack the party.
+  - water begins to slowly flood the chamber.
+  - the carnivorous beetles chew their way out of honeycombed chambers in search of prey.
+  - a group of acolytes holding a skin-bound book enter the room.
+  - a member of the group must save or switch gender and race.
+  - paper-thin blades jut up from between the stones in the floor to slice the feet of all in the room.
+  - gravity in the room is reversed as a spiked pit trap opens in the ceiling.
+  - spikes jut from the wall, then sprout wings and begin to fly around.

@@ -1,0 +1,38 @@
+---
+templates:
+- "{{part1}} {{part2}} {{desc}}"
+
+tables:
+  part1:
+  - Armband of
+  - Clasp of
+  - Coronet of
+  - Earring of
+  - Choker of
+  - Anklet of
+  - Necklace of
+  - Pendant of
+  - Tiara of
+  - Medallion of
+  part2:
+  - Stalwart Courage,
+  - Public Sensuality,
+  - Revealed Longings,
+  - Divine Rulership,
+  - Bestial Lust,
+  - Irresistible Pulchritude,
+  - Sweet Song,
+  - Infernal Hatreds,
+  - The Western Wind,
+  - the Old Ones,
+  desc:
+  - encrusted with opals set in white gold.
+  - which curses its wearer with Kobold Intellect.
+  - adorned with rubies in a sacred configuration.
+  - infected with a virulent strain of Lich Ague.
+  - which imbues its bearer the ability to start and control fire.
+  - which allows its owner to understand foreign tongues.
+  - it boosts the skills of charm and persuasion.
+  - it grows brighter in appearance as its surroundings grow darker.
+  - a winged insect trapped in amber is its centerpiece.
+  - which afflicts its wearer with cannibalistic urges.
