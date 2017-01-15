@@ -209,6 +209,49 @@ generators:
   - fant_treasure_chest
   - fant_wand
   - fant_warrior_armor
+  - horror_bites
+  - horror_bodies_hidden
+  - horror_body_part
+  - horror_ceiling
+  - horror_clue
+  - horror_crime_scene
+  - horror_crypt
+  - horror_cure
+  - horror_escape
+  - horror_familiar
+  - horror_hole
+  - horror_love
+  - horror_make_it_stop
+  - horror_memories
+  - horror_monster_type
+  - horror_noise
+  - horror_scars
+  - horror_shadow
+  - horror_signature
+  - horror_soul
+  - horror_sound
+  - horror_they
+  - horror_under_bed
+  - horror_under_skin
+  - horror_unseen_entity
+  - horror_vices
+  - horror_zombie_story
+  - modern_callsign
+  - modern_duffel
+  - modern_expertise
+  - modern_fingerprints
+  - modern_insects
+  - modern_liquid
+  - modern_magic
+  - modern_pool
+  - modern_primary_objective
+  - modern_secret
+  - modern_secret_society
+  - modern_sentry
+  - modern_smell
+  - modern_suitcase
+  - modern_tonight
+  - modern_vehicle
   - scifi_ancient_terminal
   - scifi_anomaly
   - scifi_bounty_hunter

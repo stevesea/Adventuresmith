@@ -326,7 +326,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     .withSelectable(false)
                                     .withIsExpanded(false)
                                     .withIdentifier(grpGrp.hashCode().toLong())
-                                    //.withIcon(getCollectionIcon(coll.id, grpGrp))
+                                    .withIcon(getCollectionIcon(coll.id, grp.key))
                                     .withSubItems(subGrpItem)
                             groupGroupMap.put(grpGrp, groupGroupItem)
                         } else {
@@ -723,7 +723,28 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
                 AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
-                AdventuresmithCore.RollXX -> CommunityMaterial.Icon.cmd_format_superscript
+                AdventuresmithCore.RollXX ->  {
+                    when (grpId) {
+                        "grpFantNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
+                        else -> {
+                            if (grpId == null) {
+                                CommunityMaterial.Icon.cmd_format_superscript
+                            } else if (grpId.startsWith("grpFant")) {
+                                CommunityMaterial.Icon.cmd_shield
+                            } else if (grpId.startsWith("grpSuper")) {
+                                CommunityMaterial.Icon.cmd_radioactive
+                            } else if (grpId.startsWith("grpSciFi")) {
+                                CommunityMaterial.Icon.cmd_robot
+                            } else if (grpId.startsWith("grpHorror")) {
+                                CommunityMaterial.Icon.cmd_ghost
+                            } else if (grpId.startsWith("grpModern")) {
+                                CommunityMaterial.Icon.cmd_power_plug
+                            } else {
+                                CommunityMaterial.Icon.cmd_format_superscript
+                            }
+                        }
+                    }
+                }
                 AdventuresmithCore.AugmentedReality -> {
                     when (grpId) {
                         "grpNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
