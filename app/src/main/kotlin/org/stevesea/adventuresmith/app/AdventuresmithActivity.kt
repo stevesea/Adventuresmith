@@ -260,7 +260,8 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.horsemen_of_apocalypse,
             R.drawable.infernus,
             R.drawable.initial_d,
-            R.drawable.seven_headed_dragon
+            R.drawable.seven_headed_dragon,
+            R.drawable.mmanticore
             //R.drawable.alexander_great_chariot,
             //R.drawable.batman,
             //R.drawable.pheonix,
@@ -326,7 +327,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     .withSelectable(false)
                                     .withIsExpanded(false)
                                     .withIdentifier(grpGrp.hashCode().toLong())
-                                    .withIcon(getCollectionIcon(coll.id, grp.key))
+                                    .withIcon(getCollectionIcon(coll.id, grpGrp))
                                     .withSubItems(subGrpItem)
                             groupGroupMap.put(grpGrp, groupGroupItem)
                         } else {
@@ -725,24 +726,35 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
                 AdventuresmithCore.RollXX ->  {
                     when (grpId) {
+                        "Superheroes" -> CommunityMaterial.Icon.cmd_dna
+                        "grpSuperHeroes" -> CommunityMaterial.Icon.cmd_silverware_spoon
+                        "grpSuperVillains" -> CommunityMaterial.Icon.cmd_flask_outline
+                        "grpSuperAdvSeed" -> CommunityMaterial.Icon.cmd_bomb
+
+                        "Fantasy" -> CommunityMaterial.Icon.cmd_castle
                         "grpFantNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
-                        else -> {
-                            if (grpId == null) {
-                                CommunityMaterial.Icon.cmd_format_superscript
-                            } else if (grpId.startsWith("grpFant")) {
-                                CommunityMaterial.Icon.cmd_shield
-                            } else if (grpId.startsWith("grpSuper")) {
-                                CommunityMaterial.Icon.cmd_radioactive
-                            } else if (grpId.startsWith("grpSciFi")) {
-                                CommunityMaterial.Icon.cmd_robot
-                            } else if (grpId.startsWith("grpHorror")) {
-                                CommunityMaterial.Icon.cmd_ghost
-                            } else if (grpId.startsWith("grpModern")) {
-                                CommunityMaterial.Icon.cmd_power_plug
-                            } else {
-                                CommunityMaterial.Icon.cmd_format_superscript
-                            }
-                        }
+                        "grpFantAdvSeed" -> CommunityMaterial.Icon.cmd_sword
+                        "grpFantChars" -> CommunityMaterial.Icon.cmd_account
+                        "grpFantMonsters" -> CommunityMaterial.Icon.cmd_paw
+                        "grpFantMagic" -> CommunityMaterial.Icon.cmd_auto_fix
+                        "grpFantSettings" -> CommunityMaterial.Icon.cmd_castle
+
+                        "Science Fiction" -> Ionicons.Icon.ion_planet
+                        "grpSciFiShip" -> CommunityMaterial.Icon.cmd_rocket
+                        "grpSciFiAdvSeed" -> CommunityMaterial.Icon.cmd_robot
+
+                        "Modern" -> CommunityMaterial.Icon.cmd_city
+                        "grpModernChars" -> CommunityMaterial.Icon.cmd_account_multiple
+                        "grpModernSettings" -> CommunityMaterial.Icon.cmd_city
+                        "grpModernAdvSeeds" -> CommunityMaterial.Icon.cmd_comment_question_outline
+
+                        "Horror" -> CommunityMaterial.Icon.cmd_ghost
+                        "grpHorrorChars" -> CommunityMaterial.Icon.cmd_emoticon_devil
+                        "grpHorrorMonsters" -> CommunityMaterial.Icon.cmd_duck
+                        "grpHorrorSettings" -> CommunityMaterial.Icon.cmd_home_variant
+                        "grpHorrorAdvSeeds" -> Ionicons.Icon.ion_bonfire
+
+                        else -> CommunityMaterial.Icon.cmd_format_superscript
                     }
                 }
                 AdventuresmithCore.AugmentedReality -> {
