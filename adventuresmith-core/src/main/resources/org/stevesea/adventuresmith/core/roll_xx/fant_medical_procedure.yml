@@ -1,6 +1,6 @@
 ---
 templates:
-- "The {{part1}} is trying to perform a {{part2}}"
+- "The {{part1}} is trying to {{part2}}"
 
 tables:
   part1:
@@ -15,13 +15,13 @@ tables:
   - Addled tanner
   - Sexually aroused clergyman
   part2:
-  - Hot clyster, but the formula’s all wrong.
-  - Amputation, and the saw's not sharp enough.
-  - Lancing a boil, but keeps missing.
-  - Applying sterile egg white, but that wasn't an egg.
-  - Lithotomy, but it's appendicitis, not a kidneystone.
-  - Trepanning, and so far, so good.
-  - Opium-soaked sponge with a straw in it, hard to fuck that up.
-  - Delivering baby, looks like it's coming out feet-first.
-  - Pulling teeth, hard to get a good grip with these things.
-  - Extracting fragmented arrowhead, should probably just quit now.
+  - perform a hot clyster, but the formula’s all wrong.
+  - perform an amputation, and the saw's not sharp enough.
+  - lance a boil, but keeps missing.
+  - apply sterile egg white, but that wasn't an egg.
+  - perform a lithotomy, but it's appendicitis, not a kidneystone.
+  - perform a trepanning, and so far, so good.
+  - apply an opium-soaked sponge with a straw in it, hard to fuck that up.
+  - deliver a baby, looks like it's coming out feet-first.
+  - pull teeth, hard to get a good grip with these things.
+  - extract a fragmented arrowhead, should probably just quit now.
