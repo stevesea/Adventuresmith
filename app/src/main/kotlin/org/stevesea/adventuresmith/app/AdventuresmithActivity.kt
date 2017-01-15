@@ -243,7 +243,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             //R.drawable.dragon,
             //R.drawable.elephant_dragon,
             //R.drawable.pheonix,
-            //R.drawable.mmanticore
             //R.drawable.werewolf
     )
     val bkgImages = listOf(
@@ -252,7 +251,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.death_king_arthur,
             R.drawable.death_lion,
             R.drawable.demon_glasses,
-            R.drawable.dragon,
             R.drawable.fallen_angels,
             R.drawable.fool_riding_goat,
             R.drawable.hellmouth,
@@ -737,7 +735,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpFantChars" -> CommunityMaterial.Icon.cmd_account
                         "grpFantMonsters" -> CommunityMaterial.Icon.cmd_paw
                         "grpFantMagic" -> CommunityMaterial.Icon.cmd_auto_fix
-                        "grpFantDungeonDressing" -> CommunityMaterial.Icon.cmd_castle
+                        "grpFantCityDressing" -> CommunityMaterial.Icon.cmd_castle
+                        "grpFantDungeonDressing" -> CommunityMaterial.Icon.cmd_cube_unfolded
                         "grpFantTreasure" -> CommunityMaterial.Icon.cmd_diamond
 
                         "Science Fiction" -> Ionicons.Icon.ion_planet
@@ -752,7 +751,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "Horror" -> CommunityMaterial.Icon.cmd_ghost
                         "grpHorrorChars" -> CommunityMaterial.Icon.cmd_emoticon_devil
                         "grpHorrorMonsters" -> CommunityMaterial.Icon.cmd_duck
-                        "grpHorrorSights" -> CommunityMaterial.Icon.cmd_eye
+                        "grpHorrorSights" -> CommunityMaterial.Icon.cmd_face
                         "grpHorrorSounds" -> CommunityMaterial.Icon.cmd_face_profile
                         "grpHorrorAdvSeeds" -> Ionicons.Icon.ion_bonfire
 

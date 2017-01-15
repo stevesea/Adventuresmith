@@ -1,20 +1,31 @@
 ---
 templates:
-- "The {{part1}} is trying to {{part2}}"
+- "The {{adjective}} {{char}} is trying to {{procedure}}"
 
 tables:
-  part1:
-  - Intoxicated skinner
-  - Half-blind blacksmith
-  - Palsied weaver
-  - Irascible saddlemaker
-  - Terrified pastry cook
-  - Dull-witted armorer
-  - Battle-scarred prostitute
-  - Clumsy shoemaker
-  - Addled tanner
-  - Sexually aroused clergyman
-  part2:
+  adjective:
+  - intoxicated
+  - half-blind
+  - palsied
+  - irascible
+  - terrified
+  - dull-witted
+  - battle-scarred
+  - clumsy
+  - addled
+  - sexually aroused
+  char:
+  - Skinner
+  - Blacksmith
+  - Weaver
+  - Saddlemaker
+  - Pastry Cook
+  - Armorer
+  - Prostitute
+  - Shoemaker
+  - Tanner
+  - Clergyman
+  procedure:
   - perform a hot clyster, but the formula’s all wrong.
   - perform an amputation, and the saw's not sharp enough.
   - lance a boil, but keeps missing.
