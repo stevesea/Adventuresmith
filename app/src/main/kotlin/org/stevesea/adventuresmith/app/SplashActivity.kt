@@ -24,10 +24,13 @@ import android.content.*
 import android.os.*
 import android.support.v7.app.*
 import org.jetbrains.anko.*
+import org.stevesea.adventuresmith.core.AdventuresmithCore
 
 class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AdventuresmithCore.initCaches()
 
         val intent = Intent(this, AdventuresmithActivity::class.java)
         startActivity(intent)

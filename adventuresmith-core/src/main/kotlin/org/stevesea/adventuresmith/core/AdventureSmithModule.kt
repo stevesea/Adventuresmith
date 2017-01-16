@@ -24,7 +24,11 @@ import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
+import com.google.common.collect.Multimap
+import com.google.common.collect.Multimaps
+import com.google.common.collect.Table
 import com.google.common.io.*
+import mu.KLoggable
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.io.*
@@ -32,7 +36,8 @@ import java.security.*
 import java.util.*
 
 
-object AdventuresmithCore : KodeinAware {
+object AdventuresmithCore : KodeinAware, KLoggable {
+    override val logger = LocaleAwareResourceFinder.logger()
     // 'all' the generators in core
     val GENERATORS = "core-generators"
     // the tag for the resource-generators held in core
@@ -67,22 +72,52 @@ object AdventuresmithCore : KodeinAware {
         }
         generators
     }
+    data class GroupKey(val coll: String, val grpId: String? = null)
+
+    val groupedGenerators: Map<GroupKey, List<Generator>> by lazy {
+        val groupedGens : MutableMap<GroupKey, MutableList<Generator>> = mutableMapOf()
+        generators.forEach {
+            // can't cache metadata, since the locale might change at runtime. But, we can crack open the
+            // default locale's metadata to get collection/group IDs
+            val genMeta = it.value.getMetadata()
+            val grpKey = GroupKey(genMeta.collectionId, genMeta.groupId)
+            val genList : MutableList<Generator> = groupedGens.getOrPut(grpKey,
+                    {
+                        mutableListOf()
+                    }
+            )
+            genList.add(it.value)
+        }
+        groupedGens
+    }
+
 
     fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : Map<GeneratorMetaDto, Generator> {
         val result : MutableMap<GeneratorMetaDto, Generator> = mutableMapOf()
 
-        for (gen in generators) {
+        val grpKey = GroupKey(collId, grpId)
+        groupedGenerators.getOrElse(grpKey, {mutableListOf()}).forEach {
             try {
-                val genMeta = gen.value.getMetadata(locale)
+                val genMeta = it.getMetadata(locale)
                 if (collId == genMeta.collectionId &&
                         grpId.orEmpty() == genMeta.groupId.orEmpty()) {
-                    result.put(genMeta, gen.value)
+                    result.put(genMeta, it)
                 }
             } catch (e : Exception) {
                 // TODO: log
             }
         }
         return result.toSortedMap()
+    }
+
+
+    // we have two lazy-init maps 
+    //   a map of genid -> generator
+    //   and a map of collId/grpId -> list<generator>
+    fun initCaches() {
+        for (g in groupedGenerators) {
+            logger.debug { g.key }
+        }
     }
 
     fun getCollections(locale: Locale): Set<CollectionMetaDto> {
