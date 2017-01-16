@@ -111,7 +111,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     }
 
 
-    // we have two lazy-init maps 
+    // we have two lazy-init maps
     //   a map of genid -> generator
     //   and a map of collId/grpId -> list<generator>
     fun initCaches() {

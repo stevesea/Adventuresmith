@@ -78,6 +78,7 @@ open class BaseGeneratorWithView<TModel, TView>(
         return modelGen.getMetadata(locale)
     }
 }
+
 data class GeneratorMetaDto(val name: String,
                             val collectionId: String,
                             val groupId: String? = null,

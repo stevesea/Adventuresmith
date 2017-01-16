@@ -131,37 +131,45 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return false
 
                         val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
-                        val resultItems : MutableList<String> = mutableListOf()
-                        for (i in 1..num_to_generate) {
-                            try {
-                                resultItems.add(item.generator.generate(getCurrentLocale(resources)))
-                            } catch (e: Exception) {
-                                warn(e.toString(), e)
-                                resultItems.add(e.toString())
+                        val generator = item.generator
+                        val currentLocale = getCurrentLocale(resources)
+
+                        doAsync {
+
+                            val resultItems : MutableList<String> = mutableListOf()
+                            for (i in 1..num_to_generate) {
+                                try {
+                                    resultItems.add(generator.generate(currentLocale))
+                                } catch (e: Exception) {
+                                    warn(e.toString(), e)
+                                    resultItems.add(e.toString())
+                                }
+                            }
+                            uiThread {
+                                // disable filter before adding any results
+                                if (currentFilter != null) {
+                                    resultAdapter.filter(null)
+                                }
+
+                                resultAdapter.add(0, resultItems.map{ResultItem(it)})
+
+                                recycler_results.scrollToPosition(0)
+
+                                // re-apply the filter if there is one
+                                if (currentFilter != null) {
+                                    debug("Applying filter '$currentFilter'")
+                                    resultAdapter.filter(currentFilter)
+                                }
+                                debug("Number of items ${resultAdapter.adapterItemCount}")
+
+                                Answers.getInstance().logCustom(
+                                        CustomEvent("Generated Result")
+                                                .putCustomAttribute("CollectionId", item.meta.collectionId)
+                                                .putCustomAttribute("GroupId", "${item.meta.groupId}")
+                                                .putCustomAttribute("Name", item.meta.name)
+                                )
                             }
                         }
-                        // disable filter before adding any results
-                        if (currentFilter != null) {
-                            resultAdapter.filter(null)
-                        }
-
-                        resultAdapter.add(0, resultItems.map{ResultItem(it)})
-
-                        recycler_results.scrollToPosition(0)
-
-                        // re-apply the filter if there is one
-                        if (currentFilter != null) {
-                            debug("Applying filter '$currentFilter'")
-                            resultAdapter.filter(currentFilter)
-                        }
-                        debug("Number of items ${resultAdapter.adapterItemCount}")
-
-                        Answers.getInstance().logCustom(
-                                CustomEvent("Generated Result")
-                                        .putCustomAttribute("CollectionId", item.meta.collectionId)
-                                        .putCustomAttribute("GroupId", "${item.meta.groupId}")
-                                        .putCustomAttribute("Name", item.meta.name)
-                        )
                         return true
                     }
                 })
@@ -555,19 +563,23 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         currentDrawerItemId = drawerItemId
 
-        buttonAdapter.clear()
-        val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
-        for (g in generators) {
-            buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+        doAsync {
+            val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
+            uiThread {
+                buttonAdapter.clear()
+                for (g in generators) {
+                    buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+                }
+                // NOTE: doing deselect after the clear resulted in crash
+                resultAdapter.deselect()
+                if (actionModeHelper.isActive) {
+                    actionModeHelper.actionMode.finish()
+                }
+                resultAdapter.clear()
+                appbar.visibility = View.VISIBLE
+                appbar.setExpanded(true, true)
+            }
         }
-        // NOTE: doing deselect after the clear resulted in crash
-        resultAdapter.deselect()
-        if (actionModeHelper.isActive) {
-            actionModeHelper.actionMode.finish()
-        }
-        resultAdapter.clear()
-        appbar.visibility = View.VISIBLE
-        appbar.setExpanded(true, true)
 
         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
                 .putCustomAttribute("Dataset", collGrp.collectionId)
