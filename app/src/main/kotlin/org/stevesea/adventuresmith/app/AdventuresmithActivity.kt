@@ -510,23 +510,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             drawer = drawerBuilder.build()
         }
 
-        val rightDrawer = DrawerBuilder()
-                .withActivity(this)
-                .withSavedInstance(savedInstanceState)
-                .withShowDrawerOnFirstLaunch(false)
-                .withDisplayBelowStatusBar(true)
-                .withGenerateMiniDrawer(true)
-                .withDrawerGravity(Gravity.END)
-                .addDrawerItems(
-                        PrimaryDrawerItem()
-                                .withName("asdfasdf")
-                                .withIcon(CommunityMaterial.Icon.cmd_cow),
-                        PrimaryDrawerItem()
-                                .withName("asdf")
-                                .withIcon(CommunityMaterial.Icon.cmd_duck)
-                )
-                .append(drawer!!)
-
         val btnSpanShort = resources.getInteger(R.integer.buttonSpanShort)
         val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)
         val btnSpanLong = resources.getInteger(R.integer.buttonSpanLong)
