@@ -27,10 +27,6 @@ Or, if you decide your party encounters a humanoid in the woods...
 
 ... would you have come up with an asthmatic half-orc bandit, laying a trap?
 
-I'm not planning to turn this into a general-purpose random table engine. But, I am
-interested in complicated random generation involving multiple dice, interrelated
-results from multiple tables, etc.
-
 Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
 
 Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
