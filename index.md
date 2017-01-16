@@ -24,10 +24,6 @@ Or, if you decide your party encounters a humanoid in the woods...
 
 ... would you have come up with an asthmatic half-orc bandit, laying a trap?
 
-I'm not planning to turn this into a general-purpose random table engine. But, I am
-interested in complicated random generation involving multiple dice, interrelated
-results from multiple tables, etc.
-
 Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
 
 Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
@@ -72,6 +68,7 @@ that lists all the content contained within it.
 
 ### Jason Lutes
 [Lampblack & Brimstone](http://lampblackandbrimstone.blogspot.com/)
+
 * the Perilous Wilds
 * Freebooters on the Frontier
 
@@ -81,14 +78,17 @@ Attribution - ShareAlike 3.0 Unported license.
 
 ### Kevin Crawford / Sine Nomine Publishing
 [Sine Nomine Publishing](http://www.sinenomine-pub.com/)
+
 * Stars Without Number - content is from the free version of the SWN rule book
 
 ### Courtney C Campbell
 [Hack & Slash blog](http://hackslashmaster.blogspot.com/)
+
 * [Tricks, Empty Rooms, & Basic Trap Design](http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html)
 
 ### Paul D. Gallagher / Geist Hack Games
 [Neural Archive blog](http://neuralarchive.blogspot.co.uk)
+
 * [Augmented Reality](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
 
 ### The Sentinels of Meregoth / Neoplastic Press
@@ -97,6 +97,7 @@ Attribution - ShareAlike 3.0 Unported license.
 
 ### Ben Milton
 [Maze Rats](http://questingblog.com/downloads/)
+
 * Maze Rats 4.1 
 * Maze Rats 0.1 http://questingblog.com/maze-rats/
 
