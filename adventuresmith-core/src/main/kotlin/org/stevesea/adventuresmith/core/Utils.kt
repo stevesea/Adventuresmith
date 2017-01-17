@@ -116,7 +116,7 @@ object LocaleAwareResourceFinder : KLoggable {
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
     val objectReader : ObjectReader = instance()
-    val maxSize = 50L
+    val maxSize = 100L
 
     val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
             .maximumSize(maxSize)
