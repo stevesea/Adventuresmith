@@ -755,8 +755,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.RollXX ->  {
                     when (grpId) {
                         "Superheroes" -> CommunityMaterial.Icon.cmd_dna
-                        "grpSuperHeroes" -> CommunityMaterial.Icon.cmd_silverware_spoon
-                        "grpSuperVillains" -> CommunityMaterial.Icon.cmd_flask_outline
+                        "grpSuperHeroes" -> CommunityMaterial.Icon.cmd_emoticon // cmd_silverware_spoon
+                        "grpSuperVillains" -> CommunityMaterial.Icon.cmd_emoticon_devil
                         "grpSuperAdvSeed" -> CommunityMaterial.Icon.cmd_bomb
 
                         "Fantasy" -> CommunityMaterial.Icon.cmd_castle
@@ -775,7 +775,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         "Modern" -> CommunityMaterial.Icon.cmd_city
                         "grpModernChars" -> CommunityMaterial.Icon.cmd_account
-                        "grpModernRoomDressing" -> CommunityMaterial.Icon.cmd_city
+                        "grpModernRoomDressing" -> CommunityMaterial.Icon.cmd_domain // city?
                         "grpModernMissions" -> CommunityMaterial.Icon.cmd_puzzle // cmd_emoticon_cool
 
                         "Horror" -> CommunityMaterial.Icon.cmd_ghost
