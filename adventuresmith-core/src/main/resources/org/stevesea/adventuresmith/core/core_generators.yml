@@ -69,6 +69,8 @@ generators:
   freebooters_on_the_frontier:
   #- chars   Not converted completely to new template format
   - spells
+  behind_the_tables:
+  - pub_names
   maze_rats:
   - mr01_afflictions
   - mr01_characters

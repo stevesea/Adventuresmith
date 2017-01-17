@@ -699,6 +699,12 @@ class AdventuresmithActivity : AppCompatActivity(),
 
             return when(id) {
                 DiceConstants.CollectionName -> CommunityMaterial.Icon.cmd_dice_6
+                AdventuresmithCore.BehindTheTables -> {
+                    when (grpId) {
+                        "grpSettlements" -> CommunityMaterial.Icon.cmd_home
+                        else -> CommunityMaterial.Icon.cmd_reddit
+                    }
+                }
                 AdventuresmithCore.MazeRats -> {
                     when (grpId) {
                         "grpChar" -> Ionicons.Icon.ion_android_people
