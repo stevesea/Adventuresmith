@@ -10,6 +10,7 @@ groups:
   grpLocationsDungeon: Locations / Dungeon
   grpLocationsTown: Locations / Town
   grpNPCsCastle: NPCs / Castle
+  grpNPCsCastleCourt: NPCs / Castle Court
   grpNPCsCastleDungeon: NPCs / Castle Dungeon
   grpNPCsTown: NPCs / Town
 attribution: |
