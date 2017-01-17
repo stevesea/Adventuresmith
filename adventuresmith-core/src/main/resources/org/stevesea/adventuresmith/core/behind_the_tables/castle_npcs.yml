@@ -1,5 +1,88 @@
 ---
 nested_tables:
+  jailer:
+    templates:
+    - |
+      The jailer is {{jailer.is}}
+      <br/>The jailer is concerned about {{jailer.concern}}
+      <br/>The jailer is looking to {{jailer.seeks}}
+      <br/>The jailer carries {{jailer.carries}}
+    is:
+    - A coward who likes to act tough.
+    - A bully in every sense of the word.
+    - A man who grew up among criminals.
+    - A sadistic thug.
+    - A mild-mannered man of faith.
+    - A resentful cripple.
+    concern:
+    - Rumors of an upcoming escape attempt.
+    - Losing his job after a messy prisoner death.
+    - Facing a prisoner who creeps him out.
+    - Ways to make a little extra silver.
+    seeks:
+    - Abuse someone who is defenseless.
+    - Make himself feel powerful.
+    - Reach out to a disturbed prisoner.
+    - Swap grisly tales.
+    carries:
+    - A large ring of keys.
+    - A large knife and a sap.
+    - A pale of cold porridge from the kitchens.
+    - Loot seized from several prisoners.
+    - A pocket-sized prayer book.
+    - A spiked club.
+    - A scourge or whip.
+    - A wineskin.
+
+  prisoner:
+    templates:
+    - |
+      The prisoner has {{prisoner.appearance}}
+      <br/>The prisoner is here because {{prisoner.here}}
+      <br/>The prisoner has {{prisoner.has}}
+    appearance:
+    - A long scraggly beard.
+    - A patchy beard.
+    - Skin draped loosely over his bones.
+    - Boils and sores on his skin.
+    here:
+    - He stole something.
+    - He killed someone.
+    - He raped someone.
+    - He was caught poaching on his liege’s land.
+    - He committed an act of fraud.
+    - Someone confused him with someone else.
+    has:
+    - No hope of escape.
+    - A foolish optimism of his escape prospects.
+    - A tenuous grasp on sanity.
+    - Been driven mad.
+
+  torturer:
+    templates:
+    - |
+      The torturer is {{torturer.is}}
+      <br/>The torturer is looking to {{torturer.seeks}}
+      <br/>The torturer carries {{torturer.carries}}
+    is:
+    - The bastard son of a noble house.
+    - A priest with a puritanical agenda.
+    - A horrible sadist.
+    - A wicked little man.
+    seeks:
+    - Impress his liege with efficient confessions.
+    - Make himself feel powerful.
+    - Break a particularly willful prisoner.
+    - Frighten someone with grisly tales.
+    carries:
+    - A large knight and a scourge.
+    - A leatherbound set of blades, hooks, and prongs.
+    - Several strange potions and poisons.
+    - A trophy taken from a tortured prisoner.
+    - A pocket-sized prayer book.
+    - A flask of spirits.
+
+
 
   nobleman:
     templates:

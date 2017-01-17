@@ -1,0 +1,42 @@
+---
+templates:
+- "{{castle_dungeon_room.templates}}"
+nested_tables:
+  castle_dungeon_room:
+    templates:
+    - |
+      <h5>{{castle_dungeon_room.room}}</h5>
+      You notice: {{castle_dungeon_room.feature}}
+    room:
+    - A dungeon cell.
+    - Another dungeon cell.
+    - A passageway connecting cell blocks.
+    - A guardroom.
+    - The barracks.
+    - The jailer’s quarters.
+    - A yard or large indoor space for exercise.
+    - A small dining room.
+    - An interrogation room.
+    - A torture chamber.
+
+    feature:
+    - A wooden door reinforced with steel bands.
+    - Steel bars where you expected a stone wall.
+    - Empty manacles along the wall.
+    - An empty sconce to hold a torch.
+    - Distant torchlight.
+    - The floor is uneven.
+    - A crack in the stone floor.
+    - A mouse skittering underfoot.
+    - The stench of rotting flesh.
+    - The scent of stale urine.
+    - A putrid smell.
+    - A dank and moldy odor.
+    - An uncomfortable groaning.
+    - A faint scratching sound.
+    - An odd tapping sound.
+    - The squeaking of rats.
+    - The shouting of distant voices.
+    - Howls of agony.
+    - Horrific screams.
+    - The clanking of chains.

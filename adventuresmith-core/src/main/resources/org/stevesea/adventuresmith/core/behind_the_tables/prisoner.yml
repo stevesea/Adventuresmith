@@ -1,0 +1,5 @@
+---
+templates:
+- "{{prisoner.templates}}"
+imports:
+- castle_npcs

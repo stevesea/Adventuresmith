@@ -1,0 +1,86 @@
+---
+templates:
+- "{{castle_dungeon.templates}}"
+nested_tables:
+  castle_dungeon:
+    templates:
+    - |
+      The dungeon is located: {{castle_dungeon.located}}
+      <br/>The dungeon was built: {{castle_dungeon.built}}
+      <br/>The dungeon is: {{castle_dungeon.is}}
+      <br/>Prisoners are held within: {{castle_dungeon.prisoners_within}}
+
+      <br/>The cells’ (or pits’) condition is: {{castle_dungeon.cell_condition}}
+      <br/>Prisoners are treated: {{castle_dungeon.prisoner_treated}}
+      <br/>The dungeon is known for: {{castle_dungeon.known_for}}
+      <br/>According to rumor, within the castle’s dungeon lies: {{castle_dungeon.rumor}}
+
+    located:
+    - In a tower set apart from the main castle.
+    - Beneath the keep.
+    - In a flanking tower of the castle.
+    - Beneath flanking tower in the castle.
+    - In a corner tower of the castle.
+    - Beneath the corner tower.
+    built:
+    - As part of the original castle.
+    - As a later addition.
+    - For another purpose originally.
+    - Long before most of the castle.
+    is:
+    - A sprawling maze of twisting passages.
+    - A sprawling maze of narrow passages.
+    - Organized into small, neat rows of cells or pits.
+    - Organized around a large central cell block or pit.
+    - Only a few rooms.
+    - An endless series of long corridors.
+    - An endless series of small rooms and staircases.
+    - A series of corridors with very low ceilings.
+
+    prisoners_within:
+    - Individual cells, in complete isolation.
+    - Individual cells, but they can see and hear other prisoners.
+    - Individual cells, but they can hear other prisoners.
+    - Cells that accommodate up to two prisoners.
+    - Cells that accommodate up to two prisoners, each shackled to the wall.
+    - Cells that accommodate up to four prisoners.
+    - Cells that accommodate up to four prisoners, each shackled to the wall.
+    - A large chamber with many other prisoners, each shackled to the wall.
+    - Individual pits or wells, open at the top.
+    - One or more huge pit with many other prisoners.
+
+    cell_condition:
+    - Well-maintained; the walls are solid.
+    - Aging, but sturdy; the walls have some cracks.
+    - Decrepit; the walls are crumbling.
+    - So dark it’s difficult to say.
+
+    prisoner_treated:
+    - Humanely; they receive reasonable meals, some exercise, and healing when needed.
+    - Like dogs; they receive poor quality meals and enough healing to keep them alive.
+    - Like rats; they receive terrible meals and are plagued by sickness.
+    - Like they don’t exist; occasionally they receive food.
+    known_for:
+    - Many prisoners dying in a terrible plague.
+    - A mass escape in the past.
+    - The escape of a famous criminal.
+    - Being the final home of a famous criminal.
+    - Being the final home of a legendary hero.
+    - Being haunted by vengeful ghosts.
+    - Its horrific torture pits.
+    - Never suffering a successful escape.
+    - Its quirky jailer.
+    - The quality of its meals.
+
+    rumor:
+    - A secret tunnel to the outside.
+    - The bones of a long-lost hero.
+    - The preserved head of an ancient villain.
+    - A terrible beast to which prisoners are fed.
+    - A missing lord or lady.
+    - A famous jewel by a notorious prisoner.
+    - A unique and terrible torture device.
+    - The bones of a deposed king or queen.
+
+
+

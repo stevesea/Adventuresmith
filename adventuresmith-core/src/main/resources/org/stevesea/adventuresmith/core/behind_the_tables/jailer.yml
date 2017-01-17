@@ -1,0 +1,5 @@
+---
+templates:
+- "{{jailer.templates}}"
+imports:
+- castle_npcs

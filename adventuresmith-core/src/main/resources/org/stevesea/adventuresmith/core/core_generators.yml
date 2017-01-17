@@ -75,6 +75,9 @@ generators:
   - armorer
   - bowyer
   - castle
+  - castle_dungeon
+  - castle_dungeon_room
+  - castle_encounters_dungeon
   - castle_encounters_peace
   - castle_encounters_siege
   - castle_room
@@ -86,6 +89,7 @@ generators:
   - guard_captain
   - horsemaster
   - huntsman
+  - jailer
   - kennelmaster
   - knight
   - law_official
@@ -94,6 +98,7 @@ generators:
   - nobleman
   - noblewoman
   - priest
+  - prisoner
   - pub_names
   - retainer
   - seer
@@ -101,6 +106,7 @@ generators:
   - smith
   - stable_hand
   - steward
+  - torturer
   - traveler
   - tutor
   maze_rats:
