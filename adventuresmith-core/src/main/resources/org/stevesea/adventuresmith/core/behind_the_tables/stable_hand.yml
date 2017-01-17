@@ -1,0 +1,6 @@
+---
+templates:
+- "{{stable_hand.templates}}"
+
+imports:
+- castle_npcs

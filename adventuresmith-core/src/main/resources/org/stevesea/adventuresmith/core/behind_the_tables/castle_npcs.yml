@@ -1,0 +1,416 @@
+---
+nested_tables:
+
+  nobleman:
+    is:
+    - A patient old man.
+    - A wide-eyed young man.
+    - A hot-tempered tyrant.
+    - A patient and benevolent ruler.
+    - A guest, a member of a powerful house.
+    - A guest, a member of a lesser house.
+    seeks:
+    - Dispose of an enemy.
+    - Negotiate a trade contract.
+    - Prepare the castle’s defenders for war.
+    - Sabotage a rival.
+    - Arrange a beneficial marriage.
+    - Have a good time with.
+    carries:
+    - Several deeds and titles.
+    - A family heirloom.
+    - Several inventories and invoices.
+    - An extremely valuable sword.
+    - A compromising love letter.
+    - A letter from a powerful lord or lady.
+  noblewoman:
+    is:
+    A wise old woman.
+    A passionate young woman.
+    A homely young lady.
+    An acerbic wit.
+    A guest, a member of a powerful house.
+    A guest, a member of a lesser house.
+    seeks_someone:
+    Help gain revenge against a bitter rival.
+    Bring to light a scandal involving an enemy.
+    Secure a beneficial marriage.
+    Talk some sense into her husband or father.
+    Deliver a secret message.
+    Share some wine and gossip.
+    carries:
+    A family heirloom.
+    Some very valuable jewels.
+    A compromising love letter.
+    A letter from a powerful lord or lady.
+  knight:
+    is:
+    - A beautiful youth.
+    - A brutish thug.
+    - A celebrated war hero.
+    - A popular tavern patron.
+    - A favorite among the ladies.
+    - Ruggedly handsome.
+    sworn:
+    - Protect his liege from harm.
+    - Defend his liege’s lands.
+    - Avenge his liege’s personal grievances.
+    - Protect his liege’s loved ones.
+    - Advance his liege’s ideals or faith.
+    - Ride to war in his liege’s name.
+    carries:
+    - A finely crafted longsword.
+    - A huge greatsword.
+    - A well-used battleaxe.
+    - A heavy warhammer.
+    - A letter from his liege.
+    - A favor from a faraway maiden.
+  squire: # valet/retainer
+    is:
+    A squire from a lesser noble house.
+    A frightened link boy.
+    A long-time valet or squire.
+    A reformed criminal-turned valet.
+    A prisoner of war.
+    A mysterious foreigner.
+    has:
+    A black eye.
+    Wild, shaggy hair.
+    A terrible stutter.
+    A lot of self-confidence.
+    wants_to:
+    Earn a little silver.
+    Train with weapons to become a hero.
+    Earn the affection of his master.
+    Bring honor to his family name.
+    Avoid entangling himself in a scandal.
+    Have a drink and a rest.
+
+  armorer:
+    is:
+    A meticulous armorsmith.
+    A blacksmith who makes decent swords.
+    A farrier who can mend swords.
+    A highly-skilled weaponsmith.
+    looking_for:
+    Someone who can shoe horses.
+    Steel of the highest quality.
+    Dull blades to sharpen.
+    A mug of strong ale.
+    carries:
+    A hammer.
+    A good luck charm.
+    A filthy rag.
+    Little more than a few coins.
+
+  steward:
+    is:
+    A lesser member of the liege’s house.
+    A lesser member of a powerful house.
+    A member of a lesser house.
+    A commoner by birth.
+    seeks_someone:
+    Obtain hard-to-get provisions.
+    Deliver some letters.
+    Help win over a sweetheart.
+    Share a drink and a laugh.
+    concerned_about:
+    The gold and silver in the treasury.
+    The stores of cured meat and hard cheese.
+    Grains and ale.
+    The stores of ale and wine.
+
+  guard:
+    serves_for:
+    The steady pay.
+    The chance to bully others.
+    Love of his liege’s family.
+    God and country.
+    The chance to demonstrate his valor.
+    The possibility of being raised to a knight.
+    on_face:
+    An unsightly scar.
+    A haughty sneer.
+    A look of sadness.
+    An eager grin.
+    A blank stare.
+    A bushy mustache.
+    carries:
+    A highly polished blade.
+    A letter from a fallen comrade.
+    A trophy from a fallen enemy.
+    A ribbon from a sweet maiden.
+  guard_captain:
+    is:
+    A lesser member of a noble house.
+    A brutish thug.
+    A dashing swashbuckler.
+    A celebrated war hero.
+    An anointed knight.
+    A career soldier.
+    concerned:
+    The resolve of the new recruits.
+    The castle’s food stores.
+    Sheltering too many commonfolk in a siege.
+    Running out of ale during a siege.
+    looking_for:
+    Information regarding enemy movements.
+    Reinforcements or new recruits.
+    News of his or his wife’s hometown.
+    Drinking companions and storytellers.
+    carries:
+    A superbly crafted sword.
+    A trusted blade and a map.
+    A lucky charm (rabbit’s foot, old coin).
+    The token of a faraway love.
+    A pipe and pouch of tobacco.
+    A little jar of mustache wax.
+
+  huntsman:
+    is:
+    A member of the liege’s family.
+    A bastard son of a noble house.
+    A gifted tracker.
+    A former poacher.
+    A sadistic killer.
+    A kindly sportsman.
+    concerned_about:
+    Reports of strange creatures in the nearby lands.
+    The reckless behavior of a fellow hunter.
+    How best to protect commonfolk’s livestock.
+    Bringing enough wine on the next hunt.
+    looking_to:
+    Track an unusual beast.
+    Find the lair of a rare beast.
+    Find a place where game is plentiful.
+    Swap tales and rumors.
+    carries:
+    A sturdy hatchet.
+    A large knife and a hunting trap.
+    A finely made longbow.
+    A trophy or piece of a wild beast.
+  archer:
+    is:
+    An eager young marksman.
+    An trigger-happy hotshot.
+    A braggart and a fool.
+    A skilled hunter.
+    An wily, old veteran.
+    A local archery champion.
+    looking_to:
+    Help his allies slaughter the enemy.
+    Keep safe someone special in the castle.
+    Hear word of any percolating wars.
+    Eat, drink, and be merry.
+    carries:
+    A longbow with a fraying string.
+    A longbow crafted of superior wood.
+    "Arrows fletched with the feathers of a {{archer.bird}}"
+    A flask containing a strong drink.
+    bird:
+    eagle
+    hawk
+    owl
+    pheasant
+    raven
+    swan
+
+  cook:
+    greets:
+    A goblet of warm wine.
+    A chunk of bread and a piece of cheese.
+    A cup of onion soup.
+    A tankard of mead.
+    looking_for:
+    Someone to chop onions.
+    Some better cabbage.
+    A good joke or story.
+    The bottom of a bottle.
+
+  chaplain:
+    is:
+    A devoted acolyte.
+    An adept healer.
+    A wise source of counsel.
+    A drunken hypocrite.
+    looking_for:
+    News from the surrounding lands.
+    Sinners and heretics.
+    The answer to an ancient mystery.
+    The bottom of a goblet.
+    carries:
+    A ceremonial cudgel or staff.
+    A prominently displayed holy symbol.
+    A pocketbook of sacred texts.
+    A wineskin.
+  fool:
+    The fool is...
+    A dwarf.
+    Morbidly obese.
+    Wearing a mask.
+    Dressed in motley.
+    Dressed as a faux knight.
+    Dressed as a faux wizard.
+    The fool gets the most laughs from...
+    Falling stunts.
+    Gorging himself with food or drink.
+    Singing silly songs.
+    Being hit over the head.
+    Lewd gestures.
+    Juggling sharp objects.
+    Swallowing flames.
+    Witty jokes and observations.
+    The fool wants nothing more than to...
+    Bring smiles to others’ faces.
+    Get as far from this castle as he can.
+    Exact vengeance against a cruel noble.
+    Kiss a pretty maiden.
+    Have a drink and be merry.
+    Get drunk and feel numb.
+
+  tutor:
+    The tutor is...
+    A scholar trained at a university.
+    A wizard trained at an academy.
+    A wizard who had apprenticed to another.
+    A self-taught scholar of noble birth.
+    A monk of an order famed for wisdom.
+    A priest dedicated to spreading knowledge.
+    The tutor’s charges view him/her as...
+    A trusted friend.
+    A second father/mother.
+    A weakling to be antagonized and bullied.
+    A tyrant to be feared.
+    schooled_in:
+    Alchemy.
+    Ancient mysteries.
+    Astronomy.
+    Herb lore.
+    Mathematics.
+    Mineralogy.
+    Military history.
+    Music.
+    Poetry and songs.
+    Political history.
+    Theater and dance.
+    Theology.
+
+  bowyer: # fletcher
+    templates:
+    - |
+      The bowyer is {{bowyer.is}}
+      <br/>The bowyer is looking for {{bowyer.looking_for}}
+      <br/>The bowyer is carrying {{bowyer.carries}}
+    is:
+    - A patient craftsman.
+    - An old archer, blind in one eye.
+    - A foreigner who puts unusual touches on the bows and feathers he makes.
+    - Skilled at mending bows and arrows, but not so good at making them from raw materials.
+    looking_for:
+    - Someone who can fletch arrows.
+    - Stray arrowheads.
+    - Intact arrow shafts.
+    - A mug of strong ale.
+    carries:
+    - A whittling knife.
+    - A quiver of arrows to be mended.
+    - A quiver of newly made arrows.
+    - A bundle of fresh wood cuttings.
+
+  horsemaster:
+    templates:
+    - |
+      The horsemaster is {{horsemaster.is}}
+      <br/>The horsemaster has {{horsemaster.has}}
+      <br/>The horsemaster wants to {{horsemaster.wants_to}}
+    is:
+    - A knight lamed in combat years ago.
+    - The son of a servant to the liege’s family.
+    - A genius for breeding horses.
+    - A foreigner who grew up in the saddle.
+    has:
+    - A sackful of oats strapped to his belt.
+    - A calm demeanor.
+    - A soft-spoken manner.
+    - A pointed beard.
+    wants_to:
+    - Have the fastest horses ready to carry his liege’s messages.
+    - Tell a tale of a grueling ride.
+    - Bring honor to his family name.
+    - Boast about a prized young mare.
+
+
+
+  kennelmaster:
+    templates:
+    - |
+      The kennelmaster is {{kennelmaster.is}}
+      <br/>The kennelmaster is looking to {{kennelmaster.looking_to}}
+      <br/>The kennelmaster is carrying {{kennelmaster.carries}}
+
+    is:
+    - An eccentric dog-trainer.
+    - A skilled hunter.
+    - A short-tempered, portly fellow.
+    - A tall, gregarious fellow.
+    looking_to:
+    - Encourage a hunting expedition.
+    - Improve the breeding stock of the hounds.
+    - Show off a clever hound.
+    - Avoid questions regarding the hounds’ obedience.
+    carries:
+    - A dog whistle.
+    - A rope of some kind of jerky.
+    - A stick or club.
+    - A rope leash.
+
+
+  maidservant:
+    templates:
+    - |
+      The servant is {{maidservant.is}}
+      <br/>The servant has {{maidservant.has}}
+      <br/>The servant wants to {{maidservant.wants_to}}
+
+    is:
+    - Her ladyship’s/her lordship’s favorite.
+    - A long-time servant of the household.
+    - New to the household and always in trouble.
+    - New to the household and eager to please.
+    has:
+    - A pretty smile, but crooked teeth.
+    - Beautiful but sad eyes.
+    - A wide frame.
+    - A bony figure.
+    wants_to:
+    - Avoid being alone with a particular noble.
+    - Discipline one of the children in the castle.
+    - Earn the affection of her mistress.
+    - Bend your ear for an old folk tale.
+
+  stable_hand:
+    templates:
+    - |
+      The stable hand is {{stable_hand.is}}
+      <br/>The stable hand has {{stable_hand.has}}
+      <br/>The stable hand wants to {{stable_hand.wants_to}}
+
+    is:
+    - A shady-looking character.
+    - The son of another servant in the castle.
+    - A prisoner-of-war turned servant.
+    - A simple-minded stable boy.
+    has:
+    - An awkward gait.
+    - Incredibly large hands.
+    - Quite an odor.
+    - A patchy beard.
+    wants_to:
+    - Earn a little silver.
+    - Avoid being kicked by a horse.
+    - Rise to the position of horsemaster.
+    - Pet the pretty horses.
+
+
+
+

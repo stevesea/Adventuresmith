@@ -70,7 +70,16 @@ generators:
   #- chars   Not converted completely to new template format
   - spells
   behind_the_tables:
+  - bowyer
+  - castle
+  - castle_encounters_peace
+  - castle_encounters_siege
+  - castle_room
+  - horsemaster
+  - kennelmaster
+  - maidservant
   - pub_names
+  - stable_hand
   maze_rats:
   - mr01_afflictions
   - mr01_characters

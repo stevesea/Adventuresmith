@@ -1,0 +1,5 @@
+---
+templates:
+- "{{maidservant.templates}}"
+imports:
+- castle_npcs

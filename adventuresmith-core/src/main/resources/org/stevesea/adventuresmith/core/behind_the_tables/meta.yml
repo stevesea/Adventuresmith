@@ -1,19 +1,27 @@
 name: /r/BehindTheTables
 id: behind_the_tables
-priority: 100
+priority: 200
 url: https://www.reddit.com/r/BehindTheTables/
 credit: /r/DnDBehindTheScreen
+hasGroupHierarchy: true
 groups:
-  grpSettlements: Settlements
+  grpEncountersCastle: Encounters / Castle
+  grpNPCsCastle: NPCs / Castle
+  grpSettlementsTown: Settlements / Town
+  grpSettlementsCastle: Settlements / Castle
 attribution: |
-  /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources,
-  and licensing is <strong><em>TODO</em></strong>
+  /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
   <blockquote>
-  <p>Our tables are meant to supplement what's in the various editions of the DMG and PHB, cover ground that the tables in the books do not cover, or replace what's in the books for situations where it's cumbersome to flip through several tables in several locations within the book all at once.
+  <p>Our tables are meant to supplement what's in the various editions of the DMG and PHB, cover
+  ground that the tables in the books do not cover, or replace what's in the books for situations
+  where it's cumbersome to flip through several tables in several locations within the book all at once.
   </p>
   <p>
-  Our PRIMARY GOAL is to build a searchable, linked repository of tables for adding fun, flavor, and story to your D&D game.
-  <br/><br/>Our SECONDARY GOAL is to create a repository of these tables in the form of one-page printable cheat sheets for use at the gaming table free of laptop, tablet, and other electronic screens.
+  Our PRIMARY GOAL is to build a searchable, linked repository of tables for adding fun, flavor, and
+  story to your D&D game.
+  <br/>
+  <br/>Our SECONDARY GOAL is to create a repository of these tables in the form of one-page
+  printable cheat sheets for use at the gaming table free of laptop, tablet, and other electronic screens.
   </p>
   </blockquote>
 

@@ -1,0 +1,5 @@
+---
+templates:
+- "{{bowyer.templates}}"
+imports:
+- castle_npcs

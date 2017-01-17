@@ -1,0 +1,5 @@
+---
+templates:
+- "{{kennelmaster.templates}}"
+imports:
+- castle_npcs

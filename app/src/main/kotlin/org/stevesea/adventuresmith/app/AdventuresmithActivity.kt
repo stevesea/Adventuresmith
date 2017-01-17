@@ -699,12 +699,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
             return when(id) {
                 DiceConstants.CollectionName -> CommunityMaterial.Icon.cmd_dice_6
-                AdventuresmithCore.BehindTheTables -> {
-                    when (grpId) {
-                        "grpSettlements" -> CommunityMaterial.Icon.cmd_home
-                        else -> CommunityMaterial.Icon.cmd_reddit
-                    }
-                }
                 AdventuresmithCore.MazeRats -> {
                     when (grpId) {
                         "grpChar" -> Ionicons.Icon.ion_android_people
@@ -741,6 +735,21 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
                 AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
+                AdventuresmithCore.BehindTheTables -> {
+                    when (grpId) {
+                        "Settlements" -> CommunityMaterial.Icon.cmd_castle
+                        "grpSettlementTown" -> CommunityMaterial.Icon.cmd_home
+                        "grpSettlementCastle" -> CommunityMaterial.Icon.cmd_castle
+
+                        "Encounters" -> CommunityMaterial.Icon.cmd_run
+                        "grpEncountersCastle" -> CommunityMaterial.Icon.cmd_castle
+
+                        "NPCs" -> CommunityMaterial.Icon.cmd_account_multiple
+                        "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle
+
+                        else -> CommunityMaterial.Icon.cmd_reddit
+                    }
+                }
                 AdventuresmithCore.RollXX ->  {
                     when (grpId) {
                         "Superheroes" -> CommunityMaterial.Icon.cmd_dna

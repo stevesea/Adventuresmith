@@ -1,0 +1,5 @@
+---
+templates:
+- "{{horsemaster.templates}}"
+imports:
+- castle_npcs
