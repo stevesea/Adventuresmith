@@ -1,0 +1,5 @@
+---
+templates:
+- "{{nobleman.templates}}"
+imports:
+- castle_npcs

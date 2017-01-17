@@ -1,0 +1,5 @@
+---
+templates:
+- "{{noblewoman.templates}}"
+imports:
+- castle_npcs

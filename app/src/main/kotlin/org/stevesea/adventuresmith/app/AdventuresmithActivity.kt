@@ -738,8 +738,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.BehindTheTables -> {
                     when (grpId) {
                         "Settlements" -> CommunityMaterial.Icon.cmd_castle
-                        "grpSettlementTown" -> CommunityMaterial.Icon.cmd_home
-                        "grpSettlementCastle" -> CommunityMaterial.Icon.cmd_castle
+                        "grpSettlementsTown" -> CommunityMaterial.Icon.cmd_home
+                        "grpSettlementsCastle" -> CommunityMaterial.Icon.cmd_castle
 
                         "Encounters" -> CommunityMaterial.Icon.cmd_run
                         "grpEncountersCastle" -> CommunityMaterial.Icon.cmd_castle

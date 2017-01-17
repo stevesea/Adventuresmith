@@ -7,8 +7,8 @@ hasGroupHierarchy: true
 groups:
   grpEncountersCastle: Encounters / Castle
   grpNPCsCastle: NPCs / Castle
-  grpSettlementsTown: Settlements / Town
   grpSettlementsCastle: Settlements / Castle
+  grpSettlementsTown: Settlements / Town
 attribution: |
   /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
   <blockquote>

@@ -1,0 +1,5 @@
+---
+templates:
+- "{{steward.templates}}"
+imports:
+- castle_npcs

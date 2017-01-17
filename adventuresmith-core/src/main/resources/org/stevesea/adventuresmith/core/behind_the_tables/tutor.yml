@@ -1,0 +1,6 @@
+---
+templates:
+- "{{tutor.templates}}"
+
+imports:
+- castle_npcs

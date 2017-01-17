@@ -1,0 +1,5 @@
+---
+templates:
+- "{{knight.templates}}"
+imports:
+- castle_npcs

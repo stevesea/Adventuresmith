@@ -1,0 +1,5 @@
+---
+templates:
+- "{{retainer.templates}}"
+imports:
+- castle_npcs

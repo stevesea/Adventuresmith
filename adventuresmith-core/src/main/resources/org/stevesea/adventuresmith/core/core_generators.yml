@@ -67,19 +67,33 @@ generators:
   - city
   - monster
   freebooters_on_the_frontier:
-  #- chars   Not converted completely to new template format
+  #- chars   Not converted to new template format
   - spells
   behind_the_tables:
+  - archer
+  - armorer
   - bowyer
   - castle
   - castle_encounters_peace
   - castle_encounters_siege
   - castle_room
+  - chaplain
+  - cook
+  - fool
+  - guard
+  - guard_captain
   - horsemaster
+  - huntsman
   - kennelmaster
+  - knight
   - maidservant
+  - nobleman
+  - noblewoman
   - pub_names
+  - retainer
   - stable_hand
+  - steward
+  - tutor
   maze_rats:
   - mr01_afflictions
   - mr01_characters

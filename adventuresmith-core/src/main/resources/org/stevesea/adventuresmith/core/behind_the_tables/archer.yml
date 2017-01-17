@@ -1,0 +1,5 @@
+---
+templates:
+- "{{archer.templates}}"
+imports:
+- castle_npcs

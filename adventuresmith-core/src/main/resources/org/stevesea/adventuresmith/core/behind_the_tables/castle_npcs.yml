@@ -2,6 +2,11 @@
 nested_tables:
 
   nobleman:
+    templates:
+    - |
+      The lord is {{nobleman.is}}
+      <br/>The lord seeks someone to {{nobleman.seeks}}
+      <br/>The lord carries {{nobleman.carries}}
     is:
     - A patient old man.
     - A wide-eyed young man.
@@ -24,26 +29,36 @@ nested_tables:
     - A compromising love letter.
     - A letter from a powerful lord or lady.
   noblewoman:
+    templates:
+    - |
+      The lady is {{noblewoman.is}}
+      <br/>The lady seeks someone to {{noblewoman.seeks_someone}}
+      <br/>The lady carries {{noblewoman.carries}}
     is:
-    A wise old woman.
-    A passionate young woman.
-    A homely young lady.
-    An acerbic wit.
-    A guest, a member of a powerful house.
-    A guest, a member of a lesser house.
+    - A wise old woman.
+    - A passionate young woman.
+    - A homely young lady.
+    - An acerbic wit.
+    - A guest, a member of a powerful house.
+    - A guest, a member of a lesser house.
     seeks_someone:
-    Help gain revenge against a bitter rival.
-    Bring to light a scandal involving an enemy.
-    Secure a beneficial marriage.
-    Talk some sense into her husband or father.
-    Deliver a secret message.
-    Share some wine and gossip.
+    - Help gain revenge against a bitter rival.
+    - Bring to light a scandal involving an enemy.
+    - Secure a beneficial marriage.
+    - Talk some sense into her husband or father.
+    - Deliver a secret message.
+    - Share some wine and gossip.
     carries:
-    A family heirloom.
-    Some very valuable jewels.
-    A compromising love letter.
-    A letter from a powerful lord or lady.
+    - A family heirloom.
+    - Some very valuable jewels.
+    - A compromising love letter.
+    - A letter from a powerful lord or lady.
   knight:
+    templates:
+    - |
+      The knight is {{knight.is}}
+      <br/>The knight has sworn to {{knight.sworn}}
+      <br/>The knight carries {{knight.carries}}
     is:
     - A beautiful youth.
     - A brutish thug.
@@ -65,242 +80,298 @@ nested_tables:
     - A heavy warhammer.
     - A letter from his liege.
     - A favor from a faraway maiden.
-  squire: # valet/retainer
+  retainer: # valet/squire
+    templates:
+    - |
+      The retainer is {{retainer.is}}
+      <br/>The retainer has {{retainer.has}}
+      <br/>The retainer wants to {{retainer.wants_to}}
     is:
-    A squire from a lesser noble house.
-    A frightened link boy.
-    A long-time valet or squire.
-    A reformed criminal-turned valet.
-    A prisoner of war.
-    A mysterious foreigner.
+    - A squire from a lesser noble house.
+    - A frightened link boy.
+    - A long-time valet or squire.
+    - A reformed criminal-turned valet.
+    - A prisoner of war.
+    - A mysterious foreigner.
     has:
-    A black eye.
-    Wild, shaggy hair.
-    A terrible stutter.
-    A lot of self-confidence.
+    - A black eye.
+    - Wild, shaggy hair.
+    - A terrible stutter.
+    - A lot of self-confidence.
     wants_to:
-    Earn a little silver.
-    Train with weapons to become a hero.
-    Earn the affection of his master.
-    Bring honor to his family name.
-    Avoid entangling himself in a scandal.
-    Have a drink and a rest.
+    - Earn a little silver.
+    - Train with weapons to become a hero.
+    - Earn the affection of his master.
+    - Bring honor to his family name.
+    - Avoid entangling himself in a scandal.
+    - Have a drink and a rest.
 
   armorer:
+    templates:
+    - |
+      The armorer is {{armorer.is}}
+      <br/>The armorer is looking for {{armorer.looking_for}}
+      <br/>The armorer carries {{armorer.carries}}
     is:
-    A meticulous armorsmith.
-    A blacksmith who makes decent swords.
-    A farrier who can mend swords.
-    A highly-skilled weaponsmith.
+    - A meticulous armorsmith.
+    - A blacksmith who makes decent swords.
+    - A farrier who can mend swords.
+    - A highly-skilled weaponsmith.
     looking_for:
-    Someone who can shoe horses.
-    Steel of the highest quality.
-    Dull blades to sharpen.
-    A mug of strong ale.
+    - Someone who can shoe horses.
+    - Steel of the highest quality.
+    - Dull blades to sharpen.
+    - A mug of strong ale.
     carries:
-    A hammer.
-    A good luck charm.
-    A filthy rag.
-    Little more than a few coins.
+    - A hammer.
+    - A good luck charm.
+    - A filthy rag.
+    - Little more than a few coins.
 
   steward:
+    templates:
+    - |
+      The steward is {{steward.is}}
+      <br/>The steward seeks someone to {{steward.seeks_someone}}
+      <br/>The steward is concerned about {{steward.concerned_about}}
     is:
-    A lesser member of the liege’s house.
-    A lesser member of a powerful house.
-    A member of a lesser house.
-    A commoner by birth.
+    - A lesser member of the liege’s house.
+    - A lesser member of a powerful house.
+    - A member of a lesser house.
+    - A commoner by birth.
     seeks_someone:
-    Obtain hard-to-get provisions.
-    Deliver some letters.
-    Help win over a sweetheart.
-    Share a drink and a laugh.
+    - Obtain hard-to-get provisions.
+    - Deliver some letters.
+    - Help win over a sweetheart.
+    - Share a drink and a laugh.
     concerned_about:
-    The gold and silver in the treasury.
-    The stores of cured meat and hard cheese.
-    Grains and ale.
-    The stores of ale and wine.
+    - The gold and silver in the treasury.
+    - The stores of cured meat and hard cheese.
+    - Grains and ale.
+    - The stores of ale and wine.
 
   guard:
+    templates:
+    - |
+      The guard serves his liege for {{guard.serves_for}}
+      <br/>On the guard’s face is {{guard.on_face}}
+      <br/>The guard carries {{guard.carries}}
     serves_for:
-    The steady pay.
-    The chance to bully others.
-    Love of his liege’s family.
-    God and country.
-    The chance to demonstrate his valor.
-    The possibility of being raised to a knight.
+    - The steady pay.
+    - The chance to bully others.
+    - Love of his liege’s family.
+    - God and country.
+    - The chance to demonstrate his valor.
+    - The possibility of being raised to a knight.
     on_face:
-    An unsightly scar.
-    A haughty sneer.
-    A look of sadness.
-    An eager grin.
-    A blank stare.
-    A bushy mustache.
+    - An unsightly scar.
+    - A haughty sneer.
+    - A look of sadness.
+    - An eager grin.
+    - A blank stare.
+    - A bushy mustache.
     carries:
-    A highly polished blade.
-    A letter from a fallen comrade.
-    A trophy from a fallen enemy.
-    A ribbon from a sweet maiden.
+    - A highly polished blade.
+    - A letter from a fallen comrade.
+    - A trophy from a fallen enemy.
+    - A ribbon from a sweet maiden.
   guard_captain:
+    templates:
+    - |
+      The guard captain is {{guard_captain.is}}
+      <br/>The guard captain is concerned about {{guard_captain.concerned}}
+      <br/>The guard captain is looking for {{guard_captain.looking_for}}
+      <br/>The guard captain carries {{guard_captain.carries}}
     is:
-    A lesser member of a noble house.
-    A brutish thug.
-    A dashing swashbuckler.
-    A celebrated war hero.
-    An anointed knight.
-    A career soldier.
+    - A lesser member of a noble house.
+    - A brutish thug.
+    - A dashing swashbuckler.
+    - A celebrated war hero.
+    - An anointed knight.
+    - A career soldier.
     concerned:
-    The resolve of the new recruits.
-    The castle’s food stores.
-    Sheltering too many commonfolk in a siege.
-    Running out of ale during a siege.
+    - The resolve of the new recruits.
+    - The castle’s food stores.
+    - Sheltering too many commonfolk in a siege.
+    - Running out of ale during a siege.
     looking_for:
-    Information regarding enemy movements.
-    Reinforcements or new recruits.
-    News of his or his wife’s hometown.
-    Drinking companions and storytellers.
+    - Information regarding enemy movements.
+    - Reinforcements or new recruits.
+    - News of his or his wife’s hometown.
+    - Drinking companions and storytellers.
     carries:
-    A superbly crafted sword.
-    A trusted blade and a map.
-    A lucky charm (rabbit’s foot, old coin).
-    The token of a faraway love.
-    A pipe and pouch of tobacco.
-    A little jar of mustache wax.
+    - A superbly crafted sword.
+    - A trusted blade and a map.
+    - A lucky charm (rabbit’s foot, old coin).
+    - The token of a faraway love.
+    - A pipe and pouch of tobacco.
+    - A little jar of mustache wax.
 
   huntsman:
+    templates:
+    - |
+      The huntsman is {{huntsman.is}}
+      <br/>The huntsman is concerned about {{huntsman.concerned_about}}
+      <br/>The huntsman is looking to {{huntsman.looking_to}}
+      <br/>The huntsman carries {{huntsman.carries}}
     is:
-    A member of the liege’s family.
-    A bastard son of a noble house.
-    A gifted tracker.
-    A former poacher.
-    A sadistic killer.
-    A kindly sportsman.
+    - A member of the liege’s family.
+    - A bastard son of a noble house.
+    - A gifted tracker.
+    - A former poacher.
+    - A sadistic killer.
+    - A kindly sportsman.
     concerned_about:
-    Reports of strange creatures in the nearby lands.
-    The reckless behavior of a fellow hunter.
-    How best to protect commonfolk’s livestock.
-    Bringing enough wine on the next hunt.
+    - Reports of strange creatures in the nearby lands.
+    - The reckless behavior of a fellow hunter.
+    - How best to protect commonfolk’s livestock.
+    - Bringing enough wine on the next hunt.
     looking_to:
-    Track an unusual beast.
-    Find the lair of a rare beast.
-    Find a place where game is plentiful.
-    Swap tales and rumors.
+    - Track an unusual beast.
+    - Find the lair of a rare beast.
+    - Find a place where game is plentiful.
+    - Swap tales and rumors.
     carries:
-    A sturdy hatchet.
-    A large knife and a hunting trap.
-    A finely made longbow.
-    A trophy or piece of a wild beast.
+    - A sturdy hatchet.
+    - A large knife and a hunting trap.
+    - A finely made longbow.
+    - A trophy or piece of a wild beast.
   archer:
+    templates:
+    - |
+      The archer is {{archer.is}}
+      <br/>The archer is looking to {{archer.looking_to}}
+      <br/>The archer carries {{archer.carries}}
     is:
-    An eager young marksman.
-    An trigger-happy hotshot.
-    A braggart and a fool.
-    A skilled hunter.
-    An wily, old veteran.
-    A local archery champion.
+    - An eager young marksman.
+    - An trigger-happy hotshot.
+    - A braggart and a fool.
+    - A skilled hunter.
+    - An wily, old veteran.
+    - A local archery champion.
     looking_to:
-    Help his allies slaughter the enemy.
-    Keep safe someone special in the castle.
-    Hear word of any percolating wars.
-    Eat, drink, and be merry.
+    - Help his allies slaughter the enemy.
+    - Keep safe someone special in the castle.
+    - Hear word of any percolating wars.
+    - Eat, drink, and be merry.
     carries:
-    A longbow with a fraying string.
-    A longbow crafted of superior wood.
-    "Arrows fletched with the feathers of a {{archer.bird}}"
-    A flask containing a strong drink.
+    - A longbow with a fraying string.
+    - A longbow crafted of superior wood.
+    - "Arrows fletched with the feathers of a {{archer.bird}}"
+    - A flask containing a strong drink.
     bird:
-    eagle
-    hawk
-    owl
-    pheasant
-    raven
-    swan
+    - eagle
+    - hawk
+    - owl
+    - pheasant
+    - raven
+    - swan
 
   cook:
+    templates:
+    - |
+      The cook greets you with {{cook.greets}}
+      <br/>The cook is looking for {{cook.looking_for}}
     greets:
-    A goblet of warm wine.
-    A chunk of bread and a piece of cheese.
-    A cup of onion soup.
-    A tankard of mead.
+    - A goblet of warm wine.
+    - A chunk of bread and a piece of cheese.
+    - A cup of onion soup.
+    - A tankard of mead.
     looking_for:
-    Someone to chop onions.
-    Some better cabbage.
-    A good joke or story.
-    The bottom of a bottle.
+    - Someone to chop onions.
+    - Some better cabbage.
+    - A good joke or story.
+    - The bottom of a bottle.
 
   chaplain:
+    templates:
+    - |
+      The chaplain is {{chaplain.is}}
+      <br/>The chaplain is looking for {{chaplain.looking_for}}
+      <br/>The chaplain carries {{chaplain.carries}}
     is:
-    A devoted acolyte.
-    An adept healer.
-    A wise source of counsel.
-    A drunken hypocrite.
+    - A devoted acolyte.
+    - An adept healer.
+    - A wise source of counsel.
+    - A drunken hypocrite.
     looking_for:
-    News from the surrounding lands.
-    Sinners and heretics.
-    The answer to an ancient mystery.
-    The bottom of a goblet.
+    - News from the surrounding lands.
+    - Sinners and heretics.
+    - The answer to an ancient mystery.
+    - The bottom of a goblet.
     carries:
-    A ceremonial cudgel or staff.
-    A prominently displayed holy symbol.
-    A pocketbook of sacred texts.
-    A wineskin.
+    - A ceremonial cudgel or staff.
+    - A prominently displayed holy symbol.
+    - A pocketbook of sacred texts.
+    - A wineskin.
   fool:
-    The fool is...
-    A dwarf.
-    Morbidly obese.
-    Wearing a mask.
-    Dressed in motley.
-    Dressed as a faux knight.
-    Dressed as a faux wizard.
-    The fool gets the most laughs from...
-    Falling stunts.
-    Gorging himself with food or drink.
-    Singing silly songs.
-    Being hit over the head.
-    Lewd gestures.
-    Juggling sharp objects.
-    Swallowing flames.
-    Witty jokes and observations.
-    The fool wants nothing more than to...
-    Bring smiles to others’ faces.
-    Get as far from this castle as he can.
-    Exact vengeance against a cruel noble.
-    Kiss a pretty maiden.
-    Have a drink and be merry.
-    Get drunk and feel numb.
+    templates:
+    - |
+      The fool is {{fool.is}}
+      <br/>The fool gets the most laughs from {{fool.laughs}}
+      <br/>The fool wants nothing more than to {{fool.wants}}
+    is:
+    - A dwarf.
+    - Morbidly obese.
+    - Wearing a mask.
+    - Dressed in motley.
+    - Dressed as a faux knight.
+    - Dressed as a faux wizard.
+    laughs:
+    - Falling stunts.
+    - Gorging himself with food or drink.
+    - Singing silly songs.
+    - Being hit over the head.
+    - Lewd gestures.
+    - Juggling sharp objects.
+    - Swallowing flames.
+    - Witty jokes and observations.
+    wants:
+    - Bring smiles to others’ faces.
+    - Get as far from this castle as he can.
+    - Exact vengeance against a cruel noble.
+    - Kiss a pretty maiden.
+    - Have a drink and be merry.
+    - Get drunk and feel numb.
 
   tutor:
-    The tutor is...
-    A scholar trained at a university.
-    A wizard trained at an academy.
-    A wizard who had apprenticed to another.
-    A self-taught scholar of noble birth.
-    A monk of an order famed for wisdom.
-    A priest dedicated to spreading knowledge.
-    The tutor’s charges view him/her as...
-    A trusted friend.
-    A second father/mother.
-    A weakling to be antagonized and bullied.
-    A tyrant to be feared.
+    templates:
+    - |
+      The tutor is {{tutor.is}}
+      <br/>The tutor’s charges view him/her as {{tutor.viewed_as}}
+      <br/>The tutor is particularly well-versed in {{tutor.schooled_in}}
+    is:
+    - A scholar trained at a university.
+    - A wizard trained at an academy.
+    - A wizard who had apprenticed to another.
+    - A self-taught scholar of noble birth.
+    - A monk of an order famed for wisdom.
+    - A priest dedicated to spreading knowledge.
+    viewed_as:
+    - A trusted friend.
+    - A second father/mother.
+    - A weakling to be antagonized and bullied.
+    - A tyrant to be feared.
     schooled_in:
-    Alchemy.
-    Ancient mysteries.
-    Astronomy.
-    Herb lore.
-    Mathematics.
-    Mineralogy.
-    Military history.
-    Music.
-    Poetry and songs.
-    Political history.
-    Theater and dance.
-    Theology.
+    - Alchemy.
+    - Ancient mysteries.
+    - Astronomy.
+    - Herb lore.
+    - Mathematics.
+    - Mineralogy.
+    - Military history.
+    - Music.
+    - Poetry and songs.
+    - Political history.
+    - Theater and dance.
+    - Theology.
 
   bowyer: # fletcher
     templates:
     - |
       The bowyer is {{bowyer.is}}
       <br/>The bowyer is looking for {{bowyer.looking_for}}
-      <br/>The bowyer is carrying {{bowyer.carries}}
+      <br/>The bowyer carries {{bowyer.carries}}
     is:
     - A patient craftsman.
     - An old archer, blind in one eye.
@@ -346,7 +417,7 @@ nested_tables:
     - |
       The kennelmaster is {{kennelmaster.is}}
       <br/>The kennelmaster is looking to {{kennelmaster.looking_to}}
-      <br/>The kennelmaster is carrying {{kennelmaster.carries}}
+      <br/>The kennelmaster carries {{kennelmaster.carries}}
 
     is:
     - An eccentric dog-trainer.

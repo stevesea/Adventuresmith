@@ -1,0 +1,5 @@
+---
+templates:
+- "{{guard_captain.templates}}"
+imports:
+- castle_npcs
