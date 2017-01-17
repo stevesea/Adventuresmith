@@ -746,6 +746,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         "NPCs" -> CommunityMaterial.Icon.cmd_account_multiple
                         "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle
+                        "grpNPCsTown" -> CommunityMaterial.Icon.cmd_home
 
                         else -> CommunityMaterial.Icon.cmd_reddit
                     }

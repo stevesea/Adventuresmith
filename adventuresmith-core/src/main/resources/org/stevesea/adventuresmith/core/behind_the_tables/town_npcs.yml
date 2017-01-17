@@ -1,0 +1,224 @@
+---
+nested_tables:
+  alchemist:
+    templates:
+    - |
+      The alchemist is {{alchemist.is}}
+      <br/>The alchemist is looking for {{alchemist.looking_for}}
+      <br/>The alchemist carries {{alchemist.carries}}
+    is:
+    - An apothecary.
+    - A hedge wizard.
+    - An herbalist.
+    - A poisonmaker.
+    - A potioneer.
+    - A pyromancer.
+    looking_for:
+    - Delivery help.
+    - New recipes.
+    - Purchasers.
+    - Rare ingredients.
+    carries:
+    - Several vials of acid.
+    - Several curatives.
+    - An unusual potion.
+    - A pyrophoric substance.
+
+  noble:
+    templates:
+    - |
+      The noble is {{noble.is}}
+      <br/>The noble seeks someone to {{noble.seeks}}
+      <br/>The noble carries {{noble.carries}}
+    is:
+    - A knight.
+    - An old lord.
+    - A young lord.
+    - An old lady.
+    - A young lady.
+    - A wealthy merchant.
+    seeks:
+    - Dispose of an enemy.
+    - Negotiate a trade contract.
+    - Prepare an army for war.
+    - Sabotage a rival.
+    - Secure a marriage.
+    - Have a good time with.
+    carries:
+    - Several deeds and titles.
+    - A family heirloom.
+    - Several inventories and invoices.
+    - Some very valuable jewels.
+    - A compromising love letter.
+    - A letter from a powerful lord or lady.
+
+  smith:
+    templates:
+    - |
+      The smith is {{smith.is}}
+      <br/>The smith is looking for {{smith.seeks}}
+      <br/>The smith carries {{smith.carries}}
+    is:
+    - An armorer.
+    - A blacksmith.
+    - A farrier.
+    - A weaponsmith.
+    seeks:
+    - A new apprentice.
+    - A journeyman craftsman.
+    - Rare metals.
+    - A mug of strong ale.
+    carries:
+    - A hammer.
+    - A metal trinket made by the smith.
+    - A contract commissioning a sword.
+    - Little more than a few coins.
+
+  criminal:
+    templates:
+    - |
+      The criminal is {{criminal.is}}
+      <br/>The criminal is looking for {{criminal.seeks}}
+      <br/>The criminal carries {{criminal.carries}}
+    is:
+    - An assassin.
+    - A con artist.
+    - A gambler.
+    - A poacher.
+    - A smuggler.
+    - A thief.
+    seeks:
+    - Accomplices for a specific task.
+    - Revenge against a rival criminal.
+    - An easy mark.
+    - Extra muscle for some work.
+    - Rumors that may lead to a big score.
+    - A rowdy evening of carousing.
+    carries:
+    - A crossbow with poisoned darts.
+    - Several daggers.
+    - A short sword.
+    - A lucky charm.
+    - The token of a love.
+    - Letters for blackmail.
+  priest:
+    templates:
+    - |
+      The priest is {{priest.is}}
+      <br/>The priest is looking for {{priest.seeks}}
+      <br/>The priest carries {{priest.carries}}
+    is:
+    - An acolyte.
+    - A healer.
+    - A monk.
+    - A preacher.
+    - A scholar.
+    - A witch-hunter.
+    seeks:
+    - New converts.
+    - Heretics.
+    - Relics and rare lore.
+    - The bottom of a goblet.
+    carries:
+    - A well-used cudgel.
+    - A prominently displayed holy symbol.
+    - A pocketbook of sacred texts.
+    - A wineskin.
+  traveler:
+    templates:
+    - |
+      The traveler is {{traveler.is}}
+      <br/>The traveler is seeking {{traveler.seeks}}
+    is:
+    - An exile.
+    - A minstrel.
+    - A peddler.
+    - A pilgrim.
+    - A refugee.
+    - A sellsword.
+    - A storyteller.
+    - A treasure hunter.
+    seeks:
+    - Accomplices on a quest.
+    - The answer to a riddle
+    - An audience to entertain.
+    - A long lost friend.
+    - The return of something stolen.
+    - Revenge against a bitter rival.
+    - A permanent home.
+    - Steady work.
+    - Traveling companions.
+    - Drinking companions.
+  law_official:
+    templates:
+    - |
+      The law official is {{law_official.is}}
+      <br/>The law official is seeks someone to {{law_official.seeks}}
+      <br/>The law official carries {{law_official.carries}}
+    is:
+    - A constable.
+    - A sheriff.
+    - A guard captain.
+    - A magistrate.
+    seeks:
+    - Capture a fugitive.
+    - Catch a thief.
+    - Guard a specific location or person.
+    - Investigate a disappearance.
+    - Solve a murder mystery.
+    - Have an ale with.
+    carries:
+    - An arrest warrant for an outlaw.
+    - A proclamation for a reward.
+    - A knife or sword of the office.
+    - A pocketbook of local laws.
+  seer:
+    templates:
+    - |
+      The seer is {{seer.is}}
+      <br/>The seer is looking for {{seer.seeks}}
+    is:
+    - An astrologer.
+    - A fortune teller.
+    - A mystic
+    - A lorekeeper.
+    - A prophet.
+    - A psychic.
+    seeks:
+    - The answer to a riddle or prophecy.
+    - New clients for a reading.
+    - News regarding a missing person.
+    - Some juicy gossip.
+    - The seer carries...
+    - A crystal ball.
+    - A dowsing rod.
+    - A large, sharp-pointed knife.
+    - Several star charts.
+
+  server:
+    templates:
+    - |
+      The server greets you with {{server.greets}}
+      <br/>The server is looking for {{server.seeks}}
+      <br/>The server carries {{server.carries}}
+    greets:
+    - A mug of ale.
+    - A goblet of wine.
+    - A glass of water.
+    - An offer to move to a better table.
+    - A look of exasperation.
+    - A warm handshake.
+    - A pat on the back.
+    - A pretty smile.
+    seeks:
+    - An excuse to kick you out.
+    - Someone more important to talk to.
+    - Someone to do some pest removal.
+    - A big tip.
+    - A good joke or story.
+    - The bottom of a bottle.
+    carries:
+    - A filthy rag.
+    - A pristine silk handkerchief.
+    - A piece of conspicuous jewelry.
+    - An unusual belt purse.

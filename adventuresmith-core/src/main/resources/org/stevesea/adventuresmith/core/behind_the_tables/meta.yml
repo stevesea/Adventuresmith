@@ -7,6 +7,7 @@ hasGroupHierarchy: true
 groups:
   grpEncountersCastle: Encounters / Castle
   grpNPCsCastle: NPCs / Castle
+  grpNPCsTown: NPCs / Town
   grpSettlementsCastle: Settlements / Castle
   grpSettlementsTown: Settlements / Town
 attribution: |

@@ -1,0 +1,5 @@
+---
+templates:
+- "{{seer.templates}}"
+imports:
+- town_npcs

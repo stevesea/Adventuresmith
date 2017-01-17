@@ -1,0 +1,5 @@
+---
+templates:
+- "{{criminal.templates}}"
+imports:
+- town_npcs

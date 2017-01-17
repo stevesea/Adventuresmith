@@ -70,6 +70,7 @@ generators:
   #- chars   Not converted to new template format
   - spells
   behind_the_tables:
+  - alchemist
   - archer
   - armorer
   - bowyer
@@ -79,6 +80,7 @@ generators:
   - castle_room
   - chaplain
   - cook
+  - criminal
   - fool
   - guard
   - guard_captain
@@ -86,13 +88,20 @@ generators:
   - huntsman
   - kennelmaster
   - knight
+  - law_official
   - maidservant
+  - noble
   - nobleman
   - noblewoman
+  - priest
   - pub_names
   - retainer
+  - seer
+  - server
+  - smith
   - stable_hand
   - steward
+  - traveler
   - tutor
   maze_rats:
   - mr01_afflictions

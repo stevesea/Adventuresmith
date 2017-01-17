@@ -1,0 +1,5 @@
+---
+templates:
+- "{{traveler.templates}}"
+imports:
+- town_npcs

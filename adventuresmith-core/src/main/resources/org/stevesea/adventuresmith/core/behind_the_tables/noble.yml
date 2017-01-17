@@ -1,0 +1,5 @@
+---
+templates:
+- "{{noble.templates}}"
+imports:
+- town_npcs

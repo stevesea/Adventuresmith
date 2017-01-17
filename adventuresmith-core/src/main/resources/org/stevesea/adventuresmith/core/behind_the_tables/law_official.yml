@@ -1,0 +1,5 @@
+---
+templates:
+- "{{law_official.templates}}"
+imports:
+- town_npcs

@@ -1,0 +1,5 @@
+---
+templates:
+- "{{server.templates}}"
+imports:
+- town_npcs
