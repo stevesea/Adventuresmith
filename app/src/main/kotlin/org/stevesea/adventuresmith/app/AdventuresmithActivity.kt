@@ -737,9 +737,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
                 AdventuresmithCore.BehindTheTables -> {
                     when (grpId) {
-                        "Settlements" -> CommunityMaterial.Icon.cmd_castle
-                        "grpSettlementsTown" -> CommunityMaterial.Icon.cmd_home
-                        "grpSettlementsCastle" -> CommunityMaterial.Icon.cmd_castle
+                        "Locations" -> CommunityMaterial.Icon.cmd_map_marker
+                        "grpLocationsTown" -> CommunityMaterial.Icon.cmd_home
+                        "grpLocationsCastle" -> CommunityMaterial.Icon.cmd_castle
+                        "grpLocationsDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
 
                         "Encounters" -> CommunityMaterial.Icon.cmd_run
                         "grpEncountersCastle" -> CommunityMaterial.Icon.cmd_castle

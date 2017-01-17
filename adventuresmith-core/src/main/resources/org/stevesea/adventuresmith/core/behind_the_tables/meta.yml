@@ -6,10 +6,11 @@ credit: /r/DnDBehindTheScreen
 hasGroupHierarchy: true
 groups:
   grpEncountersCastle: Encounters / Castle
+  grpLocationsCastle: Locations / Castle
+  grpLocationsDungeon: Locations / Dungeon
+  grpLocationsTown: Locations / Town
   grpNPCsCastle: NPCs / Castle
   grpNPCsTown: NPCs / Town
-  grpSettlementsCastle: Settlements / Castle
-  grpSettlementsTown: Settlements / Town
 attribution: |
   /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
   <blockquote>
