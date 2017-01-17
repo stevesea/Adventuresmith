@@ -93,7 +93,6 @@ generators:
   - kennelmaster
   - knight
   - law_official
-  - maidservant
   - noble
   - nobleman
   - noblewoman
@@ -102,6 +101,7 @@ generators:
   - pub_names
   - retainer
   - seer
+  - servant
   - server
   - smith
   - stable_hand

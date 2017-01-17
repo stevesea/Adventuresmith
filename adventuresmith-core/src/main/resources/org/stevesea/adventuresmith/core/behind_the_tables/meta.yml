@@ -10,6 +10,7 @@ groups:
   grpLocationsDungeon: Locations / Dungeon
   grpLocationsTown: Locations / Town
   grpNPCsCastle: NPCs / Castle
+  grpNPCsCastleDungeon: NPCs / Castle Dungeon
   grpNPCsTown: NPCs / Town
 attribution: |
   /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.

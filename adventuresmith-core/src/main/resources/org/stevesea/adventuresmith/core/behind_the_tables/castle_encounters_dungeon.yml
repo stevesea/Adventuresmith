@@ -1,22 +1,30 @@
 ---
 templates:
-- A snoozing guard or jailer.
-- A pair of guards on patrol.
-- A quartet of guards playing cards or dice their break.
-- A pack of trained hunting dogs commanded by a high-ranking guard who has been alerted of the escape attempt.
-- An inquisitor on-site to interrogate another prisoner about an unrelated case.
-- An ear-splitting shriek from a maidservant.
-- A wide, well-lit yard that must be crossed
-- with guards watching it from towers.
-- A high wall directly in the path of escape.
-- A barred window in the path of escape.
-- The rat-infested kitchens.
-- An imprisoned nobleman who offers to help if you help him escape.
-- An imprisoned thief who is bent on revenge.
-- Even if you make it out of the dungeon, you’ll never escape because...
-- The castle’s huntsman will ride you down.
-- The castle’s hunting hounds are peerless.
-- The castle’s ghosts will shriek in alarm.
-- The knights sworn to the castle’s liege will not rest until they return you to him or her.
-- The castle’s archers will fill you with arrows.
-- You’ve been branded a prisoner of this place; no one will risk helping you.
+- |
+  {{encounter}}
+  <br/>
+  <br/>Even if you make it out of the dungeon, you’ll never escape because:
+  <br/>{{never_escape}}
+
+tables:
+  encounter:
+  - A snoozing guard or jailer.
+  - A pair of guards on patrol.
+  - A quartet of guards playing cards or dice their break.
+  - A pack of trained hunting dogs commanded by a high-ranking guard who has been alerted of the escape attempt.
+  - An inquisitor on-site to interrogate another prisoner about an unrelated case.
+  - An ear-splitting shriek from a maidservant.
+  - A wide, well-lit yard that must be crossed with guards watching it from towers.
+  - A high wall directly in the path of escape.
+  - A barred window in the path of escape.
+  - The rat-infested kitchens.
+  - An imprisoned nobleman who offers to help if you help him escape.
+  - An imprisoned thief who is bent on revenge.
+  never_escape:
+  - Even if you make it out of the dungeon, you’ll never escape because...
+  - The castle’s huntsman will ride you down.
+  - The castle’s hunting hounds are peerless.
+  - The castle’s ghosts will shriek in alarm.
+  - The knights sworn to the castle’s liege will not rest until they return you to him or her.
+  - The castle’s archers will fill you with arrows.
+  - You’ve been branded a prisoner of this place; no one will risk helping you.
