@@ -99,6 +99,7 @@ generators:
   - castle_encounters_peace
   - castle_encounters_siege
   - castle_room
+  - npc
   - pub_names
   - t_alchemist
   - t_criminal

@@ -1,0 +1,340 @@
+---
+# from https://www.reddit.com/r/BehindTheTables/comments/3zr0h4/npc_appearance_personality_faith_and_flaws/
+
+nested_tables:
+  npc_appearance:
+    # grabbing one entry from each table is overwhelming,
+    # grab 2-4
+    templates:
+    - "{{>pickN: 1d3+1 npc_appearance.choices <br/>}}"
+    choices:
+    - "{{npc_facial.eyes}}"
+    - "{{npc_facial.ears}}"
+    - "{{npc_facial.mouth}}"
+    - "{{npc_facial.nose}}"
+    - "{{npc_facial.chin}}"
+    - "{{npc_facial.hair}}"
+    - "{{npc_facial.other}}"
+    - "{{npc_physical.height}}"
+    - "{{npc_physical.body}}"
+    - "{{npc_physical.hands}}"
+    - "{{npc_physical.scar}}"
+    - "{{npc_accessories.tattoo}}"
+    - "{{npc_accessories.jewelry}}"
+    - "{{npc_accessories.clothes}}"
+  npc_facial:
+    eyes:
+    - Sleepy eyes.
+    - Shifty eyes.
+    - Watery eyes.
+    - Bright eyes.
+    - Cold eyes.
+    - Smiling eyes.
+    - Close-set eyes.
+    - Wild eyes.
+    - Distant eyes.
+    - A lazy eye.
+    ears:
+    - Over-sized ears.
+    - Long ear lobes.
+    - Small ears.
+    - Uneven ears.
+    - Hairy ears.
+    - Pointy ears.
+    - Short ear lobes.
+    - Ears that stick out.
+    mouth:
+    - Full lips.
+    - Buck-teeth.
+    - Thin lips.
+    - Rotting teeth.
+    - Crooked teeth.
+    - A broken or missing tooth.
+    - Pursed lips.
+    - Dry, cracked lips.
+    - One or more false teeth.
+    - A mouth that hangs open.
+    nose:
+    - A crooked nose.
+    - A bulbous nose.
+    - A narrow nose.
+    - A button nose.
+    - A long nose.
+    - A broad nose.
+    - An angular nose.
+    - A round nose.
+    chin:
+    - A pronounced chin.
+    - A cleft chin.
+    - A dimple on the chin.
+    - A rounded chin.
+    - A sharp jawline.
+    - A square jaw.
+    - A round jaw.
+    - An underbite.
+    hair:
+    - Thick hair.
+    - Wispy hair.
+    - Straight hair.
+    - Wavy hair.
+    - Curly hair.
+    - Wiry hair.
+    - Oily hair.
+    - Lush hair.
+    other:
+    - High cheekbones.
+    - Tight, drawn cheeks.
+    - Chubby cheeks.
+    - An unpleasant pustule.
+    - A large mole.
+    - A beauty mark.
+    - Freckles.
+    - Terrible scarring.
+
+  npc_physical:
+    height:
+    - Unusually short.
+    - Short in stature.
+    - Average height.
+    - Slightly above average height.
+    - Well above average height.
+    - Unusually tall.
+    body:
+    - Thin and delicate.
+    - Of average build.
+    - Well-muscled.
+    - Slightly overweight.
+    - Grotesquely obese.
+    - Lean and lanky.
+    - Lithe and lean.
+    - Thin and wiry.
+    - Sinewy and strong.
+    - Flabby and weak.
+    - Lumpy or bent.
+    - Covered in hair.
+    hands:
+    - Powerful hands.
+    - Delicate hands.
+    - Rough hands.
+    - Soft hands.
+    - A light touch.
+    - A heavy touch.
+    scar:
+    - A jagged scar.
+    - A dark purple scar.
+    - An angry red scar.
+    - A long, thin scar.
+  npc_accessories:
+    tattoo:
+    - A dagger tattoo.
+    - An arrow tattoo.
+    - An anchor tattoo.
+    - A skull tattoo.
+    - A pair of crossed bones tattoo.
+    - A snake tattoo.
+    - A scorpion tattoo.
+    - A spider web tattoo.
+    - A heart tattoo.
+    - A ring of thorns tattoo.
+    - A mermaid tattoo.
+    - A dragon tattoo.
+    jewelry:
+    - An earring.
+    - Two earrings.
+    - A small chain about the neck.
+    - A large chain about the neck.
+    - A tight choker about the neck.
+    - A brooch.
+    - A ring.
+    - Several rings.
+    - A bracelet.
+    - A nose ring.
+    clothes:
+    - Crisp and new.
+    - Fashionable and hip.
+    - A bit old-fashioned.
+    - Of the highest quality.
+    - Faded, but in good condition.
+    - Faded and patched.
+    - Torn in places; missing buttons.
+    - Tattered and worn.
+
+  npc_emotions:
+    templates:
+    - |
+      When calm, the person is typically {{npc_emotions.calm}}
+      <br/>When stressed, the person often becomes {{npc_emotions.stress}}
+      <br/>
+      <br/>Now, the person is {{npc_emotions.mood}}
+
+    calm:
+    - Compassionate.
+    - Cheerful.
+    - Reserved.
+    - Outspoken.
+    - Uninterested.
+    - Gruff.
+    - Eager.
+    - Deceitful.
+    - Foolish.
+    - Strict.
+    - Agreeable.
+    - Mischeivious.
+    - Angry.
+    - Fearful.
+    - Manipulative.
+    - Devout.
+    - Greedy.
+    - Funny.
+    - Dour.
+    - Fun-loving.
+    - Lazy.
+    - Driven.
+    - Boastful.
+    - Artistic.
+    - Assertive.
+    - Carefree.
+    - Cautious.
+    - Confident.
+    - Thoughtful.
+    - Loyal.
+    - Sophisticated.
+    - Weak-Willed.
+
+    stress:
+    - Withdrawn.
+    - Murderous.
+    - Obsessive.
+    - Authoritarian.
+    - Determined.
+    - Brave.
+    - Spiteful.
+    - Belligerent.
+    - Caustic.
+    - Reckless.
+    - Argumentative.
+    - Gluttonous.
+    - Overly protective.
+    - Angry.
+    - Cowardly.
+    - Meticulous.
+    - Sarcastic.
+    - Stubborn.
+    - Destructive.
+    - Practical.
+    - Pushy.
+    - Fanatical.
+    - Secretive.
+    - Scornful.
+    - Courageous.
+    - Impractical.
+    - Calculating.
+    - Industrious.
+    - Manipulative.
+    - Destructive.
+    - Compulsive.
+    - Intolerant.
+
+    mood:
+    - Agreeable.
+    - Carefree.
+    - Curious.
+    - Eager.
+    - Friendly.
+    - Happy.
+    - Hopeful.
+    - Upbeat.
+    - Indifferent.
+    - Bored.
+    - Focused.
+    - Suspicious.
+    - Tired.
+    - Withdrawn.
+    - Disagreeable.
+    - Agitated.
+    - Angry.
+    - Despondent.
+    - Gloomy.
+    - Nervous.
+
+  npc_quirks:
+    templates:
+    - |
+      The person is a {{npc_quirks.faith}}
+      <br/>The person is prejudiced against {{npc_quirks.prejudice}}
+      <br/>
+      <br/>The person {{npc_quirks.flaws}}
+    faith:
+    - Quiet true believer.
+    - Casual observer.
+    - Critical student.
+    - Outspoken cynic.
+    - Open-minded seeker.
+    - Broken heretic.
+    - Cautious listener.
+    - Fanatical true believer.
+    prejudice:
+    - other genders
+    - "{{npc_quirks.prej_age}}"
+    - "{{npc_quirks.prej_class}}"
+    - "{{npc_quirks.prej_deviants}}"
+    - "{{npc_quirks.prej_profession}}"
+    - "{{npc_quirks.prej_race}}"
+    prej_age:
+    - children
+    - teenagers
+    - elderly
+    prej_class:
+    - rulers
+    - powerful rich
+    - destitute poor
+    prej_deviants:
+    - beggars
+    - drunks
+    - junkies
+    prej_profession:
+    - farmers
+    - artists
+    - clergy
+    - soldiers
+    - fishers
+    - harlots
+    - miners
+    - merchants
+    - scholars
+    - herders
+    - sailors
+    - mages
+    prej_race:
+    - dwarves
+    - elves
+    - gnomes
+    - goblins
+    - half-breeds
+    - halflings
+    - humans
+    - orcs
+    - reptilians
+
+
+    flaws:
+    - Fidgets.
+    - Drinks too much.
+    - Eats too much.
+    - Swears often.
+    - Has poor hygiene.
+    - Can’t resist flirting.
+    - Can’t stop staring.
+    - Sweats profusely and easily.
+    - Is a habitual liar.
+    - Embellishes the truth.
+    - Exaggerates details.
+    - Has a short temper.
+    - Is melodramatic.
+    - Gossips.
+    - Chews with an open mouth.
+    - Often sniffs audibly.
+    - Believes what you tell him/her.
+    - Is skeptical of everything.
+    - Paces.
+    - Makes poor eye contact.
