@@ -70,10 +70,28 @@ generators:
   #- chars   Not converted to new template format
   - spells
   behind_the_tables:
-  - alchemist
-  - archer
-  - armorer
-  - bowyer
+  - c_archer
+  - c_armorer
+  - c_bowyer
+  - c_chaplain
+  - c_cook
+  - c_fool
+  - c_guard
+  - c_guard_captain
+  - c_horsemaster
+  - c_huntsman
+  - c_jailer
+  - c_kennelmaster
+  - c_knight
+  - c_nobleman
+  - c_noblewoman
+  - c_prisoner
+  - c_retainer
+  - c_servant
+  - c_stable_hand
+  - c_steward
+  - c_torturer
+  - c_tutor
   - castle
   - castle_dungeon
   - castle_dungeon_room
@@ -81,34 +99,16 @@ generators:
   - castle_encounters_peace
   - castle_encounters_siege
   - castle_room
-  - chaplain
-  - cook
-  - criminal
-  - fool
-  - guard
-  - guard_captain
-  - horsemaster
-  - huntsman
-  - jailer
-  - kennelmaster
-  - knight
-  - law_official
-  - noble
-  - nobleman
-  - noblewoman
-  - priest
-  - prisoner
   - pub_names
-  - retainer
-  - seer
-  - servant
-  - server
-  - smith
-  - stable_hand
-  - steward
-  - torturer
-  - traveler
-  - tutor
+  - t_alchemist
+  - t_criminal
+  - t_law_official
+  - t_noble
+  - t_priest
+  - t_seer
+  - t_server
+  - t_smith
+  - t_traveler
   maze_rats:
   - mr01_afflictions
   - mr01_characters
