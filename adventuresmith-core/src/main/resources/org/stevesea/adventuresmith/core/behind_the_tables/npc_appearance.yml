@@ -1,0 +1,6 @@
+---
+templates:
+- "{{npc_appearance.templates}}"
+
+imports:
+- npc_appearance_personality

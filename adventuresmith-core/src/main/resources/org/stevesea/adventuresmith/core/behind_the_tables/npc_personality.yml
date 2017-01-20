@@ -1,0 +1,10 @@
+---
+templates:
+- |
+  {{npc_emotions.templates}}
+  <br/>
+  <br/>{{npc_quirks.templates}}
+
+
+imports:
+- npc_appearance_personality

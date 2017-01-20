@@ -1,0 +1,103 @@
+---
+# from https://www.reddit.com/r/BehindTheTables/comments/4iq4of/basic_dungeons/
+
+templates:
+- |
+  This place is (or was) {{basic_dungeon.was}} built by {{basic_dungeon.built_by}} and located
+  {{basic_dungeon.located}}.
+  <br/>
+  <br/>The place is currently occupied by {{basic_dungeon.occupied}} and some {{basic_dungeon.and_some}}
+  <br/>
+  <br/>If you survive the {{basic_dungeon.survive}} you might recover the {{basic_dungeon.recover}}
+
+nested_tables:
+  basic_dungeon:
+    was:
+    - A stronghold.
+    - A temple.
+    - A tomb.
+    - A prison.
+    - A mine.
+    - A lair.
+    - A palace.
+    - A storage vault.
+    - A sewer.
+    - A maze.
+    built_by:
+    - An ancient dwarvish clan.
+    - An ancient elf prince.
+    - A powerful wizard.
+    - A dark sorceress.
+    - A foreign empire.
+    - An ambitious queen of old.
+    - Prosperous merchants.
+    - A powerful noble family.
+    - Religious zealots.
+    - An ancient race of giants.
+    - A tyrannical king of old.
+    - No one; it's a natural cave.
+    located:
+    - Beneath a cold mountain.
+    - Beneath a fiery mountain.
+    - Near a well-traveled mountain pass.
+    - Deep within a forest.
+    - Deep within a desert.
+    - Beside the sea.
+    - On an island.
+    - Beneath a bustling city.
+    - Beneath the ruin of an ancient city.
+    - Beneath a well-known castle or monastery.
+    - Beneath a the ruin of an old castle or monastery.
+    - In a place reachable only by magic.
+    occupied:
+    - A dangerous outlaw.
+    - An elemental lord.
+    - A vampire.
+    - A lich.
+    - A demon.
+    - A devil.
+    - An orc warlord.
+    - A hobgoblin commander.
+    - An aberrant presence.
+    - A witch.
+    - A giant.
+    - A dragon.
+    and_some:
+    - Thieves.
+    - Goblins.
+    - Zombies.
+    - Skeletons.
+    - Bats.
+    - Rats.
+    - Spiders.
+    - Oozes.
+    - Kobolds.
+    - Cultists.
+    - Troglodytes.
+    - Ogres.
+    survive:
+    - Gauntlet of mechanical traps.
+    - Powerful magical wards.
+    - Golem guardians.
+    - Elemental guardians.
+    - Noxious gas.
+    - Toxic mold.
+    - Horrible curse.
+    - Unstable ceilings.
+    - Flooding chambers.
+    - Sinkholes.
+    - Steam vents and lava flows.
+    - Slippery footing.
+    recover:
+    - Weapon of a legendary warrior.
+    - Wand of a famous witch or wizard.
+    - Spellbook of a notorious mage.
+    - Treasure stash of a notable pirate.
+    - Hoard of an old dragon.
+    - Treasury of an ancient dwarvish realm.
+    - Artifacts of an elvish hero.
+    - Relics of a celebrated priest.
+    - Chests of silver carried by a lost ship or caravan.
+    - Crown jewels of a long-dead queen.
+    - Largest diamond found in this part of the world.
+    - Staff of an infamous sorcerer or necromancer.

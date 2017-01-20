@@ -70,6 +70,7 @@ generators:
   #- chars   Not converted to new template format
   - spells
   behind_the_tables:
+  - basic_dungeon
   - c_archer
   - c_armorer
   - c_bowyer
@@ -99,7 +100,10 @@ generators:
   - castle_encounters_peace
   - castle_encounters_siege
   - castle_room
+  - dungeon_dressing
   - npc
+  - npc_appearance
+  - npc_personality
   - pub_names
   - t_alchemist
   - t_criminal
