@@ -43,7 +43,7 @@ import java.util.*
  *      - value2
  *      - value2
  *
- *  (the above two are synonymous
+ *  (the above two are synonymous)
  */
 class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): RangeMap {
@@ -95,13 +95,16 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
         return result
     }
 
-    fun strToIntRange(p: JsonParser,rangeStr: String) : IntRange {
+    fun strToIntRange(p: JsonParser, rangeStr: String) : IntRange {
         try {
-            val words = rangeStr.split("..", limit = 2)
+            var words = rangeStr.split("..", limit = 2)
             if (words.size != 2) {
-                // if no '..', must be a single int
-                val i = rangeStr.trim().toInt()
-                return IntRange(i,i)
+                words = rangeStr.split("-", limit = 2)
+                if (words.size != 2) {
+                    // if no '..' or '-', must be a single int
+                    val i = rangeStr.trim().toInt()
+                    return IntRange(i, i)
+                }
             }
             val start = words[0].trim().toInt()
             val end = words[1].trim().toInt()
@@ -114,14 +117,14 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
 
 /**
  * a RangeMap is a map meant to hold entries like
- *    1..2 optionA
- *    3..4 optionB
- *    5..9 optionC
- *    10 optionD
+ *    1..2, optionA
+ *    3..4, optionB
+ *    5..9, optionC
+ *    10, optionD
  *
- * This implementation assumes that
- *  - there are no holes in the range (does not enforce this)
- *  - there are no overlaps in the range (enforces this)
+ * This implementation assumes (and enforces) the following
+ *  - there are no holes in the range
+ *  - there are no overlaps in the range
  */
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator::class, property="@id")
 @JsonDeserialize(using = RangeMapDeserializer::class)
