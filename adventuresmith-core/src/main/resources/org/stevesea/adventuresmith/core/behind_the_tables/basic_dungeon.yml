@@ -3,101 +3,104 @@
 
 templates:
 - |
-  This place is (or was) {{basic_dungeon.was}} built by {{basic_dungeon.built_by}} and located
-  {{basic_dungeon.located}}.
+  This place is (or was) <strong>{{basic_dungeon.was}}</strong>
+  built by <strong>{{basic_dungeon.built_by}}</strong>
+  and located <strong>{{basic_dungeon.located}}</strong>
   <br/>
-  <br/>The place is currently occupied by {{basic_dungeon.occupied}} and some {{basic_dungeon.and_some}}
+  <br/>The place is currently occupied by <strong>{{basic_dungeon.occupied}}</strong>
+   and some <strong>{{basic_dungeon.and_some}}</strong>
   <br/>
-  <br/>If you survive the {{basic_dungeon.survive}} you might recover the {{basic_dungeon.recover}}
+  <br/>If you survive the <strong>{{basic_dungeon.survive}}</strong>
+  you might recover the <strong>{{basic_dungeon.recover}}</strong>
 
 nested_tables:
   basic_dungeon:
     was:
-    - A stronghold.
-    - A temple.
-    - A tomb.
-    - A prison.
-    - A mine.
-    - A lair.
-    - A palace.
-    - A storage vault.
-    - A sewer.
-    - A maze.
+    - a stronghold
+    - a temple
+    - a tomb
+    - a prison
+    - a mine
+    - a lair
+    - a palace
+    - a storage vault
+    - a sewer
+    - a maze
     built_by:
-    - An ancient dwarvish clan.
-    - An ancient elf prince.
-    - A powerful wizard.
-    - A dark sorceress.
-    - A foreign empire.
-    - An ambitious queen of old.
-    - Prosperous merchants.
-    - A powerful noble family.
-    - Religious zealots.
-    - An ancient race of giants.
-    - A tyrannical king of old.
-    - No one; it's a natural cave.
+    - an ancient dwarvish clan
+    - an ancient elf prince
+    - a powerful wizard
+    - a dark sorceress
+    - a foreign empire
+    - an ambitious queen of old
+    - prosperous merchants
+    - a powerful noble family
+    - religious zealots
+    - an ancient race of giants
+    - a tyrannical king of old
+    - no one; it's a natural cave
     located:
-    - Beneath a cold mountain.
-    - Beneath a fiery mountain.
-    - Near a well-traveled mountain pass.
-    - Deep within a forest.
-    - Deep within a desert.
-    - Beside the sea.
-    - On an island.
-    - Beneath a bustling city.
-    - Beneath the ruin of an ancient city.
-    - Beneath a well-known castle or monastery.
-    - Beneath a the ruin of an old castle or monastery.
-    - In a place reachable only by magic.
+    - beneath a cold mountain
+    - beneath a fiery mountain
+    - near a well-traveled mountain pass
+    - deep within a forest
+    - deep within a desert
+    - beside the sea
+    - on an island
+    - beneath a bustling city
+    - beneath the ruin of an ancient city
+    - beneath a well-known castle or monastery
+    - beneath a the ruin of an old castle or monastery
+    - in a place reachable only by magic
     occupied:
-    - A dangerous outlaw.
-    - An elemental lord.
-    - A vampire.
-    - A lich.
-    - A demon.
-    - A devil.
-    - An orc warlord.
-    - A hobgoblin commander.
-    - An aberrant presence.
-    - A witch.
-    - A giant.
-    - A dragon.
+    - a dangerous outlaw
+    - an elemental lord
+    - a vampire
+    - a lich
+    - a demon
+    - a devil
+    - an orc warlord
+    - a hobgoblin commander
+    - an aberrant presence
+    - a witch
+    - a giant
+    - a dragon
     and_some:
-    - Thieves.
-    - Goblins.
-    - Zombies.
-    - Skeletons.
-    - Bats.
-    - Rats.
-    - Spiders.
-    - Oozes.
-    - Kobolds.
-    - Cultists.
-    - Troglodytes.
-    - Ogres.
+    - thieves
+    - goblins
+    - zombies
+    - skeletons
+    - bats
+    - rats
+    - spiders
+    - oozes
+    - kobolds
+    - cultists
+    - troglodytes
+    - ogres
     survive:
-    - Gauntlet of mechanical traps.
-    - Powerful magical wards.
-    - Golem guardians.
-    - Elemental guardians.
-    - Noxious gas.
-    - Toxic mold.
-    - Horrible curse.
-    - Unstable ceilings.
-    - Flooding chambers.
-    - Sinkholes.
-    - Steam vents and lava flows.
-    - Slippery footing.
+    - gauntlet of mechanical traps
+    - powerful magical wards
+    - golem guardians
+    - elemental guardians
+    - noxious gas
+    - toxic mold
+    - horrible curse
+    - unstable ceilings
+    - flooding chambers
+    - sinkholes
+    - steam vents and lava flows
+    - slippery footing
     recover:
-    - Weapon of a legendary warrior.
-    - Wand of a famous witch or wizard.
-    - Spellbook of a notorious mage.
-    - Treasure stash of a notable pirate.
-    - Hoard of an old dragon.
-    - Treasury of an ancient dwarvish realm.
-    - Artifacts of an elvish hero.
-    - Relics of a celebrated priest.
-    - Chests of silver carried by a lost ship or caravan.
-    - Crown jewels of a long-dead queen.
-    - Largest diamond found in this part of the world.
-    - Staff of an infamous sorcerer or necromancer.
+    - weapon of a legendary warrior
+    - wand of a famous witch or wizard
+    - spellbook of a notorious mage
+    - treasure stash of a notable pirate
+    - hoard of an old dragon
+    - treasury of an ancient dwarvish realm
+    - artifacts of an elvish hero
+    - relics of a celebrated priest
+    - chests of silver carried by a lost ship or caravan
+    - crown jewels of a long-dead queen
+    - largest diamond found in this part of the world
+    - staff of an infamous sorcerer or necromancer
