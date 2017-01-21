@@ -22,8 +22,10 @@ package org.stevesea.adventuresmith.core
 
 import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
+import com.google.common.base.Throwables
 import com.google.common.cache.*
 import com.google.common.io.*
+import com.google.common.util.concurrent.UncheckedExecutionException
 import mu.*
 import java.io.*
 import java.net.*
@@ -129,13 +131,18 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
                         locale: Locale,
                         charset: Charset = Charsets.UTF_8): T {
         val key = Triple(clazz.`package`.name, resource_prefix, locale)
-        synchronized(cache) {
+        try {
             val result = cache.get(key, object : Callable<T> {
                 override fun call(): T {
                     return uncached_deserialize(clazz, resource_prefix, locale, charset)
                 }
             })
             return result as T
+        } catch (e: ExecutionException) {
+            Throwables.propagateIfInstanceOf(e.cause, IOException::class.java)
+            throw Throwables.propagate(e.cause)
+        } catch (e: UncheckedExecutionException) {
+            throw Throwables.propagate(e.cause)
         }
     }
 
@@ -149,7 +156,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
             val result: T = objectReader.forType(clazz).readValue(str)
             return result
         } catch (ex: Exception) {
-            throw IOException("problem reading file ${url} (locale: ${locale}) - ${ex.toString()}", ex)
+            throw IOException("problem reading file ${url} - ${ex.message}", ex)
         }
     }
 }

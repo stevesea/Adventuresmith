@@ -151,9 +151,15 @@ object AdventuresmithCli : KLoggable {
                 SUBCMD_RUN -> runGenerator(opts)
                 else -> parser.printUsage()
             }
-        }catch ( e: ArgumentParserException) {
-            parser.handleError(e);
+        } catch ( e: ArgumentParserException) {
+            parser.handleError(e)
             System.exit(1);
+        } catch ( e: IOException) {
+            logger.error(e.message)
+            System.exit(1)
+        } catch ( e: Exception) {
+            logger.error(e.message, e)
+            System.exit(1)
         }
     }
 

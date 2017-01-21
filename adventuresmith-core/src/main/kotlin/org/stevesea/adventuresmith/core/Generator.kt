@@ -23,6 +23,7 @@ package org.stevesea.adventuresmith.core
 
 import com.fasterxml.jackson.databind.*
 import com.github.salomonbrys.kodein.*
+import com.google.common.base.Throwables
 import com.google.common.collect.*
 import com.samskivert.mustache.*
 import java.io.*
@@ -184,7 +185,7 @@ class DataDrivenGeneratorForFiles(
 
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
-            throw IOException("problem running generator ${input.name} (locale: ${locale}): ${ex.toString()}", ex)
+            throw IOException("problem running generator ${input.name}: ${ex.message}", ex)
         }
     }
 
@@ -225,7 +226,7 @@ class DataDrivenGeneratorForResources(
 
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
-            throw IOException("problem running generator ${resource_prefix} (locale: ${locale}): ${ex.toString()}", ex)
+            throw IOException("problem running generator ${resource_prefix}: ${ex.message}", ex)
         }
     }
 

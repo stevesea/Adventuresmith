@@ -142,7 +142,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     resultItems.add(generator.generate(currentLocale))
                                 } catch (e: Exception) {
                                     warn(e.toString(), e)
-                                    resultItems.add(e.toString())
+                                    resultItems.add(
+                                            "<font color=\"#b71c1c\">" +
+                                            e.message.orEmpty() +
+                                            "</font>"
+                                    )
                                 }
                             }
                             uiThread {
