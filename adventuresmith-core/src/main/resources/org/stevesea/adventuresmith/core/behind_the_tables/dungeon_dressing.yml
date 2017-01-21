@@ -6,48 +6,29 @@ nested_tables:
   dungeon_dressing:
     templates:
     - |
-      <h4>Atmosphere</h4>
+      <h5>Atmosphere</h5>
       {{>pickN: 1d3 dungeon_dressing.template_atmosphere <br/>}}
-      <h4>Features</h4>
-      {{>pickN: 1d3+2 dungeon_dressing.template_features <br/>}}
+      <h5>Features</h5>
+      {{>pickN: 1d6+4 dungeon_dressing.template_features <br/>}}
 
     template_atmosphere:
-    - "{{dungeon_dressing.air_currents}}"
+    - "air current: {{dungeon_dressing.air_currents}}"
     - "{{dungeon_dressing.odors}}"
     - "air: {{dungeon_dressing.air}}"
     - "noises: {{dungeon_dressing.unexplained_noises}}"
     template_features:
-    - |
-      1..25,
-      <h5>General Features</h5>
-      {{>pickN: 1d6+2 dungeon_dressing.general_features <br/>}}
-    - |
-      26..50,
-      <h5>General Furnishings</h5>
-      {{>pickN: 1d6+2 dungeon_dressing.general_furnishings <br/>}}
-    - |
-      51..70,
-      <h5>Religious Furnishings</h5>
-      {{>pickN: 1d6+2 dungeon_dressing.religious_furnishings <br/>}}
-    - |
-      71..90,
-      <h5>Torture Furnishings</h5>
-      {{>pickN: 1d6+2 dungeon_dressing.torture_furnishings <br/>}}
-    - |
-      91..100,
-      <h5>Magic User Furnishings</h5>
-      {{>pickN: 1d6+2 dungeon_dressing.magic_user_furnishings <br/>}}
+    - "1..20, {{dungeon_dressing.general_features}}"
+    - "21..40, {{dungeon_dressing.general_furnishings}}"
+    - "41..50, {{dungeon_dressing.religious_furnishings}}"
+    - "51..60, {{dungeon_dressing.torture_furnishings}}"
+    - "61..65, {{dungeon_dressing.magic_user_furnishings}}"
+    - "66..80, {{dungeon_dressing.personal_items}}"
+    - "81..95, {{dungeon_dressing.clothing}}"
 
     asdf:
     - |
       <h5>General Description of Container Contents</h5>
       {{dungeon_dressing.container_contents}}
-    - |
-      <h5>Miscellaneous Utensils and Personal Items</h5>
-      {{dungeon_dressing.personal_items}}
-    - |
-      <h5>Clothing and Footwear</h5>
-      {{dungeon_dressing.clothing}}
 
     air_currents:
     - 1..5, breeze (slight)
