@@ -39,7 +39,6 @@
     </string>
     <string name="artwork_public_domain"><![CDATA[
         <h1>Artwork - Public Domain</h1>
-        <p>TBD need to give attribution for public domain images from illuminated manuscripts</p>
         <p>Apocalypse, Flanders 15th century (BnF, Néerlandais 3, fol. 7r)</p>
         <p>Hans Vintler, Die Pluemen der Tugent, Vienna 1450 (Wien, Österreichische Nationalbibliothek, cod. s. n. 12819, fol. 129r)</p>
         <p>Guillaume de Digulleville, Pèlerinage de vie humaine, France 14th century (Aix-en-Provence, Bibliothèque municipale, ms. 110, p. 127)</p>
@@ -75,6 +74,7 @@
         <p>Pugna virtutum et vitiorum, Bavaria 14th century (Bayerische Staatsbibliothek, Clm 3003, fol. 53v)</p>
         <p>Diebold Schilling the Elder, Spiezer Chronik, Bern 1484-85 (Bern, Burgerbibliothek, Mss.h.h.I.16, p. 227)</p>
         <p>Beatus of Liébana, Commentaria in Apocalypsin (the ‘Beatus of Saint-Sever’), Saint-Sever before 1072 (BnF, Latin 8878, fol. 13r)</p>
+        <p>Pontifical of Renaud de Bar, France ca. 1303-1316 (Cambridge, Fitzwilliam Museum, MS 298, fol. 41r)</p>
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[

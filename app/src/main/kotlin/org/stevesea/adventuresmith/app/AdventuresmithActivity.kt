@@ -272,6 +272,7 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.infernus,
             R.drawable.initial_d,
             R.drawable.seven_headed_dragon,
+            R.drawable.siege_rabbits,
             R.drawable.snailfight,
             R.drawable.snake_eater,
             R.drawable.mmanticore
