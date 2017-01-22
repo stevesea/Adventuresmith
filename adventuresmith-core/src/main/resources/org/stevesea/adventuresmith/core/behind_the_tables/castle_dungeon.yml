@@ -5,15 +5,18 @@ nested_tables:
   castle_dungeon:
     templates:
     - |
-      The dungeon is located: {{castle_dungeon.located}}
-      <br/>The dungeon was built: {{castle_dungeon.built}}
-      <br/>The dungeon is: {{castle_dungeon.is}}
-      <br/>Prisoners are held within: {{castle_dungeon.prisoners_within}}
-
-      <br/>The cells’ (or pits’) condition is: {{castle_dungeon.cell_condition}}
-      <br/>Prisoners are treated: {{castle_dungeon.prisoner_treated}}
-      <br/>The dungeon is known for: {{castle_dungeon.known_for}}
-      <br/>According to rumor, within the castle’s dungeon lies: {{castle_dungeon.rumor}}
+      The dungeon is located: <strong>{{castle_dungeon.located}}</strong>
+      <br/>The dungeon was built: <strong>{{castle_dungeon.built}}</strong>
+      <br/>The dungeon is: <strong>{{castle_dungeon.is}}</strong>
+      <br/>
+      <br/>Prisoners are held within: <strong>{{castle_dungeon.prisoners_within}}</strong>
+      <br/>The cells’ (or pits’) condition is: <strong>{{castle_dungeon.cell_condition}}</strong>
+      <br/>
+      <br/>Prisoners are treated: <strong>{{castle_dungeon.prisoner_treated}}</strong>
+      <br/>
+      <br/>The dungeon is known for: <strong>{{castle_dungeon.known_for}}</strong>
+      <br/>
+      <br/>According to rumor, within the castle’s dungeon lies: <strong>{{castle_dungeon.rumor}}</strong>
 
     located:
     - In a tower set apart from the main castle.

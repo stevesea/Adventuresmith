@@ -7,18 +7,24 @@ nested_tables:
   castle:
     templates:
     - |
-      The castle sits: {{castle.sits}}.
-      <br/>The castle was built by: {{castle.built_by}}
-      <br/>The castle was built: {{castle.built}}
-      <br/>Currently, the castle's condition is: {{castle.current_condition}}
-      <br/>Presently, the castle is occupied by: {{castle.present_occupant}}
-      <br/>The position or territory is worth defending because: {{castle.worth_defending}}
-      <br/>The castle’s outer defenses include: {{castle.outer_defenses}}
-      <br/>The inner keep’s defenses include: {{castle.inner_defenses}}
-      <br/>The castle can be held effectively by as few as: {{castle.held_effectively}}
-      <br/>In addition to its garrison, the castle can hold foodstores to withstand a three-month siege for up to: {{castle.foodstores}}
-      <br/>The castle is known for: {{castle.known_for}}
-      <br/>What is rumored to be hidden in the castle? {{castle.rumors_of_hidden}}
+      The castle sits: <strong>{{castle.sits}}</strong>
+      <br/>The castle was built by: <strong>{{castle.built_by}}</strong>
+      <br/>The castle was built: <strong>{{castle.built}}</strong>
+      <br/>
+      <br/>Currently, the castle's condition is: <strong>{{castle.current_condition}}</strong>
+      <br/>Presently, the castle is occupied by: <strong>{{castle.present_occupant}}</strong>
+      <br/>
+      <br/>The position or territory is worth defending because: <strong>{{castle.worth_defending}}</strong>
+      <br/>
+      <br/>The castle’s outer defenses include: <strong>{{castle.outer_defenses}}</strong>
+      <br/>The inner keep’s defenses include: <strong>{{castle.inner_defenses}}</strong>
+      <br/>
+      <br/>The castle can be held effectively by as few as: <strong>{{castle.held_effectively}}</strong>
+      <br/>In addition to its garrison, the castle can hold foodstores to withstand a three-month siege for up to: <strong>{{castle.foodstores}}</strong>
+      <br/>
+      <br/>The castle is known for: <strong>{{castle.known_for}}</strong>
+      <br/>
+      <br/>What is rumored to be hidden in the castle? <strong>{{castle.rumors_of_hidden}}</strong>
     sits:
     - Atop a mountain.
     - On a hill overlooking a wide plain.
