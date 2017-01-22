@@ -8,10 +8,12 @@ groups:
   grpEncountersCastle: Encounters / Castle
   grpEncountersDungeon: Encounters / Dungeon
   grpEncountersTown: Encounters / Town
+  grpEncountersWild: Encounters / Wilderness
   grpLocationsCastle: Locations / Castle
+  grpLocationsCavern: Locations / Cavern
   grpLocationsDungeon: Locations / Dungeon
-  grpLocationsWild: Locations / Wilderness
   grpLocationsTown: Locations / Town
+  grpLocationsWild: Locations / Wilderness
   grpNPCsAppPersMotiv: NPCs / Appearance, Motivations...
   grpNPCsCastle: NPCs / Castle
   grpNPCsCastleCourt: NPCs / Castle Court

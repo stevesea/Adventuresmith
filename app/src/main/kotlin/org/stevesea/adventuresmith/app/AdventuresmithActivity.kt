@@ -744,14 +744,16 @@ class AdventuresmithActivity : AppCompatActivity(),
                     when (grpId) {
                         "Locations" -> CommunityMaterial.Icon.cmd_map_marker
                         "grpLocationsCastle" -> CommunityMaterial.Icon.cmd_castle
+                        "grpLocationsCavern" -> CommunityMaterial.Icon.cmd_fire
                         "grpLocationsDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
-                        "grpLocationsWild" -> CommunityMaterial.Icon.cmd_pine_tree
                         "grpLocationsTown" -> CommunityMaterial.Icon.cmd_home
+                        "grpLocationsWild" -> CommunityMaterial.Icon.cmd_pine_tree
 
                         "Encounters" -> CommunityMaterial.Icon.cmd_run
                         "grpEncountersCastle" -> CommunityMaterial.Icon.cmd_castle
                         "grpEncountersDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
                         "grpEncountersTown" -> CommunityMaterial.Icon.cmd_home
+                        "grpEncountersWild" -> CommunityMaterial.Icon.cmd_pine_tree
 
                         "NPCs" -> CommunityMaterial.Icon.cmd_account_multiple
                         "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle

@@ -100,6 +100,7 @@ generators:
   - castle_encounters_peace
   - castle_encounters_siege
   - castle_room
+  - caverns
   - dungeon_dressing
   - encounters_ancient_forest
   - encounters_dungeon
