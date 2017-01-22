@@ -1,0 +1,29 @@
+---
+templates:
+- "{{miner.templates}}"
+
+nested_tables:
+  miner:
+    templates:
+    - |
+      The miner has <strong>{{miner.has}}</strong>
+      <br/>The miner is looking to <strong>{{miner.seeks}}</strong>
+      <br/>The miner carries <strong>{{miner.carries}}</strong>
+
+    has:
+    - a sweat-stained shirt.
+    - skin blackened with dust.
+    - hard, leathery hands.
+    - long whiskers.
+    - an excited laugh.
+    - a raspy voice.
+    seeks:
+    - get rich quick.
+    - make some coin to pay off a debt.
+    - make some coin to send home to family.
+    - share a drink while prying for rumors.
+    carries:
+    - a shovel and a pick.
+    - a length of rope and a lantern.
+    - a pouch of uncut gems or bits of raw ore.
+    - a flask of strong spirits.

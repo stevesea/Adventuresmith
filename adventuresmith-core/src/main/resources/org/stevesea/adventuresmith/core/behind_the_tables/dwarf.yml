@@ -1,0 +1,48 @@
+---
+templates:
+- "{{dwarf.templates}}"
+
+nested_tables:
+  dwarf:
+    templates:
+    - |
+      The dwarf is <strong>{{dwarf.is}}</strong>
+      <br/>The dwarf's beard is <strong>{{dwarf.beard}}</strong>
+      <br/>The dwarf is looking to <strong>{{dwarf.seeks}}</strong>
+      <br/>The dwarf carries <strong>{{dwarf.carries}}</strong>
+
+    is:
+    - a greedy prospector.
+    - a hard-working miner.
+    - a talented weaponsmith.
+    - a meticulous gemcutter.
+    - a highly-skilled armorer.
+    - a capable stonemason.
+    - a battle-hardened soldier.
+    - a fearsome berserk warrior.
+    beard:
+    - snowy white.
+    - tangled.
+    - stony grey.
+    - braided.
+    - fiery red.
+    - black as coal.
+    - earthy brown.
+    - neatly trimmed.
+    - down to the floor.
+    - magnificent.
+    seeks:
+    - re-establish an ancestral claim.
+    - find a new source for precious gems.
+    - find some knowledge about an ancient
+    - event or place.
+    - drink some ale and swap tales of treasure.
+    - drink some ale and sing a bawdy song.
+    - drink some ale and start a fight.
+    carries:
+    - an old battleaxe with a razor sharp edge.
+    - a highly polished warhammer.
+    - several handaxes and a crossbow.
+    - a hammer and sack full of climbing gear.
+    - a pick-ax and an old map.
+    - a satchel of potions, tonics, and remedies.

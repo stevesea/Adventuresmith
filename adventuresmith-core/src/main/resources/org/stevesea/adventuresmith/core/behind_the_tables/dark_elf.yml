@@ -6,8 +6,8 @@ nested_tables:
     templates:
     - |
       The dark elf is <strong>{{dark_elf.is}}</strong>
-      <br/>The jailer is looking to <strong>{{dark_elf.seeks}}</strong>
-      <br/>The jailer carries <strong>{{dark_elf.carries}}</strong>
+      <br/>The dark elf is looking to <strong>{{dark_elf.seeks}}</strong>
+      <br/>The dark elf carries <strong>{{dark_elf.carries}}</strong>
 
     is:
     - a deadly assassin.

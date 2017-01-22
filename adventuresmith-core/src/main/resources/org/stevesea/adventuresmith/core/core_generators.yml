@@ -103,12 +103,15 @@ generators:
   - caverns
   - dark_elf
   - dungeon_dressing
+  - dwarf
   - encounters_ancient_forest
   - encounters_dungeon
   - encounters_idyllic_village
   - encounters_rotting_city
   - encounters_ship_sea
   - mage_towers
+  - mine
+  - miner
   - npc
   - npc_appearance
   - npc_personality

@@ -1,0 +1,229 @@
+---
+templates:
+- "{{mine.templates}}"
+
+nested_tables:
+  mine:
+    templates:
+    - |
+      The mine is a source of <strong>{{mine.source}}</strong>
+      <br/>Entrance: The mine’s entrance is <strong>{{mine.entrance}}</strong>
+      <br/>Most of the mine is <strong>{{mine.structure}}</strong>
+      <br/>Material excavated from the mine is <strong>{{mine.material}}</strong>
+      <br/>
+      <br/>Hazards/Obstacles: You find <strong>{{mine.obstacles}}</strong>
+      <br/>
+      <br/>Denizens: If you dig deep, you’ll find <strong>{{mine.denizens}}</strong>
+      <br/>Ecology: The creature is <strong>{{mine.ecology}}</strong>
+      <br/>
+      <br/>Neighbors: The miners complain of trouble from a nearby colony of  <strong>{{mine.neighbors}}</strong>
+      <br/>
+      <br/>Distinguishing Landmark: You see <strong>{{mine.landmark}}</strong>
+      <br/>Features: You notice <strong>{{mine.features}}</strong>
+      <br/>
+      <br/>The mine is widely believed to be <strong>{{mine.believed}}</strong>
+      <br/>
+      <br/>The mine is controlled by <strong>{{mine.controlled}}</strong>
+      <br/>
+      <br/>Most of the miners are <strong>{{mine.miners}}</strong>
+
+    source:
+    - chalk.
+    - coal.
+    - copper.
+    - gold.
+    - iron.
+    - lead.
+    - lime.
+    - nickel.
+    - platinum.
+    - salt.
+    - silver.
+    - zinc.
+    - diamonds.
+    - emeralds.
+    - jade.
+    - rubies.
+    - sapphires.
+    - turquoise.
+    - "{{mine.gems}}"
+    - an especially rare metal - {{mine.metal}}
+    gems:
+    - amethyst
+    - aquamarine
+    - garnet
+    - opal
+    - peridot
+    - tanzanite
+    - topaz
+    - zirconium
+    metal:
+    - adamantine
+    - mithral
+    - orium
+    entrance:
+    - up a winding trail from a camp or village.
+    - up a steep trail from a camp or village.
+    - a wide, natural cave mouth.
+    - a wide open pit.
+    - an easy to spot, narrow passage.
+    - a steep, slippery sloped tunnel.
+    - a tunnel reinforced with wood beams.
+    - a partially collapsed tunnel, impassable without excavation.
+    - marked with several signs.
+    - hidden by the {{mine.entrance_terrain}}
+    - hidden by {{mine.entrance_vegetation}}
+    - difficult to access - {{mine.entrance_difficult}}
+    entrance_terrain:
+    - boulders
+    - waterfall
+    - rocky overhang
+    - hillock
+    entrance_vegetation:
+    - a briar patch
+    - a curtain of moss
+    - enormous tree roots
+    - overgrown vines
+    entrance_difficult:
+    - up or down a cliff face
+    - down a deep hole
+    - in an underwater tunnel
+    - through an illusory rock or wall
+    structure:
+    - a sprawling maze of twisting tunnels.
+    - a sprawling maze of narrow tunnels.
+    - a series of tunnels connecting large natural caverns.
+    - a wide open-pit quarry.
+    - a series of tunnels connecting large open pits or sinkholes.
+    - a sprawling maze of open trenches.
+    material:
+    - floated on rafts down a stream or river.
+    - hauled out on pack mules.
+    - hauled out on mule-drawn carts.
+    - hauled out on sure-footed ponies.
+    - hauled out on ox-drawn carts.
+    - hauled out on the backs of uncommon beasts of burden ({{mine.haul_beasts}})
+    - rolled out in single mine carts.
+    - rolled out in long trains of mine carts.
+    haul_beasts:
+    - bears
+    - giant lizards
+    - goats
+    - undead horses
+
+    obstacles:
+    - a colony of poisonous mushrooms.
+    - a patch of toxic mold.
+    - a sudden cave in.
+    - several rocks tumble down a sloped wall.
+    - the floor is very slippery.
+    - your foot misses the floor as you step into a pit or chasm.
+    - a heap of unstable explosives.
+    - a sudden explosion in another part of the mine shakes the floor.
+    - the floor is writhing with vermin ({{mine.vermin}})
+    - the tunnel or trench is steadily flooding.
+    vermin:
+    - beetles
+    - centipedes
+    - rats
+    - spiders
+    denizens:
+    - Carrion crawler.
+    - Cloaker.
+    - Darkmantle.
+    - Drider.
+    - Fungi.
+    - Gargoyle.
+    - Ghosts.
+    - Gricks.
+    - Hook horror.
+    - Mimics.
+    - Myconids.
+    - Ooze.
+    - Otyugh.
+    - Piercer.
+    - Roper.
+    - Rust monster.
+    - Skeletons.
+    - Stirges.
+    - Umber hulk.
+    - Wraith.
+    ecology:
+    - a predator or a hunter.
+    - a food source for other denizens.
+    - a recently-arrived squatter or invader.
+    - a long-time resident.
+    - a parasite or a scavenger.
+    - a host or the dominant species.
+    - unusually abundant.
+    - living in deliberate isolation.
+    - living in unintentional isolation.
+    - severely out of place in this mine.
+    neighbors:
+    - Cyclops.
+    - Duergar.
+    - Dwarves.
+    - Elves, dark.
+    - Gnomes, deep.
+    - Goblins.
+    - Grimlocks.
+    - Hobgoblins.
+    - Kobolds.
+    - Orcs.
+    - Troglodytes.
+    - Trolls.
+    landmark:
+    - a trickle of water flowing down the walls and across the floor.
+    - an underground lake of potable water.
+    - a pool of stagnant water.
+    - a rickety bridge over a chasm.
+    - a narrow chasm with walls close enough to climb between.
+    - a deep chasm with no bottom in sight.
+    - a group of boulders arranged in a circle.
+    - a damp wall covered in soft mold.
+    - a recess in the wall, covered in slimy mold.
+    - a large patch of soft fungus.
+    - a cavern with a strong echo.
+    - a claustrophobic tunnel with a low ceiling.
+    - a forked path with tracks for mine carts.
+    - an overturned mine cart.
+    - an unlit lantern mounted to the wall.
+    - a glowing lantern mounted to the wall.
+    - a swirling vein of ore visible in the wall.
+    - a wide vein of ore visible in the wall.
+    - a partially excavated wall with plentiful ore.
+    - a heap of excavated rock.
+    features:
+    - some broken mining equipment.
+    - some old dry bones.
+    - evidence of a recent, brief encampment.
+    - evidence of an abandoned campsite.
+    - an enormous spider web.
+    - a wide slippery patch of mold on the floor.
+    - the clatter of rocks falling.
+    - loose stones underfoot.
+    - the clang of a pick breaking rock.
+    - the distant sound of hammers at work.
+    - a prospector’s mark scratched on the wall.
+    - a cracked wooden beam overhead.
+    believed:
+    - full of riches.
+    - a productive place to dig.
+    - becoming increasingly unprofitable.
+    - nearly dried up.
+    controlled:
+    - a powerful, well-known merchant guild.
+    - a wealthy noble house.
+    - a partnership of a few prospectors.
+    - a clan or collective of locals.
+    - no one in particular; finders keepers.
+    - a shadowy cabal of merchants.
+    - a vicious warlord or mercenary captain.
+    - a crime boss who’s never visited the site.
+    miners:
+    - free men working for wages.
+    - low-level members of a guild.
+    - paid with a fraction of what they haul out.
+    - paid with credit at a merchant’s store.
+    - prisoners.
+    - slaves.
