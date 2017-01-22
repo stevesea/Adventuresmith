@@ -1,0 +1,57 @@
+---
+
+templates:
+- "{{mine_explore.templates}}"
+
+nested_tables:
+  mine_explore:
+    templates:
+    - 1..5, You notice <strong>{{mine_explore.features}}</strong>
+    - 6..8, You find <strong>{{mine_explore.obstacles}}</strong>
+    - 9..12, You see <strong>{{mine_explore.landmark}}</strong>
+
+    obstacles:
+    - a colony of poisonous mushrooms.
+    - a patch of toxic mold.
+    - a sudden cave in.
+    - several rocks tumble down a sloped wall.
+    - the floor is very slippery.
+    - your foot misses the floor as you step into a pit or chasm.
+    - a heap of unstable explosives.
+    - a sudden explosion in another part of the mine shakes the floor.
+    - the floor is writhing with vermin ({{mine.vermin}})
+    - the tunnel or trench is steadily flooding.
+    landmark:
+    - a trickle of water flowing down the walls and across the floor.
+    - an underground lake of potable water.
+    - a pool of stagnant water.
+    - a rickety bridge over a chasm.
+    - a narrow chasm with walls close enough to climb between.
+    - a deep chasm with no bottom in sight.
+    - a group of boulders arranged in a circle.
+    - a damp wall covered in soft mold.
+    - a recess in the wall, covered in slimy mold.
+    - a large patch of soft fungus.
+    - a cavern with a strong echo.
+    - a claustrophobic tunnel with a low ceiling.
+    - a forked path with tracks for mine carts.
+    - an overturned mine cart.
+    - an unlit lantern mounted to the wall.
+    - a glowing lantern mounted to the wall.
+    - a swirling vein of ore visible in the wall.
+    - a wide vein of ore visible in the wall.
+    - a partially excavated wall with plentiful ore.
+    - a heap of excavated rock.
+    features:
+    - some broken mining equipment.
+    - some old dry bones.
+    - evidence of a recent, brief encampment.
+    - evidence of an abandoned campsite.
+    - an enormous spider web.
+    - a wide slippery patch of mold on the floor.
+    - the clatter of rocks falling.
+    - loose stones underfoot.
+    - the clang of a pick breaking rock.
+    - the distant sound of hammers at work.
+    - a prospector’s mark scratched on the wall.
+    - a cracked wooden beam overhead.

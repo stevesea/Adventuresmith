@@ -1,0 +1,160 @@
+---
+
+templates:
+- "{{cavern_explore.templates}}"
+
+nested_tables:
+  cavern_explore:
+    templates:
+    - |
+      {{cavern_explore.template_prefix}}
+      <br/>
+      <br/>{{cavern_explore.template_choices}}
+    template_choices:
+    - 1, You come upon <strong>{{cavern_explore.visitors}}</strong>
+    - 2..6, You notice <strong>{{cavern_explore.features}}</strong>
+    - 7..10, You find <strong>{{cavern_explore.obstacles}}</strong>
+    - 11..13, You see <strong>{{cavern_explore.landmark}}</strong>
+    template_prefix:
+    - The cave wall is <strong>{{cavern_explore.cave_wall}}</strong>
+    - The cave ceiling is <strong>{{cavern_explore.cave_ceiling}}</strong>
+    cave_wall:
+    - slightly damp.
+    - dripping wet.
+    - slick with mold.
+    - covered in soft fungi.
+    - dry as a bone.
+    - rough and dry.
+    - dry and smooth.
+    - jagged.
+    - pockmarked.
+    - crumbling, with loose bits flaking off.
+    - crumbling, with large chunks falling off at a touch.
+    - covered in an unidentifiable slime.
+    cave_ceiling:
+    - uncomfortably close to your head.
+    - covered in stalactites (watch your head!).
+    - smooth as glass.
+    - rough and jagged.
+    - connected to the floor by natural columns.
+    - so high it’s difficult to see.
+    visitors:
+    - "an {{cavern_explore.visitors_explorer}} explorer"
+    - "an escaped {{cavern_explore.visitors_slave}} slave"
+    - "a foraging {{cavern_explore.visitors_forager}}"
+    - "a fugitive {{cavern_explore.visitors_fugitive}} criminal"
+    - "a lost {{cavern_explore.visitors_treasure_hunter}} treasure hunter"
+    - "a {{cavern_explore.visitors_mapmaker}} mapmaker"
+    - "a {{cavern_explore.visitors_messenger}} messenger"
+    - "a {{cavern_explore.visitors_miner}} miner"
+    - "a {{cavern_explore.visitors_prospector}} prospector"
+    - "a {{cavern_explore.visitors_scout}} scout"
+    - "a {{cavern_explore.visitors_soldier}} soldier"
+    - "a {{cavern_explore.visitors_spy}} spy"
+    visitors_explorer:
+    - duergar
+    - goblin
+    - human
+    - kobold
+    visitors_slave:
+    - dwarf
+    - goblin
+    - gnome
+    - halfling
+    - human
+    - kobold
+    visitors_forager:
+    - duergar
+    - goblin
+    - kobold
+    - orc
+    visitors_fugitive:
+    - heretic
+    - killer
+    - smuggler
+    - thief
+    visitors_treasure_hunter:
+    - dwarf
+    - half-elf
+    - high elf
+    - human
+    visitors_mapmaker:
+    - dwarf
+    - goblin
+    - gnome
+    - svirfneblin
+    visitors_messenger:
+    - dark elf
+    - goblin
+    - gnome
+    - svirfneblin
+    visitors_miner:
+    - dwarf
+    - gnome
+    - goblin
+    - human
+    - kobold
+    - svirfneblin
+    visitors_prospector:
+    - dwarf
+    - gnome
+    - human
+    - svirfneblin
+    visitors_scout:
+    - dark elf
+    - goblin
+    - kobold
+    - orc
+    visitors_soldier:
+    - dark elf
+    - duergar
+    - dwarf
+    - goblin
+    - kobold
+    - orc
+    visitors_spy:
+    - dark elf
+    - duergar
+    - goblin
+    - kobol
+    obstacles:
+    - a colony of poisonous mushrooms.
+    - a patch of toxic mold.
+    - the ceiling caves in.
+    - several rocks tumble down a sloped wall.
+    - the floor is very slippery.
+    - your foot misses the floor as you step into a pit or chasm.
+    landmark:
+    - a trickle of water flowing down the walls and across the floor.
+    - an underground lake of potable water.
+    - a pool of stagnant water.
+    - a natural bridge over a chasm.
+    - a narrow chasm with walls close enough to climb between.
+    - a deep chasm with no bottom in sight.
+    - a shaft in the ceiling with no light coming from it.
+    - a shaft in the ceiling with dim light coming from it.
+    - a group of stalagmites arranged in a circle.
+    - an arrangement of two large stalactites and two large stalagmites, reminiscent of fangs in a yawning mouth.
+    - a pair of natural columns.
+    - a large stalactite that has broken off from the ceiling and fallen to the floor.
+    - an array of many small stalactites spreading across the ceiling.
+    - a damp wall covered in soft mold.
+    - a recess in the wall, covered in slimy mold.
+    - a large patch of glowing fungus.
+    - a large patch of small mushrooms.
+    - a group of enormous mushrooms.
+    - a large cavern with a strong echo.
+    - a claustrophobic tunnel with a low ceiling.
+    features:
+    - a cache of abandoned, decrepit mining equipment.
+    - some old dry bones.
+    - many bones underfoot.
+    - evidence of a recent encampment.
+    - an enormous spider web.
+    - a wide slippery patch of mold on the floor.
+    - the clatter of rocks falling.
+    - loose stones underfoot.
+    - an unstable ceiling.
+    - a distant sound—a scream, hammers at work, footsteps, or drums.
+    - the name of a previous traveler carved into a wall.
+    - several ancient runes carved into the wall.
