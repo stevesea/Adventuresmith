@@ -476,7 +476,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
 
                 count++
             } catch (ex: MustacheException) {
-                throw MustacheException("problem processing template: ${template}", ex)
+                throw MustacheException("problem processing: ${template} - ${ex.message}", ex)
             }
         } while (true)
 
