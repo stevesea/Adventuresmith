@@ -20,6 +20,8 @@
 
 package org.stevesea.adventuresmith.core
 
+import com.google.common.collect.Multimap
+import com.google.common.collect.MultimapBuilder
 import org.junit.*
 import java.util.*
 
@@ -35,8 +37,15 @@ class Exerciser {
                 "stonetop/minor_arcana"
         )
 
+        val genNameToId : Multimap<String, String> = MultimapBuilder
+                .treeKeys()
+                .linkedListValues()
+                .build<String, String>()
+
         for (g in AdventuresmithCore.generators) {
             val generator_instance = g.value
+            val m = generator_instance.getMetadata()
+            genNameToId.put("${m.collectionId}.${m.groupId}.${m.name}", g.key)
 
             // TODO: every time add a translation, add its locale here.
             for (locale in listOf(Locale.FRANCE, Locale.US)) {
@@ -48,6 +57,13 @@ class Exerciser {
                     else
                         generator_instance.generate(locale)
                 }
+            }
+        }
+
+        for (nameToIds in genNameToId.asMap()) {
+            if (nameToIds.value.size > 1) {
+                throw IllegalStateException(
+                        "multiple generators with same display name: ${nameToIds.key} -  ${nameToIds.value}")
             }
         }
 
