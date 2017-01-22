@@ -108,6 +108,7 @@ generators:
   - encounters_idyllic_village
   - encounters_rotting_city
   - encounters_ship_sea
+  - mage_towers
   - npc
   - npc_appearance
   - npc_personality

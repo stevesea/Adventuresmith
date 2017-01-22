@@ -1,0 +1,175 @@
+---
+templates:
+- "{{mage_tower.templates}}"
+
+nested_tables:
+  mage_tower:
+    templates:
+    - |
+      The master of this tower is <strong>{{mage_tower.master}}</strong>
+      <br/>
+      <br/>The tower's shape is approximately that of <strong>{{mage_tower.shape}}</strong>
+      <br/>The tower is built of <strong>{{mage_tower.built}}</strong>
+      <br/>The exterior of the tower features <strong>{{mage_tower.exterior}}</strong>
+      <br/>
+      <br/>The tower's entrance is guarded by <strong>{{mage_tower.entrance_guard}}</strong>
+      <br/>
+      <br/>The most well-protected room in the tower is <strong>{{mage_tower.protected_room}}</strong>
+      <br/>The room is protected by <strong>{{mage_tower.protected_by}}</strong>
+      <br/>
+      <br/>Rumor has it that within the walls of the tower, the mage keeps <strong>{{mage_tower.rumor}}</strong>
+
+    master:
+    - an elven sorceress.
+    - a terrifying witch.
+    - a creepy necromancer.
+    - a mystic seer.
+    - a long-bearded sage.
+    - a half-mad elementalist.
+    - a legendary conjurer.
+    - a retired explorer.
+    - the leader of a cabal of tricky witches.
+    - the head of a secret society of wizards.
+    shape:
+    - a cylinder.
+    - a pyramid.
+    - a stepped pyramid.
+    - a cone.
+    - a triangular prism.
+    - a rectangular prism.
+    - a pentagonal prism.
+    - a hexagonal prism.
+    - an octagonal prism.
+    - an icosahedron.
+    built:
+    - clay bricks.
+    - limestone.
+    - sandstone.
+    - marble.
+    - obsidian.
+    - enchanted wood.
+    - crystal.
+    - bones.
+    - granite.
+    - solid gold.
+    exterior:
+    - spider webs.
+    - ooze.
+    - fruit-bearing vines.
+    - thorny vines.
+    - extensive repairs.
+    - ancient hieroglyphs.
+    - arcane runes.
+    - steel plates.
+    - scorch marks.
+    - scratch marks.
+    entrance_guard:
+    - an ill-tempered dragon.
+    - "a watchful {{mage_tower.guard_golem}} golem"
+    - "an angry {{mage_tower.guard_giant}} giant"
+    - cruel gargoyles.
+    - "terrifying {{mage_tower.guard_elemental}} elementals"
+    - "undead minions - {{mage_tower.guard_undead}}"
+    - devious traps.
+    - a cunning sphinx.
+    - "a ferocious, talking {{mage_tower.guard_beast}}"
+    - a menacing, tentacled beast.
+    guard_golem:
+    - bone
+    - chain
+    - clay
+    - flesh
+    - iron
+    - stone
+    guard_giant:
+    - eldritch
+    - fire
+    - frost
+    - shadow
+    - stone
+    - storm
+    guard_elemental:
+    - air
+    - earth
+    - fire
+    - ice
+    - storm
+    - water
+    guard_undead:
+    - ghosts
+    - ghouls
+    - phantom warriors
+    - spectres
+    - wights
+    - zombies
+    guard_beast:
+    - bear
+    - griffon
+    - eagle
+    - lion
+    - serpent
+    - wolf
+    protected_room:
+    - the mage's laboratory.
+    - the mage's library.
+    - the mage's bedchamber.
+    - the mage's wine cellar.
+    - the mage's treasure vault.
+    - a chamber specially prepared for divination rituals.
+    - a chamber specially prepared for summoning rituals.
+    - a chamber specially prepared for magical duels.
+    - an inescapable prison.
+    - "the crypt of the mage's {{mage_tower.crypt}}"
+    crypt:
+    - master
+    - teacher
+    - child
+    - parent
+    - lover
+    - vanquished rival
+
+    protected_by:
+    - a gauntlet of mechanical traps.
+    - a series of sophisticated magical traps.
+    - an exploding ward.
+    - a powerful charm that makes it easy to ignore.
+    - a powerful charm that makes it impossible for intruders to open the door.
+    - illusions that make it difficult to find the door.
+    - a powerful curse that frightens those who approach the door.
+    - a powerful curse that causes pain in those who approach the door.
+    - an indefatigable construct.
+    - "a bound {{mage_tower.guardian}} guardian"
+    guardian:
+    - devil
+    - demon
+    - elemental
+    - enchanted beast
+    - troll
+    - wraith
+
+    rumor:
+    - the weapon of a storied hero.
+    - the staff of an infamous sorcerer or necromancer.
+    - the wand of a famous witch or wizard.
+    - the spellbook of a notorious magic-user.
+    - the artifacts of an elvish hero.
+    - monstrosities of the mage's own creation.
+    - a legendary stone, mirror, or pool used for watching the world from afar.
+    - "a fabled book of dangerous lore ({{mage_tower.book_subject}})"
+    - "an imprisoned {{mage_tower.imprisoned_being}} of terrible power"
+    - a captive princess.
+
+    book_subject:
+    - demonology
+    - curses of undeath
+    - dream travel
+    - love and war
+    - planar portals;
+    - vile darkness
+    imprisoned_being:
+    - aberration
+    - devil
+    - demon
+    - djinni
+    - efreeti
+    - vampire lord
