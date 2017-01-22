@@ -6,7 +6,7 @@ nested_tables:
     templates:
     - |
       <h5>{{castle_dungeon_room.room}}</h5>
-      You notice: {{castle_dungeon_room.feature}}
+      You notice {{castle_dungeon_room.feature}}
     room:
     - A dungeon cell.
     - Another dungeon cell.
@@ -20,23 +20,23 @@ nested_tables:
     - A torture chamber.
 
     feature:
-    - A wooden door reinforced with steel bands.
-    - Steel bars where you expected a stone wall.
-    - Empty manacles along the wall.
-    - An empty sconce to hold a torch.
-    - Distant torchlight.
-    - The floor is uneven.
-    - A crack in the stone floor.
-    - A mouse skittering underfoot.
-    - The stench of rotting flesh.
-    - The scent of stale urine.
-    - A putrid smell.
-    - A dank and moldy odor.
-    - An uncomfortable groaning.
-    - A faint scratching sound.
-    - An odd tapping sound.
-    - The squeaking of rats.
-    - The shouting of distant voices.
-    - Howls of agony.
-    - Horrific screams.
-    - The clanking of chains.
+    - a wooden door reinforced with steel bands.
+    - steel bars where you expected a stone wall.
+    - empty manacles along the wall.
+    - an empty sconce to hold a torch.
+    - distant torchlight.
+    - the floor is uneven.
+    - a crack in the stone floor.
+    - a mouse skittering underfoot.
+    - the stench of rotting flesh.
+    - the scent of stale urine.
+    - a putrid smell.
+    - a dank and moldy odor.
+    - an uncomfortable groaning.
+    - a faint scratching sound.
+    - an odd tapping sound.
+    - the squeaking of rats.
+    - the shouting of distant voices.
+    - howls of agony.
+    - horrific screams.
+    - the clanking of chains.

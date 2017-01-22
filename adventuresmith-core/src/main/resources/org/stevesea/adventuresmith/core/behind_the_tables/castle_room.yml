@@ -7,7 +7,7 @@ nested_tables:
     templates:
     - |
       <h5>{{castle_room.rooms}}</h5>
-      You notice: {{castle_room.features}}
+      You notice {{castle_room.features}}
     bedroom_adj:
     - simple
     - comfortable
@@ -42,23 +42,23 @@ nested_tables:
     - A treasure vault (likely hidden and/or protected by traps).
 
     features:
-    - An armchair flanked by two sconces.
-    - A large armoire or buffet cabinet.
-    - A bench with a cusion.
-    - A brazier.
-    - A candelabrum on a large table.
-    - A plain chair beside a window.
-    - A heavy wooden chest.
-    - A chest of drawers with a blanket on top.
-    - A desk with some quills and parchment.
-    - A fireplace with a mantle.
-    - A fireplace with a small pile of wood.
-    - A fresco with a padded chair beneath it.
-    - Portrait of a noble.
-    - A painting of a landscape or seascape.
-    - A bust on a pedestal.
-    - A shelf containing books or knick knacks.
-    - A low table in front of a small sofa.
-    - A large table beneath a chandelier.
-    - An ornate tapestry.
-    - A small wall basin and font.
+    - an armchair flanked by two sconces.
+    - a large armoire or buffet cabinet.
+    - a bench with a cusion.
+    - a brazier.
+    - a candelabrum on a large table.
+    - a plain chair beside a window.
+    - a heavy wooden chest.
+    - a chest of drawers with a blanket on top.
+    - a desk with some quills and parchment.
+    - a fireplace with a mantle.
+    - a fireplace with a small pile of wood.
+    - a fresco with a padded chair beneath it.
+    - portrait of a noble.
+    - a painting of a landscape or seascape.
+    - a bust on a pedestal.
+    - a shelf containing books or knick knacks.
+    - a low table in front of a small sofa.
+    - a large table beneath a chandelier.
+    - an ornate tapestry.
+    - a small wall basin and font.

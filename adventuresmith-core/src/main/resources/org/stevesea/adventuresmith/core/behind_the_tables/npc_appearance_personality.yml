@@ -2,8 +2,17 @@
 # from https://www.reddit.com/r/BehindTheTables/comments/3zr0h4/npc_appearance_personality_faith_and_flaws/
 
 nested_tables:
+  npc_appearance_personality:
+    templates:
+    - |
+      <h5>Appearance</h5>
+      {{npc_appearance.templates}}
+      <h5>Personality</h5>
+      {{npc_emotions.templates}}
+      <br/>
+      <br/>{{npc_quirks.templates}}
   npc_appearance:
-    # grabbing one entry from each table is overwhelming,
+    # grabbing one entry from every table is overwhelming,
     # grab 2-4
     templates:
     - "{{>pickN: 1d3+1 npc_appearance.choices <br/>}}"
@@ -16,12 +25,12 @@ nested_tables:
     - "{{npc_facial.hair}}"
     - "{{npc_facial.other}}"
     - "{{npc_physical.height}}"
-    - "{{npc_physical.body}}"
-    - "{{npc_physical.hands}}"
+    - "body: {{npc_physical.body}}"
+    - "hands: {{npc_physical.hands}}"
     - "{{npc_physical.scar}}"
-    - "{{npc_accessories.tattoo}}"
-    - "{{npc_accessories.jewelry}}"
-    - "{{npc_accessories.clothes}}"
+    - "tattoo: {{npc_accessories.tattoo}}"
+    - "jewelry: {{npc_accessories.jewelry}}"
+    - "clothes: {{npc_accessories.clothes}}"
   npc_facial:
     eyes:
     - Sleepy eyes.
@@ -100,25 +109,25 @@ nested_tables:
     - Well above average height.
     - Unusually tall.
     body:
-    - Thin and delicate.
-    - Of average build.
-    - Well-muscled.
-    - Slightly overweight.
-    - Grotesquely obese.
-    - Lean and lanky.
-    - Lithe and lean.
-    - Thin and wiry.
-    - Sinewy and strong.
-    - Flabby and weak.
-    - Lumpy or bent.
-    - Covered in hair.
+    - thin and delicate.
+    - of average build.
+    - well-muscled.
+    - slightly overweight.
+    - grotesquely obese.
+    - lean and lanky.
+    - lithe and lean.
+    - thin and wiry.
+    - sinewy and strong.
+    - flabby and weak.
+    - lumpy or bent.
+    - covered in hair.
     hands:
-    - Powerful hands.
-    - Delicate hands.
-    - Rough hands.
-    - Soft hands.
-    - A light touch.
-    - A heavy touch.
+    - powerful hands.
+    - delicate hands.
+    - rough hands.
+    - soft hands.
+    - a light touch.
+    - a heavy touch.
     scar:
     - A jagged scar.
     - A dark purple scar.
@@ -126,153 +135,153 @@ nested_tables:
     - A long, thin scar.
   npc_accessories:
     tattoo:
-    - A dagger tattoo.
-    - An arrow tattoo.
-    - An anchor tattoo.
-    - A skull tattoo.
-    - A pair of crossed bones tattoo.
-    - A snake tattoo.
-    - A scorpion tattoo.
-    - A spider web tattoo.
-    - A heart tattoo.
-    - A ring of thorns tattoo.
-    - A mermaid tattoo.
-    - A dragon tattoo.
+    - a dagger tattoo.
+    - an arrow tattoo.
+    - an anchor tattoo.
+    - a skull tattoo.
+    - a pair of crossed bones tattoo.
+    - a snake tattoo.
+    - a scorpion tattoo.
+    - a spider web tattoo.
+    - a heart tattoo.
+    - a ring of thorns tattoo.
+    - a mermaid tattoo.
+    - a dragon tattoo.
     jewelry:
-    - An earring.
-    - Two earrings.
-    - A small chain about the neck.
-    - A large chain about the neck.
-    - A tight choker about the neck.
-    - A brooch.
-    - A ring.
-    - Several rings.
-    - A bracelet.
-    - A nose ring.
+    - an earring.
+    - two earrings.
+    - a small chain about the neck.
+    - a large chain about the neck.
+    - a tight choker about the neck.
+    - a brooch.
+    - a ring.
+    - several rings.
+    - a bracelet.
+    - a nose ring.
     clothes:
-    - Crisp and new.
-    - Fashionable and hip.
-    - A bit old-fashioned.
-    - Of the highest quality.
-    - Faded, but in good condition.
-    - Faded and patched.
-    - Torn in places; missing buttons.
-    - Tattered and worn.
+    - crisp and new.
+    - fashionable and hip.
+    - a bit old-fashioned.
+    - of the highest quality.
+    - faded, but in good condition.
+    - faded and patched.
+    - torn in places; missing buttons.
+    - tattered and worn.
 
   npc_emotions:
     templates:
     - |
-      When calm, the person is typically {{npc_emotions.calm}}
-      <br/>When stressed, the person often becomes {{npc_emotions.stress}}
+      When calm, the person is typically <strong>{{npc_emotions.calm}}</strong>
+      <br/>When stressed, the person often becomes <strong>{{npc_emotions.stress}}</strong>
       <br/>
-      <br/>Now, the person is {{npc_emotions.mood}}
+      <br/>Now, the person is <strong>{{npc_emotions.mood}}</strong>
 
     calm:
-    - Compassionate.
-    - Cheerful.
-    - Reserved.
-    - Outspoken.
-    - Uninterested.
-    - Gruff.
-    - Eager.
-    - Deceitful.
-    - Foolish.
-    - Strict.
-    - Agreeable.
-    - Mischeivious.
-    - Angry.
-    - Fearful.
-    - Manipulative.
-    - Devout.
-    - Greedy.
-    - Funny.
-    - Dour.
-    - Fun-loving.
-    - Lazy.
-    - Driven.
-    - Boastful.
-    - Artistic.
-    - Assertive.
-    - Carefree.
-    - Cautious.
-    - Confident.
-    - Thoughtful.
-    - Loyal.
-    - Sophisticated.
-    - Weak-Willed.
+    - compassionate.
+    - cheerful.
+    - reserved.
+    - outspoken.
+    - uninterested.
+    - gruff.
+    - eager.
+    - deceitful.
+    - foolish.
+    - strict.
+    - agreeable.
+    - mischeivious.
+    - angry.
+    - fearful.
+    - manipulative.
+    - devout.
+    - greedy.
+    - funny.
+    - dour.
+    - fun-loving.
+    - lazy.
+    - driven.
+    - boastful.
+    - artistic.
+    - assertive.
+    - carefree.
+    - cautious.
+    - confident.
+    - thoughtful.
+    - loyal.
+    - sophisticated.
+    - weak-willed.
 
     stress:
-    - Withdrawn.
-    - Murderous.
-    - Obsessive.
-    - Authoritarian.
-    - Determined.
-    - Brave.
-    - Spiteful.
-    - Belligerent.
-    - Caustic.
-    - Reckless.
-    - Argumentative.
-    - Gluttonous.
-    - Overly protective.
-    - Angry.
-    - Cowardly.
-    - Meticulous.
-    - Sarcastic.
-    - Stubborn.
-    - Destructive.
-    - Practical.
-    - Pushy.
-    - Fanatical.
-    - Secretive.
-    - Scornful.
-    - Courageous.
-    - Impractical.
-    - Calculating.
-    - Industrious.
-    - Manipulative.
-    - Destructive.
-    - Compulsive.
-    - Intolerant.
+    - withdrawn.
+    - murderous.
+    - obsessive.
+    - authoritarian.
+    - determined.
+    - brave.
+    - spiteful.
+    - belligerent.
+    - caustic.
+    - reckless.
+    - argumentative.
+    - gluttonous.
+    - overly protective.
+    - angry.
+    - cowardly.
+    - meticulous.
+    - sarcastic.
+    - stubborn.
+    - destructive.
+    - practical.
+    - pushy.
+    - fanatical.
+    - secretive.
+    - scornful.
+    - courageous.
+    - impractical.
+    - calculating.
+    - industrious.
+    - manipulative.
+    - destructive.
+    - compulsive.
+    - intolerant.
 
     mood:
-    - Agreeable.
-    - Carefree.
-    - Curious.
-    - Eager.
-    - Friendly.
-    - Happy.
-    - Hopeful.
-    - Upbeat.
-    - Indifferent.
-    - Bored.
-    - Focused.
-    - Suspicious.
-    - Tired.
-    - Withdrawn.
-    - Disagreeable.
-    - Agitated.
-    - Angry.
-    - Despondent.
-    - Gloomy.
-    - Nervous.
+    - agreeable.
+    - carefree.
+    - curious.
+    - eager.
+    - friendly.
+    - happy.
+    - hopeful.
+    - upbeat.
+    - indifferent.
+    - bored.
+    - focused.
+    - suspicious.
+    - tired.
+    - withdrawn.
+    - disagreeable.
+    - agitated.
+    - angry.
+    - despondent.
+    - gloomy.
+    - nervous.
 
   npc_quirks:
     templates:
     - |
-      The person is a {{npc_quirks.faith}}
-      <br/>The person is prejudiced against {{npc_quirks.prejudice}}
+      The person is a <strong>{{npc_quirks.faith}}</strong>
+      <br/>The person is prejudiced against <strong>{{npc_quirks.prejudice}}</strong>
       <br/>
-      <br/>The person {{npc_quirks.flaws}}
+      <br/>The person <strong>{{npc_quirks.flaws}}</strong>
     faith:
-    - Quiet true believer.
-    - Casual observer.
-    - Critical student.
-    - Outspoken cynic.
-    - Open-minded seeker.
-    - Broken heretic.
-    - Cautious listener.
-    - Fanatical true believer.
+    - quiet true believer.
+    - casual observer.
+    - critical student.
+    - outspoken cynic.
+    - open-minded seeker.
+    - broken heretic.
+    - cautious listener.
+    - fanatical true believer.
     prejudice:
     - other genders
     - "{{npc_quirks.prej_age}}"
@@ -318,23 +327,23 @@ nested_tables:
 
 
     flaws:
-    - Fidgets.
-    - Drinks too much.
-    - Eats too much.
-    - Swears often.
-    - Has poor hygiene.
-    - Can’t resist flirting.
-    - Can’t stop staring.
-    - Sweats profusely and easily.
-    - Is a habitual liar.
-    - Embellishes the truth.
-    - Exaggerates details.
-    - Has a short temper.
-    - Is melodramatic.
-    - Gossips.
-    - Chews with an open mouth.
-    - Often sniffs audibly.
-    - Believes what you tell him/her.
-    - Is skeptical of everything.
-    - Paces.
-    - Makes poor eye contact.
+    - fidgets.
+    - drinks too much.
+    - eats too much.
+    - swears often.
+    - has poor hygiene.
+    - can’t resist flirting.
+    - can’t stop staring.
+    - sweats profusely and easily.
+    - is a habitual liar.
+    - embellishes the truth.
+    - exaggerates details.
+    - has a short temper.
+    - is melodramatic.
+    - gossips.
+    - chews with an open mouth.
+    - often sniffs audibly.
+    - believes what you tell him/her.
+    - is skeptical of everything.
+    - paces.
+    - makes poor eye contact.
