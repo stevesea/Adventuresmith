@@ -7,111 +7,111 @@ nested_tables:
   castle:
     templates:
     - |
-      The castle sits: <strong>{{castle.sits}}</strong>
-      <br/>The castle was built by: <strong>{{castle.built_by}}</strong>
-      <br/>The castle was built: <strong>{{castle.built}}</strong>
+      The castle sits <strong>{{castle.sits}}</strong>
+      <br/>The castle was built by <strong>{{castle.built_by}}</strong>
+      <br/>The castle was built <strong>{{castle.built}}</strong>
       <br/>
-      <br/>Currently, the castle's condition is: <strong>{{castle.current_condition}}</strong>
-      <br/>Presently, the castle is occupied by: <strong>{{castle.present_occupant}}</strong>
+      <br/>Currently, the castle's condition is <strong>{{castle.current_condition}}</strong>
+      <br/>Presently, the castle is occupied by <strong>{{castle.present_occupant}}</strong>
       <br/>
-      <br/>The position or territory is worth defending because: <strong>{{castle.worth_defending}}</strong>
+      <br/>The position or territory is worth defending because <strong>{{castle.worth_defending}}</strong>
       <br/>
-      <br/>The castle’s outer defenses include: <strong>{{castle.outer_defenses}}</strong>
-      <br/>The inner keep’s defenses include: <strong>{{castle.inner_defenses}}</strong>
+      <br/>The castle’s outer defenses include <strong>{{castle.outer_defenses}}</strong>
+      <br/>The inner keep’s defenses include <strong>{{castle.inner_defenses}}</strong>
       <br/>
-      <br/>The castle can be held effectively by as few as: <strong>{{castle.held_effectively}}</strong>
-      <br/>In addition to its garrison, the castle can hold foodstores to withstand a three-month siege for up to: <strong>{{castle.foodstores}}</strong>
+      <br/>The castle can be held effectively by as few as <strong>{{castle.held_effectively}}</strong>
+      <br/>In addition to its garrison, the castle can hold foodstores to withstand a three-month siege for up to <strong>{{castle.foodstores}}</strong>
       <br/>
-      <br/>The castle is known for: <strong>{{castle.known_for}}</strong>
+      <br/>The castle is known for <strong>{{castle.known_for}}</strong>
       <br/>
       <br/>What is rumored to be hidden in the castle? <strong>{{castle.rumors_of_hidden}}</strong>
     sits:
-    - Atop a mountain.
-    - On a hill overlooking a wide plain.
-    - At the fork of a river.
-    - On a narrow, rocky peninsula.
-    - Above a seaside cliff.
-    - On a hill overlooking a river valley.
-    - On a hill rising out of a swamp.
-    - On a hill overlooking a forest.
-    - Astride a desert oasis or natural spring.
-    - On a ridge overlooking a frozen plain.
+    - atop a mountain.
+    - on a hill overlooking a wide plain.
+    - at the fork of a river.
+    - on a narrow, rocky peninsula.
+    - above a seaside cliff.
+    - on a hill overlooking a river valley.
+    - on a hill rising out of a swamp.
+    - on a hill overlooking a forest.
+    - astride a desert oasis or natural spring.
+    - on a ridge overlooking a frozen plain.
 
     built_by:
-    - A wise king or queen.
-    - An ambitious lord or lady.
-    - An evil tyrant.
-    - A mighty warrior or warlord.
-    - A retired adventurer.
-    - A celebrated war hero.
-    - An unscrupulous king or queen.
-    - A vain lord or lady.
-    - A powerful witch or wizard.
-    - A beloved sovereign.
-    - A prosperous merchant.
-    - A member of an ancient noble house.
+    - a wise king or queen.
+    - an ambitious lord or lady.
+    - an evil tyrant.
+    - a mighty warrior or warlord.
+    - a retired adventurer.
+    - a celebrated war hero.
+    - an unscrupulous king or queen.
+    - a vain lord or lady.
+    - a powerful witch or wizard.
+    - a beloved sovereign.
+    - a prosperous merchant.
+    - a member of an ancient noble house.
 
     built:
-    - In a past age.
-    - Hundreds of years ago.
-    - A few decades ago.
-    - Within the past decade.
+    - in a past age.
+    - hundreds of years ago.
+    - a few decades ago.
+    - within the past decade.
 
     current_condition:
-    - Perfect; upkeep has been fastidious.
-    - Good; it been well-maintained.
-    - Decent; there are only a few cracks in the walls, but the place can withstand a siege.
-    - Fair; the castle has seen better days.
-    - Poor; the walls and towers are in dire need of repairs.
-    - Decrepit; the place is practically a ruin.
+    - perfect; upkeep has been fastidious.
+    - good; it been well-maintained.
+    - decent; there are only a few cracks in the walls, but the place can withstand a siege.
+    - fair; the castle has seen better days.
+    - poor; the walls and towers are in dire need of repairs.
+    - decrepit; the place is practically a ruin.
 
     present_occupant:
-    - A member of the royal family.
-    - An ambitious lord or lady.
-    - An evil tyrant.
-    - An elderly lord or lady.
-    - A brash, young lord or lady.
-    - A mercenary company.
-    - A fearsome warlord or retired sellsword.
-    - A wealthy merchant.
-    - A retired pirate or thief.
-    - A former adventurer.
-    - An absentee noble lord.
-    - The crown, but the king or queen rarely stays here.
+    - a member of the royal family.
+    - an ambitious lord or lady.
+    - an evil tyrant.
+    - an elderly lord or lady.
+    - a brash, young lord or lady.
+    - a mercenary company.
+    - a fearsome warlord or retired sellsword.
+    - a wealthy merchant.
+    - a retired pirate or thief.
+    - a former adventurer.
+    - an absentee noble lord.
+    - the crown, but the king or queen rarely stays here.
 
     worth_defending:
-    - Grains grow well on the surrounding land.
-    - The nearby mines are rich in ores or gems.
-    - The surrounding land is excellent for grazing livestock.
-    - Fruit trees grow on the surrounding land.
-    - The nearby pass is the easiest way to cross the mountains.
-    - The nearby harbor is important for trade.
-    - The nearby river is important for trade.
-    - The nearby source of freshwater is precious is in this region.
-    - The wild lands beyond are full of threats.
-    - The surrounding lands are part of a long-standing territorial dispute.
-    - The surrounding land is held sacred.
-    - The nearby lands are home to a rare herb, tree, or creature that has magical uses.
+    - grains grow well on the surrounding land.
+    - the nearby mines are rich in ores or gems.
+    - the surrounding land is excellent for grazing livestock.
+    - fruit trees grow on the surrounding land.
+    - the nearby pass is the easiest way to cross the mountains.
+    - the nearby harbor is important for trade.
+    - the nearby river is important for trade.
+    - the nearby source of freshwater is precious is in this region.
+    - the wild lands beyond are full of threats.
+    - the surrounding lands are part of a long-standing territorial dispute.
+    - the surrounding land is held sacred.
+    - the nearby lands are home to a rare herb, tree, or creature that has magical uses.
 
     outer_defenses:
-    - Very high stone walls.
-    - Incredibly thick stone walls.
-    - A series of curtain walls and gatehouses.
-    - A treacherous climb to reach the castle walls.
-    - A moat filled with putrescent water.
-    - A moat filled with thick, boot-sucking mud.
-    - A moat filled with sharp spikes.
-    - A moat that is home to one or more dangerous aquatic beasts.
-    - An immense barbican.
-    - A narrow footbridge to reach the postern.
+    - very high stone walls.
+    - incredibly thick stone walls.
+    - a series of curtain walls and gatehouses.
+    - a treacherous climb to reach the castle walls.
+    - a moat filled with putrescent water.
+    - a moat filled with thick, boot-sucking mud.
+    - a moat filled with sharp spikes.
+    - a moat that is home to one or more dangerous aquatic beasts.
+    - an immense barbican.
+    - a narrow footbridge to reach the postern.
 
     inner_defenses:
-    - Hundreds of arrow slits.
-    - One of the world's largest dual-portcullis gates.
-    - A winding climb to reach the entrance.
-    - Several covered parapets with murder holes under which intruders must pass.
-    - A wide courtyard surrounded by flanking towers in the curtain wall.
-    - An unusual or hidden means of entry.
+    - hundreds of arrow slits.
+    - one of the world's largest dual-portcullis gates.
+    - a winding climb to reach the entrance.
+    - several covered parapets with murder holes under which intruders must pass.
+    - a wide courtyard surrounded by flanking towers in the curtain wall.
+    - an unusual or hidden means of entry.
 
     held_effectively:
     - 1, 5 soldiers and 20 archers.
@@ -132,18 +132,18 @@ nested_tables:
     - 6, 2,000 people.
 
     known_for:
-    - Withstanding a grueling, lengthy siege.
-    - Suffering an immense conflagration.
-    - Changing hands several times over the course of the same war.
-    - Bringing ill-fortune to those who hold it.
-    - Being haunted by a former occupant.
-    - Never falling in a siege.
-    - Welcoming travelers seeking refuge.
-    - Turning away travelers seeking refuge.
-    - Its unusual architectural style.
-    - Its beautiful, historic tapestries.
-    - Its breathtakingly beautiful chapel.
-    - The quality of its meals.
+    - withstanding a grueling, lengthy siege.
+    - suffering an immense conflagration.
+    - changing hands several times over the course of the same war.
+    - bringing ill-fortune to those who hold it.
+    - being haunted by a former occupant.
+    - never falling in a siege.
+    - welcoming travelers seeking refuge.
+    - turning away travelers seeking refuge.
+    - its unusual architectural style.
+    - its beautiful, historic tapestries.
+    - its breathtakingly beautiful chapel.
+    - the quality of its meals.
 
     rumors_of_hidden:
     - An underground tunnel that can serve as a last-gasp escape route.

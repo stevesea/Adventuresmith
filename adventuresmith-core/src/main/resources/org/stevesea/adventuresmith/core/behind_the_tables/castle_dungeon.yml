@@ -25,19 +25,19 @@ nested_tables:
     - in a corner tower of the castle.
     - beneath the corner tower.
     built:
-    - As part of the original castle.
-    - As a later addition.
-    - For another purpose originally.
-    - Long before most of the castle.
+    - as part of the original castle.
+    - as a later addition.
+    - for another purpose originally.
+    - long before most of the castle.
     is:
-    - A sprawling maze of twisting passages.
-    - A sprawling maze of narrow passages.
-    - Organized into small, neat rows of cells or pits.
-    - Organized around a large central cell block or pit.
-    - Only a few rooms.
-    - An endless series of long corridors.
-    - An endless series of small rooms and staircases.
-    - A series of corridors with very low ceilings.
+    - a sprawling maze of twisting passages.
+    - a sprawling maze of narrow passages.
+    - organized into small, neat rows of cells or pits.
+    - organized around a large central cell block or pit.
+    - only a few rooms.
+    - an endless series of long corridors.
+    - an endless series of small rooms and staircases.
+    - a series of corridors with very low ceilings.
 
     prisoners_within:
     - individual cells, in complete isolation.
