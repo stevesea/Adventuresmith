@@ -19,8 +19,13 @@ nested_tables:
     - your foot misses the floor as you step into a pit or chasm.
     - a heap of unstable explosives.
     - a sudden explosion in another part of the mine shakes the floor.
-    - the floor is writhing with vermin ({{mine.vermin}})
+    - the floor is writhing with vermin ({{mine_explore.vermin}})
     - the tunnel or trench is steadily flooding.
+    vermin:
+    - beetles
+    - centipedes
+    - rats
+    - spiders
     landmark:
     - a trickle of water flowing down the walls and across the floor.
     - an underground lake of potable water.

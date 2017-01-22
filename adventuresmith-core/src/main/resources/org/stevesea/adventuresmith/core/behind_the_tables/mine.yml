@@ -105,11 +105,6 @@ nested_tables:
     - giant lizards
     - goats
     - undead horses
-    vermin:
-    - beetles
-    - centipedes
-    - rats
-    - spiders
     denizens:
     - Carrion crawler.
     - Cloaker.
