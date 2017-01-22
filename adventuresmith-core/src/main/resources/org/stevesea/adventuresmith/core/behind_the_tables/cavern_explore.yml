@@ -155,6 +155,11 @@ nested_tables:
     - the clatter of rocks falling.
     - loose stones underfoot.
     - an unstable ceiling.
-    - a distant sound—a scream, hammers at work, footsteps, or drums.
+    - a distant sound — {{cavern_explore.distant_sound}}.
     - the name of a previous traveler carved into a wall.
     - several ancient runes carved into the wall.
+    distant_sound:
+    - a scream
+    - hammers at work
+    - footsteps
+    - drums
