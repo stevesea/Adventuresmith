@@ -3,6 +3,34 @@ templates:
 - "{{cavern.templates}}"
 
 nested_tables:
+  dark_elf:
+    templates:
+    - |
+      The dark elf is <strong>{{dark_elf.is}}</strong>
+      <br/>The jailer is looking to <strong>{{dark_elf.seeks}}</strong>
+      <br/>The jailer carries <strong>{{dark_elf.carries}}</strong>
+
+    is:
+    - a deadly assassin.
+    - a death-marked heretic.
+    - an ambitious mage.
+    - a messenger on an errand.
+    - a powerful priestess.
+    - a capable scout.
+    - a battle-hardened soldier.
+    - a patient and calculating spy.
+
+    seeks:
+    - track an unnatural beast or invader.
+    - lead any travelers into a dangerous trap.
+    - find some knowledge about an ancient event or place.
+    - share some wine while prying for secrets.
+
+    carries:
+    - an ancient wand or staff.
+    - a unique gem or piece of jewelry.
+    - a finely-crafted short sword or crossbow.
+    - a tome of dark lore.
   cavern:
     templates:
     - |

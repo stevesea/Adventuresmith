@@ -101,6 +101,7 @@ generators:
   - castle_encounters_siege
   - castle_room
   - caverns
+  - dark_elf
   - dungeon_dressing
   - encounters_ancient_forest
   - encounters_dungeon

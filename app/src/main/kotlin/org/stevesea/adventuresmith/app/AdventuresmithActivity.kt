@@ -759,6 +759,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle
                         "grpNPCsCastleCourt" -> CommunityMaterial.Icon.cmd_castle
                         "grpNPCsCastleDungeon" -> CommunityMaterial.Icon.cmd_castle
+                        "grpNPCsCavern" -> CommunityMaterial.Icon.cmd_fire
                         "grpNPCsTown" -> CommunityMaterial.Icon.cmd_home
                         "grpNPCsAppPersMotiv" -> CommunityMaterial.Icon.cmd_face
 

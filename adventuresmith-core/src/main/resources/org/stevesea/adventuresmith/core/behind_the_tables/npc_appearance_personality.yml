@@ -25,12 +25,12 @@ nested_tables:
     - "{{npc_facial.hair}}"
     - "{{npc_facial.other}}"
     - "{{npc_physical.height}}"
-    - "body: {{npc_physical.body}}"
-    - "hands: {{npc_physical.hands}}"
+    - "Body: {{npc_physical.body}}"
+    - "Hands: {{npc_physical.hands}}"
     - "{{npc_physical.scar}}"
-    - "tattoo: {{npc_accessories.tattoo}}"
-    - "jewelry: {{npc_accessories.jewelry}}"
-    - "clothes: {{npc_accessories.clothes}}"
+    - "Tattoo: {{npc_accessories.tattoo}}"
+    - "Jewelry: {{npc_accessories.jewelry}}"
+    - "Clothes: {{npc_accessories.clothes}}"
   npc_facial:
     eyes:
     - Sleepy eyes.
