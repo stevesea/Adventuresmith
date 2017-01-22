@@ -1,0 +1,6 @@
+---
+templates:
+- "{{encounters.rotting_city}}"
+
+imports:
+- encounters

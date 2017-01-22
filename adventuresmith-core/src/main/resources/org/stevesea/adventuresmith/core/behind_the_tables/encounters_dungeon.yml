@@ -1,0 +1,6 @@
+---
+templates:
+- "{{encounters.dungeon}}"
+
+imports:
+- encounters

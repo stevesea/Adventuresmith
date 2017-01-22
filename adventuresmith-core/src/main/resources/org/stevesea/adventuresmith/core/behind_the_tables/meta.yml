@@ -6,8 +6,11 @@ credit: /r/DnDBehindTheScreen
 hasGroupHierarchy: true
 groups:
   grpEncountersCastle: Encounters / Castle
+  grpEncountersDungeon: Encounters / Dungeon
+  grpEncountersTown: Encounters / Town
   grpLocationsCastle: Locations / Castle
   grpLocationsDungeon: Locations / Dungeon
+  grpLocationsWild: Locations / Wilderness
   grpLocationsTown: Locations / Town
   grpNPCsAppPersMotiv: NPCs / Appearance, Motivations...
   grpNPCsCastle: NPCs / Castle

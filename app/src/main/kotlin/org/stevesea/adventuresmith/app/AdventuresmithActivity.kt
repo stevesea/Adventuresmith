@@ -743,12 +743,15 @@ class AdventuresmithActivity : AppCompatActivity(),
                 AdventuresmithCore.BehindTheTables -> {
                     when (grpId) {
                         "Locations" -> CommunityMaterial.Icon.cmd_map_marker
-                        "grpLocationsTown" -> CommunityMaterial.Icon.cmd_home
                         "grpLocationsCastle" -> CommunityMaterial.Icon.cmd_castle
                         "grpLocationsDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
+                        "grpLocationsWild" -> CommunityMaterial.Icon.cmd_pine_tree
+                        "grpLocationsTown" -> CommunityMaterial.Icon.cmd_home
 
                         "Encounters" -> CommunityMaterial.Icon.cmd_run
                         "grpEncountersCastle" -> CommunityMaterial.Icon.cmd_castle
+                        "grpEncountersDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
+                        "grpEncountersTown" -> CommunityMaterial.Icon.cmd_home
 
                         "NPCs" -> CommunityMaterial.Icon.cmd_account_multiple
                         "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle

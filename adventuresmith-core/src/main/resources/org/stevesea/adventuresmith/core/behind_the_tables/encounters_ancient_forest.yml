@@ -1,0 +1,6 @@
+---
+templates:
+- "{{encounters.ancient_forest}}"
+
+imports:
+- encounters

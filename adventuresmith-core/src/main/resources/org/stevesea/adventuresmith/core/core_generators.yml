@@ -101,6 +101,11 @@ generators:
   - castle_encounters_siege
   - castle_room
   - dungeon_dressing
+  - encounters_ancient_forest
+  - encounters_dungeon
+  - encounters_idyllic_village
+  - encounters_rotting_city
+  - encounters_ship_sea
   - npc
   - npc_appearance
   - npc_personality

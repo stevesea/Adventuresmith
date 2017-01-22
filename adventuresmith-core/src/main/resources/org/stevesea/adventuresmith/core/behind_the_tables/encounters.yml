@@ -1,0 +1,108 @@
+---
+nested_tables:
+  encounters:
+    dungeon:
+    - A rat scuttles past carrying a finger bone with a ring on it.
+    - You hear a card game going on in the next room. It sounds like someone is losing their shirt.
+    - A sleepy orc pushes the party to one side and says "otta ma way cur. Yer blocking the way to the mess hall."
+    - A voice shouts from ahead "My god! What did you do to the loo?"
+    - Blood drips from a hole in the ceiling and pools on the floor.
+    - Your hear the sound of a whip crack from up ahead.
+    - You find a room of corpses. One has a hand outstretched towards a glowing gem. A second has stabbed the first in the back with a dagger.
+    - A paper boat floats past on an underground stream. If plucked from the water is has a letter written inside.
+    - A prisoner in a cage sees the party and yells "turn back! Runaway!"
+    - Cave paintings cover one of the walls, obviously the work of bored hands.
+    - A side corridor has an active trap and deadly trap. A broken treasure chest at the far end spills a few coins.
+    - A grate in the wall allows you to see a mimic finish consuming an adventurer and scuttle off.
+    - Wind howls mournfully as you cross a rope bridge strewn with arrow riddled adventurers.
+    - A hunchbacked orc with his back to you tinkers with something in the wall and complains loudly about always being the one who has to reset the traps.
+    - A large man sits near a pile of treasure reading a book. If approached he changes into a wisp of smoke and retreats to a lamp. Any amount of rubbing on the lamp produces only "Go away! We're closed!"
+    - A displacer beast and blink dog come thrashing through a cross corridor.
+    - A dead man's ghost continues searching for a key to a door. A long dead rouge lies nearby.
+    - A grouchy dragon stomps around a vast cave shouting "Igor! Where's the ledger listing my gold coins?!"
+    - A dusty side corridor holds a tiny, rough made shrine to an unlikely god, and a dusty body with it's hands still clasped in prayer.
+    - A hole broken in the brick walls leads to a very, very dark tunnel.
+    idyllic_village:
+    - A farmer and his son walk past on the road. The man is teaching his son a song.
+    - A wood cutter pauses his chopping to wave at you as you pass.
+    - A milkman struggles past pulling a horse cart. If questioned he mentions that his horse has taken ill but he's managing.
+    - A farm wife sets a pie on a windowsill to cool while you walk by.
+    - A gaggle of children discuss plans to nick a pie from a windowsill.
+    - A butcher haggles cheerfully with a farmer over the price of a fat cow.
+    - A group of women take turns sharing gossip and hoisting buckets from the town well.
+    - A celebration is taking place on the town green for two young people, recently married.
+    - A farmer is having a yard sale and has piled a small mountain of junk outside his home.
+    - A healthy looking dog runs past with a laughing boy in pursuit.
+    - A farm wife watches playing children through an open window.
+    - A man is helping a peddler fix his broken down wagon on the roadside.
+    - A smith pounds furiously on his anvil but stops to smile when his wife brings him some water.
+    - A group of old men with long beards sit on a stoop smoking pipes.
+    - A baker is returning home from making his rounds delivering bread.
+    - The town priest stands outside his church greeting people as they arrive for the service. He invites the PCs to attend.
+    - A group of men is mending a broken fence.
+    - A fisherman walks past carrying tackle on his way down to the lake.
+    - A peddler is selling simple wares to the villagers from his wagon on the town green.
+    - A group of dwarves with brightly colored hoods puff pipes on the inn porch and watch the sun set.
+    rotting_city:
+    - A group of dogs chewing on fallen guardsmen after a street battle.
+    - A giant spider, seen out of the corner of your eye, pulls a struggling something back into a dark alley.
+    - A group of beggars in rags huddle together for warmth against the chill of the winter morning.
+    - A man and a women, speaking to a stone carver about what to put on their child's headstone.
+    - A burned out drug den with charred corpses outside and city guards keeping gawkers away.
+    - A man doling out rations inside a besieged city. Only those able to fight still get full portions.
+    - A carriage passing through a rutted street with armed guards and a dangerous looking wizard riding shotgun.
+    - A tailor trying hopelessly to impress a noble women with a variety of dresses, all of which she scoffs at.
+    - A gang of ruffians scoping out potential victims. They give you a nod of acknowledgement, one predator to another.
+    - A strumpet with a face like a racoon checks you out, then resignedly starts walking towards your party while putting on a fake smile.
+    - A group of guards escorts a morose prisoner to the gallows.
+    - A group of crows flies away from several bodies hanging at the gallows when people approach.
+    - A group of elves pass the party, holding handkerchiefs to their noses.
+    - A leper approaches the party and starts begging for alms.
+    - The king's guard execute a man in the street for a petty crime.
+    - A passing wagon hits a puddle and sprays the party with vile mud.
+    - A carriage tramples a club footed beggar who was too slow to move out of the way.
+    - A loan shark approaches the party to make an offer.
+    - A thick fog rolls in covering the city in damp mist.
+    - A church bell sounds mournfully, it's ring swallowed up by the fog.
+    ancient_forest:
+    - The song of a mocking bird changes mid-tune to an ominous imitation.
+    - Elves follow you from a distance but never approach.
+    - A green dragon flies overhead.
+    - An ancient tree whispers softly to you as you pass.
+    - A break in the tree cover lets down a welcome ray of sunshine.
+    - Wolves howl in the distance.
+    - This part of the forest is gray and quiet. You notice a low fog has come in and the sounds of birds have stopped.
+    - A giant dead tree has fallen and blocked the road.
+    - A deer bounds across the road with a puma in close pursuit.
+    - You've heard tales about a devil living in these woods. You keep seeing movement from the corner of your eye.
+    - A druid sits on a stone speaking to the birds.
+    - A great shaggy wolfhound approaches the party. He asks if you are lost.
+    - The underbrush tappers off and there is nothing left but the trunks of trees and impenetrable leaves overhead.
+    - A ground bird is building a nest nearby. A colorful piece of cloth flutters among the twigs.
+    - An ancient shrine looms around a corner in the path. It's long abandoned, but the workmanship was once fine.
+    - A camped group of travelers in the distance notice the players approach, grab what gear they can and hide.
+    - A wolverine feeds on the corpse of a fallen traveler and his horse. It growls if you get too close.
+    - A courier wearing the king's livery pauses at the edge of the forest, gathers his courage, and enters down the path.
+    - An undertaker lives in a cottage near the entrance to the forest. He makes a point of measuring the players before they depart. He's only concerned with their height from the neck down.
+    - The party hears the sounds of a chase in the brush at night. Later, a werewolf approaches the party and demands to know if they have seen the "would-be hunter" pass this way.
+    aboard_ship_at_see:
+    - The dolphins riding the bow waves squeak suddenly and flee.
+    - A red dawn spooks the sailors.
+    - A crossing the equator ceremony. The PCs are 'inducted' into Neptune's court.
+    - A women stares mournfully at the sea. She seems an unlikely passenger.
+    - A sailor off duty has a fishing rod cast over the side and a pail of fish beside him.
+    - The captain unexpectedly approaches the PCs and demands to know what they are doing in this part of the ship.
+    - The wooden creaking of the hulls sounds ominous to the land lubbers.
+    - A howling storm can be seen in the distance.
+    - The Captain stares with steely eyes into a spyglass then turns to his men with a look of grim resolve.
+    - The masts of another ship are visible in the distance.
+    - Flotsam from a wreck is seen in the distance. Men cling to bits and pieces. The captain explains there is a reef there, and refuses to approach.
+    - An imperial courier approaches the ship in port, and the captain regrets to inform his passengers there has been a change in destination.
+    - Pirates approach and greet the Captain as an old friend.
+    - The sun rises bright and clear, and the winds pick up, a good omen for the day.
+    - Land birds are sighted in the distance where there should be none.
+    - At the next stop in port the sailors sing a batch of work songs the bards has never heard before.
+    - A storm is sighted coming this way. The Captain sends his first make down to below to "make sure the cargo doesn't escape."
+    - A group of sailors is being flogged at the mast for breaking into the wine supplies.
+    - A group of sailors is being flogged at the mast for something the party rogue actually stole.
+    - Someone in the party overhears whispers of mutiny.

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{encounters.aboard_ship_at_see}}"
+
+imports:
+- encounters

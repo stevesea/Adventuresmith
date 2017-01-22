@@ -1,0 +1,6 @@
+---
+templates:
+- "{{encounters.idyllic_village}}"
+
+imports:
+- encounters
