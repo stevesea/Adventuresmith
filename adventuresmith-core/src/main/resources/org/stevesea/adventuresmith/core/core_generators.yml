@@ -121,6 +121,9 @@ generators:
   - npc
   - npc_appearance
   - npc_personality
+  - prison
+  - prison_encounter
+  - prison_explore
   - pub_names
   - t_alchemist
   - t_criminal

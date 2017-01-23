@@ -1,0 +1,113 @@
+---
+templates:
+- "{{prison.templates}}"
+
+nested_tables:
+  prison:
+    templates:
+    - |
+      The prison is located <strong>{{prison.located}}</strong>
+      <br/>The prison was built by <strong>{{prison.built}}</strong>
+      <br/>
+      <br/>The prison complex is <strong>{{prison.complex}}</strong>
+      <br/>The prison is surrounded by <strong>{{prison.surrounded}}</strong>
+      <br/>
+      <br/>Prisoners are held within <strong>{{prison.held}}</strong>
+      <br/>The cells’ (or pits’) condition is <strong>{{prison.condition}}</strong>
+      <br/>Prisoners are treated <strong>{{prison.treated}}</strong>
+      <br/>
+      <br/>The prison is known for <strong>{{prison.known_for}}</strong>
+      <br/>
+      <br/>According to rumor, within the prison’s walls lies <strong>{{prison.rumor}}</strong>
+
+    located:
+    - on a small island on a remote coast.
+    - on a small island near a city.
+    - in a tower of a castle.
+    - beneath a temple complex.
+    - in an annex on a temple complex.
+    - beneath a town hall.
+    - in an annex on a town hall.
+    - underneath a city, deep below ground.
+    - behind walls in a fortified rural ({{prison.rural}}) location.
+    - below ground, in a hidden rural ({{prison.rural}}) location.
+    - behind walls in a fortified wilderness ({{prison.wilderness}}) location.
+    - below ground, in a hidden wilderness ({{prison.wilderness}}) location.
+    rural:
+    - coastland
+    - farmland
+    - mining country
+    - ranchland
+    wilderness:
+    - desert
+    - forest
+    - hills
+    - mountains
+    - swamp
+    - tundra
+    built:
+    - a wise king or queen.
+    - an ambitious lord or lady.
+    - an evil tyrant.
+    - a civic committee.
+    - a popular mayor or sheriff.
+    - an unscrupulous king or queen.
+    - a prosperous merchant guild.
+    - a powerful noble house.
+    complex:
+    - a sprawling maze of twisting passages.
+    - a sprawling maze of narrow passages.
+    - organized into small, neat rows of cells or pits.
+    - organized around a large central cell block or pit.
+    - an endless series of long corridors.
+    - a series of corridors with very low ceilings.
+    surrounded:
+    - very high stone walls.
+    - incredibly thick stone walls.
+    - a curtain wall with many gatehouses.
+    - a moat filled with putrescent water.
+    - a moat filled with thick, boot-sucking mud.
+    - a moat filled with sharp spikes.
+    held:
+    - individual cells, in complete isolation.
+    - individual cells, but they can see and hear other prisoners.
+    - individual cells, but they can hear other prisoners.
+    - cells that accommodate up to two prisoners.
+    - cells that accommodate up to two prisoners, each shackled to the wall.
+    - cells that accommodate up to four prisoners.
+    - cells that accommodate up to four prisoners, each shackled to the wall.
+    - a large chamber with many other prisoners, each shackled to the wall.
+    - individual pits or wells, open at the top.
+    - one or more huge pit with many other prisoners.
+    condition:
+    - well-maintained; the walls are solid.
+    - aging, but sturdy; the walls have some cracks.
+    - decrepit; the walls are crumbling.
+    - so dark it’s difficult to say.
+    treated:
+    - humanely; they receive reasonable meals, some exercise, and healing when needed.
+    - like dogs; they receive poor quality meals and enough healing to keep them alive.
+    - like rats; they receive terrible meals and are plagued by sickness.
+    - like they don’t exist; occasionally they receive food.
+
+
+    known_for:
+    - many prisoners dying in a terrible plague.
+    - a mass escape in the past.
+    - the escape of a famous criminal.
+    - being the final home of a famous criminal.
+    - being the final home of a legendary hero.
+    - being haunted by vengeful ghosts.
+    - its horrific torture pits.
+    - never suffering a successful escape.
+    - its unusual architectural style.
+    - the quality of its meals.
+    rumor:
+    - a secret tunnel to the outside.
+    - the bones of a celebrated outlaw.
+    - the preserved head of an ancient villain.
+    - a terrible beast to which prisoners are fed.
+    - a missing lord or lady.
+    - a treasure stolen by a notorious prisoner.
+    - a unique and terrible torture device.
+    - the bones of a deposed king or queen.

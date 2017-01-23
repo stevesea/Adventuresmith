@@ -1,0 +1,23 @@
+---
+templates:
+- "{{prison_encounter.templates}}"
+
+nested_tables:
+  prison_encounter:
+    templates:
+    - |
+      You come upon <strong>{{prison_encounter.encounter}}</strong>
+
+    encounter:
+    - a snoozing guard.
+    - a pair of guards on patrol.
+    - a quartet of guards playing cards or dice on their break.
+    - a pack of trained hunting dogs commanded by a high-ranking guard who has been alerted of the escape attempt.
+    - a law official on-site to interrogate another prisoner about an unrelated case.
+    - an ear-splitting alarm triggers.
+    - a wide, well-lit yard that must be crossed with guards watching it from towers.
+    - a high wall directly in the path of escape.
+    - a barred window in the path of escape.
+    - the rat-infested kitchens and mess hall.
+    - an imprisoned serial killer who also attempting to escape.
+    - an imprisoned thief who is bent on revenge.

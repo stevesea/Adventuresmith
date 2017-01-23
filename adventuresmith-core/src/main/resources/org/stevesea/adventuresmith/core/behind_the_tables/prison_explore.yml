@@ -1,0 +1,44 @@
+---
+templates:
+- "{{prison_explore.templates}}"
+
+nested_tables:
+  prison_explore:
+    templates:
+    - |
+      This chamber is <strong>{{prison_explore.room}}</strong>
+      <br/>
+      <br/>You notice <strong>{{prison_explore.features}}</strong>
+
+    room:
+    - a prison cell.
+    - another prison cell.
+    - a passageway connecting cell blocks.
+    - a guardroom.
+    - the barracks.
+    - the jailer’s quarters.
+    - a yard or large indoor space for exercise.
+    - a dining hall.
+    - an interrogation room.
+    - a torture chamber.
+    features:
+    - a wooden door reinforced with steel bands.
+    - steel bars where you expected a stone wall.
+    - empty manacles along the wall.
+    - an empty sconce to hold a torch.
+    - distant torchlight.
+    - the floor is uneven.
+    - a crack in the stone floor.
+    - a mouse skittering underfoot.
+    - the stench of rotting flesh.
+    - the scent of stale urine.
+    - a putrid smell.
+    - a dank and moldy odor.
+    - an uncomfortable groaning.
+    - a faint scratching sound.
+    - an odd tapping sound.
+    - the squeaking of rats.
+    - the shouting of distant voices.
+    - howls of agony.
+    - horrific screams.
+    - the clanking of chains.
