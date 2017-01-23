@@ -1,0 +1,16 @@
+---
+templates:
+- "{{temple_encounter.templates}}"
+
+nested_tables:
+  temple_encounter:
+    templates:
+    - |
+      You come upon <strong>{{temple_encounter.encounter}}</strong>
+    encounter:
+    - a young priest or priestess.
+    - an old priest or priestess.
+    - a traveler from afar.
+    - a regular, local worshiper.
+    - a member of the temple’s serving staff.
+    - a member of the temple’s guard.

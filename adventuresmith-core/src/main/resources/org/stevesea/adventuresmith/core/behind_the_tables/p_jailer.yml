@@ -1,0 +1,42 @@
+---
+
+templates:
+- "{{jailer.templates}}"
+
+nested_tables:
+  jailer:
+    templates:
+    - |
+      The jailer is <strong>{{jailer.is}}</strong>
+      <br/>The jailer is concerned about <strong>{{jailer.concern}}</strong>
+      <br/>The jailer is looking to <strong>{{jailer.seeks}}</strong>
+      <br/>The jailer carries <strong>{{jailer.carries}}</strong>
+
+    is:
+    - a coward who likes to act tough.
+    - a bully in every sense of the word.
+    - a bastard son of a noble house.
+    - a man who grew up among criminals.
+    - a priest with a puritanical agenda.
+    - a horrible sadist.
+    - a mild-mannered man of faith.
+    - a wicked little man.
+    concer:
+    - rumors of an upcoming escape attempt.
+    - losing his job after a messy prisoner death.
+    - facing a prisoner who creeps him out.
+    - ways to make a little extra silver.
+    seeks:
+    - abuse someone who is defenseless.
+    - make himself feel powerful.
+    - reach out to a disturbed prisoner.
+    - swap grisly tales.
+    carries:
+    - a large ring of keys.
+    - a large knife and a sap.
+    - a pale of cold porridge from the kitchens.
+    - a trophy taken from a tortured prisoner.
+    - a pocket-sized prayer book.
+    - a spiked club.
+    - a scourge or whip.
+    - a wineskin.

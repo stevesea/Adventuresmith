@@ -1,0 +1,163 @@
+---
+templates:
+- "{{temple.templates}}"
+
+nested_tables:
+  temple:
+    templates:
+    - |
+      Worshipers at the temple pray to <strong>{{temple.pray_to}}</strong>
+      <br/>The temple is dedicated to <strong>{{temple.dedicated}}</strong>
+      <br/>The temple is known for its <strong>{{temple.known_for}}</strong>
+      <br/>The temple’s entrance is guarded by <strong>{{temple.entrance_guard}}</strong>
+      <br/>The temple’s main floorplan is <strong>{{temple.floorplan}}</strong>
+      <br/>The temple complex is <strong>{{temple.complex_is}}</strong>
+      <br/>The temple grounds are dominated by <strong>{{temple.dominated}}</strong>
+    pray_to:
+    - one god and only one god.
+    - one god primarily, but other gods occasionally or for specific petitions.
+    - several gods within a pantheon, but two gods above the rest.
+    - an entire pantheon, petitioning each god for specific needs.
+    - one god to whom the temple was not originally dedicated.
+    - several gods within a pantheon to whom the temple was not originally dedicated.
+    dedicated:
+    - the god of the sun/sky.
+    - the earth/mother goddess.
+    - the goddess of the harvest/seasons.
+    - the god of craft/knowledge.
+    - the god of darkness/secrets.
+    - the god of death/evil.
+    - the goddess of the hunt/woodlands.
+    - the goddess of love/beauty/fertility.
+    - the goddess of the moon/magic.
+    - the god of the seas/storms.
+    - the trickster/messenger god.
+    - the tyrant/war god.
+    known_for:
+    - miraculous healers.
+    - compassionate healers.
+    - beautiful priestesses.
+    - wonderful music.
+    - accurate prophecies.
+    - collected wisdom.
+    - stunning architecture.
+    - unusual architecture.
+    - incredible collection of artwork.
+    - a famous sculpture or painting.
+    - lengthy prayer services and vigils.
+    - lively prayer services and debates.
+    entrance_guard:
+    - a sworn order of devout warriors.
+    - sellswords.
+    - frightening statues of monstrous beings.
+    - impressive, colossal statues of warriors.
+    - statues of beautiful maidens, beckoning visitors into a trap.
+    - nothing; the temple welcomes all.
+    floorplan:
+    - circular.
+    - ellipsoidal.
+    - triangular.
+    - square.
+    - rectangular.
+    - pentagonal.
+    - polygonal with {{temple.sides}} sides
+    - cruciform.
+    sides:
+    - six
+    - seven
+    - eight
+    - nine
+    - ten
+    - twelve
+    - thirteen
+    - twenty
+    complex_is:
+    - simple; a large main worship chamber with a handful of functional rooms adjoining.
+    - simple with a large annex; the annex contains many chambers.
+    - simple with fortifications.
+    - multi-layered; upper or lower layers are inaccessible to most visitors.
+    - multi-winged; some wings are inaccessible to most visitors.
+    - arranged in a concentric fashion; inner areas are inaccessible to most visitors.
+    - labyrinthine; designed to deliberately confuse outsiders.
+    - simple with an intricate complex hidden beneath the main worship chamber.
+    dominated:
+    - impenetrable stone walls.
+    - an intricate structure of stone arches and columns.
+    - a colorful structure of painted wood and plaster.
+    - a sturdy structure of finished wood.
+    - a solid structure of oven-fired clay bricks.
+    - a large structure with immense {{temple.metal_doors}} doors
+    metal_doors:
+    - brass
+    - bronze
+    - gold
+    - iron
+    - steel
+    - tin
+
+
+    d8 Many of the temple’s interior walls are...
+    Rough hewn stone.
+    Smooth cut stone.
+    Painted or lacquered wood.
+    Unfinished hardwood.
+    Decorated with intricate mosaics.
+    Decorated with elaborate murals.
+    Decorated with relief carvings.
+    Decorated with sacred texts and runes.
+    d6 Many of the temple’s ceilings are...
+    Uncomfortably close to your head.
+    Connected to the floor by columns.
+    Painted with mythological scenes.
+    So high its difficult to make out details.
+    Vaulted.
+    Domes or cupolas.
+    d20 Rooms: The purpose of this room is...
+    An armory or barracks.
+    A guardroom or sentry post.
+    A cell for solitary prayer.
+    A cell for holding prisoners.
+    An inquisition or torture chamber.
+    A priest’s office or audience chamber.
+    A sanitarium or infirmary.
+    A ceremonial pool, bath, or fountain.
+    A morgue or mortuary.
+    A crypt for a person of importance (d4): 1. well-known hero; 2. powerful high priest; 3. obscure priest; 4. wealthy noble.
+    A room dedicated for specific rituals (d4): 1. conjurations; 2. divinations; 3. funerals; 4. healing miracles.
+    A chapel or shrine dedicated to a lesser deity, saint, or martyr.
+    A classroom or dormitory.
+    A library.
+    A priest’s quarters or robing room.
+    A banquet room, large dining hall, or small dining room.
+    A kitchen or pantry.
+    A trophy room or art gallery.
+    A stable or kennel.
+    A workshop for temple craftsmen.
+    d20 Features: You notice...
+    A small altar set in an alcove in the wall.
+    The sound of bells ringing in a tower.
+    A wall sconce holding many candles.
+    Tall candles on holders, taller than a man.
+    The tinkle of chimes from a nearby room.
+    A tapestry depicting a mythological scene.
+    A small fountain or reflecting pool.
+    The sound of a gong from another room.
+    A large holy symbol embedded in the wall.
+    A huge book of sacred texts or prayers.
+    The scent of incense burning nearby.
+    A kneeler beneath a small statue or icon.
+    An oil lamp with colored glass panels.
+    A mosaic set into the floor of the room.
+    A wide fresco or mural depicting a mythological scene.
+    The pipes of an immense organ running along the walls.
+    Robes and cassocks hanging on hooks.
+    An ornamental rug.
+    A screen to hide priests from view.
+    A statue of a recognizable figure.
+    d6 Encounters: You come upon...
+    A young priest or priestess.
+    An old priest or priestess.
+    A traveler from afar.
+    A regular, local worshiper.
+    A member of the temple’s serving staff.
+    A member of the temple’s guard.

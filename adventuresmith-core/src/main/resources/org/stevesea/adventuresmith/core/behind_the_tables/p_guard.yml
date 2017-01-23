@@ -1,0 +1,22 @@
+---
+
+templates:
+- "{{guard.templates}}"
+
+nested_tables:
+  guard:
+    templates:
+    - |
+      The guard took this job for <strong>{{guard.job}}</strong>
+      <br/>On the guard’s face is <strong>{{guard.face}}</strong>
+
+    job:
+    - the steady pay.
+    - the chance to bully others.
+    - to prove how tough he is.
+    - to take out his aggression on criminals.
+    face:
+    - an unsightly scar.
+    - a stupid grin.
+    - a blank stare.
+    - a bushy mustache.

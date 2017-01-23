@@ -121,6 +121,9 @@ generators:
   - npc
   - npc_appearance
   - npc_personality
+  - p_prisoner
+  - p_guard
+  - p_jailer
   - prison
   - prison_encounter
   - prison_explore
@@ -134,6 +137,10 @@ generators:
   - t_server
   - t_smith
   - t_traveler
+  - temple
+  - temple_encounter
+  - temple_explore
+  - temple_priest
   maze_rats:
   - mr01_afflictions
   - mr01_characters

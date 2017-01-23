@@ -1,0 +1,22 @@
+---
+templates:
+- "{{prisoner.templates}}"
+
+nested_tables:
+  prisoner:
+    templates:
+    - |
+      The prisoner has <strong>{{prisoner.has}}</strong>
+      <br/>The prisoner is here because <strong>{{prisoner.because}}</strong>
+    has:
+    - a long scraggly beard.
+    - a patchy beard.
+    - skin draped loosely over his bones.
+    - boils and sores on his skin.
+    because:
+    - he stole something.
+    - he killed someone.
+    - he raped someone.
+    - he advocated rebellion and unrest.
+    - he committed an act of fraud.
+    - someone confused him with someone else.

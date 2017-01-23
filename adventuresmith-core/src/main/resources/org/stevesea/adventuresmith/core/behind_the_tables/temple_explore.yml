@@ -1,0 +1,85 @@
+---
+templates:
+- "{{temple_explore.templates}}"
+
+nested_tables:
+  temple_explore:
+    templates:
+    - |
+      Many of the temple’s interior walls are <strong>{{temple_explore.walls}}</strong>
+      <br/>Many of the temple’s ceilings are <strong>{{temple_explore.ceilings}}</strong>
+      <br/>
+      <br/>The purpose of this room is <strong>{{temple_explore.room}}</strong>
+      <br/>
+      <br/>You notice <strong>{{temple_explore.features}}</strong>
+
+
+    walls:
+    - rough hewn stone.
+    - smooth cut stone.
+    - painted or lacquered wood.
+    - unfinished hardwood.
+    - decorated with intricate mosaics.
+    - decorated with elaborate murals.
+    - decorated with relief carvings.
+    - decorated with sacred texts and runes.
+    ceilings:
+    - uncomfortably close to your head.
+    - connected to the floor by columns.
+    - painted with mythological scenes.
+    - so high its difficult to make out details.
+    - vaulted.
+    - domes or cupolas.
+    room:
+    - an armory or barracks.
+    - a guardroom or sentry post.
+    - a cell for solitary prayer.
+    - a cell for holding prisoners.
+    - an inquisition or torture chamber.
+    - a priest’s office or audience chamber.
+    - a sanitarium or infirmary.
+    - a ceremonial pool, bath, or fountain.
+    - a morgue or mortuary.
+    - a crypt for {{temple_explore.crypt}}.
+    - a room dedicated for specific rituals {{temple_explore.ritual}}.
+    - a chapel or shrine dedicated to a lesser deity, saint, or martyr.
+    - a classroom or dormitory.
+    - a library.
+    - a priest’s quarters or robing room.
+    - a banquet room, large dining hall, or small dining room.
+    - a kitchen or pantry.
+    - a trophy room or art gallery.
+    - a stable or kennel.
+    - a workshop for temple craftsmen.
+    crypt:
+    - a well-known hero
+    - a powerful high priest
+    - an obscure priest
+    - a wealthy noble
+    ritual:
+    - conjurations
+    - divinations
+    - funerals
+    - healing miracles
+
+    features:
+    - a small altar set in an alcove in the wall.
+    - the sound of bells ringing in a tower.
+    - a wall sconce holding many candles.
+    - tall candles on holders, taller than a man.
+    - the tinkle of chimes from a nearby room.
+    - a tapestry depicting a mythological scene.
+    - a small fountain or reflecting pool.
+    - the sound of a gong from another room.
+    - a large holy symbol embedded in the wall.
+    - a huge book of sacred texts or prayers.
+    - the scent of incense burning nearby.
+    - a kneeler beneath a small statue or icon.
+    - an oil lamp with colored glass panels.
+    - a mosaic set into the floor of the room.
+    - a wide fresco or mural depicting a mythological scene.
+    - the pipes of an immense organ running along the walls.
+    - robes and cassocks hanging on hooks.
+    - an ornamental rug.
+    - a screen to hide priests from view.
+    - a statue of a recognizable figure.

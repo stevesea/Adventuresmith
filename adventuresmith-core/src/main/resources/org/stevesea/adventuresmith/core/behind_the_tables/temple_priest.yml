@@ -1,0 +1,83 @@
+---
+templates:
+- "{{temple_priest.templates}}"
+
+nested_tables:
+  temple_priest:
+    templates:
+    - |
+      The priest is <strong>{{temple_priest.vocation}}</strong>
+      <br/>The priest has <strong>{{temple_priest.has}}</strong>
+      <br/>The priest wears <strong>{{temple_priest.wears}}</strong>
+      <br/>The priest carries <strong>{{temple_priest.carries}}</strong>
+      <br/>The priest is looking for <strong>{{temple_priest.seeks}}</strong>
+      <br/>The priest is <strong>{{temple_priest.}}</strong>
+      <br/>The priest is <strong>{{temple_priest.}}</strong>
+    vocation:
+    - a devoted acolyte.
+    - a dogmatic chaplain.
+    - a wealthy chaplain.
+    - a grim exorcist.
+    - an adept healer.
+    - a road-weary pilgrim.
+    - a charismatic preacher.
+    - an eccentric scholar.
+    - a disillusioned scholar.
+    - a battle-tested warpriest.
+    - a sharp-witted witch-hunter.
+    - an outspoken zealot.
+    has:
+    - a likable grin.
+    - a hearty laugh.
+    - an arrogant smirk.
+    - a haughty sneer.
+    - a humorless visage.
+    - a habit of sighing.
+    - a sad look on his or her face.
+    - a kind look on his or her face.
+    - a habit of pacing.
+    - a habit of scratching his or her chin.
+    - a habit of licking his or her lips.
+    - a habit of muttering under his or her breath.
+    wears:
+    - a threadbare robe.
+    - a sturdy wool cloak.
+    - a comfortable linen robe.
+    - a cotton robe with the symbol of a god embroidered on the lapel.
+    - a clean silk robe with simple embroidery.
+    - an expensive silk robe with elaborate gold embroidery.
+    - boiled leather armor.
+    - patchwork armor of leather and steel.
+    - chainmail armor with a priest’s hood.
+    - chainmail emblazoned with the symbol of a god.
+    carries:
+    - a well-used cudgel.
+    - a shiny new mace.
+    - a walking staff.
+    - a staff with a crook.
+    - a ceremonial dagger.
+    - a prominently displayed holy symbol ({{temple_priest.symbol}})
+    - a pocketbook of sacred texts.
+    - a notebook of hand-written prayers and devotions.
+    - a variety of healing potions and salves.
+    - a set of prayer beads.
+    - a heavy ring of keys.
+    - a wineskin.
+    symbol:
+    - bejweled
+    - gilded
+    - iron
+    - silver
+    - steel
+    - wooden
+    seeks:
+    - new converts.
+    - the translation of an ancient manuscript.
+    - heretics.
+    - sinners.
+    - donations.
+    - relics and rare lore.
+    - proof of a god’s existence.
+    - the location of a ruined temple.
+    - an opportunity to tell a fable.
+    - the bottom of a goblet.
