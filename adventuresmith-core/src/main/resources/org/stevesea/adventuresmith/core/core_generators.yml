@@ -141,6 +141,8 @@ generators:
   - temple_encounter
   - temple_explore
   - temple_priest
+  - tomb
+  - tomb_explore
   maze_rats:
   - mr01_afflictions
   - mr01_characters

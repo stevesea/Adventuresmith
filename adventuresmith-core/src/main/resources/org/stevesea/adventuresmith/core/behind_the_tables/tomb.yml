@@ -1,0 +1,166 @@
+---
+templates:
+- "{{tomb.templates}}"
+
+nested_tables:
+  tomb:
+    templates:
+    - |
+      This tomb was built for <strong>{{tomb.built_for}}</strong>
+      <br/>
+      <br/>The tomb’s entrance is <strong>{{tomb.entrance}}</strong>
+      <br/>The tomb’s entrance is guarded by <strong>{{tomb.guarded_by}}</strong>
+      <br/>
+      <br/>The tomb’s grand crypt is located <strong>{{tomb.located}}</strong>
+      <br/>The tomb’s layout is <strong>{{tomb.layout}}</strong>
+      <br/>
+      <br/>The tomb is rumored to <strong>{{tomb.rumor}}</strong>
+      <br/>
+      <br/>What haunts this tomb? <strong>{{tomb.haunts}}</strong>
+      <br/>
+      <br/>What lives in the tomb now? <strong>{{tomb.lives}}</strong>
+      <br/>Who has entered the tomb?  <strong>{{tomb.visitors}}</strong>
+
+    built_for:
+    - an ancient king.
+    - an ancient queen.
+    - an ancient high priest or priestess.
+    - an ancient sorcerer.
+    - a mighty warrior.
+    - a terrible villain.
+    - a legendary adventurer.
+    - a celebrated war hero.
+    - an unscrupulous king or queen.
+    - a vain mayor or townmaster.
+    - a powerful military commander or warlord.
+    - a powerful witch or wizard.
+    - a powerful priest or priestess.
+    - a beloved sovereign.
+    - a wealthy merchant.
+    - a member of a noble house.
+    - a member of the royal family.
+    - the wife of a wealthy person or ruler.
+    - the mother of a wealthy person or ruler.
+    - the child of a wealthy person or ruler.
+    doors:
+    - brass
+    - bronze
+    - gold
+    - iron
+    entrance:
+    - yawning open, letting much daylight into the entry chamber.
+    - behind a huge pair of {{tomb.doors}} doors
+    - beneath a stone slab.
+    - a simple wooden door framed in stone.
+    - a heavy wooden door framed in stone.
+    - behind a heavy stone door.
+    - beneath a gnarled, old tree.
+    - beneath an obelisk or similar monument.
+    - beneath a large statue.
+    - hidden by {{tomb.terrain}}
+    - hidden by {{tomb.vegetation}}
+    - difficult to access - {{tomb.difficult}}
+    terrain:
+    - boulders
+    - waterfall
+    - rocky overhang
+    - hillock
+    vegetation:
+    - a briar patch
+    - a curtain of moss
+    - enormous tree roots
+    - overgrown vines.
+    difficult:
+    - up or down a cliff face
+    - down a deep hole
+    - in an underwater tunnel
+    - through an illusory rock or wall.
+
+    guarded_by:
+    - a sworn order of devout warriors.
+    - sellswords.
+    - large, frightening statues of {{tomb.statues}}
+    - impressive, colossal statues of warriors.
+    - statues of beautiful maidens, beckoning visitors into a trap.
+    - several crumbling statues.
+    - skeletal warriors.
+    - an unsettling arrangement of bones.
+    - a band of outlaws who are carefully delving its secrets.
+    - nothing; the tomb is rather homey and welcoming.
+    statues:
+    - bats
+    - bears
+    - dragons
+    - eagles
+    - lions
+    - ravens
+    - snakes
+    - wolves
+
+    located:
+    - just beyond a heavy door in the entry chamber.
+    - down a steep set of spiraling stairs from the entry chamber.
+    - at the end of a long passageway lined with lesser crypts.
+    - at the end of a long passage lined with statues.
+    - at the end of a long passageway lined with passageways leading to lesser crypts.
+    - several levels below the entry chamber.
+    layout:
+    - simple; a large grand crypt with a handful of smaller crypts and rooms adjoining.
+    - simple with a large entry chamber; the entry chamber leads off to smaller crypts and other rooms.
+    - multi-layered; access to the lower layers is easy to find.
+    - multi-layered; access to the lower layers is difficult to find.
+    - multi-winged; access to some wings is difficult to find.
+    - a series of rooms arranged in a concentric fashion; the grand crypt is located among the inner rooms.
+    - labyrinthine; designed to deliberately confuse intruders.
+    - simple with an intricate complex hidden beneath the grand crypt.
+
+    rumor:
+    - hold tremendous treasure.
+    - be heavily trapped to guard against intruders.
+    - hold a legendary weapon or artifact.
+    - bestow a powerful curse on intruders.
+    - house the remains of someone whose body is widely believed to have been lost.
+    - have already been cleared of monsters and gold by treasure hunters.
+
+    haunts:
+    - A swarm of crawling claws.
+    - A covetous wight.
+    - An ancient demilich.
+    - Malevolent ghosts.
+    - Zombie warriors.
+    - A skeletal hound.
+    - A newly-made vampire.
+    - An ancient vampire.
+    - A huge, animated pile of bones.
+    - Twisted humanoid skeletons.
+    - A zombie made from a fallen adventurer.
+    - A hateful mummy.
+    - Skeletal guardians.
+    - Phantom soldiers.
+    - The ghost of a fair maiden.
+    - Hungry ghouls.
+    - A mad wraith.
+    - A playful ghost.
+    - A treacherous spellcaster-turned-lich.
+    - A vengeful death knight.
+
+    lives:
+    - Carrion crawler
+    - Ooze
+    - Cloaker
+    - Otyugh
+    - Darkmantle
+    - Piercer
+    - Fungi
+    - Roper
+    - Mimics
+    - Stirges
+    - Myconids
+    - Umber hulk
+    visitors:
+    - A devoted priest or priestess.
+    - A traveler or scholar from afar.
+    - A member of the deceased’s family.
+    - A greedy treasure hunter.
+    - A student of necromancy.
+    - A fugitive serial killer.

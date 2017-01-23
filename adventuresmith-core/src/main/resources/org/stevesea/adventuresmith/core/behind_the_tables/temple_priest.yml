@@ -8,11 +8,11 @@ nested_tables:
     - |
       The priest is <strong>{{temple_priest.vocation}}</strong>
       <br/>The priest has <strong>{{temple_priest.has}}</strong>
+      <br/>
       <br/>The priest wears <strong>{{temple_priest.wears}}</strong>
       <br/>The priest carries <strong>{{temple_priest.carries}}</strong>
+      <br/>
       <br/>The priest is looking for <strong>{{temple_priest.seeks}}</strong>
-      <br/>The priest is <strong>{{temple_priest.}}</strong>
-      <br/>The priest is <strong>{{temple_priest.}}</strong>
     vocation:
     - a devoted acolyte.
     - a dogmatic chaplain.

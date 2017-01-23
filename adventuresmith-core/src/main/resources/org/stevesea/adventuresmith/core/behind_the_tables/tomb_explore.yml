@@ -1,0 +1,96 @@
+---
+templates:
+- "{{tomb_explore.templates}}"
+
+nested_tables:
+  tomb_explore:
+    templates:
+    - |
+      Many of the tomb's interior walls are <strong>{{tomb_explore.walls}}</strong>
+      <br/>Many of the tomb's ceilings are <strong>{{tomb_explore.ceiling}}</strong>
+      <br/>
+      <br/>The purpose of this room is <strong>{{tomb_explore.rooms}}</strong>
+      <br/>
+      <br/>You notice <strong>{{tomb_explore.features}}</strong>
+
+    walls:
+    - rough hewn stone.
+    - smooth cut stone.
+    - painted or lacquered wood.
+    - unfinished hardwood.
+    - decorated with intricate mosaics.
+    - decorated with elaborate murals.
+    - decorated with bones and icons of death.
+    - decorated with sacred texts and runes.
+    ceiling:
+    - uncomfortably close to your head.
+    - stone, smooth as glass.
+    - stone, rough and jagged.
+    - connected to the floor by columns.
+    - painted or carved with iconic scenes.
+    - crossed by wooden beams.
+
+    crypt:
+    - well-known hero
+    - high priest
+    - powerful noble
+    - wealthy merchant
+    rituals:
+    - divinations
+    - funerals
+    - necromancy
+    gallery:
+    - trophies
+    - statues
+    - paintings
+    guardroom:
+    - ghosts
+    - golems
+    - knights
+    - sellswords
+    - cultists
+    - skeletons
+    - wights
+    - zombies.
+    rooms:
+    - an antechamber to a crypt or chapel.
+    - a chapel dedicated to protecting the souls of the deceased.
+    - a chapel dedicated to aiding the journey of the souls of the deceased.
+    - a grand crypt for a {{tomb_explore.crypt}}
+    - a false crypt to attract and to trap graverobbers and treasure hunters.
+    - a crypt for immediate family members.
+    - a crypt for previous generations of the family.
+    - a crypt for the spouse of the deceased.
+    - a crypt of unmarked graves.
+    - a reflecting pool or fountain.
+    - a crypt for devoted servants or slaves.
+    - a room dedicated for specific rituals {{tomb_explore.rituals}}
+    - gallery dedicated to the deceased - {{tomb_explore.gallery}}
+    - a guardroom with guards - {{tomb_explore.guardroom}}
+    - a priest’s robing room.
+    - storage room for embalming tools.
+    - storage room for tools and materials to maintain the tomb.
+    - workshop for embalming the dead.
+    - a crypt hidden by a secret door where the most important person in the tomb rests.
+    - a priest’s quarters or robing room.
+    features:
+    - a small altar set in an alcove in the wall.
+    - a plaque listing a family lineage.
+    - a plaque noting birth and death dates.
+    - a wall sconce holding several candles.
+    - an empty wall sconce for holding a torch.
+    - a rotten, earthy stench.
+    - a musty, moldy odor.
+    - the scent of decaying flesh.
+    - a mural depicting a mythological scene.
+    - a small fountain or reflecting pool.
+    - a huge book of sacred texts or prayers.
+    - an ornate oil lamp.
+    - a mosaic set into the floor of the room.
+    - a wide fresco or mural depicting a mythological or historical scene.
+    - a gilded sarcophagus.
+    - a simple stone sarcophagus.
+    - a finely-crafted, heavy wooden coffin.
+    - a simple, sturdy wooden coffin.
+    - a stone coffin marked with dates.
+    - an empty coffin.
