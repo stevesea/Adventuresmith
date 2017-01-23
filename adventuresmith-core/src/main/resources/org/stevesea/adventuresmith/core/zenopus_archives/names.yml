@@ -1,0 +1,355 @@
+---
+templates:
+- "{{holmesian_names.template}}"
+
+nested_tables:
+  holmesian_names:
+    template:
+    - "{{holmesian_names.pick_num_syllables}} {{holmesian_names.pick_titles}}"
+    pick_num_syllables:
+    - 1-10, {{holmesian_names.syllables}}
+    - 11-70, {{holmesian_names.syllables}}{{holmesian_names.syllables}}
+    - 71-90, {{holmesian_names.syllables}}{{holmesian_names.syllables}}{{holmesian_names.syllables}}
+    - 91-100, {{holmesian_names.syllables}}{{holmesian_names.syllables}}{{holmesian_names.syllables}}{{holmesian_names.syllables}}
+    pick_titles:
+    - 1..4,
+    - "{{holmesian_names.titles}}"
+    syllables:
+    - A
+    - Ael
+    - Af
+    - Ak
+    - Al
+    - Am
+    - An
+    - Ar
+    - Baf
+    - Bar
+    - Bee
+    - Bel
+    - Ber
+    - Berd
+    - Bes
+    - Bo
+    - Bo
+    - Bol
+    - Bor
+    - Bran
+    - Brose
+    - Bru
+    - Bur
+    - Car
+    - Chor
+    - Cig
+    - Cla
+    - Da
+    - Da
+    - Dan
+    - Do
+    - Do
+    - Dock
+    - Doh
+    - Don
+    - Dor
+    - Dor
+    - Dre
+    - Drebb
+    - E
+    - Eg
+    - Ek
+    - El
+    - El
+    - End
+    - Er
+    - Er
+    - Es
+    - Eth
+    - Eth
+    - Ev
+    - Fal
+    - Fan
+    - Far
+    - Feg
+    - Fen
+    - Fi
+    - Ful
+    - Fum
+    - Ga
+    - Gahn
+    - Gaith
+    - Gar
+    - Gar
+    - Gen
+    - Ger
+    - Glen
+    - Go
+    - Go
+    - Gram
+    - Grink
+    - Gulf
+    - Ha
+    - Hag
+    - Hal
+    - Han
+    - Harg
+    - Ho
+    - Hol
+    - Hor
+    - I
+    - Ig
+    - In
+    - Ith
+    - Jax
+    - Jo
+    - Jur
+    - Ka
+    - Kan
+    - Kra
+    - Krac
+    - Ky
+    - La
+    - Laf
+    - Lag
+    - Lap
+    - Le
+    - Lef
+    - Lem
+    - Lis
+    - Lo
+    - Lu
+    - Mal
+    - Mar
+    - Me
+    - Mer
+    - Mez
+    - Mez
+    - Mich
+    - Mil
+    - Mis
+    - Mo
+    - Mo
+    - Moo
+    - Mul
+    - Mun
+    - Mun
+    - Mur
+    - Mus
+    - Na
+    - Na
+    - Ned
+    - Nes
+    - Nick
+    - No
+    - Nor
+    - Nos
+    - Nu
+    - O
+    - Omes
+    - Os
+    - Pal
+    - Pen
+    - Phil
+    - Po
+    - Pos
+    - Poy
+    - Pres
+    - Pus
+    - Quas
+    - Que
+    - Ra
+    - Rag
+    - Ralt
+    - Ram
+    - Ray
+    - Ree
+    - Rem
+    - Rin
+    - Ris
+    - Ro
+    - Ro
+    - Ron
+    - Sa
+    - Sa
+    - See
+    - Ser
+    - Shal
+    - Sho
+    - Sho
+    - Sil
+    - Sit
+    - Spor
+    - Sun
+    - Sur
+    - Sus
+    - Tar
+    - Tar
+    - Tas
+    - Tee
+    - Ten
+    - Ten
+    - Teth
+    - To
+    - To
+    - Ton
+    - Ton
+    - Tra
+    - Treb
+    - Tred
+    - Tue
+    - U
+    - Va
+    - Vak
+    - Ven
+    - Ver
+    - Wal
+    - Web
+    - Wil
+    - Xor
+    - Y
+    - Yor
+    - Ys
+    - Zef
+    - Zell
+    - Zen
+    - Zer
+    - Zo
+    - Zo
+    - Zort
+    titles:
+    - from Above
+    - from Afar
+    - from Below
+    - the Adept
+    - the Albino
+    - the Antiquarian
+    - the Arcane
+    - the Archaic
+    - the Barbarian
+    - the Batrachian
+    - the Battler
+    - the Bilious
+    - the Bold
+    - the Brave
+    - the Civilized
+    - the Collector
+    - the Cryptic
+    - the Curious
+    - the Dandy
+    - the Daring
+    - the Decadent
+    - the Delver
+    - the Distant
+    - the Eldritch
+    - the Exotic
+    - the Explorer
+    - the Fair
+    - the Fearless
+    - the Fickle
+    - the Foul
+    - the Furtive
+    - the Gambler
+    - the Ghastly
+    - the Gibbous
+    - the Great
+    - the Grizzled
+    - the Gruff
+    - the Hairy/Bald
+    - the Haunted
+    - the Heavy/Lean
+    - the Hooded/Cowled
+    - the Hunter
+    - the Imposing
+    - the Irreverent
+    - the Loathsome
+    - the Loud/Quiet
+    - the Lovely
+    - the Mantled
+    - the Masked/Veiled
+    - the Merciful/Merciless
+    - the Mercurial
+    - the Mighty
+    - the Morose
+    - the Mutable
+    - the Mysterious
+    - the Obscure
+    - the Old/Young
+    - the Ominous
+    - the Peculiar
+    - the Perceptive
+    - the Pious
+    - the Quick
+    - the Ragged
+    - the Ready
+    - the Rough
+    - the Rugose
+    - the Scarred
+    - the Searcher
+    - the Shadowy
+    - the Short/Tall
+    - the Steady
+    - the Uncanny
+    - the Unexpected
+    - the Unknowable
+    - the Verbose
+    - the Vigorous
+    - the Wanderer
+    - the Wary
+    - the Weird
+    - the {{holmesian_names.colors}}
+    - the {{holmesian_names.num}}
+    - of the {{holmesian_names.colors}} Cloak
+    - of the {{holmesian_names.direction}}
+    - of the Arid Wastes
+    - of the Beetling Brow
+    - of the Cyclopean City
+    - of the Dread Wilds
+    - of the Eerie Eyes
+    - of the Foetid Swamp
+    - of the Forgotten City
+    - of the Haunted Heath
+    - of the Hidden Valley
+    - of the Howling Hills
+    - of the Jagged Peaks
+    - of the Menacing Mien
+    - of the Savage Isle
+    - of the Tangled Woods
+    - of the Watchful Eyes
+    - "{{holmesian_names.titles}} <em>({{holmesian_names.class}})</em>"
+    - "{{holmesian_names.titles}} <em>({{holmesian_names.race}})</em>"
+    direction:
+    - North
+    - South
+    - East
+    - West
+
+    color:
+    - Red
+    - Brown
+    - Blue
+    - Green
+    - Yellow
+    - Black
+    - White
+    - Orange
+    num:
+    - First
+    - Second
+    - Third
+    - Fourth
+    - Fifth
+    - Sixth
+    - Seventh
+    - Eighth
+    - Ninth
+    - Tenth
+
+    class:
+    - Fighter
+    - Magic-User
+    - Cleric
+    - Thief
+    race:
+    - Human
+    - Elf
+    - Dwarf
+    - Halfling

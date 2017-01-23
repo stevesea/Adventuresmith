@@ -378,3 +378,6 @@ generators:
   - supers_villain_threat
   - supers_weakness
   - supers_who_the_heck
+  zenopus_archives:
+  - backgrounds
+  - names

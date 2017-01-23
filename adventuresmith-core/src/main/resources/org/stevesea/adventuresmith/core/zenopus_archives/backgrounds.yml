@@ -1,0 +1,119 @@
+---
+templates:
+- "{{backgrounds}}"
+
+tables:
+  backgrounds:
+  - |
+    <h4>Alchemist</h4>
+    <strong>Abilities:</strong> Beginner's Alchemy (make a Healing Potion in 1 week for 125 GP)
+    <br/><strong>Equipment:</strong> 1 Healing Potion, Mortar & Pestle
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+  - |
+    <h4>Amazon</h4>
+    <strong>Abilities:</strong> Invoke Goddess (re-roll one die per day, but only if wearing bronze)
+    <br/><strong>Equipment:</strong> Bronze Armor & Shield (AC 3), Bronze Sword, Long Bow, 2 Flasks Greek Fire (treat as Oil)
+    <br/><strong>Gold:</strong> {{>roll: 1d6*10}}
+  - |
+    <h4>Animal Trainer</h4>
+    <strong>Abilities:</strong> Animal Handling (+4 Reaction Roll for normal animals)
+    <br/><strong>Equipment:</strong> Mule, Guard Dog (1 HD, AC 7, 1d6 bite)
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+  - |
+    <h4>Archer</h4>
+    <strong>Abilities:</strong> Rapid Fire (Fire arrows twice per round if not moving or in melee)
+    <br/><strong>Equipment:</strong> Long Bow, Quiver, 15 arrows, 5 silver arrows
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Bandit</h4>
+    <strong>Abilities:</strong> Evasion (Flee combat without being hit, but only if wearing leather armor)
+    <br/><strong>Equipment:</strong> Hooded Cloak, Leather Armor, Shield, Short Bow, Quiver, 20 arrows, Treasure Map (ruin)
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Barkeep</h4>
+    <strong>Abilities:</strong> Ear for Listening (Knows 2d6 local rumors)
+    <br/><strong>Equipment:</strong> Flask of Fine Spirits (50 GP value, +2 Reaction Roll if a shot is offered, 10 shots total)
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Berserker</h4>
+    <strong>Abilities:</strong> Rage (+2 to attack rolls & AC 7 if no armor, will not flee or surrender), +1 hp at 1st level
+    <br/><strong>Equipment:</strong> Bearskin Cloak, Tooth-bitten Shield
+    <br/><strong>Gold:</strong> {{>roll: 1d6*10}}
+
+  - |
+    <h4>Buccaneer</h4>
+    <strong>Abilities:</strong> Swimming (-20% chance of drowning), Shipcraft, Rope Use
+    <br/><strong>Equipment:</strong> Cutlass, Spyglass, Treasure Map (island), Pet Monkey (1 hp), 50’ Rope with Grappling Hook
+    <br/><strong>Gold:</strong> {{>roll: 3d6*10}}
+
+  - |
+    <h4>Caveman</h4>
+    <strong>Abilities:</strong> Tough (+1 HD at 1st level, but will not wear any armor), Hunting, Illiterate
+    <br/><strong>Equipment:</strong> Furs, Club or Stone Axe & Spear, Hide Sack with Meat & Fruit
+
+  - |
+    <h4>Engineer</h4>
+    <strong>Abilities:</strong> Eye for Construction (detect dungeon traps as a dwarf & secret doors as an elf)
+    <br/><strong>Equipment:</strong> Lantern, Steel Mirror, Chalk Stick, Level, Measuring Stick (6’, ruled)
+    <br/><strong>Gold:</strong> {{>roll: 3d6*10}}
+
+  - |
+    <h4>Flyer</h4>
+    <strong>Abilities:</strong> Aerial Combat Training, Tumbling (-1 point per die falling damage)
+    <br/><strong>Equipment:</strong> Potion of Flying, Leather Armor, 5 Javelins
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Gemcutter</h4>
+    <strong>Abilities:</strong> Appraise (gems & jewelry), Cut Gems (4 in 6 chance of increasing value of a gem by 10%)
+    <br/><strong>Equipment:</strong> Magnifying Lens, Diamond Dust (50 GP value, use 10 GP per attempt to cut gem)
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Man-At-Arms</h4>
+    <strong>Abilities:</strong> Years of Guard Duty (surprised only on 1 in 6)
+    <br/><strong>Equipment:</strong> Chain mail, Shield, Sword, Dagger, Light Crossbow, 30 Quarrels in Case
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+  - |
+    <h4>Merman</h4>
+    <strong>Abilities:</strong> Breath Underwater, Leathery Skin (AC7, +1 hp at 1st level), -1 to attack rolls on land
+    <br/><strong>Equipment:</strong> Trident, 20 Darts
+    <br/><strong>Gold:</strong> {{>roll: 1d6*10}}
+
+  - |
+    <h4>Nomad</h4>
+    <strong>Abilities:</strong> Surprise Outdoors (1-4 in 6, if wearing only leather armor), Archery while Riding
+    <br/><strong>Equipment:</strong> Light Horse, Lance, Horse Bow, Leather Armor
+    <br/><strong>Gold:</strong> {{>roll: 1d6*10}}
+
+  - |
+    <h4>Orcish</h4>
+    <strong>Abilities:</strong> Nocturnal (Infravision; -1 on attack rolls in full daylight), Tough (+1 HP at 1st level)
+    <br/><strong>Equipment:</strong> Leather Armor, Shield, Hand Axe
+    <br/><strong>Gold:</strong> {{>roll: 1d6*10}}
+  - |
+    <h4>Pilgrim</h4>
+    <strong>Abilities:</strong> Traveling (Add 1 hex to daily movement)
+    <br/><strong>Equipment:</strong>Sturdy Staff, Holy Relic (Turns Undead as 3rd Level Cleric 2d6 times before disintegrating)
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Sage</h4>
+    <strong>Abilities:</strong> Identify Magic Item (Takes 1 week and uses 100 gp of material components)
+    <br/><strong>Equipment:</strong> Reference Books, Blank Vellum Book, Ink & Quill
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+
+  - |
+    <h4>Smith</h4>
+    <strong>Abilities:</strong> Fire-tough (-1 point per dice fire damage), Forging (Make weapons/armor at 1/2 cost)
+    <br/><strong>Equipment:</strong> Chainmail, Shield, Hammer, Tongs, 12 Iron Spikes, Crowbar
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+  - |
+    <h4>Spy</h4>
+    <strong>Abilities:</strong> Double Talk (+2 on reaction rolls), Disguise, Languages (Double normal number)
+    <br/><strong>Equipment:</strong> 2 Daggers (1 hidden in boot)
+    <br/><strong>Gold:</strong> {{>roll: 2d6*10}}
+

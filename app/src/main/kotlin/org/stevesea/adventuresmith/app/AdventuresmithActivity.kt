@@ -718,6 +718,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 }
                 FotfConstants.GROUP -> Ionicons.Icon.ion_map
                 AdventuresmithCore.FourthPage -> CommunityMaterial.Icon.cmd_numeric_4_box_outline
+                AdventuresmithCore.Zenopus -> CommunityMaterial.Icon.cmd_cube
                 AdventuresmithCore.PerilousWilds -> {
                     when (grpId) {
                         "grp1" -> CommunityMaterial.Icon.cmd_image_filter_hdr // dangers & discov
