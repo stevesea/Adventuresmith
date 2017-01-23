@@ -1,0 +1,61 @@
+---
+templates:
+- "{{assassin.templates}}"
+
+nested_tables:
+  assassin:
+    templates:
+    - |
+      The assassin has <strong>{{assassin.has}}</strong>
+      <br/>The assassin carries <strong>{{assassin.carries}}</strong>
+      <br/>The assassin is looking for <strong>{{assassin.seeks}}</strong>
+
+    has:
+    - a flashy earring.
+    - shiny leather boots.
+    - a gold signet ring.
+    - a dagger in each boot.
+    - a mask covering the face.
+    - a wide-brimmed hat.
+    - a scar on the forearm.
+    - a scar on the face.
+    - a high-pitched laugh.
+    - a bent and broken nose.
+    - low-cut shirt.
+    - neatly trimmed mustaches.
+    hilt:
+    - ivory
+    - jade
+    - soapstone
+    - ebony
+    - mahogany
+    - oak
+    beasts:
+    - dragons
+    - lions
+    - scorpions
+    - snakes
+    - spiders
+    - wolves
+    carries:
+    - a blade with a gem embedded in the pommel.
+    - a blade with soft leather tassels dangling from the pommel.
+    - a blade with a carved {{assassin.hilt}} hilt
+    - a blade with a gently curved hilt.
+    - a blade with {{assassin.beasts}} sculpted into the steel of the guard
+    - a blade made of blackened steel.
+    - a highly polished blade.
+    - a blade with runes carved into it.
+    - arrows/bolts tipped with black steel.
+    - arrows/bolts with bronzed tips.
+    - arrows/bolts fletched with crow feathers.
+    - arrows/bolts fletched with peacock feathers.
+    seeks:
+    - accomplices to help complete a job.
+    - revenge against a rival assassin.
+    - an easy contract.
+    - extra muscle for a tough assignment.
+    - rumors that may lead to a new client.
+    - word from a missing guild contact.
+    - someone to frame up for a murder.
+    - a rowdy evening of carousing.

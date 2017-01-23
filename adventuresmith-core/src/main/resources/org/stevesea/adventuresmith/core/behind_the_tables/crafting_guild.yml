@@ -1,0 +1,109 @@
+---
+templates:
+- "{{crafting_guild.templates}}"
+
+nested_tables:
+  crafting_guild:
+    templates:
+    - |
+      This is a guild for <strong>{{crafting_guild.for}}</strong>
+      <br/>This guild's status and control is <strong>{{crafting_guild.status}}</strong>
+      <br/>This guild's illicit affairs comprise <strong>{{crafting_guild.illicit}}</strong>
+      <br/>This guild's headquarters is <strong>{{crafting_guild.hq}}</strong>
+      <br/>
+      <br/>{{crafting_guild.quest}}
+    quest:
+    - 1..4, You must fetch a shipment of goods from <strong>{{crafting_guild.minor_quest}}</strong>
+    - 5..7, Recently the guild has lost access to raw materials or manufacturing because of <strong>{{crafting_guild.std_quest}}</strong>
+    - 8..9, The guild would like you to fetch a rare creature or material from <strong>{{crafting_guild.major_quest}}</strong>
+
+    for:
+    - miners.
+    - foresters.
+    - farmers.
+    - laborers.
+    - smithies.
+    - barbers and dentists.
+    - jewelers.
+    - fools, entertainers, and players.
+    - shipwrights.
+    - tanners, furriers, and shoemakers.
+    - butchers.
+    - locksmiths and nailsmiths.
+    - potters and dyers.
+    - saddlers, farriers, and stable masters.
+    - joiners, wheelwrights, and coopers.
+    - masons.
+    - weavers and tailors
+    - goldsmiths and watchmakers
+    - "{{crafting_guild.professionals}}"
+    - "{{crafting_guild.artisans}}"
+    artisans:
+    - brewers
+    - candlers
+    - chefs
+    - glassblowers
+    - historical reenactors
+    - mithrilsmiths
+    - musicians
+    - painters
+    - sculptors
+    - silversmiths
+    professionals:
+    - alchemists
+    - architects
+    - calligraphers
+    - historians
+    - lawyers and judges
+    - scribes
+    - siege engineers
+    - writers
+    status:
+    - poor; though once great, this guild has fallen on hard times and is struggling to maintain its power.
+    - brand new, and frantically recruiting members in order to snatch power.
+    - exponentially rising, a recent boon has granted them great profits.
+    - slowing, a rising competitor is slowly cutting into profits.
+    - absolute, they have complete dominance in their field.
+    - spotty, depending on the will of the coin and the market this guild may be drinking Elven wine or rotten grog.
+    - unquestioned, they exert complete dominance over all other guilds in the area.
+    - questionable, though they claim to have control, some operators have undermined it.
+    illicit:
+    - literally nothing, they are paragons of upright morality.
+    - staying well within the law, if slipping on a few taxes due to ignorance, of course.
+    - knowing how to play the political game, they garner a few indirect favors from officials.
+    - guild leaders having dollar signs for eyes, and setting advantageous prices in the city.
+    - price floors becoming commonplace, and officials are often bribed in order to overlook some minor illicit activities.
+    - a variety of upper-level bribes, some minor scams, and the dismay of local priests.
+    - rampant corruption, with large-scale bribery of various city officials and contracts with thieves’ guild and occasionally an assassin.
+    - pacts with devils, large-scale counterfeiting, and treasonous activities are a normal Tuesday morning for this guild.
+    hq:
+    - the leader's or leaders' personal residence, a large manor.
+    - the dusty basement of the city's capital hall.
+    - a single, thin, and very tall townhouse that leans slightly into the street.
+    - a moored ship, especially curious in landlocked cities.
+    - an open-air pavilion centered in the city's bazaar.
+    - doubling as a large and prestigious bank.
+    - an opulent demiplane hidden in a shady back-alley.
+    - jointly shared with all the guilds of the city, and the thieves guild lurks in the sewers below.
+
+    minor_quest:
+    - the city gates, held up by a bureaucratic city official.
+    - the nearest village, where they're caught up in some small-town superstition.
+    - a relatively nearby city, where there a severe mix-up with the shipments.
+    - the natural areas one would gather them, yourself, to learn the roots of your trade.
+    - the stores of the city's banks, which must be paid off from their mortgage.
+    - across the room where the party receives the quest.
+    std_quest:
+    - a recent venture with a supplier, rival, or local official that has turned out bad.
+    - a trade blockade that has to be resolved.
+    - a thieves’ guild that is targeting the guild, but may be convinced to look somewhere else.
+    - a master using it frivolously, you must go out to harvest a sufficient replacement amount.
+    - a city official banning them, citing it as an immoral substance.
+    - spending all the coffer's stores on fulfilling a special contract or bribing officials, lacking the foresight to buy sufficient raw materials.
+    major_quest:
+    - the marketplace of the City of Brass.
+    - an ancient dwarven stronghold's forges.
+    - a quaint pasture—in the wildest parts of Arborea.
+    - a faraway island, rumored to have cannibals and foul magicks.
+    - a mystic mirage that manifests in a desert for twenty minutes once every century.
+    - the Plane of Rats (or similar filthy location).

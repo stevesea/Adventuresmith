@@ -70,6 +70,8 @@ generators:
   #- chars   Not converted to new template format
   - spells
   behind_the_tables:
+  - assassin
+  - assassin_guild
   - basic_dungeon
   - c_archer
   - c_armorer
@@ -102,6 +104,7 @@ generators:
   - castle_room
   - cavern_explore
   - caverns
+  - crafting_guild
   - dark_elf
   - dungeon_dressing
   - dwarf

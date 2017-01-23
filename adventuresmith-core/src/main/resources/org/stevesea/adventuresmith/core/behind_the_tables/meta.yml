@@ -9,6 +9,8 @@ groups:
   grpEncountersDungeon: Encounters / Dungeon
   grpEncountersTown: Encounters / Town
   grpEncountersWild: Encounters / Wilderness
+  grpFactionsSettlement: Factions / Settlement
+  grpFactionsWild: Factions / Wilderness
   grpLocationsCastle: Locations / Castle
   grpLocationsCavern: Locations / Cavern
   grpLocationsDungeon: Locations / Dungeon

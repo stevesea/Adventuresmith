@@ -1,0 +1,162 @@
+---
+templates:
+- "{{assassin_guild.templates}}"
+
+nested_tables:
+  assassin_guild:
+    templates:
+    - |
+      The guild’s symbol is <strong>{{assassin_guild.symbol}}</strong>
+      <br/>The guild’s preferred method of execution is <strong>{{assassin_guild.method}}</strong>
+      <br/>
+      <br/>Guildmembers typically arm themselves with <strong>{{assassin_guild.armed}}</strong>
+      <br/>Guildmembers typically operate <strong>{{assassin_guild.operate}}</strong>
+      <br/>Guildmembers typically know <strong>{{assassin_guild.know}}</strong>
+      <br/>
+      <br/>The guild’s leader is <strong>{{assassin_guild.leader}}</strong>
+      <br/>
+      <br/>The guild’s goals include (leadership and rank-and-file members could have different goals) <strong>{{assassin_guild.goals}}</strong>
+      <br/>
+      <br/>The guild refuses to take contracts to kill <strong>{{assassin_guild.wont_kill}}</strong>
+      <br/>
+      <br/>Guildmembers typically strike with <strong>{{assassin_guild.strike}}</strong>
+      <br/>Guildmembers typically plan their attacks for <strong>{{assassin_guild.plan}}</strong>
+      <br/>
+      <br/>The guild’s headquarters is hidden in or near <strong>{{assassin_guild.hq}}</strong>
+      <br/>
+      <br/>The guild is feared or respected by <strong>{{assassin_guild.respected}}</strong>
+
+    symbol:
+    - a skull.
+    - an eye.
+    - a flame.
+    - a dagger.
+    - a scythe.
+    - an arrow.
+    - a fish.
+    - a crow.
+    - a rat.
+    - a scorpion.
+    - a spider.
+    - a snake.
+    method:
+    - ingested poison or allergic reaction.
+    - exposure to deadly (but not highly contagious) disease.
+    - contact poison applied to a weapon.
+    - arrow/bolt from range.
+    - knife in the chest or back.
+    - multiple stab wounds.
+    - slitting throats.
+    - gutting or eviscerating.
+    - flaying or scalping.
+    - beheading.
+    - strangulation.
+    - hanging.
+    - burying alive.
+    - drowning.
+    - boiling alive.
+    - throwing off a roof.
+    - acid (pouring or submersion).
+    - fiery explosion.
+    - burning alive.
+    - feeding to animals.
+    armed:
+    - poisoned daggers and shortswords.
+    - throwing knives.
+    - over-sized daggers.
+    - serrated daggers.
+    - daggers and crossbows.
+    - axes and knives.
+    - bows and arrows.
+    - shortswords and crossbows.
+    - sickles and scythes.
+    - garrotes and daggers.
+    - exotic blades and blowguns.
+    - bolas and poisoned projectiles.
+    operate:
+    - alone.
+    - in pairs.
+    - in small groups.
+    - by infiltrating an organization.
+    - by impersonating a specific individual.
+    - in plain sight.
+    know:
+    - very few other guildmembers.
+    - several other guildmembers.
+    - the details of the guild’s organization.
+    - nothing about the guild’s leadership.
+    - the names of the guild’s leaders, though they’ve never any of them.
+    - one of the guild’s leading members and no other guildmembers.
+    leader:
+    - a dangerous megalomaniac.
+    - a charismatic demagogue.
+    - a mysterious foreigner.
+    - a talented thief.
+    - a well-known public figure.
+    - a ruthless killer.
+    - a femme fatale.
+    - a charming rogue.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    - a religious fanatic.
+    - a veteran soldier.
+    goals:
+    - expanding the client base.
+    - corrupting and influencing the politics of the city or region.
+    - eliminating a rival assassins’ guild in the same city or region.
+    - eliminating a rival assassins’ guild in a foreign city or region.
+    - intimidating the masses.
+    - instigating rebellion among the masses.
+    wont_kill:
+    - women.
+    - young children.
+    - nobles and prominent citizens.
+    - priests and monks.
+    - peasants and poor folk.
+    - foreigners and travelers.
+    - members of the client’s family.
+    - fellow criminals.
+    strike:
+    - hit-and-run tactics.
+    - ambush tactics.
+    - diversionary tactics.
+    - a precisely planned attack strategy.
+    - a well-planned escape strategy.
+    - the element of surprise.
+    - announcing their presence.
+    - no thought of escape.
+    plan:
+    - just after sunrise.
+    - high noon.
+    - just after sunset.
+    - well into the night.
+    - the toll of midnight.
+    - after midnight.
+    - the wee hours of the morning.
+    - just before sunrise.
+    hq:
+    - the residence of the leader or a senior guildmember.
+    - an artisan's shop or guildhall.
+    - a merchant's office.
+    - a tavern.
+    - a brothel.
+    - a warehouse or shipyard.
+    - a temple complex.
+    - the city's sewers.
+    - the town hall.
+    - an abandoned guildhall or warehouse.
+    - an armory or barracks.
+    - the residence of a wealthy individual or prominent citizen.
+    respected:
+    - fishermen and sailors.
+    - beggars and orphans.
+    - merchants and moneychangers.
+    - nobles and rulers.
+    - politicians and magistrates.
+    - guards and sheriffs.
+    - soldiers and warriors.
+    - thieves and criminals.
+    - servants and slaves.
+    - priests and sages.
+    - women and children.
+    - other assassins.
