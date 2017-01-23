@@ -1,0 +1,99 @@
+templates:
+- "{{monk.templates}}"
+
+nested_tables:
+  monk:
+    templates:
+    - |
+      At the monastery, the monk serves as <strong>{{monk.serves}}</strong>
+      <br/>The monk is particularly knowledgeable regarding <strong>{{monk.knowledgeable}}</strong>
+      <br/>
+      <br/>The monk has recently been contemplating <strong>{{monk.contemplating}}</strong>
+      <br/>
+      <br/>The monk prefers to meditate <strong>{{monk.meditate}}</strong>
+      <br/>
+      <br/>The monk wears <strong>{{monk.wears}}</strong>
+      <br/>The monk carries <strong>{{monk.carries}}</strong>
+      <br/>
+      <br/>The monk's martial arts style includes <strong>{{monk.style}}</strong>
+      <br/>
+      <br/>The monk prefers to drink <strong>{{monk.drink}}</strong>
+      <br/>The monk is looking for <strong>{{monk.seeks}}</strong>
+
+    serves:
+    - a brewer or vintner.
+    - a baker, butcher, or cook.
+    - a carpenter, smith, or stonemason.
+    - a farmer, gardener, or herder.
+    - an instructor or scribe.
+    - a leatherworker, ropemaker, or weaver.
+    knowledgeable:
+    - the power of the mind.
+    - realms beyond the material world.
+    - healing arts.
+    - the journey of the soul.
+    - sacred texts.
+    - the body's strengths and weaknesses.
+    contemplating:
+    - the mysteries of death and life.
+    - the meaning of dreams and dark omens.
+    - the perfection of the mind, body, and soul.
+    - the wisdom of an ancient philosopher.
+    - the beauty and power of nature.
+    - the balance of order and chaos.
+    meditate:
+    - in a shrine at the monastery.
+    - in his or her personal cell.
+    - in a garden.
+    - deep in the wilderness.
+    - on the site of an ancient ruin.
+    - while walking the roads of the world.
+
+    wears:
+    - a threadbare robe.
+    - a comfortable linen robe.
+    - a cotton robe bearing the symbol of a god.
+    - a clean silk robe with simple embroidery.
+    style:
+    - landing many rapid, open-hand slaps.
+    - landing a few powerful, close-fist punches.
+    - acrobatic flips and leaps.
+    - a stumbling gait to keep foes off balance.
+    - landing many of rapid, spinning kicks.
+    - landing a few powerful kicks.
+    - striking pressure points to debilitate foes.
+    - explosive powders and distracting smoke.
+    carries:
+    - a wooden staff.
+    - several razor-sharp daggers.
+    - "{{monk.weapon}}."
+    - a purse of silver to distribute to the poor.
+    - a variety of healing potions and salves.
+    - a set of prayer beads or a prayer book.
+    - a heavy ring of keys.
+    - a wineskin or flask.
+    weapon:
+    - kukri
+    - kusari-gama
+    - nunchaku
+    - scythe
+    - shuriken
+    - sickle
+
+
+    drink:
+    - ale.
+    - "{{monk.tea}} tea."
+    - water.
+    - wine.
+    tea:
+    - black
+    - green
+    - herbal
+    seeks:
+    - new students.
+    - the translation of an ancient manuscript.
+    - heretics and enemies of the order.
+    - the location of an ancient ruin.
+    - an opportunity to tell a fable.
+    - the bottom of a goblet.

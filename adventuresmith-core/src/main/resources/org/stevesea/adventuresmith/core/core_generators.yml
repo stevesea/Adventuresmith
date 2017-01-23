@@ -114,6 +114,10 @@ generators:
   - mine
   - mine_explore
   - miner
+  - monastery
+  - monastery_encounter
+  - monastery_explore
+  - monk
   - npc
   - npc_appearance
   - npc_personality

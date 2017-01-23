@@ -1,0 +1,96 @@
+---
+templates:
+- "{{monastery.templates}}"
+
+nested_tables:
+  monastery:
+    templates:
+    - |
+      Visitors to the monastery come seeking <strong>{{monastery.visitors}}</strong>
+      <br/>The monastery is known for its <strong>{{monastery.known_for}}</strong>
+      <br/>
+      <br/>The monastery complex is located <strong>{{monastery.located}}</strong>
+      <br/>
+      <br/>The monastery complex is <strong>{{monastery.structure}}</strong>
+      <br/>
+      <br/>The monastery guards the secret to <strong>{{monastery.guards}}</strong>
+      <br/>
+      <br/>The monastery’s secret is known to <strong>{{monastery.secret}}</strong>
+
+    visitors:
+    - ancient knowledge.
+    - mystic wisdom.
+    - spiritual guidance.
+    - prayers and healing.
+    - ales and other goods made on-site.
+    - refuge from war.
+    - shelter on a long journey.
+    - the secret of true happiness.
+    - physical perfection.
+    - the means to travel to another realm.
+    - training in a unique fighting style.
+    - the tools and training to exact vengeance.
+    known_for:
+    - compassionate healers.
+    - sacred music.
+    - ancient wisdom.
+    - dark prophecies.
+    - stunning archtecture.
+    - unusual architecture.
+    - a famous sculpture or painting.
+    - lengthy prayer services and vigils.
+    - extensive library and scholarly debates.
+    - master brewers or vintners.
+    - powerful mystics.
+    - indefatigable warriors.
+    located:
+    - on a hilltop far from any cities, but with a village below.
+    - on a hilltop not far from a large city.
+    - on a remote mountaintop.
+    - on the side of a mountain.
+    - deep within a forest.
+    - near a desert oasis.
+    - belowground.
+    - in the heart of a city.
+    structure:
+    - a tight cluster of buildings (or chambers).
+    - a cluster of buildings with gardens, lawns, and yards in the spaces between.
+    - a cluster of interconnected buildings.
+    - a cluster of buildings ringed by a fence or low wall.
+    - a cluster of buildings ringed by a defensible stone wall.
+    - a single large building.
+    - a large main building with several smaller support buildings located nearby.
+    - a fortress with walls and watchtowers or sentry posts.
+    - a labyrinthine series of small buildings.
+    - symmetrically divided into two or more wings.
+
+
+    encounters:
+    - a bright-eyed student.
+    - an exhausted student.
+    - a patient initiate.
+    - a fierce martial artist.
+    - a dogmatic teacher.
+    - an eccentric scholar.
+    - a wise old master.
+    - a traveler from afar.
+    - a member of the monastery’s serving staff.
+    - a member of the monastery’s guard.
+    - a strange energy.
+    - a feeling that you’re being watched.
+    guards:
+    - world peace.
+    - inner peace.
+    - spiritual enlightenment.
+    - total consciousness.
+    - apotheosis.
+    - armageddon.
+    - ritual transformation into a god’s avatar.
+    - unsealing a portal to another realm.
+    - instant and irreversible death.
+    - the perfect pint of ale.
+    secret:
+    - everyone, but the specifics are hidden.
+    - monks that perform a particular service.
+    - several of the monastery’s masters.
+    - a single master and a single student.

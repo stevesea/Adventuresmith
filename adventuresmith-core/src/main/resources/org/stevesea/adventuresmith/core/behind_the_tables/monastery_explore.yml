@@ -1,0 +1,78 @@
+---
+templates:
+- "{{monastery_explore.templates}}"
+
+nested_tables:
+  monastery_explore:
+    templates:
+    - |
+      <br/>This building/chamber is <strong>{{monastery_explore.chamber}}</strong>
+      <br/>The buildings/chambers are <strong>{{monastery_explore.decorations}}</strong>
+      <br/>
+      <br/>Many of the monastery’s ceilings are <strong>{{monastery_explore.ceilings}}</strong>
+      <br/>Many of the monastery’s interior walls are <strong>{{monastery_explore.interior_walls}}</strong>
+      <br/>
+      <br/>You notice <strong>{{monastery_explore.features}}</strong>
+
+    chamber:
+    - a chapel or shrine.
+    - a dormitory.
+    - a cloister.
+    - a refectory (dining hall).
+    - a library.
+    - a balneary (bath).
+    - an infirmary.
+    - a sanatorium or hospice.
+    - a school.
+    - a forge.
+    - a brewery.
+    - a barn.
+    ceilings:
+    - uncomfortably close to your head.
+    - connected to the floor by columns.
+    - painted with mythological scenes.
+    - domes or cupolas.
+    decorations:
+    - decorated with statues.
+    - decorated with stone arches and columns.
+    - colorful structures of painted wood and plaster.
+    - sturdy structures of finished wood.
+    - solid structures of oven-fired clay bricks.
+    - behind large {{monastery_explore.metal}} doors
+    metal:
+    - brass
+    - bronze
+    - gold
+    - iron
+    - steel
+    - tin
+    interior_walls:
+    - rough hewn stone.
+    - smooth cut stone.
+    - painted or lacquered wood.
+    - unfinished hardwood.
+    - decorated with intricate mosaics.
+    - decorated with elaborate murals.
+    - decorated with relief carvings.
+    - decorated with sacred texts and runes.
+    features:
+    - a small altar set in an alcove in the wall.
+    - the sound of bells ringing in a tower.
+    - a wall sconce holding many candles.
+    - tall candles on holders, taller than a man.
+    - the tinkle of chimes from a nearby room.
+    - a tapestry depicting a mythological scene.
+    - a small fountain or reflecting pool.
+    - the sound of a gong from another room.
+    - a large holy symbol embedded in the wall.
+    - a huge book of sacred texts or prayers.
+    - the scent of incense burning nearby.
+    - a kneeler beneath a small statue or icon.
+    - an oil lamp with colored glass panels.
+    - a mosaic set into the floor of the room.
+    - a wide fresco or mural depicting a mythological scene.
+    - the pipes of an indoor plumbing system running along the wall.
+    - robes and cassocks hanging on hooks.
+    - an ornamental rug.
+    - the sound of chanting from another room.
+    - a statue of a recognizable figure.

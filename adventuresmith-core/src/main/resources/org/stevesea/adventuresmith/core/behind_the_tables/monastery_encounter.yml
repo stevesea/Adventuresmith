@@ -1,0 +1,9 @@
+---
+templates:
+- You come upon <strong>{{monastery.encounters}}</strong>
+
+imports:
+- monastery
+
+
+
