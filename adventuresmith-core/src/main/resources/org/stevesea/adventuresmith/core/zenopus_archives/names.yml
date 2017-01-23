@@ -5,8 +5,8 @@ templates:
 nested_tables:
   holmesian_names:
     template:
-    - "1..5, {{holmesian_names.pick_num_syllables}} {{holmesian_names.pick_titles}}"
-    - "6..8, {{holmesian_names.pick_num_syllables}} {{holmesian_names.pick_num_syllables}} {{holmesian_names.pick_titles}}"
+    - "1..5, %[[>titleCase: {{holmesian_names.pick_num_syllables}}]]% {{holmesian_names.pick_titles}}"
+    - "6..8, %[[>titleCase: {{holmesian_names.pick_num_syllables}}]]% %[[>titleCase: {{holmesian_names.pick_num_syllables}}]]% {{holmesian_names.pick_titles}}"
     pick_num_syllables:
     - 1-10, {{holmesian_names.syllables}}
     - 11-70, {{holmesian_names.syllables}}{{holmesian_names.syllables}}
