@@ -1,0 +1,86 @@
+---
+templates:
+- "{{artisan.templates}}"
+
+nested_tables:
+  artisan:
+    templates:
+    - |
+      The artisan is <strong>{{artisan.is}}</strong>
+      <br/>The artisan has <strong>{{artisan.has}}</strong>
+      <br/>The artisan has <strong>{{artisan.has2}}</strong>
+      <br/>
+      <br/>The artisan is particularly skilled at <strong>{{artisan.skilled}}</strong>
+      <br/>
+      <br/>The artisan is looking for <strong>{{artisan.seeks}}</strong>
+      <br/>
+      <br/>The artisan is carrying <strong>{{artisan.carrying}}</strong>
+      <br/>
+      <br/>The artisan is <strong>{{artisan.is}}</strong>
+      <br/>
+      <br/>The artisan dreams of <strong>{{artisan.dreams}}</strong>
+
+    is:
+    - a young journeyman.
+    - a mediocre journeyman.
+    - a skilled journeyman.
+    - a veteran of the craft.
+    - a master of the craft.
+    - an old crafter.
+    has:
+    - a friendly smile.
+    - keen eyes.
+    - watery eyes.
+    - a stubborn scowl.
+    - a dour frown.
+    - a missing tooth.
+    - tired eyes.
+    - an amused smirk.
+    has2:
+    - a limp.
+    - a hunchback.
+    - unsteady hands when they aren’t at work.
+    - a habit of looking down.
+    - a bulbous nose.
+    - a burn scar on the face.
+    - a wispy mustache.
+    - a thick mustache.
+    skilled:
+    - crafting one particular type of item.
+    - identifying high quality raw materials.
+    - putting the finishing touches on an item.
+    - instructing and training apprentices.
+    - negotiating better prices for goods.
+    - maneuvering in guild politics.
+    seeks:
+    - a new apprentice.
+    - a journeyman craftsman to hire.
+    - rare materials.
+    - a better set of tools.
+    - someone with whom to talk shop.
+    - someone who witnessed a recent sporting event.
+    - someone who is attending an upcoming sporting event.
+    - a mug of strong ale.
+    carrying:
+    - the tools of his or her trade.
+    - some raw materials.
+    - a finished product.
+    - a little coin.
+    - a to-do list scrawled on a bit of parchment.
+    - a set of many keys.
+    - a pipe and some tobacco.
+    - a flask of whisky.
+    is2:
+    - a well-known member of the guild.
+    - an established or up-and-coming leader in the guild.
+    - a new member of the guild, having recently relocated from a distant land.
+    - a quiet guildmember, who doesn’t get involved in guild politics.
+    - on the outs with guild leadership.
+    - a favorite of some of the guild’s leaders.
+    dreams:
+    - producing a masterwork of the craft.
+    - holding the reins of guild leadership.
+    - retiring peacefully.
+    - retiring rich.
+    - running away from it all.
+    - a life of adventure.

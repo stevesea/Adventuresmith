@@ -70,6 +70,8 @@ generators:
   #- chars   Not converted to new template format
   - spells
   behind_the_tables:
+  - apprentice_crafter
+  - artisan
   - assassin
   - assassin_guild
   - basic_dungeon

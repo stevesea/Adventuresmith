@@ -1,0 +1,21 @@
+---
+templates:
+- "{{apprentice_crafter.templates}}"
+
+nested_tables:
+  apprentice_crafter:
+    templates:
+    - |
+      The apprentice is <strong>{{apprentice_crafter.is}}</strong>
+      <br/>The apprentice seeks someone to <strong>{{apprentice_crafter.seeks}}</strong>
+
+    is:
+    - bored.
+    - eager to learn.
+    - frustrated by his or her own mistakes.
+    - nervously looking about.
+    seeks:
+    - give him some tips in the craft.
+    - purchase an item made by the apprentice.
+    - tell a tale that inspires creativity.
+    - sneak off for a drink and some kisses.
