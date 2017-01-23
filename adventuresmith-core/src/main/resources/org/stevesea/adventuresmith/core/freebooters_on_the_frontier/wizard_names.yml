@@ -99,7 +99,7 @@ tables:
   - Zza
   maybe_apostrophe:
   - 1..8,
-  - "-"
+  - "'"
   wizname_part2:
   - ak
   - alto
