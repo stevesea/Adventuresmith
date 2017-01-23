@@ -379,6 +379,9 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
                             return StringReader(shuffler.pickD(params[0], ctxtVal))
+                        } else if (cmd_and_params[0] == "titleCase:") {
+                            // {{>titleCase: <val>}}
+                            return StringReader(titleCase(cmd_and_params[1]))
                         } else if (cmd_and_params[0] == "roll:") {
                             // {{>roll: <dicestr>}}
                             return StringReader(shuffler.roll(cmd_and_params[1]).toString())
