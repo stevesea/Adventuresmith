@@ -1,0 +1,91 @@
+---
+templates:
+- "{{magic_items}}"
+
+tables:
+  magic_items:
+  # potions
+  - "1-5, <strong>Potion of Delusion</strong><br/> Imbiber believes a different potion has taken effect, determine type randomly"
+  - "6-10, <strong>Potion of Diminution</strong><br/> Shrink to 6 inches, less for a partial dose"
+  - "11-15, <strong>Potion of Flying</strong><br/> Fly 120 feet per turn"
+  - "16-20, <strong>Potion of Gaseous Form</strong><br/> Imbiber but not gear turns to gas, control is retained"
+  - "21-25, <strong>Potion of Giant Strength</strong><br/> Attack as 9 HD monster for 3d6 damage"
+  - "26-30, <strong>Potion of Growth</strong><br/> Grow to 30 feet, less for a partial dose"
+  - "31-35, <strong>Potion of Haste</strong><br/> Move at twice normal speed and get two attacks per round"
+  - "36-40, <strong>Potion of Healing</strong><br/> Heals 1d6+1 hit points"
+  - "41-45, <strong>Potion of Invisibility</strong><br/> Turn invisible for duration, unless an attack is made"
+  - "46-50, <strong>Potion of Poison</strong><br/> Save vs poison or die"
+
+  # rings
+  - "51, <strong>Ring of Contrariness</strong><br/> Wearer does the opposite of normal or what is requested"
+  - "52, <strong>Ring of Control Animals</strong><br/> While concentrating, can control 3d6 small, 2d6 medium or 1d6 large animals"
+  - "53, <strong>Ring of Control Plants</strong><br/> While concentrating, can control 1-6 large or 10’ square of plants or fungi"
+  - "54, <strong>Ring of Fire Resistance</strong><br/> Immune to normal fire; +2 Save vs Breath and -1 damage per die"
+  - "55, <strong>Ring of Invisibility</strong><br/> Turn invisible until an attack is made"
+  - "56, <strong>Ring of Protection</strong><br/> +1 Gain -1 AC, +1 on all saves"
+  - "57, <strong>Ring of Regeneration</strong><br/> Heal 1 hit point per turn unless damaged by fire or acid"
+  - "58, <strong>Ring of Water Walking</strong><br/> Walk on any liquid"
+  - "59, <strong>Ring of Weakness</strong><br/> Lose 10% of STR/turn until at ½; 1 in 20 cause reverse, up to 18 max"
+  - "60, <strong>Ring of Wishes</strong><br/> {{>roll: 1d3}} wishes remaining"
+  # wands/rods/staves
+  - "61, <strong>Rod of Cancellation</strong><br/> Wielder can destroy a magic item by touching it with the rod, has but 1 charge"
+  - "62, <strong>Staff of Striking</strong><br/> MUs only, staff can hit for 2d6 damage"
+  - "63, <strong>Staff of the Snake</strong><br/> Clerics only, +1 to hit, 1d6+1 damage, can coil around target for 1d4 turns"
+  - "64, <strong>Staff of Healing</strong><br/> Clerics only, heals 1d6+1, usable once per day per character"
+  - "65, <strong>Wand of Cold</strong><br/> 60’ x 30’ cone, 6d6 damage, Save vs Breath for ½"
+  - "66, <strong>Wand of Detect Magic</strong><br/> All magic items in a 20’ range glow"
+  - "67, <strong>Wand of Detect Secret Doors</strong><br/> Points to all secret doors and traps in a 20’ range"
+  - "68, <strong>Wand of Fear</strong><br/> 60’ x 30’ cone; Save vs Wands or flee for 1d3 turns, drop all held items"
+  - "69, <strong>Wand of Fire Balls</strong><br/> 240’ range, 20’ radius, 6d6 damage, Save vs Breath for ½"
+  - "70, <strong>Wand of Paralyzation</strong><br/> 60’ x 30’ cone; Save vs Wands or paralyzed for 6 turns"
+
+  # scrolls
+  - "71-82, <strong>Scroll – {{>roll: 1d3}} {{spell_type}} spell(s)</strong>"
+  - "83-86, <strong>Scroll – Cursed</strong><br/> Referee’s choice, for example could summon an enraged monster"
+  - "87-98, <strong>Scroll – Magic Item Spell</strong><br/> {{scroll_item_spell}}"
+  - "99-110,<strong>Scroll – Protection</strong><br/> 10’ Roll on Monster List for type, any character class can use, lasts 6 turns"
+
+  # various
+  - "111, <strong>Bag of Holding</strong><br/> Holds 10,000 coins as 300; or object 10’ x 5’ x 3’ as 600 coins"
+  - "112, <strong>Bag of Destroying</strong><br/> Appears to be a Bag of Holding but eats contents in d6+6 turns"
+  - "113, <strong>Broom of Flying</strong><br/> Fly at 240 feet/turn or 180ft/turn with passenger, command word activates"
+  - "114, <strong>Crystal Ball</strong><br/> MUs only, can see images at distance three times per day"
+  - "115, <strong>ESP Medallion</strong><br/> Wearer can read thoughts up to 60’, fails 1 in 6, foiled by lead or over 2’ rock"
+  - "116, <strong>Elven Cloak & Boots</strong><br/> Hide (1-5 in 6) and/or move silently (automatic success)"
+  - "117, <strong>Gauntlets of Ogre Power</strong><br/> Adds 2-8 points of damage per blow, carry 1000 extra coins"
+  - "118, <strong>Helm of Telepathy</strong><br/> Read & suggest thoughts in 90’, unless Save vs Spells at -1, -2 for monsters"
+  - "119, <strong>Helm of Evil/Good</strong><br/> Changes wearer to opposite alignment, neutral becomes totally self-serving"
+  - "120, <strong>Rope of Climbing</strong><br/> 50’ long, holds 10,000 coins, obeys commands to climb up or down"
+
+  # weapons/armor
+  - "121-124, <strong>Armor +1</strong>"
+  - "125-128, <strong>Armor -2</strong>"
+  - "129-132, <strong>Shield +1</strong>"
+  - "133-136, <strong>Arrows +1 ({{>roll: 1d20}})</strong>"
+  - "137-140, <strong>Bow +1</strong>"
+  - "141-144, <strong>Axe +1</strong>"
+  - "145-148, <strong>Spear +1</strong>"
+
+  - "149-152, <strong>Sword +1</strong>"
+  - "153-156, <strong>Sword +2</strong>"
+  - "157-160, <strong>Sword +3</strong>"
+  - "161-164, <strong>Sword -1</strong>"
+  - "165-168, <strong>Sword -2</strong>"
+  - "169-171, <strong>Hammer +1</strong>"
+  - "172, <strong>Hammer +2</strong>"
+
+  - "173-176, <strong>Sword +1, Locate Object as per spell</strong>"
+  - "177-180, <strong>Sword +1, +2 vs MUs/Enchanted</strong>"
+  - "181-184, <strong>Sword +1, +2 vs Regenerating, +3 vs Undead</strong>"
+  - "185-187, <strong>Sword +2, +3 vs Lycanthropes</strong>"
+  - "188-192, <strong>Sword +2, +3 vs Dragons</strong>"
+  - "193-196, <strong>Dagger +1 vs Humanoids, +2 if under 1 HD</strong>"
+  - "197-200, <strong>Dagger +2 vs Humanoids, +3 if 1 HD or under</strong>"
+
+  spell_type:
+  - MU
+  - Cleric
+  scroll_item_spell:
+  - "1-2, {{>pick: 1d50 magic_items}}"    # potion
+  - "3-4, {{>pick: 1d10+50 magic_items}}" # ring
+  - "5-6, {{>pick: 1d10+60 magic_items}}" # wand

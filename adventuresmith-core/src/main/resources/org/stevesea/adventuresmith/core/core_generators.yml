@@ -380,4 +380,5 @@ generators:
   - supers_who_the_heck
   zenopus_archives:
   - backgrounds
+  - magic_item
   - names

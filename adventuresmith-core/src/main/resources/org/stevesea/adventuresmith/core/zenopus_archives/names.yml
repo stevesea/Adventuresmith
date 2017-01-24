@@ -254,26 +254,26 @@ nested_tables:
     - the Great
     - the Grizzled
     - the Gruff
-    - the Hairy/Bald
+    - the {{holmesian_names.hair}}
     - the Haunted
-    - the Heavy/Lean
-    - the Hooded/Cowled
+    - the {{holmesian_names.weight}}
+    - the {{holmesian_names.hood}}
     - the Hunter
     - the Imposing
     - the Irreverent
     - the Loathsome
-    - the Loud/Quiet
+    - the {{holmesian_names.volume}}
     - the Lovely
     - the Mantled
-    - the Masked/Veiled
-    - the Merciful/Merciless
+    - the {{holmesian_names.face_cover}}
+    - the {{holmesian_names.mercy}}
     - the Mercurial
     - the Mighty
     - the Morose
     - the Mutable
     - the Mysterious
     - the Obscure
-    - the Old/Young
+    - the {{holmesian_names.age}}
     - the Ominous
     - the Peculiar
     - the Perceptive
@@ -286,7 +286,7 @@ nested_tables:
     - the Scarred
     - the Searcher
     - the Shadowy
-    - the Short/Tall
+    - the {{holmesian_names.height}}
     - the Steady
     - the Uncanny
     - the Unexpected
@@ -296,9 +296,9 @@ nested_tables:
     - the Wanderer
     - the Wary
     - the Weird
-    - the {{holmesian_names.colors}}
+    - the {{holmesian_names.color}}
     - the {{holmesian_names.num}}
-    - of the {{holmesian_names.colors}} Cloak
+    - of the {{holmesian_names.color}} Cloak
     - of the {{holmesian_names.direction}}
     - of the Arid Wastes
     - of the Beetling Brow
@@ -322,6 +322,30 @@ nested_tables:
     - South
     - East
     - West
+    hair:
+    - Hairy
+    - Bald
+    weight:
+    - Heavy
+    - Lean
+    age:
+    - Old
+    - Young
+    hood:
+    - Hooded
+    - Cowled
+    height:
+    - Short
+    - Tall
+    mercy:
+    - Merciful
+    - Merciless
+    volume:
+    - Loud
+    - Quiet
+    face_cover:
+    - Masked
+    - Veiled
 
     color:
     - Red
