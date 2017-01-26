@@ -56,7 +56,7 @@ nested_tables:
     - an antechamber to a crypt or chapel.
     - a chapel dedicated to protecting the souls of the deceased.
     - a chapel dedicated to aiding the journey of the souls of the deceased.
-    - a grand crypt for a {{tomb_explore.crypt}}
+    - a grand crypt for a <em>{{tomb_explore.crypt}}</em>
     - a false crypt to attract and to trap graverobbers and treasure hunters.
     - a crypt for immediate family members.
     - a crypt for previous generations of the family.
@@ -64,9 +64,9 @@ nested_tables:
     - a crypt of unmarked graves.
     - a reflecting pool or fountain.
     - a crypt for devoted servants or slaves.
-    - a room dedicated for specific rituals {{tomb_explore.rituals}}
-    - gallery dedicated to the deceased - {{tomb_explore.gallery}}
-    - a guardroom with guards - {{tomb_explore.guardroom}}
+    - a room dedicated for specific rituals <em>{{tomb_explore.rituals}}</em>
+    - gallery dedicated to the deceased - <em>{{tomb_explore.gallery}}</em>
+    - a guardroom with guards - <em>{{tomb_explore.guardroom}}</em>
     - a priest’s robing room.
     - storage room for embalming tools.
     - storage room for tools and materials to maintain the tomb.

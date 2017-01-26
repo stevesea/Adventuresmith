@@ -40,8 +40,8 @@ nested_tables:
     - a sanitarium or infirmary.
     - a ceremonial pool, bath, or fountain.
     - a morgue or mortuary.
-    - a crypt for {{temple_explore.crypt}}.
-    - a room dedicated for specific rituals {{temple_explore.ritual}}.
+    - a crypt for <em>{{temple_explore.crypt}}.</em>
+    - a room dedicated for specific rituals <em>{{temple_explore.ritual}}.</em>
     - a chapel or shrine dedicated to a lesser deity, saint, or martyr.
     - a classroom or dormitory.
     - a library.

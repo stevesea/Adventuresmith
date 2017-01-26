@@ -64,7 +64,7 @@ nested_tables:
     - square.
     - rectangular.
     - pentagonal.
-    - polygonal with {{temple.sides}} sides
+    - polygonal with <em>{{temple.sides}}</em> sides
     - cruciform.
     sides:
     - six
@@ -90,7 +90,7 @@ nested_tables:
     - a colorful structure of painted wood and plaster.
     - a sturdy structure of finished wood.
     - a solid structure of oven-fired clay bricks.
-    - a large structure with immense {{temple.metal_doors}} doors
+    - a large structure with immense <em>{{temple.metal_doors}}</em> doors
     metal_doors:
     - brass
     - bronze

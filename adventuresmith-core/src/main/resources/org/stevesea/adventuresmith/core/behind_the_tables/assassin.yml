@@ -40,9 +40,9 @@ nested_tables:
     carries:
     - a blade with a gem embedded in the pommel.
     - a blade with soft leather tassels dangling from the pommel.
-    - a blade with a carved {{assassin.hilt}} hilt
+    - a blade with a carved <em>{{assassin.hilt}}</em> hilt
     - a blade with a gently curved hilt.
-    - a blade with {{assassin.beasts}} sculpted into the steel of the guard
+    - a blade with <em>{{assassin.beasts}}</em> sculpted into the steel of the guard
     - a blade made of blackened steel.
     - a highly polished blade.
     - a blade with runes carved into it.

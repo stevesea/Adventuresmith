@@ -38,7 +38,7 @@ nested_tables:
     - colorful structures of painted wood and plaster.
     - sturdy structures of finished wood.
     - solid structures of oven-fired clay bricks.
-    - behind large {{monastery_explore.metal}} doors
+    - behind large <em>{{monastery_explore.metal}}</em> doors
     metal:
     - brass
     - bronze

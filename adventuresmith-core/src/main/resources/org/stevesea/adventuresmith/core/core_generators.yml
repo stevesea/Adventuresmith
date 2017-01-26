@@ -107,6 +107,8 @@ generators:
   - cavern_explore
   - caverns
   - crafting_guild
+  - cult
+  - cultist
   - dark_elf
   - dungeon_dressing
   - dwarf

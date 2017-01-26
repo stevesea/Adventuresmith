@@ -42,7 +42,7 @@ nested_tables:
     - sapphires.
     - turquoise.
     - "{{mine.gems}}"
-    - an especially rare metal - {{mine.metal}}
+    - an especially rare metal - <em>{{mine.metal}}</em>
     gems:
     - amethyst
     - aquamarine
@@ -66,9 +66,9 @@ nested_tables:
     - a tunnel reinforced with wood beams.
     - a partially collapsed tunnel, impassable without excavation.
     - marked with several signs.
-    - hidden by the {{mine.entrance_terrain}}
-    - hidden by {{mine.entrance_vegetation}}
-    - difficult to access - {{mine.entrance_difficult}}
+    - hidden by the <em>{{mine.entrance_terrain}}</em>
+    - hidden by <em>{{mine.entrance_vegetation}}</em>
+    - difficult to access - <em>{{mine.entrance_difficult}}</em>
     entrance_terrain:
     - boulders
     - waterfall
@@ -97,7 +97,7 @@ nested_tables:
     - hauled out on mule-drawn carts.
     - hauled out on sure-footed ponies.
     - hauled out on ox-drawn carts.
-    - hauled out on the backs of uncommon beasts of burden ({{mine.haul_beasts}})
+    - hauled out on the backs of uncommon beasts of burden <em>({{mine.haul_beasts}})</em>
     - rolled out in single mine carts.
     - rolled out in long trains of mine carts.
     haul_beasts:

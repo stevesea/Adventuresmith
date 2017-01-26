@@ -56,7 +56,7 @@ nested_tables:
     - a walking staff.
     - a staff with a crook.
     - a ceremonial dagger.
-    - a prominently displayed holy symbol ({{temple_priest.symbol}})
+    - a prominently displayed holy symbol <em>({{temple_priest.symbol}})</em>
     - a pocketbook of sacred texts.
     - a notebook of hand-written prayers and devotions.
     - a variety of healing potions and salves.

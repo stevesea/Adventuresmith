@@ -1,0 +1,67 @@
+---
+templates:
+- "{{cultist.templates}}"
+
+nested_tables:
+  cultist:
+    templates:
+    - |
+      The cultist <strong>{{cultist.is}}</strong>
+      <br/>The cultist wears <strong>{{cultist.wears}}</strong>
+      <br/>
+      <br/>The cultist has <strong>{{cultist.has}}</strong>
+      <br/>The cultist is <strong>{{cultist.is2}}</strong>
+      <br/>
+      <br/>The cultist is looking for <strong>{{cultist.seeks}}</strong>
+
+    is:
+    - is an outspoken true believer.
+    - is a raving lunatic.
+    - is a quiet, fervent believer.
+    - has doubts, but is devoted to the cult's leader.
+    - has doubts, but is too afraid to voice them.
+    - doesn't care about the religious stuff; the cult meets other needs.
+    wears:
+    - a bandage on the thumb.
+    - a face tattoo of a holy symbol.
+    - a tattoo depicting an evil icon.
+    - a string of garlic around the neck.
+    - a robe with a tear at the knee.
+    - a fine silk robe.
+    - a large gold ring on one hand.
+    - a hooded robe.
+    - a robe emblazoned with a holy symbol.
+    - a lush, full beard.
+    has:
+    - a ceremonial dagger in hand.
+    - a book protruding from his or her pocket.
+    - a large scar on the throat.
+    - scraggly matted hair.
+    - a shaved head.
+    - scars on the wrists.
+    - a protruding chin.
+    - a maniacal grin.
+    - a surly curl of the lip.
+    - a gap between the front teeth.
+    is2:
+    - humming an eerie incantation.
+    - sweating profusely.
+    - breathing heavily.
+    - twitching nervously.
+    - laughing hysterically.
+    - muttering under his/her breath.
+    - coughing up a lung.
+    - whispering a prayer.
+    - moving with a limp.
+    - stinking of wine.
+    seeks:
+    - ways to impress the cult’s leader.
+    - tips for seducing the cult’s leader.
+    - methods to assassinate the cult’s leader.
+    - something that will impress his/her god.
+    - something to eat.
+    - something to kill.
+    - ways to advance the cult’s goals.
+    - new recruits.
+    - religious scholars to debate.
+    - a bottle of wine.

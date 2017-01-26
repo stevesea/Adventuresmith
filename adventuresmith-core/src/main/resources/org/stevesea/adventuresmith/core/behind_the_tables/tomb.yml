@@ -49,7 +49,7 @@ nested_tables:
     - iron
     entrance:
     - yawning open, letting much daylight into the entry chamber.
-    - behind a huge pair of {{tomb.doors}} doors
+    - behind a huge pair of <em>{{tomb.doors}}</em> doors
     - beneath a stone slab.
     - a simple wooden door framed in stone.
     - a heavy wooden door framed in stone.
@@ -57,9 +57,9 @@ nested_tables:
     - beneath a gnarled, old tree.
     - beneath an obelisk or similar monument.
     - beneath a large statue.
-    - hidden by {{tomb.terrain}}
-    - hidden by {{tomb.vegetation}}
-    - difficult to access - {{tomb.difficult}}
+    - hidden by <em>{{tomb.terrain}}</em>
+    - hidden by <em>{{tomb.vegetation}}</em>
+    - difficult to access - <em>{{tomb.difficult}}</em>
     terrain:
     - boulders
     - waterfall
@@ -79,7 +79,7 @@ nested_tables:
     guarded_by:
     - a sworn order of devout warriors.
     - sellswords.
-    - large, frightening statues of {{tomb.statues}}
+    - large, frightening statues of <em>{{tomb.statues}}</em>
     - impressive, colossal statues of warriors.
     - statues of beautiful maidens, beckoning visitors into a trap.
     - several crumbling statues.

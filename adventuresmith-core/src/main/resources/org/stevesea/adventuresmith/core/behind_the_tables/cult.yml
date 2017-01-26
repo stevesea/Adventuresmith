@@ -1,0 +1,211 @@
+---
+templates:
+- "{{cult.templates}}"
+
+nested_tables:
+  cult:
+    templates:
+    - |
+      The cultists revere <strong>{{cult.revere}}</strong>
+      <br/>The cultists meet in <strong>{{cult.meet}}</strong>
+      <br/>
+      <br/>The cult’s leader is <strong>{{cult.leader}}</strong>
+      <br/>The cult's membership is primarily made up of <strong>{{cult.membership}}</strong>
+      <br/>
+      <br/>The cult's practices involve <strong>{{cult.practices}}</strong>
+      <br/>The cult's goals <strong>{{cult.goals}}</strong>
+      <br/>
+      <br/>The cult’s members must follow a strict rule regarding <strong>{{cult.rule}}</strong>
+      <br/>The cult’s members are particularly afraid of or takes special care to avoid <strong>{{cult.avoid}}</strong>
+
+
+    revere:
+    - a dragon.
+    - a demon lord.
+    - an archdevil.
+    - a long-dead ancient hero.
+    - a long-dead ancient villain.
+    - a dead god.
+    - an aberrant creature.
+    - an elemental creature.
+    - a primordial.
+    - primal spirits.
+    - an exarch of a god.
+    - the cult’s own leader.
+    meet:
+    - a secret chamber in a well-known temple.
+    - the cellar of a popular tavern.
+    - a secret chamber in a well-known guildhall.
+    - the cellar of a wealthy merchant's house.
+    - the city sewers.
+    - ancient catacombs beneath the city.
+    - a cabin in the countryside.
+    - a creepy, dark cave.
+    - a heavily guarded chamber within a castle.
+    - the stacks of a well-stocked library.
+    leader:
+    - a devoted acolyte.
+    - a dogmatic teacher.
+    - an adept healer.
+    - a charismatic preacher.
+    - an eccentric scholar.
+    - an outspoken zealot.
+    - a dangerous megalomaniac.
+    - a charismatic demagogue.
+    - a mysterious foreigner.
+    - a well-known public figure.
+    - a ruthless killer.
+    - a femme fatale.
+    - a charming rogue.
+    - a powerful noble.
+    - a talented artist.
+    - a religious fanatic.
+    - a veteran soldier.
+    - a humble artisan.
+    - an ancient hero reborn.
+    - the second coming of a god.
+    membership_poor:
+    - beggars
+    - laborers
+    - servants
+    - slaves
+    membership_elite:
+    - guildmasters
+    - merchants
+    - nobles
+    - royalty
+    membership_another_religion:
+    - sun god
+    - earth mother
+    - death god
+    - huntress
+    - goddess of love
+    - storm god
+    - trickster god
+    - war god
+    membership_trade:
+    - blacksmiths
+    - carpenters
+    - farmers
+    - fishermen
+    - miners
+    - soldiers
+    - stonemasons
+    - weavers
+    membership_race:
+    - dwarves
+    - elves
+    - gnomes
+    - goblins
+    - half-breeds
+    - halflings
+    - humans
+    - orcs
+    - reptilians
+    membership:
+    - the poor and downtrodden <em>({{cult.membership_poor}})</em>
+    - the wealthy elite <em>({{cult.membership_elite}})</em>
+    - a segment of another religion's population <em>({{cult.membership_another_religion}})</em>
+    - members of a particular trade <em>({{cult.membership_trade}})</em>
+    - members of a particular race <em>({{cult.membership_race}})</em>
+    - members of all social strata.
+    animal_sacrifice:
+    - bulls
+    - calves
+    - cats
+    - chickens
+    - dogs
+    - goats
+    - pigeons
+    - rabbits
+    - rams
+    - songbirds
+    human_sacrifice:
+    - children
+    - elderly
+    - harlots
+    - nonbelievers
+    - priests and priestesses
+    - virgins
+    self_mutilation:
+    - arm
+    - back
+    - cheek
+    - chest
+    - ear
+    - eye
+    - feet
+    - finger
+    - genitalia
+    - nose
+    burnt_offerings:
+    - corpses
+    - rare herbs
+    - sacred incense
+    - high-quality meat
+    - nonbeliever
+    - prisoners
+    public_violence:
+    - beatings
+    - looting
+    - murders
+    - riots
+    ritual_sex:
+    - bestiality
+    - breedings
+    - deflowerings
+    - orgies
+    practices:
+    - animal sacrifice <em>({{cult.animal_sacrifice}})</em>
+    - human sacrifice <em>({{cult.human_sacrifice}})</em>
+    - self-mutilation <em>({{cult.self_mutilation}})</em>
+    - burnt offerings <em>({{cult.burnt_offerings}})</em>
+    - offerings of gold, gems, and valuables.
+    - strange incantations.
+    - public acts of violence <em>({{cult.public_violence}})</em>
+    - ritualistic sexual acts <em>({{cult.ritual_sex}})</em>
+    goals:
+    - domination of the city or region.
+    - destruction of the city or region.
+    - reincarnation of a long-dead entity.
+    - declaration of war against a rival city or nation.
+    - rebellion against the city or nation's elite.
+    - death to non-believers.
+    - opening a portal to another plane.
+    - release of a powerful captive entity.
+    flower:
+    - lily
+    - orchid
+    - rose
+    - tulip
+    weapon:
+    - club
+    - dagger
+    - handaxe
+    - staff
+    rule:
+    - wearing a flower <em>({{cult.flower}})</em> in the hair or on the lapel.
+    - fashion trends.
+    - maintaining their personal weapon <em>({{cult.weapon}})</em>
+    - treatment of pets.
+    - mounting a horse.
+    - dressing one’s self for worship.
+    - dressing one’s self for day-to-day activities.
+    - diet.
+    - exercise routines.
+    - bathing.
+    - styling one’s hair.
+    - brushing one’s teeth.
+    avoid:
+    - hallowed places.
+    - moonlight.
+    - sunlight.
+    - crossing running water.
+    - sharp wooden objects.
+    - garlic.
+    - silver objects.
+    - relics of the gods.
+    - sleeping outdoors.
+    - milk and cheese.
+    - eating meat.
+    - sobriety.
