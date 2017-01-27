@@ -17,6 +17,9 @@ nested_tables:
     - 5..7, Recently the guild has lost access to raw materials or manufacturing because of <strong>{{crafting_guild.std_quest}}</strong>
     - 8..9, The guild would like you to fetch a rare creature or material from <strong>{{crafting_guild.major_quest}}</strong>
 
+
+    # TODO: https://www.reddit.com/r/DnDBehindTheScreen/comments/3ya1cb/lets_build_a_merchant_or_crafting_guild_part_2/
+    #   look at input/output/services
     for:
     - miners.
     - foresters.
