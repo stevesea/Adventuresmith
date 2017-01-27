@@ -9,7 +9,7 @@ nested_tables:
       The goblin is particularly skilled at <strong>{{goblin.skill}}</strong>
       <br/>The goblin wields <strong>{{goblin.wields}}</strong>
       <br/>The goblin wears <strong>{{goblin.wears}}</strong>
-      <br/>The goblin's face has <strong>{{goblin.face}}</strong>
+      <br/>On the goblin's face is <strong>{{goblin.face}}</strong>
       <br/>The goblin has <strong>{{goblin.has}}</strong>
 
     skill:

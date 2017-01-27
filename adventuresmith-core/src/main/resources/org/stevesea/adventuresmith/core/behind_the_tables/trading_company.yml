@@ -1,0 +1,28 @@
+---
+templates:
+- "{{trading_company.templates}}"
+
+nested_tables:
+  trading_company:
+    templates:
+    - |
+      This trading company's specific specialty or purpose is <strong>{{trading_company.purpose}}</strong>
+      <br/>
+      <br/>This trading company is controlled by <strong>{{trading_company.controlled}}</strong>
+
+    purpose:
+    - long-range sea trade, exploration, and transport.
+    - long-range aerial trade; accomplished with airships, aarakocra messengers, and the occasional roc or dragon.
+    - the hunting and trapping of exotic monsters and animals.
+    - acting as a puppet agency for a local kingdom manipulating global trade.
+    - securing and creating long-range caravans, and the slow growth of roads (and maybe even railroads).
+    - exploring and exploiting newly discovered lands or planes.
+    controlled:
+    - a planar being disguised as a wealthy merchant (refer to illicit activities roll for planar source, low is celestial, middle is neutral, high is fiendish).
+    - a joint council of Masters of Coin from all civilized kingdoms of the world.
+    - a savant goblin who has achieved immortality by divine blessing.
+    - a grizzled ex-adventurer.
+    - a council of investors.
+    - an argumentative mass democracy of all the company's merchants.
+    - a massively wealthy caravan master who found a lost city of gold.
+    - a large and grotesque slave master.

@@ -1,0 +1,128 @@
+---
+templates:
+- "{{military_company.templates}}"
+
+nested_tables:
+  military_company:
+    templates:
+    - |
+      The company’s colors are <strong>{{military_company.colors}}</strong>
+      <br/>The company’s banner features <strong>{{military_company.banner}}</strong>
+      <br/>
+      <br/>The company’s commander is <strong>{{military_company.commander}}</strong>
+      <br/>The company’s attitude toward their commander is <strong>{{military_company.attitude}}</strong>
+      <br/>
+      <br/>The company specializes in <strong>{{military_company.specializes}}</strong>
+      <br/>The company is notorious for <strong>{{military_company.notorious}}</strong>
+      <br/>
+      <br/>Most soldiers in the company are outfitted with <strong>{{military_company.outfitted}}</strong>
+      <br/>Most soldiers in the company are equipped with <strong>{{military_company.equipped}}</strong>
+      <br/>
+      <br/>Most soldiers in the company are <strong>{{military_company.soldiers}}</strong>
+    colors:
+    - black.
+    - red / scarlet.
+    - gold.
+    - forest green.
+    - royal blue.
+    - violet.
+    - silver / light grey.
+    - bronze.
+    - tan / khaki.
+    - brown / beaver.
+    - dark grey / gunmetal.
+    - white.
+    - maroon.
+    - sky blue.
+    - navy blue.
+    - dark brown / chocolate.
+    - teal / turquoise.
+    - yellow.
+    - orange.
+    - olive green.
+    banner:
+    - a skull.
+    - a clenched fist.
+    - a flame.
+    - a shield.
+    - an arrow.
+    - an axe.
+    - a hammer.
+    - a sword.
+    - the sun.
+    - the moon.
+    - a bear.
+    - a bull.
+    - a dragon.
+    - a falcon.
+    - a lion.
+    - a raven.
+    - a scorpion.
+    - a snake.
+    - a stag.
+    - a wolf.
+    commander:
+    - a brilliant strategist.
+    - a scion from a prominent family.
+    - an outcast from a prominent family.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    - a celebrated war hero.
+    - a disgraced knight.
+    - an anointed knight.
+    - a career soldier
+    - a former arena champion.
+    attitude:
+    - friendly and loyal.
+    - respectful and business-like.
+    - cautious and uncertain.
+    - terrified and tight-lipped.
+    - disappointed and disrespectful.
+    - agitated and restless.
+    specializes:
+    - siege-breaking.
+    - holding redoubts.
+    - frontal assaults.
+    - skirmishes.
+    - patrolling.
+    - flanking maneuvers.
+    - guerilla tactics.
+    - foraging.
+    notorious:
+    - taking no prisoners.
+    - scarring or branding prisoners.
+    - incompetence.
+    - cowardice.
+    - singing bawdy songs.
+    - romantic escapades.
+    - eating everything that is available.
+    - drinking too much ale and wine.
+    outfitted:
+    - patched leather armor.
+    - leather armor marked with the symbol of their liege lord.
+    - helms and breastplates emblazoned with the symbol of their liege lord.
+    - well-maintained chainmail.
+    - well-worn scale armor.
+    - newly-forged scale armor.
+    equipped:
+    - longswords and shortbows.
+    - longswords and crossbows.
+    - longswords and shields.
+    - shortswords and longbows.
+    - shortswords and shields.
+    - mornngstars and crossbows.
+    - battleaxes and handaxes.
+    - warhammers and shields.
+    - spears and shields.
+    - longspears and shortswords.
+    - pikes and shortswords.
+    - halberds and handaxes.
+    soldiers:
+    - trained men-at-arms.
+    - militia men.
+    - veterans of war.
+    - prisoners of war.
+    - conscripts from a city.
+    - conscripts from peasant villages.
+    - convicted criminals.
+    - green boys.

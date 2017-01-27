@@ -1,0 +1,21 @@
+---
+templates:
+- "{{shopkeeper.templates}}"
+
+nested_tables:
+  shopkeeper:
+    templates:
+    - |
+      The shopkeeper is <strong>{{shopkeeper.is}}</strong>
+      <br/>
+      <br/>The shopkeeper seeks someone to <strong>{{shopkeeper.seeks}}</strong>
+    is:
+    - bored.
+    - eager to help.
+    - visibly perturbed.
+    - nervously looking about.
+    seeks:
+    - purchase faulty goods.
+    - purchase a large shipment of goods.
+    - listen to some whining.
+    - share some wine and chat.

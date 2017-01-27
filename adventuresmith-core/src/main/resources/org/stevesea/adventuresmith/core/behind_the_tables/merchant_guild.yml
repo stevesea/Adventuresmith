@@ -1,0 +1,85 @@
+---
+templates:
+- "{{merchant_guild.templates}}"
+
+nested_tables:
+  merchant_guild:
+    templates:
+    - |
+      The guild is controlled by <strong>{{merchant_guild.controlled}}</strong>
+      <br/>This guild's illicit affairs comprise <strong>{{merchant_guild.affairs}}</strong>
+      <br/>
+      <br/>This guild's status and control is <strong>{{merchant_guild.status}}</strong>
+      <br/>
+      <br/>This guild's headquarters is <strong>{{merchant_guild.hq}}</strong>
+      <br/>
+      <br/>{{merchant_guild.quest}}
+    quest:
+    - 1..4, The guild has been having some trouble with <strong>{{merchant_guild.minor_quest}}</strong>
+    - 5..7, The guild needs you to handle <strong>{{merchant_guild.std_quest}}</strong>
+    - 8..9, A matter of great import, the guild is faced with <strong>{{merchant_guild.major_quest}}</strong>
+
+
+    controlled:
+    - a no-nonsense kingpin who despises bureaucracy.
+    - a small and pinched-face gnome with a sinister desire for money.
+    - an inexperienced young noble with a petulant need for a full purse.
+    - a council of the heads of local crafting guilds.
+    - an argumentative mass democracy of all the city's merchants.
+    - a longstanding and ancient charter that applies to all merchants, and the militia acting as the charter's executors.
+    - the most wealthy merchant in the city.
+    - a city-appointed monk, who has sworn away worldly wealth.
+    affairs:
+    - literally nothing, they are paragons of upright morality.
+    - staying well within the law, if slipping on a few taxes due to ignorance, of course.
+    - knowing how to play the political game, they garner a few indirect favors from officials.
+    - guild leaders having dollar signs for eyes, and setting advantageous prices in the city.
+    - price floors becoming commonplace, and officials are often bribed in order to overlook some minor illicit activities.
+    - a variety of upper-level bribes, some minor scams, and the dismay of local priests.
+    - rampant corruption, with large-scale bribery of various city officials and contracts with thieves’ guild and occasionally an assassin.
+    - pacts with devils, large-scale counterfeiting, and treasonous activities are a normal Tuesday morning for this guild.
+    status:
+    - poor; though once great, this guild has fallen on hard times and is struggling to maintain its power.
+    - brand new, and frantically recruiting members in order to snatch power.
+    - exponentially rising, a recent boon has granted them great profits.
+    - slowing, a rising competitor is slowly cutting into profits.
+    - absolute, they have complete dominance in their field.
+    - spotty, depending on the will of the coin and the market this guild may be drinking Elven wine or rotten grog.
+    - unquestioned, they exert complete dominance over all other guilds in the area.
+    - questionable, though they claim to have control, some operators have undermined it.
+    hq:
+    - the leader's or leaders' personal residence, a large manor.
+    - the dusty basement of the city's capital hall.
+    - a single, thin, and very tall townhouse that leans slightly into the street.
+    - a moored ship, especially curious in landlocked cities.
+    - an open-air pavilion centered in the city's bazaar.
+    - doubling as a large and prestigious bank.
+    - an opulent demiplane hidden in a shady back-alley.
+    - jointly shared with all the guilds of the city, and the thieves guild lurks in the sewers below.
+    minor_quest:
+    - a merchant was recently shaken down by a lowly thug, send a message.
+    - gold stores, perhaps you could make a donation of 500 gold pieces?
+    - transporting a semi-rare magical item to a nearby branch.
+    - a caravan that doesn't feel comfortable going through a newly discovered path in the nearby woods, escort them.
+    - a city militia member getting nosy.
+    - a crafting guild hesitant to sign up for the merchant guild's special loyalty program.
+    - a rat infestation.
+    - a rat infestation (that actually is a rift to the Plane of Rats or similar filthy location).
+    std_quest:
+    - a caravan gone missing in a nearby region.
+    - a rising thieves’ guild that seems uncooperative.
+    - a city official hellbent on stamping out capitalism.
+    - a competing Merchant guild that has begun to outpace the guild.
+    - a recent trade blockade—you need to resolve the tensions or clear the blockade.
+    - rumors of aberrations in the night that have driven away trade.
+    - a Board Member who has decided to go rogue and has stolen from the coffers.
+    - a very large rat infestation (the rift has become a permanent Gate to the Plane of Rats or similar filthy location).
+    major_quest:
+    - a mercenary army that has laid siege to the city!
+    - mass corruption from the inside, half the board is revealed to be mind flayers.
+    - a massive religious revival that causes the entire population to scorn material pursuits and cut deep into the bottom line.
+    - a mummy king who has taken a caravan with most of the guild coffer's investments hostage.
+    - political revolution that threatens the guild coffers with looting, protect our stores but civilians cannot be harmed.
+    - an investigation from the King's Spymaster into the extent of the guild's illicit activities.
+    - a planar being has supplanted the guild master, who is imprisoned in a planar cage.
+    - waves of rats that threaten the entire guildhall's basement (the rift has become a gigantic faucet of rats) where an Avatar of the God of Rats has taken up residence.

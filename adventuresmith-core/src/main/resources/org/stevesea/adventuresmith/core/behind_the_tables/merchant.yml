@@ -1,0 +1,48 @@
+---
+templates:
+- "{{merchant.templates}}"
+
+nested_tables:
+  merchant:
+    templates:
+    - |
+      The merchant is <strong>{{merchant.is}}</strong>
+      <br/>
+      <br/>The merchant wears <strong>{{merchant.wears}}</strong>
+      <br/>The merchant carries <strong>{{merchant.carries}}</strong>
+      <br/>
+      <br/>The merchant seeks someone to <strong>{{merchant.seeks}}</strong>
+      <br/>
+      <br/>Besides coin, the merchant will trade in <strong>{{merchant.trade}}</strong>
+
+    is:
+    - a member of a trading clan.
+    - a minor lord or lady.
+    - an enterprising trader.
+    - a member of a prominent family.
+    - of common birth.
+    - the representative of a more powerful merchant.
+    wears:
+    - an unpleasant grin.
+    - an arrogant smirk.
+    - too much perfume.
+    - a baggy shirt to cover a fat belly.
+    seeks:
+    - obtain a mysterious artifact.
+    - negotiate a trade contract.
+    - sabotage a rival merchant.
+    - have a good time with.
+    carries:
+    - a family heirloom.
+    - several inventories and invoices.
+    - some very valuable jewels.
+    - a compromising love letter.
+    - a small knife.
+    - a vial of healing potion, just in case.
+    trade:
+    - gems and jewelry.
+    - gold and silver bullion.
+    - water, provisions, and other goods.
+    - shells, beads, and trinkets.
+    - favors.
+    - scandalous information.

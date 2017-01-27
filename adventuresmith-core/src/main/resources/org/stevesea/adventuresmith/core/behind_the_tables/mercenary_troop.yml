@@ -1,0 +1,133 @@
+---
+templates:
+- "{{mercenary_troop.templates}}"
+
+nested_tables:
+  mercenary_troop:
+    templates:
+    - |
+      The mercenary troop’s colors are <strong>{{mercenary_troop.colors}}</strong>
+      <br/>The mercenary troop’s banner features <strong>{{mercenary_troop.banner}}</strong>
+      <br/>
+      <br/>The mercenary troop’s commander is <strong>{{mercenary_troop.commander}}</strong>
+      <br/>The mercenary troop’s attitude toward their commander is <strong>{{mercenary_troop.attitude}}</strong>
+      <br/>
+      <br/>The mercenary troop is currently <strong>{{mercenary_troop.currently}}</strong>
+      <br/>The mercenary troop specializes in <strong>{{mercenary_troop.specializes}}</strong>
+      <br/>
+      <br/>The mercenary troop is notorious for <strong>{{mercenary_troop.notorious}}</strong>
+      <br/>The mercenary troop fights with <strong>{{mercenary_troop.tactics}}</strong>
+      <br/>
+      <br/>Many of the mercenaries in the troop are armored in <strong>{{mercenary_troop.armored}}</strong>
+      <br/>Many of the mercenaries in the troop are wielding <strong>{{mercenary_troop.wielding}}</strong>
+
+    colors:
+    - black.
+    - red / scarlet.
+    - gold.
+    - forest green.
+    - royal blue.
+    - brown / beaver.
+    - dark grey / gunmetal.
+    - maroon.
+    - navy blue.
+    - dark brown / chocolate.
+    - steel / blue grey.
+    - olive green.
+    banner:
+    - a skull.
+    - a ghost.
+    - a clenched fist.
+    - a flame.
+    - an arrow.
+    - a dagger.
+    - a sword.
+    - a hammer.
+    - the sun.
+    - the moon.
+    - a bat.
+    - a bull.
+    - a dragon.
+    - a falcon.
+    - a lion.
+    - a raven.
+    - a scorpion.
+    - a snake.
+    - a vulture.
+    - a wolf.
+    commander:
+    - a brazen outlaw.
+    - a charismatic demagogue.
+    - a mysterious foreigner.
+    - an outcast from a prominent family.
+    - a ruthless killer.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    - a celebrated war hero.
+    - a disgraced knight.
+    - a former arena champion.
+    attitude:
+    - friendly and loyal.
+    - respectful and business-like.
+    - cautious and uncertain.
+    - terrified and tight-lipped.
+    - disappointed and rude.
+    - angry and rebellious.
+    currently:
+    - gainfully employed as guards.
+    - gainfully employed in war.
+    - under contract with some criminals.
+    - under contract with some merchants.
+    - under contract with some nobles.
+    - looking for work.
+    specializes:
+    - siege-breaking.
+    - holding a redoubt or fort.
+    - frontal assault.
+    - infiltration tactics.
+    - skirmishes.
+    - laying ambushes.
+    - patrolling.
+    - flanking maneuvers.
+    - guerilla tactics.
+    - raiding and pillaging.
+    notorious:
+    - taking no prisoners.
+    - leaving the dead to be eaten by beasts.
+    - tattooing or branding prisoners.
+    - scalping or flaying prisoners.
+    - burning villages and fields.
+    - betraying their employers.
+    - singing bawdy songs.
+    - drinking too much ale and wine.
+    tactics:
+    - hit-and-run tactics.
+    - making a direct assault.
+    - fancy footwork.
+    - unpredictable lurches.
+    - masterful combat maneuvers.
+    - no mercy.
+    - lots of taunts and jeers.
+    - dirty tactics.
+    armored:
+    - exotic robes.
+    - leather armor.
+    - studded leather armor.
+    - hide armor
+    - ringmail.
+    - chainmail.
+    - scale armor.
+    - plate armor.
+    wielding:
+    - longswords.
+    - longswords and shields.
+    - shortswords and spears.
+    - shortswords and shields.
+    - longswords and crossbows.
+    - greatswords.
+    - spears and shields.
+    - battleaxes.
+    - battleaxes and shields.
+    - warhammers.
+    - scimitars.
+    - scimitars and a shields.

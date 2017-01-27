@@ -120,6 +120,10 @@ generators:
   - goblin
   - goblin_gang
   - mage_towers
+  - mercenary_troop
+  - merchant
+  - merchant_guild
+  - military_company
   - mine
   - mine_explore
   - miner
@@ -137,6 +141,9 @@ generators:
   - prison_encounter
   - prison_explore
   - pub_names
+  - sellsword
+  - shopkeeper
+  - soldier
   - t_alchemist
   - t_criminal
   - t_law_official
@@ -150,6 +157,7 @@ generators:
   - temple_encounter
   - temple_explore
   - temple_priest
+  - trading_company
   - tomb
   - tomb_explore
   maze_rats:

@@ -1,0 +1,77 @@
+---
+templates:
+- "{{soldier.templates}}"
+
+nested_tables:
+  soldier:
+    templates:
+    - |
+      The soldier is <strong>{{soldier.is}}</strong>
+      <br/>The soldier fights for <strong>{{soldier.fights}}</strong>
+      <br/>On the soldier’s face is <strong>{{soldier.face}}</strong>
+      <br/>The soldier carries <strong>{{soldier.carries}}</strong>
+
+    is:
+    - a farm boy.
+    - the son of a miner or fisherman.
+    - a veteran of gladiatorial combat.
+    - a veteran of warfare.
+    - a prisoner of war.
+    - a political dissident.
+    - the son of a poor man.
+    - a drunk.
+    - a fugitive criminal.
+    - a former pirate.
+    - a failed craftsman.
+    - a favorite among the ladies.
+    fights:
+    - the steady pay.
+    - the love of someone he cannot have.
+    - pure bloodlust.
+    - a chance to deal out sadistic torment.
+    - a chance at vengeance.
+    - gold to repay debts.
+    - gold to aid a family member.
+    - a chance to escape from life imprisonment.
+    - a chance at redemption.
+    - god and country.
+    - fortune and glory.
+    - strength and honor.
+    face:
+    - a large wart.
+    - an eyepatch.
+    - an unsightly scar.
+    - a haughty sneer.
+    - a look of sadness.
+    - a stupid grin.
+    - an eager grin.
+    - a frame of long, beautiful long hair.
+    - ferocious sideburns.
+    - a neatly-trimmed goatee.
+    - an unruly beard.
+    - a lush, thick mustache.
+    hilt:
+    - ivory
+    - jade
+    - soapstone
+    - ebony
+    - mahogany
+    - oak
+    beasts:
+    - dragons
+    - lions
+    - scorpions
+    - snakes
+    - spiders
+    - wolves
+    carries:
+    - a blade with soft leather tassels dangling from the pommel.
+    - a blade with a carved hilt <em>({{soldier.hilt}})</em>
+    - a blade with beasts sculpted into the steel of the guard <em>({{soldier.beasts}})</em>
+    - a blade made of blackened steel.
+    - a highly polished blade.
+    - a token from a sweetheart.
+    - a token from a parent.
+    - a letter from a fallen comrade.
+    - a trophy from a fallen enemy.
+    - a ribbon from a faraway maiden.

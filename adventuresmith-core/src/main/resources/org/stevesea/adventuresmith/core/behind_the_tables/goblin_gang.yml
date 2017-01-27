@@ -31,8 +31,8 @@ nested_tables:
     - harassing anyone who passes through their territory.
     - robbing caravans carrying gems, precious metals, and exotic goods.
     - holding up traders’ ships or wagons.
-    - smuggling drugs ({{goblin_gang.drugs}})
-    - smuggling living things ({{goblin_gang.living_things}})
+    - smuggling drugs <em>({{goblin_gang.drugs}})</em>
+    - smuggling living things <em>({{goblin_gang.living_things}})</em>
     - serving as muscle for evildoers.
     - mining and crafting.
     - pranks and hijinks.

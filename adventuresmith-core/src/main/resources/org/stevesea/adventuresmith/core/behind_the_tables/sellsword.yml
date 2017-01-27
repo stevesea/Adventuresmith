@@ -1,0 +1,123 @@
+---
+templates:
+- "{{sellsword.templates}}"
+
+nested_tables:
+  sellsword:
+    templates:
+    - |
+      The sellsword is armored in <strong>{{sellsword.armored}}</strong>
+      <br/>The sellsword’s armor is <strong>{{sellsword.armor}}</strong>
+      <br/>
+      <br/>The sellsword is wielding <strong>{{sellsword.wielding}}</strong>
+      <br/>
+      <br/>The sellsword fights with <strong>{{sellsword.tactics}}</strong>
+      <br/>
+      <br/>The sellsword fights for <strong>{{sellsword.fights}}</strong>
+      <br/>
+      <br/>The sellsword is <strong>{{sellsword.is}}</strong>
+      <br/>On the sellsword’s face is <strong>{{sellsword.face}}</strong>
+      <br/>The sellsword carries <strong>{{sellsword.carries}}</strong>
+
+
+    armored:
+    - exotic robes.
+    - leather armor.
+    - studded leather armor.
+    - hide armor
+    - ringmail.
+    - chainmail.
+    - scale armor.
+    - plate armor.
+    armor:
+    - shiny and new.
+    - in excellent condition.
+    - obviously repaired, but serviceable.
+    - covered in dings and dents.
+    - dirty and well-worn.
+    - barely held together.
+    wielding:
+    - a longsword.
+    - a longsword and a shield.
+    - two shortswords.
+    - a shortsword and a shield.
+    - a bastard sword.
+    - a greatsword.
+    - a heavy flail.
+    - a morningstar.
+    - a huge axe.
+    - a warhammer.
+    - a scimitar.
+    - a scimitar and a shield.
+    tactics:
+    - hit-and-run tactics.
+    - making a direct assault.
+    - fancy footwork.
+    - unpredictable lurches.
+    - masterful combat maneuvers.
+    - no mercy.
+    - lots of taunts and jeers.
+    - dirty tactics.
+    fights:
+    - the love of gold.
+    - pure bloodlust.
+    - a chance to deal out sadistic torment.
+    - a chance at vengeance.
+    - gold to repay debts.
+    - gold to aid a family member.
+    - gold to secure a marriage.
+    - fortune and glory.
+
+    is:
+    - a well-trained soldier.
+    - a self-taught militia veteran.
+    - a veteran of gladiatorial combat.
+    - a veteran of warfare.
+    - a prisoner of war.
+    - a political prisoner.
+    - the son of a poor man.
+    - a drunk.
+    - a fugitive criminal.
+    - a former pirate.
+    - a de-frocked priest.
+    - a favorite among the ladies.
+    face:
+    - an eye-catching mole.
+    - a garish earring.
+    - an empty eye socket.
+    - a grisly scar.
+    - a haughty sneer.
+    - a look of sadness.
+    - a stupid grin.
+    - an eager grin.
+    - a frame of long, beautiful long hair.
+    - ferocious sideburns.
+    - an unruly beard.
+    - an intimidating mustache.
+    hilt:
+    - ivory
+    - jade
+    - soapstone
+    - ebony
+    - mahogany
+    - oak
+    beasts:
+    - dragons
+    - lions
+    - scorpions
+    - snakes
+    - spiders
+    - wolves
+    carries:
+    - a blade with a gem embedded in the pommel.
+    - a blade with soft leather tassels dangling from the pommel.
+    - a blade with a carved hilt <em>({{sellsword.hilt}}).</em>
+    - a blade with a gently curved hilt.
+    - a blade with beasts sculpted into the steel of the guard <em>({{sellsword.beasts}}).</em>
+    - a blade made of blackened steel.
+    - a highly polished blade.
+    - a blade with runes carved into it.
+    - arrows/bolts tipped with black steel.
+    - arrows/bolts with bronzed tips.
+    - arrows/bolts fletched with crow feathers.
+    - arrows/bolts fletched with peacock feathers.

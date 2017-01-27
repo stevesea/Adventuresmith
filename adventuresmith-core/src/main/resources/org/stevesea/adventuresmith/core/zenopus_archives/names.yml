@@ -348,19 +348,20 @@ nested_tables:
     - Veiled
 
     color:
-    - Red
-    - Brown
+    - Black
     - Blue
-    - Green
-    - Yellow
-    - Black
-    - White
-    - Orange
-    - Black
+    - Brown
+    - Bronze
     - Crimson
-    - White
     - Gold
+    - Green
     - Grey
+    - Orange
+    - Red
+    - Scarlet
+    - Silver
+    - White
+    - Yellow
     num:
     - First
     - Second
