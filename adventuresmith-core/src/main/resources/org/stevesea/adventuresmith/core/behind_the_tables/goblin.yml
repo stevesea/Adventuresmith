@@ -1,0 +1,75 @@
+---
+templates:
+- "{{goblin.templates}}"
+
+nested_tables:
+  goblin:
+    templates:
+    - |
+      The goblin is particularly skilled at <strong>{{goblin.skill}}</strong>
+      <br/>The goblin wields <strong>{{goblin.wields}}</strong>
+      <br/>The goblin wears <strong>{{goblin.wears}}</strong>
+      <br/>The goblin's face has <strong>{{goblin.face}}</strong>
+      <br/>The goblin has <strong>{{goblin.has}}</strong>
+
+    skill:
+    - being sneaky.
+    - not being seen.
+    - tracking foes.
+    - building traps.
+    - avoiding traps.
+    - repairing traps.
+    - foraging for food and water.
+    - wrangling beasts.
+    - digging tunnels.
+    - crafting arms and armor.
+    - crushing skulls.
+    - cutting throats.
+    wields:
+    - a rusty sword.
+    - a finely-made sword
+    - a spiked club.
+    - a wicked looking axe.
+    - a spear decorated with feathers.
+    - several polished daggers.
+    - a large, serrated dagger.
+    - a pair of curved daggers.
+    - a cracked wooden shield.
+    - a shield, emblazoned with the gangs’ symbol.
+    - arrows fletched with crow feathers.
+    - arrows fletched with hawk feathers.
+    wears:
+    - armor with greasy stains.
+    - patched leather armor.
+    - piecemeal chain armor.
+    - a leather helm.
+    - a large skull as a helm.
+    - a wolf-face helm.
+    - a lanyard of severed ears.
+    - a big hoop earring.
+    - a shiny silver belt.
+    - a wolf skin.
+    - a black cloak with a hood.
+    - a large belt purse.
+    face:
+    - blue warpaint.
+    - an eyepatch.
+    - burn scars.
+    - only one ear.
+    - no front teeth.
+    - an unusal tattoo on its forehead.
+    - stitches closing a wound on the jaw.
+    - a topknot above it.
+    - several muddy smudges.
+    - a boil oozing pus.
+    - a wisp of a mustache.
+    - amazing sideburns.
+    has:
+    - an unsettling stare.
+    - a lean and hungry look.
+    - a maniacal laugh.
+    - a mad cackling laugh.
+    - a high-pitched twittering laugh.
+    - a tendency to snicker at everything.
+    - a nervous twitch.
+    - a difficult time standing still.

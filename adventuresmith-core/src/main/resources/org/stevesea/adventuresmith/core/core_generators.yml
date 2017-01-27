@@ -117,6 +117,8 @@ generators:
   - encounters_idyllic_village
   - encounters_rotting_city
   - encounters_ship_sea
+  - goblin
+  - goblin_gang
   - mage_towers
   - mine
   - mine_explore
