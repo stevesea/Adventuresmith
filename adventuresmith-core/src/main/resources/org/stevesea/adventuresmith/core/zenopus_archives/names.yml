@@ -13,7 +13,7 @@ nested_tables:
     - 71-90, {{holmesian_names.syllables}}{{holmesian_names.syllables}}{{holmesian_names.syllables}}
     - 91-100, {{holmesian_names.syllables}}{{holmesian_names.syllables}}{{holmesian_names.syllables}}{{holmesian_names.syllables}}
     pick_titles:
-    - 1..4,
+    - 1..2,
     - "{{holmesian_names.titles}}"
     syllables:
     - A
