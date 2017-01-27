@@ -2,13 +2,38 @@
 templates:
 - "{{trading_company.templates}}"
 
+imports:
+- merchant_guild
+
 nested_tables:
   trading_company:
     templates:
     - |
       This trading company's specific specialty or purpose is <strong>{{trading_company.purpose}}</strong>
       <br/>
-      <br/>This trading company is controlled by <strong>{{trading_company.controlled}}</strong>
+      <br/>{{trading_company.control}}
+      <br/>
+      <br/>This guild's status and control is <strong>{{merchant_guild.status}}</strong>
+      <br/>
+      <br/>This guild's headquarters is <strong>{{merchant_guild.hq}}</strong>
+      <br/>
+      <br/>{{merchant_guild.quest}}
+
+    control:
+    - |
+      1,
+      This trading company is controlled by <strong>{{>pick: 1d1 trading_company.controlled}}</strong>
+      <strong>{{trading_company.planar_control}}
+
+    - |
+      2..8,
+      This trading company is controlled by <strong>{{>pick: 1d7+1 trading_company.controlled}}</strong>
+      This guild's illicit affairs comprise <strong>{{merchant_guild.affairs}}</strong>
+
+    planar_control:
+    - "(celestial)</strong><br/>This guild's illicit affairs comprise <strong>{{>pick: 1d3 merchant_guild.affairs}}</strong>"
+    - "(neutral)</strong><br/>This guild's illicit affairs comprise <strong>{{>pick: 1d4+2 merchant_guild.affairs}}</strong>"
+    - "(fiendish)</strong><br/>This guild's illicit affairs comprise <strong>{{>pick: 1d3+5 merchant_guild.affairs}}</strong>"
 
     purpose:
     - long-range sea trade, exploration, and transport.
@@ -18,7 +43,7 @@ nested_tables:
     - securing and creating long-range caravans, and the slow growth of roads (and maybe even railroads).
     - exploring and exploiting newly discovered lands or planes.
     controlled:
-    - a planar being disguised as a wealthy merchant (refer to illicit activities roll for planar source, low is celestial, middle is neutral, high is fiendish).
+    - a planar being disguised as a wealthy merchant
     - a joint council of Masters of Coin from all civilized kingdoms of the world.
     - a savant goblin who has achieved immortality by divine blessing.
     - a grizzled ex-adventurer.
