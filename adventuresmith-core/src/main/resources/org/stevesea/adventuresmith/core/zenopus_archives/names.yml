@@ -356,6 +356,11 @@ nested_tables:
     - Black
     - White
     - Orange
+    - Black
+    - Crimson
+    - White
+    - Gold
+    - Grey
     num:
     - First
     - Second
