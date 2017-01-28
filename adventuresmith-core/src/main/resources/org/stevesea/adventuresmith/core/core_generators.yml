@@ -136,7 +136,7 @@ generators:
   - npc_appearance
   - npc_personality
   - orc
-  - orcish_clan
+  - orkish_clan
   - p_prisoner
   - p_guard
   - p_jailer
