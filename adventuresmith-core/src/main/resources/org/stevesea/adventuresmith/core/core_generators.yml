@@ -131,9 +131,12 @@ generators:
   - monastery_encounter
   - monastery_explore
   - monk
+  - noble_house
   - npc
   - npc_appearance
   - npc_personality
+  - orc
+  - orcish_clan
   - p_prisoner
   - p_guard
   - p_jailer

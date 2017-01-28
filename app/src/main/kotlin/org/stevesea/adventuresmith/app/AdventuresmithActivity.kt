@@ -757,7 +757,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpEncountersTown" -> CommunityMaterial.Icon.cmd_home
                         "grpEncountersWild" -> CommunityMaterial.Icon.cmd_pine_tree
 
-                        "Factions" -> CommunityMaterial.Icon.cmd_account_multiple
+                        "Factions & Groups" -> CommunityMaterial.Icon.cmd_account_multiple
                         "grpFactionsSettlement" -> CommunityMaterial.Icon.cmd_home
                         "grpFactionsWild" -> CommunityMaterial.Icon.cmd_pine_tree
 

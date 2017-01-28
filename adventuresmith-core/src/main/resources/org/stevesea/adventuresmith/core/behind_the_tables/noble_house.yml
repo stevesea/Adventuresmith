@@ -1,0 +1,210 @@
+---
+templates:
+- "{{noble_house.templates}}"
+
+nested_tables:
+  noble_house:
+    templates:
+    - |
+      The house is <strong>{{noble_house.is}}</strong>
+      <br/>
+      <br/>The house's colors are <strong>{{noble_house.colors}}</strong>
+      <br/>The house's symbol is <strong>{{noble_house.symbol}}</strong>
+      <br/>
+      <br/>The house's motto champions the ideals of <strong>{{noble_house.ideals}}</strong>
+      <br/>
+      <br/>The best known member of the house is or was <strong>{{noble_house.best_known}}</strong>
+      <br/>The current head of the house is <strong>{{noble_house.head}}</strong>
+      <br/>
+      <br/>The house's goals include <strong>{{noble_house.goals}}</strong>
+      <br/>
+      <br/>One or more house members keep secret (the secret may involve past or present events) <strong>{{noble_house.secret}}</strong>
+      <br/>
+      <br/>The house's seat of power is located in or near <strong>{{noble_house.power}}</strong>
+
+    is:
+    - ancient and well-respected by all houses, great and small.
+    - ancient and greatly diminished in standing from what it once was.
+    - old with the respect of many houses, great and small.
+    - old and struggling to maintain respect of other houses.
+    - old but often overshadowed by other houses.
+    - newly raised up to the nobility.
+    colors:
+    - black.
+    - red / scarlet.
+    - gold.
+    - forest green.
+    - royal blue.
+    - violet.
+    - silver / light grey.
+    - bronze.
+    - tan / khaki.
+    - brown / beaver.
+    - dark grey / gunmetal.
+    - white.
+    - maroon.
+    - sky blue.
+    - navy blue.
+    - dark brown / chocolate.
+    - teal / turquoise.
+    - yellow.
+    - orange.
+    - olive green.
+    weapon:
+    - arrow
+    - axe
+    - dagger
+    - hammer
+    - mace
+    - spear
+    - staff
+    - sword
+    armor:
+    - breastplate
+    - gauntlet
+    - helm
+    - shield
+    celestial:
+    - sun
+    - moon
+    - star
+    - comet
+    plant:
+    - apple
+    - barley
+    - briar
+    - fig
+    - grapes
+    - lily
+    - maple
+    - oak
+    - olive
+    - pine
+    - rose
+    - wheat
+    aquatic:
+    - crab
+    - crocodile
+    - frog
+    - fish
+    - octopus
+    - whale
+    small_beast:
+    - badger
+    - bat
+    - beaver
+    - dog
+    - ferret
+    - fox
+    - hedgehog
+    - lizard
+    - rat
+    - scorpion
+    - snake
+    - spider
+    great_beast:
+    - bear
+    - boar
+    - bull
+    - dragon
+    - lion
+    - ox
+    - stag
+    - wolf
+    bird:
+    - cardinal
+    - dove
+    - eagle
+    - hawk
+    - mockingbird
+    - owl
+    - pelican
+    - raven
+    - rooster
+    - sparrow
+    - swan
+    - vulture.
+
+    symbol:
+    - a weapon <em>({{noble_house.weapon}})</em>
+    - a piece of armor <em>({{noble_house.armor}})</em>
+    - a celestial body <em>({{noble_house.celestial}})</em>
+    - a plant or part of a plant <em>({{noble_house.plant}})</em>
+    - an aquatic beast <em>({{noble_house.aquatic}})</em>
+    - a small beast <em>({{noble_house.small_beast}})</em>
+    - a great beast <em>({{noble_house.great_beast}})</em>
+    - a bird <em>({{noble_house.bird}})</em>
+    ideals:
+    - compassion.
+    - courage.
+    - courtesy.
+    - determination.
+    - discipline.
+    - duty.
+    - excellence.
+    - faith.
+    - generosity.
+    - honor.
+    - hope.
+    - integrity.
+    - justice.
+    - loyalty.
+    - mercy.
+    - patience.
+    - righteousness.
+    - strength.
+    - trust.
+    - wisdom.
+    best_known:
+    - a gallant knight.
+    - a beautiful woman.
+    - a ruthless negotiator.
+    - an adept diplomat.
+    - a famous traveler or explorer.
+    - a brilliant military strategist.
+    - a notorious rebel or outlaw.
+    - a dashing swashbuckler.
+    - a fearsome warrior.
+    - a brilliant scholar.
+    - a gifted orator.
+    - a dangerous and mad ruler.
+    head:
+    - a kindly old man or woman.
+    - a ruthless old man or woman.
+    - a wily old man or woman.
+    - a charming man or woman.
+    - a grim veteran of wars.
+    - an astute politician.
+    - a devout adherent of a religion.
+    - a heartbroken widower or widow.
+    - a reckless or hot-headed young man or woman.
+    - a child.
+    goals:
+    - domination of the city or region's politics.
+    - domination of the city or region's trade.
+    - revenge against a rival house in the same city or region.
+    - revenge against a rival house in another city or region.
+    - sabotage of a group run by commoners—a guild, academy, religious faith, or secret society.
+    - fomenting rebellion against the city or region's ruling house.
+    - marriage with a powerful allied house.
+    - marriage with a powerful rival house.
+    secret:
+    - a long-time scandalous romance.
+    - the existence of a bastard child.
+    - a murder in one of the house's keeps, castles, or palaces.
+    - religious zealotry.
+    - the birth of a malformed freak.
+    - treason against the region's sovereign.
+    - the senility or madness of family members.
+    - criminal sabotage of a rival house.
+    power:
+    - a port city.
+    - a range of high mountains.
+    - a wide, fertile plain.
+    - a fertile river valley.
+    - an ancient forest.
+    - a jagged coastline.
+    - a sodden swamp.
+    - a pristine lake.
+    - a desert plateau.
+    - an idyllic hill country.

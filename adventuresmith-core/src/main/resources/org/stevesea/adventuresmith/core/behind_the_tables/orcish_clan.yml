@@ -1,0 +1,226 @@
+---
+templates:
+- "{{orcish_clan.templates}}"
+
+nested_tables:
+  orcish_clan:
+    templates:
+    - |
+      The orcs are <strong>{{orcish_clan.are}}</strong>
+      <br/>The orcs value <strong>{{orcish_clan.value}}</strong>
+      <br/>
+      <br/>The orcs’ iconography features <strong>{{orcish_clan.iconography}}</strong>
+      <br/>
+      <br/>The orcs’ chief is <strong>{{orcish_clan.chief}}</strong>
+      <br/>
+      <br/>The orcs’ favorite meat comes from <strong>{{orcish_clan.meat}}</strong>
+      <br/>
+      <br/>The orcs fear <strong>{{orcish_clan.fear}}</strong>
+      <br/>
+      <br/>The orcs are notorious for <strong>{{orcish_clan.notorious}}</strong>
+      <br/>
+      <br/>The orcs are known for <strong>{{orcish_clan.known}}</strong>
+      <br/>
+      <br/>The orcs’ attitude is <strong>{{orcish_clan.attitude}}</strong>
+      <br/>
+      <br/>The orcs’ goals include <strong>{{orcish_clan.goals}}</strong>
+      <br/>
+      <br/>The orcs typically fight with <strong>{{orcish_clan.fight}}</strong>
+      <br/>
+      <br/>As guardians or pets, the orcs sometimes keep <strong>{{orcish_clan.pets}}</strong>
+      <br/>As slaves, the orcs keep <strong>{{orcish_clan.slaves}}</strong>
+      <br/>
+      <br/>Most of the orcs are wielding <strong>{{orcish_clan.wielding}}</strong>
+    are:
+    - nomadic hunters, following game.
+    - raiders displaced from their native lands.
+    - in exile from their native lands.
+    - in the service of a sovereign warlord.
+    - a loose confederacy of tribes and families related by blood.
+    - degenerate survivors from a broken army.
+    - disorganizes; a clan of competing warriors.
+    - a tight-knit war band.
+    - bent on sowing chaos and mayhem.
+    - raiders after supplies and slaves.
+    - marching to war under the leadership of a great chief.
+    - on an errand for an evil wizard or other powerful being.
+    value:
+    - bravery.
+    - strength.
+    - wisdom.
+    - virility.
+    - honoring the gods.
+    - honoring their ancestors.
+    - battle-scars.
+    - survival.
+    - kill counts.
+    - scalps.
+    - steel.
+    - meat.
+    symbols_death:
+    - bats
+    - blood
+    - bones
+    - corpses
+    - crows
+    - flames
+    - ghosts
+    - scorpions
+    - skulls
+    - vultures
+    symbols_heaven:
+    - clouds
+    - lightning
+    - moon
+    - snow
+    - stars
+    - sun
+    symbols_strength:
+    - arrows
+    - axes
+    - fists
+    - spears
+    - stones
+    - swords
+    symbols_beast:
+    - bears
+    - boars
+    - eagles
+    - horses
+    - lions
+    - owls
+    - snakes
+    - wolves
+    iconography:
+    - symbols of death and destruction <em>({{orcish_clan.symbols_death}})</em>
+    - symbols of the heavens <em>({{orcish_clan.symbols_heaven}})</em>
+    - symbols of strength and weaponry <em>({{orcish_clan.symbols_strength}})</em>
+    - a great beast <em>({{orcish_clan.symbols_beast}})</em>
+    chief:
+    - a well-respected chief.
+    - a charismatic warlord.
+    - a mysterious shaman.
+    - a descendent of an honored hero.
+    - a ruthless killer.
+    - a brutish thug.
+    - an impatient young warrior.
+    - a wise old chief.
+    - a celebrated war hero.
+    - a prolific lover.
+    meat:
+    - dwarves and halflings.
+    - beggars and thieves.
+    - merchants and caravan guards.
+    - noblemen.
+    - noblewomen.
+    - priests and priestesses.
+    - slaves.
+    - circusfolk and minstrels.
+    - foreign travelers.
+    - peasant women.
+    - young children.
+    - elves and pixies.
+    fear_race:
+    - dwarves
+    - elves
+    - goblinoids
+    - reptilian humanoids
+    fear_natural:
+    - blizzards
+    - earthquakes
+    - floods
+    - thunderstorms
+    - volcanoes
+    - typhoons
+    fear:
+    - men armored in steel.
+    - human women.
+    - spellcasters.
+    - members of a particular race <em>({{orcish_clan.fear_race}})</em>
+    - a particular natural phenomenon <em>({{orcish_clan.fear_natural}})</em>
+    - the gods.
+    - aberrant evils.
+    - dragons.
+    notorious:
+    - never leaving survivors.
+    - feeding prisoners to wild beasts.
+    - tattooing or branding prisoners.
+    - scalping enemies.
+    - flaying enemies.
+    - raiding and burning villages.
+    - plundering merchant caravans.
+    - eating prisoners raw.
+    - claiming prisoners as slaves.
+    - taking prisoners as wives, concubines, or catamites.
+    known:
+    - screaming and shouting during battle.
+    - convening with ghosts and spirits.
+    - ritual animal sacrifice under the new moon.
+    - ritual humanoid sacrifice deep within the earth.
+    - ritualistic blood-letting.
+    - ritualistic sexual acts under the full moon.
+    - eating unusually-prepared meats.
+    - prolific amounts of drinking.
+    - never cutting their hair.
+    - shaving their heads and bodies.
+    - wearing long top-knots or braids.
+    - bathing and perfuming their bodies.
+    attitude:
+    - rowdy and festive.
+    - joyful and eager to fight.
+    - relaxed and carefree.
+    - frightened and suspicious.
+    - hostile and suspicious.
+    - hostile and eager to fight.
+    goals:
+    - upheaval of the region’s politics.
+    - disruption of the region’s trade.
+    - revenge against another civilization.
+    - revenge against a rival orkish clan.
+    - spreading chaos and destruction.
+    - possession of a powerful artifact.
+    fight:
+    - hit-and-run tactics.
+    - ambush tactics.
+    - unpredictable maneuvers.
+    - lots of screaming and shouting.
+    - kicking and stomping.
+    - lots of head-butting.
+    - lots of biting and scratching.
+    - frequent breaks for <em>({{orcish_clan.breaks}})</em>
+    breaks:
+    - eating
+    - looting corpses
+    - re-forming ranks
+    - arguing among themselves
+    pets:
+    - boars.
+    - dire rats.
+    - giant lizards.
+    - ogres.
+    - wargs.
+    - wolves.
+    slaves:
+    - dwarves.
+    - gnomes.
+    - goblins.
+    - halflings.
+    - humans.
+    - kobolds.
+    - undead servitors.
+    - nothing; the orcs eat any captives they take.
+    - nothing; the orcs leave no survivors.
+    - nothing; the orcs believe in freedom for all beings.
+    wielding:
+    - spears and large hunting knives.
+    - spears and javelins.
+    - exotic, curved blades and several bolas.
+    - huge, curved blades.
+    - exotic, curved blades and blowguns.
+    - pikes and shortswords.
+    - pikes and short bows.
+    - battleaxes and throwing axes.
+    - battleaxes and longbows.
+    - longswords and longbows.
+    - jagged greatswords and shortbows.
+    - greataxes and javelins.

@@ -1,0 +1,68 @@
+---
+templates:
+- "{{orc.templates}}"
+
+nested_tables:
+  orc:
+    templates:
+    - |
+      The orc has <strong>{{orc.has}}</strong>
+      <br/>The orc has <strong>{{orc.tattoo}}</strong>
+      <br/>
+      <br/>Even among orcs, the orc is particularly good at <strong>{{orc.skill}}</strong>
+      <br/>
+      <br/>The orc is armored in <strong>{{orc.armor}}</strong>
+      <br/>The orc is wielding <strong>{{orc.wielding}}</strong>
+      <br/>
+      <br/>The orc is looking for <strong>{{orc.motivation}}</strong>
+
+    has:
+    - pale green skin.
+    - yellowish green skin.
+    - dirty brown skin.
+    - reddish brown skin.
+    - grey skin.
+    - a tall frame.
+    - a thick-set frame.
+    - bug eyes.
+    tattoo:
+    - a bone tattoo.
+    - a dragon tattoo.
+    - a skull tattoo.
+    - a spear tattoo.
+    - a spiderweb tattoo.
+    - a tattoo of thorns.
+    skill:
+    - tracking creatures by scent.
+    - identifying and following tracks.
+    - running down prey.
+    - decapitating foes.
+    - impaling foes.
+    - roping captives.
+    - breaking slaves.
+    - handling savage beasts.
+    armor:
+    - nothing.
+    - tattered leather.
+    - blood-stained leather.
+    - boiled leather.
+    - the hides of scaly beasts.
+    - the hides of furry beasts.
+    - the hides of exotic beasts.
+    - a helm and breastplate taken from a fallen enemy.
+    wielding:
+    - a spear.
+    - a scimitar.
+    - a falchion.
+    - a pike.
+    - a battleaxe.
+    - a greatsword.
+    - a greataxe.
+    - a longbow.
+    motivation:
+    - a good meal, fresh if possible.
+    - a hearty meal, spoiled is not a problem.
+    - a throat to cut or a head to bash.
+    - a chance to prove itself in combat.
+    - a place to rest and to sharpen weapons.
+    - a strong drink.
