@@ -25,12 +25,9 @@ import android.content.*
 import android.content.res.*
 import android.graphics.*
 import android.os.*
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.*
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
-import android.text.SpannableStringBuilder
-import android.text.Spanned
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
@@ -60,8 +57,6 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.drive.Drive
 import android.content.IntentSender
 import com.google.android.gms.common.GoogleApiAvailability
-import com.google.android.gms.common.GooglePlayServicesUtil
-import com.google.android.gms.common.api.Scope
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
@@ -71,7 +66,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger,
         GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
+
     val RESOLVE_CONNECTION_REQUEST_CODE = 1
+    var resolvingConnectError = false
     val googleApiClient : GoogleApiClient by lazy {
         info("Creating GoogleApiClient")
         GoogleApiClient.Builder(this)
@@ -87,13 +84,19 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     override fun onResume() {
         super.onResume()
-        info("GoogleApiClient: connect")
-        googleApiClient.connect()
+        info("onPause: GoogleApiClient state ${googleApiClient.isConnected} ${googleApiClient.isConnecting}")
+        if (!googleApiClient.isConnected() && !googleApiClient.isConnecting()) {
+            info("doin' a connect")
+            googleApiClient.connect()
+        }
     }
 
     override fun onPause() {
-        info("GoogleApiClient: disconnect")
-        googleApiClient.disconnect()
+        info("onPause: GoogleApiClient state ${googleApiClient.isConnected} ${googleApiClient.isConnecting}")
+        if (googleApiClient.isConnected()) {
+            info("doin' a disconnect")
+            googleApiClient.disconnect()
+        }
         super.onPause()
     }
 
@@ -110,13 +113,21 @@ class AdventuresmithActivity : AppCompatActivity(),
         // could not be established. Display an error message, or handle
         // the failure silently
 
+        // already mid-resolve? just return
+        if (resolvingConnectError)
+            return
+
         if (connectionResult.hasResolution()) {
             try {
                 info("connection failed (has resolution): $connectionResult")
+                resolvingConnectError = true
+                // the following shows the account picker dialog to resolve connection problem
                 connectionResult.startResolutionForResult(this, RESOLVE_CONNECTION_REQUEST_CODE)
             } catch (e: IntentSender.SendIntentException) {
                 // Unable to resolve, message user appropriately
                 warn("Exception while starting resolution activity", e)
+                // try again?
+                googleApiClient.connect()
             }
         } else {
             info("connection failed: $connectionResult")
@@ -126,11 +137,14 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        info("requestCode: $requestCode, resultCode: $resultCode")
-        super.onActivityResult(requestCode, resultCode, data)
+        info("onActivityResult: requestCode: $requestCode, resultCode: $resultCode")
+        //super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RESOLVE_CONNECTION_REQUEST_CODE && resultCode == RESULT_OK) {
-            googleApiClient.connect();
+        if (requestCode == RESOLVE_CONNECTION_REQUEST_CODE) {
+            resolvingConnectError = false
+            if (resultCode == RESULT_OK && !googleApiClient.isConnected() && !googleApiClient.isConnecting()) {
+                googleApiClient.connect();
+            }
         }
     }
 
