@@ -69,40 +69,64 @@ data class CollectionAndGroup(val collectionId: String,
 
 class AdventuresmithActivity : AppCompatActivity(),
         AnkoLogger,
-        GoogleApiClient.OnConnectionFailedListener {
-
+        GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     val RESOLVE_CONNECTION_REQUEST_CODE = 1
     val googleApiClient : GoogleApiClient by lazy {
         info("Creating GoogleApiClient")
         GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */,
-                        this /* OnConnectionFailedListener */)
+                //.enableAutoManage(this /* FragmentActivity */,
+                //        this /* OnConnectionFailedListener */)
                 .addApi(Drive.API)
                 .addScope(Drive.SCOPE_FILE)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
                 //.addScope(Scope("https://www.googleapis.com/auth/drive.readonly"))
                 .build()
     }
-    override fun onConnectionFailed(connectionResult: ConnectionResult) {
 
+    override fun onResume() {
+        super.onResume()
+        info("GoogleApiClient: connect")
+        googleApiClient.connect()
+    }
+
+    override fun onPause() {
+        info("GoogleApiClient: disconnect")
+        googleApiClient.disconnect()
+        super.onPause()
+    }
+
+    override fun onConnected(connectionHint: Bundle?) {
+        info("GoogleApiClient connected")
+    }
+
+    override fun onConnectionSuspended(cause: Int) {
+        info("GoogleApiClient suspended: $cause")
+    }
+
+    override fun onConnectionFailed(connectionResult: ConnectionResult) {
         // An unresolvable error has occurred and a connection to Google APIs
         // could not be established. Display an error message, or handle
         // the failure silently
 
         if (connectionResult.hasResolution()) {
             try {
+                info("connection failed (has resolution): $connectionResult")
                 connectionResult.startResolutionForResult(this, RESOLVE_CONNECTION_REQUEST_CODE)
             } catch (e: IntentSender.SendIntentException) {
                 // Unable to resolve, message user appropriately
                 warn("Exception while starting resolution activity", e)
             }
         } else {
+            info("connection failed: $connectionResult")
             GoogleApiAvailability
                     .getInstance()
                     .getErrorDialog(this, connectionResult.errorCode, 0).show()
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        info("requestCode: $requestCode, resultCode: $resultCode")
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RESOLVE_CONNECTION_REQUEST_CODE && resultCode == RESULT_OK) {
@@ -472,11 +496,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     fun useStaticNavbar() : Boolean  {
         return resources.getDimension(R.dimen.navigation_menu_width) > 0
-    }
-
-    override fun onResume() {
-        super.onResume()
-        googleApiClient.connect()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
