@@ -34,6 +34,7 @@ import android.text.Spanned
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
+import com.google.android.gms.common.ConnectionResult
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -55,13 +56,60 @@ import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.text.*
 import java.util.*
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.drive.Drive
+import android.content.IntentSender
+import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.gms.common.GooglePlayServicesUtil
+import com.google.android.gms.common.api.Scope
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
                               val groupId: String? = null)
 
 class AdventuresmithActivity : AppCompatActivity(),
-        AnkoLogger {
+        AnkoLogger,
+        GoogleApiClient.OnConnectionFailedListener {
+
+
+    val RESOLVE_CONNECTION_REQUEST_CODE = 1
+    val googleApiClient : GoogleApiClient by lazy {
+        info("Creating GoogleApiClient")
+        GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */,
+                        this /* OnConnectionFailedListener */)
+                .addApi(Drive.API)
+                .addScope(Drive.SCOPE_FILE)
+                //.addScope(Scope("https://www.googleapis.com/auth/drive.readonly"))
+                .build()
+    }
+    override fun onConnectionFailed(connectionResult: ConnectionResult) {
+
+        // An unresolvable error has occurred and a connection to Google APIs
+        // could not be established. Display an error message, or handle
+        // the failure silently
+
+        if (connectionResult.hasResolution()) {
+            try {
+                connectionResult.startResolutionForResult(this, RESOLVE_CONNECTION_REQUEST_CODE)
+            } catch (e: IntentSender.SendIntentException) {
+                // Unable to resolve, message user appropriately
+                warn("Exception while starting resolution activity", e)
+            }
+        } else {
+            GoogleApiAvailability
+                    .getInstance()
+                    .getErrorDialog(this, connectionResult.errorCode, 0).show()
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RESOLVE_CONNECTION_REQUEST_CODE && resultCode == RESULT_OK) {
+            googleApiClient.connect();
+        }
+    }
+
     private val DATE_FORMATTER = SimpleDateFormat.getDateTimeInstance()
 
     private var currentDrawerItemId: Long? = null
@@ -426,13 +474,18 @@ class AdventuresmithActivity : AppCompatActivity(),
         return resources.getDimension(R.dimen.navigation_menu_width) > 0
     }
 
+    override fun onResume() {
+        super.onResume()
+        googleApiClient.connect()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         setContentView(R.layout.activity_adventuresmith)
 
         setSupportActionBar(toolbar)
+
 
         MaterializeBuilder()
                 .withActivity(this)

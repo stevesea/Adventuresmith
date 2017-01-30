@@ -24,6 +24,7 @@ import android.content.pm.*
 import android.os.*
 import android.support.v7.app.*
 import android.support.v7.widget.*
+import com.google.android.gms.common.GoogleApiAvailability
 import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_about.*
@@ -71,5 +72,11 @@ class AboutActivity : AppCompatActivity() {
 
         itemAdapter.add(ResultItem(String.format(getString(R.string.about_app), versionName, versionCode)))
         itemAdapter.add(ResultItem(getString(R.string.about_thirdparty)))
+        val driveApi : String? = GoogleApiAvailability
+                .getInstance()
+                .getOpenSourceSoftwareLicenseInfo(applicationContext)
+        if (driveApi != null) {
+            itemAdapter.add(ResultItem(driveApi.replace("\\n", "<br/>")))
+        }
     }
 }
