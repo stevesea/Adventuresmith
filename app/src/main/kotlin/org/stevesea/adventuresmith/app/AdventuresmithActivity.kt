@@ -31,7 +31,6 @@ import android.support.v7.widget.SearchView
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
-import com.google.android.gms.common.ConnectionResult
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -53,100 +52,13 @@ import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.text.*
 import java.util.*
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.drive.Drive
-import android.content.IntentSender
-import com.google.android.gms.common.GoogleApiAvailability
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
                               val groupId: String? = null)
 
 class AdventuresmithActivity : AppCompatActivity(),
-        AnkoLogger,
-        GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
-
-
-    val RESOLVE_CONNECTION_REQUEST_CODE = 1
-    var resolvingConnectError = false
-    val googleApiClient : GoogleApiClient by lazy {
-        info("Creating GoogleApiClient")
-        GoogleApiClient.Builder(this)
-                //.enableAutoManage(this /* FragmentActivity */,
-                //        this /* OnConnectionFailedListener */)
-                .addApi(Drive.API)
-                .addScope(Drive.SCOPE_FILE)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                //.addScope(Scope("https://www.googleapis.com/auth/drive.readonly"))
-                .build()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        info("onPause: GoogleApiClient state ${googleApiClient.isConnected} ${googleApiClient.isConnecting}")
-        if (!googleApiClient.isConnected() && !googleApiClient.isConnecting()) {
-            info("doin' a connect")
-            googleApiClient.connect()
-        }
-    }
-
-    override fun onPause() {
-        info("onPause: GoogleApiClient state ${googleApiClient.isConnected} ${googleApiClient.isConnecting}")
-        if (googleApiClient.isConnected()) {
-            info("doin' a disconnect")
-            googleApiClient.disconnect()
-        }
-        super.onPause()
-    }
-
-    override fun onConnected(connectionHint: Bundle?) {
-        info("GoogleApiClient connected")
-    }
-
-    override fun onConnectionSuspended(cause: Int) {
-        info("GoogleApiClient suspended: $cause")
-    }
-
-    override fun onConnectionFailed(connectionResult: ConnectionResult) {
-        // An unresolvable error has occurred and a connection to Google APIs
-        // could not be established. Display an error message, or handle
-        // the failure silently
-
-        // already mid-resolve? just return
-        if (resolvingConnectError)
-            return
-
-        if (connectionResult.hasResolution()) {
-            try {
-                info("connection failed (has resolution): $connectionResult")
-                resolvingConnectError = true
-                // the following shows the account picker dialog to resolve connection problem
-                connectionResult.startResolutionForResult(this, RESOLVE_CONNECTION_REQUEST_CODE)
-            } catch (e: IntentSender.SendIntentException) {
-                // Unable to resolve, message user appropriately
-                warn("Exception while starting resolution activity", e)
-                // try again?
-                googleApiClient.connect()
-            }
-        } else {
-            info("connection failed: $connectionResult")
-            GoogleApiAvailability
-                    .getInstance()
-                    .getErrorDialog(this, connectionResult.errorCode, 0).show()
-        }
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        info("onActivityResult: requestCode: $requestCode, resultCode: $resultCode")
-        //super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == RESOLVE_CONNECTION_REQUEST_CODE) {
-            resolvingConnectError = false
-            if (resultCode == RESULT_OK && !googleApiClient.isConnected() && !googleApiClient.isConnecting()) {
-                googleApiClient.connect();
-            }
-        }
-    }
+        AnkoLogger {
 
     private val DATE_FORMATTER = SimpleDateFormat.getDateTimeInstance()
 
