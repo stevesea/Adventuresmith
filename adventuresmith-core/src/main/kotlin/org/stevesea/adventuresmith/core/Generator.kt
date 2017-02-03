@@ -471,6 +471,10 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                                         .replace("]]%","}}"))
                                 .execute(context)
                                 .trim()
+                    } else {
+                        // result didn't contain curlies, or our final-curlies,
+                        // so we are done
+                        break
                     }
                 }
                 // don't let a template force us into infinite loop
