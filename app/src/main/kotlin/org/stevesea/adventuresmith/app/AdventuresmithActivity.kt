@@ -28,7 +28,6 @@ import android.os.*
 import android.support.v7.app.*
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
-import android.text.InputType
 import android.text.InputType.*
 import android.view.*
 import android.widget.*
@@ -72,6 +71,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     val ID_ABOUT = "about".hashCode().toLong()
     val ID_THANKS = "thanks".hashCode().toLong()
     val ID_FAVORITES = "favorites".hashCode().toLong()
+    val ID_GENERATE_MANY = "generate many".hashCode().toLong()
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
@@ -144,14 +144,16 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 // if there's only one fav group, don't make user select
                                 addFavoriteToGroup(favList.get(0), genid)
                             } else {
-                                selector(getString(R.string.fav_add), favList) { i ->
+                                // if there are multiple fav groups, allow user to select one
+                                selector(getString(R.string.fav_add_to_group), favList) { i ->
                                     val favGroup = favList.get(i)
                                     addFavoriteToGroup(favGroup, genid)
                                 }
                             }
                             return true
                         } else if (favoriteIdToName.containsKey(currentDrawerItemId)) {
-                            // otherwise, they're removing a favorite from the current nav
+                            // otherwise, they're on a fav-group draweritem.
+                            // long-click means remove a favorite from the current nav item
                             val favGroup = favoriteIdToName.get(currentDrawerItemId)
                             alert(item.name, getString(R.string.fav_remove)) {
                                 yesButton {
@@ -171,7 +173,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (item == null)
                             return false
 
-                        val num_to_generate = if (settingsGenerateMany) GENERATE_MANY_NUM else 1
+                        val num_to_generate = if (settingsGenerateMany) settingsGenerateManyCount else 1
                         val generator = item.generator
                         val currentLocale = getCurrentLocale(resources)
 
@@ -277,14 +279,21 @@ class AdventuresmithActivity : AppCompatActivity(),
         applicationContext.defaultSharedPreferences
     }
 
-    val GENERATE_MANY_NUM = 12
     val SETTING_GEN_MANY = "GenerateMany"
+    val SETTING_GEN_MANY_COUNT = "GenerateMany.Count"
     var settingsGenerateMany : Boolean
         get() {
             return sharedPreferences.getBoolean(SETTING_GEN_MANY, false)
         }
         set(value) {
             sharedPreferences.edit().putBoolean(SETTING_GEN_MANY, value).apply()
+        }
+    var settingsGenerateManyCount : Int
+        get() {
+            return sharedPreferences.getInt(SETTING_GEN_MANY_COUNT, 12)
+        }
+        set(value) {
+            sharedPreferences.edit().putInt(SETTING_GEN_MANY_COUNT, value).apply()
         }
 
 
@@ -374,10 +383,12 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.bards_are_monsters,
             R.drawable.beast_dragon_false_prophet,
             R.drawable.bonnacon,
+            R.drawable.book_lovers,
             R.drawable.death_king_arthur,
             R.drawable.death_lion,
             R.drawable.demon_glasses,
             R.drawable.devil_and_god,
+            R.drawable.fall_of_rebel_angels,
             R.drawable.fallen_angels,
             R.drawable.fool_riding_goat,
             R.drawable.hell,
@@ -409,6 +420,26 @@ class AdventuresmithActivity : AppCompatActivity(),
             //R.drawable.wound_man
     )
 
+    fun getFavoriteGroupDrawerItem(grpName: String) : SecondaryDrawerItem {
+        val id = "favorites/$grpName".hashCode().toLong()
+        favoriteIdToName.put(id, grpName)
+        return SecondaryDrawerItem()
+                .withName(grpName)
+                //.withIcon(CommunityMaterial.Icon.cmd_star_outline)
+                .withIdentifier(id)
+                .withSelectable(true)
+                .withLevel(2)
+    }
+
+    fun getFavoriteGroupDrawerItems() : List<SecondaryDrawerItem> {
+        favoriteIdToName.clear()
+        return getFavoriteGroups().map {
+            val item = getFavoriteGroupDrawerItem(it)
+            favoriteIdToName.put(item.identifier, it)
+            item
+        }
+    }
+
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
@@ -425,19 +456,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withSelectable(false)
                 .withIsExpanded(false)
                 //.withDescription("Long-click to add")
-                .withSubItems(
-                    getFavoriteGroups().map {
-                        val id = "favorites/$it".hashCode().toLong()
-                        favoriteIdToName.put(id, it)
-                        SecondaryDrawerItem()
-                                .withName(it)
-                                //.withIcon(CommunityMaterial.Icon.cmd_star_outline)
-                                .withIdentifier(id)
-                                .withSelectable(true)
-                                .withLevel(2)
-                    }
-                )
-
+                .withSubItems(getFavoriteGroupDrawerItems())
 
         result.add(favExpandItem)
 
@@ -536,6 +555,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         result.add(SecondarySwitchDrawerItem()
                 .withName(R.string.settings_generate_many)
                 .withChecked(settingsGenerateMany)
+                .withIdentifier(ID_GENERATE_MANY)
                 .withIcon(CommunityMaterial.Icon.cmd_stackoverflow)
                 .withOnCheckedChangeListener(object : OnCheckedChangeListener {
                     override fun onCheckedChanged(drawerItem: IDrawerItem<*, *>?, buttonView: CompoundButton?, isChecked: Boolean) {
@@ -668,8 +688,20 @@ class AdventuresmithActivity : AppCompatActivity(),
                                                 singleLine = true
                                                 inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
                                             }
-                                            positiveButton("Rename") {
-                                                renameFavoriteGroup(favName, groupName.text.toString())
+                                            positiveButton(getString(R.string.btn_rename)) {
+                                                val newGrpName = groupName.text.toString()
+
+                                                renameFavoriteGroup(favName, newGrpName)
+                                                val oldId = drawerItemId
+
+                                                val item = getFavoriteGroupDrawerItem(newGrpName)
+                                                favoriteIdToName.remove(oldId)
+                                                favoriteIdToName.put(item.identifier, newGrpName)
+
+                                                drawerItem.parent.subItems.remove(drawerItem)
+                                                drawerItem.parent.subItems.add(item)
+
+                                                drawer!!.adapter.notifyAdapterSubItemsChanged(0)
                                             }
                                         }
                                     }
@@ -686,15 +718,25 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             singleLine = true
                                             inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
                                         }
-                                        positiveButton("Create") {
-                                            addFavoriteGroup(groupName.text.toString())
+                                        positiveButton(getString(R.string.btn_create)) {
+                                            val newGrpName = groupName.text.toString()
+                                            addFavoriteGroup(newGrpName)
+
+                                            val item = getFavoriteGroupDrawerItem(newGrpName)
+                                            favoriteIdToName.put(item.identifier, newGrpName)
+                                            drawerItem.subItems.add(item)
+                                            drawer!!.adapter.notifyAdapterSubItemsChanged(position)
                                         }
                                     }
                                 }
                             }.show()
                             return true
+                        } else if (drawerItemId == ID_GENERATE_MANY) {
+                            val genManyItems = listOf(5, 10,25,50,100)
+                            selector(getString(R.string.gen_many_selector), genManyItems.map{it.toString()}) { i ->
+                                settingsGenerateManyCount = genManyItems.get(i)
+                            }
                         }
-
                         return false
                     }
 
