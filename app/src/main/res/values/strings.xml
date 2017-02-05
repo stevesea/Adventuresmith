@@ -15,16 +15,19 @@
     <string name="nav_about">About</string>
     <string name="nav_favs">Favorites</string>
 
-    <string name="fav_add">Select Favorite Group</string>
+    <string name="fav_add_to_group">Add Favorite to Group</string>
     <string name="fav_remove">Remove Favorite?</string>
     <string name="fav_added">Favorite Added</string>
 
     <string name="fav_group_default">Default</string>
     <string name="fav_group">Favorite Group</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_rename">Rename</string>
     <string name="fav_group_create">Create Favorite Group</string>
     <string name="fav_group_rename">Rename Favorite Group</string>
     <string name="fav_group_remove">Remove Favorite Group?</string>
 
+    <string name="gen_many_selector">How many results?</string>
 
     <string name="search_title">Search</string>
 
