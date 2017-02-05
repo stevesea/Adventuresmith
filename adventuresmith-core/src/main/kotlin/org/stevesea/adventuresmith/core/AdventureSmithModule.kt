@@ -93,6 +93,18 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         groupedGens
     }
 
+    fun getGeneratorsByIds(locale: Locale, genIds: Set<String>) : Map<GeneratorMetaDto, Generator> {
+        val result : MutableMap<GeneratorMetaDto, Generator> = mutableMapOf()
+        genIds.forEach {
+            val gen = generators.get(it)
+            if (gen != null) {
+                val genMeta = gen.getMetadata(locale)
+                result.put(genMeta,gen)
+            }
+        }
+        return result.toSortedMap()
+    }
+
 
     fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : Map<GeneratorMetaDto, Generator> {
         val result : MutableMap<GeneratorMetaDto, Generator> = mutableMapOf()

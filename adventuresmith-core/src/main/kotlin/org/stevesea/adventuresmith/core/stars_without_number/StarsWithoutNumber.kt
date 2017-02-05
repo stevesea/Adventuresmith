@@ -411,6 +411,7 @@ val swnModule = Kodein.Module {
     }
     bind<Generator>(SwnConstantsCustom.WORLD) with provider {
         BaseGeneratorWithView<SwnWorldModel, HTML>(
+                SwnConstantsCustom.WORLD,
                 modelGen = instance(),
                 viewTransform = SwnWorldView()
         )
@@ -424,6 +425,7 @@ val swnModule = Kodein.Module {
     }
     bind<Generator>(SwnConstantsCustom.FACTION) with provider {
         BaseGeneratorWithView<SwnFactionModel, String>(
+                SwnConstantsCustom.FACTION,
                 modelGen = instance(),
                 viewTransform = SwnFactionView()
         )

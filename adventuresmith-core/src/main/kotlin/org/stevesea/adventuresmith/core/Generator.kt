@@ -31,6 +31,7 @@ import java.util.*
 
 
 interface Generator {
+    fun getId() : String
     fun generate(locale: Locale = Locale.ENGLISH) : String
     fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
@@ -69,8 +70,12 @@ open class BaseGenerator<
 }
 
 open class BaseGeneratorWithView<TModel, TView>(
+        val genId: String,
         val modelGen: ModelGenerator<TModel>,
         val viewTransform: ViewStrategy<TModel, TView>) : Generator {
+    override fun getId(): String {
+        return genId
+    }
     override fun generate(locale: Locale): String {
         return viewTransform.transform(modelGen.generate(locale)).toString().trim()
     }
@@ -176,6 +181,9 @@ class DataDrivenGeneratorForFiles(
     val shuffler: Shuffler = instance()
     val dtoMerger: DtoMerger = instance()
     val loaderFactory: (File) -> DataDrivenGenDtoFileDeserializer = factory()
+    override fun getId(): String {
+        return input.absolutePath
+    }
     override fun generate(locale: Locale): String {
         try {
             val dto = loaderFactory.invoke(input).load(locale)
@@ -217,6 +225,9 @@ class DataDrivenGeneratorForResources(
     val shuffler : Shuffler = instance()
     val dtoMerger : DtoMerger = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
+    override fun getId(): String {
+        return resource_prefix
+    }
     override fun generate(locale: Locale): String {
         try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)

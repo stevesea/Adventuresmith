@@ -203,6 +203,7 @@ val fotfModule = Kodein.Module {
     }
     bind<Generator>(FotfConstants.CHARS) with provider {
         BaseGeneratorWithView<FotfCharModel, HTML>(
+                FotfConstants.CHARS,
                 modelGen = instance(),
                 viewTransform = FotfCharacterView()
         )

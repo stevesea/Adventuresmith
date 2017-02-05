@@ -162,6 +162,9 @@ val diceModule = Kodein.Module {
     for (d in DiceConstants.regularDice) {
         bind<Generator>(d) with provider {
             object: Generator {
+                override fun getId(): String {
+                    return d
+                }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
                     return GeneratorMetaDto(name = d, collectionId = DiceConstants.CollectionName, priority = DiceConstants.regularDice.indexOf(d))
                 }
@@ -178,6 +181,9 @@ val diceModule = Kodein.Module {
     for (d in DiceConstants.multDice) {
         bind<Generator>(d.key) with provider {
             object: Generator {
+                override fun getId(): String {
+                    return d.key
+                }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
                     return GeneratorMetaDto(name = d.key,
                             collectionId = DiceConstants.CollectionName,
@@ -198,6 +204,9 @@ val diceModule = Kodein.Module {
     bind<Generator>(DiceConstants.d20adv) with provider {
         object: Generator {
             val diceParser : DiceParser = instance()
+            override fun getId(): String {
+                return DiceConstants.d20adv
+            }
             override fun generate(locale: Locale): String {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
@@ -213,6 +222,9 @@ val diceModule = Kodein.Module {
     bind<Generator>(DiceConstants.d20disadv) with provider {
         object: Generator {
             val diceParser : DiceParser = instance()
+            override fun getId(): String {
+                return DiceConstants.d20disadv
+            }
             override fun generate(locale: Locale): String {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
