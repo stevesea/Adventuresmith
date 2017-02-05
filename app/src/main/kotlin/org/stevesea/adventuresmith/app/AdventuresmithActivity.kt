@@ -135,12 +135,31 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         if (drawerIdToGroup.containsKey(currentDrawerItemId)) {
                             // if the current drawer selection is a regular gen group, then user is adding a favorite
-                            addFavoriteToGroup(SELECTED_FAV_GROUP, genid)
-                            Toast.makeText(this@AdventuresmithActivity, getString(R.string.fav_added), Toast.LENGTH_SHORT).show()
-                        } else {
-                            // otherwise, they're removing a favorite
-                            removeFavoriteFromGroup(SELECTED_FAV_GROUP, genid)
-                            Toast.makeText(this@AdventuresmithActivity, getString(R.string.fav_removed), Toast.LENGTH_SHORT).show()
+                            val favList = getFavoriteGroups().toList()
+
+                            if (favList.size == 1) {
+                                // if there's only one fav group, don't make user select
+                                addFavoriteToGroup(favList.get(0), genid)
+                            } else {
+                                selector(getString(R.string.fav_add), favList) { i ->
+                                    val favGroup = favList.get(i)
+                                    addFavoriteToGroup(favGroup, genid)
+                                }
+                            }
+                            toast(getString(R.string.fav_added) + " - " + item.name)
+                            return true
+                        } else if (favoriteIdToName.containsKey(currentDrawerItemId)) {
+                            // otherwise, they're removing a favorite from the current nav
+                            val favGroup = favoriteIdToName.get(currentDrawerItemId)
+                            alert(item.name, getString(R.string.fav_remove)) {
+                                yesButton {
+                                    removeFavoriteFromGroup(favGroup!!, genid)
+                                    buttonAdapter.remove(position)
+                                }
+                                noButton {}
+                            }.show()
+
+                            return true
                         }
                         return false
                     }
@@ -266,12 +285,11 @@ class AdventuresmithActivity : AppCompatActivity(),
             sharedPreferences.edit().putBoolean(SETTING_GEN_MANY, value).apply()
         }
 
-    val SELECTED_FAV_GROUP = "Default"
 
     val SETTING_FAVORITE_GROUPS = "FavoriteGroups"
     var settingsFavoriteGroups : Set<String>
         get() {
-            return sharedPreferences.getStringSet(SETTING_FAVORITE_GROUPS, setOf(SELECTED_FAV_GROUP))
+            return sharedPreferences.getStringSet(SETTING_FAVORITE_GROUPS, setOf(getString(R.string.fav_group_default)))
         }
         set(value) {
             sharedPreferences.edit().putStringSet(SETTING_FAVORITE_GROUPS, value).apply()
