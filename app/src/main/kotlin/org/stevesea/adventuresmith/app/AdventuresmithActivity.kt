@@ -28,6 +28,8 @@ import android.os.*
 import android.support.v7.app.*
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
+import android.text.InputType
+import android.text.InputType.*
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
@@ -52,6 +54,7 @@ import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.text.*
 import java.util.*
+
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
@@ -146,7 +149,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     addFavoriteToGroup(favGroup, genid)
                                 }
                             }
-                            toast(getString(R.string.fav_added) + " - " + item.name)
                             return true
                         } else if (favoriteIdToName.containsKey(currentDrawerItemId)) {
                             // otherwise, they're removing a favorite from the current nav
@@ -301,6 +303,38 @@ class AdventuresmithActivity : AppCompatActivity(),
         return settingsFavoriteGroups.toSortedSet()
     }
 
+    fun addFavoriteGroup(newGroupName: String) {
+        val newVals : MutableSet<String> = mutableSetOf()
+        newVals.addAll(getFavoriteGroups())
+        newVals.add(newGroupName)
+        settingsFavoriteGroups = newVals
+    }
+    fun removeFavoriteGroup(removeGroup: String) {
+        val newVals : MutableSet<String> = mutableSetOf()
+        newVals.addAll(getFavoriteGroups())
+        newVals.remove(removeGroup)
+
+        sharedPreferences.edit()
+                .remove(getFavoriteSettingKey(removeGroup))
+                .putStringSet(SETTING_FAVORITE_GROUPS, newVals)
+                .apply()
+    }
+
+    fun renameFavoriteGroup(oldGroupName: String, newGroupName: String) {
+        val newGroups : MutableSet<String> = mutableSetOf()
+        newGroups.addAll(getFavoriteGroups())
+        newGroups.remove(oldGroupName)
+        newGroups.add(newGroupName)
+
+        val oldGroupVals = getFavorites(oldGroupName)
+
+        sharedPreferences.edit()
+                .putStringSet(getFavoriteSettingKey(newGroupName), oldGroupVals)
+                .remove(getFavoriteSettingKey(oldGroupName))
+                .putStringSet(SETTING_FAVORITE_GROUPS, newGroups)
+                .apply()
+    }
+
     private fun getFavoriteSettingKey(groupName: String) : String {
         return "${SETTING_FAVORITE_CONTENTS_PREFIX}.${groupName}"
     }
@@ -310,11 +344,11 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
     fun addFavoriteToGroup(groupName: String, genId: String) {
         info("adding favorite: $groupName - $genId")
-        val curVals : MutableSet<String> = mutableSetOf()
-        curVals.addAll(getFavorites(groupName))
-        curVals.add(genId)
+        val newVals : MutableSet<String> = mutableSetOf()
+        newVals.addAll(getFavorites(groupName))
+        newVals.add(genId)
         sharedPreferences.edit()
-                .putStringSet(getFavoriteSettingKey(groupName), curVals).apply()
+                .putStringSet(getFavoriteSettingKey(groupName), newVals).apply()
     }
     fun removeFavoriteFromGroup(groupName: String, genId: String) {
         info("removing favorite: $groupName - $genId")
@@ -606,6 +640,65 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(getNavDrawerItems(getCurrentLocale(resources)))
+                .withOnDrawerItemLongClickListener(object : Drawer.OnDrawerItemLongClickListener {
+                    override fun onItemLongClick(view: View?, position: Int, drawerItem: IDrawerItem<*, *>?): Boolean {
+                        if (drawerItem == null)
+                            return false
+
+                        val drawerItemId = drawerItem.identifier
+
+                        val favName = favoriteIdToName.get(drawerItemId)
+                        if (favName != null) {
+                            // the long-clicked drawer is a favorite group, they either want to rename it or remove it
+                            val oldVals = getFavorites(favName)
+                            if (oldVals.size == 0) {
+                                alert(favName, getString(R.string.fav_group_remove)) {
+                                    yesButton {
+                                        removeFavoriteGroup(favName)
+                                    }
+                                    noButton {}
+                                }.show()
+                            } else {
+                                alert(favName, getString(R.string.fav_group_rename)) {
+                                    customView {
+                                        verticalLayout {
+                                            val groupName = editText {
+                                                hint = getString(R.string.fav_group)
+                                                maxLines = 1
+                                                singleLine = true
+                                                inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                            }
+                                            positiveButton("Rename") {
+                                                renameFavoriteGroup(favName, groupName.text.toString())
+                                            }
+                                        }
+                                    }
+                                }.show()
+                            }
+                            return true
+                        } else if (drawerItemId == ID_FAVORITES) {
+                            alert (getString(R.string.fav_group_create)) {
+                                customView {
+                                    verticalLayout {
+                                        val groupName = editText {
+                                            hint = getString(R.string.fav_group)
+                                            maxLines = 1
+                                            singleLine = true
+                                            inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                        }
+                                        positiveButton("Create") {
+                                            addFavoriteGroup(groupName.text.toString())
+                                        }
+                                    }
+                                }
+                            }.show()
+                            return true
+                        }
+
+                        return false
+                    }
+
+                })
                 .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                     override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*, *>?): Boolean {
                         //check if the drawerItem is set.

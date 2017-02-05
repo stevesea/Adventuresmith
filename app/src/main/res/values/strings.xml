@@ -20,6 +20,10 @@
     <string name="fav_added">Favorite Added</string>
 
     <string name="fav_group_default">Default</string>
+    <string name="fav_group">Favorite Group</string>
+    <string name="fav_group_create">Create Favorite Group</string>
+    <string name="fav_group_rename">Rename Favorite Group</string>
+    <string name="fav_group_remove">Remove Favorite Group?</string>
 
 
     <string name="search_title">Search</string>
