@@ -9,9 +9,14 @@
     <string name="cleared_results_msg">Results cleared.</string>
     <string name="action_share">Share…</string>
     <string name="action_clear">Clear</string>
+
     <string name="nav_other">Other</string>
     <string name="nav_thanks">Attribution &amp; Thanks</string>
     <string name="nav_about">About</string>
+    <string name="nav_favs">Favorites</string>
+
+    <string name="fav_added">Favorite Added</string>
+    <string name="fav_removed">Favorite Removed</string>
 
 
     <string name="search_title">Search</string>

@@ -23,7 +23,6 @@ package org.stevesea.adventuresmith.app
 import android.support.v7.widget.*
 import android.view.*
 import android.widget.*
-import com.google.common.base.Objects
 import com.mikepenz.fastadapter.items.*
 import com.mikepenz.fastadapter.utils.*
 import org.stevesea.adventuresmith.*
@@ -35,10 +34,7 @@ class GeneratorButton(val generator: Generator,
                       val meta : GeneratorMetaDto = generator.getMetadata(locale)) :
         AbstractItem<GeneratorButton, GeneratorButton.ViewHolder>() {
     init {
-        withIdentifier(Objects.hashCode(
-                meta.name,
-                meta.collectionId,
-                meta.groupId).toLong())
+        withIdentifier(generator.getId().hashCode().toLong())
     }
     val name = meta.name
 

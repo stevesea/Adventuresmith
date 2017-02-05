@@ -64,12 +64,14 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     private var currentDrawerItemId: Long? = null
     val drawerIdToGroup : MutableMap<Long, CollectionAndGroup> = mutableMapOf()
-    val ID_ABOUT = com.google.common.base.Objects.hashCode("about").toLong()
-    val ID_THANKS = com.google.common.base.Objects.hashCode("thanks").toLong()
+    val favoriteIdToName : MutableMap<Long, String> = mutableMapOf()
+
+    val ID_ABOUT = "about".hashCode().toLong()
+    val ID_THANKS = "thanks".hashCode().toLong()
+    val ID_FAVORITES = "favorites".hashCode().toLong()
 
     private var drawerHeader: AccountHeader? = null
     private var drawer: Drawer? = null
-
 
     val resultAdapter : FastItemAdapter<ResultItem> by lazy {
         val res = FastItemAdapter<ResultItem>()
@@ -123,6 +125,26 @@ class AdventuresmithActivity : AppCompatActivity(),
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
+                .withOnLongClickListener(object : FastAdapter.OnLongClickListener<GeneratorButton> {
+                    override fun onLongClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
+                        if (item == null)
+                            return false
+
+                        val generator = item.generator
+                        val genid = generator.getId()
+
+                        if (drawerIdToGroup.containsKey(currentDrawerItemId)) {
+                            // if the current drawer selection is a regular gen group, then user is adding a favorite
+                            addFavoriteToGroup(SELECTED_FAV_GROUP, genid)
+                            Toast.makeText(this@AdventuresmithActivity, getString(R.string.fav_added), Toast.LENGTH_SHORT).show()
+                        } else {
+                            // otherwise, they're removing a favorite
+                            removeFavoriteFromGroup(SELECTED_FAV_GROUP, genid)
+                            Toast.makeText(this@AdventuresmithActivity, getString(R.string.fav_removed), Toast.LENGTH_SHORT).show()
+                        }
+                        return false
+                    }
+                })
                 .withOnClickListener(object : FastAdapter.OnClickListener<GeneratorButton> {
                     override fun onClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
@@ -133,7 +155,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val currentLocale = getCurrentLocale(resources)
 
                         doAsync {
-
                             val resultItems : MutableList<String> = mutableListOf()
                             for (i in 1..num_to_generate) {
                                 try {
@@ -245,10 +266,52 @@ class AdventuresmithActivity : AppCompatActivity(),
             sharedPreferences.edit().putBoolean(SETTING_GEN_MANY, value).apply()
         }
 
+    val SELECTED_FAV_GROUP = "Default"
+
+    val SETTING_FAVORITE_GROUPS = "FavoriteGroups"
+    var settingsFavoriteGroups : Set<String>
+        get() {
+            return sharedPreferences.getStringSet(SETTING_FAVORITE_GROUPS, setOf(SELECTED_FAV_GROUP))
+        }
+        set(value) {
+            sharedPreferences.edit().putStringSet(SETTING_FAVORITE_GROUPS, value).apply()
+        }
+
+    val SETTING_FAVORITE_CONTENTS_PREFIX = "FavoriteGroup."
+
+    fun getFavoriteGroups() : SortedSet<String> {
+        return settingsFavoriteGroups.toSortedSet()
+    }
+
+    private fun getFavoriteSettingKey(groupName: String) : String {
+        return "${SETTING_FAVORITE_CONTENTS_PREFIX}.${groupName}"
+    }
+
+    fun getFavorites(groupName : String) : SortedSet<String> {
+        return sharedPreferences.getStringSet(getFavoriteSettingKey(groupName), setOf()).toSortedSet()
+    }
+    fun addFavoriteToGroup(groupName: String, genId: String) {
+        info("adding favorite: $groupName - $genId")
+        val curVals : MutableSet<String> = mutableSetOf()
+        curVals.addAll(getFavorites(groupName))
+        curVals.add(genId)
+        sharedPreferences.edit()
+                .putStringSet(getFavoriteSettingKey(groupName), curVals).apply()
+    }
+    fun removeFavoriteFromGroup(groupName: String, genId: String) {
+        info("removing favorite: $groupName - $genId")
+        val curVals : MutableSet<String> = mutableSetOf()
+        curVals.addAll(getFavorites(groupName))
+        curVals.remove(genId)
+        sharedPreferences.edit()
+                .putStringSet(getFavoriteSettingKey(groupName), curVals).apply()
+    }
+
     val shuffler = AdventuresmithCore.shuffler
 
     val headerImages = listOf(
-            R.drawable.header_graphic
+            R.drawable.header_graphic,
+            R.drawable.header_graphic_b
             //R.drawable.dragon,
             //R.drawable.elephant_dragon,
             //R.drawable.pheonix,
@@ -297,10 +360,34 @@ class AdventuresmithActivity : AppCompatActivity(),
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
+        favoriteIdToName.clear()
 
         val generatorCollections = AdventuresmithCore.getCollections(locale)
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
+
+        val favExpandItem = ExpandableDrawerItem()
+                .withName(R.string.nav_favs)
+                .withIdentifier(ID_FAVORITES)
+                .withIcon(CommunityMaterial.Icon.cmd_star_outline)
+                .withSelectable(false)
+                .withIsExpanded(false)
+                //.withDescription("Long-click to add")
+                .withSubItems(
+                    getFavoriteGroups().map {
+                        val id = "favorites/$it".hashCode().toLong()
+                        favoriteIdToName.put(id, it)
+                        SecondaryDrawerItem()
+                                .withName(it)
+                                //.withIcon(CommunityMaterial.Icon.cmd_star_outline)
+                                .withIdentifier(id)
+                                .withSelectable(true)
+                                .withLevel(2)
+                    }
+                )
+
+
+        result.add(favExpandItem)
 
         for (coll in generatorCollections) {
             debug("collection: ${coll}")
@@ -321,7 +408,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                     val groupGroupMap : MutableMap<String, ExpandableDrawerItem> = mutableMapOf()
                     for (grp in coll.groups!!.entries) {
-                        val navId = com.google.common.base.Objects.hashCode(coll.id, grp.key).toLong()
+                        val navId = "${coll.id}.${grp.key}".hashCode().toLong()
                         drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
 
                         val words = grp.value.split("/", limit = 2).map { it.trim() }
@@ -366,7 +453,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             .withSelectable(false)
                             .withIsExpanded(false)
                     for (grp in coll.groups!!.entries) {
-                        val navId = com.google.common.base.Objects.hashCode(coll.id, grp.key).toLong()
+                        val navId = "${coll.id}.${grp.key}".hashCode().toLong()
                         drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
                         val childItem = SecondaryDrawerItem()
                                 .withName(grp.value)
@@ -426,6 +513,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         return resources.getDimension(R.dimen.navigation_menu_width) > 0
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -453,27 +541,41 @@ class AdventuresmithActivity : AppCompatActivity(),
                 /*
                 .withProfileImagesVisible(false)
                 .withCloseDrawerOnProfileListClick(false)
+                .withOnAccountHeaderListener( object: AccountHeader.OnAccountHeaderListener {
+                    override fun onProfileChanged(view: View?, profile: IProfile<*>?, current: Boolean): Boolean {
+                        if (profile == null || current) {
+                            return false
+                        }
+                        when (profile.identifier) {
+                            HEADER_ID_ADVENTURESMITH_CORE -> info("core selected")
+                            HEADER_ID_FAVORITES -> info("favorites selected")
+                        }
+
+                        //false if you have not consumed the event and it should close the drawer
+                        return false
+                    }
+                }
+                )
                 .addProfiles(
                         // TOOD: rather than profiles... if we're always gonna have 2 choices, just stick another settings toggle?
                         ProfileDrawerItem()
-                                .withName("Organize by...")
-                                .withEmail("Supplement")
+                                .withName("Adventuresmith Core")
                                 //.withNameShown(true)
+                                .withIdentifier(HEADER_ID_ADVENTURESMITH_CORE)
                                 .withTextColorRes(R.color.textPrimary)
                                 .withSelectedTextColorRes(R.color.colorPrimaryDark)
                                 .withSelectedColorRes(R.color.colorPrimaryLightLight)
-                                .withIcon(IconicsDrawable(this, CommunityMaterial.Icon.cmd_arrow_left)
-                                        .colorRes(R.color.colorPrimaryDark)
-                                ),
+                                .withIcon(IconicsDrawable(this, CommunityMaterial.Icon.cmd_cube_outline)
+                                        .colorRes(R.color.colorPrimaryDark))
+                        ,
                         ProfileDrawerItem()
-                                .withName("Organize by...")
-                                .withEmail("Functionality")
+                                .withName("Favorites")
+                                .withIdentifier(HEADER_ID_FAVORITES)
                                 .withTextColorRes(R.color.textPrimary)
                                 .withSelectedTextColorRes(R.color.colorPrimaryDark)
                                 .withSelectedColorRes(R.color.colorPrimaryLightLight)
-                                .withIcon(IconicsDrawable(this, CommunityMaterial.Icon.cmd_arrow_right)
-                                        .colorRes(R.color.colorPrimaryDark)
-                                )
+                                .withIcon(IconicsDrawable(this, CommunityMaterial.Icon.cmd_star_outline)
+                                        .colorRes(R.color.colorPrimaryDark))
                 )
                 */
                 .build()
@@ -497,7 +599,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return false
 
                         val drawerItemId = drawerItem.identifier
-                        if (drawerIdToGroup.containsKey(drawerItemId)) {
+                        if (drawerIdToGroup.containsKey(drawerItemId) || favoriteIdToName.containsKey(drawerItemId)) {
                             selectDrawerItem(drawerItemId)
                             return false
                         } else if (drawerItemId == ID_ABOUT) {
@@ -563,36 +665,61 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (drawerItemId == null)
             return
         val collGrp = drawerIdToGroup.get(drawerItemId)
-        if (collGrp == null)
-            return
+        val favName = favoriteIdToName.get(drawerItemId)
+        if (collGrp != null || favName != null) {
 
-        //info("selected: ${collGrp.name}")
+            currentDrawerItemId = drawerItemId
 
-        toolbar.title = collGrp.name
+            if (collGrp != null) {
+                Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
+                        .putCustomAttribute("Dataset", collGrp.collectionId)
+                )
 
-        currentDrawerItemId = drawerItemId
+                toolbar.title = collGrp.name
+            } else {
+                Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
 
-        doAsync {
-            val generators = AdventuresmithCore.getGeneratorsByGroup(getCurrentLocale(resources), collGrp.collectionId, collGrp.groupId)
-            uiThread {
-                buttonAdapter.clear()
-                for (g in generators) {
-                    buttonAdapter.add(GeneratorButton(g.value, getCurrentLocale(resources), g.key))
+                toolbar.title = getString(R.string.nav_favs) + " / $favName"
+            }
+
+            doAsync {
+                val generators : Map<GeneratorMetaDto, Generator> =
+                        if (collGrp != null) {
+                            AdventuresmithCore.getGeneratorsByGroup(
+                                    getCurrentLocale(resources),
+                                    collGrp.collectionId,
+                                    collGrp.groupId
+                            )
+                        } else if (favName != null) {
+                            AdventuresmithCore.getGeneratorsByIds(
+                                    getCurrentLocale(resources),
+                                    getFavorites(favName)
+                                    )
+                        } else {
+                            mapOf()
+                        }
+                uiThread {
+                    buttonAdapter.clear()
+                    for (g in generators) {
+                        buttonAdapter.add(
+                                GeneratorButton(
+                                        g.value,
+                                        getCurrentLocale(resources),
+                                        g.key)
+                        )
+                    }
+                    // NOTE: doing deselect after the clear resulted in crash
+                    resultAdapter.deselect()
+                    if (actionModeHelper.isActive) {
+                        actionModeHelper.actionMode.finish()
+                    }
+                    resultAdapter.clear()
+
+                    appbar.visibility = View.VISIBLE
+                    appbar.setExpanded(true, true)
                 }
-                // NOTE: doing deselect after the clear resulted in crash
-                resultAdapter.deselect()
-                if (actionModeHelper.isActive) {
-                    actionModeHelper.actionMode.finish()
-                }
-                resultAdapter.clear()
-                appbar.visibility = View.VISIBLE
-                appbar.setExpanded(true, true)
             }
         }
-
-        Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
-                .putCustomAttribute("Dataset", collGrp.collectionId)
-        )
     }
 
     private val BUNDLE_CURRENT_DRAWER_ITEM = AdventuresmithActivity::class.java.name + ".currentDrawerItem"
