@@ -387,6 +387,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     val bkgImages = listOf(
             R.drawable.armored_angels,
             R.drawable.bards_are_monsters,
+            R.drawable.bats,
             R.drawable.bear_army,
             R.drawable.beast_dragon_false_prophet,
             R.drawable.bonnacon,
