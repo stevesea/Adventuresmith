@@ -108,6 +108,18 @@ Attribution - ShareAlike 3.0 Unported license.
 ### Jacob DC Ross / Thunderegg Productions
 * [Kaigaku](http://www.drivethrurpg.com/product/186267/Kaigaku-RPG)
 
+### Diogo Nogueira / Old Skull Publishing
+* [Sharp Swords & Sinister Spells](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
+* [Lost Folios of the Book of Creation #1 - Adventure Title Generator](http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator)
+
+### Zenopus Archives
+* [Blog](http://zenopusarchives.blogspot.com/)
+* [Reference Sheets for Holmes Basic Referees](https://sites.google.com/site/zenopusarchives/home/holmes-ref)
+
+### /r/BehindTheScreen & /r/BehindTheTables
+* [/r/BehindTheTables](https://www.reddit.com/r/BehindTheTables/)
+* NOTE: still in progress bringing all these into the app
+
 ## Software
 
 ### License
