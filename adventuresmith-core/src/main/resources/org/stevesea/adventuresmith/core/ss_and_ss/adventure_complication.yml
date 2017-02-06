@@ -1,0 +1,55 @@
+---
+templates:
+- "{{complications.template}}"
+
+nested_tables:
+  complications:
+    template:
+    - "Resources: {{complications.resources}}"
+    - "Victims: {{complications.victims}}"
+    - "Perils: {{complications.perils}}"
+    - "Factions: {{complications.factions}}"
+    - "Supernatural: {{complications.supernatural}}"
+    - "Revelations: {{complications.revelations}}"
+    resources:
+    - Large Treasure at Risk
+    - Low on Food and Water
+    - Unlimited Resources for the Enemy
+    - Characters’ Weapons are Useless
+    - Something Makes Magic More Dangerous
+    - Party Belongings are Stolen
+    victims:
+    - Lots of Innocents Affected
+    - Loved One in Danger
+    - Rival Asking for Help
+    - Haughty Noble
+    - Innocent Monster
+    - Supernatural Entity
+    perils:
+    - Furious Storm
+    - Enraged Monster
+    - Active Volcano
+    - Magical Catastrophe
+    - Perilous Plants
+    - Savage Beasts
+    factions:
+    - Rival Group of Adventures
+    - Sect Wanting to Keep Status Quo
+    - Greedy Mercenaries
+    - Fatalistic Cult
+    - Treacherous Noble House
+    - Antagonist Rival Wanting his Place
+    supernatural:
+    - Curse
+    - Location is in Another Plane
+    - Confused Victim’s Ghosts
+    - Sacred Place for a Culture
+    - Magic Protection
+    - Lost Alien
+    revelations:
+    - Victims are not What They Seem
+    - Antagonist is not Who it Seems
+    - Treason is Discovered
+    - Occult Enemy is Revealed
+    - Enemy is Revealed to be an Ally
+    - What Seems Supernatural Isn't

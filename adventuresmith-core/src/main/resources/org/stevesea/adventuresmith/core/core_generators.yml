@@ -266,6 +266,15 @@ generators:
   - room_dressing
   - scavenger_fleet
   - temple_shrine
+  ss_and_ss:
+  - adventure_complication
+  - adventure_idea
+  - adventure_title
+  - antagonist
+  - complication
+  - opponent_reaction
+  - reward
+  - supporting_character
   stonetop:
   - minor_arcana
   hack_and_slash:

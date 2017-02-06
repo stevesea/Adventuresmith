@@ -1,0 +1,130 @@
+---
+templates:
+- "{{adventure_idea.template}}"
+
+imports:
+- adventure_complication
+- antagonist
+- supporting_character
+- reward
+
+nested_tables:
+  adventure_idea:
+    template:
+    - |
+      Goal: {{goal.template}}
+      <br/>
+      <br/>Location: {{location.template}}
+      <br/>
+      <br/>Antagonists: {{antagonists.template}}
+      <br/>
+      <br/>Supporting Characters: {{supporting.template}}
+      <br/>
+      <br/>Complication: {{complications.template}}
+      <br/>
+      <br/>Reward: {{reward.template}}
+
+
+  location:
+    template:
+    - "Ruins: {{location.ruins}}"
+    - "Isolated Place: {{location.isolated}}"
+    - "City-State: {{location.citystate}}"
+    - "Borderlands: {{location.borderlands}}"
+    - "Wilderness: {{location.wilderness}}"
+    - "Strange Place: {{location.strange}}"
+    ruins:
+    - Ancient City-State
+    - Sorcerer’s Tower
+    - Fort
+    - King’s Tomb
+    - Small Village
+    - Forgotten God’s Temple
+    isolated:
+    - Lost Exotic Island
+    - Land of the Dead
+    - Forbidden Valley
+    - Forlorn North
+    - Mountain Peak
+    - Cavern in the Center of Earth
+    citystate:
+    - Local Temple
+    - Nobles’ Palace
+    - Merchant Guild HQ
+    - Museum
+    - Slums
+    - Sewers
+    borderlands:
+    - Local Fort
+    - Small Village
+    - Nearby Cavern Complex
+    - Dark Forest
+    - Enemy Territory
+    - Last Friendly Inn
+    wilderness:
+    - Cannibal-Infested Jungle
+    - Raider-Inhabited Desert
+    - Cursed Swamp
+    - Caverns of the Dead
+    - Mountains Beyond the Horizon
+    - Demon-Haunted Forest
+    strange:
+    - Ruins over a Volcano
+    - Crystal Caves
+    - Witch’s Hut
+    - Flying Pyramid
+    - Lost Space Ship
+    - Invisible Tower
+
+
+
+  goal:
+    template:
+    - "Attack, Kill, Destroy: {{goal.attack_kill_destroy}}"
+    - "Find, Recover: {{goal.find_recover}}"
+    - "Steal, Capture: {{goal.steal_capture}}"
+    - "Guard, Protect: {{goal.guard_protect}}"
+    - "Explore, Discover: {{goal.explore_discover}}"
+    - "Survive, Escape: {{goal.survive_escape}}"
+    attack_kill_destroy:
+    - Influential Person
+    - Organization
+    - Community
+    - Artifact
+    - Monster
+    - Location
+    find_recover:
+    - Important Person
+    - Missing Person
+    - Location
+    - Lost/Stolen Object
+    - Rare Specimen
+    - Magic Ingredient
+    steal_capture:
+    - Art Piece or Jewelry
+    - Magic Artifact
+    - Important People
+    - Powerful Creature
+    - Spellbook
+    - Map or Important Scroll
+    guard_protect:
+    - Community
+    - Location
+    - Important Person
+    - Magic Artifact
+    - Secret
+    - Organization
+    explore_discover:
+    - New Path
+    - Lost Island
+    - Ruins
+    - New Ritual
+    - The Catacombs of the City-State
+    - The Truth about a Legend
+    survive_escape:
+    - Ship Wreck
+    - Prison
+    - Assassins
+    - Chaos Cult
+    - Natural Disaster
+    - Vengeful Warlock

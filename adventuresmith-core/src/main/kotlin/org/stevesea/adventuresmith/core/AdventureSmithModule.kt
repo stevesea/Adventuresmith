@@ -53,6 +53,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     val HackSlash = "hack_and_slash"
     val AugmentedReality = "augmented_reality"
     val RollXX = "roll_xx"
+    val SSandSS = "ss_and_ss"
 
     override val kodein: Kodein by Kodein.lazy {
         import(adventureSmithModule)

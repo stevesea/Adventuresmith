@@ -1,0 +1,7 @@
+---
+templates:
+- 2, <strong>Hostile</strong><br/>The creature will attack, deny what the characters want or make an effort to stand in their way.
+- 3-5, <strong>Dislike</strong><br/>The creature is inclined to oppose the characters, and may attack, leave or demand something not to interfere with them.
+- 6-8, <strong>Neutral</strong><br/>The creature is not inclined to help or hinder the characters. It may ignore them, negotiate until it reaches an agreement or maybe just leave.
+- 9-11, <strong>Affinity</strong><br/>The creature is inclined to help the characters in some way. It can point them in the right direction, give them information or even give them some resources. It won't risk its life, though.
+- 12, <strong>Friendly</strong><br/>The creature will help the characters, assisting them how it can. It may even help them in combat if this is suitable to its nature.

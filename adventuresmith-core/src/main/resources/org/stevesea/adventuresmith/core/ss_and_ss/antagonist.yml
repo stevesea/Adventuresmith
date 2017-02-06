@@ -1,0 +1,55 @@
+---
+templates:
+- "{{antagonists.template}}"
+
+nested_tables:
+  antagonists:
+    template:
+    - "Powerful Person: {{antagonists.powerful}}"
+    - "Magic Artifact: {{antagonists.artifact}}"
+    - "Organization: {{antagonists.org}}"
+    - "Irrational Monster: {{antagonists.irrational}}"
+    - "Intelligent Monster: {{antagonists.intelligent}}"
+    - "Supernatural Entity: {{antagonists.supernatural}}"
+    powerful:
+    - Feared Necromancer
+    - Barbarian Warlord
+    - Chaos Priest
+    - Insane Noble
+    - Bloodthirsty Pirate
+    - Crime Lord
+    artifact:
+    - Uncontrolled Golem
+    - Jewelry with Sorcerer’s Soul
+    - Demon-Forged Sword
+    - Alien Orb
+    - Old One Relic
+    - Mind-Controlling Statuette
+    org:
+    - Corrupt Merchant Guild
+    - Chaos Cult
+    - Pirate Crew
+    - Assassins’ Clan
+    - Secret Society
+    - Adventuring Party
+    irrational:
+    - Awakened Primordial
+    - Shadow Beast
+    - Failed Sorcerous Experiment
+    - Giant Prehistoric Animal
+    - Horde of Giant Insect
+    - Vampiric Primitive Humanoids
+    intelligent:
+    - Powerful Undead
+    - Demon
+    - Alien
+    - Serpent-Man
+    - Changeling
+    - Ancestral Man
+    supernatural:
+    - Forgotten Old God
+    - Vengeful Ghost
+    - Being from Another Dimension
+    - Ancient Spirit
+    - Immortal
+    - Living Energy

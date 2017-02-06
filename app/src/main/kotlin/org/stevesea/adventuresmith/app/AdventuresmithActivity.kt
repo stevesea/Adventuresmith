@@ -1032,6 +1032,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 }
                 AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
                 AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
+                AdventuresmithCore.SSandSS -> CommunityMaterial.Icon.cmd_auto_fix
                 AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
                 AdventuresmithCore.BehindTheTables -> {
                     when (grpId) {

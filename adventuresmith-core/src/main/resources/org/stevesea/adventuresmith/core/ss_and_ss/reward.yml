@@ -1,0 +1,56 @@
+---
+templates:
+- "{{reward.template}}"
+
+nested_tables:
+  reward:
+    template:
+    - "Treasure: {{reward.Treasure}}"
+    - "Magic Artifacts: {{reward.MagicArtifacts}}"
+    - "Power: {{reward.Power}}"
+    - "Knowledge: {{reward.Knowledge}}"
+    - "Influence: {{reward.Influence}}"
+    - "Glory: {{reward.Glory}}"
+
+    Treasure:
+    - Large Sum of Silver and Gold
+    - Giant Precious Gem
+    - Invaluable Sacred Idol
+    - Legendary Jewel
+    - Precious Art Piece
+    - Magical Ingredients
+    MagicArtifacts:
+    - Legendary Sword
+    - Ancient Spellbook
+    - Alien Artifact
+    - Technological Machine
+    - Musical Instrument
+    - Energy Crystal
+    Power:
+    - Powerful Spell
+    - Power over a Creature
+    - Immortality
+    - Supernatural Strength
+    - Command over a Group
+    - Favor from a Powerful Being
+    Knowledge:
+    - Truth About a Legend
+    - Location of Legendary Treasure
+    - True Name of an Entity
+    - State Secret
+    - Enemy’s Weakness
+    - Truth About the Past
+    Influence:
+    - In a City-State
+    - In a Powerful Guild
+    - Over a Secret Society
+    - Over a Noble House
+    - With a Supernatural Entity
+    - With a Savage Tribe
+    Glory:
+    - Fame Among Thieves
+    - Recognition for Bravery
+    - Great Celebration by Community
+    - Nobility Title
+    - Among Their Own People
+    - Among Beings from Another Plane

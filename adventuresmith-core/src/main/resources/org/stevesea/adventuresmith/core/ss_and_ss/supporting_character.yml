@@ -1,0 +1,54 @@
+---
+templates:
+- "{{supporting.template}}"
+
+nested_tables:
+  supporting:
+    template:
+    - "Adventurer: {{supporting.adventurer}}"
+    - "Powerful Person: {{supporting.powerful}}"
+    - "Organization: {{supporting.org}}"
+    - "Monster: {{supporting.monster}}"
+    - "Supernatural Entity: {{supporting.supernatural}}"
+    - "Magic Artifact: {{supporting.artifact}}"
+    adventurer:
+    - Travelling Skald
+    - Bon-Vivant Thief
+    - Noble Barbarian
+    - Pilgrim Priest
+    - Weird Sorcerer
+    - Errant Knight
+    powerful:
+    - Ship Captain
+    - Local Noble
+    - Influential Guild Leader
+    - Elder Shaman
+    - Sage
+    - Military Leader
+    org:
+    - Mercenary Company
+    - Religious Order
+    - Influential Guild
+    - Secret Society
+    - Local Community
+    - Adventuring Party
+    monster:
+    - Deformed Mutant
+    - Alien
+    - Ancestral Man
+    - Mythological Creature
+    - Intelligent Animal
+    - Undead
+    supernatural:
+    - Forgotten God
+    - Beings from Another Dimension
+    - Ancient Spirit
+    - Immortal Ghost
+    - Living Emotion
+    artifact:
+    - Sword with a Soul
+    - Sacred Amulet
+    - Alien Tech
+    - Living Crystal
+    - Living Armor
+    - Animated Statue

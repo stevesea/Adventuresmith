@@ -1,0 +1,53 @@
+---
+templates:
+- Debt - {{debt}}
+- Addiction - {{addiction}}
+- Hunted - {{hunted}}
+- Enemy - {{enemy}}
+- Secret - {{secret}}
+- Duty - {{duty}}
+
+tables:
+  debt:
+  - Corrupt Noble
+  - Merchant Guild
+  - Sinister Sorcerer
+  - Crime Lord
+  - Blood Thirsty Pirate
+  - Supernatural Entity
+  addiction:
+  - Lotus Powder
+  - Sorcery
+  - Alcohol
+  - Adrenaline
+  - Gambling
+  - Stealing
+  hunted:
+  - Assassins’ Guild
+  - Chaos Cult
+  - Crime Lord
+  - Local Guard
+  - Sinister Sorcerer
+  - Monstrous Creature
+  enemy:
+  - Fanatic Rival
+  - Blood Thirsty Pirate
+  - Former Master
+  - Savage Barbarian
+  - Influential Noble
+  - Supernatural Entity
+  secret:
+  - Treason
+  - Sinister Pact
+  - Crime
+  - Obsession
+  - Secret Identity
+  - Forbidden Knowledge
+  duty:
+  - Family
+  - Military
+  - Criminal Guild
+  - Religious Order
+  - Former Master
+  - Secret Society
+
