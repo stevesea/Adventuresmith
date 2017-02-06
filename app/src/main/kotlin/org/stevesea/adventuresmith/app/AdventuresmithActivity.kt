@@ -711,7 +711,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                                 inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
                                             }
                                             positiveButton(getString(R.string.btn_rename)) {
-                                                val newGrpName = groupName.text.toString()
+                                                val newGrpName = groupName.text.toString().trim()
                                                 if (!newGrpName.isNullOrBlank()) {
                                                     renameFavoriteGroup(favName, newGrpName)
                                                     updateFavGroupsInNavDrawer()
@@ -733,7 +733,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
                                         }
                                         positiveButton(getString(R.string.btn_create)) {
-                                            val newGrpName = groupName.text.toString()
+                                            val newGrpName = groupName.text.toString().trim()
                                             if (!newGrpName.isNullOrBlank()) {
                                                 addFavoriteGroup(newGrpName)
                                                 updateFavGroupsInNavDrawer()
