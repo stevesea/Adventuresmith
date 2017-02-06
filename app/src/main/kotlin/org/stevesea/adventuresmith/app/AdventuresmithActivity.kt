@@ -143,6 +143,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             if (favList.size == 1) {
                                 // if there's only one fav group, don't make user select
                                 addFavoriteToGroup(favList.get(0), genid)
+                                toast(R.string.fav_added)
                             } else {
                                 // if there are multiple fav groups, allow user to select one
                                 selector(getString(R.string.fav_add_to_group), favList) { i ->
@@ -335,10 +336,15 @@ class AdventuresmithActivity : AppCompatActivity(),
         newGroups.remove(oldGroupName)
         newGroups.add(newGroupName)
 
+        // user might re-name a group to an existing group, if so merge the two together
+        val totalVals : MutableSet<String> = mutableSetOf()
         val oldGroupVals = getFavorites(oldGroupName)
+        val targetGroupVals = getFavorites(newGroupName)
+        totalVals.addAll(oldGroupVals)
+        totalVals.addAll(targetGroupVals)
 
         sharedPreferences.edit()
-                .putStringSet(getFavoriteSettingKey(newGroupName), oldGroupVals)
+                .putStringSet(getFavoriteSettingKey(newGroupName), totalVals)
                 .remove(getFavoriteSettingKey(oldGroupName))
                 .putStringSet(SETTING_FAVORITE_GROUPS, newGroups)
                 .apply()
@@ -440,6 +446,29 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
     }
 
+    fun updateFavGroupsInNavDrawer() {
+        favExpandItem.subItems.clear()
+        favExpandItem.subItems.addAll(getFavoriteGroupDrawerItems())
+        // TODO: hardcoding favposition... getPos always returned -1
+        //val favPosition = drawer!!.getPosition(favExpandItem)
+        drawer!!.adapter.notifyAdapterSubItemsChanged(1)
+        // notifying dataset changed just messed up rendering... dunno why
+        //drawer!!.adapter.notifyAdapterDataSetChanged()
+
+        drawer!!.adapter.expand(1)
+        drawer!!.adapter.select(1)
+    }
+
+    val favExpandItem by lazy {
+        ExpandableDrawerItem()
+                .withName(R.string.nav_favs)
+                .withIdentifier(ID_FAVORITES)
+                .withIcon(CommunityMaterial.Icon.cmd_star_outline)
+                .withSelectable(false)
+                .withIsExpanded(false)
+                .withSubItems(getFavoriteGroupDrawerItems())
+    }
+
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
@@ -448,15 +477,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         val generatorCollections = AdventuresmithCore.getCollections(locale)
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
-
-        val favExpandItem = ExpandableDrawerItem()
-                .withName(R.string.nav_favs)
-                .withIdentifier(ID_FAVORITES)
-                .withIcon(CommunityMaterial.Icon.cmd_star_outline)
-                .withSelectable(false)
-                .withIsExpanded(false)
-                //.withDescription("Long-click to add")
-                .withSubItems(getFavoriteGroupDrawerItems())
 
         result.add(favExpandItem)
 
@@ -554,6 +574,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withName(R.string.section_header_settings))
         result.add(SecondarySwitchDrawerItem()
                 .withName(R.string.settings_generate_many)
+                .withSelectable(false)
                 .withChecked(settingsGenerateMany)
                 .withIdentifier(ID_GENERATE_MANY)
                 .withIcon(CommunityMaterial.Icon.cmd_stackoverflow)
@@ -675,6 +696,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 alert(favName, getString(R.string.fav_group_remove)) {
                                     yesButton {
                                         removeFavoriteGroup(favName)
+                                        updateFavGroupsInNavDrawer()
                                     }
                                     noButton {}
                                 }.show()
@@ -690,18 +712,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             }
                                             positiveButton(getString(R.string.btn_rename)) {
                                                 val newGrpName = groupName.text.toString()
-
                                                 renameFavoriteGroup(favName, newGrpName)
-                                                val oldId = drawerItemId
-
-                                                val item = getFavoriteGroupDrawerItem(newGrpName)
-                                                favoriteIdToName.remove(oldId)
-                                                favoriteIdToName.put(item.identifier, newGrpName)
-
-                                                drawerItem.parent.subItems.remove(drawerItem)
-                                                drawerItem.parent.subItems.add(item)
-
-                                                drawer!!.adapter.notifyAdapterSubItemsChanged(0)
+                                                updateFavGroupsInNavDrawer()
                                             }
                                         }
                                     }
@@ -721,11 +733,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         positiveButton(getString(R.string.btn_create)) {
                                             val newGrpName = groupName.text.toString()
                                             addFavoriteGroup(newGrpName)
-
-                                            val item = getFavoriteGroupDrawerItem(newGrpName)
-                                            favoriteIdToName.put(item.identifier, newGrpName)
-                                            drawerItem.subItems.add(item)
-                                            drawer!!.adapter.notifyAdapterSubItemsChanged(position)
+                                            updateFavGroupsInNavDrawer()
                                         }
                                     }
                                 }
