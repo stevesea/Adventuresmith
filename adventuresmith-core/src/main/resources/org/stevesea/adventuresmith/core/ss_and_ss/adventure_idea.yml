@@ -12,17 +12,23 @@ nested_tables:
   adventure_idea:
     template:
     - |
-      Goal: {{goal.template}}
+      <strong>Goal</strong>
+      <br/>{{goal.template}}
       <br/>
-      <br/>Location: {{location.template}}
+      <br/><strong>Location</strong>
+      <br/>{{location.template}}
       <br/>
-      <br/>Antagonists: {{antagonists.template}}
+      <br/><strong>Antagonists</strong>
+      <br/>{{antagonists.template}}
       <br/>
-      <br/>Supporting Characters: {{supporting.template}}
+      <br/><strong>Supporting Characters</strong>
+      <br/>{{supporting.template}}
       <br/>
-      <br/>Complication: {{complications.template}}
+      <br/><strong>Complication</strong>
+      <br/>{{complications.template}}
       <br/>
-      <br/>Reward: {{reward.template}}
+      <br/><strong>Reward</strong>
+      <br/>{{reward.template}}
 
 
   location:
