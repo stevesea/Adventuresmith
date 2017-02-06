@@ -712,8 +712,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             }
                                             positiveButton(getString(R.string.btn_rename)) {
                                                 val newGrpName = groupName.text.toString()
-                                                renameFavoriteGroup(favName, newGrpName)
-                                                updateFavGroupsInNavDrawer()
+                                                if (!newGrpName.isNullOrBlank()) {
+                                                    renameFavoriteGroup(favName, newGrpName)
+                                                    updateFavGroupsInNavDrawer()
+                                                }
                                             }
                                         }
                                     }
@@ -732,8 +734,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         }
                                         positiveButton(getString(R.string.btn_create)) {
                                             val newGrpName = groupName.text.toString()
-                                            addFavoriteGroup(newGrpName)
-                                            updateFavGroupsInNavDrawer()
+                                            if (!newGrpName.isNullOrBlank()) {
+                                                addFavoriteGroup(newGrpName)
+                                                updateFavGroupsInNavDrawer()
+                                            }
                                         }
                                     }
                                 }
