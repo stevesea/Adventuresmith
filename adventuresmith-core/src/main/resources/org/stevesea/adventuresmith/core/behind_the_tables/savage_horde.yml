@@ -1,0 +1,160 @@
+---
+templates:
+- "{{savage_horde.templates}}"
+
+nested_tables:
+  savage_horde:
+    templates:
+    - |
+      The barbarians are <strong>{{savage_horde.are}}</strong>
+      <br/>
+      <br/>The barbarians travel <strong>{{savage_horde.travel}}</strong>
+      <br/>
+      <br/>The barbarians value <strong>{{savage_horde.value}}</strong>
+      <br/>
+      <br/>The barbarians’ iconography features <strong>{{savage_horde.iconography}}</strong>
+      <br/>
+      <br/>The barbarians’ leader is <strong>{{savage_horde.leader}}</strong>
+      <br/>
+      <br/>The barbarians fear <strong>{{savage_horde.fear}}</strong>
+      <br/>
+      <br/>The barbarians are notorious for <strong>{{savage_horde.notorious}}</strong>
+      <br/>The barbarians are known for <strong>{{savage_horde.known}}</strong>
+      <br/>
+      <br/>The barbarians’ attitude is <strong>{{savage_horde.attitude}}</strong>
+
+    are:
+    - a tribe of nomads, following game.
+    - a tribe that began raiding after being displaced from their native lands.
+    - a clan exiled from their native lands.
+    - a clan in the service of a sovereign.
+    - a confederacy of related tribes or clans.
+    - the degenerate survivors of a broken army.
+    travel:
+    - on foot.
+    - on foot with small carts.
+    - on foot with mounted scouts.
+    - on mounts.
+    - on mounts with wagons.
+    - in small watercraft.
+    value:
+    - bravery.
+    - strength.
+    - wisdom.
+    - virility.
+    - honoring the gods.
+    - honoring their ancestors.
+    - battle-scars.
+    - kill counts.
+    iconography:
+    - symbols of death and destruction <em>({{savage_horde.death}})</em>
+    - symbols of the heavens <em>({{savage_horde.heavens}})</em>
+    - symbols of strength and weaponry <em>({{savage_horde.strength}})</em>
+    - totem beasts <em>({{savage_horde.beasts}})</em>
+    death:
+    - bats
+    - bones
+    - crows
+    - flames
+    - ghosts
+    - scorpions
+    - skulls
+    - vultures
+    heavens:
+    - clouds
+    - lightning
+    - moon
+    - snow
+    - stars
+    - sun
+    strength:
+    - arrows
+    - axes
+    - fists
+    - spears
+    - stones
+    - swords
+    beasts:
+    - bears
+    - boars
+    - eagles
+    - horses
+    - lions
+    - owls
+    - snakes
+    - wolves
+    leader:
+    - a well-respected chief.
+    - a charismatic warlord.
+    - a mysterious prophet.
+    - a descendent of an honored hero.
+    - a ruthless killer.
+    - a brutish thug.
+    - an impatient young warrior.
+    - a wise old man.
+    - a celebrated war hero.
+    - a prolific lover.
+    color:
+    - red
+    - gold
+    - green
+    - blue
+    - purple
+    - white
+    - black
+    - grey
+    race:
+    - dwarves
+    - elves
+    - goblinoids
+    - reptilian humanoids
+    phenomenon:
+    - blizzards
+    - earthquakes
+    - floods
+    - thunderstorms
+    - volcanoes
+    - typhoons
+
+    fear:
+    - foreigners wearing a particular color of clothing <em>({{savage_horde.color}})</em>
+    - foreigners armored in steel.
+    - foreigners with facial hair.
+    - foreign women.
+    - all foreigners.
+    - members of a particular race <em>({{savage_horde.race}})</em>
+    - a particular natural phenomenon <em>({{savage_horde.phenomenon}})</em>
+    - spellcasters.
+    - the gods.
+    - dragons.
+    notorious:
+    - never leaving survivors.
+    - feeding prisoners to wild beasts.
+    - tattooing or branding prisoners.
+    - scalping enemies.
+    - flaying enemies.
+    - raiding and burning villages.
+    - plundering merchant caravans.
+    - eating prisoners.
+    - claiming prisoners as slaves.
+    - taking prisoners as wives, concubines, or catamites.
+    known:
+    - screaming and shouting during battle.
+    - convening with ghosts and spirits.
+    - ritual animal sacrifice.
+    - ritual human sacrifice.
+    - ritualistic blood-letting.
+    - ritualistic sexual acts.
+    - eating unusual meats.
+    - prolific amounts of drinking.
+    - never cutting their hair.
+    - shaving their heads and bodies.
+    - never bathing.
+    - bathing and perfuming their bodies.
+    attitude:
+    - rowdy and festive.
+    - joyful and eager to fight.
+    - relaxed and carefree.
+    - frightened and suspicious.
+    - hostile and suspicious.
+    - hostile and eager to fight.

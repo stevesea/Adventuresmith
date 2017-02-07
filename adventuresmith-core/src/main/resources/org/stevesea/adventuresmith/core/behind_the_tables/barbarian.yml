@@ -1,0 +1,111 @@
+---
+templates:
+- "{{barbarian.template}}"
+
+nested_tables:
+  barbarian:
+    template:
+    - |
+      The warrior is armored in <strong>{{barbarian.armored}}</strong>
+      <br/>The warrior is wielding <strong>{{barbarian.wielding}}</strong>
+      <br/>
+      <br/>The warrior is also carrying <strong>{{barbarian.carrying}}</strong>
+      <br/>
+      <br/>The warrior fights with <strong>{{barbarian.fights}}</strong>
+      <br/>
+      <br/>The warrior is <strong>{{barbarian.is}}</strong>
+      <br/>
+      <br/>On the warrior’s face is <strong>{{barbarian.face}}</strong>
+      <br/>On the warrior’s body is <strong>{{barbarian.body}}</strong>
+
+
+    armored:
+    - nothing.
+    - tattered leather.
+    - blood-stained leather.
+    - boiled leather.
+    - the hides of scaly beasts.
+    - the hides of furry beasts.
+    - the hides of exotic beasts.
+    - armor taken from a fallen enemy.
+    wielding:
+    - a spear and a hunting knife.
+    - a spear and a shield.
+    - an exotic, curved blade.
+    - a huge, curved blade.
+    - an over-sized hammer.
+    - an enormous club.
+    - a greataxe.
+    - a battleaxe and a shield.
+    - several handaxes.
+    - a greatsword.
+    - a pair of long knives.
+    - a longspear and hunting knife.
+
+    carrying:
+    - several throwing spears.
+    - several throwing axes.
+    - many throwing knives.
+    - a shortbow.
+    - a longbow.
+    - a greatbow.
+    - a blowgun.
+    - several bolas.
+    fights:
+    - hit-and-run tactics.
+    - making a mad charge.
+    - relentless repeated blows.
+    - lots of taunts and jeers.
+    - never breaking eye contact.
+    - lots of head-butting.
+
+
+    is:
+    - a practiced hunter.
+    - a poorly-trained slave.
+    - a veteran of many wars.
+    - a mystical shaman.
+    - an expert scout.
+    - a master weaponcrafter.
+    - a superb herbalist.
+    - a beast handler.
+    - an insufferable braggart.
+    - a drunk.
+    - a favorite among the men.
+    - a favorite among the ladies.
+    face:
+    - a bone through a nose piercing.
+    - a bone earing.
+    - an empty eye socket.
+    - a grisly scar.
+    - a serious expression.
+    - a look of sadness.
+    - a carefree grin.
+    - a ruined nose.
+    - some terrifying war paint.
+    - a frame of long, beautiful long hair.
+    - an unruly beard.
+    - a long, braided mustache.
+    beast:
+    - bear
+    - boar
+    - dragon
+    - eagle
+    - lion
+    - wolf
+    weapon:
+    - arrow
+    - axe
+    - spear
+    - sword
+    body:
+    - a tattoo of a great beast <em>({{barbarian.beast}})</em>
+    - a tattoo of a skull and some bones.
+    - a tattoo of a weapon <em>({{barbarian.weapon}})</em>
+    - a festering wound.
+    - a noticeable battle scar.
+    - a large burn scar.
+    - a ceremonial brand.
+    - an intimidating amount of muscle.
+    - an awful lot of war paint.
+    - a whole lot of hair

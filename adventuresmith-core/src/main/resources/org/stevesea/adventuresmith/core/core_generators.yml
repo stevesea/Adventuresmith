@@ -75,6 +75,7 @@ generators:
   - assassin
   - assassin_guild
   - basic_dungeon
+  - barbarian
   - c_archer
   - c_armorer
   - c_bowyer
@@ -149,6 +150,8 @@ generators:
   - prison_explore
   - pub_names
   - robber
+  - savage_horde
+  - secret_society
   - sellsword
   - shopkeeper
   - smuggler
