@@ -1,0 +1,6 @@
+---
+templates:
+- "{{robbers.template}}"
+
+imports:
+- outlaw_band

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{smugglers.template}}"
+
+imports:
+- outlaw_band

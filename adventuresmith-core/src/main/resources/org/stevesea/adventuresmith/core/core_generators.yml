@@ -137,15 +137,19 @@ generators:
   - npc_personality
   - orc
   - orkish_clan
+  - outlaw_band
   - p_prisoner
   - p_guard
   - p_jailer
+  - poacher
   - prison
   - prison_encounter
   - prison_explore
   - pub_names
+  - robber
   - sellsword
   - shopkeeper
+  - smuggler
   - soldier
   - t_alchemist
   - t_criminal

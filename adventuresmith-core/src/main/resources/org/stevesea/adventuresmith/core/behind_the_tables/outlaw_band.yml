@@ -1,0 +1,267 @@
+---
+templates:
+- "{{outlaw_band.templates}}"
+
+nested_tables:
+  outlaw_band:
+    templates:
+    - |
+      The outlaw band’s primary “business” involves <strong>{{outlaw_band.business}}</strong>
+      <br/>
+      <br/>The outlaw band’s colors are <strong>{{outlaw_band.colors}}</strong>
+      <br/>The outlaw band’s symbol is <strong>{{outlaw_band.symbol}}</strong>
+      <br/>
+      <br/>The outlaw band’s leader is <strong>{{outlaw_band.leader}}</strong>
+      <br/>
+      <br/>The outlaw band’s members are primarily <strong>{{outlaw_band.members}}</strong>
+      <br/>
+      <br/>The outlaw band’s goals include <strong>{{outlaw_band.goals}}</strong>
+      <br/>
+      <br/>Members of the outlaw band typically arm themselves with <strong>{{outlaw_band.arm}}</strong>
+      <br/>
+      <br/>The outlaw band’s headquarters is hidden in or near <strong>{{outlaw_band.hq}}</strong>
+      <br/>
+      <br/>The outlaw band is feared or respected by <strong>{{outlaw_band.respected}}</strong>
+
+    drugs:
+    - smokeleaf
+    - hallucinogenic mushrooms
+    - sleepysalt (a downer)
+    - sharpsugar (an upper)
+    living_things:
+    - exotic beasts
+    - foreign harlots
+    - fugitives
+    - slaves
+    business:
+    - poaching from the sovereign's preserve or a prominent noble’s lands.
+    - harboring fugitives.
+    - harassing government officials and nobles who pass along the road.
+    - robbing caravans carrying gems, precious metals, and exotic goods.
+    - holding up incoming or outgoing ships or wagons.
+    - smuggling drugs <em>({{outlaw_band.drugs}})</em>
+    - smuggling rare antiquities.
+    - smuggling stolen goods.
+    - smuggling living things <em>({{outlaw_band.living_things}})</em>
+    - serving as muscle for shady merchants and/or brothel-keepers.
+    colors:
+    - black.
+    - gold.
+    - forest green.
+    - bronze.
+    - tan / khaki.
+    - brown / beaver.
+    - dark grey / gunmetal.
+    - maroon.
+    - dark brown / chocolate.
+    - olive green.
+    symbol:
+    - a skull.
+    - an arrow.
+    - a dagger.
+    - a goblet.
+    - the moon.
+    - a star.
+    - a snake.
+    - a badger.
+    - a spider.
+    - a rat.
+    - a wolf.
+    - a bear.
+    leader:
+    - a dangerous megalomaniac.
+    - a charismatic demagogue.
+    - a mysterious foreigner.
+    - a talented thief.
+    - a member of a prominent family.
+    - a ruthless killer.
+    - a femme fatale.
+    - a charming rogue.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    - a devoted priest.
+    - a well-known fugitive.
+    members:
+    - out-of-work artisans.
+    - displaced peasants.
+    - desperate peasants.
+    - escaped slaves.
+    - combat veterans.
+    - foreign refugees.
+    goals:
+    - domination of the region’s trade.
+    - sabotage of the region’s trade.
+    - revenge against a rival band of outlaws.
+    - revenge against the region’s elite.
+    - rebellion against the region’s elite.
+    - equality and freedom for all.
+    - a wealthy and peaceful retirement.
+    - violence to slake their bloodlust.
+    arm:
+    - wooden clubs.
+    - over-sized daggers.
+    - shortbows and arrows.
+    - longbows and arrows.
+    - daggers and crossbows.
+    - axes and knives.
+    - sticks and stones.
+    - shortswords.
+    - brass knuckles.
+    - daggers and sling shots.
+    hq:
+    - the residence of a prominent noble.
+    - the village’s market square.
+    - a wayside inn.
+    - a tavern.
+    - a brothel.
+    - an old lighthouse.
+    - an abandoned cabin.
+    - a waterfall.
+    - a cave.
+    - a dense forest.
+    respected:
+    - ambassadors and tax collectors.
+    - merchants and peddlers.
+    - politicians and magistrates.
+    - guards and sheriffs.
+    - soldiers and warriors.
+    - nobles and wealthy travelers.
+    - knights and loyalists.
+    - peasants and farmers.
+    - priests and sages.
+    - women and children.
+
+
+    feature:
+    - a flashy earring ring.
+    - shiny leather boots.
+    - a hole in the toe of one boot.
+    - a dagger in each boot.
+    - a mask on the face.
+    - a wide-brimmed hat.
+    - a dragon tattoo on the forearm.
+    - a flame tattoo around the arm.
+    - a maniacal laugh.
+    - a bent, broken nose.
+    - an open shirt and a very hairy chest.
+    - extravagant mustaches.
+
+  poacher:
+    template:
+    - |
+      The poachers’ favorite prey includes <strong>{{poacher.prey}}.</strong>
+      <br/>The poachers’ hunt <strong>{{poacher.prey}}</strong>
+      <br/>
+      <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
+    prey:
+    - bears
+    - "{{poachers.prey}}"
+    - boars
+    - "{{poachers.deer}}"
+    - "{{poachers.exotic}}"
+    - "{{poachers.game_birds}}"
+    - "{{poachers.waterfowl}}"
+    - "{{poachers.small_beasts}}"
+    - "{{poachers.small_predators}}"
+    - wolves
+    prey:
+    - eagles
+    - falcons
+    - hawks
+    - owls
+    deer:
+    - elk
+    - harts
+    - moose
+    - stags
+    exotic:
+    - behemoths
+    - elephants
+    - griffons
+    - hippogriffs
+    - lions
+    - owl bears
+    - tigers
+    - wyverns
+    game_birds:
+    - doves
+    - grouses
+    - partridges
+    - pheasants
+    - quails
+    - turkeys
+    waterfowl:
+    - ducks
+    - geese
+    - herons
+    - puffins
+    - snipes
+    - swans
+    small_beasts:
+    - beavers
+    - ermines
+    - otters
+    - raccoons
+    - sables
+    - skunks
+    small_predators:
+    - badgers
+    - coyotes
+    - foxes
+    - wolverines
+
+    hunt:
+    - for sport.
+    - to feed their families.
+    - to feed the impoverished peasants.
+    - to exact revenge on the landowner.
+    - to sell the beasts’ meat.
+    - to sell the beasts’ pelts.
+
+  robbers:
+    template:
+    - |
+      The robbers typically strike with <strong>{{robbers.strike}}.</strong>
+      The robbers are notorious for <strong>{{robbers.notorious}}.</strong>
+      <br/>
+      <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
+
+    strike:
+    - swarm tactics.
+    - hit-and-run tactics.
+    - ambush tactics.
+    - choreographed maneuvers.
+    - unpredictable maneuvers.
+    - lots of fancy footwork.
+    notorious:
+    - never leaving survivors.
+    - branding captives.
+    - scalping captives.
+    - burning wagons and ships.
+    - using explosives.
+    - romantic escapades.
+    - singing bawdy songs.
+    - drinking too much ale.
+  smugglers:
+    template:
+    - |
+      The smuggling ring's primary modus operandi involves <strong>{{smugglers.operandi}}.</strong>
+      <br/>The ring is supported by <strong>{{smugglers.supported}}.</strong>
+      <br/>
+      <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
+    operandi:
+    - underground tunnels.
+    - secret compartments.
+    - stealth watercraft.
+    - humanoid mules.
+    - bribery of officials.
+    - a network of safehouses.
+    supported:
+    - a prominent merchant.
+    - an important minister or magistrate.
+    - a major crime boss.
+    - a pirate captain.
+    - an admiral.
+    - a group of subversives.
+    - the captain of the guard or a local sheriff.
+    - the sovereign’s main rival.

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{poacher.template}}"
+
+imports:
+- outlaw_band
