@@ -95,6 +95,8 @@ data class GeneratorMetaDto(val name: String,
         return ComparisonChain.start()
                 .compare(priority, other.priority)
                 .compare(name, other.name)
+                .compare(collectionId, other.collectionId)
+                .compare(groupId, other.groupId)
                 .result()
     }
 }
@@ -114,6 +116,7 @@ data class CollectionMetaDto(val url: String? = null,
         return ComparisonChain.start()
                 .compare(priority, other.priority)
                 .compare(name, other.name)
+                .compare(id, other.id)
                 .result()
     }
 }
