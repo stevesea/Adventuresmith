@@ -95,18 +95,36 @@
         <br/>
         <p>James D`Amato, Kat Kuhl, and others at http://oneshotpodcast.com/ — thank you for re-invigorating my love of RPGs! </p>
     ]]></string>
+    <string name="about_help"><![CDATA[
+    <h1>Help</h1>
+    <h3>Enhancements & Bugs</h3>
+    <p>To request enhancements or report problems, please visit
+    <br/><br/>https://stevesea.github.io/Adventuresmith/</p>
+    <h3>Usage</h3>
+    <h5>Sharing Results</h5>
+    <p>Long-click on one or more result items to select them, click the share button.</p>
+    <h5>Favorites</h5>
+    <p>Long-click on a blue generator button to add it to favorites</p>
+    <p>Long-click on `Favorites` expandable item in nav drawer to create new favorite groups</p>
+    <p>Long-click on favorite group in nav drawer to rename it</p>
+    <p>Long-click on an empty favorite group in nav drawer to remove it</p>
+    <p>Long-click on a favorite-button to remove it from the currently displayed favorite group</p>
+    <h5>Generate Many</h5>
+    <p>In the nav drawer, click the `Generate Many Results` switch to generate more than one result
+    with each click of a generator button.</p>
+    <p>If you long-click on `Generate Many Results`, you can select how many results to generate each time</p>
+    <h3>Advanced Usage</h3>
+    <p>If you are interested in creating generators, adding translations, or want to run
+    Adventuresmith on the desktop, check out the wiki:
+    <br/><br/>
+    https://github.com/stevesea/Adventuresmith/wiki</p>
+    ]]></string>
 
     <string name="about_app"><![CDATA[
     <h1>Adventuresmith</h1>
     <p>Version:</strong> %1$s (%2$d)</p>
     <p>Adventuresmith is written and maintained by <strong>Steve Christensen</strong>.</p>
     <p>Adventuresmith is an open source application, licensed under GPL v3.0 https://opensource.org/licenses/GPL-3.0</p>
-    <p>If you are interested in creating generators, adding translations, or want to run
-    Adventuresmith on the desktop, check out the wiki:
-    <br/><br/>
-    https://github.com/stevesea/Adventuresmith/wiki</p>
-    <p>To request enhancements or report problems, please visit
-    <br/><br/>https://stevesea.github.io/Adventuresmith/</p>
     ]]></string>
     <string name="about_thirdparty"><![CDATA[
     <h1>Thirdparty software libraries</h1>

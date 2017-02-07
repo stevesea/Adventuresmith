@@ -12,7 +12,7 @@
 
     <string name="nav_other">Other</string>
     <string name="nav_thanks">Attribution &amp; Thanks</string>
-    <string name="nav_about">About</string>
+    <string name="nav_about">Help &amp; About</string>
     <string name="nav_favs">Favorites</string>
 
     <string name="fav_add_to_group">Add Favorite to Group</string>
