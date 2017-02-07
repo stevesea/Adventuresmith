@@ -1,0 +1,37 @@
+---
+templates:
+- "{{pirate.template}}"
+
+nested_tables:
+  pirate:
+    template:
+    - |
+      The pirate has <strong>{{pirate.tattoo}}</strong>
+      <br/>The pirate has <strong>{{pirate.feature}}</strong>
+
+    tattoo:
+    - a dagger tattoo.
+    - an anchor tattoo.
+    - a skull tattoo.
+    - a pair of crossed bones tattoo.
+    - a snake tattoo.
+    - a fish tattoo.
+    - a spider web tattoo.
+    - an octopus tattoo.
+    - a whale tattoo.
+    - a lobster tattoo.
+    - a mermaid tattoo.
+    - a dragon tattoo.
+    feature:
+    - a nose ring.
+    - shiny leather boots.
+    - gold teeth.
+    - an oversized dagger in the belt.
+    - a heavy gold chain around the neck.
+    - a wide-brimmed hat.
+    - an eyepatch.
+    - a long black beard.
+    - a maniacal laugh.
+    - a long, hooked nose.
+    - an open shirt and a very hairy chest.
+    - extravagant mustaches.

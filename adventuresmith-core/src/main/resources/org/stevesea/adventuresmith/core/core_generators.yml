@@ -138,9 +138,11 @@ generators:
   - orc
   - orkish_clan
   - outlaw_band
-  - p_prisoner
   - p_guard
   - p_jailer
+  - p_prisoner
+  - pirate
+  - pirate_crew
   - poacher
   - prison
   - prison_encounter

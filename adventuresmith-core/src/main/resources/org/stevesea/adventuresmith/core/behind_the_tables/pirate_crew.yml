@@ -1,0 +1,174 @@
+---
+templates:
+- "{{pirate_crew.templates}}"
+
+nested_tables:
+  pirate_crew:
+    templates:
+    - |
+      The pirates' ship is <strong>{{pirate_crew.ship}}</strong>
+      <br/>
+      <br/>Presently, the pirates’ ship is <strong>{{pirate_crew.presently}}</strong>
+      <br/>
+      <br/>The ship's banner features <strong>{{pirate_crew.banner}}</strong>
+      <br/>
+      <br/>The ship's mascot is <strong>{{pirate_crew.mascot}}</strong>
+      <br/>
+      <br/>The ship's captain is <strong>{{pirate_crew.captain}}</strong>
+      <br/>
+      <br/>The crew's attitude toward their captain is <strong>{{pirate_crew.crew}}</strong>
+      <br/>
+      <br/>Crewmembers often sport matching <strong>{{pirate_crew.matching}}</strong>
+      <br/>
+      <br/>The crew's goals include <strong>{{pirate_crew.goals}}</strong>
+      <br/>
+      <br/>Crewmembers typically arm themselves with <strong>{{pirate_crew.arm}}</strong>
+      <br/>
+      <br/>The pirate crew typically fights with <strong>{{pirate_crew.fights}}</strong>
+      <br/>
+      <br/>The crew's headquarters is hidden in or near <strong>{{pirate_crew.hq}}</strong>
+      <br/>
+      <br/>The crew is notorious for <strong>{{pirate_crew.notorious}}</strong>
+
+    ship:
+    - little more than a raft.
+    - a galley.
+    - a longship.
+    - a catamaran.
+    - a cog.
+    - a hulk.
+    - a carrack.
+    - a caravel.
+    - a schooner.
+    - a dreadnought.
+    presently:
+    - laden with treasure.
+    - full of stolen goods.
+    - well-stocked with provisions.
+    - in tip-top shape.
+    - “on loan” to some other pirates.
+    - in need of repair.
+    - barely staying afloat.
+    - resting beneath the waves.
+    banner:
+    - a skull.
+    - a pair of crossed bones.
+    - a skull and cross bones.
+    - a skeletal hand.
+    - a skeletal fish.
+    - a flaming skull.
+    - a clenched fist.
+    - a ghost.
+    - a mermaid.
+    - a pair of crossed cutlasses.
+    - a dagger.
+    - a bloody dagger.
+    - an albatross.
+    - a pelican.
+    - a whale.
+    - an octopus.
+    - a swordfish.
+    - a crab.
+    - a sea turtle.
+    - a big tuna.
+    mascot:
+    - a budgie (fond of saying "ye scalawags!" or "aye, captain!").
+    - a cockatoo (fond of saying "pieces of eight!" or "it's shark week!").
+    - a conure (fond of saying "dead men tell no tales!" or "ahoy!").
+    - a macaw (fond of saying "show me the booty!" or "land, ho!").
+    - a capuchin monkey (with or without an eyepatch).
+    - a macaque (with or without a vest).
+    - a spider monkey (with or without a bandanna).
+    - a tamarin (with or without mustaches).
+    - an old turtle.
+    - a lazy sea-faring cat.
+    - a pot-belly pig.
+    - a high-energy herding dog.
+    captain:
+    - a dangerous megalomaniac.
+    - a charismatic demagogue.
+    - a mysterious foreigner.
+    - a talented thief.
+    - a member of a prominent family.
+    - a ruthless killer.
+    - a femme fatale.
+    - a charming rogue.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    - an old sailor.
+    - a celebrated naval hero.
+    crew:
+    - adoring and loyal.
+    - friendly and pleased.
+    - respectful and business-like.
+    - mercenary and eager.
+    - terrified and tight-lipped.
+    - disappointed and indifferent.
+    - restless and rebellious.
+    - angry and mutinous.
+    matching:
+    - puffy shirts.
+    - breeches.
+    - scarves.
+    - vests.
+    - bandannas.
+    - boots.
+    - tattoos.
+    - hats.
+    - scars.
+    - mustaches.
+    goals:
+    - discovery of a legendary hidden treasure.
+    - domination of the region's maritime trade.
+    - revenge against a naval hero.
+    - revenge against a rival pirate crew.
+    - rebellion against the dominant merchant traders.
+    - a wealthy and peaceful retirement.
+    - violence to slake their bloodlust.
+    - drinking all the rum.
+    arm:
+    - belaying pins (wooden clubs).
+    - throwing knives.
+    - over-sized daggers.
+    - serrated daggers.
+    - cutlasses.
+    - clubs and daggers.
+    - brass knuckles.
+    - bare fists.
+    - nets and tridents.
+    - harpoons.
+    fights:
+    - swarm tactics.
+    - hit-and-run tactics.
+    - ambush tactics.
+    - choreographed maneuvers.
+    - unpredictable maneuvers.
+    - lots of smiles and jokes.
+    - lots of fancy footwork.
+    - lots of screaming and shouting.
+    - kicking and stomping.
+    - lots of head-butting.
+    hq:
+    - a rugged seaside cliff.
+    - a hidden lagoon.
+    - a remote island.
+    - a swampy river mouth.
+    - a coastal cave.
+    - a tavern.
+    - a brothel.
+    - a warehouse or shipyard.
+    - a poor fishing village
+    - an old lighthouse.
+    notorious:
+    - never leaving survivors.
+    - feeding captives to sharks.
+    - tattooing or branding captives.
+    - scalping captives.
+    - flaying captives.
+    - burning seaside villages.
+    - plundering the ships of a wealthy tyrant.
+    - using a lot of explosives.
+    - convening with ghosts.
+    - romantic escapades.
+    - singing bawdy songs.
+    - drinking too much rum.
