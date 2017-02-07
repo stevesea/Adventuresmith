@@ -158,7 +158,7 @@ object AdventuresmithCli : KLoggable {
             logger.error(e.message)
             System.exit(1)
         } catch ( e: Exception) {
-            logger.error(e.message, e)
+            logger.error(e.message.orEmpty(), e)
             System.exit(1)
         }
     }
