@@ -28,6 +28,7 @@
     card_view:cardElevation="4dp"
     card_view:cardPreventCornerOverlap="false"
     card_view:cardUseCompatPadding="true"
+    card_view:contentPadding="4dp"
     >
 
     <TextView

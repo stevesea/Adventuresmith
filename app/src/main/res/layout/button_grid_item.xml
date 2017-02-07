@@ -26,15 +26,17 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    card_view:cardCornerRadius="8dp"
+    card_view:cardBackgroundColor="@color/colorAccent"
+    card_view:cardCornerRadius="4dp"
     card_view:cardElevation="4dp"
     card_view:cardPreventCornerOverlap="false"
     card_view:cardUseCompatPadding="true"
-    card_view:cardBackgroundColor="@color/colorAccent"
+    card_view:contentPadding="1dp"
     >
 
     <TextView
         android:id="@+id/btn_txt"
+        android:textSize="@dimen/buttonFontSize"
         android:textAllCaps="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
