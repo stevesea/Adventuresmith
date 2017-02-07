@@ -25,6 +25,8 @@ import android.os.*
 import android.support.multidex.*
 import android.text.*
 import com.crashlytics.android.*
+import com.crashlytics.android.answers.Answers
+import com.crashlytics.android.answers.CustomEvent
 import com.crashlytics.android.core.*
 import com.google.common.base.Stopwatch
 import com.squareup.leakcanary.*
@@ -32,6 +34,7 @@ import io.fabric.sdk.android.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.AdventuresmithCore
+import java.util.concurrent.TimeUnit
 
 class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
@@ -42,6 +45,18 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
     override fun onCreate() {
         super.onCreate()
         debug("App Started: ${AdventuresmithApp.watch}")
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this)
+
+        val crashlyticsKit = Crashlytics.Builder()
+                .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .build()
+        Fabric.with(this, crashlyticsKit)
 
         // doing this asynchronously didn't seem to have a huge effect on startup time.
         // still took ~4secs until app was ready-to-use.
@@ -56,24 +71,16 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         // by blocking here. Maybe look at this again after adding more generators.
 
         //doAsync {
-            val stopwatch = Stopwatch.createStarted()
-            AdventuresmithCore.initCaches()
-            stopwatch.stop()
-            debug("loading core generators took ${stopwatch} (time since app start: ${AdventuresmithApp.watch})")
+        val stopwatch = Stopwatch.createStarted()
+        AdventuresmithCore.initCaches()
+        stopwatch.stop()
+        debug("loading core generators took ${stopwatch} (time since app start: ${AdventuresmithApp.watch})")
         //}
 
+        Answers.getInstance().logCustom(CustomEvent("App.InitCaches")
+                .putCustomAttribute("initCaches elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+        )
 
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this)
-
-        val crashlyticsKit = Crashlytics.Builder()
-                .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
-                .build()
-        Fabric.with(this, crashlyticsKit)
 
         debug("App onCreate done: ${AdventuresmithApp.watch}")
     }
