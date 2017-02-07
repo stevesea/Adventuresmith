@@ -49,7 +49,7 @@ class GeneratorButton(val generator: Generator,
     override fun bindView(holder: ViewHolder?, payloads: MutableList<Any?>?) {
         super.bindView(holder, payloads)
 
-        holder!!.btnText.text = name
+        holder!!.btnText.text = htmlStrToSpanned(name)
     }
 
     class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
