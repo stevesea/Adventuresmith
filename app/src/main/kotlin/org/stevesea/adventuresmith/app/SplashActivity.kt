@@ -30,10 +30,11 @@ class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        AdventuresmithCore.initCaches()
+        debug("SplashActivity Started: ${AdventuresmithApp.watch}")
 
         val intent = Intent(this, AdventuresmithActivity::class.java)
         startActivity(intent)
         finish()
+        debug("SplashActivity finished: ${AdventuresmithApp.watch}")
     }
 }

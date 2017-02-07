@@ -26,16 +26,43 @@ import android.support.multidex.*
 import android.text.*
 import com.crashlytics.android.*
 import com.crashlytics.android.core.*
+import com.google.common.base.Stopwatch
 import com.squareup.leakcanary.*
 import io.fabric.sdk.android.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.BuildConfig
+import org.stevesea.adventuresmith.core.AdventuresmithCore
 
 class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
+    companion object {
+        val watch = Stopwatch.createStarted()
+    }
+
     override fun onCreate() {
         super.onCreate()
-        info("creating app")
+        debug("App Started: ${AdventuresmithApp.watch}")
+
+        // doing this asynchronously didn't seem to have a huge effect on startup time.
+        // still took ~4secs until app was ready-to-use.
+        // this is async, but nav-drawer is waiting on the same lazy property
+        //
+        // another approach is to async-load the coll+group cache via initCaches
+        // after the nav drawer is created. that way, there isn't the blocked
+        // waiting for the lazy-property. That did result in the main activity
+        // drawing earlier, but the app wasn't usable for another second.
+        //
+        // Seems like the simplest thing to do is just do this initialization
+        // by blocking here. Maybe look at this again after adding more generators.
+
+        //doAsync {
+            val stopwatch = Stopwatch.createStarted()
+            AdventuresmithCore.initCaches()
+            stopwatch.stop()
+            debug("loading core generators took ${stopwatch} (time since app start: ${AdventuresmithApp.watch})")
+        //}
+
+
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -47,6 +74,8 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
                 .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
                 .build()
         Fabric.with(this, crashlyticsKit)
+
+        debug("App onCreate done: ${AdventuresmithApp.watch}")
     }
 }
 

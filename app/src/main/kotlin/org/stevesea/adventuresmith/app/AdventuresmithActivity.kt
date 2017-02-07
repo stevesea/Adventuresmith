@@ -32,6 +32,7 @@ import android.text.InputType.*
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
+import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -481,7 +482,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         drawerIdToGroup.clear()
         favoriteIdToName.clear()
 
+        val stopwatch = Stopwatch.createStarted()
         val generatorCollections = AdventuresmithCore.getCollections(locale)
+        stopwatch.stop()
+        debug("Loading nav drawer done. took ${stopwatch} (since app start: ${AdventuresmithApp.watch})")
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
@@ -616,6 +620,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        debug("AdventuresmithActivity Started: ${AdventuresmithApp.watch}")
 
         setContentView(R.layout.activity_adventuresmith)
 
