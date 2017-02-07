@@ -96,7 +96,7 @@ data class GeneratorMetaDto(val name: String,
                 .compare(priority, other.priority)
                 .compare(name, other.name)
                 .compare(collectionId, other.collectionId)
-                .compare(groupId, other.groupId)
+                .compare(groupId.orEmpty(), other.groupId.orEmpty())
                 .result()
     }
 }
