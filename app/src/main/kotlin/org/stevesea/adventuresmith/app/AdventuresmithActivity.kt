@@ -863,19 +863,23 @@ class AdventuresmithActivity : AppCompatActivity(),
             doAsync {
                 val generators : Map<GeneratorMetaDto, Generator> =
                         if (collGrp != null) {
+                            debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
                             AdventuresmithCore.getGeneratorsByGroup(
                                     getCurrentLocale(resources),
                                     collGrp.collectionId,
                                     collGrp.groupId
                             )
                         } else if (favName != null) {
+                            val favs = getFavorites(favName)
+                            debug("favorites: $favs")
                             AdventuresmithCore.getGeneratorsByIds(
                                     getCurrentLocale(resources),
-                                    getFavorites(favName)
+                                    favs
                                     )
                         } else {
                             mapOf()
                         }
+                debug("Discovered generators: ${generators.keys}")
                 uiThread {
                     buttonAdapter.clear()
                     for (g in generators) {
