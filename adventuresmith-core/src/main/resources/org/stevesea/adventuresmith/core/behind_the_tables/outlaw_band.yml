@@ -222,7 +222,7 @@ nested_tables:
     template:
     - |
       The robbers typically strike with <strong>{{robbers.strike}}.</strong>
-      The robbers are notorious for <strong>{{robbers.notorious}}.</strong>
+      <br/>The robbers are notorious for <strong>{{robbers.notorious}}.</strong>
       <br/>
       <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
 
