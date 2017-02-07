@@ -15,7 +15,7 @@ androidGitVersion {
 
 ext {
     androidSupportVersion = '25.1.0'
-    ankoVersion = '0.9'
+    ankoVersion = '0.9.1'
 }
 
 android {
