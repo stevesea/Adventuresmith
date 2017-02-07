@@ -54,6 +54,7 @@ import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
 import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.text.*
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 data class CollectionAndGroup(val collectionId: String,
@@ -180,6 +181,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val currentLocale = getCurrentLocale(resources)
 
                         doAsync {
+                            val stopwatch = Stopwatch.createStarted()
                             val resultItems : MutableList<String> = mutableListOf()
                             for (i in 1..num_to_generate) {
                                 try {
@@ -193,6 +195,14 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     )
                                 }
                             }
+                            stopwatch.stop()
+
+                            Answers.getInstance().logCustom(
+                                    CustomEvent("Generate")
+                                            .putCustomAttribute("Num", num_to_generate)
+                                            .putCustomAttribute("ElapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+                            )
+
                             uiThread {
                                 // disable filter before adding any results
                                 if (currentFilter != null) {
