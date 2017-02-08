@@ -1091,6 +1091,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpNPCsCastleDungeon" -> CommunityMaterial.Icon.cmd_castle
                         "grpNPCsCavern" -> CommunityMaterial.Icon.cmd_fire
                         "grpNPCsTown" -> CommunityMaterial.Icon.cmd_home
+                        "grpNPCsTownLaw" -> CommunityMaterial.Icon.cmd_home
+                        "grpNPCsTownMerchant" -> CommunityMaterial.Icon.cmd_home
                         "grpNPCsWild" -> CommunityMaterial.Icon.cmd_pine_tree
 
                         else -> CommunityMaterial.Icon.cmd_reddit

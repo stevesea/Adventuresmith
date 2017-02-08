@@ -22,6 +22,8 @@ groups:
   grpNPCsCastleDungeon: NPCs / Castle Dungeon
   grpNPCsCavern: NPCs / Cavern
   grpNPCsTown: NPCs / Town
+  grpNPCsTownLaw: NPCs / Town Law & Order
+  grpNPCsTownMerchant: NPCs / Town Merchant
   grpNPCsWild: NPCs / Wilderness
 attribution: |
   /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
