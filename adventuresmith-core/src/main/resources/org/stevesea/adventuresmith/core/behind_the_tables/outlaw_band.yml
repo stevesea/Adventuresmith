@@ -149,8 +149,8 @@ nested_tables:
   poacher:
     template:
     - |
-      The poachers’ favorite prey includes <strong>{{poacher.prey}}.</strong>
-      <br/>The poachers’ hunt <strong>{{poacher.prey}}</strong>
+      The poachers’ favorite prey includes <strong>{{poacher.prey}}</strong>
+      <br/>The poachers hunt <strong>{{poacher.prey}}</strong>
       <br/>
       <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
     prey:
@@ -221,8 +221,8 @@ nested_tables:
   robbers:
     template:
     - |
-      The robbers typically strike with <strong>{{robbers.strike}}.</strong>
-      <br/>The robbers are notorious for <strong>{{robbers.notorious}}.</strong>
+      The robbers typically strike with <strong>{{robbers.strike}}</strong>
+      <br/>The robbers are notorious for <strong>{{robbers.notorious}}</strong>
       <br/>
       <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
 
@@ -245,8 +245,8 @@ nested_tables:
   smugglers:
     template:
     - |
-      The smuggling ring's primary modus operandi involves <strong>{{smugglers.operandi}}.</strong>
-      <br/>The ring is supported by <strong>{{smugglers.supported}}.</strong>
+      The smuggling ring's primary modus operandi involves <strong>{{smugglers.operandi}}</strong>
+      <br/>The ring is supported by <strong>{{smugglers.supported}}</strong>
       <br/>
       <br/>The outlaw has <strong>{{outlaw_band.feature}}</strong>
     operandi:

@@ -155,7 +155,7 @@ nested_tables:
     - the clatter of rocks falling.
     - loose stones underfoot.
     - an unstable ceiling.
-    - a distant sound — <em>{{cavern_explore.distant_sound}}.</em>
+    - a distant sound — <em>{{cavern_explore.distant_sound}}</em>
     - the name of a previous traveler carved into a wall.
     - several ancient runes carved into the wall.
     distant_sound:
