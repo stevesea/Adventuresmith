@@ -180,7 +180,7 @@ nested_tables:
     template:
     - |
       The gangmember has <strong>{{gang_member.feature}}</strong>
-      The gangmember has <strong>{{gang_member.tattoo}}</strong>
+      <br/>The gangmember has <strong>{{gang_member.tattoo}}</strong>
     feature:
     - a nose ring.
     - shiny leather boots.
