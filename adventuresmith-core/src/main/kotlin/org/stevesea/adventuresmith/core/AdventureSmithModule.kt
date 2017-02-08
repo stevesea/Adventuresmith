@@ -70,7 +70,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
             try {
                 generators.put(g, instance<Generator>(g))
             } catch (e : Exception) {
-                // TODO: log
+                logger.warn("problem loading generator", e)
             }
         }
         generators
@@ -119,33 +119,48 @@ object AdventuresmithCore : KodeinAware, KLoggable {
                     result.put(genMeta, it)
                 }
             } catch (e : Exception) {
-                // TODO: log
+                logger.warn("problem loading generator", e)
             }
         }
         return result.toSortedMap()
     }
 
 
-    // we have two lazy-init maps
+    // we have two lazy-init maps (which don't actually hold generator metadata/data)
     //   a map of genid -> generator
     //   and a map of collId/grpId -> list<generator>
+    // calling this during app startup ensures those maps have been initialized.
+    // otherwise, there was noticable lag the first time we try to traverse the generators.
+    // NOTE: we don't cache metadata, since locale might change during runtime
     fun initCaches() {
         for (g in groupedGenerators) {
             logger.debug { g.key }
         }
     }
 
+    fun getCollectionMetaData(collectionId: String, locale: Locale) : CollectionMetaDto {
+        val collMetaLoader = kodein.instance<CollectionMetaLoader>()
+        return collMetaLoader.load(collectionId, locale)
+    }
+
     fun getCollections(locale: Locale): Set<CollectionMetaDto> {
         val result: MutableSet<CollectionMetaDto> = mutableSetOf()
+
+        val alreadyLoadedIds : MutableSet<String> = mutableSetOf()
 
         val collMetaLoader = kodein.instance<CollectionMetaLoader>()
 
         for (gen in generators) {
             try {
                 val genMeta = gen.value.getMetadata(locale)
+                if (alreadyLoadedIds.contains(genMeta.collectionId)) {
+                    continue
+                }
+
                 result.add(collMetaLoader.load(genMeta.collectionId, locale))
+                alreadyLoadedIds.add(genMeta.collectionId)
             } catch (e: Exception) {
-                // TODO: log
+                logger.warn("problem loading collection metadata", e)
             }
         }
         return result.toSortedSet()
