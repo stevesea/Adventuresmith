@@ -1085,12 +1085,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                         "grpFactionsWild" -> CommunityMaterial.Icon.cmd_pine_tree
 
                         "NPCs" -> CommunityMaterial.Icon.cmd_account
+                        "grpNPCsAppPersMotiv" -> CommunityMaterial.Icon.cmd_face
                         "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle
                         "grpNPCsCastleCourt" -> CommunityMaterial.Icon.cmd_castle
                         "grpNPCsCastleDungeon" -> CommunityMaterial.Icon.cmd_castle
                         "grpNPCsCavern" -> CommunityMaterial.Icon.cmd_fire
                         "grpNPCsTown" -> CommunityMaterial.Icon.cmd_home
-                        "grpNPCsAppPersMotiv" -> CommunityMaterial.Icon.cmd_face
+                        "grpNPCsWild" -> CommunityMaterial.Icon.cmd_pine_tree
 
                         else -> CommunityMaterial.Icon.cmd_reddit
                     }
