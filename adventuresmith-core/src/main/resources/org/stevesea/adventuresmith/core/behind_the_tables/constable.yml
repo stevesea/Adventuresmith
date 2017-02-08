@@ -1,0 +1,6 @@
+---
+templates:
+- "{{constable.template}}"
+
+imports:
+- watchmen

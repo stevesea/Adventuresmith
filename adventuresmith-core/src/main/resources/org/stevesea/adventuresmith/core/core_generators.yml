@@ -107,6 +107,7 @@ generators:
   - castle_room
   - cavern_explore
   - caverns
+  - constable
   - crafting_guild
   - cult
   - cultist
@@ -174,6 +175,8 @@ generators:
   - tomb
   - tomb_explore
   - urban_gang
+  - watch_guard
+  - watchmen
   maze_rats:
   - mr01_afflictions
   - mr01_characters

@@ -1,0 +1,223 @@
+---
+templates:
+- "{{watchmen.templates}}"
+
+nested_tables:
+  constable:
+    template:
+    - |
+      The constable is <strong>{{constable.is}}</strong>
+      <br/>
+      <br/>The constable works for <strong>{{constable.for}}</strong>
+      <br/>
+      <br/>On the constable’s face is <strong>{{constable.face}}</strong>
+      <br/>
+      <br/>The constable carries <strong>{{constable.carries}}</strong>
+
+    is:
+    - a priest or monk.
+    - a stoic monk.
+    - a former soldier.
+    - a mysterious foreigner.
+    - a pompous windbag.
+    - an accomplished scholar.
+    - a violent drunk.
+    - a criminal lackey.
+    - a popular tavern patron.
+    - ruggedly handsome.
+    addiction:
+    - drinking
+    - gambling
+    - harlots
+    - smoking
+    for:
+    - the steady pay.
+    - a chance to bring evil-doers to justice.
+    - gold to repay debts.
+    - gold to support his addiction <em>({{constable.addiction}})</em>
+    - the joy of solving mysteries.
+    - a chance for vengeance.
+    face:
+    - a scar from a burn.
+    - a jagged scar.
+    - a hard-set jaw.
+    - a friendly grin.
+    - a faraway look.
+    - a furrowed brow.
+    - a pair of piercing eyes.
+    - a broken nose.
+    - bushy eyebrows.
+    - unshaven stubble.
+    - a neatly-trimmed beard.
+    - an intimidating mustache.
+    hilt:
+    - ivory
+    - jade
+    - soapstone
+    - ebony
+    - mahogany
+    - oak
+    guard:
+    - dragons
+    - lions
+    - scorpions
+    - snakes
+    - spiders
+    - wolves
+    carries:
+    - a magnifying lens.
+    - a blade with a carved <em>{{constable.hilt}}</em> hilt
+    - a blade with <em>{{constable.guard}}</em> sculpted into the steel of the guard
+    - a blade made of blackened steel.
+    - an unusual hat.
+    - a clue from an unsolved crime.
+    - a token from a lost love.
+    - props for several disguises.
+    - alchemical reference manual.
+    - a pocket-sized almanac.
+  watch_guard:
+    template:
+    - |
+      The guard is <strong>{{watch_guard.is}}</strong>
+      <br/>
+      <br/>The guard works for <strong>{{watch_guard.works}}</strong>
+      <br/>
+      <br/>On the guard’s face is <strong>{{watch_guard.face}}</strong>
+      <br/>
+      <br/>The guard carries <strong>{{watch_guard.carries}}</strong>
+    is:
+    - a farm boy.
+    - the son of a miner or fisherman.
+    - a veteran of warfare.
+    - a foreigner.
+    - the son of a poor man.
+    - a drunk.
+    - a reformed criminal.
+    - a thug.
+    - a failed craftsman.
+    - a favorite among the ladies.
+    works:
+    - the steady pay.
+    - a chance to deal out sadistic punishment.
+    - gold to repay debts.
+    - gold to aid a family member.
+    - a chance to escape from life imprisonment.
+    - patriotic devotion.
+    face:
+    - a large wart.
+    - an unsightly scar.
+    - a look of determination.
+    - a foolish grin.
+    - a stupid stare.
+    - a look of confusion.
+    - a bulbous nose.
+    - bushy eyebrows.
+    - fearsome sideburns.
+    - an unruly beard.
+    - a neatly-trimmed mustache.
+    - a waxed mustache.
+    carries:
+    - a blade with soft leather tassels dangling from the pommel.
+    - a blade with an inscription.
+    - a highly polished blade.
+    - a token from a favorite harlot.
+    - a trophy from a criminal.
+    - a ribbon from a noble maiden.
+    - a silk handkerchief.
+    - a flask of wine.
+    - a lucky charm <em>({{constable.guard}})</em>
+    - a grocery list.
+    charm:
+    - rabbit’s foot
+    - old coin
+    - shiny coin
+    - four-leaf clover
+  watchmen:
+    templates:
+    - |
+      The watch’s colors are <strong>{{watchmen.colors}}</strong>
+      <br/>The watch’s symbol is <strong>{{watchmen.symbol}}</strong>
+      <br/>
+      <br/>The watch’s captain is <strong>{{watchmen.captain}}</strong>
+      <br/>The watch’s attitude toward their captain is <strong>{{watchmen.attitude}}</strong>
+      <br/>
+      <br/>The watch has a reputation for <strong>{{watchmen.reputation}}</strong>
+      <br/>
+      <br/>Most members of the watch are outfitted with <strong>{{watchmen.outfitted}}</strong>
+      <br/>Most members of the watch are equipped with <strong>{{watchmen.equipped}}</strong>
+
+    colors:
+    - black.
+    - red / scarlet.
+    - gold.
+    - forest green.
+    - royal blue.
+    - silver / light grey.
+    - brown / beaver.
+    - white.
+    - maroon.
+    - sky blue.
+    - navy blue.
+    - dark brown / chocolate.
+    symbol:
+    - a flame.
+    - a gauntlet.
+    - a shield.
+    - a sword.
+    - the sun.
+    - an eye.
+    - an eagle.
+    - an owl.
+    - a dragon.
+    - a lion.
+    - a raven.
+    - a wolf.
+    captain:
+    - a religious zealot.
+    - a scion from a prominent family.
+    - an outcast from a prominent family.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    - a celebrated war hero.
+    - an anointed knight.
+    - a career soldier.
+    - a grizzled veteran.
+    - an adept investigator.
+    - an erudite detective.
+    - a devoted public servant.
+    attitude:
+    - friendly and loyal.
+    - respectful and business-like.
+    - completely indifferent.
+    - cautious and uncertain.
+    - terrified and tight-lipped.
+    - disappointed and disrespectful.
+    reputation:
+    - high morals.
+    - efficiency.
+    - reliability.
+    - brutality.
+    - taking bribes.
+    - shaking down shopkeepers and artisans.
+    - frequenting brothels.
+    - cowardice.
+    - incompetence.
+    - intoxication.
+    outfitted:
+    - rough-spun wool cloaks.
+    - whatever armor they can find.
+    - leather armor marked with the symbol of the watch.
+    - leather armor marked with the symbol of their city or lord.
+    - helms and breastplates emblazoned with the symbol of their city or lord.
+    - well-maintained chainmail.
+    equipped:
+    - longswords and shortbows.
+    - longswords and crossbows.
+    - longswords and shields.
+    - shortswords and shields.
+    - maces and crossbows.
+    - maces and shields.
+    - maces and daggers.
+    - pikes and shortswords.
+    - halberds and daggers.
+    - halberds and crossbows.

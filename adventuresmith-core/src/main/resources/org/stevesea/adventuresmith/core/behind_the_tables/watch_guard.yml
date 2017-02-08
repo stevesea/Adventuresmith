@@ -1,0 +1,6 @@
+---
+templates:
+- "{{watch_guard.template}}"
+
+imports:
+- watchmen
