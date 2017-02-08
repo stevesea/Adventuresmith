@@ -199,8 +199,9 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                             Answers.getInstance().logCustom(
                                     CustomEvent("Generate")
-                                            .putCustomAttribute("Num", num_to_generate)
+                                            .putCustomAttribute("NumGenerated", num_to_generate)
                                             .putCustomAttribute("ElapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+                                            .putCustomAttribute("GeneratorId", item.generator.getId())
                             )
 
                             uiThread {
@@ -219,13 +220,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     resultAdapter.filter(currentFilter)
                                 }
                                 debug("Number of items ${resultAdapter.adapterItemCount}")
-
-                                Answers.getInstance().logCustom(
-                                        CustomEvent("Generated Result")
-                                                .putCustomAttribute("CollectionId", item.meta.collectionId)
-                                                .putCustomAttribute("GroupId", "${item.meta.groupId}")
-                                                .putCustomAttribute("Name", item.meta.name)
-                                )
                             }
                         }
                         return true
