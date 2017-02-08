@@ -1,0 +1,209 @@
+---
+templates:
+- "{{urban_gang.templates}}"
+
+nested_tables:
+  urban_gang:
+    templates:
+    - |
+      The gang's money-making schemes include <strong>{{urban_gang.schemes}}</strong>
+      <br/>
+      <br/>The gang's colors are <strong>{{urban_gang.colors}}</strong>
+      <br/>The gang's symbol is <strong>{{urban_gang.symbol}}</strong>
+      <br/>
+      <br/>Gangmembers often sport matching <strong>{{urban_gang.matching}}</strong>
+      <br/>
+      <br/>The gang's leader is <strong>{{urban_gang.leader}}</strong>
+      <br/>
+      <br/>For recruitment, the gang targets individuals who are <strong>{{urban_gang.recruitment}}</strong>
+      <br/>
+      <br/>The gang's goals include <strong>{{urban_gang.goals}}</strong>
+      <br/>
+      <br/>Gangmembers typically arm themselves with <strong>{{urban_gang.arm}}</strong>
+      <br/>Gangmembers typically fight with <strong>{{urban_gang.fight}}</strong>
+      <br/>
+      <br/>The gang's headquarters is hidden in or near <strong>{{urban_gang.hq}}</strong>
+      <br/>
+      <br/>The gang is feared or respected by <strong>{{urban_gang.feared}}</strong>
+
+    drugs:
+    - smokeleaf
+    - hallucinogenic mushrooms
+    - sleepysalt (a downer)
+    - sharpsugar (an upper)
+    brothel:
+    - exotic
+    - low-class
+    - high-class
+    schemes:
+    - distributing drugs <em>({{urban_gang.drugs}})</em>
+    - running heists of and/or fencing stolen gems and precious metals.
+    - petty theft, burglary, and/or pickpocketing.
+    - assassinations that look like accidents or that frame someone else.
+    - running <em>{{urban_gang.brothel}}</em> brothels
+    - shaking down legitimate local businesses and/or city officials.
+    - serving as muscle for shady merchants and/or brothel-keepers.
+    - holding up outgoing ships or wagons.
+    colors:
+    - black.
+    - red / scarlet.
+    - gold.
+    - forest green.
+    - royal blue.
+    - violet.
+    - silver / light grey.
+    - bronze.
+    - tan / khaki.
+    - brown / beaver.
+    - dark grey / gunmetal.
+    - white.
+    - maroon.
+    - sky blue.
+    - navy blue.
+    - dark brown / chocolate.
+    - teal / turquoise.
+    - steel / blue grey.
+    - orange.
+    - olive green.
+    symbol:
+    - a skull.
+    - a ghost.
+    - an open hand.
+    - a clenched fist.
+    - an arrow.
+    - a dagger.
+    - a sword.
+    - a hammer.
+    - a crown.
+    - a goblet.
+    - the moon.
+    - a star.
+    - a fish.
+    - a snake.
+    - a badger.
+    - a spider.
+    - a rat.
+    - a wolf.
+    - a bear.
+    - an eagle.
+    matching:
+    - shirts.
+    - jackets.
+    - scarves.
+    - vests.
+    - bandannas.
+    - boots.
+    - tattoos.
+    - hats.
+    - scars.
+    - mustaches.
+    leader:
+    - a dangerous megalomaniac.
+    - a charismatic demagogue.
+    - a mysterious foreigner.
+    - a talented thief.
+    - a well-known public figure.
+    - a ruthless killer.
+    - a femme fatale.
+    - a charming rogue.
+    - a dashing swashbuckler.
+    - a brutish thug.
+    recruitment:
+    - artisans.
+    - relocated peasants.
+    - sailors.
+    - drunks.
+    - beggars.
+    - thieves.
+    - servants and slaves.
+    - combat veterans.
+    - laborers.
+    - foreigners.
+    - young children.
+    - circus performers.
+    goals:
+    - domination of the city's politics.
+    - domination of the city's trade.
+    - revenge against a rival gang in the same city.
+    - revenge against a rival gang in another city.
+    - revenge against the city's elite.
+    - rebellion against the city's elite.
+    arm:
+    - wooden clubs.
+    - throwing knives.
+    - over-sized daggers.
+    - serrated daggers.
+    - daggers and crossbows.
+    - hammers and daggers.
+    - sticks and stones.
+    - shortswords.
+    - brass knuckles.
+    - bare fists.
+    fight:
+    - swarm tactics.
+    - hit-and-run tactics.
+    - ambush tactics.
+    - choreographed maneuvers.
+    - unpredictable maneuvers.
+    - lots of smiles and jokes.
+    - lots of fancy footwork.
+    - lots of screaming and shouting.
+    - kicking and stomping.
+    - lots of head-butting.
+    hq:
+    - the residence of the leader or a senior gangmember.
+    - an artisan's shop or guildhall.
+    - a merchant's office.
+    - a tavern.
+    - a brothel.
+    - a warehouse or shipyard.
+    - a temple complex.
+    - the city's sewers.
+    - the town hall.
+    - an abandoned guildhall or warehouse.
+    - a shantytown
+    - the residence of a wealthy individual.
+    feared:
+    - fishermen and sailors.
+    - beggars and thieves.
+    - merchants and moneychangers.
+    - jewelers and gemcutters.
+    - politicians and magistrates.
+    - guards and sheriffs.
+    - soldiers and warriors.
+    - gladiators and pugilists.
+    - peasants and farmers.
+    - servants and slaves.
+    - priests and sages.
+    - women and children.
+  gang_member:
+    template:
+    - |
+      The gangmember has <strong>{{gang_member.feature}}</strong>
+      The gangmember has <strong>{{gang_member.tattoo}}</strong>
+    feature:
+    - a nose ring.
+    - shiny leather boots.
+    - a hole in the toe of one boot.
+    - a dagger in each boot.
+    - a heavy gold chain around the neck.
+    - a wide-brimmed hat.
+    - a dagger tattoo on the forearm.
+    - a snake tattoo around the arm.
+    - a maniacal laugh.
+    - a long, hooked nose.
+    - an open shirt and a very hairy chest.
+    - extravagant mustaches.
+    tattoo:
+    - a dagger tattoo.
+    - an arrow tattoo.
+    - an anchor tattoo.
+    - a skull tattoo.
+    - a pair of crossed bones tattoo.
+    - a snake tattoo.
+    - a scorpion tattoo.
+    - a spider web tattoo.
+    - a heart tattoo.
+    - a ring of thorns tattoo.
+    - a mermaid tattoo.
+    - a dragon tattoo.

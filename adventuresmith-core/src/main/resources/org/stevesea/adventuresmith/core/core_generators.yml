@@ -118,6 +118,7 @@ generators:
   - encounters_idyllic_village
   - encounters_rotting_city
   - encounters_ship_sea
+  - gang_member
   - goblin
   - goblin_gang
   - mage_towers
@@ -172,6 +173,7 @@ generators:
   - trading_company
   - tomb
   - tomb_explore
+  - urban_gang
   maze_rats:
   - mr01_afflictions
   - mr01_characters

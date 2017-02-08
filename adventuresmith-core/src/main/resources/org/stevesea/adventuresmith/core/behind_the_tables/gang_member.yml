@@ -1,0 +1,6 @@
+---
+templates:
+- "{{gang_member.template}}"
+
+imports:
+- urban_gang
