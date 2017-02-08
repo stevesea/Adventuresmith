@@ -130,13 +130,15 @@ object LocaleAwareResourceFinder : KLoggable {
 /**
  * possibly premature optimization
  *    - i'm going to assume loading file resource, and deserializing into a DTO
- *      is a not-insignificant performance hit. This class caches the N most-recently accessed DTOs.
- *    - it's bound in Kodein as a singleton, so the cache is shared by many different generators
+ *      is a not-insignificant performance hit. This class caches the N most-recently
+ *      accessed DTOs.
+ *    - it's bound in Kodein as a singleton, so the cache is shared by many
+ *      different generators
  */
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
     val objectReader : ObjectReader = instance()
-    val maxSize = 100L
+    val maxSize = 150L
 
     val cache : Cache<Triple<String, String, Locale>, Any> = CacheBuilder.newBuilder()
             .maximumSize(maxSize)
