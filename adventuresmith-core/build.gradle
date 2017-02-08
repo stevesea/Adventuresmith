@@ -62,7 +62,6 @@ dependencies {
     compile 'me.sargunvohra.lib:cakeparse:1.1.1'
     compile 'io.github.microutils:kotlin-logging:1.4'
 
-    //compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
 
     testCompile "junit:junit:$junit_version"
     testCompile "org.mockito:mockito-core:$mockito_version"

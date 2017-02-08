@@ -155,6 +155,9 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 
+
+    compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.22'
+
 }
 
 // APT doesn't know to make these directories for tests. Force them to
