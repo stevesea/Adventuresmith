@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steve Christensen
+ * Copyright (c) 2017 Steve Christensen
  *
  * This file is part of Adventuresmith.
  *
@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.app
+package org.stevesea.adventuresmith
 
 import android.annotation.*
 import android.os.*
@@ -35,7 +35,6 @@ import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.squareup.leakcanary.*
 import io.fabric.sdk.android.*
 import org.jetbrains.anko.*
-import org.stevesea.adventuresmith.BuildConfig
 import org.stevesea.adventuresmith.core.AdventuresmithCore
 import java.util.concurrent.TimeUnit
 
@@ -47,7 +46,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
     override fun onCreate() {
         super.onCreate()
-        debug("App Started: ${AdventuresmithApp.watch}")
+        debug("App Started: ${watch}")
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
@@ -81,7 +80,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         val stopwatch = Stopwatch.createStarted()
         AdventuresmithCore.initCaches()
         stopwatch.stop()
-        debug("loading core generators took ${stopwatch} (time since app start: ${AdventuresmithApp.watch})")
+        debug("loading core generators took ${stopwatch} (time since app start: ${watch})")
         //}
 
         Answers.getInstance().logCustom(CustomEvent("App.InitCaches")
@@ -89,7 +88,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         )
 
 
-        debug("App onCreate done: ${AdventuresmithApp.watch}")
+        debug("App onCreate done: ${watch}")
     }
 }
 

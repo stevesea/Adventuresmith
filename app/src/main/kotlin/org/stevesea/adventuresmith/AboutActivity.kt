@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steve Christensen
+ * Copyright (c) 2017 Steve Christensen
  *
  * This file is part of Adventuresmith.
  *
@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.app
+package org.stevesea.adventuresmith
 
 import android.content.pm.*
 import android.os.*
@@ -27,7 +27,6 @@ import android.support.v7.widget.*
 import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.materialize.*
 import kotlinx.android.synthetic.main.activity_about.*
-import org.stevesea.adventuresmith.R
 
 class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

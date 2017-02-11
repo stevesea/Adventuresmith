@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steve Christensen
+ * Copyright (c) 2017 Steve Christensen
  *
  * This file is part of Adventuresmith.
  *
@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.app
+package org.stevesea.adventuresmith
 
 import android.os.*
 import android.support.v4.content.*
@@ -29,12 +29,11 @@ import com.mikepenz.fastadapter.commons.utils.*
 import com.mikepenz.fastadapter.items.*
 import com.mikepenz.fastadapter.utils.*
 import com.mikepenz.materialize.util.*
-import org.stevesea.adventuresmith.*
 import java.util.concurrent.atomic.*
 
 class ResultItem(val htmlTxt: String) :
         AbstractItem<GeneratorButton, ResultItem.ViewHolder>(),
-        Parcelable{
+        Parcelable {
     val spannedText = htmlStrToSpanned(htmlTxt)
 
     init {
@@ -66,7 +65,7 @@ class ResultItem(val htmlTxt: String) :
         return Factory
     }
 
-    companion object Factory : ViewHolderFactory<ViewHolder>{
+    companion object Factory : ViewHolderFactory<ViewHolder> {
         val resultId : AtomicLong = AtomicLong(0)
 
         // called by the FastAdapter

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steve Christensen
+ * Copyright (c) 2017 Steve Christensen
  *
  * This file is part of Adventuresmith.
  *
@@ -18,13 +18,12 @@
  *
  */
 
-package org.stevesea.adventuresmith.app
+package org.stevesea.adventuresmith
 
 import android.content.*
 import android.os.*
 import android.support.v7.app.*
 import org.jetbrains.anko.*
-import org.stevesea.adventuresmith.core.AdventuresmithCore
 
 class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {

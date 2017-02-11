@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steve Christensen
+ * Copyright (c) 2017 Steve Christensen
  *
  * This file is part of Adventuresmith.
  *
@@ -18,7 +18,7 @@
  *
  */
 
-package org.stevesea.adventuresmith.app
+package org.stevesea.adventuresmith
 
 import android.annotation.*
 import android.content.*
@@ -26,6 +26,7 @@ import android.content.res.*
 import android.graphics.*
 import android.os.*
 import android.support.v7.app.*
+import android.support.v7.view.ActionMode
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
 import android.text.InputType.*
@@ -40,7 +41,6 @@ import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.fastadapter_extensions.*
 import com.mikepenz.iconics.*
 import com.mikepenz.iconics.typeface.*
-import com.mikepenz.ionicons_typeface_library.*
 import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.interfaces.*
 import com.mikepenz.materialdrawer.model.*
@@ -49,10 +49,7 @@ import com.mikepenz.materialize.MaterializeBuilder
 import com.mikepenz.materialize.util.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
 import org.jetbrains.anko.*
-import org.stevesea.adventuresmith.R
 import org.stevesea.adventuresmith.core.*
-import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
-import org.stevesea.adventuresmith.core.stars_without_number.*
 import java.text.*
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -211,7 +208,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     resultAdapter.filter(null)
                                 }
 
-                                resultAdapter.add(0, resultItems.map{ResultItem(it)})
+                                resultAdapter.add(0, resultItems.map{ ResultItem(it) })
 
                                 recycler_results.scrollToPosition(0)
 
@@ -230,7 +227,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     val actionModeHelper: ActionModeHelper by lazy {
-        ActionModeHelper(resultAdapter, R.menu.result_select_menu, object : android.support.v7.view.ActionMode.Callback {
+        ActionModeHelper(resultAdapter, R.menu.result_select_menu, object : ActionMode.Callback {
             private fun hideUsualToolbar() {
                 appbar.visibility = View.GONE
                 appbar.setExpanded(false, false)
@@ -239,7 +236,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 appbar.visibility = View.VISIBLE
                 appbar.setExpanded(true, true)
             }
-            override fun onActionItemClicked(mode: android.support.v7.view.ActionMode?, item: MenuItem?): Boolean {
+            override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
 
                 // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
                 // TODO: https://gist.github.com/mediavrog/5625602
@@ -249,11 +246,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                     val subj = "${applicationContext.getString(R.string.app_name)} $ts"
                     debug("subject: $subj")
 
-                    val intent = Intent(android.content.Intent.ACTION_SEND)
+                    val intent = Intent(Intent.ACTION_SEND)
                     intent.type = "text/plain"
-                    intent.putExtra(android.content.Intent.EXTRA_SUBJECT, subj)
-                    intent.putExtra(android.content.Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{ it.spannedText.toString() }.joinToString("\n#############\n"))
-                    intent.putExtra(android.content.Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
+                    intent.putExtra(Intent.EXTRA_SUBJECT, subj)
+                    intent.putExtra(Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{ it.spannedText.toString() }.joinToString("\n#############\n"))
+                    intent.putExtra(Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
                     startActivity(Intent.createChooser(intent, null))
 
                     mode!!.finish()
@@ -264,16 +261,16 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return false
             }
 
-            override fun onCreateActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+            override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
                 hideUsualToolbar()
                 return true
             }
 
-            override fun onDestroyActionMode(mode: android.support.v7.view.ActionMode?) {
+            override fun onDestroyActionMode(mode: ActionMode?) {
                 showUsualToolbar()
             }
 
-            override fun onPrepareActionMode(mode: android.support.v7.view.ActionMode?, menu: Menu?): Boolean {
+            override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
                 hideUsualToolbar()
                 return false
             }
@@ -502,7 +499,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
     }
 
-    fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
+    fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*, *>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
         favoriteIdToName.clear()
@@ -810,10 +807,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return false
                         } else if (drawerItemId == ID_ABOUT) {
                             this@AdventuresmithActivity.startActivity(
-                                    Intent(this@AdventuresmithActivity, AboutActivity::class.java))
+                                    android.content.Intent(this@AdventuresmithActivity, AboutActivity::class.java))
                         } else if (drawerItemId == ID_THANKS) {
                             this@AdventuresmithActivity.startActivity(
-                                    Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
+                                    android.content.Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
                         }
                         currentDrawerItemId = null
                         return false

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Steve Christensen
+ * Copyright (c) 2017 Steve Christensen
  *
  * This file is part of Adventuresmith.
  *
@@ -18,14 +18,13 @@
  *
  */
 
-package org.stevesea.adventuresmith.app
+package org.stevesea.adventuresmith
 
 import android.support.v7.widget.*
 import android.view.*
 import android.widget.*
 import com.mikepenz.fastadapter.items.*
 import com.mikepenz.fastadapter.utils.*
-import org.stevesea.adventuresmith.*
 import org.stevesea.adventuresmith.core.*
 import java.util.*
 
