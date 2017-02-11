@@ -4,6 +4,38 @@ priority: 100
 url: http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press
 credit: The Sentinels of Meregoth / Neoplastic Press
 hasGroupHierarchy: true
+icon: cmd-format-superscript
+groupIcons:
+  Fantasy: cmd-castle
+  grpFantAdvSeed: cmd-sword
+  grpFantCityDressing: cmd-castle
+  grpFantDungeonDressing: cmd-cube-unfolded
+  grpFantChars: cmd-account
+  grpFantNPCs: cmd-account-multiple
+  grpFantMagic: cmd-auto-fix
+  grpFantMonsters: cmd-paw
+  grpFantTreasure: cmd-diamond
+
+  Horror: cmd-ghost
+  grpHorrorAdvSeeds: ion-bonfire
+  grpHorrorChars: cmd-emoticon-devil
+  grpHorrorMonsters: cmd-duck
+  grpHorrorSights: cmd-face
+  grpHorrorSounds: cmd-face-profile
+
+  Modern: cmd-city
+  grpModernChars: cmd-account
+  grpModernMissions: cmd-puzzle
+  grpModernRoomDressing: cmd-domain
+
+  Science Fiction: ion-planet
+  grpSciFiAdvSeed: cmd-robot
+  grpSciFiShip: cmd-rocket
+
+  Superheroes: cmd-dna
+  grpSuperAdvSeed: cmd-bomb
+  grpSuperHeroes: cmd-emoticon
+  grpSuperVillains: cmd-emoticon-devil
 groups:
   grpFantAdvSeed: Fantasy / Adventure Seeds
   grpFantCityDressing: Fantasy / City Dressing

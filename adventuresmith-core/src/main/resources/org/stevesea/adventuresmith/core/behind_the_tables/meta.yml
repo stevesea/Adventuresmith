@@ -25,6 +25,34 @@ groups:
   grpNPCsTownLaw: NPCs / Town Law & Order
   grpNPCsTownMerchant: NPCs / Town Merchant
   grpNPCsWild: NPCs / Wilderness
+
+icon: cmd-reddit
+groupIcons:
+  Locations: cmd-map-marker
+  Encounters: cmd-run
+  Factions & Groups: cmd-account-multiple
+  NPCs: cmd-account
+
+  grpEncountersCastle: cmd-castle
+  grpEncountersDungeon: cmd-cube-unfolded
+  grpEncountersTown: cmd-home
+  grpEncountersWild: cmd-pine-tree
+  grpFactionsSettlement: cmd-home
+  grpFactionsWild: cmd-pine-tree
+  grpLocationsCastle: cmd-castle
+  grpLocationsCavern: cmd-fire
+  grpLocationsDungeon: cmd-cube-unfolded
+  grpLocationsTown: cmd-home
+  grpLocationsWild: cmd-pine-tree
+  grpNPCsAppPersMotiv: cmd-face
+  grpNPCsCastle: cmd-castle
+  grpNPCsCastleCourt: cmd-castle
+  grpNPCsCastleDungeon: cmd-castle
+  grpNPCsCavern: cmd-fire
+  grpNPCsTown: cmd-home
+  grpNPCsTownLaw: cmd-home
+  grpNPCsTownMerchant: cmd-home
+  grpNPCsWild: cmd-pine-tree
 attribution: |
   /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
   <p>/u/OrkishBlade has done an incredible job organizing a fun set of tables</p>

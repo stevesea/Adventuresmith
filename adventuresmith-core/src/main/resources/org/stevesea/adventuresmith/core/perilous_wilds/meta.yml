@@ -3,6 +3,13 @@ id: perilous_wilds
 credit: Jason Lutes
 priority: 100
 url: "http://lampblackandbrimstone.blogspot.com/"
+icon: cmd-folder-multiple-image
+groupIcons:
+  grp1: cmd-image-filter-hdr
+  grp2: cmd-book-open-page-variant
+  grp3: ion-ios-paw
+  grp4: cmd-account-multiple
+  grp5: cmd-white-balance-irradescent
 groups:
   grp1: Dangers & Discoveries
   grp2: Create & Name

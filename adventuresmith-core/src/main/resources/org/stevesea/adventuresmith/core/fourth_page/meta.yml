@@ -2,6 +2,7 @@ name: The Fourth Page
 id: fourth_page
 priority: 200
 credit: Mike Riverso
+icon: cmd-numeric-4-box-outline
 attribution: |
   <p><cite>the Fourth Page</cite> generators for World of Dungeons.
   <br/>

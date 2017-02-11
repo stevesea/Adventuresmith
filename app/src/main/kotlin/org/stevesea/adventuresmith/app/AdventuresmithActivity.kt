@@ -33,6 +33,7 @@ import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
 import com.google.common.base.Stopwatch
+import com.google.common.base.Strings
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -481,6 +482,26 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withSubItems(getFavoriteGroupDrawerItems())
     }
 
+    fun getNavDrawerItemIcon(id: String, grpId : String? = null): IIcon {
+        val collMeta = AdventuresmithCore.getCollectionMetaData(id, getCurrentLocale(resources))
+
+        val collIcon = collMeta.icon
+        val iconicsDrawable : IconicsDrawable =
+        if (!Strings.isNullOrEmpty(grpId) && collMeta.groupIcons != null) {
+            val grpIcon = collMeta.groupIcons!!.getOrElse(grpId!!) {collIcon}
+            IconicsDrawable(this, grpIcon)
+        } else {
+            IconicsDrawable(this, collIcon)
+        }
+
+        if (iconicsDrawable.icon == null) {
+            error("Couldn't find icon $id.$grpId")
+            return CommunityMaterial.Icon.cmd_help
+        } else {
+            return iconicsDrawable.icon
+        }
+    }
+
     fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*,*>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
@@ -505,7 +526,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                     val rootExpandableItem = ExpandableDrawerItem()
                             .withName(coll.name)
-                            .withIcon(getCollectionIcon(coll.id))
+                            .withIcon(getNavDrawerItemIcon(coll.id))
                             .withIdentifier(coll.id.hashCode().toLong())
                             .withDescription(coll.desc)
                             .withDescriptionTextColorRes(R.color.textSecondary)
@@ -518,12 +539,15 @@ class AdventuresmithActivity : AppCompatActivity(),
                         drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
 
                         val words = grp.value.split("/", limit = 2).map { it.trim() }
+                        if (words.size != 2) {
+                            error("Invalid group name: $grp")
+                        }
                         val grpGrp = words[0]
                         val subGrpName = words[1]
 
                         val subGrpItem = SecondaryDrawerItem()
                                 .withName(subGrpName)
-                                .withIcon(getCollectionIcon(coll.id, grp.key))
+                                .withIcon(getNavDrawerItemIcon(coll.id, grp.key))
                                 .withIdentifier(navId)
                                 .withSelectable(true)
                                 .withLevel(3)
@@ -536,7 +560,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     .withSelectable(false)
                                     .withIsExpanded(false)
                                     .withIdentifier(grpGrp.hashCode().toLong())
-                                    .withIcon(getCollectionIcon(coll.id, grpGrp))
+                                    .withIcon(getNavDrawerItemIcon(coll.id, grpGrp))
                                     .withSubItems(subGrpItem)
                             groupGroupMap.put(grpGrp, groupGroupItem)
                         } else {
@@ -552,7 +576,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 } else {
                     val expandableItem = ExpandableDrawerItem()
                             .withName(coll.name)
-                            .withIcon(getCollectionIcon(coll.id))
+                            .withIcon(getNavDrawerItemIcon(coll.id))
                             .withIdentifier(coll.id.hashCode().toLong())
                             .withDescription(coll.desc)
                             .withDescriptionTextColorRes(R.color.textSecondary)
@@ -563,7 +587,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
                         val childItem = SecondaryDrawerItem()
                                 .withName(grp.value)
-                                .withIcon(getCollectionIcon(coll.id, grp.key))
+                                .withIcon(getNavDrawerItemIcon(coll.id, grp.key))
                                 .withIdentifier(navId)
                                 .withSelectable(true)
                                 .withLevel(2)
@@ -577,7 +601,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = coll.name))
                 result.add(PrimaryDrawerItem()
                         .withName(coll.name)
-                        .withIcon(getCollectionIcon(coll.id))
+                        .withIcon(getNavDrawerItemIcon(coll.id))
                         .withIdentifier(navId)
                         .withSelectable(true)
                         .withDescription(coll.desc)
@@ -1015,131 +1039,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return r.configuration.locales.get(0)
             } else {
                 return r.configuration.locale
-            }
-        }
-        fun getCollectionIcon(id: String, grpId : String? = null): IIcon {
-
-            return when(id) {
-                DiceConstants.CollectionName -> CommunityMaterial.Icon.cmd_dice_6
-                AdventuresmithCore.MazeRats -> {
-                    when (grpId) {
-                        "grpChar" -> Ionicons.Icon.ion_android_people
-                        "grpCity" -> CommunityMaterial.Icon.cmd_castle
-                        "grpWild" -> CommunityMaterial.Icon.cmd_pine_tree
-                        "grpMaze" -> CommunityMaterial.Icon.cmd_view_dashboard
-                        "grpItems" -> CommunityMaterial.Icon.cmd_diamond
-                        "grpMisc" -> CommunityMaterial.Icon.cmd_dice_d20
-                        else -> CommunityMaterial.Icon.cmd_cube_unfolded
-                    }
-                }
-                FotfConstants.GROUP -> Ionicons.Icon.ion_map
-                AdventuresmithCore.FourthPage -> CommunityMaterial.Icon.cmd_numeric_4_box_outline
-                AdventuresmithCore.Zenopus -> CommunityMaterial.Icon.cmd_cube
-                AdventuresmithCore.PerilousWilds -> {
-                    when (grpId) {
-                        "grp1" -> CommunityMaterial.Icon.cmd_image_filter_hdr // dangers & discov
-                        "grp2" -> CommunityMaterial.Icon.cmd_book_open_page_variant // create & name
-                        "grp3" -> Ionicons.Icon.ion_ios_paw // creature
-                        "grp4" -> CommunityMaterial.Icon.cmd_account_multiple // npcs
-                        "grp5" -> CommunityMaterial.Icon.cmd_white_balance_irradescent // treasure
-                        else -> CommunityMaterial.Icon.cmd_folder_multiple_image
-                    }
-                }
-                SwnConstantsCustom.GROUP ->  {
-                    when (grpId) {
-                        "grp1" -> Ionicons.Icon.ion_planet // aliens, animals, worlds
-                        "grp2" -> Ionicons.Icon.ion_person_stalker // corps, religions
-                        "grp3" -> Ionicons.Icon.ion_edit // names
-                        "grp4" -> CommunityMaterial.Icon.cmd_factory // tech, architecture
-                        "grp5" -> Ionicons.Icon.ion_person // chars, npcs
-                        else -> CommunityMaterial.Icon.cmd_rocket
-                    }
-                }
-                AdventuresmithCore.Stonetop -> CommunityMaterial.Icon.cmd_barley
-                AdventuresmithCore.HackSlash -> CommunityMaterial.Icon.cmd_sword
-                AdventuresmithCore.SSandSS -> CommunityMaterial.Icon.cmd_auto_fix
-                AdventuresmithCore.Kaigaku -> CommunityMaterial.Icon.cmd_image_filter_vintage
-                AdventuresmithCore.BehindTheTables -> {
-                    when (grpId) {
-                        "Locations" -> CommunityMaterial.Icon.cmd_map_marker
-                        "grpLocationsCastle" -> CommunityMaterial.Icon.cmd_castle
-                        "grpLocationsCavern" -> CommunityMaterial.Icon.cmd_fire
-                        "grpLocationsDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
-                        "grpLocationsTown" -> CommunityMaterial.Icon.cmd_home
-                        "grpLocationsWild" -> CommunityMaterial.Icon.cmd_pine_tree
-
-                        "Encounters" -> CommunityMaterial.Icon.cmd_run
-                        "grpEncountersCastle" -> CommunityMaterial.Icon.cmd_castle
-                        "grpEncountersDungeon" -> CommunityMaterial.Icon.cmd_cube_unfolded
-                        "grpEncountersTown" -> CommunityMaterial.Icon.cmd_home
-                        "grpEncountersWild" -> CommunityMaterial.Icon.cmd_pine_tree
-
-                        "Factions & Groups" -> CommunityMaterial.Icon.cmd_account_multiple
-                        "grpFactionsSettlement" -> CommunityMaterial.Icon.cmd_home
-                        "grpFactionsWild" -> CommunityMaterial.Icon.cmd_pine_tree
-
-                        "NPCs" -> CommunityMaterial.Icon.cmd_account
-                        "grpNPCsAppPersMotiv" -> CommunityMaterial.Icon.cmd_face
-                        "grpNPCsCastle" -> CommunityMaterial.Icon.cmd_castle
-                        "grpNPCsCastleCourt" -> CommunityMaterial.Icon.cmd_castle
-                        "grpNPCsCastleDungeon" -> CommunityMaterial.Icon.cmd_castle
-                        "grpNPCsCavern" -> CommunityMaterial.Icon.cmd_fire
-                        "grpNPCsTown" -> CommunityMaterial.Icon.cmd_home
-                        "grpNPCsTownLaw" -> CommunityMaterial.Icon.cmd_home
-                        "grpNPCsTownMerchant" -> CommunityMaterial.Icon.cmd_home
-                        "grpNPCsWild" -> CommunityMaterial.Icon.cmd_pine_tree
-
-                        else -> CommunityMaterial.Icon.cmd_reddit
-                    }
-                }
-                AdventuresmithCore.RollXX ->  {
-                    when (grpId) {
-                        "Superheroes" -> CommunityMaterial.Icon.cmd_dna
-                        "grpSuperHeroes" -> CommunityMaterial.Icon.cmd_emoticon // cmd_silverware_spoon
-                        "grpSuperVillains" -> CommunityMaterial.Icon.cmd_emoticon_devil
-                        "grpSuperAdvSeed" -> CommunityMaterial.Icon.cmd_bomb
-
-                        "Fantasy" -> CommunityMaterial.Icon.cmd_castle
-                        "grpFantNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
-                        "grpFantAdvSeed" -> CommunityMaterial.Icon.cmd_sword
-                        "grpFantChars" -> CommunityMaterial.Icon.cmd_account
-                        "grpFantMonsters" -> CommunityMaterial.Icon.cmd_paw
-                        "grpFantMagic" -> CommunityMaterial.Icon.cmd_auto_fix
-                        "grpFantCityDressing" -> CommunityMaterial.Icon.cmd_castle
-                        "grpFantDungeonDressing" -> CommunityMaterial.Icon.cmd_cube_unfolded
-                        "grpFantTreasure" -> CommunityMaterial.Icon.cmd_diamond
-
-                        "Science Fiction" -> Ionicons.Icon.ion_planet
-                        "grpSciFiShip" -> CommunityMaterial.Icon.cmd_rocket
-                        "grpSciFiAdvSeed" -> CommunityMaterial.Icon.cmd_robot
-
-                        "Modern" -> CommunityMaterial.Icon.cmd_city
-                        "grpModernChars" -> CommunityMaterial.Icon.cmd_account
-                        "grpModernRoomDressing" -> CommunityMaterial.Icon.cmd_domain // city?
-                        "grpModernMissions" -> CommunityMaterial.Icon.cmd_puzzle // cmd_emoticon_cool
-
-                        "Horror" -> CommunityMaterial.Icon.cmd_ghost
-                        "grpHorrorChars" -> CommunityMaterial.Icon.cmd_emoticon_devil
-                        "grpHorrorMonsters" -> CommunityMaterial.Icon.cmd_duck
-                        "grpHorrorSights" -> CommunityMaterial.Icon.cmd_face
-                        "grpHorrorSounds" -> CommunityMaterial.Icon.cmd_face_profile
-                        "grpHorrorAdvSeeds" -> Ionicons.Icon.ion_bonfire
-
-                        else -> CommunityMaterial.Icon.cmd_format_superscript
-                    }
-                }
-                AdventuresmithCore.AugmentedReality -> {
-                    when (grpId) {
-                        "grpNPCs" -> CommunityMaterial.Icon.cmd_account_multiple
-                        "grpCorps" -> CommunityMaterial.Icon.cmd_factory
-                        "grpSenses" -> CommunityMaterial.Icon.cmd_eye
-                        "grpEncounters" -> CommunityMaterial.Icon.cmd_human_greeting // run?
-                        "grpCity" -> CommunityMaterial.Icon.cmd_city
-                        "grpLoot" -> CommunityMaterial.Icon.cmd_cash // memory, chip?
-                        else -> CommunityMaterial.Icon.cmd_nfc_variant
-                    }
-                }
-                else -> CommunityMaterial.Icon.cmd_help_circle
             }
         }
     }

@@ -11,6 +11,15 @@ groups:
   grpItems: Treasure & Equipment
   grpMisc: Other...
   grpZZ: Maze Rats 0.1
+icon: cmd-cube-unfolded
+groupIcons:
+  grpChar: ion-android-people
+  grpCity: cmd-castle
+  grpWild: cmd-pine-tree
+  grpMaze: cmd-view-dashboard
+  grpItems: cmd-diamond
+  grpMisc: cmd-dice-d20
+  grpZZ: cmd-cube-unfolded
 attribution: |
   Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
   <p>The text of <em>Maze Rats 4.1</em> is released under a CC BY 4.0 license

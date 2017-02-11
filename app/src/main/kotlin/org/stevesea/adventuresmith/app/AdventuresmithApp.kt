@@ -29,6 +29,9 @@ import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import com.crashlytics.android.core.*
 import com.google.common.base.Stopwatch
+import com.mikepenz.community_material_typeface_library.CommunityMaterial
+import com.mikepenz.iconics.Iconics
+import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.squareup.leakcanary.*
 import io.fabric.sdk.android.*
 import org.jetbrains.anko.*
@@ -57,6 +60,10 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
                 .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
                 .build()
         Fabric.with(this, crashlyticsKit)
+
+        Iconics.init(applicationContext)
+        Iconics.registerFont(CommunityMaterial())
+        Iconics.registerFont(Ionicons())
 
         // doing this asynchronously didn't seem to have a huge effect on startup time.
         // still took ~4secs until app was ready-to-use.

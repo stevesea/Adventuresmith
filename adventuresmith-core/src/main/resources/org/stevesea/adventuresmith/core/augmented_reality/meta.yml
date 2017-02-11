@@ -18,6 +18,14 @@ attribution: |
   generated, along with the immediate urban environment, all painted with a broad brush, to enable
   gamesmasters to let their twisted imaginations shine through, without slowing down the action.</p>
   </blockquote>
+icon: cmd-nfc-variant
+groupIcons:
+  grpNPCs: cmd_account_multiple
+  grpSenses: cmd_eye
+  grpEncounters: cmd_human_greeting
+  grpCity: cmd_city
+  grpCorps: cmd_factory
+  grpLoot: cmd_cash
 groups:
   grpNPCs: NPCs
   grpSenses: Sense & the City
