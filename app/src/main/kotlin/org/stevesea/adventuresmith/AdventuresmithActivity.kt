@@ -25,10 +25,12 @@ import android.content.*
 import android.content.res.*
 import android.graphics.*
 import android.os.*
+import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.*
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
+import android.text.Editable
 import android.text.InputType.*
 import android.view.*
 import android.widget.*
@@ -40,6 +42,7 @@ import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
 import com.mikepenz.fastadapter_extensions.*
 import com.mikepenz.iconics.*
+import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.mikepenz.iconics.typeface.*
 import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.interfaces.*
@@ -644,6 +647,8 @@ class AdventuresmithActivity : AppCompatActivity(),
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        LayoutInflaterCompat.setFactory(getLayoutInflater(), IconicsLayoutInflater(getDelegate()));
         super.onCreate(savedInstanceState)
 
         debug("AdventuresmithActivity Started: ${AdventuresmithApp.watch}")
@@ -739,7 +744,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     noButton {}
                                 }.show()
                             } else {
-                                alert(favName, getString(R.string.fav_group_rename)) {
+                                alert(getString(R.string.fav_group_rename)) {
                                     customView {
                                         verticalLayout {
                                             val groupName = editText {
@@ -747,6 +752,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                                 maxLines = 1
                                                 singleLine = true
                                                 inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                                text = Editable.Factory.getInstance().newEditable(favName)
                                             }
                                             positiveButton(getString(R.string.btn_rename)) {
                                                 val newGrpName = groupName.text.toString().trim()
