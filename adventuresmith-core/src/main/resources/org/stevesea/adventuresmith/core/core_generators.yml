@@ -288,6 +288,7 @@ generators:
   - complication
   - opponent_reaction
   - reward
+  - spell_catastrophe
   - supporting_character
   stonetop:
   - minor_arcana

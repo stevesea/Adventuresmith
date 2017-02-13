@@ -1,0 +1,24 @@
+---
+templates:
+- "{{spell_catastrophe.template}}"
+
+nested_tables:
+  spell_catastrophe:
+    template:
+    - "%[[>pick: 1d6+{{input.powerLevel}} spell_catastrophe.table]]%"
+    table:
+    - 2, The Difficulty to cast spells increases by 2 for 1 turn.
+    - The Magic User receives a Negative Die to cast spells for 1 hour.
+    - The Difficulty to cast spells increases by 1 for a full day.
+    - The Difficulty to cast spells increases by 2 for a full day.
+    - The Magic User falls unconscious for 1 turn.
+    - The Magic User cannot cast spells for 1 hour.
+    - The Magic User suffers 1 point of damage on both Physique and Agility.
+    - The Magic User can only cast spells with Power Level equal to their own level for a full day.
+    - The Magic User falls unconscious for 1d4 hours.
+    - The Magic User cannot cast the spell for 1d4 days.
+    - The Difficulty to cast spells increases by 2 until the Magic User takes 2 Long Rests.
+    - The Magic User cannot cast spells for a full day.
+    - The Magic User suffers 1d4 points of damage to both his Physique and Agility.
+    - The Magic User suffers the full effect of the spell he was trying to cast.
+    - The Magic User accidentally summons a monster with a number of HD equal to the Power Level of the spell

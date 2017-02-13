@@ -121,7 +121,7 @@ data class FotfCharModel(val config: FotfCharConfigDto,
 class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrategy<FotfCharBundleDto, FotfCharModel>,
         KodeinAware {
     val shuffler : Shuffler = instance()
-    override fun transform(dto: FotfCharBundleDto): FotfCharModel {
+    override fun transform(dto: FotfCharBundleDto, input: Map<String, String>?): FotfCharModel {
         val gender = shuffler.pick(dto.charSetup.genders)
         val playbook = shuffler.pick(dto.charSetup.playbooks)
         val heritage = shuffler.pick(dto.charSetup.heritages.get(playbook))

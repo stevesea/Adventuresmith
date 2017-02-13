@@ -1,0 +1,8 @@
+---
+name: Spell Catastrophe
+collectionId: ss_and_ss
+inputParams:
+- name: powerLevel
+  uiName: Power Level
+  helpText: The Power Level of the spell
+  defaultValue: 1

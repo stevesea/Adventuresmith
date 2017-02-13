@@ -176,7 +176,7 @@ ModelGeneratorStrategy<SwnFactionDto, SwnFactionModel>,
 KodeinAware {
     val shuffler: Shuffler = instance()
 
-    override fun transform(dto: SwnFactionDto): SwnFactionModel {
+    override fun transform(dto: SwnFactionDto, input: Map<String, String>?): SwnFactionModel {
         val ftype = shuffler.pick(dto.faction_type_chance)
 
         val ftypeDto: SwnFactionTypeDto = dto.faction_types.get(ftype)!!
@@ -262,7 +262,7 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
         ModelGeneratorStrategy<WorldBundleDto, SwnWorldModel>,
         KodeinAware {
     val shuffler: Shuffler = instance()
-    override fun transform(dto: WorldBundleDto): SwnWorldModel {
+    override fun transform(dto: WorldBundleDto, input: Map<String, String>?): SwnWorldModel {
         val numCultures = shuffler.pick(dto.worldRules.num_cultures).toInt()
         val cultures = shuffler.pickN(dto.names.nested_tables!!.keys, numCultures)
         val primaryCulture = cultures.elementAt(0)

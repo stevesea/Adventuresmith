@@ -170,7 +170,7 @@ val diceModule = Kodein.Module {
                 }
 
                 val diceParser : DiceParser = instance()
-                override fun generate(locale: Locale): String {
+                override fun generate(locale: Locale, input: Map<String, String>?): String {
                     val nf = NumberFormat.getInstance(locale)
                     return "${d}: <strong>${nf.format(diceParser.roll(d))}</strong>"
                 }
@@ -191,7 +191,7 @@ val diceModule = Kodein.Module {
                 }
 
                 val diceParser : DiceParser = instance()
-                override fun generate(locale: Locale): String {
+                override fun generate(locale: Locale, input: Map<String, String>?): String {
                     val nf = NumberFormat.getInstance(locale)
                     val rolls = diceParser.rollN(d.value.second, d.value.first)
                     val sum = rolls.sum()
@@ -207,7 +207,7 @@ val diceModule = Kodein.Module {
             override fun getId(): String {
                 return DiceConstants.d20adv
             }
-            override fun generate(locale: Locale): String {
+            override fun generate(locale: Locale, input: Map<String, String>?): String {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val best = rolls.max()
@@ -225,7 +225,7 @@ val diceModule = Kodein.Module {
             override fun getId(): String {
                 return DiceConstants.d20disadv
             }
-            override fun generate(locale: Locale): String {
+            override fun generate(locale: Locale, input: Map<String, String>?): String {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val worst = rolls.min()

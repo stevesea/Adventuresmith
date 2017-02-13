@@ -32,11 +32,11 @@ import java.util.*
 
 interface Generator {
     fun getId() : String
-    fun generate(locale: Locale = Locale.ENGLISH) : String
+    fun generate(locale: Locale = Locale.ENGLISH, input: Map<String, String>? = null) : String
     fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
 interface ModelGenerator<T> {
-    fun generate(locale: Locale = Locale.ENGLISH) : T
+    fun generate(locale: Locale = Locale.ENGLISH, input: Map<String, String>? = null) : T
     fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
 
@@ -46,7 +46,7 @@ interface DtoLoadingStrategy<out TDto> {
 }
 
 interface ModelGeneratorStrategy<in TDto, out TModel> {
-    fun transform(dto: TDto) : TModel
+    fun transform(dto: TDto, input: Map<String, String>? = null) : TModel
 }
 
 interface ViewStrategy<in TModel, out TView> {
@@ -58,9 +58,9 @@ open class BaseGenerator<
         TModel>(
         val loadingStrat : DtoLoadingStrategy<TDto>,
         val modelGeneratorStrat: ModelGeneratorStrategy<TDto, TModel>) : ModelGenerator<TModel> {
-    override fun generate(locale: Locale): TModel {
-        val input = loadingStrat.load(locale)
-        val output = modelGeneratorStrat.transform(input)
+    override fun generate(locale: Locale, input: Map<String, String>?): TModel {
+        val inputData = loadingStrat.load(locale)
+        val output = modelGeneratorStrat.transform(inputData, input)
         return output
     }
 
@@ -76,8 +76,8 @@ open class BaseGeneratorWithView<TModel, TView>(
     override fun getId(): String {
         return genId
     }
-    override fun generate(locale: Locale): String {
-        return viewTransform.transform(modelGen.generate(locale)).toString().trim()
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
+        return viewTransform.transform(modelGen.generate(locale, input)).toString().trim()
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
@@ -85,8 +85,16 @@ open class BaseGeneratorWithView<TModel, TView>(
     }
 }
 
+data class InputParamDto(val name: String,
+                         val uiName: String,
+                         val defaultValue: String,
+                         val helpText: String,
+                         val values: List<String>? = null   // valid values
+)
+
 data class GeneratorMetaDto(val name: String,
                             val collectionId: String,
+                            val inputParams: List<InputParamDto> = listOf(),
                             val groupId: String? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null,
@@ -189,11 +197,22 @@ class DataDrivenGeneratorForFiles(
     override fun getId(): String {
         return input.absolutePath
     }
-    override fun generate(locale: Locale): String {
+    override fun generate(locale: Locale, inputMap: Map<String, String>?): String {
         try {
             val dto = loaderFactory.invoke(input).load(locale)
 
-            val context = dtoMerger.mergeDtos(gatherDtoResources(dto, locale))
+            // load the map with the defaults first
+            val inputMapForContext : MutableMap<String,String> = mutableMapOf()
+            getMetadata(locale).inputParams.forEach {
+                inputMapForContext.put(it.name, it.defaultValue)
+            }
+            inputMap?.forEach {
+                inputMapForContext.put(it.key, it.value)
+            }
+
+            val context = dtoMerger.mergeDtos(
+                    gatherDtoResources(dto, locale),
+                    inputMapForContext)
             val template = shuffler.pick(dto.templates)
 
             return templateProcessor.processTemplate(template, context)
@@ -233,12 +252,29 @@ class DataDrivenGeneratorForResources(
     override fun getId(): String {
         return resource_prefix
     }
-    override fun generate(locale: Locale): String {
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
         try {
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
 
-            val context = dtoMerger.mergeDtos(gatherDtoResources(dto, locale))
+            // load the map with the defaults first
+            val inputMap : MutableMap<String,String> = mutableMapOf()
+            try {
+                getMetadata(locale).inputParams.forEach {
+                    inputMap.put(it.name, it.defaultValue)
+                }
+            } catch (ignored: Exception) {
+
+            }
+            input?.forEach {
+                inputMap.put(it.key, it.value)
+            }
+
+            val context = dtoMerger.mergeDtos(
+                    gatherDtoResources(dto, locale),
+                    inputMap
+            )
             val template = shuffler.pick(dto.templates)
+
 
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
@@ -275,7 +311,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
     // generator creation where silent name overwrites resulted subtle bugs that took getting
     // into the debugger to figure out
 
-    fun mergeDtos(dtos: List<DataDrivenGenDto>): Map<String, Any> {
+    fun mergeDtos(dtos: List<DataDrivenGenDto>, input: Map<String, String>): Map<String, Any> {
         // process the DTOs in reverse order, merging them together
         val result: MutableMap<String, Any> = mutableMapOf()
         for (d in dtos.reversed()) {
@@ -314,6 +350,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
         if (dtos[0].templates == null)
             throw IOException("missing 'templates' table")
         result.put("template", shuffler.pick(dtos[0].templates))
+        result.put("input", input)
 
         return result
     }
