@@ -34,4 +34,6 @@
     <string name="section_header_settings">Settings</string>
     <string name="settings_generate_many">Generate Many Results</string>
 
+    <string name="generator_config">Configure Generator</string>
+
 </resources>

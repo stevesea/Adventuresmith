@@ -75,6 +75,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         }
         generators
     }
+
     data class GroupKey(val coll: String, val grpId: String? = null)
 
     val groupedGenerators: Map<GroupKey, List<Generator>> by lazy {

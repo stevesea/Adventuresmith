@@ -35,6 +35,10 @@ import android.text.InputType.*
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.type.TypeFactory
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.base.Stopwatch
 import com.google.common.base.Strings
 import com.mikepenz.community_material_typeface_library.*
@@ -184,9 +188,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                         doAsync {
                             val stopwatch = Stopwatch.createStarted()
                             val resultItems : MutableList<String> = mutableListOf()
+                            val inputMap: Map<String,String> = mapOf()
                             for (i in 1..num_to_generate) {
                                 try {
-                                    resultItems.add(generator.generate(currentLocale))
+                                    resultItems.add(generator.generate(currentLocale, inputMap))
                                 } catch (e: Exception) {
                                     warn(e.toString(), e)
                                     resultItems.add(
@@ -303,7 +308,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             sharedPreferences.edit().putInt(SETTING_GEN_MANY_COUNT, value).apply()
         }
 
-
     val SETTING_FAVORITE_GROUPS = "FavoriteGroups"
     var settingsFavoriteGroups : Set<String>
         get() {
@@ -312,6 +316,69 @@ class AdventuresmithActivity : AppCompatActivity(),
         set(value) {
             sharedPreferences.edit().putStringSet(SETTING_FAVORITE_GROUPS, value).apply()
         }
+
+    val objectMapper by lazy {
+        ObjectMapper().registerKotlinModule()
+    }
+    val objectReader by lazy {
+        objectMapper.reader()
+    }
+    val objectWriter by lazy {
+        objectMapper.writer()
+    }
+
+    val SETTING_GENERATOR_CONFIG_PREFIX = "GeneratorConfig."
+    fun getGeneratorConfig(genId: String) : Map<String, String> {
+        val str = sharedPreferences.getString(SETTING_GENERATOR_CONFIG_PREFIX + genId, "")
+        if (Strings.isNullOrEmpty(str)) {
+            return mapOf()
+        } else {
+           return objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
+        }
+    }
+    fun setGeneratorConfig(genId: String, value: Map<String, String>) {
+        val str = objectWriter.writeValueAsString(value)
+        sharedPreferences.edit()
+                .putString(SETTING_GENERATOR_CONFIG_PREFIX + genId, str)
+                .apply()
+    }
+    fun showGeneratorConfigDialog(gen: Generator) {
+        val genMeta = gen.getMetadata(getCurrentLocale(resources))
+        val previousConfig = getGeneratorConfig(gen.getId())
+
+        alert(R.string.generator_config) {
+            customView {
+                verticalLayout {
+                    val newConfigEdits : MutableMap<String, EditText> = mutableMapOf()
+                    genMeta.inputParams.forEach {
+                        textView {
+                            text = Editable.Factory.getInstance().newEditable(it.helpText)
+                        }
+                        newConfigEdits.put(it.name, editText {
+                            hint = it.uiName
+                            maxLines = 1
+                            singleLine = true
+                            inputType = if (it.numbersOnly) TYPE_CLASS_NUMBER  else TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                            text = Editable.Factory.getInstance().newEditable(it.defaultValue)
+                        })
+                    }
+                    okButton {
+                        val newConfig : MutableMap<String,String> = mutableMapOf()
+                        genMeta.inputParams.forEach {
+                            val userVal = newConfigEdits.get(it.name)!!.text.toString().trim()
+                            if (Strings.isNullOrEmpty(userVal)) {
+                                newConfig.put(it.name, it.defaultValue)
+                            } else {
+                                newConfig.put(it.name, userVal)
+                            }
+                        }
+                        setGeneratorConfig(gen.getId(), newConfig)
+                    }
+                }
+            }
+        }.show()
+
+    }
 
     val SETTING_FAVORITE_CONTENTS_PREFIX = "FavoriteGroup."
 
@@ -657,7 +724,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         setSupportActionBar(toolbar)
 
-
         MaterializeBuilder()
                 .withActivity(this)
                 .withFullscreen(false)
@@ -744,7 +810,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     noButton {}
                                 }.show()
                             } else {
-                                alert(getString(R.string.fav_group_rename)) {
+                                alert(R.string.fav_group_rename) {
                                     customView {
                                         verticalLayout {
                                             val groupName = editText {
@@ -767,7 +833,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             }
                             return true
                         } else if (drawerItemId == ID_FAVORITES) {
-                            alert (getString(R.string.fav_group_create)) {
+                            alert (R.string.fav_group_create) {
                                 customView {
                                     verticalLayout {
                                         val groupName = editText {

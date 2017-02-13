@@ -49,10 +49,20 @@ class GeneratorButton(val generator: Generator,
         super.bindView(holder, payloads)
 
         holder!!.btnText.text = htmlStrToSpanned(name)
+
+        if (meta.inputParams.size > 0) {
+            holder!!.lowerLayout.visibility = View.VISIBLE
+            holder!!.btnTextLower.text = "here is some text!"
+        } else {
+            holder!!.lowerLayout.visibility = View.GONE
+            holder!!.btnTextLower.text = ""
+        }
     }
 
     class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
-        val btnText = v!!.findViewById(R.id.btn_txt) as TextView
+        val btnText =  v!!.findViewById(R.id.btn_txt) as TextView
+        val btnTextLower = v!!.findViewById(R.id.btn_txt_lower) as TextView
+        val lowerLayout = v!!.findViewById(R.id.btn_lower) as LinearLayout
     }
 
     override fun getFactory(): ViewHolderFactory<out ViewHolder> {

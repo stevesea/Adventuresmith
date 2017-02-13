@@ -87,6 +87,7 @@ open class BaseGeneratorWithView<TModel, TView>(
 
 data class InputParamDto(val name: String,
                          val uiName: String,
+                         val numbersOnly: Boolean = false,
                          val defaultValue: String,
                          val helpText: String,
                          val values: List<String>? = null   // valid values

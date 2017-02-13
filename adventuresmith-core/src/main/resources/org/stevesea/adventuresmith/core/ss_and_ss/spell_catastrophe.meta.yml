@@ -6,3 +6,8 @@ inputParams:
   uiName: Power Level
   helpText: The Power Level of the spell
   defaultValue: 1
+  numbersOnly: true
+- name: otherTest
+  uiName: Other thingy
+  helpText: Here's some more help text
+  defaultValue: 1
