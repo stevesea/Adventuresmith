@@ -45,8 +45,12 @@ class GeneratorButton(val generator: Generator,
     }
     val name = meta.name
 
+
+    fun getGeneratorConfig() : Map<String, String> {
+        return getGeneratorConfig(generator.getId())
+    }
     val SETTING_GENERATOR_CONFIG_PREFIX = "GeneratorConfig."
-    fun getGeneratorConfig(genId: String) : Map<String, String> {
+    private fun getGeneratorConfig(genId: String) : Map<String, String> {
         val str = sharedPreferences.getString(SETTING_GENERATOR_CONFIG_PREFIX + genId, "")
         if (Strings.isNullOrEmpty(str)) {
             return mapOf()
@@ -54,54 +58,61 @@ class GeneratorButton(val generator: Generator,
             return AdventuresmithApp.objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
         }
     }
-    fun setGeneratorConfig(genId: String, value: Map<String, String>) {
+    private fun setGeneratorConfig(genId: String, value: Map<String, String>) {
         val str = AdventuresmithApp.objectWriter.writeValueAsString(value)
         sharedPreferences.edit()
                 .putString(SETTING_GENERATOR_CONFIG_PREFIX + genId, str)
                 .apply()
     }
-
-    fun showGeneratorConfigDialog(v: View) {
-        val previousConfig = getGeneratorConfig(generator.getId())
-        info("Previous config: " + previousConfig)
+    private fun showGenWizard(v: View, stepInd: Int, items: List<InputParamDto>, oldState: Map<String,String>, newState: MutableMap<String, String>) {
+        val item = items.get(stepInd)
+        val k = item.name
+        // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
+        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {item.defaultValue}}
+        val isFirstPage = stepInd == 0
+        val isFinalPage = stepInd == items.size - 1
         with(v.context) {
             alert(R.string.generator_config) {
                 customView {
                     verticalLayout {
-                        val newConfigEdits: MutableMap<String, EditText> = mutableMapOf()
-                        meta.inputParams.map {
-                            info("param: " + it)
-                            val displayVal = if (previousConfig.containsKey(it.name)) previousConfig.get(it.name) else it.defaultValue
-                            verticalLayout {
-                                textView {
-                                    text = Editable.Factory.getInstance().newEditable(it.helpText)
-                                }
-                                newConfigEdits.put(it.name, editText {
-                                    hint = it.uiName
-                                    maxLines = 1
-                                    singleLine = true
-                                    inputType = if (it.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-                                    text = Editable.Factory.getInstance().newEditable(displayVal)
-                                })
+                        textView {
+                            backgroundColor = 0
+                            text = Editable.Factory.getInstance().newEditable(item.helpText)
+                        }
+                        val curEdit = editText {
+                            textColor = 0
+                            hint = item.uiName
+                            maxLines = 1
+                            singleLine = true
+                            inputType = if (item.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                            text = Editable.Factory.getInstance().newEditable(displayVal)
+                        }
+                        positiveButton(if (isFinalPage) "OK" else "Next") {
+                            newState.put(k, curEdit.text.toString().trim())
+                            info("new state: " + newState)
+                            if (isFinalPage) {
+                                setGeneratorConfig(generator.getId(), newState)
+                            } else {
+                                showGenWizard(v, stepInd+1, items, oldState, newState)
                             }
                         }
-                        okButton {
-                            val newConfig: MutableMap<String, String> = mutableMapOf()
-                            meta.inputParams.forEach {
-                                val userVal = newConfigEdits.get(it.name)!!.text.toString().trim()
-                                if (Strings.isNullOrEmpty(userVal)) {
-                                    newConfig.put(it.name, it.defaultValue)
-                                } else {
-                                    newConfig.put(it.name, userVal)
-                                }
+                        negativeButton("Prev") {
+                            isEnabled = if (isFirstPage) false else true
+                            if (!isFirstPage) {
+                                newState.put(k, curEdit.text.toString().trim())
+                                showGenWizard(v, stepInd - 1, items, oldState, newState)
                             }
-                            info("new config: " + newConfig)
-                            setGeneratorConfig(generator.getId(), newConfig)
                         }
                     }
                 }
             }.show()
         }
+    }
+
+    fun showGeneratorConfigDialog(v: View) {
+        val previousConfig = getGeneratorConfig(generator.getId())
+        info("Previous config: " + previousConfig)
+        showGenWizard(v, 0, meta.inputParams, previousConfig, mutableMapOf())
     }
 
     override fun getType(): Int {
