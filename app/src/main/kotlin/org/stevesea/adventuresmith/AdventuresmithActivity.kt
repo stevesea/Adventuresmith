@@ -216,7 +216,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     resultAdapter.filter(null)
                                 }
 
-                                resultAdapter.add(0, resultItems.map{ ResultItem(it) })
+                                resultAdapter.add(0, resultItems.filterNotNull().map{ ResultItem(it) })
 
                                 recycler_results.scrollToPosition(0)
 
@@ -317,68 +317,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             sharedPreferences.edit().putStringSet(SETTING_FAVORITE_GROUPS, value).apply()
         }
 
-    val objectMapper by lazy {
-        ObjectMapper().registerKotlinModule()
-    }
-    val objectReader by lazy {
-        objectMapper.reader()
-    }
-    val objectWriter by lazy {
-        objectMapper.writer()
-    }
-
-    val SETTING_GENERATOR_CONFIG_PREFIX = "GeneratorConfig."
-    fun getGeneratorConfig(genId: String) : Map<String, String> {
-        val str = sharedPreferences.getString(SETTING_GENERATOR_CONFIG_PREFIX + genId, "")
-        if (Strings.isNullOrEmpty(str)) {
-            return mapOf()
-        } else {
-           return objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
-        }
-    }
-    fun setGeneratorConfig(genId: String, value: Map<String, String>) {
-        val str = objectWriter.writeValueAsString(value)
-        sharedPreferences.edit()
-                .putString(SETTING_GENERATOR_CONFIG_PREFIX + genId, str)
-                .apply()
-    }
-    fun showGeneratorConfigDialog(gen: Generator) {
-        val genMeta = gen.getMetadata(getCurrentLocale(resources))
-        val previousConfig = getGeneratorConfig(gen.getId())
-
-        alert(R.string.generator_config) {
-            customView {
-                verticalLayout {
-                    val newConfigEdits : MutableMap<String, EditText> = mutableMapOf()
-                    genMeta.inputParams.forEach {
-                        textView {
-                            text = Editable.Factory.getInstance().newEditable(it.helpText)
-                        }
-                        newConfigEdits.put(it.name, editText {
-                            hint = it.uiName
-                            maxLines = 1
-                            singleLine = true
-                            inputType = if (it.numbersOnly) TYPE_CLASS_NUMBER  else TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_NO_SUGGESTIONS
-                            text = Editable.Factory.getInstance().newEditable(it.defaultValue)
-                        })
-                    }
-                    okButton {
-                        val newConfig : MutableMap<String,String> = mutableMapOf()
-                        genMeta.inputParams.forEach {
-                            val userVal = newConfigEdits.get(it.name)!!.text.toString().trim()
-                            if (Strings.isNullOrEmpty(userVal)) {
-                                newConfig.put(it.name, it.defaultValue)
-                            } else {
-                                newConfig.put(it.name, userVal)
-                            }
-                        }
-                        setGeneratorConfig(gen.getId(), newConfig)
-                    }
-                }
-            }
-        }.show()
-
-    }
 
     val SETTING_FAVORITE_CONTENTS_PREFIX = "FavoriteGroup."
 
@@ -983,6 +921,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         buttonAdapter.add(
                                 GeneratorButton(
                                         g.value,
+                                        sharedPreferences,
                                         getCurrentLocale(resources),
                                         g.key)
                         )
@@ -1027,7 +966,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
         resultAdapter.clear()
-        resultAdapter.add(restoredResults)
+        resultAdapter.add(restoredResults.filterNotNull())
 
         buttonAdapter.withSavedInstanceState(savedInstanceState)
         resultAdapter.withSavedInstanceState(savedInstanceState)

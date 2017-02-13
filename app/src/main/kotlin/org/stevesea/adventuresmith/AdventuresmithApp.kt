@@ -28,6 +28,8 @@ import com.crashlytics.android.*
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import com.crashlytics.android.core.*
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.Iconics
@@ -42,6 +44,16 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
     companion object {
         val watch = Stopwatch.createStarted()
+
+        val objectMapper by lazy {
+            ObjectMapper().registerKotlinModule()
+        }
+        val objectReader by lazy {
+            objectMapper.reader()
+        }
+        val objectWriter by lazy {
+            objectMapper.writer()
+        }
     }
 
     override fun onCreate() {
