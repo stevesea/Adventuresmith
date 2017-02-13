@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Indian.female}}
   <br/><small>{{headers.surname}}:</small> {{Indian.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Indian.place}}
+  <br/><small>{{headers.place}}:</small> {{Indian.place}}
 
 
 imports:

@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Nigerian.female}}
   <br/><small>{{headers.surname}}:</small> {{Nigerian.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Nigerian.place}}
+  <br/><small>{{headers.place}}:</small> {{Nigerian.place}}
 
 
 imports:

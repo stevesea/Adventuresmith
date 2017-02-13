@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Russian.female}}
   <br/><small>{{headers.surname}}:</small> {{Russian.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Russian.place}}
+  <br/><small>{{headers.place}}:</small> {{Russian.place}}
 
 
 imports:

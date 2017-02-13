@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Chinese.female}}
   <br/><small>{{headers.surname}}:</small> {{Chinese.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Chinese.place}}
+  <br/><small>{{headers.place}}:</small> {{Chinese.place}}
 
 
 imports:

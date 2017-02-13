@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Spanish.female}}
   <br/><small>{{headers.surname}}:</small> {{Spanish.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Spanish.place}}
+  <br/><small>{{headers.place}}:</small> {{Spanish.place}}
 
 
 imports:

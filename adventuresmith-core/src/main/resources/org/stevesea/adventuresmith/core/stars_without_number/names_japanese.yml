@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Japanese.female}}
   <br/><small>{{headers.surname}}:</small> {{Japanese.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Japanese.place}}
+  <br/><small>{{headers.place}}:</small> {{Japanese.place}}
 
 
 imports:

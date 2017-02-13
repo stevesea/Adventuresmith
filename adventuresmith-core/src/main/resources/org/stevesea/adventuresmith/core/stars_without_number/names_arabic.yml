@@ -6,7 +6,7 @@ templates:
   <br/><small>{{headers.female}}:</small> {{Arabic.female}}
   <br/><small>{{headers.surname}}:</small> {{Arabic.surname}}
   <br/>
-  <br/><small>{{headers.place}}:</small>{{Arabic.place}}
+  <br/><small>{{headers.place}}:</small> {{Arabic.place}}
 
 
 imports:
