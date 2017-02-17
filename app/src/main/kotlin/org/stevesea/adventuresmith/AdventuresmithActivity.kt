@@ -211,21 +211,24 @@ class AdventuresmithActivity : AppCompatActivity(),
                             )
 
                             uiThread {
-                                // disable filter before adding any results
-                                if (currentFilter != null) {
-                                    resultAdapter.filter(null)
+
+                                synchronized(resultAdapter) {
+                                    // disable filter before adding any results
+                                    if (currentFilter != null) {
+                                        resultAdapter.filter(null)
+                                    }
+
+                                    resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
+
+                                    recycler_results.scrollToPosition(0)
+
+                                    // re-apply the filter if there is one
+                                    if (currentFilter != null) {
+                                        debug("Applying filter '$currentFilter'")
+                                        resultAdapter.filter(currentFilter)
+                                    }
+                                    debug("Number of items ${resultAdapter.adapterItemCount}")
                                 }
-
-                                resultAdapter.add(0, resultItems.filterNotNull().map{ ResultItem(it) })
-
-                                recycler_results.scrollToPosition(0)
-
-                                // re-apply the filter if there is one
-                                if (currentFilter != null) {
-                                    debug("Applying filter '$currentFilter'")
-                                    resultAdapter.filter(currentFilter)
-                                }
-                                debug("Number of items ${resultAdapter.adapterItemCount}")
                             }
                         }
                         return true
@@ -254,16 +257,18 @@ class AdventuresmithActivity : AppCompatActivity(),
                     val subj = "${applicationContext.getString(R.string.app_name)} $ts"
                     debug("subject: $subj")
 
-                    val intent = Intent(Intent.ACTION_SEND)
-                    intent.type = "text/plain"
-                    intent.putExtra(Intent.EXTRA_SUBJECT, subj)
-                    intent.putExtra(Intent.EXTRA_TEXT, resultAdapter.selectedItems.map{ it.spannedText.toString() }.joinToString("\n#############\n"))
-                    intent.putExtra(Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
-                    startActivity(Intent.createChooser(intent, null))
+                    synchronized(resultAdapter) {
+                        val intent = Intent(Intent.ACTION_SEND)
+                        intent.type = "text/plain"
+                        intent.putExtra(Intent.EXTRA_SUBJECT, subj)
+                        intent.putExtra(Intent.EXTRA_TEXT, resultAdapter.selectedItems.map { it.spannedText.toString() }.joinToString("\n#############\n"))
+                        intent.putExtra(Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
+                        startActivity(Intent.createChooser(intent, null))
 
-                    mode!!.finish()
-                    showUsualToolbar()
-                    resultAdapter.deselect()
+                        mode!!.finish()
+                        showUsualToolbar()
+                        resultAdapter.deselect()
+                    }
                     return true // consume
                 }
                 return false
@@ -813,16 +818,18 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val drawerItemId = drawerItem.identifier
                         if (drawerIdToGroup.containsKey(drawerItemId) || favoriteIdToName.containsKey(drawerItemId)) {
-                            selectDrawerItem(drawerItemId)
+                            selectDrawerItem(drawerItemId, null)
+                            currentDrawerItemId = drawerItemId
                             return false
                         } else if (drawerItemId == ID_ABOUT) {
                             this@AdventuresmithActivity.startActivity(
                                     android.content.Intent(this@AdventuresmithActivity, AboutActivity::class.java))
+                            currentDrawerItemId = null
                         } else if (drawerItemId == ID_THANKS) {
                             this@AdventuresmithActivity.startActivity(
                                     android.content.Intent(this@AdventuresmithActivity, AttributionActivity::class.java))
+                            currentDrawerItemId = null
                         }
-                        currentDrawerItemId = null
                         return false
                     }
                 })
@@ -874,22 +881,24 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.adapter = resultAdapter
     }
 
-    private fun selectDrawerItem(drawerItemId: Long?) {
+    private fun selectDrawerItem(drawerItemId: Long?, savedInstanceState: Bundle?) {
+        info("selectDraweritem: $drawerItemId")
+
         if (drawerItemId == null)
             return
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
         if (collGrp != null || favName != null) {
 
-            currentDrawerItemId = drawerItemId
-
             if (collGrp != null) {
+                info("selectDraweritem: collGrp : $collGrp")
                 Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
                         .putCustomAttribute("Dataset", collGrp.collectionId)
                 )
 
                 toolbar.title = collGrp.name
             } else {
+                info("selectDraweritem: collGrp : $collGrp")
                 Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
 
                 toolbar.title = getString(R.string.nav_favs) + " / $favName"
@@ -915,6 +924,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             mapOf()
                         }
                 debug("Discovered generators: ${generators.keys}")
+
                 uiThread {
                     buttonAdapter.clear()
                     for (g in generators) {
@@ -926,12 +936,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         g.key)
                         )
                     }
-                    // NOTE: doing deselect after the clear resulted in crash
-                    resultAdapter.deselect()
-                    if (actionModeHelper.isActive) {
-                        actionModeHelper.actionMode.finish()
-                    }
-                    resultAdapter.clear()
+                    buttonAdapter.withSavedInstanceState(savedInstanceState)
 
                     appbar.visibility = View.VISIBLE
                     appbar.setExpanded(true, true)
@@ -944,16 +949,18 @@ class AdventuresmithActivity : AppCompatActivity(),
     private val BUNDLE_RESULT_ITEMS = AdventuresmithActivity::class.java.name + ".resultItems"
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        resultAdapter.saveInstanceState(outState)
 
+        synchronized(resultAdapter) {
+            resultAdapter.saveInstanceState(outState)
+
+            val results: ArrayList<ResultItem> = ArrayList()
+            results.addAll(resultAdapter.adapterItems)
+            outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
+        }
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
 
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
-
-        val results : ArrayList<ResultItem> = ArrayList()
-        results.addAll(resultAdapter.adapterItems)
-        outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
 
         super.onSaveInstanceState(outState)
     }
@@ -962,16 +969,24 @@ class AdventuresmithActivity : AppCompatActivity(),
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
 
+
         // NOTE: currentDrawerItem _may_ have saved null
-        selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?)
+        // the following will setup the button adapter
+        selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?, savedInstanceState)
+
+        // restore previous results
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
-        resultAdapter.clear()
-        resultAdapter.add(restoredResults.filterNotNull())
-
-        buttonAdapter.withSavedInstanceState(savedInstanceState)
-        resultAdapter.withSavedInstanceState(savedInstanceState)
-
-        resultAdapter.deselect()
+        synchronized(resultAdapter) {
+            // NOTE: doing deselect after the clear resulted in crash
+            resultAdapter.deselect()
+            if (actionModeHelper.isActive) {
+                actionModeHelper.actionMode.finish()
+            }
+            resultAdapter.clear()
+            resultAdapter.add(restoredResults.filterNotNull())
+            resultAdapter.withSavedInstanceState(savedInstanceState)
+            resultAdapter.deselect()
+        }
     }
 
     override fun onBackPressed() {
@@ -1005,14 +1020,19 @@ class AdventuresmithActivity : AppCompatActivity(),
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    resultAdapter.filter(newText)
+
+                    synchronized(resultAdapter) {
+                        resultAdapter.filter(newText)
+                    }
                     currentFilter = newText
                     appbar.setExpanded(false,false)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    resultAdapter.filter(query)
+                    synchronized(resultAdapter) {
+                        resultAdapter.filter(query)
+                    }
                     currentFilter = query
                     appbar.setExpanded(false,false)
                     return true
@@ -1031,7 +1051,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         if (item != null && item.itemId == R.id.action_clear) {
             // clear results
-            resultAdapter.clear()
+            synchronized(resultAdapter) {
+                resultAdapter.clear()
+            }
             // expand buttons
             appbar.setExpanded(true, true)
             return true
