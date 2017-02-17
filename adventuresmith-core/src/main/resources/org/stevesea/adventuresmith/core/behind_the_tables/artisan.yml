@@ -16,7 +16,7 @@ nested_tables:
       <br/>
       <br/>The artisan is carrying <strong>{{artisan.carrying}}</strong>
       <br/>
-      <br/>The artisan is <strong>{{artisan.is}}</strong>
+      <br/>The artisan is <strong>{{artisan.is2}}</strong>
       <br/>
       <br/>The artisan dreams of <strong>{{artisan.dreams}}</strong>
 
