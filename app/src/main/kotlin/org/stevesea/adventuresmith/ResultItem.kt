@@ -37,7 +37,7 @@ class ResultItem(val htmlTxt: String) :
     val spannedText = htmlStrToSpanned(htmlTxt)
 
     init {
-        withIdentifier(resultId.andDecrement)
+        withIdentifier(resultId.andIncrement)
     }
 
     override fun getType(): Int {
