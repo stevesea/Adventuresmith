@@ -28,9 +28,7 @@ import android.view.*
 import android.widget.*
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Strings
-import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.*
-import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.utils.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.core.*
@@ -47,76 +45,6 @@ class GeneratorButton(val generator: Generator,
     }
     val name = meta.name
 
-
-    fun getGeneratorConfig() : Map<String, String> {
-        return getGeneratorConfig(generator.getId())
-    }
-    val SETTING_GENERATOR_CONFIG_PREFIX = "GeneratorConfig."
-    private fun getGeneratorConfig(genId: String) : Map<String, String> {
-        val str = sharedPreferences.getString(SETTING_GENERATOR_CONFIG_PREFIX + genId, "")
-        if (Strings.isNullOrEmpty(str)) {
-            return mapOf()
-        } else {
-            return AdventuresmithApp.objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
-        }
-    }
-    private fun setGeneratorConfig(genId: String, value: Map<String, String>) {
-        val str = AdventuresmithApp.objectWriter.writeValueAsString(value)
-        sharedPreferences.edit()
-                .putString(SETTING_GENERATOR_CONFIG_PREFIX + genId, str)
-                .apply()
-    }
-    private fun showGenWizard(v: View, stepInd: Int, items: List<InputParamDto>, oldState: Map<String,String>, newState: MutableMap<String, String>) {
-        val item = items.get(stepInd)
-        val k = item.name
-        // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
-        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {item.defaultValue}}
-        val isFirstPage = stepInd == 0
-        val isFinalPage = stepInd == items.size - 1
-        with(v.context) {
-            alert(R.string.generator_config) {
-                customView {
-                    verticalLayout {
-                        textView {
-                            backgroundColor = 0
-                            text = Editable.Factory.getInstance().newEditable(item.helpText)
-                        }
-                        val curEdit = editText {
-                            textColor = 0
-                            hint = item.uiName
-                            maxLines = 1
-                            singleLine = true
-                            inputType = if (item.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-                            text = Editable.Factory.getInstance().newEditable(displayVal)
-                        }
-                        positiveButton(if (isFinalPage) "OK" else "Next") {
-                            newState.put(k, curEdit.text.toString().trim())
-                            info("new state: " + newState)
-                            if (isFinalPage) {
-                                setGeneratorConfig(generator.getId(), newState)
-                            } else {
-                                showGenWizard(v, stepInd+1, items, oldState, newState)
-                            }
-                        }
-                        negativeButton("Prev") {
-                            isEnabled = if (isFirstPage) false else true
-                            if (!isFirstPage) {
-                                newState.put(k, curEdit.text.toString().trim())
-                                showGenWizard(v, stepInd - 1, items, oldState, newState)
-                            }
-                        }
-                    }
-                }
-            }.show()
-        }
-    }
-
-    fun showGeneratorConfigDialog(v: View) {
-        val previousConfig = getGeneratorConfig(generator.getId())
-        info("Previous config: " + previousConfig)
-        showGenWizard(v, 0, meta.inputParams, previousConfig, mutableMapOf())
-    }
-
     override fun getType(): Int {
         return R.id.btn_card
     }
@@ -132,23 +60,8 @@ class GeneratorButton(val generator: Generator,
 
         if (meta.inputParams.isNotEmpty()) {
             holder.btnSettings.visibility = View.VISIBLE
-            /*
-            holder.btnSettings.setOnClickListener(object: View.OnClickListener {
-                override fun onClick(v: View?) {
-                    info("Button click!")
-                    showGeneratorConfigDialog(v!!)
-                }
-            })
-            */
         } else {
             holder.btnSettings.visibility = View.GONE
-            /*
-            holder.btnSettings.setOnClickListener(object: View.OnClickListener {
-                override fun onClick(v: View?) {
-                    debug("Ignored!")
-                }
-            })
-            */
         }
     }
 

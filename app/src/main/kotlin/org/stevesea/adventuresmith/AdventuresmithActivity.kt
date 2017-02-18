@@ -31,10 +31,12 @@ import android.support.v7.view.ActionMode
 import android.support.v7.widget.*
 import android.support.v7.widget.SearchView
 import android.text.Editable
+import android.text.InputType
 import android.text.InputType.*
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
+import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Stopwatch
 import com.google.common.base.Strings
 import com.mikepenz.community_material_typeface_library.*
@@ -129,27 +131,70 @@ class AdventuresmithActivity : AppCompatActivity(),
         })
         res
     }
+
+
     val buttonAdapter : FastItemAdapter<GeneratorButton> by lazy {
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
                 .withItemEvent(object: ClickEventHook<GeneratorButton>(), EventHook {
-                    override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
-                        if (item != null && item.meta.inputParams.isNotEmpty()) {
-                            info("GenCfgButtonClickEvent: button click!")
-                            toast("Toast msg!")
-                            alert("Alert!") {
-                                yesButton {}
-                                noButton {}
-                            }.show()
-                        }
-                    }
-
                     override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
                         if (viewHolder is GeneratorButton.ViewHolder) {
                             return viewHolder.btnSettings
                         }
                         return null
+                    }
+
+                    override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
+                        if (item != null && item.meta.inputParams.isNotEmpty()) {
+                            val previousConfig = getGeneratorConfig(item.generator.getId())
+                            showGenWizard(item.generator.getId(), 0, item.meta.inputParams, previousConfig, mutableMapOf())
+                        }
+                    }
+
+                    private fun showGenWizard(genId: String,
+                                              stepInd: Int,
+                                              items: List<InputParamDto>,
+                                              oldState: Map<String,String>,
+                                              newState: MutableMap<String, String>) {
+                        val item = items.get(stepInd)
+                        val k = item.name
+                        // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
+                        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {item.defaultValue}}
+                        val isFirstPage = stepInd == 0
+                        val isFinalPage = stepInd == items.size - 1
+                        alert(R.string.generator_config) {
+                            customView {
+                                verticalLayout {
+                                    textView {
+                                        text = Editable.Factory.getInstance().newEditable(item.helpText)
+                                    }
+                                    val curEdit = editText {
+                                        hint = item.uiName
+                                        maxLines = 1
+                                        singleLine = true
+                                        inputType = if (item.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                        text = Editable.Factory.getInstance().newEditable(displayVal)
+                                    }
+                                    positiveButton(if (isFinalPage) "OK" else "Next") {
+                                        newState.put(k, curEdit.text.toString().trim())
+                                        info("new state: " + newState)
+                                        if (isFinalPage) {
+                                            setGeneratorConfig(genId, newState)
+                                        } else {
+                                            showGenWizard(genId, stepInd + 1, items, oldState, newState)
+                                        }
+                                    }
+                                    negativeButton("Prev") {
+                                        isEnabled = if (isFirstPage) false else true
+                                        if (!isFirstPage) {
+                                            newState.put(k, curEdit.text.toString().trim())
+                                            showGenWizard(genId, stepInd - 1, items, oldState, newState)
+                                        }
+                                    }
+                                }
+                            }
+                        }.show()
                     }
                 })
                 .withOnLongClickListener(object : FastAdapter.OnLongClickListener<GeneratorButton> {
@@ -183,7 +228,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                             alert(item.name, getString(R.string.fav_remove)) {
                                 yesButton {
                                     removeFavoriteFromGroup(favGroup!!, genid)
-                                    buttonAdapter.remove(position)
+                                    synchronized(buttonAdapter) {
+                                        buttonAdapter.remove(position)
+                                    }
                                 }
                                 noButton {}
                             }.show()
@@ -202,15 +249,16 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val generator = item.generator
                         val currentLocale = getCurrentLocale(resources)
 
+                        val inputConfig = getGeneratorConfig(generator.getId())
+
                         info("GenButton Click")
 
                         doAsync {
                             val stopwatch = Stopwatch.createStarted()
                             val resultItems : MutableList<String> = mutableListOf()
-                            val inputMap: Map<String,String> = mapOf()
                             for (i in 1..num_to_generate) {
                                 try {
-                                    resultItems.add(generator.generate(currentLocale, inputMap))
+                                    resultItems.add(generator.generate(currentLocale, inputConfig))
                                 } catch (e: Exception) {
                                     warn(e.toString(), e)
                                     resultItems.add(
@@ -408,6 +456,24 @@ class AdventuresmithActivity : AppCompatActivity(),
         sharedPreferences.edit()
                 .putStringSet(getFavoriteSettingKey(groupName), curVals).apply()
     }
+
+    val SETTING_GENERATOR_CONFIG_PREFIX = "GeneratorConfig."
+    fun getGeneratorConfig(genId: String) : Map<String, String> {
+        val str = sharedPreferences.getString(SETTING_GENERATOR_CONFIG_PREFIX + genId, "")
+        if (Strings.isNullOrEmpty(str)) {
+            return mapOf()
+        } else {
+            return AdventuresmithApp.objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
+        }
+    }
+    fun setGeneratorConfig(genId: String, value: Map<String, String>) {
+        val str = AdventuresmithApp.objectWriter.writeValueAsString(value)
+        sharedPreferences.edit()
+                .putString(SETTING_GENERATOR_CONFIG_PREFIX + genId, str)
+                .apply()
+    }
+
+
 
     val shuffler = AdventuresmithCore.shuffler
 
@@ -945,17 +1011,19 @@ class AdventuresmithActivity : AppCompatActivity(),
                 debug("Discovered generators: ${generators.keys}")
 
                 uiThread {
-                    buttonAdapter.clear()
-                    for (g in generators) {
-                        buttonAdapter.add(
-                                GeneratorButton(
-                                        g.value,
-                                        sharedPreferences,
-                                        getCurrentLocale(resources),
-                                        g.key)
-                        )
+                    synchronized(buttonAdapter) {
+                        buttonAdapter.clear()
+                        for (g in generators) {
+                            buttonAdapter.add(
+                                    GeneratorButton(
+                                            g.value,
+                                            sharedPreferences,
+                                            getCurrentLocale(resources),
+                                            g.key)
+                            )
+                        }
+                        buttonAdapter.withSavedInstanceState(savedInstanceState)
                     }
-                    buttonAdapter.withSavedInstanceState(savedInstanceState)
 
                     appbar.visibility = View.VISIBLE
                     appbar.setExpanded(true, true)
@@ -987,7 +1055,6 @@ class AdventuresmithActivity : AppCompatActivity(),
     @Suppress("UNCHECKED_CAST")
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-
 
         // NOTE: currentDrawerItem _may_ have saved null
         // the following will setup the button adapter

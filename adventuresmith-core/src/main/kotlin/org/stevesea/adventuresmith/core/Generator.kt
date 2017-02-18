@@ -207,6 +207,7 @@ class DataDrivenGeneratorForFiles(
             getMetadata(locale).inputParams.forEach {
                 inputMapForContext.put(it.name, it.defaultValue)
             }
+            // then apply any user-specified overrides
             inputMap?.forEach {
                 inputMapForContext.put(it.key, it.value)
             }
