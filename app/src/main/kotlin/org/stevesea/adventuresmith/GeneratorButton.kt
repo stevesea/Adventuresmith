@@ -167,25 +167,3 @@ class GeneratorButton(val generator: Generator,
     }
 }
 
-
-class GenCfgButtonClickEvent : ClickEventHook<GeneratorButton>(), AnkoLogger {
-    override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
-        if (item != null && item.meta.inputParams.isNotEmpty()) {
-            info("GenCfgButtonClickEvent: button click!")
-            with(v!!.context) {
-                toast("Toast msg!")
-                alert("Alert!") {
-                    yesButton {}
-                    noButton {}
-                }.show()
-            }
-        }
-    }
-
-    override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
-        if (viewHolder is GeneratorButton.ViewHolder) {
-            return viewHolder.btnSettings
-        }
-        return null
-    }
-}

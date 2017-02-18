@@ -40,6 +40,8 @@ import com.google.common.base.Strings
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
+import com.mikepenz.fastadapter.listeners.ClickEventHook
+import com.mikepenz.fastadapter.listeners.EventHook
 import com.mikepenz.fastadapter_extensions.*
 import com.mikepenz.iconics.*
 import com.mikepenz.iconics.context.IconicsLayoutInflater
@@ -131,7 +133,25 @@ class AdventuresmithActivity : AppCompatActivity(),
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
-                .withItemEvent(GenCfgButtonClickEvent())
+                .withItemEvent(object: ClickEventHook<GeneratorButton>(), EventHook {
+                    override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
+                        if (item != null && item.meta.inputParams.isNotEmpty()) {
+                            info("GenCfgButtonClickEvent: button click!")
+                            toast("Toast msg!")
+                            alert("Alert!") {
+                                yesButton {}
+                                noButton {}
+                            }.show()
+                        }
+                    }
+
+                    override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
+                        if (viewHolder is GeneratorButton.ViewHolder) {
+                            return viewHolder.btnSettings
+                        }
+                        return null
+                    }
+                })
                 .withOnLongClickListener(object : FastAdapter.OnLongClickListener<GeneratorButton> {
                     override fun onLongClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
