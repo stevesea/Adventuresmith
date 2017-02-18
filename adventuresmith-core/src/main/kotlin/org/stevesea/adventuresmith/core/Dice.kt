@@ -155,6 +155,7 @@ object DiceConstants {
     val d20adv = "1d20 advantage"
     val d20disadv = "1d20 disadvantage"
 
+    val xdy = "XdY + Z"
 }
 
 val diceModule = Kodein.Module {
@@ -236,6 +237,41 @@ val diceModule = Kodein.Module {
             }
         }
     }
+    bind<Generator>(DiceConstants.xdy) with provider {
+        object: Generator {
+            val diceParser : DiceParser = instance()
+            override fun getId(): String {
+                return DiceConstants.xdy
+            }
+            override fun generate(locale: Locale, input: Map<String, String>?): String {
+                val inputMapForContext : MutableMap<String,String> = mutableMapOf()
+                getMetadata(locale).inputParams.forEach {
+                    inputMapForContext.put(it.name, it.defaultValue)
+                }
+                input?.forEach {
+                    if (!it.value.isNullOrEmpty()) {
+                        inputMapForContext.put(it.key, it.value)
+                    }
+                }
+                val dStr = "${inputMapForContext["x"]}d${inputMapForContext["y"]} + ${inputMapForContext["z"]}"
+                val nf = NumberFormat.getInstance(locale)
+                return "${dStr}: <strong>${nf.format(diceParser.roll(dStr))}</strong>"
+            }
+            override fun getMetadata(locale: Locale): GeneratorMetaDto {
+                return GeneratorMetaDto(name = "XdY + Z",
+                        collectionId = DiceConstants.CollectionName,
+                        priority = 1000,
+                        inputParamsUseWizard = false,
+                        inputParams = listOf(
+                                InputParamDto(name = "x", uiName = "X", numbersOnly = true, defaultValue = "1",
+                                        helpText = "Enter dice 'XdY + Z'"),
+                                InputParamDto(name = "y", uiName = "Y", numbersOnly = true, defaultValue = "6"),
+                                InputParamDto(name = "z", uiName = "Z", numbersOnly = true, defaultValue = "0")
+                        )
+                )
+            }
+        }
+    }
 
     bind<List<String>>(DiceConstants.GROUP) with singleton {
         listOf(
@@ -243,7 +279,8 @@ val diceModule = Kodein.Module {
                 DiceConstants.multDice.keys,
                 listOf(
                         DiceConstants.d20adv,
-                        DiceConstants.d20disadv
+                        DiceConstants.d20disadv,
+                        DiceConstants.xdy
                 )
         ).flatten()
     }

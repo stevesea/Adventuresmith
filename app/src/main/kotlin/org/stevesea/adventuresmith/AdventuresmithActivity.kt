@@ -148,8 +148,51 @@ class AdventuresmithActivity : AppCompatActivity(),
                     override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
                         if (item != null && item.meta.inputParams.isNotEmpty()) {
                             val previousConfig = getGeneratorConfig(item.generator.getId())
-                            showGenWizard(item.generator.getId(), 0, item.meta.inputParams, previousConfig, mutableMapOf())
+                            if (item.meta.inputParamsUseWizard) {
+                                showGenWizard(item.generator.getId(), 0, item.meta.inputParams, previousConfig, mutableMapOf())
+                            } else {
+                                showGenCfg(item.generator.getId(), item.meta.inputParams, previousConfig)
+                            }
                         }
+                    }
+
+                    private fun showGenCfg(genId: String,
+                                           items: List<InputParamDto>,
+                                           oldState: Map<String,String>) {
+                        alert(R.string.generator_config) {
+                            customView {
+                                verticalLayout {
+                                    val edits : MutableMap<String, EditText> = mutableMapOf()
+                                    items.forEach {
+                                        val k = it.name
+                                        val displayVal = oldState.getOrElse(k) {it.defaultValue}
+
+                                        if (!it.helpText.isNullOrEmpty()) {
+                                            textView {
+                                                text = it.helpText
+                                            }
+                                        }
+                                        edits.put(k,
+                                                editText {
+                                                    hint = it.uiName
+                                                    maxLines = 1
+                                                    singleLine = true
+                                                    inputType = if (it.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT
+                                                    text = Editable.Factory.getInstance().newEditable(displayVal)
+                                                }
+                                        )
+                                    }
+                                    okButton {
+                                        val newState : MutableMap<String, String> = mutableMapOf()
+                                        edits.forEach {
+                                            newState.put(it.key, it.value.text.toString().trim())
+                                        }
+                                        debug("new state: " + newState)
+                                        setGeneratorConfig(genId, newState)
+                                    }
+                                }
+                            }
+                        }.show()
                     }
 
                     private fun showGenWizard(genId: String,
@@ -166,8 +209,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                         alert(R.string.generator_config) {
                             customView {
                                 verticalLayout {
-                                    textView {
-                                        text = Editable.Factory.getInstance().newEditable(item.helpText)
+                                    if (!item.helpText.isNullOrEmpty()) {
+                                        textView {
+                                            text = item.helpText
+                                        }
                                     }
                                     val curEdit = editText {
                                         hint = item.uiName
@@ -178,7 +223,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     }
                                     positiveButton(if (isFinalPage) "OK" else "Next") {
                                         newState.put(k, curEdit.text.toString().trim())
-                                        info("new state: " + newState)
+                                        debug("new state: " + newState)
                                         if (isFinalPage) {
                                             setGeneratorConfig(genId, newState)
                                         } else {
@@ -249,8 +294,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val currentLocale = getCurrentLocale(resources)
 
                         val inputConfig = getGeneratorConfig(generator.getId())
-
-                        info("GenButton Click")
 
                         doAsync {
                             val stopwatch = Stopwatch.createStarted()
@@ -966,7 +1009,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     private fun selectDrawerItem(drawerItemId: Long?, savedInstanceState: Bundle?) {
-        info("selectDraweritem: $drawerItemId")
+        debug("selectDraweritem: $drawerItemId")
 
         if (drawerItemId == null)
             return
@@ -982,7 +1025,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                 toolbar.title = collGrp.name
             } else {
-                info("selectDraweritem: collGrp : $collGrp")
+                info("selectDraweritem: favName : $favName")
                 Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
 
                 toolbar.title = getString(R.string.nav_favs) + " / $favName"

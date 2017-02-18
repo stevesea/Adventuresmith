@@ -89,12 +89,13 @@ data class InputParamDto(val name: String,
                          val uiName: String,
                          val numbersOnly: Boolean = false,
                          val defaultValue: String,
-                         val helpText: String,
+                         val helpText: String? = "",
                          val values: List<String>? = null   // valid values
 )
 
 data class GeneratorMetaDto(val name: String,
                             val collectionId: String,
+                            val inputParamsUseWizard: Boolean = true,
                             val inputParams: List<InputParamDto> = listOf(),
                             val groupId: String? = null,
                             val tags: List<String>? = null,
