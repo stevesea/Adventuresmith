@@ -35,10 +35,6 @@ import android.text.InputType.*
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
-import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.type.TypeFactory
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.base.Stopwatch
 import com.google.common.base.Strings
 import com.mikepenz.community_material_typeface_library.*
@@ -135,6 +131,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
+                .withItemEvent(GenCfgButtonClickEvent())
                 .withOnLongClickListener(object : FastAdapter.OnLongClickListener<GeneratorButton> {
                     override fun onLongClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {
                         if (item == null)
@@ -184,6 +181,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val num_to_generate = if (settingsGenerateMany) settingsGenerateManyCount else 1
                         val generator = item.generator
                         val currentLocale = getCurrentLocale(resources)
+
+                        info("GenButton Click")
 
                         doAsync {
                             val stopwatch = Stopwatch.createStarted()

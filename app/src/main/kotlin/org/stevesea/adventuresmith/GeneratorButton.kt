@@ -28,7 +28,9 @@ import android.view.*
 import android.widget.*
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Strings
+import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.*
+import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.utils.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.core.*
@@ -130,19 +132,23 @@ class GeneratorButton(val generator: Generator,
 
         if (meta.inputParams.isNotEmpty()) {
             holder.btnSettings.visibility = View.VISIBLE
+            /*
             holder.btnSettings.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
                     info("Button click!")
                     showGeneratorConfigDialog(v!!)
                 }
             })
+            */
         } else {
             holder.btnSettings.visibility = View.GONE
+            /*
             holder.btnSettings.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
                     debug("Ignored!")
                 }
             })
+            */
         }
     }
 
@@ -158,5 +164,28 @@ class GeneratorButton(val generator: Generator,
         override fun create(v: View?): ViewHolder {
             return ViewHolder(v)
         }
+    }
+}
+
+
+class GenCfgButtonClickEvent : ClickEventHook<GeneratorButton>(), AnkoLogger {
+    override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
+        if (item != null && item.meta.inputParams.isNotEmpty()) {
+            info("GenCfgButtonClickEvent: button click!")
+            with(v!!.context) {
+                toast("Toast msg!")
+                alert("Alert!") {
+                    yesButton {}
+                    noButton {}
+                }.show()
+            }
+        }
+    }
+
+    override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
+        if (viewHolder is GeneratorButton.ViewHolder) {
+            return viewHolder.btnSettings
+        }
+        return null
     }
 }
