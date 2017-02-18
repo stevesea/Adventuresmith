@@ -260,7 +260,7 @@ val diceModule = Kodein.Module {
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
                 return GeneratorMetaDto(name = "XdY + Z",
                         collectionId = DiceConstants.CollectionName,
-                        priority = 1000,
+                        priority = 3000,
                         inputParamsUseWizard = false,
                         inputParams = listOf(
                                 InputParamDto(name = "x", uiName = "X", numbersOnly = true, defaultValue = "1",
