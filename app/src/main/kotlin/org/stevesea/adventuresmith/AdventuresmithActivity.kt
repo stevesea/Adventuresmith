@@ -173,7 +173,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         hint = item.uiName
                                         maxLines = 1
                                         singleLine = true
-                                        inputType = if (item.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                        inputType = if (item.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT
                                         text = Editable.Factory.getInstance().newEditable(displayVal)
                                     }
                                     positiveButton(if (isFinalPage) "OK" else "Next") {
@@ -185,9 +185,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             showGenWizard(genId, stepInd + 1, items, oldState, newState)
                                         }
                                     }
-                                    negativeButton("Prev") {
-                                        isEnabled = if (isFirstPage) false else true
-                                        if (!isFirstPage) {
+                                    if (!isFirstPage) {
+                                        negativeButton("Prev") {
                                             newState.put(k, curEdit.text.toString().trim())
                                             showGenWizard(genId, stepInd - 1, items, oldState, newState)
                                         }
@@ -845,7 +844,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                                 hint = getString(R.string.fav_group)
                                                 maxLines = 1
                                                 singleLine = true
-                                                inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                                inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS
                                                 text = Editable.Factory.getInstance().newEditable(favName)
                                             }
                                             positiveButton(getString(R.string.btn_rename)) {
@@ -868,7 +867,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             hint = getString(R.string.fav_group)
                                             maxLines = 1
                                             singleLine = true
-                                            inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS or TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                                            inputType = TYPE_CLASS_TEXT or TYPE_TEXT_FLAG_CAP_WORDS
                                         }
                                         positiveButton(getString(R.string.btn_create)) {
                                             val newGrpName = groupName.text.toString().trim()

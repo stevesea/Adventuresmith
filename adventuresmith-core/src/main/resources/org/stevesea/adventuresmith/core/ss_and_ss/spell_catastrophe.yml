@@ -9,7 +9,6 @@ nested_tables:
       %[[>pick: 1d6+{{input.powerLevel}} spell_catastrophe.table]]%
       <br/>
       <br/><small><em>[power level: {{input.powerLevel}}]</em></small>
-
     table:
     - 2, The Difficulty to cast spells increases by 2 for 1 turn.
     - The Magic User receives a Negative Die to cast spells for 1 hour.
