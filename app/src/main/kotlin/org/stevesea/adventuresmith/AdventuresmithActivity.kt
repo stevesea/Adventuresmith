@@ -1012,7 +1012,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     private fun selectDrawerItem(drawerItemId: Long?, savedInstanceState: Bundle?) {
-        debug("selectDraweritem: $drawerItemId")
+        info("selectDraweritem: $drawerItemId")
 
         if (drawerItemId == null)
             return
@@ -1025,14 +1025,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                 Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
                         .putCustomAttribute("Dataset", collGrp.collectionId)
                 )
-
-                toolbar.title = collGrp.name
             } else {
                 info("selectDraweritem: favName : $favName")
                 Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
 
                 toolbar.title = getString(R.string.nav_favs) + " / $favName"
             }
+            info("selectDraweritem: set title : ${toolbar.title}")
 
             doAsync {
                 val generators : Map<GeneratorMetaDto, Generator> =
@@ -1091,6 +1090,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
+        info("saveInstanceState: $currentDrawerItemId")
 
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
@@ -1103,7 +1103,9 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         // NOTE: currentDrawerItem _may_ have saved null
         // the following will setup the button adapter
-        selectDrawerItem(savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?, savedInstanceState)
+        currentDrawerItemId = savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?
+        info("restoreInstanceState: $currentDrawerItemId")
+        selectDrawerItem(currentDrawerItemId, savedInstanceState)
 
         // restore previous results
         val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
