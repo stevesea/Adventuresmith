@@ -1012,66 +1012,59 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     private fun selectDrawerItem(drawerItemId: Long?, savedInstanceState: Bundle?) {
-        info("selectDraweritem: $drawerItemId")
+        debug("selectDraweritem: $drawerItemId")
 
         if (drawerItemId == null)
             return
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
-        if (collGrp != null || favName != null) {
-
-            if (collGrp != null) {
-                info("selectDraweritem: collGrp : $collGrp")
-                Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
-                        .putCustomAttribute("Dataset", collGrp.collectionId)
-                )
-            } else {
-                info("selectDraweritem: favName : $favName")
-                Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
-
-                toolbar.title = getString(R.string.nav_favs) + " / $favName"
-            }
-            info("selectDraweritem: set title : ${toolbar.title}")
-
-            doAsync {
-                val generators : Map<GeneratorMetaDto, Generator> =
-                        if (collGrp != null) {
-                            debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
-                            AdventuresmithCore.getGeneratorsByGroup(
-                                    getCurrentLocale(resources),
-                                    collGrp.collectionId,
-                                    collGrp.groupId
-                            )
-                        } else if (favName != null) {
-                            val favs = getFavorites(favName)
-                            debug("favorites: $favs")
-                            AdventuresmithCore.getGeneratorsByIds(
-                                    getCurrentLocale(resources),
-                                    favs
-                                    )
-                        } else {
-                            mapOf()
-                        }
-                debug("Discovered generators: ${generators.keys}")
-
-                uiThread {
-                    synchronized(buttonAdapter) {
-                        buttonAdapter.clear()
-                        for (g in generators) {
-                            buttonAdapter.add(
-                                    GeneratorButton(
-                                            g.value,
-                                            sharedPreferences,
-                                            getCurrentLocale(resources),
-                                            g.key)
-                            )
-                        }
-                        buttonAdapter.withSavedInstanceState(savedInstanceState)
+        doAsync {
+            val generators : Map<GeneratorMetaDto, Generator> =
+                    if (collGrp != null) {
+                        Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
+                                .putCustomAttribute("Dataset", collGrp.collectionId)
+                        )
+                        debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
+                        AdventuresmithCore.getGeneratorsByGroup(
+                                getCurrentLocale(resources),
+                                collGrp.collectionId,
+                                collGrp.groupId
+                        )
+                    } else if (favName != null) {
+                        Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
+                        val favs = getFavorites(favName)
+                        debug("favorites: $favs")
+                        AdventuresmithCore.getGeneratorsByIds(
+                                getCurrentLocale(resources),
+                                favs
+                                )
+                    } else {
+                        mapOf()
                     }
+            debug("Discovered generators: ${generators.keys}")
 
-                    appbar.visibility = View.VISIBLE
-                    appbar.setExpanded(true, true)
+            uiThread {
+                if (collGrp != null) {
+                    toolbar.title = collGrp.name
+                } else if (favName != null) {
+                    toolbar.title = getString(R.string.nav_favs) + " / $favName"
                 }
+                synchronized(buttonAdapter) {
+                    buttonAdapter.clear()
+                    for (g in generators) {
+                        buttonAdapter.add(
+                                GeneratorButton(
+                                        g.value,
+                                        sharedPreferences,
+                                        getCurrentLocale(resources),
+                                        g.key)
+                        )
+                    }
+                    buttonAdapter.withSavedInstanceState(savedInstanceState)
+                }
+
+                appbar.visibility = View.VISIBLE
+                appbar.setExpanded(true, true)
             }
         }
     }
@@ -1090,7 +1083,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
         drawerHeader!!.saveInstanceState(outState)
         drawer!!.saveInstanceState(outState)
-        info("saveInstanceState: $currentDrawerItemId")
+        debug("saveInstanceState: $currentDrawerItemId")
 
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
@@ -1104,7 +1097,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         // NOTE: currentDrawerItem _may_ have saved null
         // the following will setup the button adapter
         currentDrawerItemId = savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?
-        info("restoreInstanceState: $currentDrawerItemId")
+        debug("restoreInstanceState: $currentDrawerItemId")
         selectDrawerItem(currentDrawerItemId, savedInstanceState)
 
         // restore previous results
@@ -1119,6 +1112,23 @@ class AdventuresmithActivity : AppCompatActivity(),
             resultAdapter.add(restoredResults.filterNotNull())
             resultAdapter.withSavedInstanceState(savedInstanceState)
             resultAdapter.deselect()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // TODO: between onRestore & onResume, something setting toolbar title to appname.
+        //   change it here in onResume to make it consistent.
+        if (currentDrawerItemId != null) {
+            val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
+            val favName = favoriteIdToName.get(currentDrawerItemId!!)
+            if (collGrp != null || favName != null) {
+                if (collGrp != null) {
+                    toolbar.title = collGrp.name
+                } else {
+                    toolbar.title = getString(R.string.nav_favs) + " / $favName"
+                }
+            }
         }
     }
 
