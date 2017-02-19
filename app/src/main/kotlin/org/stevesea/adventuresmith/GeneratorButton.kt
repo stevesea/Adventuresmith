@@ -35,7 +35,7 @@ import org.stevesea.adventuresmith.core.*
 import java.util.*
 
 class GeneratorButton(val generator: Generator,
-                      val sharedPreferences: SharedPreferences,
+                      var inputMap: Map<String,String>,
                       locale: Locale = Locale.US,
                       val meta : GeneratorMetaDto = generator.getMetadata(locale)) :
         AbstractItem<GeneratorButton, GeneratorButton.ViewHolder>(),
@@ -45,12 +45,21 @@ class GeneratorButton(val generator: Generator,
     }
     val name = meta.name
 
+    var vh : ViewHolder? = null
+
     override fun getType(): Int {
         return R.id.btn_card
     }
 
     override fun getLayoutRes(): Int {
         return R.layout.button_grid_item
+    }
+
+    fun updateInputMap(i: Map<String,String>) {
+        inputMap = i
+        if (vh != null) {
+            vh!!.btnTextConfig.text = meta.processInputForDisplay(inputMap)
+        }
     }
 
     override fun bindView(holder: ViewHolder?, payloads: MutableList<Any?>?) {
@@ -61,10 +70,22 @@ class GeneratorButton(val generator: Generator,
         if (meta.input != null) {
             holder.btnSettings.visibility = View.VISIBLE
             holder.btnTextConfig.visibility = View.VISIBLE
+
+            holder.btnTextConfig.text = meta.processInputForDisplay(inputMap)
+
+            holder.btnText.minLines = 1
         } else {
             holder.btnSettings.visibility = View.GONE
             holder.btnTextConfig.visibility = View.GONE
+
+            holder.btnText.minLines = 2
         }
+        vh = holder
+    }
+
+    override fun unbindView(holder: ViewHolder?) {
+        super.unbindView(holder)
+        vh = null
     }
 
     class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {

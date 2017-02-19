@@ -156,9 +156,9 @@ object DiceConstants {
     val d20disadv = "1d20 disadvantage"
 
     val customizableDice: Map<String,String> = mapOf(
-            "xdy_z_1" to "XdY + Z",
-            "xdy_z_2" to "XdY + Z",
-            "xdy_z_3" to "XdY + Z"
+            "xdy_z_1" to "Custom Dice #1",
+            "xdy_z_2" to "Custom Dice #2",
+            "xdy_z_3" to "Custom Dice #3"
     )
 }
 

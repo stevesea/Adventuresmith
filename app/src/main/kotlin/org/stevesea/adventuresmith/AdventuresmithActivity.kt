@@ -38,7 +38,6 @@ import android.widget.*
 import com.crashlytics.android.answers.*
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Stopwatch
-import com.google.common.base.Strings
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -149,21 +148,24 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (item != null && item.meta.input != null) {
                             val previousConfig = getGeneratorConfig(item.generator.getId())
                             if (item.meta.input!!.useWizard) {
-                                showGenWizard(item.generator.getId(), 0, item.meta.input!!.params, previousConfig, mutableMapOf())
+                                showGenWizard(item, 0, previousConfig, mutableMapOf())
                             } else {
-                                showGenCfg(item.generator.getId(), item.meta.input!!.params, previousConfig)
+                                showGenCfg(item, previousConfig)
                             }
                         }
                     }
 
-                    private fun showGenCfg(genId: String,
-                                           items: List<InputParamDto>,
+                    private fun showGenCfg(genBtn: GeneratorButton,
                                            oldState: Map<String,String>) {
+                        if (genBtn.meta.input == null)
+                            return
+                        val genId = genBtn.generator.getId()
+                        val params = genBtn.meta.input!!.params
                         alert(R.string.generator_config) {
                             customView {
                                 verticalLayout {
                                     val edits : MutableMap<String, EditText> = mutableMapOf()
-                                    items.forEach {
+                                    params.forEach {
                                         val k = it.name
                                         val displayVal = oldState.getOrElse(k) {it.defaultValue}
 
@@ -188,6 +190,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                             newState.put(it.key, it.value.text.toString().trim())
                                         }
                                         debug("new state: " + newState)
+                                        genBtn.updateInputMap(newState)
                                         setGeneratorConfig(genId, newState)
                                     }
                                 }
@@ -195,45 +198,50 @@ class AdventuresmithActivity : AppCompatActivity(),
                         }.show()
                     }
 
-                    private fun showGenWizard(genId: String,
+                    private fun showGenWizard(genBtn: GeneratorButton,
                                               stepInd: Int,
-                                              items: List<InputParamDto>,
                                               oldState: Map<String,String>,
                                               newState: MutableMap<String, String>) {
-                        val item = items.get(stepInd)
-                        val k = item.name
+                        if (genBtn.meta.input == null)
+                            return
+                        val genId = genBtn.generator.getId()
+                        val params = genBtn.meta.input!!.params
+                        val param = params.get(stepInd)
+                        val k = param.name
                         // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
-                        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {item.defaultValue}}
+                        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {param.defaultValue}}
                         val isFirstPage = stepInd == 0
-                        val isFinalPage = stepInd == items.size - 1
+                        val isFinalPage = stepInd == params.size - 1
                         alert(R.string.generator_config) {
                             customView {
                                 verticalLayout {
-                                    if (!item.helpText.isNullOrEmpty()) {
+                                    if (!param.helpText.isNullOrEmpty()) {
                                         textView {
-                                            text = item.helpText
+                                            text = param.helpText
                                         }
                                     }
                                     val curEdit = editText {
-                                        hint = item.uiName
+                                        hint = param.uiName
                                         maxLines = 1
                                         singleLine = true
-                                        inputType = if (item.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT
+                                        inputType = if (param.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT
                                         text = Editable.Factory.getInstance().newEditable(displayVal)
                                     }
-                                    positiveButton(if (isFinalPage) "OK" else "Next") {
-                                        newState.put(k, curEdit.text.toString().trim())
-                                        debug("new state: " + newState)
-                                        if (isFinalPage) {
+                                    if (isFinalPage) {
+                                        okButton {
+                                            newState.put(k, curEdit.text.toString().trim())
+                                            genBtn.updateInputMap(newState)
                                             setGeneratorConfig(genId, newState)
-                                        } else {
-                                            showGenWizard(genId, stepInd + 1, items, oldState, newState)
+                                        }
+                                    } else {
+                                        positiveButton("Next") {
+                                            showGenWizard(genBtn, stepInd + 1, oldState, newState)
                                         }
                                     }
                                     if (!isFirstPage) {
                                         negativeButton("Prev") {
                                             newState.put(k, curEdit.text.toString().trim())
-                                            showGenWizard(genId, stepInd - 1, items, oldState, newState)
+                                            showGenWizard(genBtn, stepInd - 1, oldState, newState)
                                         }
                                     }
                                 }
@@ -978,9 +986,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 if (item == null) {
                     return btnSpanRegular
                 }
-                if (item.meta.input != null) {
-                    return btnSpanLong
-                }
                 val totalLength = item.name.length
                 val maxWordLength = item.name.split(" ").map { it.length }.max()
                 if (maxWordLength == null) {
@@ -1001,7 +1006,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_buttons.itemAnimator = DefaultItemAnimator()
         recycler_buttons.adapter = buttonAdapter
 
-        //val resultsGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.resultCols))
         val resultsGridLayoutMgr = StaggeredGridLayoutManager(
                 resources.getInteger(R.integer.resultCols),
                 StaggeredGridLayoutManager.VERTICAL)
@@ -1052,10 +1056,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                 synchronized(buttonAdapter) {
                     buttonAdapter.clear()
                     for (g in generators) {
+                        debug(g.value.getId())
                         buttonAdapter.add(
                                 GeneratorButton(
                                         g.value,
-                                        sharedPreferences,
+                                        getGeneratorConfig(g.value.getId()),
                                         getCurrentLocale(resources),
                                         g.key)
                         )
