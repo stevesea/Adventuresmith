@@ -87,16 +87,53 @@ open class BaseGeneratorWithView<TModel, TView>(
 
 data class InputParamDto(val name: String,
                          val uiName: String,
-                         val numbersOnly: Boolean = false,
-                         val defaultValue: String,
-                         val helpText: String? = "",
+                         val numbersOnly: Boolean = false, // hint to restrict input edits to numbers
+                         val defaultValue: String = "",
+                         val helpText: String = "",
                          val values: List<String>? = null   // valid values
 )
+data class GeneratorInputDto(
+        val displayTemplate: String,
+        val useWizard: Boolean = true,
+        val defaultOverridesUserEmpty: Boolean = true,
+        val params: List<InputParamDto> = listOf()
+) {
+    fun getInputParamDefaults() : MutableMap<String,String> {
+        val result : MutableMap<String,String> = mutableMapOf()
+        params.forEach {
+            result.put(it.name, it.defaultValue)
+        }
+        return result
+    }
+    fun mergeInputWithDefaults(input: Map<String,String>?) : Map<String,String> {
+        val result = getInputParamDefaults()
+        if (input == null)
+            return result
+        input.forEach {
+            if (defaultOverridesUserEmpty) {
+                if (!it.value.isNullOrBlank()) {
+                    // only overwrite default val if user input is not empty
+                    result.put(it.key,it.value)
+                }
+            } else {
+                result.put(it.key,it.value)
+            }
+        }
+        return result
+    }
+
+    fun processInputForDisplay(inputMap: Map<String, String>?) : String {
+        val context = mergeInputWithDefaults(inputMap)
+        return Mustache.compiler()
+                .compile(displayTemplate)
+                .execute(context)
+                .trim()
+    }
+}
 
 data class GeneratorMetaDto(val name: String,
                             val collectionId: String,
-                            val inputParamsUseWizard: Boolean = true,
-                            val inputParams: List<InputParamDto> = listOf(),
+                            val input: GeneratorInputDto? = null,
                             val groupId: String? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null,
@@ -108,6 +145,25 @@ data class GeneratorMetaDto(val name: String,
                 .compare(collectionId, other.collectionId)
                 .compare(groupId.orEmpty(), other.groupId.orEmpty())
                 .result()
+    }
+    fun mergeInputWithDefaults(inputMap: Map<String,String>?) : Map<String,String> {
+        if (input != null) {
+            return input.mergeInputWithDefaults(inputMap)
+        }
+        else {
+            return mutableMapOf()
+        }
+    }
+    fun processInputForDisplay(inputMap: Map<String, String>?) : String {
+        if (input != null) {
+            return input.processInputForDisplay(inputMap)
+        }
+        else {
+            if (inputMap != null)
+                return inputMap.toString()
+            else
+                return ""
+        }
     }
 }
 
@@ -204,14 +260,7 @@ class DataDrivenGeneratorForFiles(
             val dto = loaderFactory.invoke(input).load(locale)
 
             // load the map with the defaults first
-            val inputMapForContext : MutableMap<String,String> = mutableMapOf()
-            getMetadata(locale).inputParams.forEach {
-                inputMapForContext.put(it.name, it.defaultValue)
-            }
-            // then apply any user-specified overrides
-            inputMap?.forEach {
-                inputMapForContext.put(it.key, it.value)
-            }
+            val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(inputMap)
 
             val context = dtoMerger.mergeDtos(
                     gatherDtoResources(dto, locale),
@@ -260,17 +309,7 @@ class DataDrivenGeneratorForResources(
             val dto = loaderFactory.invoke(resource_prefix).load(locale)
 
             // load the map with the defaults first
-            val inputMap : MutableMap<String,String> = mutableMapOf()
-            try {
-                getMetadata(locale).inputParams.forEach {
-                    inputMap.put(it.name, it.defaultValue)
-                }
-            } catch (ignored: Exception) {
-
-            }
-            input?.forEach {
-                inputMap.put(it.key, it.value)
-            }
+            val inputMap = getMetadata(locale).mergeInputWithDefaults(input)
 
             val context = dtoMerger.mergeDtos(
                     gatherDtoResources(dto, locale),

@@ -9,7 +9,7 @@
 
     <dimen name="resultListFontSize">16sp</dimen>
     <dimen name="buttonFontSize">12sp</dimen>
-    <dimen name="buttonConfigFontSize">12sp</dimen>
+    <dimen name="buttonConfigFontSize">10sp</dimen>
 
     <!-- -->
     <integer name="buttonCols">10</integer>

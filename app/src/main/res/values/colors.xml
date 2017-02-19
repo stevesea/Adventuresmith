@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- brown -->
+    <!-- primary -->
     <color name="colorPrimary">@color/md_brown_700</color>
     <color name="colorPrimaryDark">@color/md_brown_900</color>
     <color name="colorPrimaryLight">@color/md_brown_100</color>
@@ -10,9 +10,10 @@
     <color name="buttonBackgroundTransparent">#cc3E2723</color>
     <color name="resultBackgroundTransparent">#993E2723</color>
 
-    <!-- cyan -->
+    <!-- accent -->
     <color name="colorAccent">@color/md_cyan_500</color>
     <color name="colorAccentDark">@color/md_cyan_700</color>
+    <color name="colorAccentDarkDark">@color/md_cyan_900</color>
     <color name="colorAccentLight">@color/md_cyan_100</color>
 
     <!-- -->

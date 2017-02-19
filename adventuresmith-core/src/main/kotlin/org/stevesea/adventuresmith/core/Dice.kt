@@ -155,38 +155,44 @@ object DiceConstants {
     val d20adv = "1d20 advantage"
     val d20disadv = "1d20 disadvantage"
 
-    val xdy = "XdY + Z"
+    val customizableDice: Map<String,String> = mapOf(
+            "xdy_z_1" to "XdY + Z",
+            "xdy_z_2" to "XdY + Z",
+            "xdy_z_3" to "XdY + Z"
+    )
 }
 
 val diceModule = Kodein.Module {
     // simple rolls
-    for (d in DiceConstants.regularDice) {
-        bind<Generator>(d) with provider {
+    DiceConstants.regularDice.forEach {
+        bind<Generator>(it) with provider {
             object: Generator {
                 override fun getId(): String {
-                    return d
+                    return it
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = d, collectionId = DiceConstants.CollectionName, priority = DiceConstants.regularDice.indexOf(d))
+                    return GeneratorMetaDto(name = it,
+                            collectionId = DiceConstants.CollectionName,
+                            priority = DiceConstants.regularDice.indexOf(it))
                 }
 
                 val diceParser : DiceParser = instance()
                 override fun generate(locale: Locale, input: Map<String, String>?): String {
                     val nf = NumberFormat.getInstance(locale)
-                    return "${d}: <strong>${nf.format(diceParser.roll(d))}</strong>"
+                    return "${it}: <strong>${nf.format(diceParser.roll(it))}</strong>"
                 }
             }
         }
     }
     // mutliple rolls
-    for (d in DiceConstants.multDice) {
-        bind<Generator>(d.key) with provider {
+    DiceConstants.multDice.forEach {
+        bind<Generator>(it.key) with provider {
             object: Generator {
                 override fun getId(): String {
-                    return d.key
+                    return it.key
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = d.key,
+                    return GeneratorMetaDto(name = it.key,
                             collectionId = DiceConstants.CollectionName,
                             priority = 100)
                 }
@@ -194,9 +200,9 @@ val diceModule = Kodein.Module {
                 val diceParser : DiceParser = instance()
                 override fun generate(locale: Locale, input: Map<String, String>?): String {
                     val nf = NumberFormat.getInstance(locale)
-                    val rolls = diceParser.rollN(d.value.second, d.value.first)
+                    val rolls = diceParser.rollN(it.value.second, it.value.first)
                     val sum = rolls.sum()
-                    return "${d.key}: <strong>${nf.format(sum)}</strong> <small>${rolls.map { nf.format(it) }}</small>"
+                    return "${it.key}: <strong>${nf.format(sum)}</strong> <small>${rolls.map { nf.format(it) }}</small>"
                 }
             }
         }
@@ -237,38 +243,45 @@ val diceModule = Kodein.Module {
             }
         }
     }
-    bind<Generator>(DiceConstants.xdy) with provider {
-        object: Generator {
-            val diceParser : DiceParser = instance()
-            override fun getId(): String {
-                return DiceConstants.xdy
-            }
-            override fun generate(locale: Locale, input: Map<String, String>?): String {
-                val inputMapForContext : MutableMap<String,String> = mutableMapOf()
-                getMetadata(locale).inputParams.forEach {
-                    inputMapForContext.put(it.name, it.defaultValue)
-                }
-                input?.forEach {
-                    if (!it.value.isNullOrEmpty()) {
-                        inputMapForContext.put(it.key, it.value)
-                    }
-                }
-                val dStr = "${inputMapForContext["x"]}d${inputMapForContext["y"]} + ${inputMapForContext["z"]}"
-                val nf = NumberFormat.getInstance(locale)
-                return "${dStr}: <strong>${nf.format(diceParser.roll(dStr))}</strong>"
-            }
-            override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "XdY + Z",
-                        collectionId = DiceConstants.CollectionName,
-                        priority = 3000,
-                        inputParamsUseWizard = false,
-                        inputParams = listOf(
+
+    /**
+     * custom dice all share the same generator logic and similar metadata. but need to have separate
+     * generator IDs so that the user can have multiple custom dice configurations.
+     */
+    abstract class CustomizeableDiceGenerator(
+            val myid: String,
+            val myname: String,
+            val diceParser: DiceParser): Generator {
+        override fun getId(): String {
+            return myid
+        }
+        override fun generate(locale: Locale, input: Map<String, String>?): String {
+            val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+            val dStr = "${inputMapForContext["x"]}d${inputMapForContext["y"]} + ${inputMapForContext["z"]}"
+            val nf = NumberFormat.getInstance(locale)
+            return "${dStr}: <strong>${nf.format(diceParser.roll(dStr))}</strong>"
+        }
+        override fun getMetadata(locale: Locale): GeneratorMetaDto {
+            return GeneratorMetaDto(name = myname,
+                    collectionId = DiceConstants.CollectionName,
+                    priority = 3000,
+                    input = GeneratorInputDto(
+                        displayTemplate = "{{x}}d{{y}} + {{z}}",
+                        useWizard = false,
+                        params = listOf(
                                 InputParamDto(name = "x", uiName = "X", numbersOnly = true, defaultValue = "1",
                                         helpText = "Enter dice 'XdY + Z'"),
                                 InputParamDto(name = "y", uiName = "Y", numbersOnly = true, defaultValue = "6"),
                                 InputParamDto(name = "z", uiName = "Z", numbersOnly = true, defaultValue = "0")
                         )
-                )
+                    )
+            )
+        }
+    }
+
+    DiceConstants.customizableDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object: CustomizeableDiceGenerator(it.key, it.value, instance()) {
             }
         }
     }
@@ -279,9 +292,9 @@ val diceModule = Kodein.Module {
                 DiceConstants.multDice.keys,
                 listOf(
                         DiceConstants.d20adv,
-                        DiceConstants.d20disadv,
-                        DiceConstants.xdy
-                )
+                        DiceConstants.d20disadv
+                ),
+                DiceConstants.customizableDice.keys
         ).flatten()
     }
 

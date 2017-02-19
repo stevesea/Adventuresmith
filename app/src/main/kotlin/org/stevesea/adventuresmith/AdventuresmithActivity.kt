@@ -146,12 +146,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
 
                     override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
-                        if (item != null && item.meta.inputParams.isNotEmpty()) {
+                        if (item != null && item.meta.input != null) {
                             val previousConfig = getGeneratorConfig(item.generator.getId())
-                            if (item.meta.inputParamsUseWizard) {
-                                showGenWizard(item.generator.getId(), 0, item.meta.inputParams, previousConfig, mutableMapOf())
+                            if (item.meta.input!!.useWizard) {
+                                showGenWizard(item.generator.getId(), 0, item.meta.input!!.params, previousConfig, mutableMapOf())
                             } else {
-                                showGenCfg(item.generator.getId(), item.meta.inputParams, previousConfig)
+                                showGenCfg(item.generator.getId(), item.meta.input!!.params, previousConfig)
                             }
                         }
                     }
@@ -502,7 +502,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     val SETTING_GENERATOR_CONFIG_PREFIX = "GeneratorConfig."
     fun getGeneratorConfig(genId: String) : Map<String, String> {
         val str = sharedPreferences.getString(SETTING_GENERATOR_CONFIG_PREFIX + genId, "")
-        if (Strings.isNullOrEmpty(str)) {
+        if (str.isNullOrEmpty()) {
             return mapOf()
         } else {
             return AdventuresmithApp.objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
@@ -624,7 +624,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         val collIcon = collMeta.icon
         val iconicsDrawable : IconicsDrawable =
-        if (!Strings.isNullOrEmpty(grpId) && collMeta.groupIcons != null) {
+        if (!grpId.isNullOrEmpty() && collMeta.groupIcons != null) {
             val grpIcon = collMeta.groupIcons!!.getOrElse(grpId!!) {collIcon}
             IconicsDrawable(this, grpIcon)
         } else {
@@ -978,7 +978,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 if (item == null) {
                     return btnSpanRegular
                 }
-                if (item.meta.inputParams.isNotEmpty()) {
+                if (item.meta.input != null) {
                     return btnSpanLong
                 }
                 val totalLength = item.name.length
