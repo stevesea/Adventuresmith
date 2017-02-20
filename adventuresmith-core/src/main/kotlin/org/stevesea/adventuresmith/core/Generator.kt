@@ -90,41 +90,60 @@ data class InputParamDto(val name: String,
                          val numbersOnly: Boolean = false, // hint to restrict input edits to numbers
                          val defaultValue: String = "",
                          val helpText: String = "",
+                         val defaultOverridesUserEmpty: Boolean = true, // if user val is blank/null, use the default (ie. don't let user put blank in and confuse things)
+                         val isBool: Boolean = false,
+                         val nullIfZero: Boolean = false,
+                         val isInt: Boolean = false,
                          val values: List<String>? = null   // valid values
-)
+) {
+    fun getVal(inputVal: String?) : Any? {
+        var result = defaultValue
+        if (inputVal.isNullOrBlank()) {
+            if (!defaultOverridesUserEmpty) {
+                // input is blank/null, and param's defaultVal should _not_ be used
+                result = ""
+            }
+        } else {
+            result = inputVal.orEmpty()
+        }
+        if (result.isNullOrEmpty()) {
+            return null
+        }
+        if (isBool) {
+            return result.toBoolean()
+        } else if (isInt) {
+            val retval = result.toInt()
+            if (retval == 0 && nullIfZero) {
+                return null
+            } else {
+                return retval
+            }
+        } else {
+            return result
+        }
+    }
+}
 data class GeneratorInputDto(
         val displayTemplate: String,
         val useWizard: Boolean = true,
-        val defaultOverridesUserEmpty: Boolean = true,
         val params: List<InputParamDto> = listOf()
 ) {
-    fun getInputParamDefaults() : MutableMap<String,String> {
-        val result : MutableMap<String,String> = mutableMapOf()
+    fun mergeInputWithDefaults(input: Map<String,String>?) : Map<String,Any?> {
+        val merged : MutableMap<String,Any?> = mutableMapOf()
         params.forEach {
-            result.put(it.name, it.defaultValue)
-        }
-        return result
-    }
-    fun mergeInputWithDefaults(input: Map<String,String>?) : Map<String,String> {
-        val result = getInputParamDefaults()
-        if (input == null)
-            return result
-        input.forEach {
-            if (defaultOverridesUserEmpty) {
-                if (!it.value.isNullOrBlank()) {
-                    // only overwrite default val if user input is not empty
-                    result.put(it.key,it.value)
-                }
+            if (input != null) {
+                merged.put(it.name, it.getVal(input.get(it.name)))
             } else {
-                result.put(it.key,it.value)
+                merged.put(it.name, it.getVal(""))
             }
         }
-        return result
+        return merged
     }
 
     fun processInputForDisplay(inputMap: Map<String, String>?) : String {
         val context = mergeInputWithDefaults(inputMap)
         return Mustache.compiler()
+                .escapeHTML(false)
                 .compile(displayTemplate)
                 .execute(context)
                 .trim()
@@ -146,7 +165,7 @@ data class GeneratorMetaDto(val name: String,
                 .compare(groupId.orEmpty(), other.groupId.orEmpty())
                 .result()
     }
-    fun mergeInputWithDefaults(inputMap: Map<String,String>?) : Map<String,String> {
+    fun mergeInputWithDefaults(inputMap: Map<String,String>?) : Map<String,Any?> {
         if (input != null) {
             return input.mergeInputWithDefaults(inputMap)
         }
@@ -353,7 +372,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
     // generator creation where silent name overwrites resulted subtle bugs that took getting
     // into the debugger to figure out
 
-    fun mergeDtos(dtos: List<DataDrivenGenDto>, input: Map<String, String>): Map<String, Any> {
+    fun mergeDtos(dtos: List<DataDrivenGenDto>, input: Map<String, Any?>): Map<String, Any> {
         // process the DTOs in reverse order, merging them together
         val result: MutableMap<String, Any> = mutableMapOf()
         for (d in dtos.reversed()) {

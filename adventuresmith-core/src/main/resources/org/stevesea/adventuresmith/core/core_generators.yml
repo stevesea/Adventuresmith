@@ -5,6 +5,7 @@
 
 # almost every generator uses this scheme to populate the nav.
 # exceptions are noted below
+
 generators:
   augmented_reality:
   - alternative_business

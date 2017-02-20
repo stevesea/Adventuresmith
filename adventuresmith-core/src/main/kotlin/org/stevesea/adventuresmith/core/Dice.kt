@@ -158,7 +158,10 @@ object DiceConstants {
     val customizableDice: Map<String,String> = mapOf(
             "xdy_z_1" to "Custom Dice #1",
             "xdy_z_2" to "Custom Dice #2",
-            "xdy_z_3" to "Custom Dice #3"
+            "xdy_z_3" to "Custom Dice #3",
+            "xdy_z_4" to "Custom Dice #4",
+            "xdy_z_5" to "Custom Dice #5",
+            "xdy_z_6" to "Custom Dice #6"
     )
 }
 
@@ -172,6 +175,7 @@ val diceModule = Kodein.Module {
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
                     return GeneratorMetaDto(name = it,
+                            groupId = "grpPolys",
                             collectionId = DiceConstants.CollectionName,
                             priority = DiceConstants.regularDice.indexOf(it))
                 }
@@ -193,6 +197,7 @@ val diceModule = Kodein.Module {
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
                     return GeneratorMetaDto(name = it.key,
+                            groupId = "grpPolys",
                             collectionId = DiceConstants.CollectionName,
                             priority = 100)
                 }
@@ -221,7 +226,7 @@ val diceModule = Kodein.Module {
                 return "${DiceConstants.d20adv}: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "1d20 (adv)", collectionId = DiceConstants.CollectionName, priority = 2000)
+                return GeneratorMetaDto(name = "1d20 (adv)", groupId = "grpPolys", collectionId = DiceConstants.CollectionName, priority = 2000)
             }
         }
     }
@@ -239,7 +244,10 @@ val diceModule = Kodein.Module {
                 return "${DiceConstants.d20disadv}: <strong>${nf.format(worst)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "1d20 (disadv)", collectionId = DiceConstants.CollectionName, priority = 2000)
+                return GeneratorMetaDto(name = "1d20 (disadv)",
+                        collectionId = DiceConstants.CollectionName,
+                        groupId = "grpPolys",
+                        priority = 2000)
             }
         }
     }
@@ -257,22 +265,66 @@ val diceModule = Kodein.Module {
         }
         override fun generate(locale: Locale, input: Map<String, String>?): String {
             val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
-            val dStr = "${inputMapForContext["x"]}d${inputMapForContext["y"]} + ${inputMapForContext["z"]}"
+
+            val die = (inputMapForContext.getOrElse("y") { "6" }).toString().toInt()
+            val nDie = (inputMapForContext.getOrElse("x") { "1" }).toString().toInt()
+            val add = (inputMapForContext.getOrElse("z") { "0" }).toString().toInt()
+            val dropNHighVal = inputMapForContext.getOrElse("dropNHigh") { "" }.toString()
+            val dropNHigh = if (dropNHighVal.isNullOrEmpty()) 0 else dropNHighVal.toInt()
+            val dropNLowVal = inputMapForContext.getOrElse("dropNLow") { "" }.toString()
+            val dropNLow = if (dropNLowVal.isNullOrEmpty()) 0 else dropNLowVal.toInt()
+
+            val rolls = diceParser.rollN("1d" + die, nDie).sortedDescending()
+            val droppedHigh = rolls.take(dropNHigh)
+            val afterDroppedHigh = rolls.drop(dropNHigh)
+            val droppedLow = afterDroppedHigh.takeLast(dropNLow)
+            val afterDroppedHighAndLow = afterDroppedHigh.dropLast(dropNLow)
+
+            val keptDiceSum = afterDroppedHighAndLow.sum()
+
+            val dStr = "${nDie}d${die} + ${add}"
+
+            val result = keptDiceSum + add
             val nf = NumberFormat.getInstance(locale)
-            return "${dStr}: <strong>${nf.format(diceParser.roll(dStr))}</strong>"
+
+            val sb = StringBuilder()
+            sb.append("${dStr}: [")
+            if (droppedHigh.isNotEmpty()) {
+                val droppedHighStr = droppedHigh.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
+                sb.append(droppedHighStr)
+            }
+            if (afterDroppedHighAndLow.isNotEmpty()) {
+                if (droppedHigh.isNotEmpty()) {
+                    sb.append(", ")
+                }
+                sb.append(afterDroppedHighAndLow.joinToString(", "))
+            }
+            if (droppedLow.isNotEmpty()) {
+                if (droppedHigh.isNotEmpty() || afterDroppedHighAndLow.isNotEmpty()) {
+                    sb.append(", ")
+                }
+                val droppedLowStr = droppedLow.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
+                sb.append(droppedLowStr)
+            }
+            sb.append("]<br/><br/><big><strong>${nf.format(result)}</strong></big>")
+            return sb.toString()
         }
         override fun getMetadata(locale: Locale): GeneratorMetaDto {
             return GeneratorMetaDto(name = myname,
                     collectionId = DiceConstants.CollectionName,
                     priority = 3000,
+                    groupId = "grpCustom",
                     input = GeneratorInputDto(
-                        displayTemplate = "{{x}}d{{y}} + {{z}}",
+                        displayTemplate = "<big>{{x}}d{{y}} + {{z}}</big>{{#dropNHigh}}<br/>Drop {{dropNHigh}} Highest{{/dropNHigh}}{{#dropNLow}}<br/>Drop {{dropNLow}} Lowest{{/dropNLow}}",
                         useWizard = false,
                         params = listOf(
-                                InputParamDto(name = "x", uiName = "X", numbersOnly = true, defaultValue = "1",
+                                InputParamDto(name = "x", uiName = "X", numbersOnly = true, isInt = true, defaultValue = "1",
                                         helpText = "Enter dice 'XdY + Z'"),
-                                InputParamDto(name = "y", uiName = "Y", numbersOnly = true, defaultValue = "6"),
-                                InputParamDto(name = "z", uiName = "Z", numbersOnly = true, defaultValue = "0")
+                                InputParamDto(name = "y", uiName = "Y", numbersOnly = true, isInt = true, defaultValue = "6"),
+                                InputParamDto(name = "z", uiName = "Z", numbersOnly = true, isInt = true, defaultValue = "0"),
+                                InputParamDto(name = "dropNHigh", uiName = "Drop N Highest", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = "",
+                                        helpText = "Drop N Highest, N Lowest"),
+                                InputParamDto(name = "dropNLow", uiName = "Drop N Lowest", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = "")
                         )
                     )
             )

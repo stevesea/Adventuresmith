@@ -988,6 +988,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                 if (item == null) {
                     return btnSpanRegular
                 }
+                if (item.meta.input != null) {
+                    return btnSpanLong
+                }
                 val totalLength = item.name.length
                 val maxWordLength = item.name.split(" ").map { it.length }.max()
                 if (maxWordLength == null) {

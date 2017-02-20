@@ -58,7 +58,7 @@ class GeneratorButton(val generator: Generator,
     fun updateInputMap(i: Map<String,String>) {
         inputMap = i
         if (vh != null) {
-            vh!!.btnTextConfig.text = meta.processInputForDisplay(inputMap)
+            vh!!.btnTextConfig.text = htmlStrToSpanned(meta.processInputForDisplay(inputMap))
         }
     }
 
@@ -71,7 +71,7 @@ class GeneratorButton(val generator: Generator,
             holder.btnSettings.visibility = View.VISIBLE
             holder.btnTextConfig.visibility = View.VISIBLE
 
-            holder.btnTextConfig.text = meta.processInputForDisplay(inputMap)
+            holder.btnTextConfig.text = htmlStrToSpanned(meta.processInputForDisplay(inputMap))
 
             holder.btnText.minLines = 1
         } else {

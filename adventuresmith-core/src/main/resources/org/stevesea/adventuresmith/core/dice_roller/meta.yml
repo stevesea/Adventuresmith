@@ -2,4 +2,10 @@ name: Dice Roller
 id: dice_roller
 priority: 999
 icon: cmd-dice-6
+groupIcons:
+  grpPolys: cmd-dice-1
+  grpCustom: cmd-dice-2
+groups:
+  grpPolys: Std Polyhedral
+  grpCustom: Custom Dice
 

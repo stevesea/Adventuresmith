@@ -67,9 +67,9 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
 
             if (words.size == 2) {
                 val rangeStr = words[0]
-                var itemRange : IntRange? = null
+                var itemRange : IntRange?
                 try {
-                    itemRange = strToIntRange(p, rangeStr)
+                    itemRange = strToIntRange(rangeStr)
                     // able to parse range, can it be added to the map? (if not, probably a colliding range, throw exception)
                     try {
                         result.with(itemRange, words[1].trim())
@@ -95,7 +95,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
         return result
     }
 
-    fun strToIntRange(p: JsonParser, rangeStr: String) : IntRange {
+    fun strToIntRange(rangeStr: String) : IntRange {
         try {
             var words = rangeStr.split("..", limit = 2)
             if (words.size != 2) {
