@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  <h5>Guarded Treasure - 1d{{input.damageDie}}+{{input.modifier}}d4</h5>
+  <h5>Guarded Treasure - 1d{{input.damageDie}} + {{input.modifier}}d4</h5>
   %[[>pick: 1d{{input.damageDie}}+{{input.modifier}}d4 treasure]]%
 
 imports:

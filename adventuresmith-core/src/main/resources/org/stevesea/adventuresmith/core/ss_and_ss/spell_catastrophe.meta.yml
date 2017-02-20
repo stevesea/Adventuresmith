@@ -2,7 +2,7 @@
 name: Spell Catastrophe
 collectionId: ss_and_ss
 input:
-  displayTemplate: "PL: {{powerLevel}}"
+  displayTemplate: "Power Level: {{powerLevel}}"
   params:
   - name: powerLevel
     uiName: Power Level

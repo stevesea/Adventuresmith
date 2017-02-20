@@ -8,13 +8,13 @@ input:
   params:
   - name: damageDie
     uiName: Damage Die
-    helpText: The Damage Die of the Monster (typically 1d4-1d12)
+    helpText: The Damage Die of the Opponent (typically 1d4-1d12)
     defaultValue: 4
     numbersOnly: true
     isInt: true
   - name: modifier
     uiName: Modifier
-    helpText: How many Nd4 modifiers to apply to the roll?
+    helpText: How many 1d4 modifiers to apply to the roll?
     defaultValue: 0
     numbersOnly: true
     isInt: true
