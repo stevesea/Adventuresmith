@@ -197,7 +197,7 @@ val diceModule = Kodein.Module {
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
                     return GeneratorMetaDto(name = it.key,
-                            groupId = "grpPolys",
+                            groupId = "grpCombinations",
                             collectionId = DiceConstants.CollectionName,
                             priority = 100)
                 }
@@ -223,10 +223,10 @@ val diceModule = Kodein.Module {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val best = rolls.max()
-                return "${DiceConstants.d20adv}: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
+                return "2d20 Advantage: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "1d20 (adv)", groupId = "grpPolys", collectionId = DiceConstants.CollectionName, priority = 2000)
+                return GeneratorMetaDto(name = "2d20 Advantage", groupId = "grpCombinations", collectionId = DiceConstants.CollectionName, priority = 2000)
             }
         }
     }
@@ -241,12 +241,12 @@ val diceModule = Kodein.Module {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val worst = rolls.min()
-                return "${DiceConstants.d20disadv}: <strong>${nf.format(worst)}</strong> <small>${rolls}</small>"
+                return "2d20 Disadvantage: <strong>${nf.format(worst)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "1d20 (disadv)",
+                return GeneratorMetaDto(name = "2d20 Disadvantage",
                         collectionId = DiceConstants.CollectionName,
-                        groupId = "grpPolys",
+                        groupId = "grpCombinations",
                         priority = 2000)
             }
         }

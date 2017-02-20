@@ -4,8 +4,10 @@ priority: 999
 icon: cmd-dice-6
 groupIcons:
   grpPolys: cmd-dice-1
-  grpCustom: cmd-dice-2
+  grpCombinations: cmd-dice-2
+  grpCustom: cmd-dice-3
 groups:
   grpPolys: Std Polyhedral
+  grpCombinations: Common Combos
   grpCustom: Custom Dice
 

@@ -1,16 +1,8 @@
 ---
 templates:
 - |
-  <h5>damage die - D4</h5>
-  {{>pick: 1d4 treasure}}
-  <h5>damage die - D6</h5>
-  {{>pick: 1d6 treasure}}
-  <h5>damage die - D8</h5>
-  {{>pick: 1d8 treasure}}
-  <h5>damage die - D10</h5>
-  {{>pick: 1d10 treasure}}
-  <h5>damage die - D12</h5>
-  {{>pick: 1d12 treasure}}
+  <h5>Guarded Treasure - 1d{{input.damageDie}}+{{input.modifier}}d4</h5>
+  %[[>pick: 1d{{input.damageDie}}+{{input.modifier}}d4 treasure]]%
 
 imports:
 - treasure

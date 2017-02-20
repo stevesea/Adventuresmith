@@ -9,4 +9,5 @@ input:
     helpText: The Power Level of the spell
     defaultValue: 1
     numbersOnly: true
+    isInt: true
 

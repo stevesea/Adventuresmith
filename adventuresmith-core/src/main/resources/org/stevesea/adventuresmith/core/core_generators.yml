@@ -5,7 +5,6 @@
 
 # almost every generator uses this scheme to populate the nav.
 # exceptions are noted below
-
 generators:
   augmented_reality:
   - alternative_business
@@ -228,8 +227,6 @@ generators:
   - treasure_item
   - treasure_unguarded
   - treasure_guarded
-  - treasure_guarded_1bonus
-  - treasure_guarded_2bonus
 
   - npc
   - npc_rural
