@@ -41,8 +41,6 @@ object PwConstants {
     val TREASURE_ITEM = "${GROUP}/treasure_item"
     val TREASURE_UNGUARDED = "${GROUP}/treasure_unguarded"
     val TREASURE_GUARDED = "${GROUP}/treasure_guarded"
-    val TREASURE_GUARDED_1BONUS = "${GROUP}/treasure_guarded_1bonus"
-    val TREASURE_GUARDED_2BONUS = "${GROUP}/treasure_guarded_2bonus"
 
     val NPC = "${GROUP}/npc"
     val NPC_RURAL = "${GROUP}/npc_rural"
@@ -101,42 +99,6 @@ class PwTest {
                 getGenerator(PwConstants.STEADING, 1).generate(Locale.US))
     }
 
-
-    @Test
-    fun treasure_guarded1() {
-        Assert.assertEquals("""
-        <h5>damage die - D4 + 1d4</h5>
-        A useful item - key/lockpick
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
-
-        <h5>damage die - D6 + 1d4</h5>
-        A useful item - key/lockpick
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
-
-        <h5>damage die - D8 + 1d4</h5>
-        A useful item - key/lockpick
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
-
-        <h5>damage die - D10 + 1d4</h5>
-        A useful item - key/lockpick
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
-
-        <h5>damage die - D12 + 1d4</h5>
-        A useful item - key/lockpick
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Adjective:</small></strong> slick/slimy
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Age:</small></strong> being born/built
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><small>Oddity:</small></strong> weird color/smell/sound
-        """.trimIndent(),
-                getGenerator(PwConstants.TREASURE_GUARDED_1BONUS, 0).generate(Locale.US))
-    }
     @Test
     fun npc() {
         Assert.assertEquals("""
