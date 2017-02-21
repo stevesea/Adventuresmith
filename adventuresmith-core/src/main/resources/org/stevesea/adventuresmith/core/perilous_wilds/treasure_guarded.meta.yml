@@ -3,19 +3,26 @@ name: Guarded Treasure
 collectionId: perilous_wilds
 groupId: grp5
 input:
-  useWizard: false
-  displayTemplate: "1d{{damageDie}} + {{modifier}}d4"
+  displayTemplate: "{{damageDieV2}} + {{modifier}}d4"
   params:
-  - name: damageDie
+  # original param 'damageDie' was single number. v2 makes that a NdM
+  - name: damageDieV2
     uiName: Damage Die
-    helpText: The Damage Die of the Opponent (typically 1d4-1d12)
-    defaultValue: 4
-    numbersOnly: true
-    isInt: true
+    helpText: The Damage Die of the Opponent
+    defaultValue: 1d6
+    values:
+    - 1d12
+    - 1d10
+    - 1d8
+    - 1d6
+    - 1d4
   - name: modifier
     uiName: Modifier
     helpText: How many 1d4 modifiers to apply to the roll?
     defaultValue: 0
-    numbersOnly: true
-    isInt: true
+    values:
+    - 0
+    - 1
+    - 2
+    - 3
 

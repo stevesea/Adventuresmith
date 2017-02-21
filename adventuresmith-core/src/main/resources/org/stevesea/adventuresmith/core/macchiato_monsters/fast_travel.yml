@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[>pick: {{input.encRisk}} fast_travel]]%
+  <br/>
+  <br/><small><em>[encounter dR: {{input.encRisk}}]</em></small>
+
+tables:
+  fast_travel:
+  - <strong>Step down dR</strong><br/><br/>Got captured. Escaped with your lives and one item of your choice.
+  - <strong>Step down dR</strong><br/><br/>Pushed back an ambush. Roll your HD again for current HP.
+  - "<strong>Step down dR</strong><br/><br/>Long chase. Check CON or lose {{>roll: 1d6}} items."
+  - "Got lost. Journey took {{>roll: 1d4}} extra days, no rations left."
+  - "Got lost. Journey took {{>roll: 1d4}} extra days, no rations left. But you made a discovery: a place, a resource, a danger…"
+  - Non violent encounter with monsters or locals.
+  - Made a discovery at a cost (gear, treasure, HP...)
+  - "Killed some monsters and found silver d8 worth of treasure."
+  - Fought monsters, but some of them fled. Roll your ammunition and armour dR.
+  - Found food. No rations expended.
+  - Found a shortcut and gained 1 day.
+  - Made a discovery (a danger, a resource, an opportunity…)

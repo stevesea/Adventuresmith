@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[>pick: {{input.encRisk}} morale]]%
+  <br/>
+  <br/><small><em>[encounter dR: {{input.encRisk}}]</em></small>
+
+tables:
+  morale:
+  - "<strong>Step down dR</strong><br/><br/>desperate: double damage all around"
+  - "<strong>Step down dR</strong><br/><br/>flee: leaving stuff behind, doors open..."
+  - "<strong>Step down dR</strong><br/><br/>surrender: if not accepted, step up dR"
+  - "retreat in an orderly manner to regroup"
+  - "panic: do something against their interest"
+  - "fight defensively, look for cover, etc."
+  - "best defence: take risks to win quickly"
+  - "frenzy: double damage to PCs"
+  - "feint: retreat to set a trap or ambush."
+  - "exploit a weakness in PC strategy"
+  - "second wind: reroll monster HD"
+  - "blood thirst: disadv. when next attacked"

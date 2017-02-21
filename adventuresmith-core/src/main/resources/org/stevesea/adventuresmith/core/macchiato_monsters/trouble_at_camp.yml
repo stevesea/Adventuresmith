@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[>pick: {{input.encRisk}} trouble_at_camp]]%
+  <br/>
+  <br/><small><em>[encounter dR: {{input.encRisk}}]</em></small>
+
+tables:
+  trouble_at_camp:
+  - <h5>Attack</h5> Local monsters are raiding the town or camp site. What do they want? <br/><br/><strong>Step down dR</strong>
+  - <h5>Scouts</h5> Monsters or enemy troops are spotted in the area. Just passing through? <br/><br/><strong>Step down dR</strong>
+  - <h5>Spy</h5> An outsider is caught spying on the town. Who do they work for? <br/><br/><strong>Step down dR</strong>
+  - <h5>Shortage</h5> Food, water, or another vital resource is getting scarce.
+  - <h5>Newcomers</h5> On their way to somewhere else or intending to stay?
+  - <h5>Sickness</h5> Probably benign, but zombie plague and lycanthropy are always a risk.
+  - <h5>Rumours</h5> Whether it’s a new threat or an old one, everyone is talking about it.
+  - <h5>Fire!</h5> Something or somewhere is destroyed. Was it really an accident?
+  - <h5>Dura lex</h5> Someone is arrested, tortured or hanged. Are they guilty?
+  - <h5>Supplies</h5> A caravan or hunting party brings in valuable goods.
+  - <h5>Religious event</h5> A weekly prayer, or a once in a century holy day?
+  - <h5>Infighting</h5> Individuals or factions have a go at each other. Mind your back.

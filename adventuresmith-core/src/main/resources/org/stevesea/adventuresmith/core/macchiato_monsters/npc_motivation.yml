@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[>pick: {{input.motivation}} motivation]]%
+  <br/>
+  <br/><small><em>[NPC Motivation: {{input.motivation}}]</em></small>
+
+tables:
+  motivation:
+  - <strong>Step down dR</strong><br/><br/>Debt & Despair
+  - <strong>Step down dR</strong><br/><br/>Love or friendship
+  - <strong>Step down dR</strong><br/><br/>Fame and glory
+  - Wanderlust
+  - Need to impress someone
+  - Revenge
+  - A solemn vow
+  - To escape the law
+  - A death wish
+  - A sense of duty or destiny
+  - Paid by a third party
+  - A divine plan or vision

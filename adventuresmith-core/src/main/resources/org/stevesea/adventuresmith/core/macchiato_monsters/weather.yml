@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[>pick: {{input.weatherRisk}} morale]]%
+  <br/>
+  <br/><small><em>[weather dR: {{input.weatherRisk}}]</em></small>
+
+tables:
+  morale:
+  - <strong>Step down dR</strong><br/><br/>Thunderstorm or blizzard
+  - <strong>Step down dR</strong><br/><br/>Same as yesterday but colder
+  - <strong>Step down dR</strong><br/><br/>Rain or snow
+  - Windy, colder than normally
+  - Showers, windy
+  - Showers, no wind
+  - Overcast, no wind
+  - Dry and sunny, windy
+  - Sunny, warmer than normal
+  - Windy, warmer than normal
+  - Same as yesterday but hotter
+  - Freak weather event

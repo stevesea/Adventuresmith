@@ -1,0 +1,157 @@
+---
+templates:
+- "{{monsters}}"
+
+tables:
+  monsters:
+  - |
+    <h5>Android bodyguard (1)</h5>
+    Rusty and out of touch. HD 6, armour dR12,
+    fists d8/d8, laser 5d6, morale dR12.
+  - |
+    <h5>Astral roc-whale (1)</h5>  Huge hollow bird sometimes used as a vehicle. HD 8,
+    bite d10, claws d8/d8, buffet (check STR or get sent tumbling), morale dR10.
+  - |
+    <h5>Bear-tribe shaman (1)</h5>  Leads warriors and follows the Old Ways. HD 2,
+    armour dR4, club d6, fire magic d8, spirit possession (check WIS or become
+    his slave), morale dR8.
+  - |
+    <h5>Brain ooze (1)</h5>  Intelligence proportional to size. There is a vast pool of it
+    somewhere, plotting revenge. HD d12, psionic blast d6+HD, morale dR12.
+  - |
+    <h5>Cafetière assassin (1)</h5>  Tiny tin golem disguised as a kitchen appliance. HD 1,
+    armour dR8, scalding water d6, mechanical blades d4/d4, morale dR12.
+  - |
+    <h5>Cannibal urchin ({{>roll: 3d6}})</h5>  "I haven't eaten in two days, sir." HD d6, blade d4, traps
+    and swarm tactics, morale dR6.
+  - |
+    <h5>Centipede pixie ({{>roll: 1d6}})</h5>  Not all fairies are beautiful butterflies. HD 1, bite d4,
+    camouflage, practical jokey magic (check INT or be embarrassed), morale dR6.
+  - |
+    <h5>Cloudship freebooter ({{>roll: 1d20}})</h5>  Terror of the skies. HD 2, armour dR6, cutlass d8,
+    guns dR6 to dR12, morale dR8.
+  - |
+    <h5>Copied worker ({{>roll: 1d8}})</h5>  Vat grown slave labourers. HD 1, club d4, morale dR4.
+  - |
+    <h5>Crocman stalker ({{>roll: 1d4}})</h5>  Likes to hide underwater and throw rotting body parts at
+    travellers. HD 2, bite and spear d6/d6, morale dR8.
+  - |
+    <h5>Crow goblin ({{>roll: 1d12}})</h5>  Twice as loud as regular goblin. HD d6, armour dR4,
+    axe or spear d6, taunt (check WIS or attack relentlessly), morale dR6.
+  - |
+    <h5>Dangerous rodent ({{>roll: 2d6}})</h5>  Aggressive and oversized. HD d4, armour dR4,
+    bite d6, disease, morale dR8.
+  - |
+    <h5>Demon sphinx (1)</h5>  Often found in evil temples. HD 7, claws d8/d8, power
+    words of questioning and binding, morale dR12.
+  - |
+    <h5>Doppelgänger crook ({{>roll: 1d4}})</h5>  One should always play on one's strengths.
+    HD 2-4, dagger d4, eat memories, morale dR6.
+  - |
+    <h5>Frost Medusa ({{>roll: 1d3}})</h5>  Ophidian artist of the northern wastes. HD 4,
+    snakes d6, hunting crossbow d10, gaze turns to ice, morale dR8.
+  - |
+    <h5>Gale devil (1)</h5>  Air elemental used to power ships and level villages. HD 4-8, air
+    blast 2d8, flight, carry people away, morale dR10.
+  - |
+    <h5>Gelatinous sphere (1)</h5>  Faster than its cuboid cousin. HD 4, touch 2d4,
+    paralysis, morale dR12.
+  - |
+    <h5>Gnawer kobold ({{>roll: 1d10*1d10}})</h5> HD d4, armour dR8, grappling hook 1 then bite d6,
+    morale dR6.
+  - |
+    <h5>Gnoll night-lover ({{>roll: 1d4}})</h5>  Tribal assassin. HD 2, armour dR6, hooks and
+    blades d6, various poisons, morale dR6.
+  - |
+    <h5>Hobgoblin bushi ({{>roll: 1d8}})</h5>  Proud invader from the Eastern shores. HD 2,
+    armour dR8, katana or naginata d10, morale dR10.
+  - |
+    <h5>Hobo ogre (1)</h5>  Wanders from cave to cave, helping monsters in need. HD 5,
+    armour dR6, weaponised tree 2d6, morale dR8.
+  - |
+    <h5>Human bastard (varies)</h5>  Thug, guard, bandit, evil acolyte, etc. HD 1,
+    armour dR4 to dR8, dagger d4, club d6, axe d8, morale dR4 to dR8.
+  - |
+    <h5>Hydra-eel (1)</h5>  Water elemental that goes shrieeek bite bite bite bite bite.
+    HD 5 to 7, bite d8 (as many as HD), paralysing shout, drown, morale dR10.
+  - |
+    <h5>Iron punk ({{>roll: 2d4}})</h5>  Steamborg savages from the Anarchy Dimension. HD 2,
+    armour dR12, Hydraulic fists d6/d6, morale dR12.
+  - |
+    <h5>Leotaur ({{>roll: 1d8}})</h5>  Nomadic lion-men from the savannah. HD 3, spear d8,
+    claws d6/d6, morale dR8.
+  - |
+    <h5>Magma hive (1)</h5>  These elemental bees will burn right through you. HD 2-6,
+    flames 2d6 to 6d6, morale dR12.
+  - |
+    <h5>Mantis mercenary ({{>roll: 1d6}})</h5>  With pre-installed armour and blades. HD 3,
+    armour dR8, razor claws d6/d6, morale dR8.
+  - |
+    <h5>Onyx dragon (1)</h5>  Shiny and unstoppable earth elemental. HD 6-10, armour
+    dR12, sharp bits d10, sand breath 6d6 to 10d6, burrowing, morale dR12.
+  - |
+    <h5>Orc pit fighter ({{>roll: 2d6}})</h5>  Unarmed and unrivalled. HD 2, fists d6/d6, fierce
+    battle cry (check WIS or get disadvantage to next attack), morale dR10.
+  - |
+    <h5>Planar explorer (1)</h5>  Weird foreigner with weirder magic. HD 2, armour dR12,
+    magic knife d10, teleportation and telekinesis, morale dR6.
+  - |
+    <h5>Purple starman ({{>roll: 1d12}})</h5>  Technologically advanced invader. HD 3,
+    armour dR10, shocking wand d12, death ray, morale dR8.
+  - |
+    <h5>Rustcopter ({{>roll: 1d4}})</h5>  Insectoid metal eater with a rotating tail. HD 2d6, armour
+    dR6, bite d6, rust (step down armour and weapons every turn), morale dR6.
+  - |
+    <h5>Saberjaw (1)</h5>  Large predator. HD 5, claws d8/d8, bite 2d8, morale dR10.
+  - |
+    <h5>Sahuagin scout ({{>roll: 1d6}})</h5>  Fish anthropoid in breathing gear. HD 2, armour dR8,
+    spear d6, harpoon crossbow d8, survives d6 turns without water, morale dR8.
+  - |
+    <h5>Serpent sorcerer ({{>roll: 1d4}})</h5>  Wields secrets as ancient as the world itself. HD 5,
+    armour dR10, stone staff d10, dark curses, morale dR8.
+  - |
+    <h5>Shield goat ({{>roll: 1d20}})</h5>  Their horns form a large kite shield in front of their
+    heads. HD 2, charge 2d6, hooves d6, morale dR8.
+  - |
+    <h5>Skeleton soldier ({{>roll: 3d6}})</h5>  Cheap army for the frugal conqueror. HD 1,
+    armour dR6, rusty scimitar d6, morale dR12.
+  - |
+    <h5>Snail horror (1)</h5>  Huge and slimy, a delicacy in certain circles of Hell. HD
+    9d10, armour dR10, giant flails d10/d10/d10/d10, morale dR10.
+  - |
+    <h5>Spider princess (1)</h5>  Drifting from world to world on strands of astral silk.
+    HD 5, armour dR6, bite d8, poison, bargains and secrets, morale dR8.
+  - |
+    <h5>Spirit of the restless ({{>roll: 1d4}})</h5>  The dead whisper insane thoughts when you
+    sleep. HD 3, claws d6/d6, madness, morale dR10.
+  - |
+    <h5>Templar of Khaos ({{>roll: 1d8}})</h5>  Nihilist in spiky armour. HD 3, armour d12, vicious
+    looking sword d10, impervious to fire, morale dR10.
+  - |
+    <h5>The useless (1)</h5>  Demon who passes as a follower and brings catastrophe.
+    HD 2d12, sword d8, feed on luck, charm, morale dR8.
+  - |
+    <h5>Thoul rider ({{>roll: 2d4}})</h5>  Evil raider sat on an undead troll-thing. HD 4, armour
+    d10, lance dR10, claws d4/d4, paralysis, regenerates d6 HP per turn,
+    morale dR8.
+  - |
+    <h5>Time guardian (1)</h5>  Non-linear mechanical being in charge of maintaining
+    the timeline. HD 4d10, timewarp ray d12, slow life, morale dR12.
+  - |
+    <h5>Urban giant ({{>roll: 1d4}})</h5>  A force of nature, tamed. HD 7d10, armour dR10,
+    oversized weapon 3d6, stomp 3d10, morale dR10.
+  - |
+    <h5>Venomancer (1)</h5>  Drink the hag's tea and survive, she'll tell you your future.
+    HD 3, sharp spoon d4, liquid hexes and powdered spells, morale dR8.
+  - |
+    <h5>Werebadger ({{>roll: 1d8}})</h5>  Shy but dangerous lycanthrope. HD 3, bite d4, weapon
+    d6, locked jaws, disease, morale dR6 (dR12 in lair).
+  - |
+    <h5>Wolf-tribe berserker ({{>roll: 2d6}})</h5>  Bloodthirsty primitive with a code of honour.
+    HD d12, armour dR6, crude iron weapon 2d6, morale dR12.
+  - |
+    <h5>Woolly rhino mastermind ({{>roll: 2d4}})</h5>  Telepathic herbivore with an intricate
+    society. HD 4, armour dR8, trample 2d8, psi blast 3d8, morale dR10.
+  - |
+    <h5>Zombie bomb ({{>roll: 1d6}})</h5>  A dead man and a powder keg walk into a dungeon.
+    HD d12, axe d8, explosion 4d8, morale dR12.

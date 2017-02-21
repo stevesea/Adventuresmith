@@ -1,0 +1,17 @@
+---
+name: Weather
+collectionId: macchiato_monsters
+groupId: grpEnc
+input:
+  displayTemplate: "Weather dR: {{weatherRisk}}"
+  params:
+  - name: weatherRisk
+    uiName: Weather Risk Die
+    helpText: Weather Risk Die (Temperate Climate Spring/Autumn - d10, summer d12, winter d8)
+    defaultValue: 1d10
+    values:
+    - 1d12
+    - 1d10
+    - 1d8
+    - 1d6
+    - 1d4

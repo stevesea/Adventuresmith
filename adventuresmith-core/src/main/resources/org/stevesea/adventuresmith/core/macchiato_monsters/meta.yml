@@ -1,11 +1,30 @@
 name: Macchiato Monsters
 id: macchiato_monsters
-priority: 200
-url: http://lostpages.storenvy.com/products/18488116-macchiato-monster-zero-print-pdf
+url: http://quenouille.com/macchiato-monsters-dungeonverse-build-together/
 credit: Eric Nieudan
-icon: cmd-coffee
+icon: ion-coffee
+groupIcons:
+  grpChar: cmd-coffee
+  grpEnc: cmd-coffee-to-go
+  grpCommunity: ion-beer
+groups:
+  grpChar: Characters
+  grpEnc: Ecounters & Travel
+  grpCommunity: Community Hacks
 attribution: |
+
+  <h4>Core Game</h4>
   http://quenouille.com/macchiato-monsters-dungeonverse-build-together/
+  <h4>Community Additions</h4>
+
+  Americano Anomalies by <strong>Tore Nielsen</strong>
+  <br/>Caffeine vs. Decaf by <strong>Dani Cox</strong>
+  <br/>Cappucino Cowboys by <strong>Guillaume Jentey</strong>
+  <br/>MMZ by <strong>Quentin Forestier</strong>
+  <br/>Red Tie Tigers by <strong>Norbert G. Matausch</strong>
+  <br/>Robusta Robots by <strong>Guillaume Jentey</strong>
+
+  <h4>License</h4>
   <blockquote>
   <h5>Definition of Product Identity</h5>
   This game is released under the Open Game License, so let me just say that the

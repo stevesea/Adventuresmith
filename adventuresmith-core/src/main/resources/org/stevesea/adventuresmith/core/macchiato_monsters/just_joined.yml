@@ -1,0 +1,23 @@
+---
+templates:
+- |
+  %[[>pick: {{input.encRisk}} just_joined]]%
+  <br/>
+  <br/><small><em>[encounter dR: {{input.encRisk}}]</em></small>
+
+tables:
+  just_joined:
+  - <strong>Step down dR</strong><br/><br/>Lost all your weapons and gear, save for one item of your choice.
+  - <strong>Step down dR</strong><br/><br/>Scarcely escaped monsters. They are right behind you.
+  - "<strong>Step down dR</strong><br/><br/>Killed a monster and lost {{>roll: 1d6}} HP."
+  - Friendly NPC taken alive by monsters. You saw where they went.
+  - Non violent contact with a monster or faction.
+  - Encountered a monster and turned it into an ally.
+  - Stalked by someone or something. They are close.
+  - Found a clue to a danger nearby.
+  - Fell down a hole and lost a random weapon.
+  - Walked into a trap. Roll dR for all your items.
+  - Found a dead body. Took something interesting off it.
+  - |
+    {{>pick: 1d11 just_joined}}
+    <br/>{{>pick: 1d11 just_joined}}

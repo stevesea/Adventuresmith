@@ -1,0 +1,17 @@
+---
+name: Hireling
+collectionId: macchiato_monsters
+groupId: grpChar
+input:
+  displayTemplate: "Hireling availability: {{availability}}"
+  params:
+  - name: availability
+    uiName: Hireling Availability
+    helpText: "Hireling Availability (City: d12, Wilderness: d4)"
+    defaultValue: 1d6
+    values:
+    - 1d12
+    - 1d10
+    - 1d8
+    - 1d6
+    - 1d4

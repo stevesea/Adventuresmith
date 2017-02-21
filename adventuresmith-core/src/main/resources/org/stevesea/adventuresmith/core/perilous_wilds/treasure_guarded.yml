@@ -1,8 +1,8 @@
 ---
 templates:
 - |
-  <h5>Guarded Treasure - 1d{{input.damageDie}} + {{input.modifier}}d4</h5>
-  %[[>pick: 1d{{input.damageDie}}+{{input.modifier}}d4 treasure]]%
+  <h5>Guarded Treasure - {{input.damageDieV2}} + {{input.modifier}}d4</h5>
+  %[[>pick: {{input.damageDieV2}}+{{input.modifier}}d4 treasure]]%
 
 imports:
 - treasure

@@ -1,0 +1,17 @@
+---
+name: Reaction
+collectionId: macchiato_monsters
+groupId: grpEnc
+input:
+  displayTemplate: "Encounter dR: {{encRisk}}"
+  params:
+  - name: encRisk
+    uiName: Encounter Risk Die
+    helpText: Encounter Risk Die
+    defaultValue: 1d12
+    values:
+    - 1d12
+    - 1d10
+    - 1d8
+    - 1d6
+    - 1d4

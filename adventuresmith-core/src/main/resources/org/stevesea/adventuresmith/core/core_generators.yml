@@ -218,8 +218,17 @@ generators:
   - wild_disc
   - wilderness
   macchiato_monsters:
+  - fast_travel
+  - hireling
+  - just_joined
   - mm_equip
+  - monsters
+  - morale
+  - npc_motivation
+  - reaction
   - spell_mishap
+  - trouble_at_camp
+  - weather
   perilous_wilds:
   - place_names
   - region_names

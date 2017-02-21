@@ -1,8 +1,8 @@
 name: /r/BehindTheTables
 id: behind_the_tables
-priority: 200
 url: https://www.reddit.com/r/BehindTheTables/
 credit: /r/DnDBehindTheScreen
+priority: 900
 hasGroupHierarchy: true
 groups:
   grpEncountersCastle: Encounters / Castle
