@@ -17,8 +17,10 @@ generators:
   - company_resources
   - condition
   - corporate_aristocrats
+  - covert_go_between
   - department
   - downtown
+  - first_contact
   - first_responders
   - fixers
   - freak_fighters

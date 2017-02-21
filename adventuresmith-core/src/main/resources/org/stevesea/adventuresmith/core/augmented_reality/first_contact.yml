@@ -1,0 +1,57 @@
+---
+templates:
+- "{{first_contact}}"
+
+tables:
+  first_contact:
+  - 1-2, Hacker drops a .txt file on a PC’s device entitled <em>‘READ_M3’</em> containing a v-mail address and a cell phone number; the file is tagged with a clever read-receipt script
+  - 3-4, PC receives a call from a low grade AI automated dialling system, that only gives a phone number and a time at which to call it - repeatedly
+  - 5-6, Vidfile arrives on PC’s device via courier software, an indistinct, grainy request to log on to the dubious <em>Ebony Ziggurat</em> VRotica netsite, at a specific time
+  - 7-8, PC’s sensory implant (either optical or audio) receives repetitive message to call a cell phone number (either a scrolling message or a nagging synthetic voice)
+  - 9-10, <em>Sonny De Silva</em>, an infamous fixer, approaches the group via hacked AR projection to ask for their contact details regarding an employment opportunity they may be interested in
+  - 11-12, Each PC receives a call at exactly the same time (conference call) informing them they will be contacted again shortly (GM’s discretion as to when that happens)
+  - 13-14, Leather-clad biker screeches to a halt and offers a cell phone to the PCs without getting off her parabolic curve of a bike, saying “Its for you”, and she’ll definitely want the phone back
+  - 15-16, Obviously augmented German Shepherd trots over, calmly states the PC should contact a particular v-mail address, which he will spell out s-l-o-w-l-y, before casually walking away
+  - 17-18, PCs find a brand new, wafer-thin, very expensive laptop set up where they are living, ready for a single video call (it contains no other data)
+  - 19-20, Client calls PC directly to ascertain availability, background noise suggesting they are somewhere public, will ask PC to call them back in an hour or so to talk business
+  - 21-22, Young, bubblegum chewing Somali girl, in an oversized, fur-hooded coat, hands over a scrap of paper with GPS coordinates on it, which lead to a specific parking lot bay
+  - 23-24, Insidious subliminal advertising compells one or more PCs to be at a <em>Sumo Food</em> synthiburger joint, next to a busy monorail hub, at 3am tonight
+  - 25-26, Handed an exquisite hand-made paper envelope, containing a slip of paper which carries a beautifully written instruction to be on a specific roof at midnight
+  - 27-28, Harassed and armoured bicycle courier, in primary coloured livery and sports wear, hands PC a laminate box containing high denomination bill with a v-mail address written on it
+  - 29-30, Television picture breaks down into a pixelated mess, a long net link briefly forming from the fragmented chaos, just long enough to note it down or take a photograph of it
+  - 31-32, Filthy, shuddering android with blistered synthskin, in a tatty coverall, limps out of a nearby alleyway towards one PC, whispering a phone number over and over…
+  - 33-34, Basic print-out with the words ‘CONTACT ME’ and a v-mail address in a large serif font slides under the door where the PCs are staying
+  - 35-36, PCs are visited by a well groomed, pleasant man called Nathaniel Sheen, who has been sent to get one of them to jack in to his neural link to meet a potential client securely online
+  - 37-38, For several nights, a PC has the same lucid dream of a string of specific numbers, which turn out to be a net address for a minimalist, black-mirrored VR environment
+  - 39-40, <em>Omniversal Parcel Service</em> (OPS) commercial courier drone delivers a small packet containing a datachip with a URL for the <em>Arteology</em> VR site, with an exact log-in time
+  - 41-42, Handed a brushed-aluminium business card, etched only with a contact number, by shabbily dressed, emaciated youth who grunts through cracked lips, “They want to talk to you.”
+  - 43-44, PC’s cell phone begins autodialling unknown number, until the PC decides to see who it is that their phone is calling, at which point it will stop
+  - 45-46, Gravely injured member of the Reject Parade street gang clutching a blue plastic datachip in his bloodied hand, stumbles up to PC, before expiring messily, the chip containing net coordinates
+  - 47-48, Message flashes up on a PC’s device, simply stating a time and date, along with an exclusive restaurant’s address, and a table number
+  - 49-50, PC’s equipment displays start showing only binary code, when translated, it appears to be a cell phone number
+  - 51-52, Hacker jacks a PC’s phone, replacing all their contacts with only one number, but it auto-corrects and re-ups their contacts once the number has been called
+  - 53-54, Row of public pay phones ring as a PC passes, and will keep happening until a PC answers one of them
+  - 55-56, Healthy looking human thumb in a glass vial is delivered to a PC, complete with label showing an address for a secure storage module; the module contains nothing but a lone laptop
+  - 57-58, PC receives a message via v-mail that simply states a time; a sleek, black aero-limo will arrive for them at the time stated
+  - 59-60, All food packaging jingles they come into contact with repeat the same net address in an irritatingly catchy sing-song manner
+  - 61-62, Uniformed police officer approaches PC, referring to them by name, and hands over a printed acetate with a phone number on it
+  - 63-64, One of the PCs finds a plain grey plastic business card with a v-mail address and phone number on it, under their vehicle’s windshield wiper
+  - 65-66, Watching the news, a PC perceives a glitch, the anchor then asks the PC by name to phone a number (shown on screen), there’s another glitch, the broadcast then returning to normal
+  - 67-68, PC finds an empty <em>Lunglife</em>™ cigarette packet, with a v-mail address scrawled on it in biro, in their jacket pocket
+  - 69-70, Small, beaten up orange cleaning bot approaches a PC, repeating a phone number in it’s tinny little Disney voice, whilst colliding with their foot repeatedly
+  - 71-72, A string of v-mails through a Cambodian datahaven, enquiring about the availability and skill set of the PCs’ team, followed by a v-mail contact address routed through Prague
+  - 73-74, PC takes delivery of a parcel containing a pen drive that contains a numer of URLs and log on details that need accessing in order, to arrive at the client’s offshore net domain
+  - 75-76, PC is v-mailed the map reference to an area of ocean off the nearest coast, along with a date and time that they need to be there, should they want to discuss a job (there's a yacht there)
+  - 77-78, The expected pizza delivery contains one extra box (yay!) that holds a mid-range tablet device (what?), set up to enable a vid chat via a secure, darknet distributed server web
+  - 79-80, Six heavily armed, but smartly dressed, professionals burst in while the PCs are chillaxing, their leader carrying an attache case that holds a satellite phone he insists they use <em>RIGHT NOW!</em>
+  - 81-82, A silvered limo window descends slightly to reveal a soft gloved hand holding a lawyer’s (Portillo, Emerson & Associates) business card marked ‘URGENT’
+  - 83-84, High end <em>Svetlana-9</em> sex-synthetics are sent to the PCs, along with liquor and drugs but, before the fun starts, the PCs must call a number provided (and the synthetics are wired to record it all…)
+  - 85-86, Bloodied body armour vest dumped outside the PCs’ door, a v-mail address sprayed on to it in bright, yellow paint; recognise the armour as belonging to a contact or ally
+  - 87-88, PCs are unaware that they have been directed by compromised traffic AI to the Neoshima Atomic Rose motel, where there's a message in reception for PCs to wait in Capsule 17
+  - 89-90, Approached by a creepy, twitchy, geisharoid synthetic, remotely operated via the net by the client, to make their initial contact safely and to arrange the meeting proper
+  - 91-92, PMed via <em>Union Transmetropolitan</em> hotel's message system, stating there's an item in room 2155 they need to collect (it’s the client and they need protection, just to leave the room)
+  - 93-94, A sobbing, hollow-eyed junkie gives one of the PCs a cell phone number and, trembling, suddenly shoots himself under the chin with a cheap, red polymer automatic
+  - 95-96, Frightened and emotional middle-aged cleaner, <em>Ginetta Coleman</em>, has been surgically fitted with a cortical bomb, which will explode if the PCs don’t call the number she provides
+  - 97-98, The client has Grade-A dirt on an already trusted contact of the PCs, and uses them to pass on the clients v-mail address; the contact seems deeply uncomfortable with this and is insistent
+  - 99-100, <em>Harmony Jade</em>, a 10 year old girl in a red vinyl coat, chainsmoking Chinese cigarettes, delivers a portable hard drive, with downloaded maps to a cell phone in an abandoned warehouse
+

@@ -1,0 +1,56 @@
+---
+templates:
+- "{{covert_go_between}}"
+
+tables:
+  covert_go_between:
+  - 1-2, Cold and aloof, an AI calling itself <em>Brief Moment Of Agony</em> instructs the PCs to attend ‘an interview’ later today, at a half-finished habstack an hour’s drive away
+  - 3-4, Notorious fixer, <em>Sonny De Silva</em>, contracted by client, goes through the motions of vetting the PCs before agreeing to meet them at the <em>Below Zero</em> nightclub to discuss the potential job
+  - 5-6, Arriving at the specified meet, the players must disable their AR filters to discuss the operation with a creepy anachronistic house boy who suddenly appears in the room (a net avatar of the client)
+  - 7-8, Out of work sim actor, <em>Aiden Odel</em>, is blackmailed into playing the role of deceased fixer <em>Harrison Fulwood</em>, to discuss the operation and record everything on outmoded implants, for insurance
+  - 9-10, <em>Dr Vijay Ravinder Hazari</em>, the client's personal physician, has been instructed to invite the PCs to his secure private clinic to discuss a potential job, the client monitoring dealings from a security suite on-site
+  - 11-12, The PCs will initially meet with a gender-reversed clone of their potential client, who happens to be their fiercely protective and loyal bio-incestious lover, loaded with cutting edge weapon implants
+  - 13-14, The client has promised to erase the misdemeanours of corrupt cop <em>Sam LaTorra</em>, providing he leans on the PCs hard enough to get them to take the client's job, no questions asked
+  - 15-16, Fixer and talent scout, <em>Francis Dormandy</em>, sought out the PCs for the client, based on specific requirements, PC reputations and known skill set, plus he has information on some of their more unsavoury activities, which would conveniently 'disappear' should they agree to come onboard
+  - 17-18, Concerned colleague JJ Parrus has decided to take action and hire the PCs secretly to help deal with his co-worker's problem, but, while well meaning, JJ has just made things way more complicated
+  - 19-20, <em>goon_feeder</em>, an obnoxious online troll/stalker, has selected the PCs deliberately to make the supposed 'client's' life much more difficult and a lot more dangerous
+  - 21-22, <em>Voice 2.0</em>®, an off-the-shelf software assistant, is tasked with convincing the PCs that working for the client would be both ethical and rewarding, as well as a unique opportunity for personal development, fame and fortune
+  - 23-24, <em>Jackson DeWalt</em>, the client’s BFF, college roommate and on-off lover, has been co-opted by the client to deal with the PCs on the client's behalf, hoping that Jackson will get caught in the crossfire
+  - 25-26, A semi-intelligent and complex algorithm chose the PCs for the client from parameters provided, and considers the briefing stage as part of the selection process
+  - 27-28, Transpinay hacker collective, headed by sleazy fixer <em>Monty Schwab</em>, is tasked with hosting a meeting with the PCs in a Filipino gaming virtual, behind one of Monty's ubiquitous paywalls
+  - 29-30, An extremely attractive individual, tweaked with artificial pheromones, is sent to discuss the details, self-identifiying as the client's closest ally and long term fuck buddy
+  - 31-32, Ruthless lifestyle coach <em>Charlotte Mills</em> hires the PCs to perform certain tasks that will reduce the client's stress and anxiety, dealing with the PCs on the client's behalf as part of her remit, all of which should lead to a measurable increase in her client's well being
+  - 33-34, The wealthy client's psychotic drug dealer, <em>Ninja Euros</em>, has been pressurised into dealing with the PCs as "he knows those sorts of people" and is decidedly unhappy about it
+  - 35-36, <em>Dominic Teeth</em>, an uplifted and cyber-enhanced mandrill with anger management issues, hosts the PCs in an office at the back of an ultimate fighting dojo, discussing the job for his 'handler' in a surprisingly professional manner
+  - 37-38, <em>Khun Kom Sa</em> (Thai for 'Mr. Handsome'), greasy Thaiwanese club owner and pimp in his early fifties, arranges to discuss the job in a rooftop pocket park in an affluent suburb, at a time of their choosing, where he takes a shine to the most alpha PC in the group
+  - 39-40, Apparently, the client had a dream about the PCs, did some digging and wants to hire them, according to the android barista the PCs have come to see at the airport's <em>Hyperlife</em>™ concession café
+  - 41-42, Blackmailed and RFID tagged call girl, <em>Candy Vision</em>, pressured into meeting and convincing the PCs to take on the job, any way she can, no matter what
+  - 43-44, <em>Bhin Xuyen</em> syndicate foot soldier, <em>Kha Cong Thu</em>, happily brings the PCs onboard, telling them everything he knows about the job, knowing he is now owed a BIG favour by the client
+  - 45-46, The actual client will meet them in a pink polymer room at <em>GoGeisha!</em>™, a utilitarian brothel franchise above a backstreet augshop, but employs holoprojection, appearing only as a vague fractal blur
+  - 47-48, The client has dispatched a cloned double of themselves to make contact with the PCs, failing to realise that the clone is controlled by the corporation, and it is setting a larger company plan in motion
+  - 49-50, The client has <em>Hygge-1</em>, their smart-home AI programmed for enhanced conversational skills,  contact the PCs for them, hoping it's cosy, reassuring tones and gentle wit will win them over
+  - 51-52, Terrified of being compromised in meat-space, the client uploads a temporary fragment of their consciousness to the net, and relies on this digital ghost to negotiate with the PCs
+  - 53-54, <em>Geoff Skinner</em>, muddled geriatric, paid to pass operational detail to the PCs, will meet wherever, providing they pay his bus fare; accompanied by Catalina, his hot, but indifferent, meds manager
+  - 55-56, Well briefed but irrational junky called <em>Scurv</em>, paid to tell the PCs where to meet the client regarding the job, takes an inconvenient accidental overdose before he can pass on all the necessary info, which the PCs may have to deal with
+  - 57-58, The client's no-nonsense war veteran buddy, <em>Oscar Weiss</em>, put himself forward to talk to the "street scum" PCs to ensure they understand the client "is most certainly not fucking about"
+  - 59-60, The PCs are rapidly briefed by the client’s self-aware defence net, as the client lies injured and bleeding out, in need of immediate assistance or evacuation
+  - 61-62, The client's estranged ex-partner and desperate drug addict, <em>Christine Avery</em>, manipulated into meeting the PCs, exaggerates the threat level, bad mouths the client and agrees to pay the PCs whatever they want
+  - 63-64, The <em>Vent 3 Cerebral Commonwealth</em>, a self-aware nano swarm hiding in an overpopulated social housing complex, have chosen to hire the PCs on behalf of the client, for their own inscrutable reasons
+  - 65-66, The client has contracted <em>Reputelligent Inc.</em>, a gig economy employment agency, to gauge the PCs’ interest, and to lay down a few ground rules once the legally watertight online contract is completed
+  - 67-68, Paranoid hacker, <em>Domino State</em>, a long term associate of the prospective client, has agreed to deal with the PCs on the client's behalf, but doesn't trust any of them and will constantly monitor their progress, infiltrating their neural processors
+  - 69-70, The PCs are contacted by <em>IdSecure</em>™, a memory insurance company, as the policy has been triggered by the client being in a coma, clear instructions stipulating that the PCs in particular be given a secure brief in the event of this happening
+  - 71-72, The client's professional agent, <em>Zen Warner</em>, will facilitate the hiring of, and subsequent dealings with, the PCs, and will secure the services of another team should the PCs be perceived as working against the best interests of his client
+  - 73-74, With a fat buddha-faced, fixed smile, <em>Mao Tse-Tungsten</em>, the client’s cold, cyborg security consultant and bodyguard, will pass on the details of the job to the PCs, but would rather be performing the task himself
+  - 75-76, The client's gruff and syndicate-connected Ukrainian driver, <em>Antin Shevchenko</em>, begrudgingly deals with the PCs for his employer, making it abundantly clear that he neither likes, nor trusts, them
+  - 77-78, Unbeknown to the PCs, and depending on the contact method, the client will deal with the PCs directly, utilising voice modulation (phone), an obfuscating avatar (VR) or a misleading disposable v-mail
+  - 79-80, <em>Hannah Black</em>, the client’s long suffering PA, is sent to put forward an offer to the PCs with no regard for her safety, but still maintains her employers anonymity, despite being deathly afraid
+  - 81-82, Eminent lawyer, <em>Blanche Portillo</em>, requires the PCs to attend her offices in the Corporate District to discuss a matter of importance with regards to her client, who will also be present
+  - 83-84, The PCs are summoned to meet with the client’s full cyborg 'mindstream transference' guru, who calls himself <em>Quiet Mountain</em>, finding him in the lotus position in the middle of an empty warehouse, where he will brief the PCs in hushed tones, following an hour or more of silence
+  - 85-86, The client’s so-called ‘business partner’, the confrontation averse <em>Felix Dixon</em>, volunteered to meet with the PCs, and is hoping to con them into sorting out a problem of his own as part of the operation
+  - 87-88, <em>Able3</em>, one of the client's loyal synthetics, is sent to discuss the job proposal for his owner, and appears polite, placid and timid, unless the PCs refuse the offer, at which point Able3 will attempt to kill them all using his incredible strength, to hide his master's plans
+  - 89-90, The client’s lover, entrusted with finding a deniable team, has been compromised by the client's enemies, and has selected the PCs in the hope that they will screw it all up, and is deliberately failing to pass on crucial information
+  - 91-92, Arriving by aerocab, <em>Dr Paula Wozniak</em>, the client's augmentation councillor, has agreed to speak to the PCs for the client, but is concerned that the client is suffering from some sort of implant triggered delusion and tries to negotiate a cut of the money for the 'phantom' job
+  - 93-94, <em>Emil Santiago</em>, private detective to the rich and powerful, is contracted to vet, brief and pay the PCs on his client's behalf; Emil is both self-serving and corrupt and may well sell them all out
+  - 95-96, Close friend of the client, <em>Akira Churchyard</em>, will pass on information for the job to the PCs, but is working as a freelance investigative reporter, and hopes to turn this job into his big break
+  - 97-98, The client’s extremely wealthy and powerful father will communicate with the PCs on his offspring's behalf, as he just doesn't trust his child's judgement, nor their financial acumen
+  - 99-100, Having been previously messaged with a single, obscure word, the PCs are met in a hotel room by <em>Lorelei Jones</em>, a mnemonic courier who asks them to "Just say the word", which triggers her savant mode
