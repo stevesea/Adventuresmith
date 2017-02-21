@@ -15,4 +15,3 @@ tables:
   #    this seemed like an OK compromise, but isn't exactly that
   - "1..11, {{>pick: 1d6 treasure}}"
   - "12, {{>pick: 3d6 treasure}}"
-

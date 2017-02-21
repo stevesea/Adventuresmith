@@ -7,7 +7,7 @@ groupIcons:
   grpCombinations: cmd-dice-2
   grpCustom: cmd-dice-3
 groups:
-  grpPolys: Std Polyhedral
+  grpPolys: Single Polyhedral
   grpCombinations: Common Combos
-  grpCustom: Custom Dice
+  grpCustom: Customizable Dice
 

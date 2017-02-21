@@ -142,7 +142,12 @@ object DiceConstants {
     val GROUP = "dice"
     val CollectionName = "dice_roller"
 
-    val regularDice = listOf("1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100")
+    val regularDice = listOf("1d3","1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100")
+
+    val fudgeDice = mapOf(
+            "NdF_1" to "Fudge Dice #1",
+            "NdF_2" to "Fudge Dice #2"
+    )
 
     // if we just want to roll dice, these could just be in the 'regularDice' above. But, i like
     // showing the individual rolls too
@@ -226,7 +231,7 @@ val diceModule = Kodein.Module {
                 return "2d20 Advantage: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "2d20 Advantage", groupId = "grpCombinations", collectionId = DiceConstants.CollectionName, priority = 2000)
+                return GeneratorMetaDto(name = "2d20 Advantage", groupId = "grpCombinations", collectionId = DiceConstants.CollectionName)
             }
         }
     }
@@ -246,8 +251,7 @@ val diceModule = Kodein.Module {
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
                 return GeneratorMetaDto(name = "2d20 Disadvantage",
                         collectionId = DiceConstants.CollectionName,
-                        groupId = "grpCombinations",
-                        priority = 2000)
+                        groupId = "grpCombinations")
             }
         }
     }
@@ -349,6 +353,56 @@ val diceModule = Kodein.Module {
         }
     }
 
+    DiceConstants.fudgeDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object : Generator {
+                val shuffler: Shuffler = instance()
+                val fudgeMap = RangeMap()
+                        .with(1, "-")
+                        .with(2, "-")
+                        .with(3, " ")
+                        .with(4, " ")
+                        .with(5, "+")
+                        .with(6, "+")
+                val adjectives = listOf("Terrible", "Poor", "Mediocre", "Fair", "Good", "Great", "Superb")
+                override fun getId(): String {
+                    return it.key
+                }
+
+                override fun generate(locale: Locale, input: Map<String, String>?): String {
+                    val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+                    val nf = NumberFormat.getInstance(locale)
+
+                    val n = inputMapForContext.getOrElse("n") { "1" }.toString().toInt()
+                    val rolls: MutableList<String> = mutableListOf()
+                    var sum = 0
+                    for (i in 1..n) {
+                        val roll = shuffler.pick(fudgeMap)
+                        if (roll == "-")
+                            sum--
+                        if (roll == "+")
+                            sum++
+                        rolls.add(roll)
+                    }
+
+                    return "${n}dF: ${rolls}<br/><br/><big><strong>${sum}</strong></big> <br/>"
+                }
+
+                override fun getMetadata(locale: Locale): GeneratorMetaDto {
+                    return GeneratorMetaDto(name = it.value, groupId = "grpCombinations", collectionId = DiceConstants.CollectionName, priority = 2000,
+                            input = GeneratorInputDto(
+                                    displayTemplate = "<big>{{n}}dF",
+                                    useWizard = false,
+                                    params = listOf(
+                                            InputParamDto(name = "n", uiName = "N", numbersOnly = true, isInt = true, defaultValue = "4",
+                                                    helpText = "How many dF to roll?")
+                                    )
+                            ))
+                }
+            }
+        }
+    }
+
     bind<List<String>>(DiceConstants.GROUP) with singleton {
         listOf(
                 DiceConstants.regularDice,
@@ -357,7 +411,8 @@ val diceModule = Kodein.Module {
                         DiceConstants.d20adv,
                         DiceConstants.d20disadv
                 ),
-                DiceConstants.customizableDice.keys
+                DiceConstants.customizableDice.keys,
+                DiceConstants.fudgeDice.keys
         ).flatten()
     }
 
