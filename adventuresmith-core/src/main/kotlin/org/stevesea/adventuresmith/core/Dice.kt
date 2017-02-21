@@ -385,7 +385,7 @@ val diceModule = Kodein.Module {
                         rolls.add(roll)
                     }
 
-                    return "${n}dF: ${rolls}<br/><br/><big><strong>${sum}</strong></big> <br/>"
+                    return "${n}dF: ${rolls}<br/><br/><big><strong>${sum}</strong></big>"
                 }
 
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
