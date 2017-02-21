@@ -339,7 +339,7 @@ val diceModule = Kodein.Module {
                                         helpText = "Do you want to drop any rolls?"),
                                 InputParamDto(name = "dropNLow", uiName = "Drop M Lowest", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = ""),
                                 InputParamDto(name = "tn", uiName = "Target Number", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = "",
-                                        helpText = "Target number? (success if roll >= TN")
+                                        helpText = "Target number? (success if roll >= TN)")
                         )
                     )
             )
