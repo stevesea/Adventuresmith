@@ -217,6 +217,9 @@ generators:
   - treasure
   - wild_disc
   - wilderness
+  macchiato_monsters:
+  - mm_equip
+  - spell_mishap
   perilous_wilds:
   - place_names
   - region_names

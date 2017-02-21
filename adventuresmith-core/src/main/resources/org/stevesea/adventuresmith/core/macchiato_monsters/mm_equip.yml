@@ -1,0 +1,122 @@
+---
+templates:
+- "{{mm_equip.template}}"
+
+nested_tables:
+  mm_equip:
+    template:
+    - |
+      %[[>pick: 1d20 mm_equip.{{input.d20}}]]%
+      <br/>%[[>pick: 1d12 mm_equip.{{input.d12}}]]%
+      <br/>%[[>pick: 1d10 mm_equip.{{input.d10}}]]%
+      <br/>%[[>pick: 1d8 mm_equip.{{input.d8}}]]%
+      <br/>%[[>pick: 1d6 mm_equip.{{input.d6}}]]%
+      <br/>%[[>pick: 1d4 mm_equip.{{input.d4}}]]%
+    Equipment:
+    - 1, Bread and ham d4, ragged cloth bag, sock filled with pebbles.
+    - 2, Dry biscuits and nuts d8, backpack, blanket, rope d10, pilgrim hat.
+    - 3, Jar of snail soup d6, ox, rolled up carpet, 2 sacks, crowbar.
+    - 4, Boiled turnips and butter d6, empty saddlebags, bedroll, 2 bear traps.
+    - 5, Liver and tomato sausage d4, torches d6, grave robber's tools d8, iron spikes.
+    - 6, Dried beans and salted meat d8, calligrapher's tools d8, holy symbol d6, lantern & oil d8.
+    - 7, Freshly killed rabbits d4, traps, sack, bedroll, candles d4, dice.
+    - 8, Dried apples d8, shepherd's dog, backpack, tent d10, torches d6.
+    - 9, Road bread and salted fish d8, large net, bounty letter, manacles.
+    - 10, Flour and dried meat d4, old horse, rain coat, torches d6.
+    - 11, Boar terrine and ale d6, holy water d6, alchemist's tools d8, candles d4.
+    - 12, Confit duck and cabbage d6, bag of charcoal, fishing pole, playing cards.
+    - 13, Fresh bread and fruit d6, oil lamp d4, local map, shovel, rope ladder.
+    - 14, Live hen in a cage d6, bedroll, torches d6, cook's tools, tarot cards.
+    - 15, Blood sausage and bad wine d6, locksmith's tools, backpack, lantern & oil d8.
+    - 16, Honey and lemon cakes d4, beautiful travel clothes, war horse, magical ingredients d8.
+    - 17, Spicy otter pies d6, courtier's tools d8, fine cloak, songbird in a cage.
+    - 18, Fish cakes and dry wine d6, con man's tools, rope d10, loaded dice.
+    - 19, Sealed meals d8, scroll maker's tools d8, wizardly hat, spyglass, magical ingredients d8.
+    - 20, Peppered cheese and cider d4, fine horse, cartographer's tools d8, torches d6.
+    Valuables:
+    - 1, A piece of string and a tooth
+    - 2, A bag of rusty nails
+    - 3, Furs worth copper d10
+    - 4, Pocketful of copper d6
+    - 5, A length of silk worth silver d10
+    - 6, Funeral urns worth silver d6
+    - 7, Stack of encoded letters, bag of silver d4
+    - 8, Leather pouch of silver d8
+    - 9, Religious books worth silver d12
+    - 10, Large bag of silver d10
+    - 11, Stolen jewellery worth silver d12
+    - 12, Embroidered pouch of electrum d6
+    - 13, Fancy clothes worth electrum d8
+    - 14, Electrum ingot worth d10
+    - 15, Velvet bag of electrum d10
+    - 16, Signet ring worth gold d8
+    - 17, Money belt with gold d4
+    - 18, Strongbox of platinum d6
+    - 19, A portrait of you, bag of gems d4
+    - 20, A rare magical scroll, pouch of silver d6
+
+    Melee:
+    - 1, Cudgel or stick d4
+    - 2, Dagger or poniard d4
+    - 3, Whip or scourge d4
+    - 4, Hatchet or mace d6
+    - 5, Voulge d6*
+    - 6, Short sword or sax d6
+    - 7, Quartestaff d6
+    - 8, Rapier or cutlass d6
+    - 9, Spear d6/d6*
+    - 10, Bill-hook or corseque d8*
+    - 11, Dane axe or warhammer d8/d8*
+    - 12, Long sword or scimitar d8
+    - 13, Mace or hammer d8
+    - 14, Pike or halberd d8*
+    - 15, Bec de corbin d8*
+    - 16, Bastard sword d8*
+    - 17, Lucerne hammer d10*
+    - 18, Lochaber axe d10*
+    - 19, Morgenstern or heavy flail d10
+    - 20, Flamberge or zweihander d10*
+
+    Missile:
+    - 1, Polished rocks d4 (bag d10)
+    - 2, Throwing knives d4 (belt d4)
+    - 3, Darts d6 (quiver d6)
+    - 4, Sling d4 (bag of stones d10)
+    - 5, Hand crossbow d6 (bolts d8)
+    - 6, Duelling pistol d6 (powder and bullets d4)
+    - 7, Bolas d4
+    - 8, Javelins d6 (quiver d4)
+    - 9, Long bow d8 (arrows d8)
+    - 10, Blunderbuss d8 (powder and nails d4)
+    - 11, Horse pistol d8 (powder and bullets d4)
+    - 12, Nomad bow d6 (arrows d8)
+    - 13, Throwing axes d6 (belt d4)
+    - 14, Heavy throwing blade d6
+    - 15, Repeating crossbow d8 (bolts d10)
+    - 16, Grenades d10 (belt d4)
+    - 17, Crossbow d10 (bolts d8)
+    - 18, Atlatl d8 (javelins d6)
+    - 19, Heavy crossbow d10* (bolts d6)
+    - 20, Musket d10* (powder and bullets d4)
+
+    Armour:
+    - 1, Ill-fitting helmet d4*
+    - 2, Buckler or leather shield
+    - 3, Hide tunic and fur hat d4*
+    - 4, Leather coat and round shield d4
+    - 5, Gambeson or padded leather d4*
+    - 6, Cuir bouilli d6
+    - 7, Leather harness d6
+    - 8, Studded leather with shield d6
+    - 9, Breastplate d6
+    - 10, Ring or splint mail d8
+    - 11, Scale mail or lorica d8
+    - 12, Breastplate with helmet and shield d8
+    - 13, Mail shirt with helmet d8
+    - 14, Mail and leather with shield d8
+    - 15, Hauberk with round shield d8
+    - 16, Rusty composite plate d10
+    - 17, Breastplate and mail with coif d10
+    - 18, Heavy half plate with tower shield d10
+    - 19, Adorned platemail with kite shield d10
+    - 20, Full plate with heater shield d10

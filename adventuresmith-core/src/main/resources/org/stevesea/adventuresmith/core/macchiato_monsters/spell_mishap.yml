@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[>pick: 1d{{input.chaosRisk}} spell_mishap]]%
+  <br/>
+  <br/><small><em>[chaos dR: d{{input.chaosRisk}}]</em></small>
+
+tables:
+  spell_mishap:
+  - 1, <strong>Power surge.</strong> No magic happens, but you regain the HP lost from the spell.<br/><br/><strong>Step down dR</strong>
+  - 2, <strong>Mistake.</strong> The effect is reversed or dramatically altered.<br/><br/><strong>Step down dR</strong>
+  - 3, <strong>Mutation.</strong> Your magic works, but leaves you with a scar, deformity, or oddity.<br/><br/><strong>Step down dR</strong>
+  - 4, <strong>Erasure.</strong> The magic works but you forget the spell until you have a full night's sleep.
+  - 5, <strong>Drain.</strong> Lose points in a random stat equal to the initial HP cost. Recover 1 point per day.
+  - 6, <strong>Pyrotechnics.</strong> Loud, flashy and mostly harmless. Unless something catches fire...
+  - 7, <strong>Weak spell.</strong> Effects, area, number of targets, etc. are halved.
+  - 8, <strong>Lack of control.</strong> Your magic has a negative and annoying side effect.
+  - 9, <strong>Power leak.</strong> The magic works if you pay the HP cost again.
+  - 10, <strong>Delayed action.</strong> The magic takes effect... d4 turns from now.
+  - 11, <strong>Bad aim.</strong> The spell affects another target of your choice.
+  - 12, <strong>BÄM!</strong> The effects, number of targets, or size of the spell are doubled.

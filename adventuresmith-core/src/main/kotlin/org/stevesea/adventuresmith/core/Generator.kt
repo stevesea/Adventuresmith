@@ -141,12 +141,16 @@ data class GeneratorInputDto(
     }
 
     fun processInputForDisplay(inputMap: Map<String, String>?) : String {
-        val context = mergeInputWithDefaults(inputMap)
-        return Mustache.compiler()
-                .escapeHTML(false)
-                .compile(displayTemplate)
-                .execute(context)
-                .trim()
+        try {
+            val context = mergeInputWithDefaults(inputMap)
+            return Mustache.compiler()
+                    .escapeHTML(false)
+                    .compile(displayTemplate)
+                    .execute(context)
+                    .trim()
+        } catch (e: Exception) {
+            return e.message.orEmpty()
+        }
     }
 }
 

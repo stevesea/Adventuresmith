@@ -212,42 +212,58 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {param.defaultValue}}
                         val isFirstPage = stepInd == 0
                         val isFinalPage = stepInd == params.size - 1
-                        alert(R.string.generator_config) {
-                            customView {
-                                verticalLayout {
-                                    if (!param.helpText.isNullOrEmpty()) {
-                                        textView {
-                                            text = param.helpText
+                        if (param.values == null) {
+                            alert(R.string.generator_config) {
+                                customView {
+                                    verticalLayout {
+                                        if (!param.helpText.isNullOrEmpty()) {
+                                            textView {
+                                                text = param.helpText
+                                            }
                                         }
-                                    }
-                                    val curEdit = editText {
-                                        hint = param.uiName
-                                        maxLines = 1
-                                        singleLine = true
-                                        inputType = if (param.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT
-                                        text = Editable.Factory.getInstance().newEditable(displayVal)
-                                    }
-                                    if (isFinalPage) {
-                                        okButton {
-                                            newState.put(k, curEdit.text.toString().trim())
-                                            genBtn.updateInputMap(newState)
-                                            setGeneratorConfig(genId, newState)
+                                        val curEdit = editText {
+                                            hint = param.uiName
+                                            maxLines = 1
+                                            singleLine = true
+                                            inputType = if (param.numbersOnly) InputType.TYPE_CLASS_NUMBER else InputType.TYPE_CLASS_TEXT
+                                            text = Editable.Factory.getInstance().newEditable(displayVal)
                                         }
-                                    } else {
-                                        positiveButton("Next") {
-                                            showGenWizard(genBtn, stepInd + 1, oldState, newState)
+                                        if (isFinalPage) {
+                                            okButton {
+                                                newState.put(k, curEdit.text.toString().trim())
+                                                genBtn.updateInputMap(newState)
+                                                setGeneratorConfig(genId, newState)
+                                            }
+                                        } else {
+                                            positiveButton("Next") {
+                                                newState.put(k, curEdit.text.toString().trim())
+                                                showGenWizard(genBtn, stepInd + 1, oldState, newState)
+                                            }
                                         }
-                                    }
-                                    if (!isFirstPage) {
-                                        negativeButton("Prev") {
-                                            newState.put(k, curEdit.text.toString().trim())
-                                            showGenWizard(genBtn, stepInd - 1, oldState, newState)
+                                        if (!isFirstPage) {
+                                            negativeButton("Prev") {
+                                                newState.put(k, curEdit.text.toString().trim())
+                                                showGenWizard(genBtn, stepInd - 1, oldState, newState)
+                                            }
                                         }
                                     }
                                 }
+                            }.show()
+                        } else {
+                            val sellist = param.values.orEmpty()
+                            selector(param.helpText, sellist) { i ->
+                                val selected = sellist.get(i)
+                                newState.put(k, selected)
+                                if (isFinalPage) {
+                                    genBtn.updateInputMap(newState)
+                                    setGeneratorConfig(genId, newState)
+                                } else {
+                                    showGenWizard(genBtn, stepInd + 1, oldState, newState)
+                                }
                             }
-                        }.show()
+                        }
                     }
+
                 })
                 .withOnLongClickListener(object : FastAdapter.OnLongClickListener<GeneratorButton> {
                     override fun onLongClick(v: View?, adapter: IAdapter<GeneratorButton>?, item: GeneratorButton?, position: Int): Boolean {

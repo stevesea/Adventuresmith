@@ -1,0 +1,12 @@
+---
+name: Spell Mishap
+collectionId: macchiato_monsters
+input:
+  displayTemplate: "chaos dR: d{{chaosRisk}}"
+  params:
+  - name: chaosRisk
+    uiName: Chaos Risk Die
+    helpText: The chaos risk represents magic’s stability in the area. (typically d12)
+    defaultValue: 12
+    numbersOnly: true
+    isInt: true

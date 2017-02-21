@@ -1,0 +1,66 @@
+---
+name: Macchiato Monsters Equipment
+collectionId: macchiato_monsters
+input:
+  displayTemplate: "d20: {{d20}}, d12: {{d12}}<br/>d10: {{d10}} d8: {{d8}}<br/>d6: {{d6}}, d4: {{d4}}"
+  params:
+  - name: d20
+    uiName: d20 table
+    helpText: Select the d20 equipment table
+    defaultValue: Equipment
+    values:
+    - Equipment
+    - Valuables
+    - Melee
+    - Missile
+    - Armour
+  - name: d12
+    uiName: d12 table
+    helpText: Select the d12 equipment table
+    defaultValue: Melee
+    values:
+    - Equipment
+    - Valuables
+    - Melee
+    - Missile
+    - Armour
+  - name: d10
+    uiName: d10 table
+    helpText: Select the d10 equipment table
+    defaultValue: Valuables
+    values:
+    - Equipment
+    - Valuables
+    - Melee
+    - Missile
+    - Armour
+  - name: d8
+    uiName: d8 table
+    helpText: Select the d8 equipment table
+    defaultValue: Armour
+    values:
+    - Equipment
+    - Valuables
+    - Melee
+    - Missile
+    - Armour
+  - name: d6
+    uiName: d6 table
+    helpText: Select the d6 equipment table
+    defaultValue: Missile
+    values:
+    - Equipment
+    - Valuables
+    - Melee
+    - Missile
+    - Armour
+  - name: d4
+    uiName: d4 table
+    helpText: Select the d4 equipment table
+    defaultValue: Equipment
+    values:
+    - Equipment
+    - Valuables
+    - Melee
+    - Missile
+    - Armour
