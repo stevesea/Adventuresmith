@@ -12,7 +12,7 @@ nested_tables:
       <br/>%[[>pick: 1d8 aa_equip.{{input.d8}}]]%
       <br/>%[[>pick: 1d6 aa_equip.{{input.d6}}]]%
       <br/>%[[>pick: 1d4 aa_equip.{{input.d4}}]]%
-    EquipmentAndFood:
+    Equipment:
     - Wonderbread and boloney sandwiches (D6), old burner phone (D8), bicycle
     - Deli potato salad (D4), pager (D6), weed (D6), bicycle
     - Donuts & coffee (D6), smartphone (D4), toolbox, moped
@@ -33,7 +33,7 @@ nested_tables:
     - Beef jerky and Dr. Pepper (D6), International Fortean Organization membership card, Rusty Mustang, Bolt cutter, sturdy cellphone (D8)
     - Goulash (D8), slivovica (D6), freemason’s ring, burner cellphone (D8), Sct. Christopher medallion, PT Cruiser, a knuckle’s worth of cocaine.
     - Pizza and kool-aid (D6), maglite (D8), lockpicks, buspass, anorak, satellite phone (D6)
-    WealthAndValuables:
+    Wealth:
     - A necklace of teeth (dog, human and monkey (?))
     - A Red Lobster gift card
     - A carton of cigarettes (D10 – but they’re smokes, not legal tender)
@@ -55,7 +55,7 @@ nested_tables:
     - The work and home numbers of a Pentagon general*
     - Blood diamonds (D12)
 
-    MeleeWeapons:
+    Melee:
     - Largely ornamental nunchuks, chrome plated, or a stick (D4)
     - Knuckle dusters (D4)
     - Pocket knife or screwdriver (D4)
@@ -77,7 +77,7 @@ nested_tables:
     - Zweihänder or katana (D10)
     - Chainsaw(D10)
 
-    RangedWeapons:
+    Ranged:
     - Slingshot (D4) (Ball bearings in a bag D8)
     - Throwing knives or stars d4 (Bandolier d4)
     - BB Gun (D4) (D6 ‘Mag’)

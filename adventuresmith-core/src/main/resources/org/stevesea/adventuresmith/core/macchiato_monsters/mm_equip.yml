@@ -12,7 +12,7 @@ nested_tables:
       <br/>%[[>pick: 1d8 mm_equip.{{input.d8}}]]%
       <br/>%[[>pick: 1d6 mm_equip.{{input.d6}}]]%
       <br/>%[[>pick: 1d4 mm_equip.{{input.d4}}]]%
-    EquipmentAndFood:
+    Equipment:
     - Bread and ham dR4, ragged cloth bag, sock filled with pebbles.
     - Dry biscuits and nuts dR8, backpack, blanket, rope dR10, pilgrim hat.
     - Jar of snail soup dR6, ox, rolled up carpet, 2 sacks, crowbar.
@@ -33,7 +33,7 @@ nested_tables:
     - Fish cakes and dry wine dR6, con man's tools, rope dR10, loaded dice.
     - Sealed meals dR8, scroll maker's tools dR8, wizard hat, spyglass, magical ingredients d8.
     - Peppered cheese and cider dR4, fine horse, cartographer's tools dR8, torches dR6.
-    WealthAndValuables:
+    Wealth:
     - A piece of string and a tooth
     - A bag of rusty nails
     - Furs worth copper d10
@@ -55,7 +55,7 @@ nested_tables:
     - A portrait of you, bag of mythmetal dR4
     - A rare magical scroll, pouch of silver d6
 
-    MeleeWeapons:
+    Melee:
     - Cudgel or stick d4
     - Dagger or poniard d4
     - Whip or scourge d4
@@ -77,7 +77,7 @@ nested_tables:
     - Morgenstern or heavy flail d10
     - Flamberge or zweihander d10*
 
-    MissileWeapons:
+    Missile:
     - Polished rocks d4 (bag dR10)
     - Throwing knives d4 (belt dR4)
     - Darts d6 (quiver dR6)

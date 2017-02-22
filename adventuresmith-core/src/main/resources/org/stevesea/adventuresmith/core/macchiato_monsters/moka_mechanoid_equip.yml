@@ -12,7 +12,7 @@ nested_tables:
       <br/>%[[>pick: 1d8 mm_equip.{{input.d8}}]]%
       <br/>%[[>pick: 1d6 mm_equip.{{input.d6}}]]%
       <br/>%[[>pick: 1d4 mm_equip.{{input.d4}}]]%
-    EquipmentAndFood:
+    Equipment:
     - A bag of Beans and dry meat (d10)
     - Some old cans without sticker (d6)
     - Instant noodle (d8). A boiler.
@@ -33,7 +33,7 @@ nested_tables:
     - Fresh water cans (d6)
     - Fresh meat (d4)
     - High citizen clothes, Crystal credit card (d12)
-    WealthAndValuables:
+    Wealth:
     - Partially burned picture of an important relative
     - Adhsives and ropes (d6)
     - Small bag of basic mechanical junk (d6)
@@ -54,7 +54,7 @@ nested_tables:
     - Light talking data base
     - Universal battery pack (charged d8)
     - Intelligent and mobile fridge (empty)
-    MeleeWeapons:
+    Melee:
     - Big army knife d4
     - self defense Taser d4
     - Heavy tools d4
@@ -76,7 +76,7 @@ nested_tables:
     - Light saber d12 Deadly
     - Selfdestruct option d20*
 
-    MissileWeapons:
+    Missile:
     - Rocks and garbages d4 (ammo d6)
     - Big tools d4 (ammo d4)
     - Throwing Daggers d4 (ammo d6)

@@ -8,66 +8,66 @@ input:
   - name: d20
     uiName: d20 table
     helpText: Select the d20 equipment table
-    defaultValue: EquipmentAndFood
+    defaultValue: ProtectiveGear
     values:
-    - EquipmentAndFood
-    - WealthAndValuables
-    - MeleeWeapons
-    - RangedWeapons
+    - Equipment
+    - Wealth
+    - Melee
+    - Ranged
     - ProtectiveGear
     - UncannyAndUnwholesome
   - name: d12
     uiName: d12 table
     helpText: Select the d12 equipment table
-    defaultValue: MeleeWeapons
+    defaultValue: Ranged
     values:
-    - EquipmentAndFood
-    - WealthAndValuables
-    - MeleeWeapons
-    - RangedWeapons
+    - Equipment
+    - Wealth
+    - Melee
+    - Ranged
     - ProtectiveGear
     - UncannyAndUnwholesome
   - name: d10
     uiName: d10 table
     helpText: Select the d10 equipment table
-    defaultValue: WealthAndValuables
+    defaultValue: Wealth
     values:
-    - EquipmentAndFood
-    - WealthAndValuables
-    - MeleeWeapons
-    - RangedWeapons
+    - Equipment
+    - Wealth
+    - Melee
+    - Ranged
     - ProtectiveGear
     - UncannyAndUnwholesome
   - name: d8
     uiName: d8 table
     helpText: Select the d8 equipment table
-    defaultValue: ProtectiveGear
+    defaultValue: Melee
     values:
-    - EquipmentAndFood
-    - WealthAndValuables
-    - MeleeWeapons
-    - RangedWeapons
+    - Equipment
+    - Wealth
+    - Melee
+    - Ranged
     - ProtectiveGear
     - UncannyAndUnwholesome
   - name: d6
     uiName: d6 table
     helpText: Select the d6 equipment table
-    defaultValue: RangedWeapons
+    defaultValue: Equipment
     values:
-    - EquipmentAndFood
-    - WealthAndValuables
-    - MeleeWeapons
-    - RangedWeapons
+    - Equipment
+    - Wealth
+    - Melee
+    - Ranged
     - ProtectiveGear
     - UncannyAndUnwholesome
   - name: d4
     uiName: d4 table
     helpText: Select the d4 equipment table
-    defaultValue: EquipmentAndFood
+    defaultValue: Equipment
     values:
-    - EquipmentAndFood
-    - WealthAndValuables
-    - MeleeWeapons
-    - RangedWeapons
+    - Equipment
+    - Wealth
+    - Melee
+    - Ranged
     - ProtectiveGear
     - UncannyAndUnwholesome

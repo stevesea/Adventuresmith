@@ -12,7 +12,7 @@ nested_tables:
       <br/>%[[>pick: 1d8 rr_equip.{{input.d8}}]]%
       <br/>%[[>pick: 1d6 rr_equip.{{input.d6}}]]%
       <br/>%[[>pick: 1d4 rr_equip.{{input.d4}}]]%
-    EquipmentAndFood:
+    Equipment:
     - Old fruits d4, a box of toothpicks d6, a foldable shovel and a watch
     - Some kind of living cheese (must be a french one) d6, a dice, a gasoline lighter, a piece of soap d6 and a cigar box d4
     - Cold slices of an old pizza d4, a hand mirror, a picture of a baby cat, a walking trashcan robot
@@ -34,7 +34,7 @@ nested_tables:
     - Christmas food under vacuum and a little bottle of Champagne d4, a jet pack d8, a pack of tiny spy robots d6, a laser fishing pole d6, anti-radiation underwear
     - Food pills d8 (encumbrance 0), a black slab with the words "Don't Panic !" written in yellow, anti-grav' suit d6, the endless mug of eternal coffee, a 3 seconds rewind time device d4
 
-    WealthAndValuables:
+    Wealth:
     - A bag of marbles d8
     - Alien glassware d4
     - Baubles d4
@@ -56,7 +56,7 @@ nested_tables:
     - A dedicated 4D picture of Rick Newdawn, National Currency Bills d8
     - A one use alien's pill of infinite knwoledge, Interstellar Gems d4
 
-    MeleeWeapons:
+    Melee:
     - Cudgel d4
     - knife d4
     - hammer d4
@@ -78,7 +78,7 @@ nested_tables:
     - Chain saw sword d10*
     - Alien mêlée weapon d10
 
-    MissileWeapons:
+    Missile:
     - darts d4 (box d6)
     - throwing knifes d4 (belt d8)
     - Alarm gun d4* (cartridge d6)

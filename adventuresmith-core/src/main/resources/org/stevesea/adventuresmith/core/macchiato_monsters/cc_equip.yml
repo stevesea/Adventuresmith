@@ -12,7 +12,7 @@ nested_tables:
       <br/>%[[>pick: 1d8 cc_equip.{{input.d8}}]]%
       <br/>%[[>pick: 1d6 cc_equip.{{input.d6}}]]%
       <br/>%[[>pick: 1d4 cc_equip.{{input.d4}}]]%
-    EquipmentAndFood:
+    Equipment:
     - Old black bread d4, cigarillos d6, shovel and backpack
     - Some dead squirrels d6, empty bottles d6, lime and blanket
     - Corn cobs and a piece of butter d6, racoon tail hat, mouth harp and lantern's oil d4
@@ -34,7 +34,7 @@ nested_tables:
     - Spicy baby back ribs d6, poker player jacket with hidden pocket, spy glass and candles d8
     - A jar of beef stew with root vegetables d8, holy bible, writing materials d6, canera and Photographic plates d6
 
-    WealthAndValuables:
+    Wealth:
     - A full pocket of desert sand !
     - Glassware d6
     - Rabbits furs worth copper nuggets d8
@@ -55,7 +55,7 @@ nested_tables:
     - Mine concession worth d6 dollars each week of hard working or worth platinum nuggets d8
     - Gems d4
     - Ranch worth dollars d10 each week or worth gems d6
-    MeleeWeapons:
+    Melee:
     - Cudgel d4
     - Knife d4
     - Knobstick d4
@@ -77,7 +77,7 @@ nested_tables:
     - Two handed mace d10 (disadvantage to stat check/ advantage to damage)
     - Indian bone crusher d10 (advantage to damage)
 
-    MissileWeapons:
+    Missile:
     - Throwing knifes d4 (knifes d4)
     - Colt baby dragoon revolver d4 (bullets d6)
     - Derringer vest pocket d6 (d4 bullets) (one shot then reload)
@@ -98,8 +98,7 @@ nested_tables:
     - Whipit gun d10 (cartridges d6) (short range and advantage to stat check when surprises)
     - Henry Repeater rifle d8 (bullets d10) (can use repeat shot rule)
     - Gatling machine gun (must use the repeat shot rule)
-
-    VerySpecialStuff:
+    Special:
     - Stone with a strange indian painting on it
     - Apache war painting (advantage on charisma test in battle)
     - Lucky US Marshall star (count as shield)
