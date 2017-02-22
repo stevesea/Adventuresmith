@@ -1,0 +1,130 @@
+---
+templates:
+- "{{cc_equip.template}}"
+
+nested_tables:
+  cc_equip:
+    template:
+    - |
+      %[[>pick: 1d20 cc_equip.{{input.d20}}]]%
+      <br/>%[[>pick: 1d12 cc_equip.{{input.d12}}]]%
+      <br/>%[[>pick: 1d10 cc_equip.{{input.d10}}]]%
+      <br/>%[[>pick: 1d8 cc_equip.{{input.d8}}]]%
+      <br/>%[[>pick: 1d6 cc_equip.{{input.d6}}]]%
+      <br/>%[[>pick: 1d4 cc_equip.{{input.d4}}]]%
+    EquipmentAndFood:
+    - Old black bread d4, cigarillos d6, shovel and backpack
+    - Some dead squirrels d6, empty bottles d6, lime and blanket
+    - Corn cobs and a piece of butter d6, racoon tail hat, mouth harp and lantern's oil d4
+    - A jar of snake soup d4, indien rattle, crowbar and fishing pole
+    - Beef jerky d8, poncho, gold prospector's kit and tin bowl
+    - Wild berries and peanuts d6, loaded dice, rope d6 and sleeping bag
+    - Tomato beans d6, winter coat, harmonica and barbed wire d8
+    - Tomato beans d8, duster coat, indien double flute and snaretraps d6
+    - Water lilies' tubers and smoked salmon d4, bear fur coat, bear traps d4 and 2 empty big jute bags
+    - Southern comfort meatballs and goat milk d6, barber's tools, pack of cards, pipe and tobacco d6
+    - Beef and bean burritos d6, sombrero, lantern with oil d8 and a two headed coin
+    - A big freshly killed turkey d8, torchs d6, a chignole and 2 saddlebags
+    - Corn-beef cans d6, rich clothes from the city, a guitare and carpenter's tools
+    - Rice, cabbage and sausages d8, a tent, bounty posters d6, a compass
+    - Pioneer woman meatloaf d6, indien chief headdress, a calumet and herbs d4 and a blanket
+    - twice baked potatoes and red wine d4, mad scientist blouse with a lot of pockets, handcuffs, local maps, thread and needle d8
+    - large slices of bacon and coffee beans d8, detonating cord d6, a banjo and locksmith's tools
+    - A pumpkin pie and a wineskin of beer d6, uniform officer, piece of soap d4, phonograph and cylinders d6
+    - Spicy baby back ribs d6, poker player jacket with hidden pocket, spy glass and candles d8
+    - A jar of beef stew with root vegetables d8, holy bible, writing materials d6, canera and Photographic plates d6
+
+    WealthAndValuables:
+    - A full pocket of desert sand !
+    - Glassware d6
+    - Rabbits furs worth copper nuggets d8
+    - Pocketfull of copper nuggets d6
+    - Silver nuggets d6
+    - Pocket watch worth silver nuggets d6
+    - A small bag of silver nuggets d6
+    - Leather pouch of silver d8
+    - A golden cross worth silver nuggets d10
+    - A large bag with silver nuggets d10 and copper nuggets d6
+    - The head of a Bill Butcher gang's thug worth silver nuggets d12
+    - Bundle of dollars d6
+    - Some indian's gold jewellery worth dollars d8
+    - Small pocket of gold nuggets d6
+    - Pouch of platinum nuggets d4
+    - Union railroad's values worth gold nuggets d8
+    - Money belt with dollars d10
+    - Mine concession worth d6 dollars each week of hard working or worth platinum nuggets d8
+    - Gems d4
+    - Ranch worth dollars d10 each week or worth gems d6
+    MeleeWeapons:
+    - Cudgel d4
+    - Knife d4
+    - Knobstick d4
+    - Whip d4 (if both dices make a success grab the target)
+    - Bowie knife d6
+    - Long stick d6
+    - Knuckle duster d6
+    - Butcher hatchet d6
+    - Bolas d6 (if both dices make a success grab the target)
+    - Bayonet d6 (advantage to stat check/ disadvantage to damage)
+    - Machete d8
+    - Spear d8
+    - Tomahawk d8
+    - Cavalery saber d8
+    - Rapier d8 (advantage to stat check/ disadvantage to damage)
+    - Gunstock war club d8 (ignore armour
+    - pioche d10 (disadvantage to stat check/ ignore armour)
+    - Lumberjack axe d10
+    - Two handed mace d10 (disadvantage to stat check/ advantage to damage)
+    - Indian bone crusher d10 (advantage to damage)
+
+    MissileWeapons:
+    - Throwing knifes d4 (knifes d4)
+    - Colt baby dragoon revolver d4 (bullets d6)
+    - Derringer vest pocket d6 (d4 bullets) (one shot then reload)
+    - Colt dragoon revolver d6 (bullets d6)
+    - Javelins d6 (javelins d4)
+    - Colt army revolver d6 (bullets d6)
+    - Bow d6 (arrows d8)
+    - Lemat Revolver d6 (bullets d10)
+    - Throwing hatchets d8 (hatchets d4)
+    - Old musket d8 (bullet d6) (one shot then reload)
+    - Colt Buntline special d6 (bullets d8) (advantage to damage/ disadvantage to stat check
+    - New army rifle d8 (bullets d6)
+    - Colt peacemaker revolver d8 (bulets d6)
+    - Gatling pistol d6 (bullets d6) (must use the repeat shot rule)
+    - Hunter's gun d10 (cartridges d4) (after two shots then reload)
+    - Springfield model 1863 rifle d8 (bullets d8)
+    - Shotgun d10 (cartridges d6) (short range)
+    - Whipit gun d10 (cartridges d6) (short range and advantage to stat check when surprises)
+    - Henry Repeater rifle d8 (bullets d10) (can use repeat shot rule)
+    - Gatling machine gun (must use the repeat shot rule)
+
+    VerySpecialStuff:
+    - Stone with a strange indian painting on it
+    - Apache war painting (advantage on charisma test in battle)
+    - Lucky US Marshall star (count as shield)
+    - Tame coyote
+    - Stone with a hole (see invisible 1/day) and horseshoe d6 (reroll a dice)
+    - Mule and carrots d6
+    - Indien braided straw shield and braided straw chest armor (armour d4)
+    - Old horse and medicinal herbs d4
+    - Hidden stove door (armour d6)
+    - Dynamite d10 (sticks d4) (area effect), detonator and wire d8
+    - Pioneer wagon and workhorse
+    - Good horse and necklace with chupakabra teeth (focus d6)
+    - Dynamite d10 (sitcks d8) (area effect)
+    - Saint Friard's little finger's holy relic (focus d6 and protection agianst wasps)
+    - Old conquistador's plastron and helmet (armour d8)
+    - Hearse, black horse and a dreamcatcher (advantage to save roll against curse)
+    - Real holy water (focus d8 and damage agianst undead d8)
+    - Jackalope's woods (focus d6) and a bottle of whiskey d6
+    - Appaloosa (very good horse and advantage to charisma test with indiens)
+    - Totem animal - <em>{{cc_equip.totem}}</em>
+
+    totem:
+    - Bear (+1 force, -1 damage received)
+    - Hare (+1 dex, speciality "escape" 1/day
+    - Bison (+1 con, +1 HP/level)
+    - Raven (+1 int, advantage on the Con test against dying)
+    - Eagle (+1 wis, advantage on dR chaos test)
+    - Coyote (+1 cha, speciality "trustworthy" 1/day)

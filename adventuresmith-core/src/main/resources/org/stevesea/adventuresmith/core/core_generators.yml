@@ -218,14 +218,18 @@ generators:
   - wild_disc
   - wilderness
   macchiato_monsters:
+  - aa_equip
+  - cc_equip
   - fast_travel
   - hireling
   - just_joined
   - mm_equip
+  - moka_mechanoid_equip
   - monsters
   - morale
   - npc_motivation
   - reaction
+  - robusta_robots_equip
   - spell_mishap
   - trouble_at_camp
   - weather

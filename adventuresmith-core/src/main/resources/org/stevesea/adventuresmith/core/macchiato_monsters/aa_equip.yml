@@ -1,0 +1,144 @@
+---
+templates:
+- "{{aa_equip.template}}"
+
+nested_tables:
+  aa_equip:
+    template:
+    - |
+      %[[>pick: 1d20 aa_equip.{{input.d20}}]]%
+      <br/>%[[>pick: 1d12 aa_equip.{{input.d12}}]]%
+      <br/>%[[>pick: 1d10 aa_equip.{{input.d10}}]]%
+      <br/>%[[>pick: 1d8 aa_equip.{{input.d8}}]]%
+      <br/>%[[>pick: 1d6 aa_equip.{{input.d6}}]]%
+      <br/>%[[>pick: 1d4 aa_equip.{{input.d4}}]]%
+    EquipmentAndFood:
+    - Wonderbread and boloney sandwiches (D6), old burner phone (D8), bicycle
+    - Deli potato salad (D4), pager (D6), weed (D6), bicycle
+    - Donuts & coffee (D6), smartphone (D4), toolbox, moped
+    - Vegan quiche and IPA (D4), sketchbook, student card, cheap sedan
+    - Cold corn dogs (D6), cheap vodka (D6), newest iphone (D4), multitool, backpack, skateboard
+    - Possum stew and corn bread (D8), flashlight (D6), crowbar, flip phone (D6), beater car
+    - Cured long pig and tap water (D6), spray can, satanic tattoos, laptop (D4), black van
+    - Protein bars and spring water (D4), running shoes, vicodin (D4), smartphone (D4)
+    - Fresh bagels, green tea, and fruit (D6), portfolio, pregnancy test, Volkswagen Passat
+    - Sushi (D4), tarot cards, old laptop (D6), three-piece suit, Crown Vic
+    - Girl scout cookies and bad wine (D4), coveralls, electrician’s tools, cellphone (D6), van
+    - Trail mix (d8), absinthe (D4), beauty box, business casual clothes, smartphone (D4), Night vision    binoculars
+    - BBQ chips and grape Faygo (D4), cigarettes (D4), mobile home, chemistry set, smartphone (D4)
+    - Cans of beans and Key Lite (D8), motorcycle, backpack, geiger counter, sleeping bag
+    - BLT and coffee (D4), a load of beauty products, Volvo XC60, smartphone (D6)
+    - Chicken soup (D6), duct tape, rubber gloves, glass cutter, Ambien (D4), laptop (D6), Vespa
+    - Hardboiled eggs and Earl Grey (D6), smartphone (D4), cheap cigars (D4), backpack, bicycle, action camera (D8)
+    - Beef jerky and Dr. Pepper (D6), International Fortean Organization membership card, Rusty Mustang, Bolt cutter, sturdy cellphone (D8)
+    - Goulash (D8), slivovica (D6), freemason’s ring, burner cellphone (D8), Sct. Christopher medallion, PT Cruiser, a knuckle’s worth of cocaine.
+    - Pizza and kool-aid (D6), maglite (D8), lockpicks, buspass, anorak, satellite phone (D6)
+    WealthAndValuables:
+    - A necklace of teeth (dog, human and monkey (?))
+    - A Red Lobster gift card
+    - A carton of cigarettes (D10 – but they’re smokes, not legal tender)
+    - Japanese AEON Disney MasterCard (D4)
+    - A pocketful of change (D4)
+    - An IOU from a cop
+    - The contents of your wallet (D6)
+    - A wad of bills (D6)
+    - VISA Card (D6)
+    - A wad of (good counterfeit) bills (D6)*
+    - BitCoin key (D6)
+    - Angry Birds MasterCard (D8)
+    - Phat stack (D8)
+    - Your gold wedding ring (D8)
+    - A largely credible FBI/DEA/FERC I.D. (FERC is the Federal Energy Regulatory Commission).*
+    - A night’s take from the casino slot machines (D10)*
+    - Mickey Mantle –1951 Bowman SGC 96 Baseball Card (D10)
+    - A suitcase full of unmarked bills (D12)*
+    - The work and home numbers of a Pentagon general*
+    - Blood diamonds (D12)
+
+    MeleeWeapons:
+    - Largely ornamental nunchuks, chrome plated, or a stick (D4)
+    - Knuckle dusters (D4)
+    - Pocket knife or screwdriver (D4)
+    - Switchblade or hunting knife (D6)
+    - Baseball bat or length of pipe (D6)
+    - Carving knife or cleaver (D6)
+    - Rebar or tonfa(D6)
+    - Hatchet or tomahawk (D6)
+    - Shovel or crowbar (D6)
+    - Machete or kukri (D8)
+    - Big fuckoff hammer (D8)
+    - Broadsword or scimitar (D8)
+    - Fireaxe (D8)
+    - Taser (D8 – but usually non-lethal)
+    - Claymore (D8)
+    - A nasty polearm with a French name (D8)
+    - Maul (D10)
+    - Power Cutter (D10)
+    - Zweihänder or katana (D10)
+    - Chainsaw(D10)
+
+    RangedWeapons:
+    - Slingshot (D4) (Ball bearings in a bag D8)
+    - Throwing knives or stars d4 (Bandolier d4)
+    - BB Gun (D4) (D6 ‘Mag’)
+    - HS2000 (D6) (D10 Mag)
+    - Walther PPK (D6) (D8 Box)
+    - Home-made zip gun (D6) (D4 – but you check after every shot)
+    - Glock 17 (D6) (D10 Mag)
+    - S&W Ladysmith (D6) (D6 Cylinder)
+    - Crossbow (D6) (D8 Bolts)
+    - Colt Peacemaker (D8) (D6 Cylinder)
+    - MAC-10 (D8) (D20 Box)*
+    - Remington Model 870 shotgun (D8) (D6 Int.)
+    - SIG-SAUER 9mm (D8) (D10 Mag)
+    - Smith & Wesson Governor (D8) (D6 Cylinder)
+    - Beretta Px4 Storm (D8) (D10 Mag)
+    - Ruger Super Redhawk (D10) (D6 Cylinder)
+    - Grenades (D10) (D4 Bandolier)
+    - Enfield L42H1 sniper rifle (D10) (D8 Box)
+    - ITHACA MAG-10 Roadblocker shotgun (D10) (D4 int.)
+    - Barrett M82A1 (D12) (D10 Box)**
+
+    ProtectiveGear:
+    - A nice warm sweater, a woolen scarf, and a tinfoil-lined beanie.
+    - Trash can lid
+    - Heavy leathers (D4)
+    - Home-made body armor (made from phone books and duct tape) (D4)
+    - Home-made body armor (made from tires) with Nazi steel helmet (D4)
+    - Ballistic backpack (D6)
+    - Polish MUA gas mask (D6 against breathable dangers)
+    - Respirator (D6 against breathable dangers)
+    - Brewster body armor (WWI – big honking metal suit) (D6)*
+    - Type I Body Armor (D6)
+    - Type I Body Armor with riot shield (D6)
+    - Type IIA Body Armor (D8)
+    - Second-hand hazmat suit (protection against vapors, gases, mists, and particles - D8)
+    - Type IIA Body Armor with helmet and riot shield (D8)
+    - Type II Body Armor (D8)
+    - Level A hazmat/CBRN Suit (protection against radiation, vapors, gases, mists, and particles - D10)
+    - Experimental spider silk suit (D10)
+    - Type IIIA Body Armor (D10)
+    - Type IV Body Armor (D10)
+    - Advanced Bomb Suit (D12)*
+
+    UncannyAndUnwholesome:
+    - Crates of 1970s Scandinavian pornography. Crates.
+    - A Richard Milhous Nixon rubber mask. If you turn it inside out, it looks uncannily like Tupac Shakur.
+    - An incredibly detailed map of the neighborhood, complete with ahem, ‘observation points’.
+    - Sticks of sage (D4)
+    - The jumpsuit and protective goggles you use to hide your identity during your patrols.
+    - That selfie of you and Justin Bieber, where the clouds seem to spell out “REX MUNDI”.
+    - A teddybear/Electro-Magnetic Field Meter (the trade name is BooBuddy).
+    - A baggie of purple cannabis (much like the Californian Purple Urkel strain), and some greyish-white grit.
+    - A small library of popular books on Forteana, mainstream occultism, UFOs and similar dubious knowledge. (D4)
+    - Silver bullets (D4) or rock salt in shotgun shells (D4)
+    - That chip you dug out from the back of your neck.
+    - A pair of ornate scissor-style glasses. They glow faintly blue in the dark...
+    - Hand of glory (D4)
+    - A mandrake in a small flower pot.
+    - A small, flat, greenish piece of metal. It seems to be utterly indestructible.
+    - A NyQuil Cough bottle on which someone has written “EVaCUaTION” in magic marker. The liquid within moves like smoke, and like ants. (D4)
+    - A live black spider in a small wooden display case.
+    - A substantial occult library. (D8)
+    - A machete with crude snaking sigils carved into the handle. (D8)
+    - A chitinous wristband with a keypad with alien symbols in place of digits.

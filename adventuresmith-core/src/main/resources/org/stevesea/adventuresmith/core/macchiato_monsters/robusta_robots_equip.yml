@@ -1,0 +1,124 @@
+---
+templates:
+- "{{rr_equip.template}}"
+
+nested_tables:
+  rr_equip:
+    template:
+    - |
+      %[[>pick: 1d20 rr_equip.{{input.d20}}]]%
+      <br/>%[[>pick: 1d12 rr_equip.{{input.d12}}]]%
+      <br/>%[[>pick: 1d10 rr_equip.{{input.d10}}]]%
+      <br/>%[[>pick: 1d8 rr_equip.{{input.d8}}]]%
+      <br/>%[[>pick: 1d6 rr_equip.{{input.d6}}]]%
+      <br/>%[[>pick: 1d4 rr_equip.{{input.d4}}]]%
+    EquipmentAndFood:
+    - Old fruits d4, a box of toothpicks d6, a foldable shovel and a watch
+    - Some kind of living cheese (must be a french one) d6, a dice, a gasoline lighter, a piece of soap d6 and a cigar box d4
+    - Cold slices of an old pizza d4, a hand mirror, a picture of a baby cat, a walking trashcan robot
+    - Lean meatloaf d6, an electric screwdriver d6, a towel and binoculars
+    - Butter scones and a bottle of milk d6, a false mustache, a very fashionable game bag, some tape roll d8
+    - Kind of alien slugs with a creamy sauce d8, wire rope d8, phosphorescent tubes d6, a banana bag, some carnival firecrackers d6
+    - Old cans without sticker d6, a flashlight d6, a sleeping bag, a crowbar
+    - Dried food d8, a pair of communicators, a camping tent, a mechanical mule
+    - Ginger bread and spread chocolate d6, a jerrycan of petrol d6, a portable phone d8, Mars postcards d4, an astronaut suit
+    - Grand'Ma's apple pie and Grand'Pa's hooch d8, a box with some flashing lights wich makes some bips and some zaps, a map of an unknown planet, cook's tools
+    - Army rations d6, low atomic battery d4, a shark repellent spray d8, a robot dog with a secret compartment
+    - Salted pork and noodles d6, a military uniform, some flasks with an unclear liquid d6, the Holy Book of an alien strange religion
+    - Marmelade and toasts d8, a backpack, some precision tools, an alien multiform clothing d8
+    - Liver pate and rusks d8, an universal translator d6, rain coat, rain boots, an atomic scooter d6
+    - Energized drinks and cereal bars d6, an alien universal duck caller d8, a false psychologist's diploma, night vision glasses
+    - Alien cucumber from outer space d6 (regenerate 1dice level/day), a motion detector d6, a white blouse, an alien temperature regulator pseudopod d6
+    - Cheeseburgers in spray d6, a common object generator d6, a space police badge, a pair of rollerblades
+    - Redwine and beef sandwich d4, a smoking or a gala dress, a space shuttle (4 seats), a computor robot almost miniature
+    - Christmas food under vacuum and a little bottle of Champagne d4, a jet pack d8, a pack of tiny spy robots d6, a laser fishing pole d6, anti-radiation underwear
+    - Food pills d8 (encumbrance 0), a black slab with the words "Don't Panic !" written in yellow, anti-grav' suit d6, the endless mug of eternal coffee, a 3 seconds rewind time device d4
+
+    WealthAndValuables:
+    - A bag of marbles d8
+    - Alien glassware d4
+    - Baubles d4
+    - A piece of fabric worth Baubles d8
+    - Baubles d6
+    - Baubles d8
+    - Local Coins d6
+    - Silver candlestick worth Local Coins d8
+    - Local Coins d8
+    - National Currency Bills d4
+    - Collecting baseball cards worth National Currency Bills d8
+    - Local Coins d8
+    - A strange blueprint of a crazy machine made by a mad scientist worth International Values d8
+    - National Currency Bills d6
+    - International Values d4
+    - International values d6
+    - Galactic Credits d4
+    - An alien collecting toy worth Galactic Credits d6
+    - A dedicated 4D picture of Rick Newdawn, National Currency Bills d8
+    - A one use alien's pill of infinite knwoledge, Interstellar Gems d4
+
+    MeleeWeapons:
+    - Cudgel d4
+    - knife d4
+    - hammer d4
+    - Machete d6
+    - knuckleduster d6
+    - Tonfa d6
+    - baseball bat d6
+    - Bowie knife d6
+    - Alien ceremonial wand d6*
+    - Cavalery saber d8
+    - Hudge monkey wrench d8*
+    - Fireman Axe d8
+    - Electrical stunner d8
+    - Mechanical gloves d8
+    - Hedge trimmer d8*
+    - laser whip d10
+    - Pickaxe d10*
+    - Two handed mace d10*
+    - Chain saw sword d10*
+    - Alien mêlée weapon d10
+
+    MissileWeapons:
+    - darts d4 (box d6)
+    - throwing knifes d4 (belt d8)
+    - Alarm gun d4* (cartridge d6)
+    - Self defense mini gun d6 (ammo d6)
+    - Hunting bow or crossbow d6 (arrows d10)
+    - Electrified net d4
+    - Sonic grenade d6 (belt d6)
+    - Automatic gun d6 (ammo d6)
+    - Laser blaster d6 (ammo d8)
+    - Shotgun d8* (ammo d6)
+    - Ionic riffle d6 (ammo d10)
+    - Flamme thrower d8* (fuel d8)
+    - Explosive grenade d8 (belt d6)
+    - Sniper riffle d8 (ammo d4)
+    - machine gun d8 (ammo d8)
+    - Alien disintegrating gun d10 (ammo d4)
+    - Plasma machine gun d8 (ammo d8)
+    - Antimatter grenade d10 (belt d6)
+    - Gatling d10 (ammo d8)
+    - Bazooka d10* (missile d4)
+
+
+    Armour:
+    - Motorcycle helmet d4*
+    - Leather jacket d4*
+    - Riot shield
+    - Light magnetic field d4*
+    - Arms and legs kevlar protections d6*
+    - Metalworker working suit d6
+    - Football protection d6
+    - Motorcycle suit d6
+    - Bullet proof vest d6
+    - Alien living armour d6 (regenerate 1dice level/day)
+    - Mail armour d8
+    - SWAT protective gear and riot shield d8
+    - Healing armour d8
+    - Heavy magnetic field d8*
+    - Space police suit d8
+    - Alien cloack d6*
+    - Exo skeleton d6 (+3 FO)
+    - Hightech armour d10
+    - Magnetic shield generator (count as shield with a d6 dR)
+    - Space commando armour with shield d10
