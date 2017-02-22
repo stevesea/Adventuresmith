@@ -109,8 +109,9 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         if (actionMode != null) {
                             //we want color our CAB
-                            findViewById(R.id.action_mode_bar).setBackgroundColor(UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
-                                    R.attr.colorPrimary, R.color.material_drawer_primary))
+                            findViewById(R.id.action_mode_bar).setBackgroundColor(
+                                    UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
+                                            R.attr.colorPrimary, R.color.material_drawer_primary))
                         }
 
                         //if we have no actionMode we do not consume the event
@@ -385,24 +386,37 @@ class AdventuresmithActivity : AppCompatActivity(),
                 // TODO: http://stackoverflow.com/questions/24737622/how-add-copy-to-clipboard-to-custom-intentchooser
                 // TODO: https://gist.github.com/mediavrog/5625602
 
-                if (item != null && item.itemId == R.id.action_share) {
-                    val ts = DATE_FORMATTER.format(GregorianCalendar.getInstance().time)
-                    val subj = "${applicationContext.getString(R.string.app_name)} $ts"
-                    debug("subject: $subj")
-
-                    synchronized(resultAdapter) {
-                        val intent = Intent(Intent.ACTION_SEND)
-                        intent.type = "text/plain"
-                        intent.putExtra(Intent.EXTRA_SUBJECT, subj)
-                        intent.putExtra(Intent.EXTRA_TEXT, resultAdapter.selectedItems.map { it.spannedText.toString() }.joinToString("\n#############\n"))
-                        intent.putExtra(Intent.EXTRA_HTML_TEXT, resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n"))
-                        startActivity(Intent.createChooser(intent, null))
-
+                if (item != null) {
+                    if (item.itemId == R.id.action_delete) {
+                        synchronized(resultAdapter) {
+                            resultAdapter.deleteAllSelectedItems()
+                        }
                         mode!!.finish()
                         showUsualToolbar()
-                        resultAdapter.deselect()
+                        return true // consume
                     }
-                    return true // consume
+
+                    val ts = DATE_FORMATTER.format(GregorianCalendar.getInstance().time)
+                    val subj = "${applicationContext.getString(R.string.app_name)} $ts"
+
+                    synchronized(resultAdapter) {
+                        val selectedText = resultAdapter.selectedItems.map { it.spannedText.toString() }.joinToString("\n\n#############\n\n")
+                        val selectedTextHtml = resultAdapter.selectedItems.map { it.htmlTxt }.joinToString("\n<hr/>\n")
+
+                        if (item.itemId == R.id.action_share) {
+                            val intent = Intent(Intent.ACTION_SEND)
+                            intent.type = "text/plain"
+                            intent.putExtra(Intent.EXTRA_SUBJECT, subj)
+                            intent.putExtra(Intent.EXTRA_TEXT, selectedText)
+                            intent.putExtra(Intent.EXTRA_HTML_TEXT, selectedTextHtml)
+                            startActivity(Intent.createChooser(intent, null))
+
+                            mode!!.finish()
+                            showUsualToolbar()
+                            resultAdapter.deselect()
+                            return true // consume
+                        }
+                    }
                 }
                 return false
             }
@@ -1177,12 +1191,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 CommunityMaterial.Icon.cmd_delete)
                 .color(Color.WHITE)
                 .actionBar()
-        /*
-        menu.findItem(R.id.action_share).icon = IconicsDrawable(this,
-                CommunityMaterial.Icon.cmd_share_variant)
-                .color(Color.WHITE)
-                .actionBar()
-                */
         menu.findItem(R.id.search).icon = IconicsDrawable(this,
                 CommunityMaterial.Icon.cmd_magnify)
                 .color(Color.WHITE)
