@@ -4,7 +4,7 @@ collectionId: macchiato_monsters
 groupId: grpChar
 priority: 3000
 input:
-  displayTemplate: "d20: {{d20}}, d12: {{d12}}<br/>d10: {{d10}} d8: {{d8}}<br/>d6: {{d6}}, d4: {{d4}}"
+  displayTemplate: "d20: {{d20}}, d12: {{d12}}<br/>d10: {{d10}}, d8: {{d8}}<br/>d6: {{d6}}, d4: {{d4}}"
   params:
   - name: d20
     uiName: d20 table

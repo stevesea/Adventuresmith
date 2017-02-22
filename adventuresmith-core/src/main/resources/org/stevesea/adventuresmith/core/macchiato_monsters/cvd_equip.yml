@@ -1,0 +1,109 @@
+---
+templates:
+- "{{cc_equip.template}}"
+
+nested_tables:
+  cc_equip:
+    template:
+    - |
+      %[[>pick: 1d20 cc_equip.{{input.d20}}]]%
+      <br/>%[[>pick: 1d12 cc_equip.{{input.d12}}]]%
+      <br/>%[[>pick: 1d10 cc_equip.{{input.d10}}]]%
+      <br/>%[[>pick: 1d8 cc_equip.{{input.d8}}]]%
+      <br/>%[[>pick: 1d6 cc_equip.{{input.d6}}]]%
+      <br/>%[[>pick: 1d4 cc_equip.{{input.d4}}]]%
+    Equipment:
+    - Pemmican d6, small haversack, tinderbox
+    - Boiled beef d6, candles d4, old dog
+    - Salted deer steak d6, jar of cider, arrowheads
+    - Sack of rice d4, straw hat, box of matches d6
+    - Mutton d6, saddle, handcuffs, pressed flower
+    - Biscuits d6, sick hankerchief, dime western
+    - Smoked salmon d6, leather satchel, officers unifor1m7
+    - ??? Meat d4 womans petticoat, top hat, mirror, cor1n8
+    - Boudain d4, sack of marbles d6,lock of redhair wit1h9
+    - Leeks and potatoes d6, skillet, playing cards
+    - Salted pork d6, a button, brass key, warm coat
+    - Hardtack d8, tin cup, fork & bread knife
+    - 2 dead squirrels, bandana, 4 lead toy soldiers
+    - 1/2 Phesant, gunbelt, saddlesoap,
+    - Catfish d4, fishing pole, flask of oil d4
+    - Jerky d6, whiskey d4, pair of dice
+    - 2 Chickens in a cage, ball of twine d6, journal with pen and ink
+    - Blackberry cobbler d4, aweful hat, hand drawn map on animal skin8.
+    - Rabbit stew d4, spices d6, train key , mouth harp
+    - Stale cookies d6, tin of tobacco d6, porcelain doll head
+
+    Wealth:
+    - Pocketwatch, silver nuggets d4
+    - Small sack of change, pocketwatch chain
+    - Tarnished ring, silver tobacco tin
+    - Deed, sewing kit
+    - Monocle, harmonica, fox pelts d4
+    - Skeleton key, letter
+    - Eyeglasses, magnifing glass
+    - Cherokee bone necklace, gold nuggets d6
+    - Pair of pearl earings, bottle of Laudanum d6 ( save1
+    - Crucifix, snake oil d6
+    - Photo of loved one, gold locket
+    - Banjo, gold nuggets d4
+    - Letter, sock full of coins d6
+    - Baby shoes, 2 gold rings
+    - 4 loose gold teeth, rope 50 ft
+    - Old horse, saddle
+    - Locked lockbox-no key,
+    - Bible, silver necklace
+    - Glass eye, small sack of turquoise d4
+    - Gold nuggets d4, Silver nuggets d4, jemstones d4
+
+    Melee:
+    - Club D4
+    - Walking stick D6
+    - Crutch D6
+    - Dragoon Sabre D8
+    - Broken Musket D6 ( until made to fire )
+    - Tomahawk D6
+    - 1832 Foot Sword D6
+    - Colt Walker Revolver
+    - Skinning Knife D4
+    - Cutlass D8
+    - Meat Hook D4
+    - 1832 Foot Sword D6
+    - Sword cane D6
+    - Butcher Knife D4
+    - Axe D6
+    - Jammed Whitworth Rifle D6 ( until made to fire )
+    - Mameluke Sword D6
+    - Hatchet D6
+    - Straight razer D4
+    - Bowie Knife D4
+
+    Missile:
+    - Remmington 1850 Revolver D6
+    - Whitworth Rifle D8
+    - Colt Navy 1851 Revolver D6
+    - Springfield 1861 Rifle D8
+    - Smith and Wesson Model 1 D8
+    - Colt Army Revolver 1860 D6
+    - Spencer Repeating Rifle D8
+    - Fayetteville Rifle D8
+    - Savage Revolver 1961 D6
+    - Henry RIfle D8
+    - Colt Navy 1851 Revolver D6
+    - Starr Revolver D6
+    - Richmond RIfle D8
+    - Colt Patterson Revolver D6
+    - Pattern 1853 Enfiled Rifle D8
+    - Colt Walker Revolver D6
+    - Galliger Carbine D8
+    - Springfield Model 1861 Rifle D8
+    - Volcanic Pistol D6
+    - Beaumont-Adams Revolver D6
+
+    Bedding:
+    - Quilt
+    - Indian blanket
+    - Bear pelt
+    - Wool blanket
+    - Bedroll
+    - Tent

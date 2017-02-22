@@ -12,6 +12,7 @@ nested_tables:
       <br/>%[[>pick: 1d8 rr_equip.{{input.d8}}]]%
       <br/>%[[>pick: 1d6 rr_equip.{{input.d6}}]]%
       <br/>%[[>pick: 1d4 rr_equip.{{input.d4}}]]%
+
     Equipment:
     - Old fruits d4, a box of toothpicks d6, a foldable shovel and a watch
     - Some kind of living cheese (must be a french one) d6, a dice, a gasoline lighter, a piece of soap d6 and a cigar box d4
@@ -58,12 +59,12 @@ nested_tables:
 
     Melee:
     - Cudgel d4
-    - knife d4
-    - hammer d4
+    - Knife d4
+    - Hammer d4
     - Machete d6
-    - knuckleduster d6
+    - Knuckleduster d6
     - Tonfa d6
-    - baseball bat d6
+    - Baseball bat d6
     - Bowie knife d6
     - Alien ceremonial wand d6*
     - Cavalery saber d8
@@ -72,15 +73,15 @@ nested_tables:
     - Electrical stunner d8
     - Mechanical gloves d8
     - Hedge trimmer d8*
-    - laser whip d10
+    - Laser whip d10
     - Pickaxe d10*
     - Two handed mace d10*
     - Chain saw sword d10*
     - Alien mêlée weapon d10
 
     Missile:
-    - darts d4 (box d6)
-    - throwing knifes d4 (belt d8)
+    - Darts d4 (box d6)
+    - Throwing knifes d4 (belt d8)
     - Alarm gun d4* (cartridge d6)
     - Self defense mini gun d6 (ammo d6)
     - Hunting bow or crossbow d6 (arrows d10)
@@ -93,7 +94,7 @@ nested_tables:
     - Flamme thrower d8* (fuel d8)
     - Explosive grenade d8 (belt d6)
     - Sniper riffle d8 (ammo d4)
-    - machine gun d8 (ammo d8)
+    - Machine gun d8 (ammo d8)
     - Alien disintegrating gun d10 (ammo d4)
     - Plasma machine gun d8 (ammo d8)
     - Antimatter grenade d10 (belt d6)

@@ -8,14 +8,14 @@ templates:
 tables:
   reaction:
   - "<strong>Step down dR</strong><br/><br/>{{>pickN: 2 reaction <br/>}}"
-  - <strong>Step down dR</strong><br/><br/>looking for allies or help
-  - <strong>Step down dR</strong><br/><br/>moving out or escaping
-  - raiding settlement or ambushing travellers
-  - running away from other monsters
-  - driving intruders away
-  - looking for prisoners
-  - scavenging or hunting
-  - exploring
-  - fighting amongst themselves
-  - resting or setting camp
-  - looking for goods or gold to trade
+  - <strong>Step down dR</strong><br/><br/>Looking for allies or help
+  - <strong>Step down dR</strong><br/><br/>Moving out or escaping
+  - Raiding settlement or ambushing travellers
+  - Running away from other monsters
+  - Driving intruders away
+  - Looking for prisoners
+  - Scavenging or hunting
+  - Exploring
+  - Fighting amongst themselves
+  - Resting or setting camp
+  - Looking for goods or gold to trade

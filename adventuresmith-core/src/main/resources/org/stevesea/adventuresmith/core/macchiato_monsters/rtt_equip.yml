@@ -1,0 +1,100 @@
+---
+templates:
+- "{{rtt_equip.template}}"
+
+nested_tables:
+  rtt_equip:
+    template:
+    - |
+      %[[>pick: 1d20 rtt_equip.{{input.d20}}]]%
+      <br/>%[[>pick: 1d12 rtt_equip.{{input.d12}}]]%
+      <br/>%[[>pick: 1d10 rtt_equip.{{input.d10}}]]%
+      <br/>%[[>pick: 1d8 rtt_equip.{{input.d8}}]]%
+      <br/>%[[>pick: 1d6 rtt_equip.{{input.d6}}]]%
+      <br/>%[[>pick: 1d4 rtt_equip.{{input.d4}}]]%
+    Food:
+    - Cup of Tom Yum Goong (Spicy Shrimp Soup)
+    - Bowl of Som Tum (Spicy Green Papaya Salad)
+    - Cup of Tom Kha Kai (Chicken in Coconut Soup)
+    - Bag of Thua Pan (fired bean curd, rice flour + Tapioca flour + coconut milk + Peanut and some seasoning)
+    - Cup of Gaeng Daeng (Red Curry)
+    - Bag of Thua kra-chok (peanut bar)
+    - Bowl of Pad Thai (Thai style Fried Noodles)
+    - Bowl of Khao Kriap Pla (fish chips)
+    - Bowl of Khao Pad (Fried Rice)
+    - Bag of Tamarind candy
+    - Bag of Khao niew bing (sweet sticky rice wrapped in banana husks)
+    - Bowl of Pad Krapow Moo Saap (Fried Basil and Pork)
+    - Bag of Luk Chup (sweet almond snack)
+    - Bowl of Gaeng Keow Wan Kai (Green Chicken Curry)
+    - Bowl of I-dtim mat phrao (coconut ice cream)
+    - Bowl of Yam Nua (Spicy Beef Salad)
+    - Bowl of Kai Med Ma Muang (Chicken with Cashew Nuts)
+    - Bag of Non Mai Non (fried wood worm)
+    - Bowl of Khao niew mamuang (coconut sticky rice with mango)
+    - Bag of Durian chips
+    Valuables:
+    - Praciat  – bands worn around biceps in thai boxing. Each band contains sacred symbols called "maha amnart" or "chatri mahayanta", blessed by the magic arts masters. In ancient times, Thai warriors wore Praciat on their arms or head in the battlefield to miraculously prevent dangers.
+    - Denims and sneakers
+    - White dinner jacket
+    - Tiny buddha figure
+    - Pack of Krong Thip smokes
+    - Small stash of weed
+    - Gold chain, rings
+    - Fine leather shoes
+    - Phra Luang Phor Klai (good luck and prosperity charm)
+    - Siang Pure Inhaler (against dizziness and stuffy nose)
+    - Business suit, made of fine silk
+    - Lanna silver jewelry (made by the Lanna tribe)
+    - Old beat up clunker, Nissan
+    - Huge collection of black market DVDs (a fricking library if you want)
+    - Buddha charm made of gold
+    - Sak Yan tattoo (has magic properties; only Buddhist monks make real Sak Yans)
+    - Brand-spankin’ new Thai Rung SUV
+    - Elephant. It’s your elephant. A sign of prosperity and power.
+    - Wooden carving of Hanuman, the monkey god and servant of The Lord
+    - Kuman Thong amulet (very popular black magic amulet; Kuman Thong is an unborn baby whose father roasted him with fire all night until the unborn child has a golden brown color. Very demanding, you have to feed it daily, or it will cause bad things to happen. If the Kuman Thong is happy, however, it gives you great power.
+
+    Melee:
+    - Cheap switchblade d4
+    - Phlong (cudgel) d4
+    - Mai sok san (a pair of clubs worn on the forearms) d6
+    - Krabi (sabre) d6
+    - Krabong (pole) d6
+    - Baseball bat d6
+    - Hatchet d6
+    - Shovel or crowbar d6
+    - Palmsticks d6
+    - Krabong thongtan (“staff two-part”, nunchaku) d6
+    - Bowie knife d8
+    - Machete d8
+    - Flail d8
+    - Sword d8
+    - Bayonet d8
+    - Heavy sledgehammer d8
+    - Katana d10
+    - Ngao (elephant pole weapon, bladed staff ) d10
+    - Chainsaw d10
+    - Saen Phonlaphai (scythe) d12 (if your damage die is lower, you automatically fight with disadvantage when using the saen)
+
+    Ranged:
+    - Throwing stars d4 (d6 stars)
+    - Slingshot d4 (ammo d8)
+    - BB gun d4 (ammo d6)
+    - Crossbow d6 (ammo d4)
+    - Hunting bow d6 (ammo d4)
+    - M1911/Type 86 semi-auto pistol d6 (ammo d6)
+    - Heckler & Koch USP semi-auto pistol d6 (ammo d8)
+    - HS 2000 semi-auto pistol d6 (ammo d8)
+    - Beretta 92 semi-auto pistol d6 (ammo d8)
+    - Remington Model 870 shotgun d8 (ammo d6, close distance gun)
+    - Uzi submachine gun d8 (ammo d8)
+    - FN P90 submachine gun d8 (ammo d8)
+    - SAR 21 Assault rifle d8 (ammo d8)
+    - Type 56/56-1 Assault rifle d8 (ammo d8)
+    - CAR-15 carbine d10 (ammo d8)
+    - IMI Negev light machine gun d10 (ammo d8)
+    - Type 56 Light machine gun d10 (ammo d6)
+    - SIG Sauer SSG 3000 sniper rifle d12 (ammo d6)
+    - M60 general Purpose Machine Gun d12 (disintegrating belt, ammo d8)
+    - Mk 19 Grenade Launcher d20 (belt, ammo d6)

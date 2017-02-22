@@ -1,5 +1,5 @@
 ---
-name: Cappuccino Cowboys Equipment
+name: Caffeine vs Decaf (Old West MM) Equipment
 collectionId: macchiato_monsters
 groupId: grpCommunity
 input:
@@ -14,37 +14,37 @@ input:
     - Wealth
     - Melee
     - Missile
-    - Special
+    - Bedding
   - name: d12
     uiName: d12 table
     helpText: Select the d12 equipment table
-    defaultValue: Special
+    defaultValue: Missile
     values:
     - Equipment
     - Wealth
     - Melee
     - Missile
-    - Special
+    - Bedding
   - name: d10
     uiName: d10 table
     helpText: Select the d10 equipment table
+    defaultValue: Equipment
+    values:
+    - Equipment
+    - Wealth
+    - Melee
+    - Missile
+    - Bedding
+  - name: d8
+    uiName: d8 table
+    helpText: Select the d8 equipment table
     defaultValue: Wealth
     values:
     - Equipment
     - Wealth
     - Melee
     - Missile
-    - Special
-  - name: d8
-    uiName: d8 table
-    helpText: Select the d8 equipment table
-    defaultValue: Melee
-    values:
-    - Equipment
-    - Wealth
-    - Melee
-    - Missile
-    - Special
+    - Bedding
   - name: d6
     uiName: d6 table
     helpText: Select the d6 equipment table
@@ -54,14 +54,14 @@ input:
     - Wealth
     - Melee
     - Missile
-    - Special
+    - Bedding
   - name: d4
     uiName: d4 table
     helpText: Select the d4 equipment table
-    defaultValue: Equipment
+    defaultValue: Bedding
     values:
     - Equipment
     - Wealth
     - Melee
     - Missile
-    - Special
+    - Bedding

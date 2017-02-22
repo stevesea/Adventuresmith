@@ -552,6 +552,8 @@ class AdventuresmithActivity : AppCompatActivity(),
             //R.drawable.werewolf
     )
     val bkgImages = listOf(
+            R.drawable.alexander_great_chariot,
+            R.drawable.animal_geometry,
             R.drawable.armored_angels,
             R.drawable.bards_are_monsters,
             R.drawable.bats,
@@ -584,6 +586,7 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.siege_rabbits,
             R.drawable.snailfight,
             R.drawable.snake_eater,
+            R.drawable.squirrel_rider,
             R.drawable.superlion,
             R.drawable.werewolf,
             R.drawable.vain_skeleton

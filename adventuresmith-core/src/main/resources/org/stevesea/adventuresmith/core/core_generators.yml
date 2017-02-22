@@ -217,9 +217,11 @@ generators:
   - treasure
   - wild_disc
   - wilderness
+
   macchiato_monsters:
   - aa_equip
   - cc_equip
+  - cvd_equip
   - fast_travel
   - hireling
   - just_joined
@@ -230,9 +232,11 @@ generators:
   - npc_motivation
   - reaction
   - robusta_robots_equip
+  - rtt_equip
   - spell_mishap
   - trouble_at_camp
   - weather
+
   perilous_wilds:
   - place_names
   - region_names
