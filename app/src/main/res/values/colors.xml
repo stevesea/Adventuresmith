@@ -8,7 +8,7 @@
 
     <!-- transparent brown 900-->
     <color name="buttonBackgroundTransparent">#cc3E2723</color>
-    <color name="resultBackgroundTransparent">#993E2723</color>
+    <color name="resultBackgroundTransparent">#223E2723</color>
 
     <!-- accent -->
     <color name="colorAccent">@color/md_cyan_500</color>
