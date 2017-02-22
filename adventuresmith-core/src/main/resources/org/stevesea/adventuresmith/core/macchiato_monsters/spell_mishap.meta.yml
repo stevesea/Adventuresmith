@@ -7,7 +7,7 @@ input:
   params:
   - name: chaosRisk
     uiName: Chaos Risk Die
-    helpText: The chaos risk represents magic’s stability in the area
+    helpText: The Chaos Risk Die represents magic’s stability in the area
     defaultValue: 1d12
     values:
     - 1d12

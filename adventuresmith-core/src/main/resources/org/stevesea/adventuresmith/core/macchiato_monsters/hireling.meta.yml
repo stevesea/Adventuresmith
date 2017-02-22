@@ -7,7 +7,7 @@ input:
   params:
   - name: availability
     uiName: Hireling Availability
-    helpText: "Hireling Availability (City: d12, Wilderness: d4)"
+    helpText: "Hireling Availability (City d12 <-> Wilderness d4)"
     defaultValue: 1d6
     values:
     - 1d12

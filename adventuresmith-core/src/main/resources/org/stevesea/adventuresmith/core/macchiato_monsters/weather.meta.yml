@@ -7,7 +7,7 @@ input:
   params:
   - name: weatherRisk
     uiName: Weather Risk Die
-    helpText: Weather Risk Die (Temperate Climate Spring/Autumn - d10, summer d12, winter d8)
+    helpText: Weather Risk Die (Temperate Climate - Spring/Autumn d10, Summer d12, Winter d8)
     defaultValue: 1d10
     values:
     - 1d12
