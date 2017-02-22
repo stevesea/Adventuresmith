@@ -104,6 +104,14 @@ data class InputParamDto(val name: String,
                 result = ""
             }
         } else {
+            if (values != null) {
+                // verify that the input is one of our valid values, set to default if not
+                if (values.contains(inputVal)) {
+                    result = inputVal.orEmpty()
+                } else {
+                    result = defaultValue
+                }
+            }
             result = inputVal.orEmpty()
         }
         if (result.isNullOrEmpty()) {
