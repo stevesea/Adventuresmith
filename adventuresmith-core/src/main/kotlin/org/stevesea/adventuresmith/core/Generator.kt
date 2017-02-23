@@ -118,13 +118,21 @@ data class InputParamDto(val name: String,
             return null
         }
         if (isBool) {
-            return result.toBoolean()
+            try {
+                return result.toBoolean()
+            } catch (e: Exception) {
+                return defaultValue
+            }
         } else if (isInt) {
-            val retval = result.toInt()
-            if (retval == 0 && nullIfZero) {
-                return null
-            } else {
-                return retval
+            try {
+                val retval = result.toInt()
+                if (retval == 0 && nullIfZero) {
+                    return null
+                } else {
+                    return retval
+                }
+            } catch (e: Exception) {
+                return defaultValue
             }
         } else {
             return result
