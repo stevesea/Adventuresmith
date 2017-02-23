@@ -7,7 +7,7 @@ input:
   params:
   - name: motivation
     uiName: NPC Motivation
-    helpText: "NPC Motivation"
+    helpText: "NPC Motivation (d12, or hireling/char dR)"
     defaultValue: 1d12
     values:
     - 1d12

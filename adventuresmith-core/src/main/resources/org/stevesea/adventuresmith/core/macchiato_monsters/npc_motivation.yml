@@ -7,9 +7,9 @@ templates:
 
 tables:
   motivation:
-  - <strong>Step down dR</strong><br/><br/>Debt & Despair
-  - <strong>Step down dR</strong><br/><br/>Love or friendship
-  - <strong>Step down dR</strong><br/><br/>Fame and glory
+  - Debt & Despair
+  - Love or friendship
+  - Fame and glory
   - Wanderlust
   - Need to impress someone
   - Revenge

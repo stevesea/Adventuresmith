@@ -20,7 +20,8 @@ tables:
   - "<h5>Burglar</h5> {{hireling_dr}} = number of people who get advantage to sneak checks"
   - "<h5>Bard</h5> {{hireling_dr}} = number of morale boosts per day (advantage on one roll)"
   hireling_dr:
-  - 1..11, dR6
-  - 12..16, dR8
-  - 17..19, dR10
-  - 20, dR12
+  - dR
+  #- 1..11, dR6
+  #- 12..16, dR8
+  #- 17..19, dR10
+  #- 20, dR12
