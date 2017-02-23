@@ -7,15 +7,20 @@ templates:
 
 tables:
   hireling_availability:
-  - "<h5>Torchbearer</h5> number of items they can carry (cumulative)"
-  - "<h5>Spearman</h5> additional armour for the current fight"
-  - "<h5>Scout</h5> hours ahead they recon on their own"
-  - "<h5>Hedge wizard</h5> number of (very minor) spells per day"
-  - "<h5>Halfling</h5> if cooking, number of overnight CON checks that get advantage (p. 16)"
-  - "<h5>Chaplain</h5> number of people protected from evil/chaos/etc. (adv. to resist magic)"
-  - "<h5>Elf</h5> times they give advantage to spot enemies or secret passages"
-  - "<h5>Bodyguard</h5> additional armour for their charge"
-  - "<h5>Dwarf</h5> times they give advantage to find secret doors or masonry traps"
-  - "<h5>Surgeon</h5> total hit points they heal after a fight"
-  - "<h5>Burglar</h5> number of people who get advantage to sneak checks"
-  - "<h5>Bard</h5> number of morale boosts per day (advantage on one roll)"
+  - "<h5>Torchbearer</h5> {{hireling_dr}} = number of items they can carry (cumulative)"
+  - "<h5>Spearman</h5> {{hireling_dr}} = additional armour for the current fight"
+  - "<h5>Scout</h5> {{hireling_dr}} = hours ahead they recon on their own"
+  - "<h5>Hedge wizard</h5> {{hireling_dr}} = number of (very minor) spells per day"
+  - "<h5>Halfling</h5> {{hireling_dr}} = if cooking, number of overnight CON checks that get advantage (p. 16)"
+  - "<h5>Chaplain</h5> {{hireling_dr}} = number of people protected from evil/chaos/etc. (adv. to resist magic)"
+  - "<h5>Elf</h5> {{hireling_dr}} = times they give advantage to spot enemies or secret passages"
+  - "<h5>Bodyguard</h5> {{hireling_dr}} = additional armour for their charge"
+  - "<h5>Dwarf</h5> {{hireling_dr}} = times they give advantage to find secret doors or masonry traps"
+  - "<h5>Surgeon</h5> {{hireling_dr}} = total hit points they heal after a fight"
+  - "<h5>Burglar</h5> {{hireling_dr}} = number of people who get advantage to sneak checks"
+  - "<h5>Bard</h5> {{hireling_dr}} = number of morale boosts per day (advantage on one roll)"
+  hireling_dr:
+  - 1..11, dR6
+  - 12..16, dR8
+  - 17..19, dR10
+  - 20, dR12
