@@ -45,6 +45,7 @@
         <p>armored angels <em>Convenevole da Prato, Carmina regia, Tuscany ca. 1335 (BL, Royal 6 E IX, fol. 6v)</p>
         <p>asinus ad citharam <em>Bible, France ca. 1200 (Paris, BnF, Arsenal 4, fol. 155v)</p>
         <p>bear army <em>Diebold Schilling the Elder, Spiezer Chronik, Bern 1484-85 (Bern, Burgerbibliothek, Mss.h.h.I.16, p. 227)</p>
+        <p>bonnacon <em>bestiary, England ca. 1200 (Aberdeen University Library, MS 24, fol. 12r)</p>
         <p>castle lady siege <em>Luttrell Psalter, England ca. 1325-1340 (British Library, Add 42130, fol. 75v)</p>
         <p>cockatrice crocodile <em>`The Tudor Pattern Book`, England ca. 1520 (Bodleian Library, MS. Ashmole 1504, fol. 38v)</p>
         <p>death king arthur <em>Giovanni Boccaccio, De casibus virorum illustrium (French translation), Bruges ca. 1479-1480 (BL, Royal 14 E V, fol. 439v)</p>
@@ -55,6 +56,7 @@
         <p>fallen angels <em>Vincent of Beauvais, Le Mirouer historial (French translation of Speculum historiale), Paris 1463 (BnF, Français 50, fol. 14r)</p>
         <p>fallen angels <em>Vincent of Beauvais, Le Mirouer historial (French translation of Speculum historiale), Paris 1463 (BnF, Français 50, fol. 25r)</p>
         <p>fallen angels 2 <em>BnF, Français 308, fol. 13r</p>
+        <p>fishcat vs spear rat <em>Pontifical of Guillaume Durand, Avignon, before 1390 (Paris, Bibliothèque Sainte-Geneviève, ms. 143, fol. 161v)</p>
         <p>fool riding goat <em>Psalter and hours (`Prayerbook of Alphonso V of Aragon`), Valencia ca. 1436-1443 (BL, Additional 28962, fol. 136v)</p>
         <p>goat musician <em>psalter, England 13th century (BL, Harley 5102, fol. 59r)</p>
         <p>griffin hog hug <em>`The Ashmole Bestiary`, England 13th century (Bodleian Library, MS. Ashmole 1511, fol. 15v)</p>
@@ -65,8 +67,6 @@
         <p>initial d <em>Stammheim Missal, Hildesheim ca. 1170 (LA, Getty Museum, Ms. 64, fol. 117r)</p>
         <p>initial q michael slaying dragon <em>psalter, Würzburg ca. 1240-1250 (LA, The J. Paul Getty Museum, Ms. Ludwig VIII 2, fol. 61v)</p>
         <p>mmm donut <em>Les Grandes Heures du duc de Berry, Paris 1409 (BnF, Latin 919, fol. 109r)</p>
-        <p>monkey goat owl <em>Luttrell Psalter, England ca. 1325-1340 (British Library, Add 42130, fol. 38r)</p>
-        <p>ophiophagy <em>Beatus of Liébana, Beatus super Apocalypsim (Commentary on the Apocalypse), Spain 12th century (Manchester, John Rylands University Library, Latin MS 8, fol. 14r)</p>
         <p>perseus and andromeda <em>Christine de Pisan, L`Épître Othéa, Paris ca. 1410-1414 (BL, Harley 4431, fol. 98v)</p>
         <p>properties of beasts <em>Bartholomeus Anglicus, `Livre des propriétés des choses` (French translation of Jean Corbechon), Paris 1447 (Amiens, Bibliothèque municipale, ms. 399, fol. 241r)</p>
         <p>rabbit knight <em>Macclesfield Psalter, England ca. 1330-1340 (Cambridge, Fitzwilliam Museum, MS 1-2005, fol. 115v)</p>
@@ -75,11 +75,7 @@
         <p>siege rabbits <em>Pontifical of Renaud de Bar, France ca. 1303-1316 (Cambridge, Fitzwilliam Museum, MS 298, fol. 41r)</p>
         <p>snail and turtle <em>Grandes Heures of Anne of Brittany, Tours or Paris 1503-1508 (BnF, Latin 9474, fol. 232v)</p>
         <p>snake eater <em>Beatus of Liébana, Commentaria in Apocalypsin (the ‘Beatus of Saint-Sever’), Saint-Sever before 1072 (BnF, Latin 8878, fol. 13r)</p>
-
-        <p><em>Beatus of Liébana, Commentaria in Apocalypsin (the `Beatus of Saint-Sever`), Saint-Sever before 1072 (BnF, Latin 8878, fol. 184v)</p>
-        <p><em>bestiary, England ca. 1200 (Aberdeen University Library, MS 24, fol. 12r)</p>
-        <p>???? <em>`Hours of Joanna the Mad`, Bruges 1486-1506 (BL, Add 18852, fol. 15r)</p>
-        <p><em>Pontifical of Guillaume Durand, Avignon, before 1390 (Paris, Bibliothèque Sainte-Geneviève, ms. 143, fol. 161v)</p>
+        <p>speculum consciencie <em>`Hours of Joanna the Mad`, Bruges 1486-1506 (BL, Add 18852, fol. 15r)</p>
         ]]>
     </string>
     <string name="content_thanks"><![CDATA[
