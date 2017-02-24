@@ -35,6 +35,9 @@ class ResultItem(val htmlTxt: String) :
         AbstractItem<GeneratorButton, ResultItem.ViewHolder>(),
         Parcelable {
     val spannedText = htmlStrToSpanned(htmlTxt)
+    val plainText by lazy {
+        spannedText.toString()
+    }
 
     init {
         withIdentifier(resultId.andIncrement)

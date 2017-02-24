@@ -121,12 +121,12 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         res.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
             override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
-                if (item == null || constraint == null)
+                if (item == null || constraint.isNullOrBlank())
                     return false
 
                 //return true if we should filter it out
                 //return false to keep it
-                return !item.spannedText.toString().toLowerCase().contains(constraint.toString().toLowerCase())
+                return !item.plainText.toLowerCase().contains(constraint.toString().toLowerCase())
             }
         })
         res
@@ -314,6 +314,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (item == null)
                             return false
 
+                        if (!currentFilter.isNullOrBlank()) {
+                            toast("Disable filter to generate more results")
+                            return false
+                        }
+
                         val num_to_generate = if (settingsGenerateMany) settingsGenerateManyCount else 1
                         val generator = item.generator
                         val currentLocale = getCurrentLocale(resources)
@@ -347,20 +352,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                             uiThread {
 
                                 synchronized(resultAdapter) {
-                                    // disable filter before adding any results
-                                    if (currentFilter != null) {
-                                        resultAdapter.filter(null)
-                                    }
-
                                     resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
 
                                     recycler_results.scrollToPosition(0)
-
-                                    // re-apply the filter if there is one
-                                    if (currentFilter != null) {
-                                        debug("Applying filter '$currentFilter'")
-                                        resultAdapter.filter(currentFilter)
-                                    }
                                     debug("Number of items ${resultAdapter.adapterItemCount}")
                                 }
                             }
@@ -582,6 +576,10 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.fishcat_vs_spear_rat_1,
             R.drawable.fool_riding_goat,
             R.drawable.goat_musician,
+            R.drawable.green_demon_1,
+            R.drawable.green_demon_2,
+            R.drawable.green_demon_3,
+            R.drawable.green_demon_5,
             R.drawable.griffin_hog_hug,
             R.drawable.hell,
             R.drawable.hellmouth_3,
@@ -591,13 +589,11 @@ class AdventuresmithActivity : AppCompatActivity(),
             R.drawable.initial_q_michael_slay_dragon,
             R.drawable.mmm_donuts,
             R.drawable.perseus_and_andromeda,
-            R.drawable.properties_of_beasts,
             R.drawable.rabbit_knight,
             R.drawable.sagittarius,
             R.drawable.seven_headed_dragon,
             R.drawable.siege_rabbits,
             R.drawable.snail_and_turtle,
-            R.drawable.snake_eater,
             R.drawable.speculum_consciencie
     )
 
@@ -1181,22 +1177,25 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             val searchView = menu.findItem(R.id.search).actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextChange(newText: String?): Boolean {
-
+                fun updateQueryState(newText: String?) {
                     synchronized(resultAdapter) {
                         resultAdapter.filter(newText)
                     }
-                    currentFilter = newText
-                    appbar.setExpanded(false,false)
+                    if (newText.isNullOrBlank()) {
+                        appbar.setExpanded(true,true)
+                        currentFilter = null
+                    } else {
+                        appbar.setExpanded(false,false)
+                        currentFilter = newText
+                    }
+                }
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    updateQueryState(newText)
                     return true
                 }
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    synchronized(resultAdapter) {
-                        resultAdapter.filter(query)
-                    }
-                    currentFilter = query
-                    appbar.setExpanded(false,false)
+                    updateQueryState(query)
                     return true
                 }
             })
