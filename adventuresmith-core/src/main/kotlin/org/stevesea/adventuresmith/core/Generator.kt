@@ -91,9 +91,10 @@ data class InputParamDto(val name: String,
                          val defaultValue: String = "",
                          val helpText: String = "",
                          val defaultOverridesUserEmpty: Boolean = true, // if user val is blank/null, use the default (ie. don't let user put blank in and confuse things)
-                         val isBool: Boolean = false,
                          val nullIfZero: Boolean = false,
                          val isInt: Boolean = false,
+                         val maxVal: Int = Int.MAX_VALUE,
+                         val minVal: Int = 0,
                          val values: List<String>? = null   // valid values
 ) {
     fun getVal(inputVal: String?) : Any? {
@@ -117,17 +118,15 @@ data class InputParamDto(val name: String,
         if (result.isNullOrEmpty()) {
             return null
         }
-        if (isBool) {
+        if (isInt) {
             try {
-                return result.toBoolean()
-            } catch (e: Exception) {
-                return defaultValue
-            }
-        } else if (isInt) {
-            try {
-                val retval = result.toInt()
+                val retval : Int = result.toInt()
                 if (retval == 0 && nullIfZero) {
                     return null
+                } else if (retval < minVal) {
+                    return minVal
+                } else if (retval > maxVal) {
+                    return maxVal
                 } else {
                     return retval
                 }

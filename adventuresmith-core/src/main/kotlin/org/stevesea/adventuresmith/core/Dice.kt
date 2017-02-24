@@ -332,13 +332,17 @@ val diceModule = Kodein.Module {
                         useWizard = false,
                         params = listOf(
                                 InputParamDto(name = "x", uiName = "X", numbersOnly = true, isInt = true, defaultValue = "1",
+                                        maxVal = 1000, minVal = 0,
                                         helpText = "Enter dice 'XdY + Z'"),
                                 InputParamDto(name = "y", uiName = "Y", numbersOnly = true, isInt = true, defaultValue = "6"),
                                 InputParamDto(name = "z", uiName = "Z", numbersOnly = true, isInt = true, defaultValue = "0"),
-                                InputParamDto(name = "dropNHigh", uiName = "Drop N Highest", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = "",
+                                InputParamDto(name = "dropNHigh", uiName = "Drop N Highest", numbersOnly = true, isInt = true,
+                                        nullIfZero = true, defaultValue = "",
                                         helpText = "Do you want to drop any rolls?"),
-                                InputParamDto(name = "dropNLow", uiName = "Drop M Lowest", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = ""),
-                                InputParamDto(name = "tn", uiName = "Target Number", numbersOnly = true, isInt = true, nullIfZero = true, defaultValue = "",
+                                InputParamDto(name = "dropNLow", uiName = "Drop M Lowest", numbersOnly = true, isInt = true,
+                                        nullIfZero = true, defaultValue = ""),
+                                InputParamDto(name = "tn", uiName = "Target Number", numbersOnly = true, isInt = true,
+                                        nullIfZero = true, defaultValue = "",
                                         helpText = "Target number? (success if roll >= TN)")
                         )
                     )

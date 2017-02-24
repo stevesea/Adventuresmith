@@ -1,6 +1,7 @@
 ---
 name: Spell Catastrophe
 collectionId: ss_and_ss
+
 input:
   displayTemplate: "Power Level: {{powerLevel}}"
   params:
@@ -10,4 +11,6 @@ input:
     defaultValue: 1
     numbersOnly: true
     isInt: true
+    maxVal: 100
+    minVal: 0
 
