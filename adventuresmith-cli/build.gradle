@@ -65,7 +65,7 @@ targetCompatibility = "1.7"
 //    Capsule https://blog.paralleluniverse.co/2014/05/08/modern-java-pt2/
 mainClassName = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
 buildscript {
-    ext.kotlin_version = '1.0.5-2'
+    ext.kotlin_version = '1.1.1'
     repositories {
         mavenCentral()
     }
