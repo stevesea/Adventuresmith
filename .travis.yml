@@ -26,8 +26,12 @@ android:
 
 before_install:
   - chmod +x gradlew
+  - sudo apt-get install -y cloc
 
-script: ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:distZip
+script:
+  - cloc . > cloc.txt
+  - cat cloc.txt
+  - ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:distZip
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
