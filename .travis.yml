@@ -26,10 +26,6 @@ android:
 
 before_install:
   - chmod +x gradlew
-  - sudo npm install -g sloc
-after_success:
-  - sloc --format json . > .sloc.json
-  - ls -al && cat .sloc.json
 
 script: ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:distZip
 
