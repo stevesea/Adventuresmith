@@ -14,7 +14,7 @@ androidGitVersion {
 }
 
 ext {
-    androidSupportVersion = '25.1.0'
+    androidSupportVersion = '25.3.1'
     ankoVersion = '0.9.1'
 }
 
@@ -102,6 +102,7 @@ android {
 dependencies {
     compile project(':adventuresmith-core')
     compile 'com.android.support:multidex:1.0.1'
+    compile "com.github.salomonbrys.kodein:kodein-android:$kodein_version"
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -144,7 +145,6 @@ dependencies {
     testCompile "org.robolectric:shadows-multidex:$robolectric_version"
     //testCompile "org.robolectric:shadows-support-v4:3.0"
 
-    //compile 'com.github.salomonbrys.kodein:kodein-android:3.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     compile "org.jetbrains.anko:anko-sdk23:$ankoVersion" // sdk19, sdk21, sdk23 are also available

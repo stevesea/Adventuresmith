@@ -63,18 +63,6 @@ targetCompatibility = "1.7"
 //    https://github.com/libgdx/packr
 //    Capsule https://blog.paralleluniverse.co/2014/05/08/modern-java-pt2/
 mainClassName = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
-buildscript {
-    ext.kotlin_version = '1.1.1'
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-repositories {
-    mavenCentral()
-}
 
 // to run this:
 //   gradlew adventuresmith-cli:run -PgenFile=<fname>
