@@ -94,13 +94,8 @@ class GeneratorButton(val generator: Generator,
         val btnSettings = v!!.findViewById(R.id.btn_settings) as ImageView
     }
 
-    override fun getFactory(): ViewHolderFactory<out ViewHolder> {
-        return Factory
-    }
-    companion object Factory : ViewHolderFactory<ViewHolder> {
-        override fun create(v: View?): ViewHolder {
-            return ViewHolder(v)
-        }
+    override fun getViewHolder(v: View?): ViewHolder {
+        return ViewHolder(v)
     }
 }
 

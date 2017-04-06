@@ -120,17 +120,17 @@ dependencies {
     // and provides scalable icons. the core is very very light
     // https://github.com/mikepenz/Android-Iconics
     compile 'com.mikepenz:iconics-core:2.8.2@aar'
-    compile 'com.mikepenz:community-material-typeface:1.7.22.1@aar'
+    compile 'com.mikepenz:community-material-typeface:1.8.36.1@aar'
     compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
 
-    compile('com.mikepenz:materialdrawer:5.8.1@aar') {
+    compile('com.mikepenz:materialdrawer:5.9.0@aar') {
         transitive = true
         exclude module: "fastadapter"
     }
 
-    compile 'com.mikepenz:fastadapter:2.1.0@aar'
-    compile 'com.mikepenz:fastadapter-commons:2.1.0@aar'
-    compile 'com.mikepenz:fastadapter-extensions:2.1.0@aar'
+    compile 'com.mikepenz:fastadapter:2.5.0@aar'
+    compile 'com.mikepenz:fastadapter-commons:2.5.0@aar'
+    compile 'com.mikepenz:fastadapter-extensions:2.5.0@aar'
 
     compile "com.mikepenz:materialize:1.0.0@aar"
 

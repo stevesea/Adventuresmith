@@ -137,7 +137,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
-                .withItemEvent(object: ClickEventHook<GeneratorButton>(), EventHook {
+                .withItemEvent(object: ClickEventHook<GeneratorButton>(), EventHook<GeneratorButton> {
                     override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
                         if (viewHolder is GeneratorButton.ViewHolder) {
                             return viewHolder.btnSettings

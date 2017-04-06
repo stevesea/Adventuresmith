@@ -64,23 +64,12 @@ class ResultItem(val htmlTxt: String) :
         val itemText = v!!.findViewById(R.id.result_list_item_text) as TextView
     }
 
-    override fun getFactory(): ViewHolderFactory<out ViewHolder> {
-        return Factory
+    override fun getViewHolder(v: View?): ViewHolder {
+        return ViewHolder(v)
     }
 
-    companion object Factory : ViewHolderFactory<ViewHolder> {
+    companion object {
         val resultId : AtomicLong = AtomicLong(0)
-
-        // called by the FastAdapter
-        override fun create(v: View?): ViewHolder {
-            return ViewHolder(v)
-        }
-
-        // called by parcelable
-        @JvmField val CREATOR: Parcelable.Creator<ResultItem> = object : Parcelable.Creator<ResultItem> {
-            override fun createFromParcel(source: Parcel): ResultItem = ResultItem(source)
-            override fun newArray(size: Int): Array<ResultItem?> = arrayOfNulls(size)
-        }
     }
 
     constructor(source: Parcel) : this(source.readString())
