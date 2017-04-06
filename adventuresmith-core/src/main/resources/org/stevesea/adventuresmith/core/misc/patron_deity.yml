@@ -1,0 +1,165 @@
+---
+templates:
+- "{{patron_deity.template}}"
+
+nested_tables:
+  patron_deity:
+    template:
+    - "{{patron_deity.name1}}{{patron_deity.name2}} {{patron_deity.title1}} {{patron_deity.title2}} {{patron_deity.title3}}"
+    name1:
+    - Arn
+    - Bur
+    - Col
+    - Dre
+    - Ens
+    - Fro
+    - Gom
+    - Haa
+    - Ix
+    - Jor
+    - Kal
+    - Lyf
+    - Mak
+    - Nul
+    - Ord
+    - Pan
+    - Qua
+    - Rex
+    - Sol
+    - Taw
+    - Ula
+    - Vron
+    - Wor
+    - Xer
+    - Yi
+    - Zil
+    - Tho
+    - Shri
+    - Cha
+    - Tri
+    name2:
+    - azee
+    - ex
+    - gam
+    - hys
+    - isos
+    - kil
+    - lan
+    - mis
+    - nant
+    - oooong
+    - prit
+    - ry
+    - say
+    - tol
+    - und
+    - von
+    - won
+    - xerc
+    - ying
+    - zor
+    - aram
+    - bor
+    - cic
+    - dre
+    - et
+    - min
+    - non
+    - ol
+    - ran
+    - ses
+
+    title1:
+    - the Burning
+    - the Quiet
+    - the Rebellious
+    - the Angry
+    - the Shining
+    - the Terrifying
+    - the Joyful
+    - the Righteous
+    - the All-Seeing
+    - the Weary
+    - the Ancient
+    - the Plumed
+    - the Unforgiving
+    - the Pure
+    - the Odd
+    - the Distant
+    - the Dark
+    - the Kind
+    - the Foolish
+    - the Beautiful
+    - the Silver
+    - the Flowing
+    - the Dancing
+    - the Red
+    - the Hollow
+    - the Bountiful
+    - the Mailed
+    - the Laughing
+    - the Flowering
+    - the Unknowable
+
+    title2:
+    - Bull
+    - Mother/Father
+    - Frog
+    - Thunder
+    - Warrior
+    - Tiger
+    - Serpent
+    - Knower
+    - Eye
+    - Fist
+    - Bringer
+    - Speaker
+    - Eagle
+    - Child
+    - Echo
+    - Destroyer
+    - Eater
+    - Champion
+    - Judgment
+    - Stone
+    - Mirror
+    - Hammer
+    - Wing
+    - Chain
+    - Wellspring
+    - Mountain
+    - Clamor
+    - Crest
+    - Keeper
+    - Bride/Groom
+    title3:
+    - of Ancestors.
+    - of The Sun.
+    - of Legend.
+    - of Sleep & Dreams.
+    - of Destiny & Discord.
+    - of Song & Storms.
+    - of Night.
+    - of Oceans & Paths.
+    - of Knowledge.
+    - of Gold & Earth.
+    - of Law.
+    - of War and Peace.
+    - of the Wilds.
+    - of Truth.
+    - of Youth & Age.
+    - of Plenty.
+    - of Trickery.
+    - of Fortune.
+    - of Oaths & Shadows.
+    - of Fire & Ice.
+    - of Mercy.
+    - of the Forgotten.
+    - of the Vaulted Depths.
+    - of Wisdom.
+    - of Stillness & Wind.
+    - of Beauty.
+    - of Howling Beasts.
+    - of Madness & Insight.
+    - of the Golden Heavens.
+    - of the Harvest.

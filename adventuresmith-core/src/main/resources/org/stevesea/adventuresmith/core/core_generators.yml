@@ -236,6 +236,9 @@ generators:
   - spell_mishap
   - trouble_at_camp
   - weather
+  misc:
+  - minor_arcana
+  - patron_deity
 
   perilous_wilds:
   - place_names
@@ -310,8 +313,6 @@ generators:
   - reward
   - spell_catastrophe
   - supporting_character
-  stonetop:
-  - minor_arcana
   hack_and_slash:
   - contents_of_pit
   - corridors
