@@ -34,7 +34,7 @@ class Exerciser {
     fun exerciser() {
         // output specific ones to console
         val enablePrinting = setOf(
-                "stonetop/minor_arcana"
+                "misc/patron_deity"
         )
 
         val genNameToId : Multimap<String, String> = MultimapBuilder

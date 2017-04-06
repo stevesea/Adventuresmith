@@ -63,11 +63,6 @@ generators:
   - battlefield_peril
   - court_enemies
   - urban_enemies
-  fourth_page:
-  - artifact
-  - dungeon
-  - city
-  - monster
   freebooters_on_the_frontier:
   #- chars   Not converted to new template format
   - spells
@@ -239,6 +234,15 @@ generators:
   misc:
   - minor_arcana
   - patron_deity
+
+  - artifact
+  - dungeon
+  - city
+  - monster
+
+  - backgrounds
+  - magic_item
+  - names
 
   perilous_wilds:
   - place_names
@@ -438,7 +442,3 @@ generators:
   - supers_villain_threat
   - supers_weakness
   - supers_who_the_heck
-  zenopus_archives:
-  - backgrounds
-  - magic_item
-  - names

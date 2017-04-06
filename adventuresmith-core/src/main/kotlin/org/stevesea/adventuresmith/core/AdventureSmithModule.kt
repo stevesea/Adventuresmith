@@ -49,7 +49,6 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     val Zenopus = "zenopus_archives"
     val Kaigaku = "kaigaku"
     val PerilousWilds = "perilous_wilds"
-    val Stonetop = "stonetop"
     val HackSlash = "hack_and_slash"
     val AugmentedReality = "augmented_reality"
     val RollXX = "roll_xx"
