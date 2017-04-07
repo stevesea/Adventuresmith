@@ -2,9 +2,9 @@ name: The Perilous Wilds
 id: perilous_wilds
 credit: Jason Lutes
 url: "http://lampblackandbrimstone.blogspot.com/"
-icon: cmd-folder-multiple-image
+icon: cmd-image-filter-hdr
 groupIcons:
-  grp1: cmd-image-filter-hdr
+  grp1: cmd-magnify
   grp2: cmd-book-open-page-variant
   grp3: ion-ios-paw
   grp4: cmd-account-multiple

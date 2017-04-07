@@ -2,7 +2,7 @@ name: Misc. Generators
 id: misc
 priority: 900
 credit: Various Authors
-icon: cmd-dice-d20
+icon: cmd_hexagon_multiple
 groups:
   grpChar: Characters
   grpItems: Items
