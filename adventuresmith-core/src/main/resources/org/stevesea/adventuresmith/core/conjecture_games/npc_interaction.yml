@@ -1,0 +1,228 @@
+---
+templates:
+- "{{interaction.template}}"
+
+nested_tables:
+  relationship:
+    loved:
+    - 1, withdrawn
+    - 2-6, guarded
+    - 7-16, cautious
+    - 17-31, neutral
+    - 32-70, sociable
+    - 71-85, helpful
+    - 86-100, forthcoming
+    friendly:
+    - 1-2, withdrawn
+    - 3-8, guarded
+    - 9-20, cautious
+    - 21-40, neutral
+    - 41-76, sociable
+    - 77-89, helpful
+    - 90-100, forthcoming
+    peaceful:
+    - 1-3, withdrawn
+    - 4-11, guarded
+    - 12-25, cautious
+    - 26-55, neutral
+    - 56-82, sociable
+    - 83-93, helpful
+    - 94-100, forthcoming
+    neutral:
+    - 1-5, withdrawn
+    - 6-15, guarded
+    - 16-30, cautious
+    - 31-60, neutral
+    - 61-85, sociable
+    - 86-95, helpful
+    - 96-100, forthcoming
+    distrustful:
+    - 1-7, withdrawn
+    - 8-18, guarded
+    - 19-46, cautious
+    - 47-76, neutral
+    - 77-90, sociable
+    - 91-97, helpful
+    - 98-100, forthcoming
+    hostile:
+    - 1-11, withdrawn
+    - 12-24, guarded
+    - 25-61, cautious
+    - 62-81, neutral
+    - 82-93, sociable
+    - 94-98, helpful
+    - 99-100, forthcoming
+    hated:
+    - 1-15, withdrawn
+    - 16-30, guarded
+    - 31-69, cautious
+    - 70-84, neutral
+    - 85-94, sociable
+    - 95-99, helpful
+    - 100, forthcoming
+
+
+  interaction:
+    template:
+    - |
+      The <em>{{input.relationship}}</em> NPC's converstion mood is <strong><em>%[[relationship.{{input.relationship}}]]%.</em></strong>
+      <br/>
+      <br/>The <em>%[[resolve_demeanor.{{input.demeanor}}]]%</em> NPC speaks of <strong><em>%[[bearing.{{input.demeanor}}]]%</em></strong> regarding the PC's <strong><em>{{interaction.focus}}</em></strong>.
+
+    focus:
+    - current scene
+    - parents
+    - wealth
+    - skills
+    - campaign
+    - allies
+    - flaws
+    - experience
+    - community
+    - current story
+    - weapons
+    - last story
+    - history
+    - relics
+    - superiors
+    - future action
+    - last scene
+    - antagonist
+    - knowledge
+    - treasure
+    - family
+    - previous scene
+    - equipment
+    - retainers
+    - last action
+    - fame
+    - friends
+    - contacts
+    - rewards
+    - recent scene
+    - the character
+    - power
+    - enemy
+
+  #
+  resolve_demeanor:
+    unknown:
+    # demeanor will have been set in context by mustache evaluating bearing.unknown below
+    #- "{{demeanor}}"
+    - ""
+    scheming:
+    - scheming
+    insane:
+    - insane
+    friendly:
+    - friendly
+    hostile:
+    - hostile
+    inquisitive:
+    - inquisitive
+    knowing:
+    - knowing
+    mysterious:
+    - mysterious
+    prejudiced:
+    - prejudiced
+
+  bearing:
+    unknown:
+    - "1-12, {{>set: demeanor scheming}} {{bearing.scheming}}"
+    - "13-24, {{>set: demeanor insane}} {{bearing.insane}}"
+    - "25-36, {{>set: demeanor friendly}} {{bearing.friendly}}"
+    - "37-49, {{>set: demeanor hostile}} {{bearing.hostile}}"
+    - "50-62, {{>set: demeanor inquisitive}} {{bearing.inquisitive}}"
+    - "63-75, {{>set: demeanor knowing}} {{bearing.knowing}}"
+    - "76-88, {{>set: demeanor mysterious}} {{bearing.mysterious}}"
+    - "89-100, {{>set: demeanor prejudiced}} {{bearing.prejudiced}}"
+    scheming:
+    - intent
+    - bargain
+    - means
+    - proposition
+    - plan
+    - compromise
+    - agenda
+    - arrangement
+    - negotiation
+    - plot
+    insane:
+    - madness
+    - fear
+    - accident
+    - chaos
+    - idiocy
+    - illusion
+    - turmoil
+    - confusion
+    - façade
+    - bewilderment
+    friendly:
+    - alliance
+    - comfort
+    - gratitude
+    - shelter
+    - happiness
+    - support
+    - promise
+    - delight
+    - aid
+    - celebration
+    hostile:
+    - death
+    - capture
+    - judgment
+    - combat
+    - surrender
+    - rage
+    - resentment
+    - submission
+    - injury
+    - destruction
+    inquisitive:
+    - questions
+    - investigation
+    - interest
+    - demand
+    - suspicion
+    - request
+    - curiosity
+    - skepticism
+    - command
+    - petition
+    knowing:
+    - report
+    - effects
+    - examination
+    - records
+    - account
+    - news
+    - history
+    - telling
+    - discourse
+    - speech
+    mysterious:
+    - rumor
+    - uncertainty
+    - secrets
+    - misdirection
+    - whispers
+    - lies
+    - shadows
+    - enigma
+    - obscurity
+    - conundrum
+    prejudiced:
+    - reputation
+    - doubt
+    - bias
+    - dislike
+    - partiality
+    - belief
+    - view
+    - discrimination
+    - assessment
+    - difference
+

@@ -59,6 +59,7 @@ generators:
   - where_has_it_been
   conjecture_games:
   - npc_creator
+  - npc_interaction
   kaigaku:
   - animals
   - battlefield_enemies

@@ -1,0 +1,32 @@
+---
+name: NPC Interaction
+collectionId: conjecture_games
+input:
+  displayTemplate: "Relationship: {{relationship}}<br/>Demeanor: {{demeanor}}"
+  params:
+  - name: relationship
+    uiName: Relationship
+    helpText: NPC Relationship to speaking PC
+    defaultValue: neutral
+    values:
+    - loved
+    - friendly
+    - peaceful
+    - neutral
+    - distrustful
+    - hostile
+    - hated
+  - name: demeanor
+    uiName: Demeanor
+    helpText: NPC Demeanor
+    defaultValue: unknown
+    values:
+    - unknown
+    - scheming
+    - insane
+    - friendly
+    - hostile
+    - inquisitive
+    - knowing
+    - mysterious
+    - prejudiced
