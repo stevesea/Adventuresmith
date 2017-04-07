@@ -21,9 +21,13 @@
 package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
+import com.google.common.base.Throwables
+import mu.KLoggable
 import java.util.*
 
-class Shuffler(override val kodein: Kodein): KodeinAware {
+class Shuffler(override val kodein: Kodein): KodeinAware, KLoggable {
+    override val logger = LocaleAwareResourceFinder.logger()
+
     val random: Random = instance()
     val diceParser : DiceParser = instance()
 
@@ -76,7 +80,12 @@ class Shuffler(override val kodein: Kodein): KodeinAware {
 
     }
     fun pickD(diceStr: String, items: RangeMap?) : String {
-        return items!!.select(roll(diceStr))
+        try {
+            return items!!.select(roll(diceStr))
+        } catch (e: Exception) {
+            logger.warn("Error looking up $diceStr from rmap", e.message)
+            throw e
+        }
     }
 
     fun <T> pickD(diceStr: String, items: Collection<T>?): T {

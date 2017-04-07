@@ -26,6 +26,7 @@ import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.databind.annotation.*
 import com.fasterxml.jackson.databind.deser.std.*
 import com.google.common.base.Throwables
+import mu.KLoggable
 import java.util.*
 
 /**
@@ -130,7 +131,9 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
 @JsonDeserialize(using = RangeMapDeserializer::class)
 class RangeMap(
         val delegate: TreeMap<Int, String> = TreeMap<Int, String>()
-) : Map<Int, String> by delegate {
+) : Map<Int, String> by delegate, KLoggable {
+
+    override val logger = LocaleAwareResourceFinder.logger()
 
     var maxKey : Int = -1
     val ranges: MutableSet<IntRange> = mutableSetOf()
@@ -163,7 +166,18 @@ class RangeMap(
     }
 
     fun select(k: Int) : String {
-        return delegate.floorEntry(k).value
+        try {
+            if (k < delegate.firstKey()) {
+                return delegate.firstEntry().value
+            } else if (k > delegate.lastKey()) {
+                return delegate.lastEntry().value
+            } else {
+                return delegate.floorEntry(k).value
+            }
+        } catch (e: Exception) {
+            logger.warn("Unable to lookup entry $k. Keyrange: ${keyRange()}")
+            throw e
+        }
     }
 
     fun keyRange() : IntRange {
