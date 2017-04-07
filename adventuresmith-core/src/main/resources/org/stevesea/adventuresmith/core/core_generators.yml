@@ -57,6 +57,8 @@ generators:
   - whats_on_corpse
   - whats_on_thing
   - where_has_it_been
+  conjecture_games:
+  - npc_creator
   kaigaku:
   - animals
   - battlefield_enemies

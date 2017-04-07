@@ -1,0 +1,21 @@
+---
+name: NPC Creator
+collectionId: conjecture_games
+input:
+  displayTemplate: "Randomness Level: {{rLevel}}"
+  params:
+  #  Order (1)
+  #  Calm (2)
+  #  Standard (3)
+  #  Disarray (4)
+  #  Chaos (5)
+  - name: rLevel
+    uiName: Randomness Level
+    helpText: Randomness Level
+    defaultValue: Standard
+    values:
+    - Order
+    - Calm
+    - Standard
+    - Disarray
+    - Chaos

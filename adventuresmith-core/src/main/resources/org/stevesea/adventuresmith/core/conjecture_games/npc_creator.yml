@@ -1,0 +1,456 @@
+---
+templates:
+- "{{npc.template}}"
+
+nested_tables:
+  power_level:
+    Order:
+    - 1-2, much weaker than
+    - 3-10, slightly weaker than
+    - 11-90, comparable in power to
+    - 91-98, slightly stronger than
+    - 99-100, much stronger than
+    Calm:
+    - 1-4, much weaker than
+    - 5-15, slightly weaker than
+    - 16-85, comparable in power to
+    - 86-96, slightly stronger than
+    - 97-100, much stronger than
+    Standard:
+    - 1-5, much weaker than
+    - 6-20, slightly weaker than
+    - 21-80, comparable in power to
+    - 81-95, slightly stronger than
+    - 96-100, much stronger than
+    Disarray:
+    - 1-8, much weaker than
+    - 9-25, slightly weaker than
+    - 26-75, comparable in power to
+    - 76-92, slightly stronger than
+    - 93-100, much stronger than
+    Chaos:
+    - 1-12, much weaker than
+    - 13-30, slightly weaker than
+    - 31-70, comparable in power to
+    - 71-88, slightly stronger than
+    - 89-100, much stronger than
+  npc:
+    # Determine what the NPC is. Roll a d100 (or 2 d10’s with one d10 being the 10’s) to obtain
+    # an NPC Modifier from Table 1. Roll a d100 to obtain an NPC Noun from Table 2. Combine the
+    # two as if forming a simple sentence to describe the NPC. For example if a 21 is rolled followed
+    # by a 45, the combination would read “Inept Actor.” If some facts about the NPC are previously
+    # known, merely use what works and discard what does not.
+    template:
+    - |
+      A <strong>%[[>titleCase: {{npc.modifier}} {{npc.noun}}]]%</strong>, %[[power_level.{{input.rLevel}}]]% the party.
+      <br/>
+      <br/>Motivations: {{npc.motivation}}, {{npc.motivation}}, and {{npc.motivation}}
+
+    modifier:
+    - superfluous
+    - addicted
+    - conformist
+    - nefarious
+    - sensible
+    - untrained
+    - romantic
+    - unreasonable
+    - skilled
+    - neglectful
+    - lively
+    - forthright
+    - idealistic
+    - unsupportive
+    - rational
+    - coarse
+    - foolish
+    - cunning
+    - delightful
+    - miserly
+    - inept
+    - banal
+    - logical
+    - subtle
+    - reputable
+    - wicked
+    - lazy
+    - pessimistic
+    - solemn
+    - habitual
+    - meek
+    - helpful
+    - unconcerned
+    - generous
+    - docile
+    - cheery
+    - pragmatic
+    - serene
+    - thoughtful
+    - hopeless
+    - pleasant
+    - insensitive
+    - titled
+    - inexperienced
+    - prying
+    - oblivious
+    - refined
+    - indispensable
+    - scholarly
+    - conservative
+    - uncouth
+    - willful
+    - indifferent
+    - fickle
+    - elderly
+    - sinful
+    - naive
+    - privileged
+    - glum
+    - likable
+    - lethargic
+    - defiant
+    - obnoxious
+    - insightful
+    - tactless
+    - fanatic
+    - plebeian
+    - childish
+    - pious
+    - uneducated
+    - inconsiderate
+    - cultured
+    - revolting
+    - curious
+    - touchy
+    - needy
+    - dignified
+    - pushy
+    - kind
+    - corrupt
+    - jovial
+    - shrewd
+    - liberal
+    - compliant
+    - destitute
+    - conniving
+    - careful
+    - alluring
+    - defective
+    - optimistic
+    - affluent
+    - despondent
+    - mindless
+    - passionate
+    - devoted
+    - established
+    - unseemly
+    - dependable
+    - righteous
+    - confident
+    noun:
+    - gypsy
+    - witch
+    - merchant
+    - expert
+    - commoner
+    - judge
+    - ranger
+    - occultist
+    - reverend
+    - thug
+    - drifter
+    - journeyman
+    - statesman
+    - astrologer
+    - duelist
+    - jack-of-all-trades
+    - aristocrat
+    - preacher
+    - artisan
+    - rogue
+    - missionary
+    - outcast
+    - mercenary
+    - caretaker
+    - hermit
+    - orator
+    - chieftain
+    - pioneer
+    - burglar
+    - vicar
+    - officer
+    - explorer
+    - warden
+    - outlaw
+    - adept
+    - bum
+    - sorcerer
+    - laborer
+    - master
+    - ascendant
+    - villager
+    - magus
+    - conscript
+    - worker
+    - actor
+    - herald
+    - highwayman
+    - fortune-hunter
+    - governor
+    - scrapper
+    - monk
+    - homemaker
+    - recluse
+    - steward
+    - polymath
+    - magician
+    - traveler
+    - vagrant
+    - apprentice
+    - politician
+    - mediator
+    - crook
+    - civilian
+    - activist
+    - hero
+    - champion
+    - cleric
+    - slave
+    - gunman
+    - clairvoyant
+    - patriarch
+    - shopkeeper
+    - crone
+    - adventurer
+    - soldier
+    - entertainer
+    - craftsman
+    - scientist
+    - ascetic
+    - superior
+    - performer
+    - magister
+    - serf
+    - brute
+    - inquisitor
+    - lord
+    - villain
+    - professor
+    - servant
+    - charmer
+    - globetrotter
+    - sniper
+    - courtier
+    - priest
+    - tradesman
+    - hitman
+    - wizard
+    - beggar
+    - tradesman
+    - warrior
+    motivation:
+    - "{{npc.motivation_verb}} {{npc.motivation_noun}}"
+
+    motivation_verb:
+    - advise
+    - obtain
+    - attempt
+    - spoil
+    - oppress
+    - interact
+    - create
+    - abduct
+    - promote
+    - conceive
+    - blight
+    - progress
+    - distress
+    - possess
+    - record
+    - embrace
+    - contact
+    - pursue
+    - associate
+    - prepare
+    - shepherd
+    - abuse
+    - indulge
+    - chronicle
+    - fulfill
+    - drive
+    - review
+    - aid
+    - follow
+    - advance
+    - guard
+    - conquer
+    - hinder
+    - plunder
+    - construct
+    - encourage
+    - agonize
+    - comprehend
+    - administer
+    - relate
+    - take
+    - discover
+    - deter
+    - acquire
+    - damage
+    - publicize
+    - burden
+    - advocate
+    - implement
+    - understand
+    - collaborate
+    - strive
+    - complete
+    - compel
+    - join
+    - assist
+    - defile
+    - produce
+    - institute
+    - account
+    - work
+    - accompany
+    - offend
+    - guide
+    - learn
+    - persecute
+    - communicate
+    - process
+    - report
+    - develop
+    - steal
+    - suggest
+    - weaken
+    - achieve
+    - secure
+    - inform
+    - patronize
+    - depress
+    - determine
+    - seek
+    - manage
+    - suppress
+    - proclaim
+    - operate
+    - access
+    - refine
+    - compose
+    - undermine
+    - explain
+    - discourage
+    - attend
+    - detect
+    - execute
+    - maintain
+    - realize
+    - convey
+    - rob
+    - establish
+    - overthrow
+    - support
+
+    motivation_noun:
+    - wealth
+    - hardship
+    - affluence
+    - resources
+    - prosperity
+    - poverty
+    - opulence
+    - deprivation
+    - success
+    - distress
+    - contraband
+    - music
+    - literature
+    - technology
+    - alcohol
+    - medicines
+    - beauty
+    - strength
+    - intelligence
+    - force
+    - the wealthy
+    - the populous
+    - enemies
+    - the public
+    - religion
+    - the poor
+    - family
+    - the elite
+    - academia
+    - the forsaken
+    - the law
+    - the government
+    - the oppressed
+    - friends
+    - criminals
+    - allies
+    - secret societies
+    - the world
+    - military
+    - the church
+    - dreams
+    - discretion
+    - love
+    - freedom
+    - pain
+    - faith
+    - slavery
+    - enlightenment
+    - racism
+    - sensuality
+    - dissonance
+    - peace
+    - discrimination
+    - disbelief
+    - pleasure
+    - hate
+    - happiness
+    - servitude
+    - harmony
+    - justice
+    - gluttony
+    - lust
+    - envy
+    - greed
+    - laziness
+    - wrath
+    - pride
+    - purity
+    - moderation
+    - vigilance
+    - zeal
+    - composure
+    - charity
+    - modesty
+    - atrocities
+    - cowardice
+    - narcissism
+    - compassion
+    - valor
+    - patience
+    - advice
+    - propaganda
+    - science
+    - knowledge
+    - communications
+    - lies
+    - myths
+    - riddles
+    - stories
+    - legends
+    - industry
+    - new religions
+    - progress
+    - animals
+    - ghosts
+    - magic
+    - nature
+    - old religions
+    - expertise
+    - spirits
