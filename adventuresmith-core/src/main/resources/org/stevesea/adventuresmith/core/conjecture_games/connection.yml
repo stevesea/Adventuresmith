@@ -1,0 +1,76 @@
+---
+templates:
+- "{{connection.template}}"
+
+nested_tables:
+  connection:
+    template:
+    - |
+      Actions: {{>pickN: 3 connection.action}}
+      <br/>
+      <br/>Gerunds: {{>pickN: 3 connection.gerund}}
+      <br/>
+      <br/>Subjects: {{>pickN: 3 connection.subject}}
+    action:
+    - proclaim
+    - protest
+    - resolve
+    - interject
+    - demand
+    - impart
+    - commend
+    - muse
+    - examine
+    - digress
+    - assure
+    - reminisce
+    - ponder
+    - scrutinize
+    - address
+    - deceive
+    - negotiate
+    - guide
+    - endorse
+    - speculate
+    gerund:
+    - exposing
+    - weakening
+    - divulging
+    - lying
+    - confronting
+    - detailing
+    - avoiding
+    - working
+    - negating
+    - preparing
+    - training
+    - enjoying
+    - discussing
+    - obsessing
+    - repairing
+    - improving
+    - understanding
+    - connecting
+    - concluding
+    - excluding
+    subject:
+    - a dislike
+    - an attribute
+    - a desire
+    - friends or family
+    - an annoyance
+    - a skill
+    - a fear
+    - wealth
+    - home or hearth
+    - an ability
+    - a decision
+    - a love
+    - personal qualities
+    - your nature
+    - a like
+    - enemies
+    - party member
+    - a core belief
+    - a possession
+    - allies

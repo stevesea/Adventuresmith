@@ -1,0 +1,235 @@
+---
+templates:
+- |
+  {{waylay.template}}
+  <br/>
+  <small><em>
+  <br/>%[[>get: descs <br/><br/>]]%
+  </em></small>
+
+
+nested_tables:
+  waylay:
+    template:
+    - "{{waylay.theme_template}} overcome by <em><strong>{{>pick: 2d10 waylay.solution}}</strong></em>"
+    theme_template:
+    - "<em><strong> {{waylay.modifier}} {{waylay_noun.select}}</strong></em>"
+
+    modifier:
+    - futile
+    - impassioned
+    - hesitant
+    - benign
+    - revered
+    - pedantic
+    - grim
+    - common
+    - bitter
+    - impassioned
+    - perceiving
+    - selfish
+    - prohibited
+    - brusque
+    - prosperous
+    - depraved
+    - comforting
+    - hopeless
+    - waning
+    - regimental
+    - harsh
+    - leeching
+    - tranquil
+    - inclusive
+    - righteous
+    - attentive
+    - inexplicable
+    - corrupt
+    - roaring
+    - unmistakable
+    - sudden
+    - impending
+    - fragile
+    - painless
+    - haphazard
+    - foreign
+    - ravenous
+    - adept
+    - barbaric
+    - disputable
+    - binding
+    - noble
+    - copious
+    - retired
+    - provoking
+    - ordinary
+    - prolonged
+    - deceiving
+    - savage
+    - drowsy
+    - mundane
+    - abrupt
+    - unforeseen
+    - peaceful
+    - steady
+    - abetting
+    - stale
+    - regular
+    - dubious
+    - exclusive
+    - unreliable
+    - altruistic
+    - storied
+    - tapped
+    - tedious
+    - quiet
+    - exotic
+    - impervious
+    - fledgling
+    - fixated
+    - illuminating
+    - exhausting
+    - honorable
+    - exclusive
+    - apparent
+    - valuable
+    - haunting
+    - migrant
+    - pleasant
+    - incompetent
+    - abnormal
+    - abstract
+    - irritating
+    - hidden
+    - hallowed
+    - illusory
+    - legendary
+    - prolonged
+    - meek
+    - proficient
+    - forbidden
+    - fantastic
+    - accidental
+    - malevolent
+    - unlikely
+    - problematic
+    - eccentric
+    - lethargic
+    - amusing
+    - afflicting
+
+    # note: this is 2d10 (bell-curve)
+    solution:
+    - legendary help
+    - act of nature
+    - the people
+    - enemy help
+    - avoidance
+    - scarce-used ability
+    - personal resources
+    - close friend
+    - strong attribute
+    - favored ability
+    - favored skill
+    - on accident
+    - weak attribute
+    - counteraction
+    - faction intervention
+    - the authority
+    - fate
+    - change of heart
+    - deus ex
+
+
+  waylay_noun:
+    select:
+    - |
+      {{waylay_noun.easy_foes}} <small>(Easy Foes)</small>
+      {{>accum: descs <strong>Easy Foes:</strong> waylays the PC should easily overcome either by force, guile, or charm. In combat heavy games these could be considered random encounters.}}
+    - |
+      {{waylay_noun.hard_foes}} <small>(Hard Foes)</small>
+      {{>accum: descs <strong>Hard Foes:</strong> these encounters are a challenge to the PC, and not simply ‘dealt with’. In combat heavy games these would be considered capstone fights, but guile or charm should be options to overcoming these waylays.}}
+    - |
+      {{waylay_noun.knowledge.}} <small>(Knowledge)</small>
+      {{>accum: descs <strong>Knowledge:</strong> these are the mysteries and mental puzzles of the world. Here a PC can learn and grow in understanding of the world around.}}
+    - |
+      {{waylay_noun.physical}} <small>(Physical)</small>
+      {{>accum: descs <strong>Physical:</strong> where “Knowledge” is to brain, “Physical” is to brawn. “Physical” is usually non-combat. Dexterity and fortitude are just as important to overcoming these obstacles as strength.}}
+    - |
+      {{waylay_noun.factional}} <small>(Factional)</small>
+      {{>accum: descs <strong>Factional:</strong> these Waylays involve the larger players in the world. The subject usually represents a component that has a much bigger scale than a PC’s party.}}
+    - |
+      {{waylay_noun.haven}} <small>(Haven)</small>
+      {{>accum: descs <strong>Haven:</strong> this is where a PC visits and explores a location for a “slice of life”. All Waylays are not necessarily conflict. Sometimes life just gets in the way.}}
+
+    - |
+      {{waylay_noun.party}} <small>(Party)</small>
+      {{>accum: descs <strong>Party:</strong> the PC’s friends, family, and contacts are involved in the Waylays here. These Waylays focus on the conflicts that can occur in close relationships.}}
+    - |
+      {{waylay_noun.personal}} <small>(Personal)</small>
+      {{>accum: descs <strong>Personal:</strong> the most important people to a PC come up in these Waylays. Unlike “Party” the Waylay here is inherent in the relationship.}}
+    - |
+      {{waylay_noun.epic}} <small>(Epic)</small>
+      {{>accum: descs <strong>Epic:</strong> most won’t believe what just happened. Greater forces were at work here.}}
+    - |
+      {{waylay_noun.natural}} <small>(Natural)</small>
+      {{>accum: descs <strong>Natural:</strong> those blistering hot days and those hurricanes, or the mall.}}
+    easy_foes:
+    - animals
+    - mooks
+    - mob
+    - bandits
+    - deputies
+    hard_foes:
+    - bounty hunter
+    - soldiers
+    - monster
+    - villain
+    - horror
+    knowledge:
+    - ascetic
+    - research
+    - occult
+    - enigma
+    - science
+    physical:
+    - pursuit
+    - trap
+    - struggle
+    - illness
+    - labor
+    factional:
+    - army
+    - invader
+    - holdings
+    - authority
+    - rebels
+    haven:
+    - festival
+    - hermit
+    - tavern
+    - hamlet
+    - conclave
+    party:
+    - misunderstanding
+    - accusations
+    - power play
+    - friend-in-need
+    - disappearance
+    personal:
+    - traitor
+    - lover
+    - death
+    - relative
+    - rival
+    epic:
+    - heaven / hell
+    - afterlife
+    - myth
+    - otherworldly
+    - the strange
+    natural:
+    - weather
+    - straying / lost
+    - social environ
+    - deprivation
+    - the wild

@@ -58,8 +58,11 @@ generators:
   - whats_on_thing
   - where_has_it_been
   conjecture_games:
+  - connection
   - npc_creator
   - npc_interaction
+  - waylay
+  - waylay_arced
   kaigaku:
   - animals
   - battlefield_enemies

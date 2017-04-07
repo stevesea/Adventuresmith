@@ -1,0 +1,17 @@
+---
+templates:
+- |
+  Theme: %[[>titleCase: {{waylay.theme_template}}]]%
+  <br/>
+  <br/>{{waylay.template}}
+  <br/>
+  <br/>{{waylay.template}}
+  <br/>
+  <br/>{{waylay.template}}
+  <br/>
+  <small><em>
+  <br/>%[[>get: descs <br/><br/>]]%
+  </em></small>
+
+imports:
+- waylay
