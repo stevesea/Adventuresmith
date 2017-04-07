@@ -67,7 +67,7 @@ nested_tables:
     - |
       The <em>{{input.relationship}}</em> NPC's converstion mood is <strong><em>%[[relationship.{{input.relationship}}]]%.</em></strong>
       <br/>
-      <br/>The <em>%[[resolve_demeanor.{{input.demeanor}}]]%</em> NPC speaks of <strong><em>%[[bearing.{{input.demeanor}}]]%</em></strong> regarding the PC's <strong><em>{{interaction.focus}}</em></strong>.
+      <br/>The %[[resolve_demeanor.{{input.demeanor}}]]% regarding the PC's <strong><em>{{interaction.focus}}</em></strong>.
 
     focus:
     - current scene
@@ -106,34 +106,32 @@ nested_tables:
 
   resolve_demeanor:
     unknown:
-    - ""
+    - "1-12, {{resolve_demeanor.scheming}}"
+    - "13-24, {{resolve_demeanor.insane}}"
+    - "25-36, {{resolve_demeanor.friendly}}"
+    - "37-49, {{resolve_demeanor.hostile}}"
+    - "50-62, {{resolve_demeanor.inquisitive}}"
+    - "63-75, {{resolve_demeanor.knowing}}"
+    - "76-88, {{resolve_demeanor.mysterious}}"
+    - "89-100, {{resolve_demeanor.prejudiced}}"
     scheming:
-    - scheming
+    - "<strong><em>scheming</em></strong> NPC speaks of <strong><em>{{bearing.scheming}}</em></strong>"
     insane:
-    - insane
+    - "<strong><em>insane</em></strong> NPC speaks of <strong><em>{{bearing.insane}}</em></strong>"
     friendly:
-    - friendly
+    - "<strong><em>friendly</em></strong> NPC speaks of <strong><em>{{bearing.friendly}}</em></strong>"
     hostile:
-    - hostile
+    - "<strong><em>hostile</em></strong> NPC speaks of <strong><em>{{bearing.hostile}}</em></strong>"
     inquisitive:
-    - inquisitive
+    - "<strong><em>inquisitive</em></strong> NPC speaks of <strong><em>{{bearing.inquisitive}}</em></strong>"
     knowing:
-    - knowing
+    - "<strong><em>knowing</em></strong> NPC speaks of <strong><em>{{bearing.knowing}}</em></strong>"
     mysterious:
-    - mysterious
+    - "<strong><em>mysterious</em></strong> NPC speaks of <strong><em>{{bearing.mysterious}}</em></strong>"
     prejudiced:
-    - prejudiced
+    - "<strong><em>prejudiced</em></strong> NPC speaks of <strong><em>{{bearing.prejudiced}}</em></strong>"
 
   bearing:
-    unknown:
-    - "1-12, {{bearing.scheming}}"
-    - "13-24, {{bearing.insane}}"
-    - "25-36, {{bearing.friendly}}"
-    - "37-49, {{bearing.hostile}}"
-    - "50-62, {{bearing.inquisitive}}"
-    - "63-75, {{bearing.knowing}}"
-    - "76-88, {{bearing.mysterious}}"
-    - "89-100, {{bearing.prejudiced}}"
     scheming:
     - intent
     - bargain

@@ -2,7 +2,7 @@
 name: NPC Interaction
 collectionId: conjecture_games
 input:
-  displayTemplate: "Relationship: {{relationship}}<br/>Demeanor: {{demeanor}}"
+  displayTemplate: "Relationship with PC: {{relationship}}<br/>Demeanor: {{demeanor}}"
   params:
   - name: relationship
     uiName: Relationship
