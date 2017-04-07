@@ -1,0 +1,30 @@
+---
+name: Loom of Fate
+collectionId: conjecture_games
+input:
+  displayTemplate: "Where are we heading?: {{heading}}<br/>Surge Count: {{surgeCount}}"
+  useWizard: true
+  params:
+  - name: heading
+    uiName: heading
+    helpText: Where are we heading?
+    defaultValue: Conflict
+    values:
+    - Knowledge
+    - Conflict
+    - Endings
+  - name: surgeCount
+    uiName: Surge Count
+    helpText: Surge Count
+    defaultValue: 0
+    isInt: true
+    values:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16

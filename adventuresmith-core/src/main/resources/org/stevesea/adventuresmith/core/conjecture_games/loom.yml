@@ -1,0 +1,95 @@
+---
+templates:
+- "{{loom.template}}"
+
+definitions:
+  incrementSurge: <br/><br/>+2 to Surge
+  resetSurge: <br/><br/>Set Surge to 0
+
+nested_tables:
+  loom:
+    template:
+    - |
+      %[[heading.select]]%
+      <br/>
+      <br/><small><em>Heading to {{input.heading}}. Surge: {{input.surgeCount}}</em></small>
+  unexpectedly:
+    template:
+    - |
+      <small>{{unexpectedly.vals}}</small>
+      {{resetSurge}}
+
+    vals:
+    - <strong>Foreshadowing</strong> – set a thread to be the main thread for the next scene. The current scene should then start wrapping up and heading towards the next scene.
+    - <strong>Tying Off</strong> – the main thread resolves or substantially moves forward in this scene by narrative decree. This does not mean that the main thread cannot create follow-up threads.
+    - <strong>To Conflict</strong> – the next scene centers on a conflict of your choosing. Set the main elements of the next scene, and start heading toward them in this scene.
+    - <strong>Costume Change</strong> – an NPC drastically changes their mind, motivations, alliances, etc. for better or worse. This could be a big story reveal or a simple change of heart.
+    - <strong>Key Grip</strong> – set the location or general elements for the next scene. The current scene should then start wrapping up and heading towards the next scene.
+    - <strong>To Knowledge</strong> – the next scene centers on lore or investigation of your choosing. Set the main elements of the next scene, and start heading toward them in this scene.
+    - <strong>Framing</strong> – an NPC (new or pre-existing) or object becomes critical to the main thread.
+    - <strong>Set Change</strong> – scene continues in another location. The current thread remains as much as makes sense.
+    - <strong>Upstaged</strong> – an NPC makes a big move. If the NPC has any motivations, plot vectors, or goals they go into overdrive.
+    - <strong>Pattern Change</strong> – the main thread gets modified, drastically. Whatever direction the main thread was heading, make a hard left. Use a generator, such as Rory’s Story Cubes, tarot cards or a random Wikipedia page, as necessary.
+    - <strong>Limelit</strong> – the rest of the scene goes great for the PC’s. Assume that the majority of the questions pertaining to the main thread with regard to the scene are answered in a way that benefits the PC’s.
+    - <strong>Entering the Red</strong> – threat of danger or combat arrives. The premise of the scene gets more dangerous in a way that forces the PC’s to respond by leaving, fighting, or taking their chances.
+    - <strong>To Endings</strong> – the next scene resolves or substantially moves forward a thread of your choosing. Set the main elements of the next scene, and start heading toward them in this scene.
+    - <strong>Montage</strong> – the timeframe of the scene changes to a montage of actions set across various scenes to move forward.
+    - <strong>Enter Stage Left</strong> – a PC or NPC (new or pre-existing) arrives fresh in the scene.
+    - <strong>Cross-stitch</strong> - choose another thread to be the main thread for the rest of the scene.
+    - <strong>Six Degrees</strong> – a meaningful, but not always positive, connection forms between two PC’s and/or NPC’s.
+    #- "{{unexpectedly.vals}}" #re-roll/reserved
+    #- "{{unexpectedly.vals}}" #re-roll/reserved
+    #- "{{unexpectedly.vals}}" #re-roll/reserved
+
+  heading:
+    select:
+    - |
+      %[[>pick: 1d50-{{input.surgeCount}} heading.{{input.heading}}]]%
+    - |
+      %[[>pick: 1d50+{{input.surgeCount}} heading.{{input.heading}}]]%
+    Knowledge:
+    - |
+      1-5,
+      No, and unexpectedly...
+      <br/><br/>{{unexpectedly.template}}
+    - "6-15, No, but {{resetSurge}}"
+    - "16-20, No, and {{resetSurge}}"
+    - "21-50, No {{incrementSurge}}"
+    - "51-80, Yes {{incrementSurge}}"
+    - "81-85, Yes, and {{resetSurge}}"
+    - "86-95, Yes, but {{resetSurge}}"
+    - |
+      96-100,
+      Yes, and unexpectedly...
+      <br/><br/>{{unexpectedly.template}}
+    Conflict:
+    - |
+      1-2,
+      No, and unexpectedly...
+      <br/><br/>{{unexpectedly.template}}
+    - "3-6, No, but {{resetSurge}}"
+    - "7-16, No, and {{resetSurge}}"
+    - "17-50, No {{incrementSurge}}"
+    - "51-84, Yes {{incrementSurge}}"
+    - "85-94, Yes, and {{resetSurge}}"
+    - "95-98, Yes, but {{resetSurge}}"
+    - |
+      99-100,
+      Yes, and unexpectedly...
+      <br/><br/>{{unexpectedly.template}}
+    Endings:
+    - |
+      1,
+      No, and unexpectedly...
+      <br/><br/>{{unexpectedly.template}}
+    - "2, No, but {{resetSurge}}"
+    - "3-20, No, and {{resetSurge}}"
+    - "21-50, No {{incrementSurge}}"
+    - "51-80, Yes {{incrementSurge}}"
+    - "81-98, Yes, and {{resetSurge}}"
+    - "99, Yes, but {{resetSurge}}"
+    - |
+      100,
+      Yes, and unexpectedly...
+      <br/><br/>{{unexpectedly.template}}
+
