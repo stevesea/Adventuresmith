@@ -514,6 +514,12 @@ class AdventuresmithActivity : AppCompatActivity(),
     fun getFavorites(groupName : String) : SortedSet<String> {
         return sharedPreferences.getStringSet(getFavoriteSettingKey(groupName), setOf()).toSortedSet()
     }
+    fun getFavoriteGenerators(groupName: String) : Map<GeneratorMetaDto, Generator> {
+        return AdventuresmithCore.getGeneratorsByIds(
+                getCurrentLocale(resources),
+                getFavorites(groupName)
+        )
+    }
     fun addFavoriteToGroup(groupName: String, genId: String) {
         info("adding favorite: $groupName - $genId")
         val newVals : MutableSet<String> = mutableSetOf()
@@ -891,8 +897,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val favName = favoriteIdToName.get(drawerItemId)
                         if (favName != null) {
                             // the long-clicked drawer is a favorite group, they either want to rename it or remove it
-                            val oldVals = getFavorites(favName)
-                            if (oldVals.size == 0) {
+                            val oldVals = getFavoriteGenerators(favName)
+                            if (oldVals.isEmpty()) {
                                 alert(favName, getString(R.string.fav_group_remove)) {
                                     yesButton {
                                         removeFavoriteGroup(favName)
@@ -1052,12 +1058,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         )
                     } else if (favName != null) {
                         Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
-                        val favs = getFavorites(favName)
-                        debug("favorites: $favs")
-                        AdventuresmithCore.getGeneratorsByIds(
-                                getCurrentLocale(resources),
-                                favs
-                                )
+                        getFavoriteGenerators(favName)
                     } else {
                         mapOf()
                     }
