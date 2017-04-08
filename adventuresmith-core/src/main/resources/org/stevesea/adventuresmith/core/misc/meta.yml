@@ -12,7 +12,7 @@ groupIcons:
   grp4th: cmd-numeric-4-box-outline
   grpItems: cmd-engine
   grpChar: cmd-account
-  grpGME: cmd-lightbulb-on
+  grpGME: cmd-lightbulb-on-outline
 
 attribution: |
   <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>
