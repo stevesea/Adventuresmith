@@ -8,13 +8,13 @@ templates:
 definitions:
   roller:
     Sure_Thing: "%[[>pick: {{>roll: 1d10}} vals.Sure_Thing]]%"
-    Very_Likely: "%[[>pick: {{>rollKeepHigh: 3 1 1d10}} vals.Even]]%"
-    Likely: "%[[>pick: {{>rollKeepHigh: 2 1 1d10}} vals.Even]]%"
+    Very_Likely: "%[[>pick: {{>rollKeepHigh: 3 1 1d10}} vals.Fifty_Fifty]]%"
+    Likely: "%[[>pick: {{>rollKeepHigh: 2 1 1d10}} vals.Fifty_Fifty]]%"
     Somewhat_Likely: "%[[>pick: {{>roll: 1d10}} vals.Somewhat_Likely]]%"
-    Even: "%[[>pick: {{>roll: 1d10}} vals.Even]]%"
+    Fifty_Fifty: "%[[>pick: {{>roll: 1d10}} vals.Fifty_Fifty]]%"
     Somewhat_Unlikely: "%[[>pick: {{>roll: 1d10}} vals.Somewhat_Unlikely]]%"
-    Unlikely: "%[[>pick: {{>rollKeepLow: 2 1 1d10}} vals.Even]]%"
-    Very_Unlikely: "%[[>pick: {{>rollKeepLow: 3 1 1d10}} vals.Even]]%"
+    Unlikely: "%[[>pick: {{>rollKeepLow: 2 1 1d10}} vals.Fifty_Fifty]]%"
+    Very_Unlikely: "%[[>pick: {{>rollKeepLow: 3 1 1d10}} vals.Fifty_Fifty]]%"
     Almost_Impossible: "%[[>pick: {{>roll: 1d10}} vals.Almost_Impossible]]%"
 
 nested_tables:
@@ -31,7 +31,7 @@ nested_tables:
     - 4, No, but
     - 2-3, No
     - 1, No, and
-    Even:
+    Fifty_Fifty:
     - 10, Yes, and
     - 7-9, Yes
     - 6, Yes, but

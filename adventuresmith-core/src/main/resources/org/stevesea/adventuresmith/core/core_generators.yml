@@ -252,6 +252,7 @@ generators:
   - names
 
   - fate_chart_variant
+  - tiny_universal
 
   perilous_wilds:
   - place_names

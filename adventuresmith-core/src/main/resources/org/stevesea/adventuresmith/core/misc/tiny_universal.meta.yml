@@ -1,0 +1,16 @@
+---
+name: Tiny Universal
+collectionId: misc
+groupId: grpGME
+input:
+  displayTemplate: "Roll: {{roll}}"
+  params:
+  - name: roll
+    uiName: Roll
+    helpText: How should the PC Roll?
+    defaultValue: Normal
+    values:
+    - Advantage
+    - Normal
+    - Disadvantage
+

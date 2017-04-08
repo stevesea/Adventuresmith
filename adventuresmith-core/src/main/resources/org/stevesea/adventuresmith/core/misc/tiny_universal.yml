@@ -1,0 +1,21 @@
+---
+templates:
+- |
+  %[[roller.{{input.roll}}]]%
+  <br/>
+  <br/><small><em>[Roll: {{input.roll}}]</em></small>
+
+definitions:
+  roller:
+    Advantage: "%[[>pick: {{>rollKeepHigh: 3 2 1d6}} vals]]%"
+    Normal: "%[[>pick: 2d6 vals]]%"
+    Disadvantage: "%[[>pick: {{>rollKeepLow: 3 2 1d6}} vals]]%"
+
+tables:
+  vals:
+  - 2-3, No, and… <br/><br/><small>you don’t get what you want and something bad happens, too</small>
+  - 4-5, No, but… <br/><br/><small>you don’t get what you want, but there is something positive</small>
+  - 6, Not yet, not until… <br/><br/><small>the GM will tell you what you need to do in order to achieve your intention</small>
+  - 7-9, Yes, but… <br/><br/><small>you get what you want but at a cost</small>
+  - 10, Yes <br/><br/><small>you get what you want</small>
+  - 11-12, Yes, and… <br/><br/><small>you get what you want and there’s an extra benefit</small>
