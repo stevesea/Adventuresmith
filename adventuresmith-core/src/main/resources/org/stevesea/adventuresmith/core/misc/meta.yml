@@ -5,12 +5,14 @@ credit: Various Authors
 icon: cmd_hexagon_multiple
 groups:
   grpChar: Characters
+  grpGME: GM Emulators
   grpItems: Items
   grp4th: The Fourth Page
 groupIcons:
   grp4th: cmd-numeric-4-box-outline
   grpItems: cmd-engine
   grpChar: cmd-account
+  grpGME: cmd-lightbulb-on
 
 attribution: |
   <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>
@@ -47,6 +49,9 @@ attribution: |
   expansion to an entire game of its own. Many gamers involved in the current
   "Old School Renaissance" (OSR) started with the Holmes Set.
   </blockquote>
+
+  <h5>Mythic Fate Chart Variant</h5>
+  From this post: http://solodungeoneer.blogspot.com/2012/09/mythic-fate-chart-variant.html
 
 
 

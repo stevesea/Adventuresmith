@@ -251,6 +251,8 @@ generators:
   - magic_item
   - names
 
+  - fate_chart_variant
+
   perilous_wilds:
   - place_names
   - region_names
