@@ -129,6 +129,9 @@ class GeneratorTest {
 
         4
         val1<br/>val2
+        1
+        1
+        1
         """.trimIndent(), g.generate(Locale.US))
     }
 }

@@ -41,6 +41,9 @@ templates:
   {{>add: var1 6}}
   {{>get: var1}}
   {{>get: listVar <br/>}}
+  {{>roll: 1d8}}
+  {{>rollKeepHigh: 2 1 1d8}}
+  {{>rollKeepLow: 2 1 1d8}}
 
 
 definitions:

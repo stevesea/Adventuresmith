@@ -26,6 +26,7 @@ import com.github.salomonbrys.kodein.*
 import com.google.common.base.Throwables
 import com.google.common.collect.*
 import com.samskivert.mustache.*
+import mu.KLoggable
 import java.io.*
 import java.util.*
 
@@ -436,7 +437,9 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
     }
 }
 
-class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware {
+class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware, KLoggable {
+
+    override val logger = LocaleAwareResourceFinder.logger()
 
     val shuffler : Shuffler = instance()
 
@@ -526,8 +529,38 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware 
                             }
                             val num = params[0].toInt()
                             val diceStr = params[1]
-                            val delim = if (params.size > 2) { params[2] } else { ", "}
+                            val delim = if (params.size > 2) {
+                                params[2]
+                            } else {
+                                ", "
+                            }
                             return StringReader(shuffler.rollN(diceStr, num).joinToString(delim))
+                        } else if (cmd_and_params[0] == "rollKeepHigh:") {
+                            // {{>rollKeepHigh: <rollN> <KeepN> <dicestr>}}
+                            val params = cmd_and_params[1].split(" ", limit = 3)
+                            if (!(2..3).contains(params.size)) {
+                                throw IllegalArgumentException("rollKeepHigh syntax must be: '<# to roll> <# to Keep> <dice>'. input: ${cmd_and_params[1]}")
+                            }
+                            val numToRoll = params[0].toInt()
+                            val numToKeep = params[1].toInt()
+                            val diceStr = params[2]
+                            val rolls = shuffler.rollN(diceStr, numToRoll).sortedDescending()
+                            val kept = rolls.take(numToKeep)
+                            logger.info("keephigh. rolled: $rolls , kept: $kept")
+                            return StringReader(kept.sum().toString())
+                        } else if (cmd_and_params[0] == "rollKeepLow:") {
+                            // {{>rollKeepLow: <rollN> <KeepN> <dicestr>}}
+                            val params = cmd_and_params[1].split(" ", limit = 3)
+                            if (!(2..3).contains(params.size)) {
+                                throw IllegalArgumentException("rollKeepLow syntax must be: '<# to roll> <# to Keep> <dice>'. input: ${cmd_and_params[1]}")
+                            }
+                            val numToRoll = params[0].toInt()
+                            val numToKeep = params[1].toInt()
+                            val diceStr = params[2]
+                            val rolls = shuffler.rollN(diceStr, numToRoll).sortedDescending()
+                            val kept = rolls.takeLast(numToKeep)
+                            logger.info("keeplow. rolled: $rolls , kept: $kept")
+                            return StringReader(kept.sum().toString())
                         } else if (cmd_and_params[0] == "add:") {
                             // {{>add: <variable> <val>}}
                             val params = cmd_and_params[1].split(" ", limit = 2)
