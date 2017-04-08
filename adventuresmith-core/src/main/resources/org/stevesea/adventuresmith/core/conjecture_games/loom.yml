@@ -46,7 +46,7 @@ nested_tables:
     - |
       %[[>pick: 1d50-{{input.surgeCount}} heading.{{input.heading}}]]%
     - |
-      %[[>pick: 1d50+{{input.surgeCount}} heading.{{input.heading}}]]%
+      %[[>pick: 1d50+50+{{input.surgeCount}} heading.{{input.heading}}]]%
     Knowledge:
     - |
       1-5,
