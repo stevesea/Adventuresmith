@@ -10,13 +10,13 @@ input:
     helpText: What are the odds?
     defaultValue: Even
     values:
-    - SureThing
-    - VeryLikely
+    - Sure_Thing
+    - Very_Likely
     - Likely
-    - SomewhatLikely
+    - Somewhat_Likely
     - Even
-    - SomewhatUnlikely
+    - Somewhat_Unlikely
     - Unlikely
-    - VeryUnlikely
-    - AlmostImpossible
+    - Very_Unlikely
+    - Almost_Impossible
 

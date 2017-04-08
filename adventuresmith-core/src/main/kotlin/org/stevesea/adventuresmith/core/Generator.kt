@@ -546,7 +546,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                             val diceStr = params[2]
                             val rolls = shuffler.rollN(diceStr, numToRoll).sortedDescending()
                             val kept = rolls.take(numToKeep)
-                            logger.info("keephigh. rolled: $rolls , kept: $kept")
+                            logger.debug("keephigh. rolled: $rolls , kept: $kept")
                             return StringReader(kept.sum().toString())
                         } else if (cmd_and_params[0] == "rollKeepLow:") {
                             // {{>rollKeepLow: <rollN> <KeepN> <dicestr>}}
@@ -559,7 +559,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                             val diceStr = params[2]
                             val rolls = shuffler.rollN(diceStr, numToRoll).sortedDescending()
                             val kept = rolls.takeLast(numToKeep)
-                            logger.info("keeplow. rolled: $rolls , kept: $kept")
+                            logger.debug("keeplow. rolled: $rolls , kept: $kept")
                             return StringReader(kept.sum().toString())
                         } else if (cmd_and_params[0] == "add:") {
                             // {{>add: <variable> <val>}}
