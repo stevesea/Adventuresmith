@@ -8,7 +8,7 @@ input:
   - name: odds
     uiName: Odds
     helpText: What are the odds?
-    defaultValue: Even
+    defaultValue: Fifty_Fifty
     values:
     - Sure_Thing
     - Very_Likely
