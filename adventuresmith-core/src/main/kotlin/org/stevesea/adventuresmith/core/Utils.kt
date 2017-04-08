@@ -40,7 +40,7 @@ fun getFinalPackageName(clz : Class<Any> ) : String {
 
 fun titleCase(input: String) : String {
 
-    val DELIMITERS = setOf<Char>(' ', '\'', '-')
+    val DELIMITERS = setOf<Char>(' ', '\'', '-', '(', ')')
 
     val sb = StringBuilder()
     var capNext = true
