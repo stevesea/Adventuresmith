@@ -64,7 +64,7 @@ Application launch icon, splash screen logo, and nav-drawer-header logo were cre
 * This application uses icons from [http://ionicons.com/](http://ionicons.com/)
 
 ## Content
-Adventuresmith uses content from the sources noted in this (document)(./content_attribution.md)
+Adventuresmith uses content from the sources noted in this [document](./content_attribution.md)
 
 ## Software
 
