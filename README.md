@@ -40,7 +40,7 @@ Want to keep up with development? Here's the [G+ community](https://plus.google.
 If you're interested in creating generators, or want to run Adventuresmith on the desktop, there
 are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 
-## Screenshots
+## Screenots
 
 ![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer.png "Sliding nav bar")
 ![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/pw_discovery.png "Perilous Wilds - Discovery")
@@ -64,61 +64,7 @@ Application launch icon, splash screen logo, and nav-drawer-header logo were cre
 * This application uses icons from [http://ionicons.com/](http://ionicons.com/)
 
 ## Content
-Adventuresmith uses content from the following sources
-
-NOTE: this README may be out-of-date, but the app itself has a 'Attribution & Thanks' page
-that lists all the content contained within it.
-
-### Jason Lutes
-[Lampblack & Brimstone](http://lampblackandbrimstone.blogspot.com/)
-* the Perilous Wilds
-* Freebooters on the Frontier
-
-#### Antoine Pempie
-French translation of Freebooters on the Frontier, released under Creative Commons
-Attribution - ShareAlike 3.0 Unported license.
-
-### Kevin Crawford / Sine Nomine Publishing
-[Sine Nomine Publishing](http://www.sinenomine-pub.com/)
-* Stars Without Number - content is from the free version of the SWN rule book
-
-### Courtney C Campbell
-[Hack & Slash blog](http://hackslashmaster.blogspot.com/)
-* [Tricks, Empty Rooms, & Basic Trap Design](http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html)
-
-### Paul D. Gallagher / Geist Hack Games
-[Neural Archive blog](http://neuralarchive.blogspot.co.uk)
-* [Augmented Reality](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
-
-### The Sentinels of Meregoth / Neoplastic Press
-* [Roll XX](http://www.drivethrurpg.com/product/108917/Roll-XX)
-* [Roll XX: Double Damage](http://www.drivethrurpg.com/product/113448/Roll-XX-Double-Damage)
-
-### Ben Milton
-[Maze Rats](http://questingblog.com/downloads/)
-* Maze Rats 4.1
-* Maze Rats 0.1 http://questingblog.com/maze-rats/
-
-### Jeremy Strandberg
-* [Minor Arcana Generator for Stonetop](https://plus.google.com/collection/c0dRb)
-
-### Mike Riverso
-* the Fourth Page generators for World of Dungeons. Licensed under the Creative Commons Attribute 3.0 Unported License. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
-
-### Jacob DC Ross / Thunderegg Productions
-* [Kaigaku](http://www.drivethrurpg.com/product/186267/Kaigaku-RPG)
-
-### Diogo Nogueira / Old Skull Publishing
-* [Sharp Swords & Sinister Spells](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
-* [Lost Folios of the Book of Creation #1 - Adventure Title Generator](http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator)
-
-### Zenopus Archives
-* [Blog](http://zenopusarchives.blogspot.com/)
-* [Reference Sheets for Holmes Basic Referees](https://sites.google.com/site/zenopusarchives/home/holmes-ref)
-
-### /r/BehindTheScreen & /r/BehindTheTables
-* [/r/BehindTheTables](https://www.reddit.com/r/BehindTheTables/)
-* NOTE: still in progress bringing all these into the app
+Adventuresmith uses content from the sources noted in this (document)(./content_attribution.md)
 
 ## Software
 

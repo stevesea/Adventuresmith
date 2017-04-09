@@ -85,3 +85,8 @@ task(runExercise, dependsOn: 'classes', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     args 'core-exercise'
 }
+task(generateDocs, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.stevesea.adventuresmith.cli.AdventuresmithCli'
+    classpath = sourceSets.main.runtimeClasspath
+    args 'core-docs'
+}

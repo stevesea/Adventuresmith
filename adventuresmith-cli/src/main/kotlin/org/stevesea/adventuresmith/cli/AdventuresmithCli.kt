@@ -76,6 +76,7 @@ object AdventuresmithCli : KLoggable {
     val SUBCMD = "subcmd"
     val SUBCMD_CORE_EXERCISE = "core-exercise"
     val SUBCMD_CORE_LIST = "core-list"
+    val SUBCMD_CORE_DOCS = "core-docs"
     val SUBCMD_RUN = "run"
 
     override val logger = logger()
@@ -95,11 +96,14 @@ object AdventuresmithCli : KLoggable {
         val cmdList = subparsers.addParser(SUBCMD_CORE_LIST)
                 .defaultHelp(true)
                 .help("list all the generators in Adventuresmith-core")
+        val cmdDocs = subparsers.addParser(SUBCMD_CORE_DOCS)
+                .defaultHelp(true)
+                .help("generate documentation for all the generators in Adventuresmith-core")
         val cmdRun = subparsers.addParser(SUBCMD_RUN)
                 .defaultHelp(true)
                 .help("run a generator from the filesystem")
 
-        listOf(cmdList, cmdRun, cmdExercise).forEach {
+        listOf(cmdList, cmdRun, cmdExercise, cmdDocs).forEach {
             it.addArgument("-l", "--locale")
                     .metavar("L")
                     .type(LocaleArgType())
@@ -149,6 +153,7 @@ object AdventuresmithCli : KLoggable {
                 SUBCMD_CORE_EXERCISE -> exercise(opts)
                 SUBCMD_CORE_LIST -> list(opts)
                 SUBCMD_RUN -> runGenerator(opts)
+                SUBCMD_CORE_DOCS -> docsGen(opts)
                 else -> parser.printUsage()
             }
         } catch ( e: ArgumentParserException) {
@@ -179,6 +184,25 @@ object AdventuresmithCli : KLoggable {
         AdventuresmithCore.getGeneratorsByGroup(locale, collId, grpId).forEach {
             it -> logger.info("   -> {}", it.key.name)
         }
+    }
+
+    private fun docsGen(opts: Options) {
+
+        val l = opts.locale
+        println("## Content Attribution")
+        for (coll in AdventuresmithCore.getCollections(l)) {
+            if (coll.credit == null)
+                continue
+            println("### ${coll.credit}")
+            if (coll.url != null)
+                println("[url](${coll.url})")
+            println("")
+            println(coll.attribution.orEmpty())
+            println("")
+            println("")
+        }
+
+
     }
 
     private fun runGens(opts: Options, locale: Locale, collId: String, grpId: String? = null) {
