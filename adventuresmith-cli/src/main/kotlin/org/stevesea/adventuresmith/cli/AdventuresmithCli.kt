@@ -187,7 +187,6 @@ object AdventuresmithCli : KLoggable {
     }
 
     private fun docsGen(opts: Options) {
-
         val l = opts.locale
         println("## Content Attribution")
         for (coll in AdventuresmithCore.getCollections(l)) {
@@ -201,8 +200,6 @@ object AdventuresmithCli : KLoggable {
             println("")
             println("")
         }
-
-
     }
 
     private fun runGens(opts: Options, locale: Locale, collId: String, grpId: String? = null) {

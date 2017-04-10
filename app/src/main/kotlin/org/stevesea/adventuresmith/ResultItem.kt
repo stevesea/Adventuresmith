@@ -70,6 +70,12 @@ class ResultItem(val htmlTxt: String) :
 
     companion object {
         val resultId : AtomicLong = AtomicLong(0)
+
+        // called by parcelable
+        @JvmField val CREATOR: Parcelable.Creator<ResultItem> = object : Parcelable.Creator<ResultItem> {
+            override fun createFromParcel(source: Parcel): ResultItem = ResultItem(source)
+            override fun newArray(size: Int): Array<ResultItem?> = arrayOfNulls(size)
+        }
     }
 
     constructor(source: Parcel) : this(source.readString())
