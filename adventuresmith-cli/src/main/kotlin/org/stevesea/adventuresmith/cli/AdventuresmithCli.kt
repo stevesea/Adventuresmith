@@ -188,11 +188,11 @@ object AdventuresmithCli : KLoggable {
 
     private fun docsGen(opts: Options) {
         val l = opts.locale
-        println("## Content Attribution")
+        println("# Content Attribution")
         for (coll in AdventuresmithCore.getCollections(l)) {
             if (coll.credit == null)
                 continue
-            println("### ${coll.credit}")
+            println("## ${coll.name} - ${coll.credit}")
             if (coll.url != null)
                 println("[url](${coll.url})")
             println("")
