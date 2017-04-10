@@ -284,7 +284,7 @@ class DataDrivenGenDtoFileDeserializer(val input: File, override val kodein: Kod
     }
 }
 class DataDrivenGeneratorForFiles(
-        val input: File,
+        val inputFile: File,
         override val kodein: Kodein) : Generator, KodeinAware {
 
     val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
@@ -292,14 +292,14 @@ class DataDrivenGeneratorForFiles(
     val dtoMerger: DtoMerger = instance()
     val loaderFactory: (File) -> DataDrivenGenDtoFileDeserializer = factory()
     override fun getId(): String {
-        return input.absolutePath
+        return inputFile.absolutePath
     }
-    override fun generate(locale: Locale, inputMap: Map<String, String>?): String {
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
         try {
-            val dto = loaderFactory.invoke(input).load(locale)
+            val dto = loaderFactory.invoke(inputFile).load(locale)
 
             // load the map with the defaults first
-            val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(inputMap)
+            val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
 
             val context = dtoMerger.mergeDtos(
                     gatherDtoResources(dto, locale),
@@ -308,12 +308,12 @@ class DataDrivenGeneratorForFiles(
 
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
-            throw IOException("problem running generator ${input.name}: ${ex.message}", ex)
+            throw IOException("problem running generator ${inputFile.name}: ${ex.message}", ex)
         }
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        return loaderFactory.invoke(input).getMetadata(locale)
+        return loaderFactory.invoke(inputFile).getMetadata(locale)
     }
 
     fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale): List<DataDrivenGenDto> {
@@ -322,7 +322,7 @@ class DataDrivenGeneratorForFiles(
         dto.imports?.let {
             for (sibling in dto.imports) {
 
-                val inDir = input.absoluteFile.parentFile
+                val inDir = inputFile.absoluteFile.parentFile
                 val sibling_file = File(inDir, sibling + ".yml")
                 val d = loaderFactory.invoke(sibling_file).load(locale)
                 results.addAll(gatherDtoResources(d, locale))
