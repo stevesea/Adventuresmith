@@ -159,10 +159,10 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
             })
             return result as T
         } catch (e: ExecutionException) {
-            Throwables.propagateIfInstanceOf(e.cause, IOException::class.java)
-            throw Throwables.propagate(e.cause)
+            Throwables.throwIfInstanceOf(e.cause, IOException::class.java)
+            throw e.cause!!
         } catch (e: UncheckedExecutionException) {
-            throw Throwables.propagate(e.cause)
+            throw e.cause!!
         }
     }
 

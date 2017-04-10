@@ -84,7 +84,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
                     result.with(itemNum, str)
                     itemNum++
                 } catch (e: Exception) {
-                    Throwables.propagateIfInstanceOf(e, JsonMappingException::class.java)
+                    Throwables.throwIfInstanceOf(e, JsonMappingException::class.java)
                     throw JsonMappingException(p, "${e.message} - '$str'")
                 }
             } else {
