@@ -24,6 +24,8 @@ import com.github.salomonbrys.kodein.*
 import me.sargunvohra.lib.cakeparse.api.*
 import me.sargunvohra.lib.cakeparse.exception.*
 import me.sargunvohra.lib.cakeparse.parser.*
+import mu.KLoggable
+import mu.KLogger
 import java.text.*
 import java.util.*
 
@@ -147,6 +149,12 @@ object DiceConstants {
     val fudgeDice = mapOf(
             "NdF_1" to "Fudge Dice #1",
             "NdF_2" to "Fudge Dice #2"
+    )
+
+    val explodingDice = mapOf(
+            "XdY!_1" to "Exploding Dice #1",
+            "XdY!_2" to "Exploding Dice #2",
+            "XdY!_3" to "Exploding Dice #3"
     )
 
     // if we just want to roll dice, these could just be in the 'regularDice' above. But, i like
@@ -356,6 +364,100 @@ val diceModule = Kodein.Module {
             }
         }
     }
+    DiceConstants.explodingDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object: Generator, KLoggable {
+                override val logger = logger()
+                val diceParser: DiceParser = instance()
+
+                override fun getId(): String {
+                    return it.key
+                }
+
+                override fun generate(locale: Locale, input: Map<String, String>?): String {
+                    val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+
+                    val die = (inputMapForContext.getOrElse("y") { "6" }).toString().toInt()
+                    val nDie = (inputMapForContext.getOrElse("x") { "1" }).toString().toInt()
+
+                    val eGreaterVal = inputMapForContext.getOrElse("eGreater") { "" }.toString()
+                    val eGreater = if (eGreaterVal.isNullOrEmpty()) 0 else eGreaterVal.toInt()
+
+                    val eEqualVal = inputMapForContext.getOrElse("eEqual") { "" }.toString()
+                    var eEqual = if (eEqualVal.isNullOrEmpty()) 0 else eEqualVal.toInt()
+
+                    if (eGreater == 0 && eEqual == 0) {
+                        eEqual = die
+                    }
+
+
+                    val collected_rolls : MutableList<Int> = mutableListOf()
+
+                    var numToRoll = nDie
+                    do {
+                        val rolls = diceParser.rollN("1d" + die, numToRoll)
+                        collected_rolls.addAll(rolls)
+
+                        val matched_rolls = rolls.filter {
+                            (eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)
+                        }
+
+                        numToRoll = matched_rolls.size
+
+                        logger.debug("Rolled: ${rolls}. matches: ${matched_rolls} ($numToRoll)")
+                    } while (matched_rolls.isNotEmpty())
+
+                    logger.debug(" ... done. Collected rolls: ${collected_rolls}")
+
+                    var dStrSb = StringBuilder("${nDie}d${die}!")
+
+                    if (eGreater > 0)
+                        dStrSb.append(">" + eGreater)
+                    else if (eEqual > 0)
+                        dStrSb.append(eEqual)
+                    else if (eGreater == 0 && eEqual == 0)
+                        dStrSb.append(die)
+
+                    val dStr = dStrSb.toString()
+
+                    val sum = collected_rolls.sum()
+
+                    val nf = NumberFormat.getInstance(locale)
+
+                    val sb = StringBuilder()
+                    sb.append("${dStr}: [")
+                    sb.append(collected_rolls.joinToString(", "))
+                    sb.append("]<br/><br/>Total: <big><strong>${nf.format(sum)}</strong></big>")
+
+                    return sb.toString()
+                }
+
+                override fun getMetadata(locale: Locale): GeneratorMetaDto {
+                    return GeneratorMetaDto(name = it.value,
+                            collectionId = DiceConstants.CollectionName,
+                            priority = 3000,
+                            groupId = "grpCustom2",
+                            input = GeneratorInputDto(
+                                    displayTemplate = "<big>{{x}}d{{y}}!{{#eGreater}}>{{eGreater}}{{/eGreater}}{{^eGreater}}{{#eEqual}}{{eEqual}}{{/eEqual}}{{/eGreater}}{{^eGreater}}{{^eEqual}}{{y}}{{/eEqual}}{{/eGreater}}</big>",
+                                    useWizard = false,
+                                    params = listOf(
+                                            InputParamDto(name = "x", uiName = "X", numbersOnly = true, isInt = true, defaultValue = "1",
+                                                    maxVal = 1000, minVal = 0,
+                                                    helpText = "Enter dice 'XdY'"),
+                                            InputParamDto(name = "y", uiName = "Y", numbersOnly = true, isInt = true, defaultValue = "6"),
+                                            InputParamDto(name = "eGreater", uiName = ">E", numbersOnly = true, isInt = true,
+                                                    nullIfZero = true, defaultValue = "",
+                                                    helpText = "Explode if greater than or equal to:"),
+                                            InputParamDto(name = "eEqual", uiName = "=E", numbersOnly = true, isInt = true,
+                                                    nullIfZero = true, defaultValue = "",
+                                                    helpText = "Explode if equal to:")
+                                    )
+                            )
+                    )
+                }
+            }
+        }
+    }
 
     DiceConstants.fudgeDice.forEach {
         bind<Generator>(it.key) with provider {
@@ -416,7 +518,8 @@ val diceModule = Kodein.Module {
                         DiceConstants.d20disadv
                 ),
                 DiceConstants.customizableDice.keys,
-                DiceConstants.fudgeDice.keys
+                DiceConstants.fudgeDice.keys,
+                DiceConstants.explodingDice.keys
         ).flatten()
     }
 

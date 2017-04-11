@@ -439,7 +439,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
 
 class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware, KLoggable {
 
-    override val logger = LocaleAwareResourceFinder.logger()
+    override val logger = logger()
 
     val shuffler : Shuffler = instance()
 

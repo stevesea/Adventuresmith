@@ -133,7 +133,7 @@ class RangeMap(
         val delegate: TreeMap<Int, String> = TreeMap<Int, String>()
 ) : Map<Int, String> by delegate, KLoggable {
 
-    override val logger = LocaleAwareResourceFinder.logger()
+    override val logger = logger()
 
     var maxKey : Int = -1
     val ranges: MutableSet<IntRange> = mutableSetOf()

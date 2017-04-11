@@ -26,7 +26,7 @@ import mu.KLoggable
 import java.util.*
 
 class Shuffler(override val kodein: Kodein): KodeinAware, KLoggable {
-    override val logger = LocaleAwareResourceFinder.logger()
+    override val logger =  logger()
 
     val random: Random = instance()
     val diceParser : DiceParser = instance()

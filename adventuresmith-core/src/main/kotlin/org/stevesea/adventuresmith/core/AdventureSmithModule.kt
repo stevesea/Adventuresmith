@@ -37,7 +37,7 @@ import java.util.*
 
 
 object AdventuresmithCore : KodeinAware, KLoggable {
-    override val logger = LocaleAwareResourceFinder.logger()
+    override val logger = logger()
     // 'all' the generators in core
     val GENERATORS = "core-generators"
     // the tag for the resource-generators held in core
