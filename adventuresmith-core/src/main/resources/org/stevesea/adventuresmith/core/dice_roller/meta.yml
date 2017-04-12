@@ -6,10 +6,10 @@ groupIcons:
   grpPolys: cmd-dice-1
   grpCombinations: cmd-dice-2
   grpCustom: cmd-dice-3
-  grpCustom2: cmd-dice-4
+  grpFudge: cmd-plus-box
 groups:
   grpPolys: Single Polyhedral
   grpCombinations: Common Combos
-  grpCustom: Custom Dice 1
-  grpCustom2: Custom Dice 2
+  grpCustom: Custom Dice
+  grpFudge: Fudge & Exploding
 

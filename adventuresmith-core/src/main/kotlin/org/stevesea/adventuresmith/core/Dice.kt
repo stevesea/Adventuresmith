@@ -409,7 +409,7 @@ val diceModule = Kodein.Module {
 
                     logger.debug(" ... done. Collected rolls: ${collected_rolls}")
 
-                    var dStrSb = StringBuilder("${nDie}d${die}!")
+                    val dStrSb = StringBuilder("${nDie}d${die}!")
 
                     if (eGreater > 0)
                         dStrSb.append(">" + eGreater)
@@ -436,7 +436,7 @@ val diceModule = Kodein.Module {
                     return GeneratorMetaDto(name = it.value,
                             collectionId = DiceConstants.CollectionName,
                             priority = 3000,
-                            groupId = "grpCustom2",
+                            groupId = "grpFudge",
                             input = GeneratorInputDto(
                                     displayTemplate = "<big>{{x}}d{{y}}!{{#eGreater}}>{{eGreater}}{{/eGreater}}{{^eGreater}}{{#eEqual}}{{eEqual}}{{/eEqual}}{{/eGreater}}{{^eGreater}}{{^eEqual}}{{y}}{{/eEqual}}{{/eGreater}}</big>",
                                     useWizard = false,
@@ -470,7 +470,6 @@ val diceModule = Kodein.Module {
                         .with(4, " ")
                         .with(5, "+")
                         .with(6, "+")
-                val adjectives = listOf("Terrible", "Poor", "Mediocre", "Fair", "Good", "Great", "Superb")
                 override fun getId(): String {
                     return it.key
                 }
@@ -491,11 +490,11 @@ val diceModule = Kodein.Module {
                         rolls.add(roll)
                     }
 
-                    return "${n}dF: ${rolls}<br/><br/><big><strong>${sum}</strong></big>"
+                    return "${n}dF: ${rolls}<br/><br/><big><strong>${nf.format(sum)}</strong></big>"
                 }
 
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it.value, groupId = "grpCombinations", collectionId = DiceConstants.CollectionName, priority = 2000,
+                    return GeneratorMetaDto(name = it.value, groupId = "grpFudge", collectionId = DiceConstants.CollectionName, priority = 2000,
                             input = GeneratorInputDto(
                                     displayTemplate = "<big>{{n}}dF",
                                     useWizard = false,
