@@ -48,7 +48,7 @@ class Exerciser {
             genNameToId.put("${m.collectionId}.${m.groupId}.${m.name}", g.key)
 
             // TODO: every time add a translation, add its locale here.
-            for (locale in listOf(Locale.FRANCE, Locale.US)) {
+            for (locale in listOf(Locale.FRANCE, Locale.US, Locale("es"))) {
                 val meta = generator_instance.getMetadata(locale)
 
                 for (i in 1..25) {
