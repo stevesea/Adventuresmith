@@ -1,0 +1,8 @@
+---
+templates:
+- |
+  <h4>Libro - {{books}}</h4>
+  Número de preguntas que puede responder: {{>roll: 1d6}}
+
+imports:
+- maze_rats_base

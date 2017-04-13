@@ -1,0 +1,9 @@
+---
+templates:
+- |
+  Trucos dungeon - <strong>{{dungeon.tricks}}</strong>
+
+imports:
+- maze_rats_base
+
+

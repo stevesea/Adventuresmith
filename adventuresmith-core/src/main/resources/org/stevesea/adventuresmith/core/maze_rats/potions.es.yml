@@ -1,0 +1,15 @@
+---
+templates:
+- |
+  <h4>Poción - {{potions}}</h4>
+  {{flavor_text}}
+
+
+imports:
+- maze_rats_base
+
+tables:
+  flavor_text:
+  - "1..14,"
+  - "15..17, Pociones defectuosas producen mutaciones.<br/>{{mutations}}"
+  - "18..20, Pociones defectuosas producen mutaciones.<br/>{{insanities}}"

@@ -1,0 +1,12 @@
+---
+templates:
+- |
+  <h4>Ciudad</h4>
+  <strong>Temática:</strong> {{city.themes}}
+  <br/>
+  <br/><strong>Eventos:</strong> {{>pickN: 2 city.events}}
+
+imports:
+- maze_rats_base
+
+

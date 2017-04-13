@@ -1,0 +1,8 @@
+---
+templates:
+- "Descubrimiento naturales - <strong>{{wilderness.discoveries}}</strong>"
+
+imports:
+- maze_rats_base
+
+

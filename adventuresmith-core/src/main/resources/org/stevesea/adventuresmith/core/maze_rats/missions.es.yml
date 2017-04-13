@@ -1,0 +1,12 @@
+---
+templates:
+- |
+  <h4>Mision - {{missions}}</h4>
+  <strong><small>Objeto: </small></strong>{{items.items}}
+  <br/>
+  <br/><strong><small>PNJs: </small></strong> {{npc_occupation.select}}
+  <br/>
+  <br/><strong><small>Facciones: </small></strong> {{factions.factions}}
+
+imports:
+- maze_rats_base

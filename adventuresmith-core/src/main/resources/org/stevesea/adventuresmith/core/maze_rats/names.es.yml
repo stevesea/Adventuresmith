@@ -1,0 +1,165 @@
+---
+templates:
+- "{{names.name}}"
+
+nested_tables:
+  names:
+    name:
+    - "1..7, {{names.firstname}} {{names.surname}}"
+    # extra snooty
+    - "{{surnames.upper_class}} {{surnames.upper_class}}"
+    surname:
+    - "1..3, {{surnames.upper_class}}"
+    - "4..8, {{surnames.lower_class}}"
+    firstname:
+    - "{{names.male}}"
+    - "{{names.female}}"
+    female:
+    - Adelaida
+    - Alma
+    - Dalia
+    - Beatrix
+    - Bianca
+    - Cléofa
+    - Trébol
+    - Constanza
+    - Damaris
+    - Daphne
+    - Démona
+    - Elseth
+    - Esme
+    - Silene
+    - Hersa
+    - Hipólita
+    - Jessamine
+    - Jilly
+    - Margot
+    - Minerva
+    - Nerissa
+    - Odette
+    - Olga
+    - Orquídea
+    - Prim
+    - Fibie
+    - Deida
+    - Olena
+    - Calima
+    - Sybil
+    - Leira
+    - Marles
+    - Úrsula
+    - Vivian
+    - Wendy
+    - Zora
+    male:
+    - Baltazar
+    - Basil
+    - Bertram
+    - Blaxon
+    - Chadwick
+    - Clovis
+    - Destrian
+    - Ellis
+    - Rasmus
+    - Fausto
+    - Finn
+    - Fitz
+    - Florian
+    - Fox
+    - Dwingo
+    - Aníbal
+    - Jasper
+    - Jiles
+    - Jules
+    - Leopold
+    - Merrick
+    - Mortimer
+    - Ogden
+    - Orion
+    - Oswald
+    - Percival
+    - Peregrine
+    - Quentin
+    - Redmaine
+    - Reinhold
+    - Silas
+    - Stilton
+    - Stratford
+    - Tenpiece
+    - Waverly
+    - Webster
+  surnames:
+    upper_class:
+    - Belvedere
+    - Bithesea
+    - Calaver
+    - CArvolo
+    - De Rippe
+    - Droll
+    - Dunlow
+    - Edevane
+    - Erelong
+    - Febland
+    - Fernsby
+    - Fisk
+    - Gastrell
+    - Girdwood
+    - Gorgon
+    - Grimeson
+    - Gruger
+    - Hitheryon
+    - La Marque
+    - Malmort
+    - Miter
+    - Oblington
+    - Onymous
+    - Phillifent
+    - Portendorfer
+    - Romatet
+    - Rothery
+    - Skorbeck
+    - Slora
+    - Southwark
+    - Stavish
+    - Vandermeer
+    - Wellbelove
+    - Westergren
+    - Wexley
+    - Wilberforce
+    lower_class:
+    - Barrow
+    - Beetleman
+    - Bayapaño
+    - Silvájaro
+    - Bobich
+    - Chips
+    - Coffin
+    - Crumpling
+    - Culpepper
+    - Danworth
+    - Cavadino
+    - Dreggs
+    - Gimble
+    - Tumbasano
+    - Greelish
+    - Hardwick
+    - Hatman
+    - Hovel
+    - Knibbs
+    - Medianoche
+    - Aguja
+    - Nadabrigo
+    - Majadero
+    - Saborión
+    - Rumbold
+    - Hurga
+    - Cetrino
+    - Salimar
+    - Niplata
+    - Porpelos
+    - Slee
+    - Slither
+    - Stoker
+    - Aguabrea
+    - Tambaleón
+    - Vilin

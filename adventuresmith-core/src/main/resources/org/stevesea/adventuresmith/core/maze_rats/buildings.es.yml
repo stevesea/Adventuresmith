@@ -1,0 +1,10 @@
+---
+templates:
+- |
+  <h4>Edificio - {{buildings.buildings}}</h4>
+  <strong>Habitaciones:</strong> {{>pickN: 1d2+1 buildings.rooms}}
+  <br/>
+  <br/><strong>Elementos:</strong> {{>pickN: 1d2+1 city.tactical_building_features}}
+
+imports:
+- maze_rats_base

@@ -1,0 +1,31 @@
+---
+templates:
+- |
+  <h4>PNJ - {{names.name}}</h4>
+  {{npc_occupation.select}}
+  <br/>
+  <br/><strong><small>Apariencia: </small></strong> {{characters.appearance}}, {{characters.physical_detail}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} clothing
+  <br/><strong><small>Personalidad: </small></strong> {{characters.personalities}}
+  <br/><strong><small>Manierismos: </small></strong> {{characters.mannerism}}
+  <br/>
+  <br/><strong><small>Relaciones: </small></strong> {{characters.relationships}}
+  <br/>
+  <br/><strong><small>Métodos: </small></strong> {{characters.methods}}
+  <br/><strong><small>Hobbies: </small></strong> {{characters.hobbies}}
+  <br/>
+  <br/><strong><small>Bazas: </small></strong> {{npc.assets}}
+  <br/><strong><small>Lastres: </small></strong> {{npc.liabilities}}
+  <br/>
+  <br/><strong><small>Objetivos: </small></strong> {{npc.goals}}
+  <br/>
+  <br/><strong><small>Infortunios: </small></strong> {{npc.misfortunes}}
+  <br/><strong><small>Secretos: </small></strong> {{characters.secrets}}
+  <br/>
+  <br/><strong><small>Reputación: </small></strong> {{characters.reputations}}
+
+
+
+imports:
+- maze_rats_base
+- names

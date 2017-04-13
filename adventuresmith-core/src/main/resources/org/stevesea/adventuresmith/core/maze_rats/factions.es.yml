@@ -1,0 +1,10 @@
+---
+templates:
+- |
+  <h4>Facción - {{factions.factions}}</h4>
+  <strong><small>Rasgos:</small></strong> {{factions.traits}}
+  <br/>
+  <br/><strong><small>Objetivos:</small></strong> {{factions.goals}}
+
+imports:
+- maze_rats_base

@@ -1,0 +1,31 @@
+---
+templates:
+- |
+  <h4>Monstruo - {{monster.forms}}</h4>
+  &nbsp;&nbsp;<em>Efecto:</em> {{magic.effects}}
+  <br/>&nbsp;&nbsp;<em>Elemento:</em> {{magic.elements}}
+  <br/>&nbsp;&nbsp;<em>Forma:</em> {{magic.forms}}
+  <br/>
+  <br/><strong><small>caracteristicas:</small></strong> {{monster_spec.features}}
+  <br/><strong><small>Rasgos:</small></strong> {{monster_spec.traits}}
+  <br/><strong><small>Habilidades:</small></strong> {{monster_spec.abilities}}
+  <br/><strong><small>Tácticas:</small></strong> {{monster.tactics}}
+  <br/><strong><small>Personalidad:</small></strong> {{monster.personalities}}
+  <br/><strong><small>Debilidades:</small></strong> {{monster.weakness}}
+
+imports:
+- maze_rats_base
+
+nested_tables:
+  # sometimes it's fun to have more to choose from, supply a chance that multiple entries will be output
+  monster_spec:
+    abilities:
+    - "1..8, {{monster.abilities}}"
+    - "9..10, {{>pickN: 2 monster.abilities}}"
+    traits:
+    - "1..8, {{monster.traits}}"
+    - "9..10, {{>pickN: 2 monster.traits}}"
+    features:
+    - "1..8, {{monster.features}}"
+    - "9..10, {{>pickN: 2 monster.features}}"
+

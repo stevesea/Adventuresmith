@@ -1,0 +1,41 @@
+---
+templates:
+  - Absurdo alarde
+  - Adopta niño
+  - Recibe medalla
+  - Compra posada
+  - Maldito
+  - Fecha de duelo
+  - Elegido oficiar
+  - Recibe misión
+  - Se casa
+  - En ataúd
+  - Enamorado
+  - En almacén
+  - Mascota molesta
+  - Insulta a un noble
+  - "Insulta a Facción <em>{{factions.factions}}</em>"
+  - Se une a un culto
+  - Carta de gracias
+  - Perdido
+  - Pierde en juego
+  - Pierde reputaci
+  - Identidad nuev
+  - Nuevo tatuaje
+  - Envenenado
+  - Reclutado
+  - Robado
+  - Fuego en techo
+  - En barco
+  - Enfermo
+  - Firma contrato
+  - Alguien muere
+  - Confiesa secreto
+  - Empieza culto
+  - Estafado
+  - En la cárcel
+  - Turba rebelde
+  - Ropa incorrecta
+
+imports:
+- maze_rats_base

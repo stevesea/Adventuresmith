@@ -1,0 +1,82 @@
+---
+templates:
+- |
+  <h4>Personaje - {{names.name}}</h4>
+  {{player_characters.abilities}}
+  <br/>{{player_characters.starting_feature}}
+  <br/>
+  <br/><strong><small>Apariencia: </small></strong> {{characters.appearance}}, {{characters.physical_detail}},
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} clothing
+  <br/><strong><small>Vestimenta: </small></strong> {{characters.background}}
+  <br/><strong><small>Personalidad: </small></strong> {{characters.personalities}}
+  <br/><strong><small>Manierismo: </small></strong> {{characters.mannerism}}
+  <h5>Objetos & Armas</h5>
+  {{>pickN: 6 player_characters.items}}
+  <br/>
+  <br/>{{>pickN: 2 items.weapons}}
+
+imports:
+- maze_rats_base
+- names
+
+definitions:
+  labels:
+    str: <strong><small>Fuerza:</small></strong>
+    dex: <strong><small>Destreza:</small></strong>
+    wil: <strong><small>Voluntad:</small></strong>
+
+nested_tables:
+  player_characters:
+    abilities:
+    - "{{labels.str}} +2 {{labels.dex}} +1 {{labels.wil}} +0"
+    - "{{labels.str}} +2 {{labels.dex}} +0 {{labels.wil}} +1"
+    - "{{labels.str}} +1 {{labels.dex}} +2 {{labels.wil}} +0"
+    - "{{labels.str}} +0 {{labels.dex}} +2 {{labels.wil}} +1"
+    - "{{labels.str}} +1 {{labels.dex}} +0 {{labels.wil}} +2"
+    - "{{labels.str}} +0 {{labels.dex}} +1 {{labels.wil}} +2"
+    starting_feature:
+    - +1 Bono de Ataque
+    - "Conjuro: <em>{{magic.spells}}</em>"
+    - "{{player_characters.path}}"
+    path:
+    - "Enramado: rastrear, forrajear, supervivencia."
+    - "Manitas: cacharrear, abrir cerraduras, vaciar bolsillos"
+    - "Trepatechos: trepar, saltar, equilibrismo."
+    - "Sombrío: moverse en sigilo, ocultarse en las sombras."
+    items:
+    - Aroma animal
+    - Trampa para osos
+    - Saco de dormir
+    - Abrojo (arma)
+    - Cadena (3m)
+    - Tiza
+    - Cincel
+    - Palanca
+    - Red de pesca
+    - Canicas
+    - Pegamento
+    - Gancho
+    - Grasa
+    - Sierra
+    - Martillo
+    - Taladro de mano
+    - Cuerno
+    - Estaca de metal
+    - Alicates
+    - Linterna y aceite
+    - Saco grande
+    - Ganzúas (3)
+    - Grilletes
+    - Medicina (3)
+    - Lima metal
+    - Raciones (3)
+    - Cuerda 15m
+    - Alambre
+    - Pala
+    - Espejo, acero
+    - Poste (3m)
+    - Yesca
+    - Antorcha
+    - Vial de ácido
+    - Vial de veneno
+    - Pellejo de agua

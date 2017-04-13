@@ -1,0 +1,18 @@
+---
+templates:
+- |
+  <h4>Regiones naturales - {{wilderness.regions}}</h4>
+  <strong>Rasgos:</strong> {{wilderness.region_traits}}
+  <br/>
+  <br/><strong>Actividades:</strong> {{>pickN: 1d2+1 wilderness.activities}}
+  <br/>
+  <br/><strong>Peligros:</strong> {{>pickN: 1d2+1 wilderness.hazards}}
+  <br/>
+  <br/><strong>Lugares:</strong> {{>pickN: 1d2+1 wilderness.landmarks}}
+  <br/>
+  <br/><strong>Estructuras:</strong> {{>pickN: 1d2+1 wilderness.structures}}
+
+imports:
+- maze_rats_base
+
+

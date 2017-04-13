@@ -1,0 +1,13 @@
+---
+templates:
+- |
+  <h4>Habitaciones de dungeon - {{dungeon.rooms}}</h4>
+  <strong>Detalles:</strong> {{dungeon.room_details}}
+  <br/><strong>Riesgos:</strong> {{dungeon.hazards}}
+  <br/>
+  <br/><strong>Actividades:</strong> {{dungeon.activities}}
+
+imports:
+- maze_rats_base
+
+
