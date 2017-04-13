@@ -89,7 +89,8 @@ class AttributionActivity : AppCompatActivity() {
 
         itemAdapter.add(ResultItem(getString(R.string.artwork_advsmith)))
         itemAdapter.add(ResultItem(getString(R.string.content_thanks)))
-        getAttributions(itemAdapter, AdventuresmithActivity.getCurrentLocale(resources))
+        // always use english for attribution text
+        getAttributions(itemAdapter, Locale.ENGLISH)
         itemAdapter.add(ResultItem(getString(R.string.artwork_icons)))
         itemAdapter.add(ResultItem(getString(R.string.artwork_public_domain)))
 
