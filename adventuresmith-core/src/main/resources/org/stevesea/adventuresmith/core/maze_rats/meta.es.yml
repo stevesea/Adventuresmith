@@ -1,0 +1,21 @@
+name: Maze Rats
+id: maze_rats
+credit: Ben Milton
+url: "http://questingblog.com/maze-rats/"
+groups:
+  grpChar: Personajes & PNJs
+  grpCity: La Ciudad
+  grpWild: La Naturaleza
+  grpMaze: El Laberinto
+  grpItems: Tesoro & Equipo
+  grpMisc: Otro...
+  grpZZ: Maze Rats 0.1
+icon: cmd-cube-unfolded
+groupIcons:
+  grpChar: ion-android-people
+  grpCity: cmd-castle
+  grpWild: cmd-pine-tree
+  grpMaze: cmd-view-dashboard
+  grpItems: cmd-diamond
+  grpMisc: cmd-dice-d20
+  grpZZ: cmd-cube-unfolded
