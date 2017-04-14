@@ -6,8 +6,8 @@ templates:
   <br/>{{player_characters.starting_feature}}
   <br/>
   <br/><strong><small>Apariencia: </small></strong> {{characters.appearance}}, {{characters.physical_detail}},
-  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} clothing
-  <br/><strong><small>Vestimenta: </small></strong> {{characters.background}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} Vestimenta
+  <br/><strong><small>Background: </small></strong> {{characters.background}}
   <br/><strong><small>Personalidad: </small></strong> {{characters.personalities}}
   <br/><strong><small>Manierismo: </small></strong> {{characters.mannerism}}
   <h5>Objetos & Armas</h5>

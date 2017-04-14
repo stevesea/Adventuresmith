@@ -236,229 +236,232 @@ nested_tables:
     - "{{npc_occupation.underworld}}"
     - "{{npc_occupation.wilderness}}"
     civilized:
-    - Acolyte
+    - Acólito
     - Actor
-    - Apothecary
-    - Baker
-    - Barber
-    - Blacksmith
-    - Brewer
-    - Bureaucrat
-    - Butcher
-    - Carpenter
-    - Clockmaker
-    - Courier
-    - Courtier
-    - Diplomat
-    - Fishmonger
-    - Guard
-    - Haberdasher
-    - Innkeeper
-    - Item-seller
-    - Jeweler
-    - Knight
-    - Locksmith
-    - Mason
-    - Miller
-    - Musician
+    - Apotecario
+    - Cocinero
+    - Barbero
+    - Herrero
+    - Destilero
+    - Burócrata
+    - Carnicero
+    - Carpintero
+    - Relojero
+    - Mensajero
+    - Cortesano
+    - Diplomático
+    - Pescadero
+    - Guardia
+    - Camisero
+    - Tabernero
+    - Almacenero
+    - Joyero
+    - Caballero
+    - Cerrajero
+    - Constructor
+    - Molinero
+    - Músico
     - Noble
-    - Painter
-    - Priest
-    - Scholar
-    - Scribe
-    - Sculptor
-    - Shipwright
-    - Soldier
-    - Tailor
-    - Taxidermist
-    - Wigmaker
+    - Pintor
+    - Sacerdote
+    - Erudito
+    - Escriba
+    - Escultor
+    - Marinero
+    - Soldado
+    - Sastre
+    - Taxidermista
+    - Peluquero
+
     underworld:
-    - Alchemist
-    - Beggar-prince
-    - Blackmailer
-    - Bounty-hunter
-    - Chimney sweep
-    - Coin-clipper
-    - Contortionist
-    - Counterfeiter
-    - Cultist
-    - Cutpurse
-    - Debt-collector
-    - Deserter
-    - Fence
-    - Fortuneteller
-    - Galley slave
-    - Gambler
-    - Gravedigger
-    - Headsman
-    - Hedge knight
-    - Highwayman
-    - Housebreaker
-    - Kidnapper
-    - Mad prophet
-    - Mountebank
-    - Peddler
-    - Pit-fighter
-    - Poisoner
-    - Rat-catcher
-    - Scrivener
-    - Sellsword
-    - Slave
-    - Smuggler
-    - Street performer
-    - Tattooist
-    - Urchin
-    - Usurer
+    - Alquimista
+    - Criador
+    - Asesino
+    - Acróbata
+    - Mendigo
+    - Ladrón
+    - Enterrador
+    - Vedugo
+    - Informante
+    - Carcelero
+    - Farolero
+    - Mercenario
+    - Deshollinador
+    - Convicto
+    - Cultista
+    - Ratero
+    - Desertor
+    - Cavazanjas
+    - Poeta
+    - Envenenador
+    - Corsario
+    - Caza-ratas
+    - Marinero
+    - Esclavo
+    - Esgrimista
+    - Falsificador
+    - Vidente
+    - Esclavo de galera
+    - Jugador
+    - Gladiador
+    - Contrabandista
+    - Espía
+    - Pilluelo
+    - Usurero
+    - Vagabundo
+    - Mago
 
     wilderness:
-    - Apiarist
-    - Bandit
-    - Caravan Guard
-    - Caravaneer
-    - Druid
-    - Exile
-    - Explorer
-    - Farmer
-    - Fisherman
-    - Forager
-    - Fugitive
-    - Hedge wizard
-    - Hermit
-    - Hunter
-    - Messenger
-    - Minstrel
-    - Monk
-    - Monster hunter
-    - Outlander
-    - Tinker
-    - Pilgrim
-    - Poacher
-    - Raider
-    - Ranger
-    - Sage
-    - Scavenger
-    - Scout
-    - Shepherd
-    - Seer
-    - Surveyor
-    - Tinker
-    - Tomb raider
-    - Trader
-    - Trapper
-    - Witch
-    - Woodcutter
+    - Apicultor
+    - Bandido
+    - Guard. Caravan
+    - Caravanero
+    - Druida
+    - Exiliado
+    - Forastero
+    - Zapador
+    - Peregrino
+    - Furtivo
+    - Invasor
+    - Guardabosques
+    - Explorador
+    - Granjero
+    - Pescador
+    - Forrajeador
+    - Fugitivo
+    - Herborista
+    - Sabio
+    - Cazatesoros
+    - Rastreador
+    - Pastor
+    - Vidente
+    - Cartógrafo
+    - Hermitaño
+    - Cazador
+    - Mensajero
+    - Juglar
+    - Monje
+    - Cazamonstruos
+    - Hojalatero
+    - Saqueatumbas
+    - Mercader
+    - Trampero
+    - Bruja
+    - Leñador
   characters:
     methods:
-    - Alchemy
-    - Blackmail
-    - Bluster
-    - Bribery
-    - Bullying
-    - Bureaucracy
-    - Charm
-    - Commerce
-    - Cronies
+    - Alquimia
+    - Chantaje
+    - Fanfarronear
+    - Sobornos
+    - Acoso
+    - Burocracia
+    - Investigación
+    - Leyes
+    - Manipulación
+    - Distracción
+    - Dinero
+    - Quejas
+    - Encanto
+    - Comercio
+    - Esbirros
     - Debate
-    - Deceit
-    - Deduction
-    - Eloquence
-    - Espionage
-    - Fast-talking
-    - Favors
-    - Hard Work
+    - Maquinación
+    - Deducción
+    - Negociación
+    - Persistencia
+    - Piedad
+    - Preparación
+    - Perspicacia
+    - Estudio
+    - Elocuencia
+    - Espionaje
+    - Labia
+    - Favores
+    - Trabajo duro
     - Humor
-    - Investigation
-    - Legal Maneuvers
-    - Manipulation
-    - Misdirection
-    - Money
-    - Nagging
-    - Negotiation
-    - Persistence
-    - Piety
-    - Prepartion
-    - Quick Wit
-    - Research
-    - Rumors
-    - Sabotage
-    - Teamwork
-    - Theft
-    - Threats
-    - Violence
+    - Rumores
+    - Sabotaje
+    - Trabajo equipo
+    - Robo
+    - Amenazas
+    - Violencia
     appearance:
-    - Aquiline
-    - Athletic
-    - Barrel-Chested
-    - Boney
-    - Brawny
-    - Brutish
-    - Bullnecked
-    - Chiseled
-    - Coltish
-    - Corpulent
-    - Craggy
-    - Delicate
-    - Furrowed
-    - Gaunt
-    - Gorgeous
-    - Grizzled
-    - Haggard
-    - Handsome
-    - Hideous
-    - Lanky
-    - Pudgy
-    - Ripped
-    - Rosy
-    - Scrawny
-    - Sinewy
-    - Slender
-    - Slumped
-    - Solid
-    - Square-Jawed
-    - Statuesque
-    - Towering
-    - Trim
-    - Weathered
-    - Willowy
-    - Wiry
-    - Wrinkled
+    - Aguileño
+    - Atlético
+    - Fornido
+    - Huesudo
+    - Musculoso
+    - Brutal
+    - Repugnante
+    - Larguirucho
+    - Rechoncho
+    - Rasgado
+    - Sonrojado
+    - Flaco
+    - Cuello-toro
+    - Avejentado
+    - Cincelado
+    - Juguetón
+    - Corpulento
+    - Delicado
+    - Nervudo
+    - Esbelto
+    - Alicaído
+    - Sólido
+    - Cara cuadrada
+    - Estatuario
+    - Ceñudo
+    - Adusto
+    - Guapísimo
+    - Entrecano
+    - Demacrado
+    - Elegante
+    - Imponente
+    - Arreglado
+    - Curtido
+    - Cimbreño
+    - Enjuto
+    - Arrugado
+
     physical_detail:
-    - Acid scars
-    - Battle scars
-    - Birthmark
-    - Braided hair
-    - Brand mark
-    - Broken nose
-    - Bronze skinned
-    - Burn scars
-    - Bushy eyebrows
-    - Curly hair
-    - Dark skinned
-    - Dreadlocks
-    - Exotic accent
-    - Flogging scars
-    - Freckles
-    - Gold tooth
-    - Hoarse voice
-    - Huge beard
-    - Long hair
-    - Melodious voice
-    - Missing ear
-    - Missing teeth
-    - Mustache
-    - Muttonchops
-    - Nine fingers
-    - Oiled hair
-    - One-eyed
-    - Pale skinned
-    - Piercings
-    - Ritual scars
-    - Sallow skin
-    - Shaved head
-    - Sunburned
-    - Tangled hair
-    - Tattoos
-    - Topknot
+    - Cicatriz ácido
+    - Cicatriz batalla
+    - Marca nacimto.
+    - Trenza
+    - Marca hierro
+    - Nariz partida
+    - Pelo largo
+    - Voz melodiosa
+    - Sin oreja
+    - Desdentado
+    - Mostacho
+    - Patillas
+    - Piel cobriza
+    - Quemaduras
+    - Cejas pobladas
+    - Pelo rizado
+    - Moreno
+    - Rastas
+    - Nueve dedos
+    - Pelo aceitoso
+    - Tuerto
+    - Pálido
+    - Pendientes
+    - Cicatriz ritual
+    - Acento exótico
+    - Marcas azotes
+    - Pecas
+    - Diente de oro
+    - Voz ronca
+    - Barba enorme
+    - Piel amarillenta
+    - Calvo / afeitado
+    - Quemado (sol)
+    - Pelo enmarañado
+    - Tatuajes
+    - Moño
+
     background:
     - Alchemist
     - Beggar-prince
@@ -496,262 +499,268 @@ nested_tables:
     - Tattooist
     - Urchin
     - Usurer
+
     clothing:
-    - Antique
-    - Battle-torn
-    - Bedraggled
-    - Blood-stained
-    - Ceremonial
-    - Dated
-    - Decaying
-    - Eccentric
-    - Elegant
-    - Embroidered
-    - Exotic
-    - Fashionable
-    - Flamboyant
-    - Food-stained
+    - Anticuado
+    - Rota en batalla
+    - Sucio
+    - Ensangrentado
+    - Ceremoniosa
+    - Envejecida
+    - Mugrienta
+    - Alta costura
+    - Con lazos
+    - Uniforme
+    - Embarrado
+    - Ostentoso
+    - Deteriorada
+    - Excéntrica
+    - Elegante
+    - Bordada
+    - Exótica
+    - Moderna
+    - Talla grande
+    - Parcheada
+    - Con patrones
+    - Perfumada
+    - Práctica
+    - Arrugada
+    - Extravagante
+    - Manchas comida
     - Formal
-    - Frayed
-    - Frumpy
-    - Garish
-    - Grimy
-    - Haute couture
-    - Lacey
-    - Livery
-    - Mud-stained
-    - Ostentatious
-    - Oversized
-    - Patched
-    - Patterned
-    - Perfumed
-    - Practical
-    - Rumpled
-    - Sigils
-    - Singed
-    - Tasteless
-    - Undersized
-    - Wine-stained
-    - Worn out
+    - Raída
+    - Desaliñada
+    - Llamativa
+    - Inscrita
+    - Chamuscada
+    - Insípida
+    - Apretada
+    - Manchas vino
+    - Desgastada
     personalities:
-    - Bitter
-    - Brave
-    - Cautious
-    - Chipper
-    - Contrary
-    - Cowardly
-    - Cunning
-    - Driven
-    - Entitled
-    - Gregarious
-    - Grumpy
-    - Heartless
-    - Honor-bound
-    - Hotheaded
-    - Inquisitive
+    - Amargado
+    - Valiente
+    - Cauto
+    - Alegre
+    - Contrariado
+    - Cobarde
+    - Vago
+    - Leal
+    - Amenazante
+    - Triste
+    - Nervioso
+    - Protector
+    - Astuto
+    - Influenciado
+    - Cree merecedor
+    - Gregario
+    - Gruñón
+    - Cruel
+    - Justo
+    - Rudo
+    - Sarcástico
+    - Salvaje
+    - Maquinador
+    - Tranquilo
+    - Honrado
+    - Exaltado
+    - Inquisitivo
     - Irascible
-    - Jolly
-    - Know-it-all
-    - Lazy
-    - Loyal
-    - Menacing
-    - Mopey
-    - Nervous
-    - Protective
-    - Righteous
-    - Rude
-    - Sarcastic
-    - Savage
-    - Scheming
-    - Serene
-    - Spacey
-    - Stoic
-    - Stubborn
-    - Stuck-up
-    - Suspicious
-    - Wisecracking
+    - Divertido
+    - Sabelotodo
+    - Distraído
+    - Estoico
+    - Testarudo
+    - Engreído
+    - Desconfiado
+    - Bromista
+
     mannerism:
-    - Anecdotes
-    - Breathy
-    - Chuckles
-    - Clipped
-    - Cryptic
-    - Deep voice
-    - Drawl
-    - Enunciates
-    - Flowery speech
-    - Gravelly voice
-    - Highly formal
-    - Hypnotic
-    - Interrupts
-    - Laconic
-    - Laughs
-    - Long pauses
-    - Melodious
-    - Monotone
-    - Mumbles
-    - Narrates
-    - Overly casual
-    - Quaint sayings
-    - Rambles
-    - Random facts
-    - Rapid-fire
-    - Rhyming
-    - Robotic
-    - Slow speech
-    - Speechifies
-    - Squeaky
-    - Street slang
-    - Stutters
-    - Talks to self
-    - Trails off
-    - Very loud
-    - Whispers
+    - Anécdotas
+    - Respira fuerte
+    - Risa contenida
+    - Finolis
+    - Críptico
+    - Voz profunda
+    - Murmura
+    - Narra
+    - Informal
+    - Habla raro
+    - Divaga
+    - Tema al azar
+    - Habla lento
+    - Pronuncia +
+    - Habla florido
+    - Voz grave
+    - Muy formal
+    - Hipnótico
+    - Irascible
+    - Rimador
+    - Robótico
+    - Habla lento
+    - Pomposo
+    - Voz de pito
+    - Interrumpe
+    - Lacónico
+    - Risotadas
+    - Largas pausas
+    - Melodioso
+    - Mono-tono
+    - Habla callejera
+    - Tartamudea
+    - Habla solo
+    - Desvía del tema
+    - Ruidoso
+    - Susurra
+
     secrets:
-    - Addicted
+    - Adicto
     - Artificial
-    - Assassin
-    - Bankrupt
-    - Beholden
-    - Counterspy
-    - Cultist
-    - Demigod
-    - Evil lineage
-    - Exile
-    - Fence
-    - Fugitive
-    - Ghost
-    - Has a child
-    - Heretic
-    - Highborn
-    - Huge fortune
-    - Illusion
-    - Insurrectionist
-    - Low born
-    - Married
-    - Mind-controlled
+    - Asesino
+    - Arruinado
+    - Obligado
+    - Doble espía
+    - Cultista
+    - Semidios
+    - Linaje malvado
+    - Exiliado
+    - Obstáculo
+    - Fugitivo
+    - Fantasma
+    - Tiene un hijo
+    - Hereje
+    - Alto linaje
+    - Gran fortuna
+    - Ilusión
+    - Insurgente
+    - Bajo linaje
+    - Casado
+    - Hipnotizado
     - "Misfortune: {{npc.misfortunes}}"
-    - Monster hunter
-    - Non-human
-    - "NPC <em>({{npc_occupation.select}})</em>"
-    - Polygamist
-    - Protects relic
-    - Scandalous birth
-    - Secret police
-    - Serial killer
-    - Smuggler
-    - Spy
-    - Time traveler
-    - Transformed
-    - War criminal
+    - Cazamonstruos
+    - No-humano
+    - "PNJ <em>({{npc_occupation.select}})</em>"
+    - Polígamo
+    - Protege reliquia
+    - Hijo Escandalo
+    - Policía secreta
+    - Asesino en serie
+    - Contrabandista
+    - Espía
+    - Viajero tiempo
+    - Transformado
+    - Criminal guerra
     reputations:
-    - Ambitious
-    - Authoritative
-    - Boor
-    - Borrower
-    - Celebrity
-    - Charitable
-    - Cheat
-    - Dangerous
-    - Entertainer
-    - Gossip
-    - Hardworking
-    - Holy
-    - Honest
-    - Hypochondriac
-    - Idiot
-    - Influential
-    - Layabout
-    - Leader
-    - Misanthrope
-    - Miser
-    - Nieghborly
-    - Nutjob
-    - Obnoxious
-    - Overeducated
-    - Partier
-    - Pious
-    - Proper
-    - Prophet of doom
-    - Repulsive
-    - Respected
-    - Riffraff
-    - Scandalous
-    - Slime ball
-    - Terrifying
-    - Weirdo
-    - Wise
+    - Ambicioso
+    - Autoritario
+    - Patán
+    - Pide prestado
+    - Celebridad
+    - Caritativo
+    - Misántropo
+    - Mísero
+    - Buen vecino
+    - Loco
+    - Desagradable
+    - Sobreeducado
+    - Estafador
+    - Peligroso
+    - Artista
+    - Chismoso
+    - Trabaja duro
+    - Sagrado
+    - Fiestero
+    - Piadoso
+    - Correcto
+    - Alarmista
+    - Repulsivo
+    - Respetado
+    - Honesto
+    - Hipocondriaco
+    - Idiota
+    - Influyente
+    - Perezoso
+    - Líder
+    - Chusma
+    - Escandaloso
+    - Canalla
+    - Terrorífico
+    - Raro
+    - Sabio
+
     hobbies:
-    - Archaeology
-    - Art collecting
-    - Bad fiction
-    - Calligraphy
-    - Card games
-    - Clockwork
-    - Collecting cats
-    - Cuisine
-    - Dark lore
-    - Dog breeding
-    - Embroidery
-    - Exercise
-    - Falconry
-    - Fashion
-    - Fishing
-    - Foreign Cultures
-    - Gardening
-    - History
-    - Horseracing
-    - Hunting
-    - Instrument
-    - Knitting
-    - Lawn games
-    - Mountaineering
+    - Arqueología
+    - Coleccionista
+    - Mala ficción
+    - Caligrafía
+    - Juegos de cartas
+    - Relojería
+    - Carrera caballo
+    - Caza
+    - Instrumento
+    - Ganchillo
+    - Juego exteriores
+    - Montañismo
+    - Gatos
+    - Cocina
+    - Ocultismo
+    - Perros
+    - Bordar
+    - Atletismo
     - Opera
-    - Painting
-    - Poetry
-    - Puzzle-solving
-    - Riddling
-    - Science
-    - Sculpture
-    - Sketching
-    - Smoking
-    - Theater
-    - Weaving
+    - Pintura
+    - Poesía
+    - Puzzles
+    - Acertijos
+    - Ciencia
+    - Cetrería
+    - Moda
+    - Pesca
+    - Antropología
+    - Jardinería
+    - Historia
+    - Escultura
+    - Dibujar
+    - Fumar
+    - Teatro
+    - Tejer
     - Whiskey
+
     relationships:
-    - Adviser
-    - Blackmailer
-    - Business partner
-    - Business rival
-    - Buyer
+    - Consejero
+    - Chantajista
+    - Socio
+    - Competencia
+    - Comprador
     - Captor
-    - Client
-    - Confidant
-    - Debtor
-    - Disciple
-    - Guardian
-    - Henchman
-    - Idol
-    - Informant
-    - Master
+    - Padre
+    - Patrón
+    - Rival político
+    - Prisionero
+    - Protegido
+    - Disputa
+    - Cliente
+    - Confidente
+    - Deudor
+    - Discípulo
+    - Guardián
+    - Esbirro
+    - Mano derecha
+    - Rival amoroso
+    - Sirviente
+    - Familiar
+    - Rival social
+    - Cónyuge
+    - Ídolo
+    - Informante
+    - Señor
     - Mentor
-    - Nemesis
-    - Offspring
-    - Parent
-    - Patron
-    - Politcal Rival
-    - Prisoner
-    - Protégé
-    - Quarry
-    - Right hand
-    - Romantic rival
-    - Servant
-    - Sibling
-    - Social rival
-    - Spouse
-    - Stalker
-    - Suitor
-    - Supplicant
-    - Supplier
-    - Sweetheart
-    - Unrequited love
+    - Némesis
+    - Descendencia
+    - Acosador
+    - Pretendiente
+    - Solicitante
+    - Suministrador
+    - Enamorado
+    - No corresponde
+    
