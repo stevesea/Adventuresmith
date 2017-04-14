@@ -1,0 +1,448 @@
+---
+nested_tables:
+  dungeon:
+    entrances:
+    - Biblioteca
+    - Presa de Nutria
+    - Tras cascada
+    - Cuadrado tiza
+    - Entrañas bicho
+    - Chimenea
+    - Estantería
+    - Carro gitano
+    - Fondo pozo
+    - Pozo fieras
+    - Senda nublada
+    - Charca bosque
+    - Libro gigante
+    - Sombra dolmen
+    - Árbol hueco
+    - Cerradura gigante
+    - Ataúd espinado
+    - Tatuaje viviente
+    - Cuadro mágico
+    - Silueta hombre
+    - Poción
+    - Espejo
+    - Boca monstruo
+    - Barril vino
+    - Callejón
+    - Cortina lluvia
+    - Alcantarilla
+    - Barranco
+    - Cueva marea
+    - Tope torre
+    - Raíces de árbol
+    - Bajo una cama
+    - Mapa desplegado
+    - Copa árbol
+    - Torbellino
+    - Herida monstruo
+    forms:
+    - Ruedo
+    - Asilo
+    - Aviario
+    - Banco
+    - Baños
+    - Cuerpo
+    - Forja
+    - Casino
+    - Catacumbas
+    - Cueva
+    - Tribunal
+    - Laboratorio
+    - "{{buildings.rooms}}"
+    - Jardín
+    - Escondite
+    - Hotel
+    - "{{buildings.lower_class}}"
+    - "{{dungeon.rooms}}"
+    - Biblioteca
+    - Mercado
+    - Mina
+    - Monasterio
+    - Museo
+    - Enfermería
+    - Orfanato
+    - Palacio
+    - Prisión
+    - Alcantarilla
+    - Barco
+    - Pozo esclavos
+    - Templo
+    - Teatro
+    - "{{buildings.upper_class}}"
+    - Universidad
+    - Bóveda
+    - Zoo
+    layouts:
+    - Hormiguero
+    - Sala central
+    - Claustrofóbica
+    - Zigzagea
+    - Mareante
+    - Curvado
+    - Galería
+    - Geométrica
+    - Exagerado
+    - Muy regular
+    - Panal
+    - Lineal
+    - Interconectado
+    - Alas aisladas
+    - Capas
+    - Lazos
+    - Muchos pasillos
+    - Al azar
+    - Laberintos
+    - "Mezcla: {{>pickN: 1d2+1 dungeon.layouts}}"
+    - Muchos nichos
+    - Sin pasillos
+    - Plano abierto
+    - Suspendido
+    - Orgánico
+    - Muy grande
+    - Recursivo
+    - Repetitivo
+    - Desmadejado
+    - Ziggurat
+    - Forma símbolo
+    - Largo y estrecho
+    - Zonas temáticas
+    - Vertical
+    - Devanado
+    - Huecos abiertos
+    ruinations:
+    - Desastre arcano
+    - Invasión
+    - Canibalismo
+    - Guerra civil
+    - Colapso
+    - Cristal crece
+    - Maldición
+    - Degeneración
+    - Terremoto
+    - Erupción
+    - Hongos
+    - Experimentos
+    - Explosión
+    - Hambre
+    - Fuego
+    - Inundación
+    - Mal desenterrado
+    - Embrujada
+    - Hielo
+    - "Locura: {{insanities}}"
+    - Flujo lava
+    - Sueño mágico
+    - Fundido
+    - Ataque monstr
+    - "Mutación: {{mutations}}"
+    - Alienígenas
+    - Malas hierbas
+    - Petrificación
+    - Plaga
+    - Plano solapa
+    - Gas venenoso
+    - Sin recursos
+    - Revuelta
+    - Muertos vivientes
+    - Muchas trampas
+    - Guerra
+    rewards:
+    - Saber arcano
+    - Aliado animal
+    - Ejército
+    - Bendición
+    - Planos
+    - Objeto cultural
+    - Instrucciones
+    - Aliado Facción
+    - Premonición
+    - Guía
+    - Reliquia santa
+    - "Objeto mágico <em>({{items.items}})</em>"
+    - Debilidad enemigo
+    - Joyas
+    - Llave
+    - Fórmula perdida
+    - Máquina
+    - Aliado influyente
+    - Aliado mágico
+    - Mapa
+    - Aliado marital
+    - Obra arte
+    - "Aliado Monstr <em>({{monster.forms}})</em>"
+    - Oráculo
+    - Tesoro
+    - Portal planar
+    - Profecía
+    - Renombre
+    - Conjuro
+    - Transformación
+    - Transporte
+    - "Tesoros <em>({{treasure.items}})</em>"
+    - Muestra complot
+    - "Material valioso <em>({{valuable_materials}})</em>"
+    - Visión
+    - Arma
+    activities:
+    - Asediar
+    - Capturar
+    - "{{city.activities}}"
+    - Acumular
+    - Construir
+    - Controlar
+    - Entregar
+    - Demoler
+    - Escapar
+    - Alimentar
+    - Fortificar
+    - Proteger
+    - Esconder
+    - Cazar
+    - Saquear
+    - Mapa
+    - Mina
+    - "{{monster.tactics}}"
+    - Negociar
+    - Patrullar
+    - Conjura Ritual
+    - Purgar
+    - Preguntar
+    - Invadir
+    - Reparar
+    - Rescatar
+    - Investigar
+    - Revivir
+    - Acertijo
+    - Expulsar
+    - Apoderarse de
+    - Excavar
+    - Desenterrar
+    - Vandalismo
+    - "{{wilderness.activities}}"
+    - Adorar
+    rooms:
+    - Armería
+    - Sala banquete
+    - Cuartel
+    - "{{buildings.rooms}}"
+    - Catacumbas
+    - Caverna
+    - Abismo
+    - Patio
+    - Cripta
+    - Dormitorio
+    - Pozo de lucha
+    - Forja
+    - Fuente
+    - Caseta entrada
+    - Sala de guardia
+    - Perrera
+    - "{{buildings.lower_class}}"
+    - Laboratorio
+    - Comedor
+    - Acceso a mina
+    - Museo
+    - Cámara secreta
+    - Piscina
+    - Prisión
+    - Sala de archivo
+    - Capilla
+    - Matadero
+    - Establo
+    - Almacén
+    - Sala del trono
+    - Sala de tortura
+    - Tesorería
+    - "{{buildings.upper_class}}"
+    - Caja fuerte
+    - Pozo
+    - Taller
+    room_details:
+    - Bajo relieve
+    - Rastro sangre
+    - Huesos
+    - Cadenas
+    - Marcas tiza
+    - Marcas garras
+    - Cadáveres
+    - Vigas rotas
+    - Muros rotos
+    - Comida pasada
+    - Nido podrido
+    - Gotas de agua
+    - Murales gastados
+    - Brisa ligera
+    - Huellas
+    - Columnas caídas
+    - Hongos
+    - Muebles
+    - Pintadas
+    - Mosaicos
+    - Estalactitas
+    - Libros podrido
+    - Basura
+    - Piel mudada
+    - Rastro viscoso
+    - Telarañas
+    - Olor inusual
+    - Mal olor
+    - Chamuscada
+    - Polvo denso
+    - Ropas arrancadas
+    - Raíces árboles
+    - Recién reparado
+    - Vibraciones
+    - Hiedra
+    - Susurros
+    tricks:
+    - Absorbe
+    - Activa
+    - Anima
+    - Bendice
+    - Comunicación
+    - Confusión
+    - Consume
+    - Crea
+    - Maldice
+    - Engaña
+    - Duplicación
+    - "{{magic.ethereal_effects}}"
+    - Intercambia
+    - Encierra
+    - Instrucciones
+    - Interrogación
+    - Control mental
+    - "{{missions}}"
+    - Altera el humor
+    - Nulifica
+    - "{{magic.physical_effects}}"
+    - Cambio plano
+    - Protección
+    - Rejuvenece
+    - Libera
+    - Invierte
+    - Rotación
+    - Predice
+    - Altera tamaño
+    - Invoca
+    - Roba
+    - Altera tiempo
+    - Transformación
+    - Transmuta
+    - Transporta
+    - Maravilla
+    hazards:
+    - Goteo ácido
+    - Sanguijuelas
+    - Trampa pozo
+    - Polvo asfixiant
+    - Petróleo
+    - Cristales rotos
+    - Ruido agudo
+    - Niebla densa
+    - Enredaderas
+    - Suelo derruido
+    - Inundación
+    - Congelante
+    - Geiser
+    - Magma
+    - Campo magnétic
+    - Flujo de barro
+    - Borde estrecho
+    - Pasaje estrecho
+    - Moco pegajoso
+    - Planta venenos
+    - Precipicio
+    - Arena movediz
+    - Radiación
+    - Avalancha roca
+    - Techo podrido
+    - Suelo podrido
+    - Pozo profundo
+    - Rampa resbala
+    - Telarañas
+    - Esporas
+    - Bolsas de vapor
+    - Vientos fuertes
+    - Pozo de brea
+    - Paredes estrechan
+    - Objeto tambalea
+    - Gases tóxicos
+  trap:
+    effects:
+    - Charco ácido
+    - Adhesivo
+    - Alarma
+    - Pozo cocodrilo
+    - Trampa oso
+    - Chorro cegador
+    - Jaula colgante
+    - Brea hirviendo
+    - Inunda arena
+    - Inundación
+    - Muros aplastan
+    - Pozo profundo
+    - Cuchillo péndulo
+    - Techo descendente
+    - Suelo derrumba
+    - Armadura se funde
+    - Imán gigante
+    - Vacío succiona
+    - Flujo de lava
+    - Rayo
+    - Estatua viviente
+    - Misil de fuego
+    - Tumba abierta
+    - Trampa de red
+    - Cuchillo oscila
+    - Gas venenoso
+    - Aguja venenosa
+    - Arenas movedi
+    - Gas de la rabia
+    - Roca rodante
+    - Congela la sala
+    - Incendio
+    - Gas del sueño
+    - Pozo espinado
+    - "Libera Monstruo <em>({{monster.forms}})</em>"
+    - Muro espinado
+    triggers:
+    - Soplido
+    - Romper
+    - Quemar
+    - Elección
+    - Cuenta atrás
+    - Oscuridad
+    - Drenaje
+    - Comer
+    - Insertar
+    - Muerte
+    - Golpe
+    - Luz
+    - Magia
+    - Melodía
+    - Ruido
+    - Abrir
+    - Frase
+    - Derramar
+    - Apretar
+    - Proximidad
+    - Tirar
+    - Leer
+    - Reflejar
+    - Liberar
+    - Remover
+    - Recuperar
+    - Grosería
+    - Callar
+    - Sentar
+    - Dormir
+    - Deslizar
+    - Tocar
+    - Girar
+    - Desequilibrar
+    - Desenterrar
+    - Escribir

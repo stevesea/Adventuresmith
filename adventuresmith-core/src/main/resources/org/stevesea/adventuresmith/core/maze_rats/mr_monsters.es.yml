@@ -1,0 +1,350 @@
+---
+nested_tables:
+
+  animal:
+    forms:
+    - "{{animal.aerial}}"
+    - "{{animal.terrestrial}}"
+    - "{{animal.aquatic}}"
+    aerial:
+    - Albatros
+    - Murciélago
+    - Escarabajo
+    - Colibrí
+    - Mariposa
+    - Cóndor
+    - Grulla
+    - Cuervo
+    - Libélula
+    - Águila
+    - Halcón
+    - Luciérnaga
+    - Flamenco
+    - Mosca
+    - Ardilla voladora
+    - Ganso
+    - Gaviota
+    - Ave del paraíso
+    - Martín pescad.
+    - Langosta
+    - Urraca
+    - Mantis
+    - Ruiseñor
+    - Mosquito
+    - Polilla
+    - Búho
+    - Loro
+    - Pavo real
+    - Pelícano
+    - Pteranodon
+    - Gallo
+    - Gorrión
+    - Cisne
+    - Buitre
+    - Avispa
+    - Pájaro carpintero
+    terrestrial:
+    - Hormiga
+    - Mono
+    - Armadillo
+    - Tejón
+    - Oso
+    - Jabalí
+    - Oruga
+    - Ciempiés
+    - Camaleón
+    - Cucaracha
+    - Reno
+    - Elefante
+    - Hurón
+    - Zorro
+    - Jirafa
+    - Cabra
+    - Caballo
+    - Humano
+    - Topo
+    - Avestruz
+    - Buey
+    - Puercoespín
+    - Conejo
+    - Mapache
+    - Rata
+    - Rinoceronte
+    - Escorpión
+    - Oveja
+    - Oruga
+    - Caracol
+    - Serpiente
+    - Araña
+    - Ardilla
+    - Tigre
+    - Lobo
+    - Carcayú
+    aquatic:
+    - Cocodrilo
+    - Ameba
+    - Rape
+    - Castor
+    - Almeja
+    - Cangrejo
+    - Delfín
+    - Anguila
+    - Rana
+    - Hipopótamo
+    - Medusa
+    - Sanguijuela
+    - Langosta
+    - Manatí
+    - Manta Raya
+    - Rata Almizcle
+    - Cachalote
+    - Tritón
+    - Pulpo
+    - Nutria
+    - Pingüino
+    - Ornitorrinco
+    - Pez Globo
+    - Salamaandra
+    - Anémona
+    - Erizo mar
+    - Caballo mar
+    - León marino
+    - Tiburón
+    - Gamba
+    - Calamar
+    - Pez Espada
+    - Renacuajo
+    - Tortuga
+    - Ballena
+
+
+  monster:
+    forms:
+    - "1..4, {{animal.forms}}"
+    - "5, {{>pickN: 2 animal.aerial &nbsp;+&nbsp;}}"
+    - "6, {{>pickN: 2 animal.terrestrial &nbsp;+&nbsp;}}"
+    - "7, {{>pickN: 2 animal.aquatic &nbsp;+&nbsp;}}"
+    - "8, {{>pickN: 2 animal.forms &nbsp;+&nbsp;}}"
+
+    features:
+    - Cornamenta
+    - Pico
+    - Caparazón
+    - Garras
+    - Ojos compuestos
+    - Tallo ocular
+    - Colmillos
+    - Aletas
+    - Pelaje
+    - Branquias
+    - Pezuñas
+    - Cuerno
+    - Placas
+    - Plumas
+    - Trompa
+    - Escamas
+    - Segmentos
+    - Lanudo
+    - Caparazón
+    - Espinas
+    - Bolsa de seda
+    - Púas
+    - Aguijón
+    - Ventosas
+    - Sin piernas
+    - Lengua larga
+    - Multiojos
+    - Multipierna
+    - Moco
+    - Pinzas
+    - Cola
+    - Garras de ave
+    - Tentáculos
+    - Abdomen extra
+    - Colmillo
+    - Alas
+    traits:
+    - Anfibio
+    - Hinchado
+    - Frágil
+    - Canibal
+    - Arcilloso
+    - Colosal
+    - Cristalino
+    - Pútrido
+    - "{{magic.ethereal_elements}}"
+    - Etéreo
+    - Siempre jóven
+    - Sin ojos
+    - Sin miedo
+    - Mullido
+    - Hongo
+    - Gelatinoso
+    - Geométrico
+    - Duro
+    - Ilusorio
+    - Inteligente
+    - Iridiscente
+    - Luminoso
+    - Muchas cabezas
+    - Mecánico
+    - "{{magic.physical_elements}}"
+    - Planar
+    - Reflectante
+    - Gomoso
+    - Sombrío
+    - Miembro afilado
+    - Esquelético
+    - Gelatinoso
+    - Pegajoso
+    - Apestoso
+    - Diminuto
+    - Traslúcido
+    abilities:
+    - Absorbente
+    - Sangre ácida
+    - Anti-magia
+    - Cegador
+    - Arma aliento
+    - Camuflaje
+    - Duplicante
+    - Eléctrico
+    - Enreda
+    - "{{magic.ethereal_effects}}"
+    - Explosivo
+    - Volador
+    - Mímico
+    - Telépata
+    - Paralizante
+    - Fase (Planos)
+    - "{{magic.physical_effects}}"
+    - Venenoso
+    - Radioactivo/a
+    - Reflectante
+    - Regenera
+    - Cambiaformas
+    - Lanza conjuros
+    - Sigiloso
+    - Arma de mirada
+    - Hipnotizante
+    - Impermeable
+    - Invisible
+    - Drena-vida
+    - Magnético
+    - Estrangulante
+    - Super fuerza
+    - Telekinético
+    - Teleportador
+    - Vampírico
+    - Trepamuros
+    tactics:
+    - Emboscada
+    - Llamada auxilio
+    - Captura
+    - Carga
+    - Trepa enemigos
+    - Obliga a adorar
+    - Crea barrera
+    - Engaña
+    - Exige duelo
+    - Desorienta
+    - Rodea
+    - Escapa
+    - Bandas
+    - Acumula fuerza
+    - Furia
+    - Hostiga
+    - Lanza enemigos
+    - Inmoviliza
+    - Manipula
+    - Se burla
+    - Monólogo
+    - Ordena a esbirro
+    - Protege líder
+    - Auto protege
+    - Separa enemigos
+    - Sigue enemigos
+    - Roba a enemigos
+    - Enjambre
+    - Ataca al insolente
+    - Ataca líder
+    - Ataca cercano
+    - Ataca más rico
+    - Ataca al fuerte
+    - Ataca al débil
+    - Juega con
+    - Usa el terreno
+    personalities:
+    - Extranjero
+    - Distante
+    - Aburrido
+    - Cobarde
+    - Cauto
+    - Curioso
+    - Astuto
+    - Distraído
+    - Educado
+    - Amargado
+    - Envidioso
+    - Erudito
+    - Fanático
+    - Olvidadizo
+    - Generoso
+    - Odioso
+    - Honorable
+    - Modesto
+    - Hastiado
+    - Jovial
+    - Legalista
+    - Manipulador
+    - Megalomaniaco
+    - Melancólico
+    - Meticuloso
+    - Místico
+    - Obsesivo
+    - Distante
+    - Paranoico
+    - Educado
+    - Psicópata
+    - Sofisticado
+    - Quisquilloso
+    - Desencantado
+    - Vanidoso
+    - Xenófobo
+    weakness:
+    - Campanas
+    - Canto pájaros
+    - Niños
+    - Frío
+    - Hierro frío
+    - Competición
+    - Muérdago
+    - Luz de luna
+    - Música
+    - "{{characters.methods}}"
+    - Filacteria
+    - "{{magic.physical_elements}}"
+    - Conversación
+    - Deformidad
+    - Halagos
+    - Flores
+    - Regalos
+    - Oro
+    - Puzles
+    - Acertijos
+    - Rituales
+    - Plata
+    - Luz del sol
+    - Lágrimas
+    - Calor
+    - Símbolo divino
+    - Agua bendita
+    - Comida casera
+    - "Locuras - <em>{{insanities}}</em>"
+    - Espejos
+    - Nombre real
+    - "{{valuable_materials}}"
+    - Punto débil
+    - "{{items.weapons}}"
+    - Vino
+    - Ajenjo
