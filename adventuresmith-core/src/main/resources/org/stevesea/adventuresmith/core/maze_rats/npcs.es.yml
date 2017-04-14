@@ -5,7 +5,7 @@ templates:
   {{npc_occupation.select}}
   <br/>
   <br/><strong><small>Apariencia: </small></strong> {{characters.appearance}}, {{characters.physical_detail}}
-  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} clothing
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} vestimenta
   <br/><strong><small>Personalidad: </small></strong> {{characters.personalities}}
   <br/><strong><small>Manierismos: </small></strong> {{characters.mannerism}}
   <br/>

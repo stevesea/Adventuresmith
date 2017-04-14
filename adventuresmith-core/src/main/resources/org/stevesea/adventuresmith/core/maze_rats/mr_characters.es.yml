@@ -155,8 +155,8 @@ nested_tables:
     - Despreciado
 
     goals:
-    Vida mejor
-    Aceptación
+    - Vida mejor
+    - Aceptación
     - "Tener Objeto <em>({{items.items}})</em>"
     - "Forjar Objeto <em>({{items.items}})</em>"
     - "Destruir Faccio <em>({{factions.factions}})</em>"
@@ -763,4 +763,4 @@ nested_tables:
     - Suministrador
     - Enamorado
     - No corresponde
-    
+

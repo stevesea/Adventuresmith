@@ -6,7 +6,7 @@ templates:
   <br/>&nbsp;&nbsp;<em>Elemento:</em> {{magic.elements}}
   <br/>&nbsp;&nbsp;<em>Forma:</em> {{magic.forms}}
   <br/>
-  <br/><strong><small>caracteristicas:</small></strong> {{monster_spec.features}}
+  <br/><strong><small>Caracteristicas:</small></strong> {{monster_spec.features}}
   <br/><strong><small>Rasgos:</small></strong> {{monster_spec.traits}}
   <br/><strong><small>Habilidades:</small></strong> {{monster_spec.abilities}}
   <br/><strong><small>Tácticas:</small></strong> {{monster.tactics}}
