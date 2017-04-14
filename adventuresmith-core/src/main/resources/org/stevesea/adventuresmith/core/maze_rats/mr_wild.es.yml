@@ -339,7 +339,7 @@ nested_tables:
     - Fuertes vientos
   inn:
     inns:
-    - "{{inn.adjectives}} {{inn.nouns}}"
+    - " {{inn.nouns}} {{inn.adjectives}}"
     - "{{>pickN: 2 inn.nouns &nbsp;&amp;&nbsp;}}"
     adjectives:
     - Chillon/a

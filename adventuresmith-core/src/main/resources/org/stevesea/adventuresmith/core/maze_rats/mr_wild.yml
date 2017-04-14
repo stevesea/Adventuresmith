@@ -340,7 +340,7 @@ nested_tables:
     - Windstorm
   inn:
     inns:
-    - " {{inn.nouns}} {{inn.adjectives}}"
+    - "{{inn.adjectives}} {{inn.nouns}}"
     - "{{>pickN: 2 inn.nouns &nbsp;&amp;&nbsp;}}"
     adjectives:
     - Bellowing
