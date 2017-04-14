@@ -463,42 +463,9 @@ nested_tables:
     - Moño
 
     background:
-    - Alchemist
-    - Beggar-prince
-    - Blackmailer
-    - Bounty-hunter
-    - Chimney sweep
-    - Coin-clipper
-    - Contortionist
-    - Counterfeiter
-    - Cultist
-    - Cutpurse
-    - Debt-collector
-    - Deserter
-    - Fence
-    - Fortuneteller
-    - Galley slave
-    - Gambler
-    - Gravedigger
-    - Headsman
-    - Hedge knight
-    - Highwayman
-    - Housebreaker
-    - Kidnapper
-    - Mad prophet
-    - Mountebank
-    - Peddler
-    - Pit-fighter
-    - Poisoner
-    - Rat-catcher
-    - Scrivener
-    - Sellsword
-    - Slave
-    - Smuggler
-    - Street performer
-    - Tattooist
-    - Urchin
-    - Usurer
+    # NOTE: the spanish version didn't have a 'background' table for character creation,
+    #   but, the english version is just a selection from the NPC occupations... so this'll do for now.
+    - "{{npc_occupation.civilized}}"
 
     clothing:
     - Anticuado

@@ -1,0 +1,460 @@
+---
+nested_tables:
+
+  city:
+    themes:
+    - "{{animal.forms}}"
+    - Aristocracia
+    - Arte
+    - Burocracia
+    - Castas
+    - Catacumbas
+    - "{{city.activities}}"
+    - "{{city.events}}"
+    - Rencillas
+    - Crueldad
+    - "{{city.districts}}"
+    - "{{divine_domains}}"
+    - "Facción <em>({{factions.factions}})</em>"
+    - Familias crimen
+    - Intriga
+    - Ley marcial
+    - "{{buildings.lower_class}}"
+    - Meritocracia
+    - "PNJ <em>({{npc_occupation.select}})</em>"
+    - Opulencia
+    - "{{magic.physical_elements}}"
+    - Peregrinos
+    - Piratería
+    - Plutocracia
+    - Pobreza
+    - Rituales
+    - Esclavitud
+    - Especias
+    - Teocracia
+    - Ladrones y robos
+    - Comercio
+    - Tiranía
+    - "{{buildings.upper_class}}"
+    - Brujería
+    - Xenofobia
+    events:
+    - Asesinato
+    - Carnaval
+    - Conscripción
+    - Coronación
+    - Golpe estado
+    - Actividad culto
+    - Insurrección
+    - Invasión
+    - Fuga prisión
+    - Juegos públicos
+    - Perdón masivo
+    - Negociaciones
+    - Toque queda
+    - Descubrimiento
+    - Terremoto
+    - "Guerra Facción <em>({{factions.factions}})</em>"
+    - Histeria
+    - Fuego
+    - Plaga
+    - Proclamación
+    - Prohibición
+    - Escasez
+    - Refugiados
+    - Disturbios
+    - Inundación
+    - Niebla pesada
+    - Altos impuestos
+    - Día sagrado
+    - Tendencia moda
+    - Inquisición
+    - Arresto político
+    - Escándalo
+    - Asesino serie
+    - Desalojo masivo
+    - Torneo
+    - Juicio
+    districts:
+    - Catacumbas
+    - "{{npc_occupation.civilized}}"
+    - Construcción
+    - Artesanos
+    - Criminalidad
+    - Cultura
+    - Mercado
+    - Memorial
+    - Militar
+    - Opulencia
+    - Polución
+    - Pobreza
+    - Restaurante
+    - Educación
+    - Entretenimiento
+    - Finanzas
+    - Extranjeros
+    - Gueto
+    - Castigo
+    - Religión
+    - Ciencia
+    - Mercados
+    - Basura
+    - "{{npc_occupation.underworld}}"
+    - Gobierno
+    - Cementerios
+    - Espacios verdes
+    - Industrialización
+    - Juicio
+    - Ganado
+    - "{{buildings.upper_class}}"
+    - "{{buildings.lower_class}}"
+    - Vicios
+    - "{{npc_occupation.wilderness}}"
+    - Brujería
+    - Maravillas
+
+    activities:
+    - Secuestrar
+    - Mendigar
+    - Pelear
+    - Robar
+    - Celebrar
+    - Perseguir
+    - Matrimonio
+    - "{{missions}}"
+    - Llorar muerte
+    - Festejar
+    - Patrullar
+    - Interpretar
+    - Construir
+    - Cocinar
+    - Bailar
+    - Duelo
+    - Recorrer
+    - Ejecutar
+    - Jugar
+    - Predicar
+    - Procesar
+    - Proclamar
+    - Protestar
+    - Liberar
+    - Extinguir
+    - Extorsionar
+    - Seguir
+    - Apostar
+    - "{{dungeon.activities}}"
+    - Interrogar
+    - Reparar
+    - Manifestación
+    - Asaltar
+    - Buscar
+    - Vender
+    - "{{wilderness.activities}}"
+    tactical_building_features:
+    - "Nido {{animal.forms}}"
+    - Nido Animal
+    - Balcones
+    - Acceso sótano
+    - Muy iluminada
+    - Mueble roto
+    - Cristal roto
+    - Malas hierbas
+    - Patrullas
+    - Columnas
+    - Techo podrido
+    - Biombos
+    - Suelo podrido
+    - Gabinete
+    - Cadenas cuelga
+    - Candelabros
+    - Falso suelo
+    - Drenajes
+    - Montaplatos
+    - Muro podrido
+    - Estantería alta
+    - Oscuro
+    - Nichos oscuros
+    - Escaleras
+    - Claraboya
+    - Mármol eco
+    - Suelo enmoqueta
+    - Chimenea enorm
+    - Pasillo estrecho
+    - Ventanas abiertas
+    - Arma ornamental
+    - Mirilla
+    - Pasillo sirviente
+    - Acceso alcantarill
+    - Perros guardianes
+    - Montón basura
+    - Cortinas
+    tactical_street_features:
+    - Soportales
+    - Toldos
+    - Balcones
+    - Barricadas
+    - Puente
+    - Canal
+    - Fuente
+    - Portones
+    - Escalas
+    - Ganado
+    - Embarrado
+    - Mala hierba
+    - Carruajes
+    - Pasarelas
+    - "{{city.activities}}"
+    - Muro trepable
+    - Ropa tendida
+    - Muchedumbre
+    - Acceso tejados
+    - Jardines tejados
+    - Calle rota
+    - Desagüe
+    - Resbaladizo
+    - "{{wilderness.activities}}"
+    - Callejón sin salid
+    - Niebla densa
+    - Lluvia intensa
+    - "{{dungeon.activities}}"
+    - Inundación
+    - Puestos comida
+    - Calle estrecha
+    - Escaleras
+    - Acceso alcantarill
+    - Enjambre ratas
+    - Pozo
+    - Tejado inclinado
+
+  buildings:
+    buildings:
+    - "{{buildings.upper_class}}"
+    - "{{buildings.lower_class}}"
+    upper_class:
+    - Academia
+    - Alquimia
+    - Archivo
+    - Coleccionista
+    - Barbería
+    - Encuadernador
+    - Salón de te
+    - Hacienda
+    - Museo
+    - Opera
+    - Parque
+    - Observatorio
+    - Librería
+    - Castillo
+    - Relojería
+    - Sastrería
+    - Tribunal
+    - Peletero
+    - Médico
+    - Impresor
+    - Termas
+    - Taberna
+    - Establos
+    - Restaurante
+    - Galería
+    - Jardín
+    - Mercería
+    - Joyería
+    - Abogado
+    - Cerrajero
+    - Taxidermista
+    - Templo
+    - Tabacalero
+    - Bodega
+    - Zoo
+    - Mansión
+    lower_class:
+    - Apotecario
+    - Asilo
+    - Panadero
+    - Destilería
+    - Carnicero
+    - Candelero
+    - Molino
+    - Prestamista
+    - Orfanato
+    - Camisero
+    - Prisión
+    - Costurero
+    - Catacumbas
+    - Quesero
+    - Base criminal
+    - Taller cuero
+    - Muelle
+    - Pozo peleas
+    - Astilleros
+    - Capilla
+    - Corral
+    - Talla piedra
+    - Tatuador
+    - Taberna
+    - Forja
+    - Vidente
+    - Casino
+    - Curiosidades
+    - Mercado
+    - Mansión
+    - Teatro
+    - Veterinario
+    - Almacén
+    - Torre vigía
+    - Telar
+    - Taller
+
+    rooms:
+    - Jardín botánico
+    - Atrio
+    - Ático
+    - Pajarera
+    - Sala de baile
+    - Baños
+    - Despensa
+    - Librería
+    - Sala de mapas
+    - Sala de juegos
+    - Caballeriza
+    - Enfermería
+    - Dormitorio
+    - Gabinete
+    - Capilla
+    - Guardarropa
+    - Comedor
+    - Vestidor
+    - Almacén
+    - Salón
+    - Letrina
+    - Sótano
+    - Jamonera
+    - Trascocina
+    - "{{dungeon.rooms}}"
+    - Jardín
+    - Desván
+    - Invernadero
+    - Trastero
+    - Cocina
+    - Fumadero
+    - Sala de especias
+    - Sala de té
+    - Estudio
+    - Sala de trofeos
+    - Ropero
+
+  factions:
+    factions:
+    - Movim Artístic
+    - Gremio mendig
+    - Mercado negro
+    - Hermandad
+    - Guardia ciudad
+    - Conspiración
+    - Iglesia nacional
+    - Casa noble
+    - Clan Extranjer
+    - Banda forajidos
+    - Partido polític
+    - Orden religiosa
+    - Gremio artesan
+    - Familia Crimen
+    - Banda Crimen
+    - Culto oscuro
+    - Club Explorad
+    - Compañía libre
+    - Secta religiosa
+    - Resistencia
+    - Armada real
+    - Casa real
+    - Círculo erudito
+    - Sociedad secret
+    - Club gourmet
+    - Atracadores
+    - Secta herética
+    - Alto concilio
+    - Asesinos sueldo
+    - Milicia local
+    - Red de espías
+    - Artistas callejero
+    - Banda callejera
+    - Músicos callejero
+    - Tropa teatral
+    - Grupo mercader
+
+    traits:
+    - En quiebra
+    - Burocrática
+    - Caritativa
+    - Confundida
+    - Conectada
+    - Corrupta
+    - Insular
+    - Manipulativa
+    - Militar
+    - "{{characters.personalities}}"
+    - Piadosa
+    - Popular
+    - Decadente
+    - En disolución
+    - Delirante
+    - Dividida
+    - Menguante
+    - Eficiente
+    - Justa
+    - Implacable
+    - Secreta
+    - Subversiva
+    - Reprimida
+    - Amenazada
+    - Esotérico
+    - En expansión
+    - Buscada
+    - Incompetente
+    - Incorruptible
+    - Loca
+    - Exitosa
+    - Impopular
+    - Prometedora
+    - Rica
+    - Bien preparada
+    - Xenófoba
+
+    goals:
+    - Aconsejar líder
+    - Evitar detecció
+    - Destruir villano
+    - Proteger ley
+    - Crear base
+    - Entretener
+    - Cambiar bienes
+    - Oír rumores
+    - Hedonismo
+    - Promover arte
+    - Mapear natural
+    - Derrocar orden
+    - Control polític
+    - Crear artefacto
+    - "Crear Monstru <em>({{monster.forms}})</em>"
+    - "Destruir Facció <em>({{factions.factions}})</em>"
+    - Enriquecerse
+    - Defender líder
+    - Preservar linaje
+    - Preservar saber
+    - Producir bienes
+    - Invocar el mal
+    - Sobrevivir
+    - Purga traidores
+    - Destruir artefacto
+    - Destruir criatura
+    - Despertar criatur
+    - Conseguir artefac
+    - Defender frontera
+    - "Controlar Facció <em>({{factions.factions}})</em>"
+    - Vender servicios
+    - Compartir saber
+    - Extender creencia
+    - "Infiltrar Facción <em>({{factions.factions}})</em>"
+    - Transport bienes
+    - Promover artesan
+

@@ -7,7 +7,7 @@ templates:
   <br/>
   <br/><strong><small>Apariencia: </small></strong> {{characters.appearance}}, {{characters.physical_detail}},
   <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{characters.clothing}} vestimenta
-  <br/><strong><small>Background: </small></strong> {{characters.background}}
+  <br/><strong><small>Antecedentes: </small></strong> {{characters.background}}
   <br/><strong><small>Personalidad: </small></strong> {{characters.personalities}}
   <br/><strong><small>Manierismo: </small></strong> {{characters.mannerism}}
   <h5>Objetos & Armas</h5>
