@@ -1,0 +1,363 @@
+---
+tables:
+  mutations:
+  - Envejece
+  - Atrae pájaros
+  - Infantiliza
+  - Corpulencia
+  - Pelaje
+  - Jorobado
+  - "Forma {{items.items}}"
+  - Brazos largos
+  - Sin pelo
+  - Sin dientes
+  - "Ojos {{animal.forms}}"
+  - "Cabeza {{animal.forms}}"
+  - "Piernas {{animal.forms}}"
+  - "Boca {{animal.forms}}"
+  - "Piel {{animal.forms}}"
+  - "Brazos {{animal.forms}}"
+  - "Forma {{animal.forms}}"
+  - "{{monster.traits}}"
+  - "{{monster.features}}"
+  - Sin ojos
+  - Sin boca
+  - "Piel {{magic.physical_elements}}"
+  - Segunda cara
+  - Muda la piel
+  - Cíclope
+  - Brazos extra
+  - Ojos extra
+  - Piernas extra
+  - Lengua bífida
+  - Cambio sexo
+  - Encoje
+  - Deshidratado
+  - Piel hierve
+  - Rastro baboso
+  - Piel traslucida
+  - Llora sangre
+  insanities:
+  - Siempre miente
+  - Siempre educado
+  - "“Forma {{animal.forms}}”"
+  - No puede contar
+  - No puede mentir
+  - Prosopagnosia
+  - Teme ríos
+  - Teme silencio
+  - Teme sueño
+  - Teme luz sol
+  - Teme luna
+  - Teme árboles
+  - Teme pájaros
+  - Teme sangre
+  - Teme libros
+  - Teme oscuridad
+  - Teme fuego
+  - Teme oro
+  - Teme caballos
+  - Teme hierro
+  - Teme música
+  - Teme su mano
+  - Teme a un PJ
+  - Teme la lluvia
+  - “Genio”
+  - “Atractivo”
+  - Pacifista
+  - “Invisible”
+  - “Invulnerable”
+  - "“{{monster.abilities}}”"
+  - "“{{monster.features}}”"
+  - "“{{monster.traits}}”"
+  - Debe cantar
+  - "Nueva Personalid - <em>{{characters.personalities}}</em>"
+  - Piensa voz alta
+  - Ve muertos
+
+  omens_catastrophes:
+  - Hierro oxida
+  - Animales mueren
+  - "Animals - <em>{{mutations}}</em>"
+  - Pájaros atacan
+  - Ciudad aparece
+  - Niebla mortal
+  - Plaga onírica
+  - Noche eterna
+  - Lluvia eterna
+  - Diluvio etern.
+  - Ocaso eterno
+  - Invierno eter.
+  - Retorno duendes
+  - Bosque aparece
+  - Amnesia global
+  - Tumbas se abren
+  - Lamentaciones
+  - Gusanos
+  - "Locura masiva - <em>{{insanities}}</em>"
+  - "Mutaciones masiva - <em>{{mutations}}</em>"
+  - Sueño masivo
+  - Meteorito
+  - Espejos hablan
+  - Estrellas se van
+  - Demonios
+  - Gente encoje
+  - Portal abre
+  - Grietas
+  - Piedras hablan
+  - Silencio total
+  - Gente desaparece
+  - Plantas marchita
+  - Torre aparece
+  - Agua a sangre
+  - Sombras hablan
+  - Espacio deforma
+nested_tables:
+  magic:
+    spells:
+    - "{{magic.physical_effects}} + {{magic.physical_forms}}"
+    - "{{magic.physical_effects}} + {{magic.ethereal_forms}}"
+    - "{{magic.ethereal_effects}} + {{magic.physical_forms}}"
+    - "{{magic.ethereal_effects}} + {{magic.ethereal_forms}}"
+    - "{{magic.physical_elements}} + {{magic.physical_forms}}"
+    - "{{magic.physical_elements}} + {{magic.ethereal_forms}}"
+    - "{{magic.ethereal_elements}} + {{magic.physical_forms}}"
+    - "{{magic.ethereal_elements}} + {{magic.ethereal_forms}}"
+    - "{{magic.physical_effects}} + {{magic.physical_elements}}"
+    - "{{magic.physical_effects}} + {{magic.ethereal_elements}}"
+    - "{{magic.ethereal_effects}} + {{magic.physical_elements}}"
+    - "{{magic.ethereal_effects}} + {{magic.ethereal_elements}}"
+    effects:
+    - "{{magic.physical_effects}}"
+    - "{{magic.ethereal_effects}}"
+    elements:
+    - "{{magic.physical_elements}}"
+    - "{{magic.ethereal_elements}}"
+    forms:
+    - "{{magic.physical_forms}}"
+    - "{{magic.ethereal_forms}}"
+    physical_effects:
+    - Viviente
+    - Atrayente
+    - Adherente
+    - Floreciente
+    - Consumidor/a
+    - Reptante
+    - de Levitación
+    - de Apertura
+    - Petrificante
+    - Eterificador/a
+    - Perforante
+    - Perseguidor
+    - Aplastante
+    - Menguante
+    - Divisorio/a
+    - Replicante
+    - Envolvente
+    - Expansible
+    - Reflectante
+    - Regenerador/a
+    - Desgarrador/a
+    - Repulsor/a
+    - Resurrector/a
+    - Chillón
+    - de Fusión
+    - de Agarre
+    - de Celeridad
+    - Estorbador/a
+    - Iluminador/a
+    - Encarcelante
+    - Sellante
+    - Cambiante
+    - Protector/a
+    - Invocador/a
+    - Transmutador/a
+    - Transportador/a
+
+    physical_elements:
+    - Ácido
+    - Ámbar
+    - Corteza
+    - Sangre
+    - Hueso
+    - Salmuera
+    - Musgo
+    - Obsidiana
+    - Aceite
+    - Veneno
+    - Rata
+    - Sal
+    - Arcilla
+    - Cuervo
+    - Cristal
+    - Brasas
+    - Piel
+    - Hongos
+    - Arena
+    - Savia
+    - Serpiente
+    - Baba
+    - Piedra
+    - Alquitrán
+    - Cristal
+    - Miel
+    - Hielo
+    - Insecto
+    - Madera
+    - Lava
+    - Espinas
+    - Hiedra
+    - Agua
+    - Vino
+    - Madera
+    - Gusano
+    physical_forms:
+    - Altar
+    - Armadura
+    - Flecha
+    - Bestia
+    - Espada
+    - Marmita
+    - Cuerno
+    - Llave
+    - Máscara
+    - Monolito
+    - Pozo
+    - Prisión
+    - Cadena
+    - Carro
+    - Garra
+    - Capa
+    - Coloso
+    - Corona
+    - Centinela
+    - Sirviente
+    - Escudo
+    - Lanza
+    - Corcel
+    - Enjambre
+    - Elemental
+    - Ojo
+    - Fuente
+    - Puerta
+    - Golem
+    - Martillo
+    - Tentáculo
+    - Trono
+    - Antorcha
+    - Trampa
+    - Muro
+    - Red
+    ethereal_effects:
+    - Vengador/a
+    - de Expulsión
+    - Desconcertante
+    - Cegador/a
+    - Encantador/a
+    - Comunicador/a
+    - de Dolor
+    - Predictor/a
+    - Intoxicante
+    - Enloquecedor/a
+    - Hipnotizante
+    - Leementes
+    - Cautivante
+    - de Ocultación
+    - Ensordecedor/a
+    - Engañoso/a
+    - de Traducción
+    - de Camuflaje
+    - Nulificador/a
+    - Paralizante
+    - Revelador/a
+    - Repugnante
+    - Leefuturos
+    - Silenciador/a
+    - de Disipación
+    - de Valor
+    - Codificador/a
+    - Energizante
+    - de Entendimiento
+    - Enfurecedor/a
+    - Tranquilizante
+    - Invocador/a
+    - Aterrador
+    - Protector/a
+    - Agotador/a
+    - Desmotivador/a
+
+    ethereal_elements:
+    - Ceniza
+    - Caos
+    - Distorsión
+    - Sueño
+    - Polvo
+    - Eco
+    - Plaga
+    - Plasma
+    - Probabilidad
+    - Lluvia
+    - Putrefacción
+    - Sombra
+    - Ectoplasma
+    - Fuego
+    - Niebla
+    - Fantasma
+    - Armonía
+    - Calor
+    - Humo
+    - Nieve
+    - Alma
+    - Estrella
+    - Estasis
+    - Vapor
+    - Luz
+    - Rayo
+    - Memoria
+    - Mente
+    - Mutación
+    - Negación
+    - Trueno
+    - Tiempo
+    - Vacío
+    - Deformación
+    - Silbido
+    - Viento
+    ethereal_forms:
+    - Aura
+    - Faro
+    - Haz
+    - Explosión
+    - Gota
+    - Dardo
+    - Mirada
+    - Lazo
+    - Momento
+    - Nexo
+    - Portal
+    - Pulsación
+    - Burbuja
+    - Llamada
+    - Cascada
+    - Círculo
+    - Nube
+    - Espiral
+    - Pirámide
+    - Rayo
+    - Cristal
+    - Esfera
+    - Spray
+    - Tormenta
+    - Cono
+    - Cubo
+    - Danza
+    - Disco
+    - Campo
+    - Forma
+    - Enjambre
+    - Torrente
+    - Toque
+    - Vórtice
+    - Onda
+    - Palabra
+
