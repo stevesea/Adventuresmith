@@ -1,0 +1,454 @@
+---
+
+tables:
+  edible_plants:
+  - Bellotas
+  - Manzanas
+  - Espárragos
+  - Bayas negras
+  - Bayas azules
+  - Zanahorias
+  - Juncos
+  - Cerezas
+  - Cerastio
+  - Achicoria
+  - Trébol
+  - Diente de león
+  - Ortiga blanca
+  - Bayas de saúco
+  - Kochia
+  - Grosellas
+  - Avellanas
+  - Ortiga mansa
+  - Nuez pacana
+  - Madreselva
+  - Puerros
+  - Cardo de leche
+  - Menta
+  - Moras
+  - Champiñones
+  - Mostaza
+  - Cebolla
+  - Romero
+  - Caquis
+  - Frambuesas
+  - Fresas
+  - Nueces
+  - Berro
+  - Ajo silvestre
+  - Uvas silvestres
+  - Acedera
+
+  poisonous_plants:
+  - Trompa ángel
+  - Actaea
+  - Belladona
+  - Trufa negra
+  - Corazónsangre
+  - Celidonia Berberecho
+  - Aquilegia
+  - Peziza
+  - Gorro muerto
+  - Cañatonta
+  - Dedalera
+  - Jazmín
+  - Kudu
+  - Lakspur
+  - Mandrágora
+  - Manglar
+  - Muérdago Flor de luna
+  - Sombranocturna
+  - Adelfa
+  - Zuzón
+  - Liquen de reno
+  - Escobilla
+  - Cicuta
+  - Branca ursina
+  - Ilex
+  - Nuez de caballo
+  - Jacinto
+  - Hiedra
+  - Husera
+  - Cuernoapestoso
+  - Higróforo
+  - Malva de pradera
+  - Acónito
+  - Artemisa
+
+nested_tables:
+
+  wilderness:
+    regions:
+    - Ceniciento
+    - Páramos
+    - Bahía
+    - Playa
+    - Delta
+    - Desierto
+    - Tierra seca
+    - Mar de dunas
+    - Polvorienta
+    - Fiordos
+    - Marismas
+    - Estribaciones
+    - Bosque
+    - Glaciares
+    - Brezal
+    - Tierras altas
+    - Colinas
+    - Tierra helada
+    - Jungla
+    - Tierras bajas
+    - Meseta
+    - Pantano
+    - Montañas
+    - Bosque pétreo
+    - Llanuras
+    - Selva
+    - Entreríos
+    - Salinas
+    - Sabana
+    - Estepa
+    - Taiga
+    - Espesura
+    - Tundra
+    - Linde volcánica
+    - Humedales
+    - Arboleda
+    landmarks:
+    - Pantano
+    - Campo de roca
+    - Colina baja
+    - Cueva
+    - Barranco
+    - Risco
+    - Lecho del lago
+    - Marisma
+    - Meseta
+    - Pantano
+    - Paso
+    - Pozo
+    - Cráter
+    - Arroyo
+    - Intersección
+    - Zanja
+    - Campo
+    - Bosque
+    - Estanque
+    - Rápidos
+    - Quebrada
+    - Cresta
+    - Crecida
+    - Río
+    - Arboleda
+    - Colina
+    - Claro
+    - Aguas termales
+    - Guarida
+    - Lago
+    - Avalancha rocas
+    - Charca
+    - Ciénaga
+    - Espesura
+    - Valle
+    - Cascada
+    structures:
+    - Altar
+    - Acueducto
+    - Cripta
+    - Campo batalla
+    - Hoguera
+    - Puente
+    - Posada
+    - Camp. Leñador
+    - Mina
+    - Monasterio
+    - Monumento
+    - Huerta
+    - Mojón
+    - Cruce caminos
+    - Patíbulo
+    - Presa
+    - Dungeon
+    - Granja
+    - Puesto frontera
+    - Pasto
+    - Ruinas
+    - Retiro
+    - Cabaña
+    - Santuario
+    - Vado
+    - Fortaleza
+    - Camp. Bandidos
+    - Tumba
+    - Cerco de setos
+    - Camp. Cazadores
+    - Menhir
+    - Templo
+    - Aldea
+    - Muro
+    - Torre vigía
+    - Piedra guía
+    region_traits:
+    - En cenizas
+    - Destruido
+    - Marchitado
+    - Roto
+    - Consumido
+    - Corrupto
+    - Progresivo
+    - Desolado
+    - "{{dungeon.tricks}}"
+    - Eterno
+    - "{{magic.ethereal_effects}}"
+    - Abandonado
+    - Congelado
+    - Embrujado
+    - Aullidos
+    - Mellado
+    - Solitario
+    - Brumoso
+    - Peligroso
+    - Petrificado
+    - Fantasmal
+    - Voraz
+    - Salvaje
+    - Sombrío
+    - Movedizo
+    - Tembloroso
+    - Siniestro
+    - Hundiéndose
+    - Ahumado
+    - Sofocante
+    - Espinoso
+    - Truenos
+    - Torrencial
+    - "{{magic.physical_effects}}"
+    - Errante
+    - Mustio
+    discoveries:
+    - Mancha sangre
+    - Huesos
+    - Armas rotas
+    - Madriguera
+    - "{{city.activities}}"
+    - "PNJ: {{npc_occupation.civilized}}"
+    - Cuerda cortada
+    - Animal muerto
+    - "{{dungeon.activities}}"
+    - Restos comida
+    - Marca tumba
+    - Cadáver
+    - "{{items.items}}"
+    - "PNJ Perdido: {{npc_occupation.select}}"
+    - "{{magic.effects}}"
+    - Mapa
+    - Mensaje
+    - Migración
+    - "Mutación: {{mutations}}"
+    - "Nido: {{animal.forms}}"
+    - Portal
+    - Recursos
+    - Grieta
+    - Planta rara
+    - "PNJ aturdido: {{npc_occupation.select}}"
+    - Suministros
+    - Bandera rota
+    - "Rastros: {{animal.forms}}"
+    - Trampa
+    - Tesoro
+    - "PNJ: {{npc_occupation.underworld}}"
+    - "{{wilderness.activities}}"
+    - "{{wilderness.landmarks}}"
+    - "{{wilderness.structures}}"
+    - "PNJ: {{npc_occupation.wilderness}}"
+    - Lucha de magos
+    activities:
+    - Emboscada
+    - Discutir
+    - Nacimiento
+    - Construir
+    - Enterrar
+    - Capturar
+    - "{{city.activities}}"
+    - Convocar
+    - Demolición
+    - Morir
+    - Duelo
+    - "{{dungeon.activities}}"
+    - Comer
+    - Excavar
+    - Banquete
+    - Sentir
+    - Pescar
+    - Escapar
+    - Forrajear
+    - Cazar
+    - Marchar
+    - Saquear
+    - Rescatar
+    - Descansar
+    - Sacrificar
+    - Explorar
+    - Cantar
+    - Despellejar
+    - Escaramuza
+    - Matar
+    - Dormir
+    - Nadar
+    - Rastrear
+    - Trampa
+    - Vagar
+    - Adorar
+    hazards:
+    - Avalancha
+    - Ventisca
+    - Fuego matojo
+    - Chaparrón
+    - Ciclón
+    - Niebla densa
+    - Lluvia
+    - Llovizna
+    - Ola de calor
+    - Terremoto
+    - Erupción
+    - Inundación
+    - Fuego bosque
+    - Granizo
+    - Tormenta arena
+    - Huracán
+    - Tormenta hielo
+    - Niebla ligera
+    - Miles langostas
+    - Flujo magma
+    - Meteorito
+    - Monzón
+    - Rio barro
+    - Embarrado
+    - Depredador
+    - Arena movediz
+    - Lluvia ranas
+    - Avalancha roca
+    - Torbellino
+    - Aguanieve
+    - Nieve
+    - Estampida
+    - Truenos
+    - Tsunami
+    - Tormenta polvo
+    - Fuertes vientos
+  inn:
+    inns:
+    - "{{inn.adjectives}} {{inn.nouns}}"
+    - "{{>pickN: 2 inn.nouns &nbsp;&amp;&nbsp;}}"
+    adjectives:
+    - Chillon/a
+    - Flameante
+    - Desolado/a
+    - Bendito/a
+    - Sangriento/a
+    - Carmesí
+    - Astuto/a
+    - Cobre
+    - Danzarín/a
+    - Muerto/a
+    - Borracho/a
+    - Volador/a
+    - Macabro/a
+    - Oro
+    - Amable
+    - Terrible
+    - Aullante
+    - Hambriento/a
+    - Mohoso/a
+    - Murmurante
+    - Avispado/a
+    - Rebosante
+    - Petrificado/a
+    - Trotón/a
+    - Romántico/a
+    - Salado/a
+    - Cantarín/a
+    - Tembloroso/a
+    - Menguante
+    - Plateado/a
+    - Humeante
+    - Sediento/a
+    - Malvado/a
+    - Achispado/a
+    - Silbador/a
+    - Descontrolado/a
+    nouns:
+    - Hacha
+    - Barril
+    - Oso
+    - Campana
+    - Bota
+    - Cuenco
+    - Cubo
+    - Vela
+    - Gallo
+    - Vaca
+    - Dragón
+    - Huevo
+    - Elefante
+    - Mosca
+    - Tenedor
+    - Gigante
+    - Grifo
+    - Ciervo
+    - Puerco
+    - Sabueso
+    - Cordero
+    - León
+    - Caballa
+    - Criada
+    - Monje
+    - Luna
+    - Tubo
+    - Príncipe
+    - Rata
+    - Calavera
+    - Cuchara
+    - Estrella
+    - Cisne
+    - Espada
+    - Ballena
+    - Esposa
+    quirks:
+    - 100 años
+    - Siempre noche
+    - Pelea animales
+    - Duelo bardos
+    - Interior+grande
+    - Mercado negro
+    - Nueva
+    - Caníbales
+    - "{{city.activities}}"
+    - Fiesta constate
+    - Duelo de baile
+    - Jefe duende
+    - "{{dungeon.forms}}"
+    - Cara
+    - "Lugar de Facción <em>({{factions.factions}})</em>"
+    - "Rasgo Facción <em>({{factions.traits}})</em>"
+    - Chef famoso
+    - Oculta cadáveres
+    - Club lucha
+    - Cinco plantas
+    - Mercenarios
+    - Embrujada
+    - Escondite
+    - "Edificio / {{buildings.buildings}}"
+    - Espada mágica
+    - Cuadro habla
+    - Sótano
+    - "PNJ: {{npc_occupation.select}}"
+    - Predicadores
+    - Almacén
+    - Personal infantil
+    - Se mueve (magia)
+    - Personal fantasm
+    - Lugar VIP
+    - Voz en pozo
+    - Sólo mujeres

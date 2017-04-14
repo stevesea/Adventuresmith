@@ -1,0 +1,383 @@
+---
+tables:
+  valuable_materials:
+  - Alabastro
+  - Ámbar
+  - Aguamarina
+  - Azurita
+  - Berilo
+  - Perla negra
+  - Piedrasangre
+  - Esmeralda
+  - Calcedonia
+  - Cinabrio
+  - Coral
+  - Diamante
+  - Ébano
+  - Hueso cerámica
+  - Ágata de fuego
+  - Granate
+  - Oro
+  - Marfil
+  - Jade
+  - Jaspe
+  - Azabache
+  - Lapis lazuli
+  - Malaquita
+  - Piedra lunar
+  - Ónice
+  - Ópalo
+  - Perla
+  - Platino
+  - Porcelana
+  - Rubí
+  - Zafiro
+  - Serpentina
+  - Plata
+  - Meteoro
+  - Topacio
+  - Turquesa
+  books:
+  - Alquimia
+  - Arte
+  - Astrología
+  - Chantaje
+  - Mapas
+  - Conspiraciones
+  - Cocina
+  - Criminales
+  - Adivinación
+  - Etiqueta
+  - Moda
+  - Genealogía
+  - Santoral
+  - Historia
+  - Diario
+  - Idioma
+  - Leyes
+  - Letras
+  - Viejos imperios
+  - Propaganda
+  - Poemas amor
+  - Mitología
+  - Tradiciones
+  - Monstruos
+  - Oratoria
+  - Teología
+  - Profecías
+  - Canciones
+  - Secretos estado
+  - Asedios
+  - Esgrima
+  - Lugares perdidos
+  - Tesoros
+  - Biografías
+  - Caza de brujas
+  - Crónica guerra
+  potions:
+  - "Forma {{animal.forms}}"
+  - Cambio cuerpo
+  - Camuflaje
+  - Control animal
+  - "Piel {{magic.elements}}"
+  - Curar enfermo
+  - Detectar Mal
+  - Detectar oro
+  - Voz espectral
+  - Orientación
+  - "Locura - <em>{{insanities}}</em>"
+  - "Forma {{magic.elements}}"
+  - Brazo extra
+  - Volar
+  - Detectar oculto
+  - Infravisión
+  - "Control {{magic.elements}}"
+  - Invulnerable
+  - "Forma {{items.items}}"
+  - Visión nocturn
+  - "Conjuro: {{magic.spells}}"
+  - Curar Salud
+  - "{{monster.abilities}}"
+  - "{{monster.features}}"
+  - "Mutación - <em>{{mutations}}</em>"
+  - Super fuerza
+  - Telekinesis
+  - Idioma
+  - Velocidad
+  - Elástico
+  - Super salto
+  - Inmunidad Magia
+  - Imagen especular
+  - "{{monster.traits}}"
+  - Respirar agua
+  - Anda sobre agua
+  magical_ingredients:
+  - Licor antiguo
+  - "{{animal.forms}}"
+  - Ojo ciego
+  - "{{edible_plants}}"
+  - "Página Libro - <em>{{books}}</em>"
+  - Niebla en lata C
+  - lavo de ataúd
+  - Pelo de cadáver
+  - Último aliento
+  - Gato hervido
+  - Rayo
+  - Especia exótica
+  - Mano de asesino
+  - Diente de rey
+  - Polvo de camino
+  - Lengua mentiros
+  - Tripas de cultista
+  - Imán
+  - Voto de monje
+  - "{{monster.features}}"
+  - Llanto nacido
+  - Retrato aceite
+  - "{{magic.physical_elements}}"
+  - "{{poisonous_plants}}"
+  - "Poción - <em>{{potions}}</em>"
+  - Brasas
+  - Abeja reina
+  - Sangre reina
+  - Lapa de barco
+  - Meteorito
+  - Dedo de ladrón
+  - Flor de tumba
+  - "{{valuable_materials}}"
+  - Anillo casado
+  - Lágrima de viuda
+  - Calavera de mago
+
+nested_tables:
+
+  treasure:
+    items:
+    - Receta Alquim.
+    - Amuleto
+    - Astrolabio
+    - Planos
+    - Caligrafía
+    - Alfombra
+    - Brújula
+    - Contrato
+    - Corona
+    - Cristal
+    - Microscopio
+    - Bordado
+    - Porcelana
+    - Licor
+    - Instrumento
+    - Libro mágico
+    - Registro propied
+    - Caja de música
+    - Planetario
+    - Cuadro
+    - Perfume
+    - Libro religioso
+    - Imprenta
+    - Anillo sello
+    - Ropas reales
+    - Reliquia santa
+    - Marfil tallado
+    - Sextante
+    - Partitura
+    - Mapa tesoro
+    - Platería
+    - Especias
+    - Catalejo
+    - Tapete
+    - Telescopio
+    - Tela excepcional
+
+    traits:
+    - Alterado
+    - Antiguo
+    - Bendito
+    - Voluminoso
+    - Compacto
+    - Consumible
+    - Valor cultural
+    - Maldito
+    - Dañado
+    - Escondido
+    - Atrae enemigos
+    - "{{magic.effects}}"
+    - "{{magic.elements}}"
+    - Embellecido
+    - Críptico
+    - Exótico
+    - Extra-planar
+    - Famoso
+    - Prohibido
+    - Frágil
+    - Pesado
+    - Inmóvil
+    - Inalcanzable
+    - Telekinesis Inteligente
+    - Obra arte
+    - Valor militar
+    - No humano
+    - En propiedad
+    - Indestructible Valor político
+    - Valor religioso
+    - Reparado
+    - Real
+    - Tóxico
+    - Vil
+  items:
+    equipment:
+    items:
+    - "{{items.misc}}"
+    - "{{items.worn}}"
+    - "{{items.weapons}}"
+    - "{{items.tools}}"
+    - "{{treasure.items}}"
+    misc:
+    - Bol
+    - Campanilla
+    - Broche
+    - Figurita madera
+    - Copa
+    - Baraja cartas
+    - Dibujo
+    - Cajita
+    - Pieza juego
+    - Monóculo
+    - Frasco cristal
+    - Diadema
+    - Pañuelo
+    - Moneda extranjer
+    - Reloj de arena
+    - Diente humano
+    - Cuerno de caza
+    - Dado trucado
+    - Tenedor largo
+    - Llave numerada
+    - Lámpara aceite
+    - Muñeca vieja
+    - Bote de pintura
+    - Carboncillo
+    - Monedero
+    - Pluma
+    - Ungüento
+    - Tijeras
+    - Pergamino
+    - Carta sellada
+    - Aguja de coser
+    - Cuchilla afeitar
+    - Botón de plata
+    - Calavera
+    - Pipa de tabaco
+    - Botella de vino
+    worn:
+    - Cinturón
+    - Blusa
+    - Botas
+    - Brazalete
+    - Peto
+    - Cota placas
+    - Cinto
+    - Capa
+    - Abrigo
+    - Vestido
+    - Pendiente
+    - Parche
+    - Guantelete
+    - Guante
+    - Camisón
+    - Sombrero
+    - Yelmo
+    - Calzas
+    - Peto de cuero
+    - Medallón
+    - Cota de malla
+    - Calcetines
+    - Pantalones
+    - Velo
+    - Cota escamada
+    - Anillo
+    - Túnica
+    - Colgante
+    - Cota acolchada
+    - Máscara
+    - Zapatos
+    - Falda
+    - Sandalias
+    - Bufada
+    - Camisa
+    - Pantuflas
+    weapons:
+    - Espada
+    - Espadón
+    - Hacha Batalla
+    - Cerbatana
+    - Espad. bastarda
+    - Garrote
+    - Ballesta
+    - Sable
+    - Daga
+    - Mayal
+    - Maza de bola
+    - Gladius
+    - Alabarda
+    - Martillo
+    - Hacha de mano
+    - Arco de caballería
+    - Cuchillo de caza
+    - Lanza
+    - Arco largo
+    - Espada larga
+    - Maza
+    - Mazo
+    - Lucero del alba
+    - Estaca
+    - Cimitarra
+    - Arco corto
+    - Hoz
+    - Honda
+    - Jabalina
+    - Vara
+    - Pica
+    - Estilete
+    - Hacha arrojadiza
+    - Martillo Guerra
+    - Lanza corta
+    - Látigo
+    tools:
+    - Vial de ácido
+    - Trampa osos
+    - Fuelle
+    - Cizalla
+    - Cadena
+    - Cincel
+    - Barra metal
+    - Ariete
+    - Trompetilla
+    - Aceite
+    - Anzuelo
+    - Lentes
+    - Gancho
+    - Grasa
+    - Sierra
+    - Martillo
+    - Taladro
+    - Linterna
+    - Lupa
+    - Pico
+    - Ganzúa
+    - Grilletes
+    - Lima
+    - Mortero
+    - Aguja
+    - Tijeras
+    - Horca
+    - Pinzas
+    - Polea
+    - Estaca
+    - Cuerda
+    - Candado/Llave
+    - Pala
+    - Clavos
+    - Alambre
+    - Tenazas
