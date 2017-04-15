@@ -588,7 +588,8 @@ abstract class EotEDiceGenerator(
         var advantageThreatSum = 0
         var triumphCount = 0
         var despairCount = 0
-        var darkLightSum = 0
+        var darkSum = 0
+        var lightSum = 0
 
         val all_rolls : MutableMap<String, MutableList<String>> = linkedMapOf()
 
@@ -633,10 +634,10 @@ abstract class EotEDiceGenerator(
                                 despairCount++
                             }
                             DARK -> {
-                                darkLightSum--
+                                darkSum ++
                             }
                             LIGHT -> {
-                                darkLightSum++
+                                lightSum ++
                             }
                         }
                     }
@@ -662,10 +663,8 @@ abstract class EotEDiceGenerator(
             resultLines.add("Threat: <strong>$advantageThreatSum</strong>")
         }
 
-        if (darkLightSum > 0) {
-            resultLines.add("Light: <strong>$darkLightSum</strong>")
-        } else if (darkLightSum < 0) {
-            resultLines.add("Dark: <strong>$darkLightSum</strong>")
+        if (darkSum > 0 || lightSum > 0) {
+            resultLines.add("Light: <strong>$lightSum</strong> &nbsp;&nbsp;&nbsp;Dark: <strong>$darkSum</strong>")
         }
 
         if (triumphCount > 0) {
@@ -675,7 +674,7 @@ abstract class EotEDiceGenerator(
             resultLines.add("<br/>Despair: <strong>$despairCount</strong>")
         }
         if (resultLines.isNotEmpty())
-            resultLines.add("<br/>")
+            resultLines.add("")
         resultLines.add("<small>$diceStrSb</small>")
         resultLines.add("<small>" + all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>") + "</small>")
 
