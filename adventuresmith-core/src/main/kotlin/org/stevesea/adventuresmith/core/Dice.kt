@@ -680,7 +680,7 @@ abstract class EotEDiceGenerator(
         if (resultLines.isNotEmpty())
             resultLines.add("")
         resultLines.add("<small>$diceStrSb</small>")
-        resultLines.add("<small>" + all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>") + "</small>")
+        resultLines.add("<small>" + all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value.joinToString(", ")}" }.joinToString("<br/>") + "</small>")
 
         return resultLines.joinToString("<br/>")
     }
