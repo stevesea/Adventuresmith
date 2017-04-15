@@ -597,8 +597,8 @@ abstract class EotEDiceGenerator(
         EOTE_DIE_MAP.forEach {
             val n = inputMapForContext.getOrElse(it.key) { "0" }.toString().toInt()
             if (n > 0) {
-                val curDice = "$n${it.key.first()}"
-                diceStrSb.append(curDice)
+                val curDice = "$n${it.key}"
+                diceStrSb.append(curDice.take(2)) // first 2 chars for the dice-notation display
 
                 all_rolls.put(curDice, mutableListOf())
 
