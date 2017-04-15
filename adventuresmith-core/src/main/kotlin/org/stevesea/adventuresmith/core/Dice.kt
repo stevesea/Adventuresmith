@@ -668,10 +668,14 @@ abstract class EotEDiceGenerator(
         }
 
         if (triumphCount > 0) {
-            resultLines.add("<br/>Triumph: <strong>$triumphCount</strong>")
+            if (resultLines.isNotEmpty())
+                resultLines.add("")
+            resultLines.add("Triumph: <strong>$triumphCount</strong>")
         }
         if (despairCount > 0) {
-            resultLines.add("<br/>Despair: <strong>$despairCount</strong>")
+            if (resultLines.isNotEmpty())
+                resultLines.add("")
+            resultLines.add("Despair: <strong>$despairCount</strong>")
         }
         if (resultLines.isNotEmpty())
             resultLines.add("")
