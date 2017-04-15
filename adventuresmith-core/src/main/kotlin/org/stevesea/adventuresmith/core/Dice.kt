@@ -339,10 +339,10 @@ val diceModule = Kodein.Module {
                         displayTemplate = "<big>{{x}}d{{y}} + {{z}}</big>{{#dropNHigh}}<br/>Drop {{dropNHigh}} Highest{{/dropNHigh}}{{#dropNLow}}<br/>Drop {{dropNLow}} Lowest{{/dropNLow}}{{#tn}}<br/>Target number: {{tn}}{{/tn}}",
                         useWizard = false,
                         params = listOf(
-                                InputParamDto(name = "x", uiName = "X", numbersOnly = true, isInt = true, defaultValue = "1",
-                                        maxVal = 1000, minVal = 0,
+                                InputParamDto(name = "x", uiName = "X (# of die)", numbersOnly = true, isInt = true, defaultValue = "1",
+                                        maxVal = 1000, minVal = 1,
                                         helpText = "Enter dice 'XdY + Z'"),
-                                InputParamDto(name = "y", uiName = "Y", numbersOnly = true, isInt = true, defaultValue = "6"),
+                                InputParamDto(name = "y", uiName = "Y (# of sides)", numbersOnly = true, isInt = true, defaultValue = "6"),
                                 InputParamDto(name = "z", uiName = "Z", numbersOnly = true, isInt = true, defaultValue = "0"),
                                 InputParamDto(name = "dropNHigh", uiName = "Drop N Highest", numbersOnly = true, isInt = true,
                                         nullIfZero = true, defaultValue = "",
@@ -387,16 +387,22 @@ val diceModule = Kodein.Module {
                     var eEqual = if (eEqualVal.isNullOrEmpty()) 0 else eEqualVal.toInt()
 
                     if (eGreater == 0 && eEqual == 0) {
+                        // if neither has been set, use the die #
                         eEqual = die
                     }
+                    if (eGreater > 0) {
+                        // if eGreater has been set, only use eGreater (as is displayed by template)
+                        eEqual = 0
+                    }
 
+                    val collected_rolls : MutableList<List<Int>> = mutableListOf()
 
-                    val collected_rolls : MutableList<Int> = mutableListOf()
-
+                    var numIters = 0
                     var numToRoll = nDie
                     do {
+                        numIters++
                         val rolls = diceParser.rollN("1d" + die, numToRoll)
-                        collected_rolls.addAll(rolls)
+                        collected_rolls.add(rolls)
 
                         val matched_rolls = rolls.filter {
                             (eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)
@@ -405,6 +411,11 @@ val diceModule = Kodein.Module {
                         numToRoll = matched_rolls.size
 
                         logger.debug("Rolled: ${rolls}. matches: ${matched_rolls} ($numToRoll)")
+                        if (numIters > 100) {
+                            logger.info("Too many explodes. abandon ship!")
+                            collected_rolls.add(listOf(0))
+                            break
+                        }
                     } while (matched_rolls.isNotEmpty())
 
                     logger.debug(" ... done. Collected rolls: ${collected_rolls}")
@@ -420,14 +431,17 @@ val diceModule = Kodein.Module {
 
                     val dStr = dStrSb.toString()
 
-                    val sum = collected_rolls.sum()
+                    val sum = collected_rolls.map { it -> it.sum() }.sum()
 
                     val nf = NumberFormat.getInstance(locale)
 
                     val sb = StringBuilder()
-                    sb.append("${dStr}: [")
-                    sb.append(collected_rolls.joinToString(", "))
-                    sb.append("]<br/><br/>Total: <big><strong>${nf.format(sum)}</strong></big>")
+                    sb.append("${dStr}: <big><strong>${nf.format(sum)}</strong></big><br/><br/>")
+                    sb.append(collected_rolls.map {
+                        it -> it.map {
+                            it -> if ((eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)) "<strong>$it</strong>" else "$it"
+                        }.joinToString(", ", "[", "]")
+                    }.joinToString(" + <br/>"))
 
                     return sb.toString()
                 }
@@ -441,11 +455,11 @@ val diceModule = Kodein.Module {
                                     displayTemplate = "<big>{{x}}d{{y}}!{{#eGreater}}>{{eGreater}}{{/eGreater}}{{^eGreater}}{{#eEqual}}{{eEqual}}{{/eEqual}}{{/eGreater}}{{^eGreater}}{{^eEqual}}{{y}}{{/eEqual}}{{/eGreater}}</big>",
                                     useWizard = false,
                                     params = listOf(
-                                            InputParamDto(name = "x", uiName = "X", numbersOnly = true, isInt = true, defaultValue = "1",
-                                                    maxVal = 1000, minVal = 0,
+                                            InputParamDto(name = "x", uiName = "X (# of die)", numbersOnly = true, isInt = true, defaultValue = "1",
+                                                    maxVal = 100, minVal = 1,
                                                     helpText = "Enter dice 'XdY'"),
-                                            InputParamDto(name = "y", uiName = "Y", numbersOnly = true, isInt = true, defaultValue = "6"),
-                                            InputParamDto(name = "eGreater", uiName = ">E", numbersOnly = true, isInt = true,
+                                            InputParamDto(name = "y", uiName = "Y (# of sides)", numbersOnly = true, isInt = true, defaultValue = "6"),
+                                            InputParamDto(name = "eGreater", uiName = ">E", numbersOnly = true, isInt = true, minVal = 2,
                                                     nullIfZero = true, defaultValue = "",
                                                     helpText = "Explode if greater than or equal to:"),
                                             InputParamDto(name = "eEqual", uiName = "=E", numbersOnly = true, isInt = true,
@@ -499,7 +513,7 @@ val diceModule = Kodein.Module {
                                     displayTemplate = "<big>{{n}}dF",
                                     useWizard = false,
                                     params = listOf(
-                                            InputParamDto(name = "n", uiName = "N", numbersOnly = true, isInt = true, defaultValue = "4",
+                                            InputParamDto(name = "n", uiName = "N (# of die)", numbersOnly = true, isInt = true, defaultValue = "4", minVal = 1,
                                                     helpText = "How many dF to roll?")
                                     )
                             ))
