@@ -592,10 +592,6 @@ abstract class EotEDiceGenerator(
 
         val all_rolls : MutableMap<String, MutableList<String>> = linkedMapOf()
 
-        var showSuccFail = false
-        var showAdvTh = false
-        var showDarkLi = false
-
         // iterate over each type of die
         EOTE_DIE_MAP.forEach {
             val n = inputMapForContext.getOrElse(it.key) { "0" }.toString().toInt()
@@ -610,49 +606,37 @@ abstract class EotEDiceGenerator(
                     if (roll.isNullOrBlank())
                         continue
                     logger.debug("${it.key}: $roll")
-                    val rolls = roll.split(",")
-                    all_rolls.get(curDice)?.addAll(rolls)
+                    val rolls = roll.split("+").map { it.trim() }
+                    all_rolls.get(curDice)?.add(roll)
 
                     rolls.forEach {
                         when (it) {
-                            BLANK -> {
-                                showSuccFail = true
-                                showAdvTh = true
-                            }
                             SUCCESS -> {
                                 successFailureSum++
-                                showSuccFail = true
                             }
                             FAILURE -> {
                                 successFailureSum--
-                                showSuccFail = true
                             }
 
                             ADVANTAGE -> {
                                 advantageThreatSum++
-                                showAdvTh = true
                             }
                             THREAT -> {
                                 advantageThreatSum--
-                                showAdvTh = true
                             }
                             TRIUMPH -> {
                                 successFailureSum++
-                                showSuccFail = true
                                 triumphCount++
                             }
                             DESPAIR -> {
                                 successFailureSum--
-                                showSuccFail = true
                                 despairCount++
                             }
                             DARK -> {
                                 darkLightSum--
-                                showDarkLi = true
                             }
                             LIGHT -> {
                                 darkLightSum++
-                                showDarkLi = true
                             }
                         }
                     }
@@ -666,20 +650,29 @@ abstract class EotEDiceGenerator(
         }
 
         val resultLines : MutableList<String> = mutableListOf()
-        if (showSuccFail) {
-            resultLines.add("Success/Failure: <strong>$successFailureSum</strong>")
+        if (successFailureSum > 0) {
+            resultLines.add("Success: <strong>$successFailureSum</strong>")
+        } else if (successFailureSum < 0) {
+            resultLines.add("Failure: <strong>$successFailureSum</strong>")
         }
-        if (showAdvTh) {
-            resultLines.add("Adv/Threat: <strong>$advantageThreatSum</strong>")
+
+        if (advantageThreatSum > 0) {
+            resultLines.add("Advantage: <strong>$advantageThreatSum</strong>")
+        } else if (advantageThreatSum < 0) {
+            resultLines.add("Threat: <strong>$advantageThreatSum</strong>")
         }
+
+        if (darkLightSum > 0) {
+            resultLines.add("Light: <strong>$darkLightSum</strong>")
+        } else if (darkLightSum < 0) {
+            resultLines.add("Dark: <strong>$darkLightSum</strong>")
+        }
+
         if (triumphCount > 0) {
-            resultLines.add("Triumph: $triumphCount")
+            resultLines.add("<br/>Triumph: <strong>$triumphCount</strong>")
         }
         if (despairCount > 0) {
-            resultLines.add("Despair: $despairCount")
-        }
-        if (showDarkLi) {
-            resultLines.add("Light/Dark: $darkLightSum")
+            resultLines.add("<br/>Despair: <strong>$despairCount</strong>")
         }
         resultLines.add("<br/><small>$diceStrSb</small>")
         resultLines.add("<small>" + all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>") + "</small>")
@@ -741,52 +734,52 @@ abstract class EotEDiceGenerator(
                         .with(1, BLANK)
                         .with(2, SUCCESS)
                         .with(3, SUCCESS)
-                        .with(4, SUCCESS + "," + SUCCESS)
+                        .with(4, SUCCESS + " + " + SUCCESS)
                         .with(5, ADVANTAGE)
                         .with(6, ADVANTAGE)
-                        .with(7, SUCCESS + "," + ADVANTAGE)
-                        .with(8, ADVANTAGE + "," + ADVANTAGE),
+                        .with(7, SUCCESS + " + " + ADVANTAGE)
+                        .with(8, ADVANTAGE + " + " + ADVANTAGE),
                 PROFICIENCY to RangeMap()
                         .with(1, BLANK)
                         .with(2, SUCCESS)
                         .with(3, SUCCESS)
-                        .with(4, SUCCESS + "," + SUCCESS)
-                        .with(5, SUCCESS + "," + SUCCESS)
+                        .with(4, SUCCESS + " + " + SUCCESS)
+                        .with(5, SUCCESS + " + " + SUCCESS)
                         .with(6, ADVANTAGE)
-                        .with(7, SUCCESS + "," + ADVANTAGE)
-                        .with(8, SUCCESS + "," + ADVANTAGE)
-                        .with(9, SUCCESS + "," + ADVANTAGE)
-                        .with(10, ADVANTAGE + "," + ADVANTAGE)
-                        .with(11, ADVANTAGE + "," + ADVANTAGE)
+                        .with(7, SUCCESS + " + " + ADVANTAGE)
+                        .with(8, SUCCESS + " + " + ADVANTAGE)
+                        .with(9, SUCCESS + " + " + ADVANTAGE)
+                        .with(10, ADVANTAGE + " + " + ADVANTAGE)
+                        .with(11, ADVANTAGE + " + " + ADVANTAGE)
                         .with(12, TRIUMPH),
                 BOOST to RangeMap()
                         .with(1, BLANK)
                         .with(2, BLANK)
                         .with(3, SUCCESS)
-                        .with(4, SUCCESS + "," + ADVANTAGE)
-                        .with(5, ADVANTAGE + "," + ADVANTAGE)
+                        .with(4, SUCCESS + " + " + ADVANTAGE)
+                        .with(5, ADVANTAGE + " + " + ADVANTAGE)
                         .with(6, ADVANTAGE),
                 DIFFICULTY to RangeMap()
                         .with(1, BLANK)
                         .with(2, FAILURE)
-                        .with(3, FAILURE + "," + FAILURE)
+                        .with(3, FAILURE + " + " + FAILURE)
                         .with(4, THREAT)
                         .with(5, THREAT)
                         .with(6, THREAT)
-                        .with(7, THREAT + "," + THREAT)
-                        .with(8, FAILURE + "," + THREAT),
+                        .with(7, THREAT + " + " + THREAT)
+                        .with(8, FAILURE + " + " + THREAT),
                 CHALLENGE to RangeMap()
                         .with(1, BLANK)
                         .with(2, FAILURE)
                         .with(3, FAILURE)
-                        .with(4, FAILURE + "," + FAILURE)
-                        .with(5, FAILURE + "," + FAILURE)
+                        .with(4, FAILURE + " + " + FAILURE)
+                        .with(5, FAILURE + " + " + FAILURE)
                         .with(6, THREAT)
                         .with(7, THREAT)
-                        .with(8, FAILURE + "," + THREAT)
-                        .with(9, FAILURE + "," + THREAT)
-                        .with(10, THREAT + "," + THREAT)
-                        .with(11, THREAT + "," + THREAT)
+                        .with(8, FAILURE + " + " + THREAT)
+                        .with(9, FAILURE + " + " + THREAT)
+                        .with(10, THREAT + " + " + THREAT)
+                        .with(11, THREAT + " + " + THREAT)
                         .with(12, DESPAIR),
                 SETBACK to RangeMap()
                         .with(1, BLANK)
@@ -802,12 +795,12 @@ abstract class EotEDiceGenerator(
                         .with(4, DARK)
                         .with(5, DARK)
                         .with(6, DARK)
-                        .with(7, DARK + "," + DARK)
+                        .with(7, DARK + " + " + DARK)
                         .with(8, LIGHT)
                         .with(9, LIGHT)
-                        .with(10, LIGHT + "," + LIGHT)
-                        .with(11, LIGHT + "," + LIGHT)
-                        .with(12, LIGHT + "," + LIGHT)
+                        .with(10, LIGHT + " + " + LIGHT)
+                        .with(11, LIGHT + " + " + LIGHT)
+                        .with(12, LIGHT + " + " + LIGHT)
         )
 
     }
