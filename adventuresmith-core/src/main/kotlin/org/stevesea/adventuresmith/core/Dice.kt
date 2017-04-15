@@ -176,6 +176,12 @@ object DiceConstants {
             "xdy_z_5" to "Custom Dice #5",
             "xdy_z_6" to "Custom Dice #6"
     )
+
+    val eoteDice = mapOf(
+            "eote_1" to "EotE Dice #1",
+            "eote_2" to "EotE Dice #2",
+            "eote_3" to "EotE Dice #3"
+    )
 }
 
 val diceModule = Kodein.Module {
@@ -264,78 +270,125 @@ val diceModule = Kodein.Module {
         }
     }
 
-    /**
-     * custom dice all share the same generator logic and similar metadata. but need to have separate
-     * generator IDs so that the user can have multiple custom dice configurations.
-     */
-    abstract class CustomizeableDiceGenerator(
-            val myid: String,
-            val myname: String,
-            val diceParser: DiceParser): Generator {
-        override fun getId(): String {
-            return myid
+
+    DiceConstants.customizableDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object: CustomizeableDiceGenerator(it.key, it.value, instance()) {}
         }
-        override fun generate(locale: Locale, input: Map<String, String>?): String {
-            val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+    }
 
-            val die = (inputMapForContext.getOrElse("y") { "6" }).toString().toInt()
-            val nDie = (inputMapForContext.getOrElse("x") { "1" }).toString().toInt()
-            val add = (inputMapForContext.getOrElse("z") { "0" }).toString().toInt()
+    DiceConstants.explodingDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object: ExplodingDiceGenerator(it.key, it.value, instance()) {}
+        }
+    }
 
-            val dropNHighVal = inputMapForContext.getOrElse("dropNHigh") { "" }.toString()
-            val dropNHigh = if (dropNHighVal.isNullOrEmpty()) 0 else dropNHighVal.toInt()
+    DiceConstants.fudgeDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object : FudgeDiceGenerator(it.key, it.value, instance()) {}
+        }
+    }
 
-            val dropNLowVal = inputMapForContext.getOrElse("dropNLow") { "" }.toString()
-            val dropNLow = if (dropNLowVal.isNullOrEmpty()) 0 else dropNLowVal.toInt()
 
-            val tnVal = inputMapForContext.getOrElse("tn") { "" }.toString()
-            val tn = if (tnVal.isNullOrEmpty()) 0 else tnVal.toInt()
+    DiceConstants.eoteDice.forEach {
+        bind<Generator>(it.key) with provider {
+            object : EotEDiceGenerator(it.key, it.value, instance()) {}
+        }
+    }
 
-            val rolls = diceParser.rollN("1d" + die, nDie).sortedDescending()
-            val droppedHigh = rolls.take(dropNHigh)
-            val afterDroppedHigh = rolls.drop(dropNHigh)
-            val droppedLow = afterDroppedHigh.takeLast(dropNLow)
-            val afterDroppedHighAndLow = afterDroppedHigh.dropLast(dropNLow)
+    bind<List<String>>(DiceConstants.GROUP) with singleton {
+        listOf(
+                DiceConstants.regularDice,
+                DiceConstants.multDice.keys,
+                listOf(
+                        DiceConstants.d20adv,
+                        DiceConstants.d20disadv
+                ),
+                DiceConstants.customizableDice.keys,
+                DiceConstants.fudgeDice.keys,
+                DiceConstants.explodingDice.keys,
+                DiceConstants.eoteDice.keys
+        ).flatten()
+    }
 
-            val keptDiceSum = afterDroppedHighAndLow.sum()
+    bind<DiceParser>() with singleton {
+        DiceParser(kodein)
+    }
 
-            val dStr = "${nDie}d${die}"
+}
 
-            val result = keptDiceSum + add
-            val nf = NumberFormat.getInstance(locale)
+/**
+ * custom dice all share the same generator logic and similar metadata. but need to have separate
+ * generator IDs so that the user can have multiple custom dice configurations.
+ */
+abstract class CustomizeableDiceGenerator(
+        val myid: String,
+        val myname: String,
+        val diceParser: DiceParser): Generator {
+    override fun getId(): String {
+        return myid
+    }
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
+        val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
 
-            val sb = StringBuilder()
-            sb.append("${dStr}: [")
+        val die = (inputMapForContext.getOrElse("y") { "6" }).toString().toInt()
+        val nDie = (inputMapForContext.getOrElse("x") { "1" }).toString().toInt()
+        val add = (inputMapForContext.getOrElse("z") { "0" }).toString().toInt()
+
+        val dropNHighVal = inputMapForContext.getOrElse("dropNHigh") { "" }.toString()
+        val dropNHigh = if (dropNHighVal.isNullOrEmpty()) 0 else dropNHighVal.toInt()
+
+        val dropNLowVal = inputMapForContext.getOrElse("dropNLow") { "" }.toString()
+        val dropNLow = if (dropNLowVal.isNullOrEmpty()) 0 else dropNLowVal.toInt()
+
+        val tnVal = inputMapForContext.getOrElse("tn") { "" }.toString()
+        val tn = if (tnVal.isNullOrEmpty()) 0 else tnVal.toInt()
+
+        val rolls = diceParser.rollN("1d" + die, nDie).sortedDescending()
+        val droppedHigh = rolls.take(dropNHigh)
+        val afterDroppedHigh = rolls.drop(dropNHigh)
+        val droppedLow = afterDroppedHigh.takeLast(dropNLow)
+        val afterDroppedHighAndLow = afterDroppedHigh.dropLast(dropNLow)
+
+        val keptDiceSum = afterDroppedHighAndLow.sum()
+
+        val dStr = "${nDie}d${die}"
+
+        val result = keptDiceSum + add
+        val nf = NumberFormat.getInstance(locale)
+
+        val sb = StringBuilder()
+        sb.append("${dStr}: [")
+        if (droppedHigh.isNotEmpty()) {
+            val droppedHighStr = droppedHigh.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
+            sb.append(droppedHighStr)
+        }
+        if (afterDroppedHighAndLow.isNotEmpty()) {
             if (droppedHigh.isNotEmpty()) {
-                val droppedHighStr = droppedHigh.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
-                sb.append(droppedHighStr)
+                sb.append(", ")
             }
-            if (afterDroppedHighAndLow.isNotEmpty()) {
-                if (droppedHigh.isNotEmpty()) {
-                    sb.append(", ")
-                }
-                sb.append(afterDroppedHighAndLow.joinToString(", ", prefix = "<strong>", postfix = "</strong>"))
-            }
-            if (droppedLow.isNotEmpty()) {
-                if (droppedHigh.isNotEmpty() || afterDroppedHighAndLow.isNotEmpty()) {
-                    sb.append(", ")
-                }
-                val droppedLowStr = droppedLow.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
-                sb.append(droppedLowStr)
-            }
-            sb.append("]<br/><br/>Total: <big><strong>${nf.format(result)}</strong></big> = ${afterDroppedHighAndLow} + $add")
-            if (tnVal.isNotEmpty()) {
-                val successes = afterDroppedHighAndLow.count {  it >= tn }
-                sb.append("<br/><br/>Successes: <big><strong>${successes}</strong></big> (>= ${tn})")
-            }
-            return sb.toString()
+            sb.append(afterDroppedHighAndLow.joinToString(", ", prefix = "<strong>", postfix = "</strong>"))
         }
-        override fun getMetadata(locale: Locale): GeneratorMetaDto {
-            return GeneratorMetaDto(name = myname,
-                    collectionId = DiceConstants.CollectionName,
-                    priority = 3000,
-                    groupId = "grpCustom",
-                    input = GeneratorInputDto(
+        if (droppedLow.isNotEmpty()) {
+            if (droppedHigh.isNotEmpty() || afterDroppedHighAndLow.isNotEmpty()) {
+                sb.append(", ")
+            }
+            val droppedLowStr = droppedLow.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
+            sb.append(droppedLowStr)
+        }
+        sb.append("]<br/><br/>Total: <big><strong>${nf.format(result)}</strong></big> = ${afterDroppedHighAndLow} + $add")
+        if (tnVal.isNotEmpty()) {
+            val successes = afterDroppedHighAndLow.count {  it >= tn }
+            sb.append("<br/><br/>Successes: <big><strong>${successes}</strong></big> (>= ${tn})")
+        }
+        return sb.toString()
+    }
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return GeneratorMetaDto(name = myname,
+                collectionId = DiceConstants.CollectionName,
+                priority = 3000,
+                groupId = "grpCustom",
+                input = GeneratorInputDto(
                         displayTemplate = "<big>{{x}}d{{y}} + {{z}}</big>{{#dropNHigh}}<br/>Drop {{dropNHigh}} Highest{{/dropNHigh}}{{#dropNLow}}<br/>Drop {{dropNLow}} Lowest{{/dropNLow}}{{#tn}}<br/>Target number: {{tn}}{{/tn}}",
                         useWizard = false,
                         params = listOf(
@@ -353,191 +406,372 @@ val diceModule = Kodein.Module {
                                         nullIfZero = true, defaultValue = "",
                                         helpText = "Target number? (success if roll >= TN)")
                         )
-                    )
-            )
-        }
+                )
+        )
+    }
+}
+
+abstract class ExplodingDiceGenerator( val myid: String,
+                                       val myname: String,
+                                       val diceParser: DiceParser) : Generator, KLoggable {
+    override val logger = logger()
+    override fun getId(): String {
+        return myid
     }
 
-    DiceConstants.customizableDice.forEach {
-        bind<Generator>(it.key) with provider {
-            object: CustomizeableDiceGenerator(it.key, it.value, instance()) {
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
+        val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+
+        val die = (inputMapForContext.getOrElse("y") { "6" }).toString().toInt()
+        val nDie = (inputMapForContext.getOrElse("x") { "1" }).toString().toInt()
+
+        val eGreaterVal = inputMapForContext.getOrElse("eGreater") { "" }.toString()
+        val eGreater = if (eGreaterVal.isNullOrEmpty()) 0 else eGreaterVal.toInt()
+
+        val eEqualVal = inputMapForContext.getOrElse("eEqual") { "" }.toString()
+        var eEqual = if (eEqualVal.isNullOrEmpty()) 0 else eEqualVal.toInt()
+
+        if (eGreater == 0 && eEqual == 0) {
+            // if neither has been set, use the die #
+            eEqual = die
+        }
+        if (eGreater > 0) {
+            // if eGreater has been set, only use eGreater (as is displayed by template)
+            eEqual = 0
+        }
+
+        val collected_rolls : MutableList<List<Int>> = mutableListOf()
+
+        var numIters = 0
+        var numToRoll = nDie
+        do {
+            numIters++
+            val rolls = diceParser.rollN("1d" + die, numToRoll)
+            collected_rolls.add(rolls)
+
+            val matched_rolls = rolls.filter {
+                (eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)
             }
-        }
+
+            numToRoll = matched_rolls.size
+
+            logger.debug("Rolled: ${rolls}. matches: ${matched_rolls} ($numToRoll)")
+            if (numIters > 100) {
+                logger.info("Too many explodes. abandon ship!")
+                collected_rolls.add(listOf(0))
+                break
+            }
+        } while (matched_rolls.isNotEmpty())
+
+        logger.debug(" ... done. Collected rolls: ${collected_rolls}")
+
+        val dStrSb = StringBuilder("${nDie}d${die}!")
+
+        if (eGreater > 0)
+            dStrSb.append(">" + eGreater)
+        else if (eEqual > 0)
+            dStrSb.append(eEqual)
+        else if (eGreater == 0 && eEqual == 0)
+            dStrSb.append(die)
+
+        val dStr = dStrSb.toString()
+
+        val sum = collected_rolls.map { it -> it.sum() }.sum()
+
+        val nf = NumberFormat.getInstance(locale)
+
+        val sb = StringBuilder()
+        sb.append("${dStr}: <big><strong>${nf.format(sum)}</strong></big><br/><br/>")
+        sb.append(collected_rolls.map {
+            it -> it.map {
+            it -> if ((eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)) "<strong>$it</strong>" else "$it"
+        }.joinToString(", ", "[", "]")
+        }.joinToString(" + <br/>"))
+
+        return sb.toString()
     }
-    DiceConstants.explodingDice.forEach {
-        bind<Generator>(it.key) with provider {
-            object: Generator, KLoggable {
-                override val logger = logger()
-                val diceParser: DiceParser = instance()
 
-                override fun getId(): String {
-                    return it.key
-                }
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return GeneratorMetaDto(name = myname,
+                collectionId = DiceConstants.CollectionName,
+                priority = 3000,
+                groupId = "grpFudge",
+                input = GeneratorInputDto(
+                        displayTemplate = "<big>{{x}}d{{y}}!{{#eGreater}}>{{eGreater}}{{/eGreater}}{{^eGreater}}{{#eEqual}}{{eEqual}}{{/eEqual}}{{/eGreater}}{{^eGreater}}{{^eEqual}}{{y}}{{/eEqual}}{{/eGreater}}</big>",
+                        useWizard = false,
+                        params = listOf(
+                                InputParamDto(name = "x", uiName = "X (# of die)", numbersOnly = true, isInt = true, defaultValue = "1",
+                                        maxVal = 100, minVal = 1,
+                                        helpText = "Enter dice 'XdY'"),
+                                InputParamDto(name = "y", uiName = "Y (# of sides)", numbersOnly = true, isInt = true, defaultValue = "6"),
+                                InputParamDto(name = "eGreater", uiName = ">E", numbersOnly = true, isInt = true, minVal = 2,
+                                        nullIfZero = true, defaultValue = "",
+                                        helpText = "Explode if greater than or equal to:"),
+                                InputParamDto(name = "eEqual", uiName = "=E", numbersOnly = true, isInt = true,
+                                        nullIfZero = true, defaultValue = "",
+                                        helpText = "Explode if equal to:")
+                        )
+                )
+        )
+    }
 
-                override fun generate(locale: Locale, input: Map<String, String>?): String {
-                    val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+}
 
-                    val die = (inputMapForContext.getOrElse("y") { "6" }).toString().toInt()
-                    val nDie = (inputMapForContext.getOrElse("x") { "1" }).toString().toInt()
+abstract class FudgeDiceGenerator(
+        val myid: String,
+        val myname: String,
+        val shuffler: Shuffler) : Generator {
 
-                    val eGreaterVal = inputMapForContext.getOrElse("eGreater") { "" }.toString()
-                    val eGreater = if (eGreaterVal.isNullOrEmpty()) 0 else eGreaterVal.toInt()
+    companion object {
+        val fudgeMap = RangeMap()
+                .with(1, "-")
+                .with(2, "-")
+                .with(3, " ")
+                .with(4, " ")
+                .with(5, "+")
+                .with(6, "+")
+    }
 
-                    val eEqualVal = inputMapForContext.getOrElse("eEqual") { "" }.toString()
-                    var eEqual = if (eEqualVal.isNullOrEmpty()) 0 else eEqualVal.toInt()
+    override fun getId(): String {
+        return myid
+    }
 
-                    if (eGreater == 0 && eEqual == 0) {
-                        // if neither has been set, use the die #
-                        eEqual = die
-                    }
-                    if (eGreater > 0) {
-                        // if eGreater has been set, only use eGreater (as is displayed by template)
-                        eEqual = 0
-                    }
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
+        val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+        val nf = NumberFormat.getInstance(locale)
 
-                    val collected_rolls : MutableList<List<Int>> = mutableListOf()
+        val n = inputMapForContext.getOrElse("n") { "1" }.toString().toInt()
+        val rolls: MutableList<String> = mutableListOf()
+        var sum = 0
+        for (i in 1..n) {
+            val roll = shuffler.pick(fudgeMap)
+            if (roll == "-")
+                sum--
+            if (roll == "+")
+                sum++
+            rolls.add(roll)
+        }
 
-                    var numIters = 0
-                    var numToRoll = nDie
-                    do {
-                        numIters++
-                        val rolls = diceParser.rollN("1d" + die, numToRoll)
-                        collected_rolls.add(rolls)
+        return "${n}dF: ${rolls}<br/><br/><big><strong>${nf.format(sum)}</strong></big>"
+    }
 
-                        val matched_rolls = rolls.filter {
-                            (eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return GeneratorMetaDto(name = myname, groupId = "grpFudge", collectionId = DiceConstants.CollectionName, priority = 2000,
+                input = GeneratorInputDto(
+                        displayTemplate = "<big>{{n}}dF</big>",
+                        useWizard = false,
+                        params = listOf(
+                                InputParamDto(name = "n", uiName = "N (# of die)", numbersOnly = true, isInt = true, defaultValue = "4", minVal = 1,
+                                        helpText = "How many dF to roll?")
+                        )
+                ))
+    }
+
+}
+
+abstract class EotEDiceGenerator(
+        val myid: String,
+        val myname: String,
+        val shuffler: Shuffler) : Generator, KLoggable {
+    override val logger = logger()
+
+    override fun getId(): String {
+        return myid
+    }
+
+    override fun generate(locale: Locale, input: Map<String, String>?): String {
+        val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+
+
+        val diceStrSb = StringBuffer()
+
+        var successFailureSum = 0
+        var advantageThreatSum = 0
+        var triumphCount = 0
+        var despairCount = 0
+        var darkLightSum = 0
+
+        val all_rolls : MutableMap<String, MutableList<String>> = linkedMapOf()
+
+        // iterate over each type of die
+        EOTE_DIE_MAP.forEach {
+            val n = inputMapForContext.getOrElse(it.key) { "0" }.toString().toInt()
+            if (n > 0) {
+                val curDice = "$n${it.key.first()}"
+                diceStrSb.append(curDice)
+
+                all_rolls.put(curDice, mutableListOf())
+
+                for (i in 1..n) {
+                    val roll = shuffler.pick(it.value)
+                    if (roll.isNullOrBlank())
+                        continue
+                    logger.debug("${it.key}: $roll")
+                    val rolls = roll.split(",")
+                    all_rolls.get(curDice)?.addAll(rolls)
+
+                    rolls.forEach {
+                        when (it) {
+                            // BLANK is ignored
+                            SUCCESS -> successFailureSum++
+                            FAILURE -> successFailureSum--
+                            ADVANTAGE -> advantageThreatSum++
+                            THREAT -> advantageThreatSum--
+                            TRIUMPH -> {
+                                successFailureSum++
+                                triumphCount++
+                            }
+                            DESPAIR -> {
+                                successFailureSum--
+                                despairCount++
+                            }
+                            DARK -> darkLightSum--
+                            LIGHT -> darkLightSum++
                         }
-
-                        numToRoll = matched_rolls.size
-
-                        logger.debug("Rolled: ${rolls}. matches: ${matched_rolls} ($numToRoll)")
-                        if (numIters > 100) {
-                            logger.info("Too many explodes. abandon ship!")
-                            collected_rolls.add(listOf(0))
-                            break
-                        }
-                    } while (matched_rolls.isNotEmpty())
-
-                    logger.debug(" ... done. Collected rolls: ${collected_rolls}")
-
-                    val dStrSb = StringBuilder("${nDie}d${die}!")
-
-                    if (eGreater > 0)
-                        dStrSb.append(">" + eGreater)
-                    else if (eEqual > 0)
-                        dStrSb.append(eEqual)
-                    else if (eGreater == 0 && eEqual == 0)
-                        dStrSb.append(die)
-
-                    val dStr = dStrSb.toString()
-
-                    val sum = collected_rolls.map { it -> it.sum() }.sum()
-
-                    val nf = NumberFormat.getInstance(locale)
-
-                    val sb = StringBuilder()
-                    sb.append("${dStr}: <big><strong>${nf.format(sum)}</strong></big><br/><br/>")
-                    sb.append(collected_rolls.map {
-                        it -> it.map {
-                            it -> if ((eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)) "<strong>$it</strong>" else "$it"
-                        }.joinToString(", ", "[", "]")
-                    }.joinToString(" + <br/>"))
-
-                    return sb.toString()
-                }
-
-                override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it.value,
-                            collectionId = DiceConstants.CollectionName,
-                            priority = 3000,
-                            groupId = "grpFudge",
-                            input = GeneratorInputDto(
-                                    displayTemplate = "<big>{{x}}d{{y}}!{{#eGreater}}>{{eGreater}}{{/eGreater}}{{^eGreater}}{{#eEqual}}{{eEqual}}{{/eEqual}}{{/eGreater}}{{^eGreater}}{{^eEqual}}{{y}}{{/eEqual}}{{/eGreater}}</big>",
-                                    useWizard = false,
-                                    params = listOf(
-                                            InputParamDto(name = "x", uiName = "X (# of die)", numbersOnly = true, isInt = true, defaultValue = "1",
-                                                    maxVal = 100, minVal = 1,
-                                                    helpText = "Enter dice 'XdY'"),
-                                            InputParamDto(name = "y", uiName = "Y (# of sides)", numbersOnly = true, isInt = true, defaultValue = "6"),
-                                            InputParamDto(name = "eGreater", uiName = ">E", numbersOnly = true, isInt = true, minVal = 2,
-                                                    nullIfZero = true, defaultValue = "",
-                                                    helpText = "Explode if greater than or equal to:"),
-                                            InputParamDto(name = "eEqual", uiName = "=E", numbersOnly = true, isInt = true,
-                                                    nullIfZero = true, defaultValue = "",
-                                                    helpText = "Explode if equal to:")
-                                    )
-                            )
-                    )
-                }
-            }
-        }
-    }
-
-    DiceConstants.fudgeDice.forEach {
-        bind<Generator>(it.key) with provider {
-            object : Generator {
-                val shuffler: Shuffler = instance()
-                val fudgeMap = RangeMap()
-                        .with(1, "-")
-                        .with(2, "-")
-                        .with(3, " ")
-                        .with(4, " ")
-                        .with(5, "+")
-                        .with(6, "+")
-                override fun getId(): String {
-                    return it.key
-                }
-
-                override fun generate(locale: Locale, input: Map<String, String>?): String {
-                    val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
-                    val nf = NumberFormat.getInstance(locale)
-
-                    val n = inputMapForContext.getOrElse("n") { "1" }.toString().toInt()
-                    val rolls: MutableList<String> = mutableListOf()
-                    var sum = 0
-                    for (i in 1..n) {
-                        val roll = shuffler.pick(fudgeMap)
-                        if (roll == "-")
-                            sum--
-                        if (roll == "+")
-                            sum++
-                        rolls.add(roll)
                     }
-
-                    return "${n}dF: ${rolls}<br/><br/><big><strong>${nf.format(sum)}</strong></big>"
-                }
-
-                override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it.value, groupId = "grpFudge", collectionId = DiceConstants.CollectionName, priority = 2000,
-                            input = GeneratorInputDto(
-                                    displayTemplate = "<big>{{n}}dF",
-                                    useWizard = false,
-                                    params = listOf(
-                                            InputParamDto(name = "n", uiName = "N (# of die)", numbersOnly = true, isInt = true, defaultValue = "4", minVal = 1,
-                                                    helpText = "How many dF to roll?")
-                                    )
-                            ))
                 }
             }
         }
+        val diceStr = diceStrSb.toString()
+
+        if (diceStr.isNullOrBlank()) {
+            return "You must configure your dice pool."
+        }
+
+        return """Success/Failure: <strong>$successFailureSum</strong>
+                  <br/>Adv/Disadvantage: <strong>$advantageThreatSum</strong>
+                  ${if (triumphCount > 0) "<br/>Triumph: $triumphCount" else ""}
+                  ${if (despairCount > 0) "<br/>Despair: $despairCount" else ""}
+                  ${if (darkLightSum != 0) "<br/>Light/Dark: $darkLightSum" else ""}
+                  <br/><br/><small>$diceStrSb:
+                  <br/>${all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>")}</small>
+
+                  """
     }
 
-    bind<List<String>>(DiceConstants.GROUP) with singleton {
-        listOf(
-                DiceConstants.regularDice,
-                DiceConstants.multDice.keys,
-                listOf(
-                        DiceConstants.d20adv,
-                        DiceConstants.d20disadv
-                ),
-                DiceConstants.customizableDice.keys,
-                DiceConstants.fudgeDice.keys,
-                DiceConstants.explodingDice.keys
-        ).flatten()
+    override fun getMetadata(locale: Locale): GeneratorMetaDto {
+        return GeneratorMetaDto(name = myname, groupId = "grpEOTE", collectionId = DiceConstants.CollectionName, priority = 4000,
+                input = GeneratorInputDto(
+                        displayTemplate = """
+                            <big>
+                            {{#$ABILITY}}{{$ABILITY}}a{{/$ABILITY}}{{#$PROFICIENCY}}{{$PROFICIENCY}}p{{/$PROFICIENCY}}{{#$BOOST}}{{$BOOST}}b{{/$BOOST}}
+                            {{#$DIFFICULTY}}{{$DIFFICULTY}}d{{/$DIFFICULTY}}{{#$CHALLENGE}}{{$CHALLENGE}}c{{/$CHALLENGE}}{{#$SETBACK}}{{$SETBACK}}s{{/$SETBACK}}
+                            {{#$FORCE}}{{$FORCE}}f{{/$FORCE}}
+                            """,
+                        useWizard = false,
+                        params = listOf(
+                                InputParamDto(name = ABILITY, uiName = "# of $ABILITY die (green)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = "",
+                                        helpText = "$ABILITY (green), $PROFICIENCY (yellow), $BOOST (blue):"),
+                                InputParamDto(name = PROFICIENCY, uiName = "# of $PROFICIENCY die (yellow)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = ""),
+                                InputParamDto(name = BOOST, uiName = "# of $BOOST die (blue)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = ""),
+                                InputParamDto(name = DIFFICULTY, uiName = "# of $DIFFICULTY die (purple)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = "",
+                                        helpText = "$DIFFICULTY (purple), $CHALLENGE (red), $SETBACK (black):"),
+                                InputParamDto(name = CHALLENGE, uiName = "# of $CHALLENGE die (red)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = ""),
+                                InputParamDto(name = SETBACK, uiName = "# of $SETBACK die (black)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = ""),
+                                InputParamDto(name = FORCE, uiName = "# of $FORCE die (white)", numbersOnly = true, isInt = true,
+                                        maxVal = 10, nullIfZero = true, defaultValue = "")
+                        )
+                ))
     }
+    companion object {
+        val BLANK = "-"
+        val SUCCESS = "Success"
+        val FAILURE = "Failure"
+        val TRIUMPH = "Triumph"
+        val DESPAIR = "Despair"
+        val ADVANTAGE = "Advantage"
+        val THREAT = "Threat"
+        val DARK = "Dark"
+        val LIGHT = "Light"
 
-    bind<DiceParser>() with singleton {
-        DiceParser(kodein)
+        val FORCE = "force"
+        val BOOST = "boost"
+        val SETBACK = "setback"
+        val ABILITY = "ability"
+        val DIFFICULTY = "difficulty"
+        val PROFICIENCY = "proficiency"
+        val CHALLENGE = "challenge"
+
+        val EOTE_DIE_MAP = linkedMapOf(
+                ABILITY to RangeMap()
+                        .with(1, BLANK)
+                        .with(2, SUCCESS)
+                        .with(3, SUCCESS)
+                        .with(4, SUCCESS + "," + SUCCESS)
+                        .with(5, ADVANTAGE)
+                        .with(6, ADVANTAGE)
+                        .with(7, SUCCESS + "," + ADVANTAGE)
+                        .with(8, ADVANTAGE + "," + ADVANTAGE),
+                PROFICIENCY to RangeMap()
+                        .with(1, BLANK)
+                        .with(2, SUCCESS)
+                        .with(3, SUCCESS)
+                        .with(4, SUCCESS + "," + SUCCESS)
+                        .with(5, SUCCESS + "," + SUCCESS)
+                        .with(6, ADVANTAGE)
+                        .with(7, SUCCESS + "," + ADVANTAGE)
+                        .with(8, SUCCESS + "," + ADVANTAGE)
+                        .with(9, SUCCESS + "," + ADVANTAGE)
+                        .with(10, ADVANTAGE + "," + ADVANTAGE)
+                        .with(11, ADVANTAGE + "," + ADVANTAGE)
+                        .with(12, TRIUMPH),
+                BOOST to RangeMap()
+                        .with(1, BLANK)
+                        .with(2, BLANK)
+                        .with(3, SUCCESS)
+                        .with(4, SUCCESS + "," + ADVANTAGE)
+                        .with(5, ADVANTAGE + "," + ADVANTAGE)
+                        .with(6, ADVANTAGE),
+                DIFFICULTY to RangeMap()
+                        .with(1, BLANK)
+                        .with(2, FAILURE)
+                        .with(3, FAILURE + "," + FAILURE)
+                        .with(4, THREAT)
+                        .with(5, THREAT)
+                        .with(6, THREAT)
+                        .with(7, THREAT + "," + THREAT)
+                        .with(8, FAILURE + "," + THREAT),
+                CHALLENGE to RangeMap()
+                        .with(1, BLANK)
+                        .with(2, FAILURE)
+                        .with(3, FAILURE)
+                        .with(4, FAILURE + "," + FAILURE)
+                        .with(5, FAILURE + "," + FAILURE)
+                        .with(6, THREAT)
+                        .with(7, THREAT)
+                        .with(8, FAILURE + "," + THREAT)
+                        .with(9, FAILURE + "," + THREAT)
+                        .with(10, THREAT + "," + THREAT)
+                        .with(11, THREAT + "," + THREAT)
+                        .with(12, DESPAIR),
+                SETBACK to RangeMap()
+                        .with(1, BLANK)
+                        .with(2, BLANK)
+                        .with(3, FAILURE)
+                        .with(4, FAILURE)
+                        .with(5, THREAT)
+                        .with(6, THREAT),
+                FORCE to RangeMap()
+                        .with(1, DARK)
+                        .with(2, DARK)
+                        .with(3, DARK)
+                        .with(4, DARK)
+                        .with(5, DARK)
+                        .with(6, DARK)
+                        .with(7, DARK + "," + DARK)
+                        .with(8, LIGHT)
+                        .with(9, LIGHT)
+                        .with(10, LIGHT + "," + LIGHT)
+                        .with(11, LIGHT + "," + LIGHT)
+                        .with(12, LIGHT + "," + LIGHT)
+        )
+
     }
 
 }

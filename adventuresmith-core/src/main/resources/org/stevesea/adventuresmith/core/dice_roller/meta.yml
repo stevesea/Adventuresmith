@@ -7,9 +7,11 @@ groupIcons:
   grpCombinations: cmd-dice-2
   grpCustom: cmd-dice-3
   grpFudge: cmd-plus-box
+  grpEOTE: cmd-scale-balance     # cmd-sync , cmd-theme-light-dark
 groups:
   grpPolys: Single Polyhedral
   grpCombinations: Common Combos
   grpCustom: Custom Dice
   grpFudge: Fudge & Exploding
+  grpEOTE: EotE
 
