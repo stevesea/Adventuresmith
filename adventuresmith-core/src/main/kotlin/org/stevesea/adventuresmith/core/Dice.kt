@@ -582,7 +582,6 @@ abstract class EotEDiceGenerator(
     override fun generate(locale: Locale, input: Map<String, String>?): String {
         val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
 
-
         val diceStrSb = StringBuffer()
 
         var successFailureSum = 0
@@ -593,12 +592,16 @@ abstract class EotEDiceGenerator(
 
         val all_rolls : MutableMap<String, MutableList<String>> = linkedMapOf()
 
+        var showSuccFail = false
+        var showAdvTh = false
+        var showDarkLi = false
+
         // iterate over each type of die
         EOTE_DIE_MAP.forEach {
             val n = inputMapForContext.getOrElse(it.key) { "0" }.toString().toInt()
             if (n > 0) {
-                val curDice = "$n${it.key}"
-                diceStrSb.append(curDice.take(2)) // first 2 chars for the dice-notation display
+                val curDice = "$n ${it.key}"
+                diceStrSb.append("$n${it.key.first()}") // first char for dice-notation display
 
                 all_rolls.put(curDice, mutableListOf())
 
@@ -612,21 +615,45 @@ abstract class EotEDiceGenerator(
 
                     rolls.forEach {
                         when (it) {
-                            // BLANK is ignored
-                            SUCCESS -> successFailureSum++
-                            FAILURE -> successFailureSum--
-                            ADVANTAGE -> advantageThreatSum++
-                            THREAT -> advantageThreatSum--
+                            BLANK -> {
+                                showSuccFail = true
+                                showAdvTh = true
+                            }
+                            SUCCESS -> {
+                                successFailureSum++
+                                showSuccFail = true
+                            }
+                            FAILURE -> {
+                                successFailureSum--
+                                showSuccFail = true
+                            }
+
+                            ADVANTAGE -> {
+                                advantageThreatSum++
+                                showAdvTh = true
+                            }
+                            THREAT -> {
+                                advantageThreatSum--
+                                showAdvTh = true
+                            }
                             TRIUMPH -> {
                                 successFailureSum++
+                                showSuccFail = true
                                 triumphCount++
                             }
                             DESPAIR -> {
                                 successFailureSum--
+                                showSuccFail = true
                                 despairCount++
                             }
-                            DARK -> darkLightSum--
-                            LIGHT -> darkLightSum++
+                            DARK -> {
+                                darkLightSum--
+                                showDarkLi = true
+                            }
+                            LIGHT -> {
+                                darkLightSum++
+                                showDarkLi = true
+                            }
                         }
                     }
                 }
@@ -638,15 +665,26 @@ abstract class EotEDiceGenerator(
             return "You must configure your dice pool."
         }
 
-        return """Success/Failure: <strong>$successFailureSum</strong>
-                  <br/>Adv/Disadvantage: <strong>$advantageThreatSum</strong>
-                  ${if (triumphCount > 0) "<br/>Triumph: $triumphCount" else ""}
-                  ${if (despairCount > 0) "<br/>Despair: $despairCount" else ""}
-                  ${if (darkLightSum != 0) "<br/>Light/Dark: $darkLightSum" else ""}
-                  <br/><br/><small>$diceStrSb:
-                  <br/>${all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>")}</small>
+        val resultLines : MutableList<String> = mutableListOf()
+        if (showSuccFail) {
+            resultLines.add("Success/Failure: <strong>$successFailureSum</strong>")
+        }
+        if (showAdvTh) {
+            resultLines.add("Adv/Threat: <strong>$advantageThreatSum</strong>")
+        }
+        if (triumphCount > 0) {
+            resultLines.add("Triumph: $triumphCount")
+        }
+        if (despairCount > 0) {
+            resultLines.add("Despair: $despairCount")
+        }
+        if (showDarkLi) {
+            resultLines.add("Light/Dark: $darkLightSum")
+        }
+        resultLines.add("<br/><small>$diceStrSb</small>")
+        resultLines.add("<small>" + all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>") + "</small>")
 
-                  """
+        return resultLines.joinToString("<br/>")
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
