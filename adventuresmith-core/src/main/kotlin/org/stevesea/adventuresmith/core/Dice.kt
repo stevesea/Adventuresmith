@@ -674,7 +674,9 @@ abstract class EotEDiceGenerator(
         if (despairCount > 0) {
             resultLines.add("<br/>Despair: <strong>$despairCount</strong>")
         }
-        resultLines.add("<br/><small>$diceStrSb</small>")
+        if (resultLines.isNotEmpty())
+            resultLines.add("<br/>")
+        resultLines.add("<small>$diceStrSb</small>")
         resultLines.add("<small>" + all_rolls.map { "&nbsp;&nbsp;${it.key}: ${it.value}" }.joinToString("<br/>") + "</small>")
 
         return resultLines.joinToString("<br/>")
