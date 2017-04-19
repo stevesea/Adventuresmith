@@ -1,6 +1,6 @@
 name: Macchiato Monsters
 id: macchiato_monsters
-url: http://quenouille.com/macchiato-monsters-dungeonverse-build-together/
+url: http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO
 credit: Eric Nieudan
 icon: ion-coffee
 groupIcons:
@@ -22,6 +22,13 @@ attribution: |
   <br/>Cappucino Cowboys by <strong>Guillaume Jentey</strong>
   <br/>Moka Mechanoïd by <strong>Quentin Forestier</strong>
   <br/>Robusta Robots by <strong>Guillaume Jentey</strong>
+
+  <h4><cite>Macchiato Monsters</cite> Open Content in Adventuresmith</h4>
+  <p>The text from <cite>Macchiato Monsters</cite> included in Adventuresmith is located
+  [here](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters)
+  in the Adventuresmith github repository. </p>
+  <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
+
 
   <h4>License</h4>
   <blockquote>

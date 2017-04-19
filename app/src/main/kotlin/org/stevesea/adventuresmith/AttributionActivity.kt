@@ -37,21 +37,7 @@ class AttributionActivity : AppCompatActivity() {
         for (coll in colls) {
             if (coll.credit == null)
                 continue
-            val str = html {
-                body {
-                    h1 { + "${getString(R.string.attribution_content)} - ${coll.name}"}
-                    h4 { + coll.credit.orEmpty() }
-                    if (coll.desc != null) {
-                        p { +coll.desc!! }
-                    }
-                    if (coll.attribution != null) {
-                        p { +coll.attribution!! }
-                    }
-                    if (coll.url != null) {
-                        p { +coll.url!! }
-                    }
-                }
-            }.toString()
+            val str = coll.toHtmlStr()
             adapter.add(ResultItem(str))
         }
     }

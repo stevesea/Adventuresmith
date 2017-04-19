@@ -121,7 +121,7 @@ object AdventuresmithCli : KLoggable {
                     .help("number of iterations")
         }
 
-        listOf(cmdRun, cmdExercise).forEach {
+        listOf(cmdRun, cmdExercise, cmdDocs).forEach {
             it.addArgument("-o", "--out")
                 .type(Arguments.fileType())
                 .help("Output file to which generator output will be written. If none given, will be output to console")
@@ -188,17 +188,20 @@ object AdventuresmithCli : KLoggable {
 
     private fun docsGen(opts: Options) {
         val l = opts.locale
-        println("# Content Attribution")
+        val message = "# Content Attribution\n"
+        if (opts.out == null) {
+            print(message)
+        } else {
+            opts.out!!.writeText(message)
+        }
         for (coll in AdventuresmithCore.getCollections(l)) {
             if (coll.credit == null)
                 continue
-            println("## ${coll.name} - ${coll.credit}")
-            if (coll.url != null)
-                println("[url](${coll.url})")
-            println("")
-            println(coll.attribution.orEmpty())
-            println("")
-            println("")
+            if (opts.out == null) {
+                print(coll.toMarkdownStr())
+            } else {
+                opts.out!!.appendText(coll.toMarkdownStr())
+            }
         }
     }
 

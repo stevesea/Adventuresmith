@@ -1,0 +1,236 @@
+---
+templates:
+- "{{potion_template}}"
+
+tables:
+  potion_template:
+  - "{{prepartion}} {{form}} {{ingredient_template}}<br/>{{flavor_template}}"
+  - "{{form}} {{prepartion}} {{ingredient_template}}<br/>{{flavor_template}}"
+  ingredient_template:
+  - "{{first_a}} {{first_b}}"
+  - "{{first_a}} {{first_b}} {{second}}"
+  flavor_template:
+  - "1-4, {{garnish}}"
+  - "5-8, Served in {{served_in}}"
+  - "9-10, {{garnish}}<br/>Served in {{served_in}}"
+  form:
+  - Blood of
+  - Broth of
+  - Cream of
+  - Custard of
+  - Decoction of
+  - Dew of
+  - Distillation of
+  - Drainage of
+  - Effluvium of
+  - Elixir of
+  - Extract of
+  - Grease of
+  - Infusion of
+  - Juice of
+  - Liquor of
+  - Nectar of
+  - Oil of
+  - Pearls of
+  - Sap of
+  - Secretion of
+  - Seepage of
+  - Solution of
+  - Spirits of
+  - Syrup of
+  - Tea of
+  - Tears of
+  - Tincture of
+  - Tonic of
+  - Vapors of
+  - Water of
+  prepartion:
+  - Bitter
+  - Boiled
+  - Braised
+  - Brewed
+  - Brined
+  - Caramelized
+  - Carbonated
+  - Coal-filtered
+  - Composted
+  - Curdled
+  - Digested
+  - Emulsified
+  - Fermented
+  - Festering
+  - Infected
+  - Jellied
+  - Mashed
+  - Powdered
+  - Putrescent
+  - Reclaimed
+  - Reconstituted
+  - Regurgitated
+  - Slushed
+  - Sugared
+  - Suppurated
+  - Tainted
+  - Toasted
+  - Viscid
+  - Whipped
+  - Wounded
+
+  first_a:
+  - Adder
+  - Basilisk
+  - Bat
+  - Blind-Worm
+  - Cat
+  - Caterpillar
+  - Catoblepas
+  - Crocodile
+  - Fire Beetle
+  - Frog
+  - Goblin
+  - Hag
+  - Howlet
+  - Lark
+  - Leviathan
+  - Lizard
+  - Mandrake
+  - Manticore
+  - Newt
+  - Owl
+  - Ox
+  - Phoenix
+  - Pixie
+  - Serpent
+  - Shoggoth
+  - Spider
+  - Stirge
+  - Troll
+  - Unicorn
+  - Weevil
+  first_b:
+  - Bile
+  - Bladder
+  - Blubber
+  - Breath
+  - Cunning
+  - Dander
+  - Dreams
+  - Egg
+  - Eye
+  - Gall
+  - Gland
+  - Heart
+  - Liver
+  - Melancholy
+  - Milk
+  - Mucus
+  - Musk
+  - Shadow
+  - Skin
+  - Song
+  - Spittle
+  - Spleen
+  - Sting
+  - Sweat
+  - Teeth
+  - Toe
+  - Tongue
+  - Wart
+  - Wing
+  - Wool
+  second:
+  - and Ambergris
+  - and Balsam
+  - and Black Pudding
+  - and Brimstone
+  - and a Drowned Leech
+  - and Dungeon Muck
+  - and Frankincense
+  - and Fungicide
+  - and Head Cheese
+  - and Heartache
+  - and Hellebore
+  - and Holly Ash
+  - and Innocence
+  - and Jonquil Blossom
+  - and Misspent Youth
+  - and Mistletoe Berries
+  - and Moonlight
+  - and Myrrh
+  - and Nightshade
+  - and Pond Scum
+  - and Quicksilver
+  - and Regret
+  - and Rot Grub Castings
+  - and Runny Cheese
+  - and Sea Foam
+  - and Swamp Root
+  - and Toadstool
+  - and Vinegar
+  - and Wormwood
+  - and Yellow Mold
+  garnish:
+  - Aged 2000 Years
+  - Amandine
+  - Cold-Pressed by Wicked Gnomes
+  - Cursed by Witches
+  - Dusted with Blue Cinnamon
+  - Flambé
+  - Haunted by a Vengeful Ghost
+  - Imported from the Dark Pits
+  - Jubilee
+  - Left out in the Sun
+  - Meringue
+  - Neat
+  - On the Rocks
+  - Piping Hot
+  - Poured over Ice Cream
+  - Rimmed with Salt
+  - Shaken, Not Stirred
+  - Sneezed on by a Goat
+  - Stirred, Not Shaken
+  - Suspended in Aspic
+  - Swirled with Snotberries
+  - Topped with Beard Shavings
+  - Wept on by a Very Sad Beholder
+  - With a Paper Umbrella
+  - With a Slice of Lime
+  - With a Slice of Sea Cucumber
+  - With a Sprig of Mint
+  - With Cocktail Onions
+  - With Explosive Peppers
+  - With Rainbow Sprinkles
+  served_in:
+  - an Alchemist’s Alembic
+  - an Amber Jar
+  - a Boot
+  - a Clay Cup
+  - a Conch Shell
+  - a Copper Kettle
+  - a Cracked Jug
+  - a Cupped Leaf
+  - a Decorative Mug
+  - an Egg Shell
+  - a Funerary Urn
+  - a Goat Skin
+  - a Green Glass Bottle
+  - an Iron Pot
+  - a Kobold’s Mouth
+  - a Mermaid’s Purse
+  - a Monkey Skull
+  - a Mushroom Cap
+  - an Oaken Cask
+  - an Onyx Flask
+  - a Painted Ewer
+  - a Pumpkin Shell
+  - a Ram’s Horn
+  - a Rudely-shaped Gourd
+  - a Silver Vial
+  - a Spittoon
+  - a Squid’s Ink Sac
+  - a Washbasin
+  - a Waxed Sack
+  - a Wooden Bucket
+
+
+

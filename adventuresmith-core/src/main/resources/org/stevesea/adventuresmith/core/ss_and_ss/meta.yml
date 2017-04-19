@@ -5,6 +5,13 @@ credit: Diogo Nogueira / Old Skull Publishing
 icon: cmd-auto-fix
 attribution: |
   http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells
+
+  <h4><cite>Sharp Swords & Sinister Spells</cite> Open Content in Adventuresmith</h4>
+  <p>The text from <cite>Sharp Swords & Sinister Spells</cite> included in Adventuresmith is located
+  [here](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss)
+  in the Adventuresmith github repository. </p>
+  <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
+
   <blockquote>
   <h5>What is Sharp Swords & Sinister Spells?</h5>
   <p>Sharp Swords & Sinister Spells is a rules-light, sword & sorcery, old school role playing game
@@ -159,8 +166,7 @@ attribution: |
   unenforceable, such provision shall be reformed only to the
   extent necessary to make it enforceable.
   <br/>15. COPYRIGHT NOTICE
-  Open Game License v 1.0 Copyright ©2000, Wizards of the
-  Coast, Inc.
+  Open Game License v 1.0 Copyright ©2000, Wizards of the Coast, Inc.
   <br/>System Reference Document Copyright ©2000-2003, Wizards
   of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip
   Williams, Rich Baker, Andy Collins, David Noonan, Rich
@@ -169,8 +175,6 @@ attribution: |
   Arneson.
   <br/>The original roleplaying game “The Black Hack” text, tables, all
   artwork, logos and layout are Copyright 2016, David Black.
-  “Additional Things” text, tables, artwork and layout are Copyright
-  2016, David Black.
-  <br/>“Sharp Swords & Sinister Spells” Copyright ©2016 Diogo
-  Nogueira.
+  “Additional Things” text, tables, artwork and layout are Copyright 2016, David Black.
+  <br/>“Sharp Swords & Sinister Spells” Copyright ©2016 Diogo  Nogueira.
   </blockquote>

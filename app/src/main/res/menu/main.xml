@@ -9,8 +9,15 @@
         app:showAsAction="collapseActionView|ifRoom" />
 
     <item
+        android:id="@+id/action_collection_info"
+        app:showAsAction="ifRoom"
+        android:title="@string/action_collection_info"
+        />
+
+    <item
         android:id="@+id/action_clear"
         app:showAsAction="ifRoom"
         android:title="@string/action_clear"
         />
+
 </menu>

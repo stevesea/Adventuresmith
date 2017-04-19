@@ -32,6 +32,7 @@
     <string name="gen_many_selector">How many results?</string>
 
     <string name="search_title">Search</string>
+    <string name="action_collection_info">Info</string>
 
     <string name="section_header_settings">Settings</string>
     <string name="settings_generate_many">Generate Many Results</string>

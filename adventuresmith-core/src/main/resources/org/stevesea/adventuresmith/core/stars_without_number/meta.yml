@@ -3,7 +3,8 @@ id: stars_without_number
 credit: Kevin Crawford / Sine Nomine Publishing
 url: "http://www.sinenomine-pub.com/"
 attribution: |
-  The content reproduced here is from the free versions of the core SWN rulebook and various free supplements.
+  The content reproduced here is from the free version of the core SWN rulebook and various free supplements.
+  <p>http://www.drivethrurpg.com/product/86467/Stars-Without-Number-Free-Edition</p>
 icon: cmd-rocket
 groupIcons:
   grp1: ion-planet

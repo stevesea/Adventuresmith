@@ -5,7 +5,7 @@ icon: cmd-dice-6
 groupIcons:
   grpPolys: cmd-dice-1
   grpCombinations: cmd-dice-2
-  grpCustom: cmd-dice-3
+  grpCustom: cmd-multiplication-box
   grpFudge: cmd-plus-box
   grpEOTE: cmd-scale-balance     # cmd-sync , cmd-theme-light-dark
 groups:

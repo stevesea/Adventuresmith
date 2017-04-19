@@ -226,6 +226,38 @@ data class CollectionMetaDto(val url: String? = null,
                 .compare(id, other.id)
                 .result()
     }
+    fun toMarkdownStr() : String {
+        val sb = StringBuffer("## ${name} - ${credit}\n")
+        if (url != null)
+            sb.append("[url](${url})\n")
+        sb.append("\n")
+        sb.append(attribution.orEmpty())
+        sb.append("\n")
+        sb.append("\n")
+        return sb.toString()
+    }
+    fun toHtmlStr(): String {
+        val collname = name
+        val str = html {
+            body {
+                if (credit != null) {
+                    h2 { +"$collname - ${credit.orEmpty() }" }
+                } else {
+                    h2 { +"$collname}" }
+                }
+                if (url != null) {
+                    p { + url }
+                }
+                if (desc != null) {
+                    p { +desc}
+                }
+                if (attribution != null) {
+                    p { + attribution }
+                }
+            }
+        }.toString()
+        return str
+    }
 }
 
 class CollectionMetaLoader(override val kodein: Kodein) : KodeinAware {

@@ -33,6 +33,7 @@ import android.support.v7.widget.SearchView
 import android.text.Editable
 import android.text.InputType
 import android.text.InputType.*
+import android.text.util.Linkify
 import android.view.*
 import android.widget.*
 import com.crashlytics.android.answers.*
@@ -172,11 +173,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                                         if (!it.helpText.isNullOrEmpty()) {
                                             textView {
+                                                padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                                 text = it.helpText
                                             }
                                         }
                                         edits.put(k,
                                                 editText {
+                                                    padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                                     hint = it.uiName
                                                     maxLines = 1
                                                     singleLine = true
@@ -219,10 +222,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     verticalLayout {
                                         if (!param.helpText.isNullOrEmpty()) {
                                             textView {
+                                                padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                                 text = param.helpText
                                             }
                                         }
                                         val curEdit = editText {
+                                            padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                             hint = param.uiName
                                             maxLines = 1
                                             singleLine = true
@@ -911,6 +916,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     customView {
                                         verticalLayout {
                                             val groupName = editText {
+                                                padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                                 hint = getString(R.string.fav_group)
                                                 maxLines = 1
                                                 singleLine = true
@@ -934,6 +940,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 customView {
                                     verticalLayout {
                                         val groupName = editText {
+                                            padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                             hint = getString(R.string.fav_group)
                                             maxLines = 1
                                             singleLine = true
@@ -1170,6 +1177,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                 CommunityMaterial.Icon.cmd_delete)
                 .color(Color.WHITE)
                 .actionBar()
+        menu.findItem(R.id.action_collection_info).icon = IconicsDrawable(this,
+                CommunityMaterial.Icon.cmd_information)
+                .color(Color.WHITE)
+                .actionBar()
         menu.findItem(R.id.search).icon = IconicsDrawable(this,
                 CommunityMaterial.Icon.cmd_magnify)
                 .color(Color.WHITE)
@@ -1211,14 +1222,50 @@ class AdventuresmithActivity : AppCompatActivity(),
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        if (item != null && item.itemId == R.id.action_clear) {
-            // clear results
-            synchronized(resultAdapter) {
-                resultAdapter.clear()
+        if (item != null) {
+            when(item.itemId) {
+                R.id.action_clear -> {
+                    // clear results
+                    synchronized(resultAdapter) {
+                        resultAdapter.clear()
+                    }
+                    // expand buttons
+                    appbar.setExpanded(true, true)
+                    return true
+                }
+                R.id.action_collection_info -> {
+                    var str = "See 'Attribution & Thanks' for content attribution information"
+                    if (currentDrawerItemId != null && drawerIdToGroup.containsKey(currentDrawerItemId!!)) {
+                        // if currentDrawerItemId isin drawerIdToGroup, that means user has selected
+                        // a collection/group and not a favorite
+
+                        val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
+                        if (collGrp != null) {
+                            val collMeta = AdventuresmithCore.getCollectionMetaData(collGrp.collectionId, getCurrentLocale(resources))
+                            if (collMeta.credit != null)
+                                str = collMeta.toHtmlStr()
+                        }
+                    }
+                    alert {
+                        customView {
+                            verticalLayout {
+                                scrollView {
+                                    orientation = LinearLayout.VERTICAL
+
+                                    textView {
+                                        setTextIsSelectable(true)
+                                        padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
+                                        text = htmlStrToSpanned(str)
+                                        autoLinkMask = Linkify.WEB_URLS // TODO: links aren't working
+                                        textSizeDimen = R.dimen.resultListFontSize
+                                    }
+                                }
+                                okButton {  }
+                            }
+                        }
+                    }.show()
+                }
             }
-            // expand buttons
-            appbar.setExpanded(true, true)
-            return true
         }
         return super.onOptionsItemSelected(item)
     }

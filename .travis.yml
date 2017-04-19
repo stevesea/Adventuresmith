@@ -31,7 +31,7 @@ before_install:
 script:
   - cloc . > cloc.txt
   - cat cloc.txt
-  - ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:distZip
+  - ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:runGenerateDocs adventuresmith-cli:distZip
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock

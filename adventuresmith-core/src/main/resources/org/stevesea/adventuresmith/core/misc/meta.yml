@@ -7,9 +7,7 @@ groups:
   grpChar: Characters
   grpGME: GM Emulators
   grpItems: Items
-  grp4th: The Fourth Page
 groupIcons:
-  grp4th: cmd-numeric-4-box-outline
   grpItems: cmd-engine
   grpChar: cmd-account
   grpGME: cmd-lightbulb-on-outline
@@ -18,19 +16,19 @@ attribution: |
   <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>
 
   <h5>Joel Priddy</h5>
-  Boiler Plate Fantasy playbooks http://abominablefancy.blogspot.com/2016/02/boilerplate-fantasy-playbooks.html
-  <br/>Patron Deity generator is from the Cleric playbook.
+  Joel Priddy's blog: http://abominablefancy.blogspot.com/
+  <h6>Patron Deity Generator</h6>
+  <p>© Joel Priddy 2016</p>
+  The Patron Deity generator is from the Cleric playbook in Joel's Boiler Plate Fantasy playbooks,
+  available here: http://abominablefancy.blogspot.com/2016/02/boilerplate-fantasy-playbooks.html
+  <h6>Potion Quaffing Contest</h6>
+  <p>© Joel Priddy 2017</p>
+  http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html
 
   <h5>Jeremy Strandberg</h5>
   Stonetop https://plus.google.com/collection/c0dRb
   <br/>Minor Arcana generator
   <br/>Licensed under Creative Commons Attribution 3.0 Unported License. To view a copy
-  of this license, visit https://creativecommons.org/licenses/by/3.0/
-
-  <h5>Mike Riverso</h5>
-  <cite>the Fourth Page</cite> generators for World of Dungeons.
-  <br/>
-  <br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
   of this license, visit https://creativecommons.org/licenses/by/3.0/
 
 
@@ -50,11 +48,14 @@ attribution: |
   "Old School Renaissance" (OSR) started with the Holmes Set.
   </blockquote>
 
-  <h5>Mythic Fate Chart Variant</h5>
-  From this post: http://solodungeoneer.blogspot.com/2012/09/mythic-fate-chart-variant.html
-
   <h5>Tiny Universal Engine</h5>
   From Sophia Brandt: http://dieheart.net/tiny-universal/
+  <p>Sophia's blog http://dieheart.net/ is full great resources (reviews, actual plays, resource lists) for
+  Dungeon World, The Black Hack, solo RPGs, and much more.
+  <br/>The content of Sophia's blog is licensed under a Creative Commons Attribution 4.0 International License.
+   To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
+
+  </p>
 
 
 
