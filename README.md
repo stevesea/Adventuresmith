@@ -7,8 +7,9 @@
 
 Adventuresmith is an Android app for randomly generating elements for tabletop RPGs (names, spells,
 items, monsters, characters, alien worlds, etc). Adventuresmith is free, and ad-free (and will remain so).
+
 The software written for Adventuresmith is licensed under the GPL. The licensing terms of the content
-within Adventuresmith varies, depending on the source of the data. See [here](#content) for content
+within Adventuresmith varies, depending on the source of the data. See [this section](#content) for content
 attribution and information about the RPG content within the app.
 
 Random tables are a great tool to provide a framework for improvisation.
@@ -61,12 +62,13 @@ All content within Adventuresmith has been added with the permission of individu
 
 If you enjoy using Adventuresmith, follow the attribution links to the creators' blogs or to their
 pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and other feedback; buy
-their books and zines, or become a patron on Patreon.
+their products, and become a patron on Patreon.
 
-Attribution for the content within Adventuresmith is available [here](./content_attribution.md).
+Attribution statements for the all content within Adventuresmith is available [here](./content_attribution.md).
 
 Attribution is also available within the app -- in the left-nav drawer, scroll down to "Attribution & Thanks".
-(TBD: soon, there will be a way to get to the specific attribution data for a specific set of generators)
+Alternatively, if you're in the app, you can click on the white 'info' button on the toolbar to be
+taken to the individual attribution statement for the generators you're using.
 
 Adventuresmith includes Open Content released under the OGL. To see the Open Content copied
 from these OGL sources, follow the links below:
