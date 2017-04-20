@@ -8,9 +8,9 @@
 Adventuresmith is an Android app for randomly generating elements for tabletop RPGs (names, spells,
 items, monsters, characters, alien worlds, etc). Adventuresmith is free, and ad-free (and will remain so).
 
-Adventuresmith software is licensed under the GPL. The licensing terms of the content within
-Adventuresmith varies, depending on the source of the data, see [this section](#content) for content
-attribution and information about the content within the app.
+Adventuresmith software is licensed under the GPL. Depending on the source of the content, the
+licensing terms of the content within Adventuresmith varies -- see [this section](#content) for
+content attribution and information about the content within the app.
 
 ### How to use the app
 Random tables are a great tool to provide a framework for improvisation.
@@ -60,15 +60,14 @@ Want to keep up with development? Here's the [G+ community](https://plus.google.
 
 ## Content
 Adventuresmith is a tool to help players and GMs use RPG supplements and systems. Adventuresmith would
-not exist without the amazing creativity of many content creators. All content added to Adventuresmith
-has been used with the permission of the individual creators of the content.
+not exist without the amazing creativity of many people. All content included within Adventuresmith
+has been used with the permission of the individual content creators.
 
-Attribution and licensing statements for the all content within Adventuresmith is
-available [here](./content_attribution.md).
+Attribution and licensing statements for all content within Adventuresmith is available [here](./content_attribution.md).
 
-Attribution for each set of generators is available within the app. When you've selected a set of
-generators, click on the white 'info' button on the toolbar to be taken to the individual attribution
-statement for the generators you're using.
+Attribution for each set of generators is also available within the app. When you've selected a set of
+generators, click on the info button on the toolbar to be shown the attribution statement for the
+generators you're using.
 
 If you enjoy using Adventuresmith, follow the attribution links to the creators' blogs or to their
 pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and other feedback; buy
