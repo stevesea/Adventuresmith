@@ -3,9 +3,9 @@
 [url](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
 
 <cite>Augmented Reality</cite> was designed and compiled by <strong>Paul D. Gallagher</strong>.
-<br/>(Geist at http://neuralarchive.blogspot.co.uk)
+<br/><a href="http://neuralarchive.blogspot.co.uk">Geist's blog</a>
 <p>© Geist Hack Games 2017</p>
-<p>PWYW on DTRPG: http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games</p>
+<p><a href="http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games">Augmented reality on DTPRG</a></p>
 
 <blockquote>
 Style And Substance: Enhance your games of the dark future, with the easy to use Augmented Reality
@@ -24,7 +24,7 @@ gamesmasters to let their twisted imaginations shine through, without slowing do
 
 <h5>CRGE, Conjectural Roleplaying GM Emulator</h5>
 All text is © Zach Best (2014).
-<br/>http://www.drivethrurpg.com/product/145426/CRGE-Conjectural-Roleplaying-GM-Emulator
+<br/><a href="http://www.drivethrurpg.com/product/145426/CRGE-Conjectural-Roleplaying-GM-Emulator">CRGE on DriveThruRPG</a>
 <blockquote>
 <p>CRGE is a GM emulator that works on adding the unexpected to your imagination. CRGE is a
 tiered system to create a role-playing experience without a GM. At the base level the system
@@ -36,7 +36,7 @@ stories by yourself, with a group of friends, or even online.</p>
 
 <h5>UNE, The Universal NPC Emulator</h5>
 All text is © Zach Best (2007, 2014).
-<br/>http://www.drivethrurpg.com/product/134163/UNE-The-Universal-NPC-Emulator-rev
+<br/><a href="http://www.drivethrurpg.com/product/134163/UNE-The-Universal-NPC-Emulator-rev">UNE on DriveThruRPG</a>
 <blockquote>
 <p>UNE is the Universal NPC Emulator. With just a handful of dice rolls, UNE can help create a
 surprising non-player character (NPC) with its own motivations. A few more dice rolls, and UNE
@@ -46,7 +46,7 @@ It can even help determine the NPC’s general mood towards the player character
 
 <h5>BOLD, Universal PC Stories and Deeds Generator</h5>
 All text is © Zach Best (2014).
-<br/>http://www.drivethrurpg.com/product/137746/BOLD-Universal-PC-Stories-and-Deeds-Generator
+<br/><a href="http://www.drivethrurpg.com/product/137746/BOLD-Universal-PC-Stories-and-Deeds-Generator">BOLD on DriveThruRPG</a>
 <blockquote>
 <p>BOLD is the book of legends and deeds. With just a handful of dice rolls, BOLD can generate
 interesting character histories, downtime events, and even adventures. Any character instantly
@@ -58,8 +58,8 @@ in to entire stories.</p>
 ## Freebooters on the Frontier - Jason Lutes
 [url](http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier)
 
+<p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
 <p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A.</p>
-<p>http://lampblackandbrimstone.blogspot.com/</p>
 <p>The content of Freebooters on the Frontier relies upon the rules contained in <em>Dungeon World</em>,
 by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed under a Creative Commons Attribution 3.0 Unported license.</p>
 <p>The text of <em>Freebooters on the Frontier</em> is released under a Creative Commons Attribution - ShareAlike 3.0 Unported license.</p>
@@ -71,8 +71,8 @@ by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed unde
 
 <h5>Tricks, Empty Rooms, & Basic Trap Design</h5>
 All text is © Courtney C. Campbell (2011).
-<br/>Tricks, Empty Rooms, & Basic Trap Design:
-http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html
+<br/>
+<br/><a href=" http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html">Tricks, Empty Rooms, & Basic Trap Design</a>
 
 
 ## Kaigaku - Jacob DC Ross / Thunderegg Productions
@@ -91,7 +91,9 @@ bushi, wars of words among courtiers, ninja missions and more.</p>
 
 
 <h4>Core Game</h4>
-http://quenouille.com/macchiato-monsters-dungeonverse-build-together/
+<a href="http://quenouille.com/macchiato-monsters-dungeonverse-build-together/">http://quenouille.com/macchiato-monsters-dungeonverse-build-together/</a>
+<br/>
+<br/><a href="http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO">http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO</a>
 <h4>Community Additions</h4>
 
 Americano Anomalies by <strong>Tore Nielsen</strong>
@@ -102,7 +104,7 @@ Americano Anomalies by <strong>Tore Nielsen</strong>
 
 <h4><cite>Macchiato Monsters</cite> Open Content in Adventuresmith</h4>
 <p>The text from <cite>Macchiato Monsters</cite> included in Adventuresmith is located
-[here](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters)
+<a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters">here</a>
 in the Adventuresmith github repository. </p>
 <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
@@ -198,44 +200,45 @@ Swords & Wizardry, Copyright 2008, Matthew J. Finch. Whitebox, Copyright 2008, M
 [url](http://questingblog.com/maze-rats/)
 
 Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
-<p>Maze Rats is PWYW, and available here http://www.drivethrurpg.com/product/197158/Maze-Rats</p>
+<p><a href="http://www.drivethrurpg.com/product/197158/Maze-Rats">Maze Rats on DriveThruRPG</a></p>
 <p>The text of <em>Maze Rats 4.1</em> is released under a CC BY 4.0 license
 https://creativecommons.org/licenses/by/4.0/</p>
-<p>Spanish translation by: <strong>Séregras</strong>. Available here http://questingblog.com/downloads/</p>
+<p>Spanish translation by: <strong>Séregras</strong>. Available here <a href="http://questingblog.com/downloads/">http://questingblog.com/downloads/</a></p>
 
 
 ## Roll XX - The Sentinels of Meregoth / Neoplastic Press
 [url](http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press)
 
+<p><a href="http://www.drivethrurpg.com/product/108917/Roll-XX">Roll XX on DriveThruRPG</a></p>
 <blockquote>
 <p>Roll XX is a system-agnostic book of random tables for fantasy, sci-fi, superheroes, and horror role-playing games.
 <br/>Packed with adventure hooks, story seeds, NPCs, magic items, spaceships, demons, and locations, Roll XX features 90 questions and 1800 answers.
 <br/>And it's open-source!</p>
-<p>http://www.drivethrurpg.com/product/108917/Roll-XX</p>
 </blockquote>
+<p><a href="http://www.drivethrurpg.com/product/113448/Roll-XX-Double-Damage">Roll XX: Double Damage on DriveThruRPG</a></p>
 <blockquote>
 <p>
 Roll XX: Double Damage is a book of random tables for fantasy role-playing games. Packed with adventure seeds, dungeon encounters, NPCs, magic items, treasure, and locations, Roll XX features 20 questions and 450 answers.
 <br/>It also includes an ugly-as-sin monster generator in the back with over 10,000,000,000 murderous combinations.
 <br/>And it's open-source!
 </p>
-<p>http://www.drivethrurpg.com/product/113448/Roll-XX-Double-Damage</p>
 </blockquote>
 
 
 ## Sharp Swords & Sinister Spells - Diogo Nogueira / Old Skull Publishing
 [url](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
 
-http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells
+<a href="http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells">Sharp Swords & Sinister Spells on DriveThruRPG</a>
+
 
 <h4><cite>Sharp Swords & Sinister Spells</cite> Open Content in Adventuresmith</h4>
 <p>The text from <cite>Sharp Swords & Sinister Spells</cite> included in Adventuresmith is located
-[here](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss)
+<a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss">here</a>
 in the Adventuresmith github repository. </p>
 <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
 <blockquote>
-<h5>What is Sharp Swords & Sinister Spells?</h5>
+<h4>What is Sharp Swords & Sinister Spells?</h4>
 <p>Sharp Swords & Sinister Spells is a rules-light, sword & sorcery, old school role playing game
 inspired by the original fantasy RPG and the Old School Renaissance movement as well as the
 stories by such authors as Robert E. Howard, Clark Ashton Smith, H.P. Lovecraft, Fritz Leiber
@@ -251,8 +254,9 @@ Dave Arneson, David Black, Christian Mehrstam, John Cocking, Peter S. Williams, 
 Harley Stroh, Jason Morningstar, Ian Livingstone, Steve Jackson, Simon Washbourne, Kevin Crawford,
 Sandy Petersen, Mike Manson, Jay Little, James M. Spahn, Ben Milton.</p>
 </blockquote>
-<h5>Lost Folios of the Book of Creation #1 - Adventure Title Generator</h5>
-http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator
+<h4>Lost Folios of the Book of Creation #1 - Adventure Title Generator</h4>
+<a href="http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator">Lost Folios of the Book of Creation #1  on DriveThruRPG</a>
+
 </p>
 <blockquote>
 Open Game License (OGL 1.0a)
@@ -404,14 +408,24 @@ artwork, logos and layout are Copyright 2016, David Black.
 ## Stars Without Number - Kevin Crawford / Sine Nomine Publishing
 [url](http://www.sinenomine-pub.com/)
 
+<p><a href="http://www.drivethrurpg.com/product/94621/Stars-Without-Number%3A-Core-Edition">Stars Without Number on DriveThruRPG</a></p>
+
+<p><a href="http://www.drivethrurpg.com/browse/pub/3482/Sine-Nomine-Publishing">Sine Nomine Publishing on DriveThruRPG</a></p>
 The content reproduced here is from the free version of the core SWN rulebook and various free supplements.
-<p>http://www.drivethrurpg.com/product/86467/Stars-Without-Number-Free-Edition</p>
+<blockquote>
+<p>Stars Without Number is a retro science fiction role playing game influenced by the Old School
+Renaissance and partially inspired by the great fantasy role-playing game editions written by
+Tom Moldvay and Frank Mentzer. The contents are compatible with most old school clones and are
+designed to be easily imported to your own favorite gaming system. In addition to a complete
+pre-made stellar sector, Stars Without Number offers GMs and players the tools to create their
+own sandbox-style adventures in the far future.</p>
+<blockquote>
 
 
 ## The Perilous Wilds - Jason Lutes
 [url](http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds)
 
-<p>http://lampblackandbrimstone.blogspot.com/</p>
+<p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
 <p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A. with assistance from <strong>Jeremy Strandberg</strong> in Madison, Wisconsin, U.S.A.</p>
 <p>The contents of this supplement rely upon the rules contained in <em>Dungeon World</em>, by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>,
 licensed under a Creative Commons Attribution 3.0 Unported license</p>
@@ -423,8 +437,8 @@ licensed under a Creative Commons Attribution 3.0 Unported license</p>
 
 /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
 <p>/u/OrkishBlade has done an incredible job curating a fun set of tables</p>
-<p>Re-Use rules: https://www.reddit.com/r/BehindTheTables/comments/5ruebp/new_rules_for_behindthetables/</p>
-<p>https://www.reddit.com/r/BehindTheTables/wiki/index</p>
+<p><a href="https://www.reddit.com/r/BehindTheTables/comments/5ruebp/new_rules_for_behindthetables/">Re-Use rules for /r/BehindTheTables</a></p>
+<p><a href="https://www.reddit.com/r/BehindTheTables/wiki/index">/r/BehindTheTables Table of Tables</a></p>
 <blockquote>
 <p>Our tables are meant to supplement what's in the various editions of the DMG and PHB, cover
 ground that the tables in the books do not cover, or replace what's in the books for situations
@@ -444,6 +458,12 @@ printable cheat sheets for use at the gaming table free of laptop, tablet, and o
 
 <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>
 
+<h5>Jeremy Strandberg</h5>
+<a href="https://plus.google.com/collection/c0dRb">Stonetop on G+</a>
+<h6>Minor Arcana generator</h6>
+<br/>Licensed under Creative Commons Attribution 3.0 Unported License. To view a copy
+of this license, visit https://creativecommons.org/licenses/by/3.0/
+
 <h5>Joel Priddy</h5>
 <a href="http://abominablefancy.blogspot.com/">Joel Priddy's blog</a>
 <h6>Patron Deity Generator</h6>
@@ -454,11 +474,16 @@ The Patron Deity generator is from the Cleric playbook in Joel's
 <p>© Joel Priddy 2017</p>
 <a href="http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html">Mini-game: Potion Quaffing</a>
 
-<h5>Jeremy Strandberg</h5>
-<a href="https://plus.google.com/collection/c0dRb">Stonetop on G+</a>
-<h6>Minor Arcana generator</h6>
-<br/>Licensed under Creative Commons Attribution 3.0 Unported License. To view a copy
-of this license, visit https://creativecommons.org/licenses/by/3.0/
+<h5>Sophia Brandt</h5>
+<p><a href="http://dieheart.net/">Sophia's blog</a> is full great resources (reviews, actual plays, resource lists) for
+Dungeon World, The Black Hack, solo RPGs, and much more.
+<br/>
+<br/>The content of Sophia's blog is licensed under a Creative Commons Attribution 4.0 International License.
+ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
+</p>
+
+<h6>Tiny Universal Engine</h6>
+<a href="http://dieheart.net/tiny-universal/">Tiny Universal Engine</a>
 
 
 <h5>Zenopus Archives</h5>
@@ -477,16 +502,5 @@ introduction to OD&D or AD&D, and others have been inspired to use it as the bas
 expansion to an entire game of its own. Many gamers involved in the current
 "Old School Renaissance" (OSR) started with the Holmes Set.
 </blockquote>
-
-<h5>Sophia Brandt</h5>
-<p><a href="http://dieheart.net/">Sophia's blog</a> is full great resources (reviews, actual plays, resource lists) for
-Dungeon World, The Black Hack, solo RPGs, and much more.
-<br/>
-<br/>The content of Sophia's blog is licensed under a Creative Commons Attribution 4.0 International License.
- To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
-</p>
-
-<h6>Tiny Universal Engine</h6>
-<a href="http://dieheart.net/tiny-universal/">Tiny Universal Engine</a>
 
 
