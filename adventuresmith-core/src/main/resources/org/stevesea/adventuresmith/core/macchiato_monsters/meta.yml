@@ -27,7 +27,7 @@ attribution: |
 
   <h4><cite>Macchiato Monsters</cite> Open Content in Adventuresmith</h4>
   <p>The text from <cite>Macchiato Monsters</cite> included in Adventuresmith is located
-  <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters>here</a>
+  <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters">here</a>
   in the Adventuresmith github repository. </p>
   <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
