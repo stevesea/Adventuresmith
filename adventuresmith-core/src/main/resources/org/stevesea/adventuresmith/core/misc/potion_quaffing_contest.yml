@@ -4,15 +4,15 @@ templates:
 
 tables:
   potion_template:
-  - "{{prepartion}} {{form}} {{ingredient_template}}<br/><br/>{{detail_template}}"
-  - "{{form}} {{prepartion}} {{ingredient_template}}<br/><br/>{{detail_template}}"
+  - "{{prepartion}} {{form}} {{ingredient_template}}.<br/><br/>{{detail_template}}"
+  - "{{form}} {{prepartion}} {{ingredient_template}}.<br/><br/>{{detail_template}}"
   ingredient_template:
   - "{{first_a}} {{first_b}}"
   - "{{first_a}} {{first_b}} {{second}}"
   detail_template:
-  - "1-3, {{garnish}}"
-  - "4-6, Served in {{served_in}}"
-  - "7-9, {{garnish}}<br/>Served in {{served_in}}"
+  - "1-3, {{garnish}}."
+  - "4-6, Served in {{served_in}}."
+  - "7-9, {{garnish}}.<br/>Served in {{served_in}}."
   form:
   - Blood of
   - Broth of
