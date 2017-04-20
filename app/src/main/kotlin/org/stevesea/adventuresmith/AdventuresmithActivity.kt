@@ -1235,11 +1235,16 @@ class AdventuresmithActivity : AppCompatActivity(),
                     return true
                 }
                 R.id.action_collection_info -> {
-                    var str = "See 'Attribution & Thanks' for content attribution information."
+                    var str = """
+                        See 'Attribution & Thanks' for artwork attribution information.
+                        <br/>
+                        <br/>
+                        Select a set of generators to see their attribution, or go
+                        <a href="https://github.com/stevesea/Adventuresmith/blob/master/content_attribution.md">here</a> to see all content attribution.
+                        """
                     if (currentDrawerItemId != null && drawerIdToGroup.containsKey(currentDrawerItemId!!)) {
                         // if currentDrawerItemId isin drawerIdToGroup, that means user has selected
                         // a collection/group and not a favorite
-
                         val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
                         if (collGrp != null) {
                             val collMeta = AdventuresmithCore.getCollectionMetaData(collGrp.collectionId, getCurrentLocale(resources))

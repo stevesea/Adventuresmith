@@ -4,11 +4,12 @@ url: http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells
 credit: Diogo Nogueira / Old Skull Publishing
 icon: cmd-auto-fix
 attribution: |
-  http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells
+  <a href="http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells">Sharp Swords & Sinister Spells on DriveThruRPG</a>
+
 
   <h4><cite>Sharp Swords & Sinister Spells</cite> Open Content in Adventuresmith</h4>
   <p>The text from <cite>Sharp Swords & Sinister Spells</cite> included in Adventuresmith is located
-  [here](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss)
+  <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss">here</a>
   in the Adventuresmith github repository. </p>
   <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
@@ -30,7 +31,8 @@ attribution: |
   Sandy Petersen, Mike Manson, Jay Little, James M. Spahn, Ben Milton.</p>
   </blockquote>
   <h5>Lost Folios of the Book of Creation #1 - Adventure Title Generator</h5>
-  http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator
+  <a href="http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator">Lost Folios of the Book of Creation #1  on DriveThruRPG</a>
+
   </p>
   <blockquote>
   Open Game License (OGL 1.0a)

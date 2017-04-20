@@ -56,20 +56,20 @@ are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 # Attribution
 
 ## Content
-Adventuresmith could not exist without the amazing creativity of many people. Adventuresmith
-is a tool to help people use these great tabletop RPG supplements and systems.
+Adventuresmith is a tool to help players and GMs use RPG supplements and systems. Adventuresmith would
+not exist without the amazing work of many creators. All content added to Adventuresmith has been used
+with the permission of the creators of the content.
 
-All content within Adventuresmith has been added with the permission of individual creators of the content.
+Attribution and licensing statements for the all content within Adventuresmith is
+available [here](./content_attribution.md).
+
+Attribution for each set of generators is available within the app. When you've selected a set of
+generators, click on the white 'info' button on the toolbar to be taken to the individual attribution
+statement for the generators you're using.
 
 If you enjoy using Adventuresmith, follow the attribution links to the creators' blogs or to their
 pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and other feedback; buy
 their products, and become a patron on Patreon.
-
-Attribution statements for the all content within Adventuresmith is available [here](./content_attribution.md).
-
-Attribution is also available within the app -- in the left-nav drawer, scroll down to "Attribution & Thanks".
-Alternatively, when you've selected a set of generators, you can click on the white 'info' button on the
-toolbar to be taken to the individual attribution statement for the generators you're using.
 
 Adventuresmith includes Open Content released under the OGL. To see the Open Content copied
 from these OGL sources, follow the links below:

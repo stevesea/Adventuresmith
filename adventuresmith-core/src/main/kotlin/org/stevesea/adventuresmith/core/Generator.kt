@@ -246,7 +246,7 @@ data class CollectionMetaDto(val url: String? = null,
                     h2 { +"$collname}" }
                 }
                 if (url != null) {
-                    p { + url }
+                    p { + """<a href="$url">$url</a>""" }
                 }
                 if (desc != null) {
                     p { +desc}

@@ -14,7 +14,9 @@ groups:
 attribution: |
 
   <h4>Core Game</h4>
-  http://quenouille.com/macchiato-monsters-dungeonverse-build-together/
+  <a href="http://quenouille.com/macchiato-monsters-dungeonverse-build-together/">http://quenouille.com/macchiato-monsters-dungeonverse-build-together/</a>
+  <br/>
+  <br/><a href="http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO">http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO</a>
   <h4>Community Additions</h4>
 
   Americano Anomalies by <strong>Tore Nielsen</strong>
@@ -25,7 +27,7 @@ attribution: |
 
   <h4><cite>Macchiato Monsters</cite> Open Content in Adventuresmith</h4>
   <p>The text from <cite>Macchiato Monsters</cite> included in Adventuresmith is located
-  [here](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters)
+  <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters>here</a>
   in the Adventuresmith github repository. </p>
   <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 

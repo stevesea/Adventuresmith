@@ -33,8 +33,13 @@
     </string>
     <string name="artwork_icons"><![CDATA[
         <h1>Artwork - Icons</h1>
-        <p>This application uses icons from https://materialdesignicons.com/</p>
-        <p>This application uses icons from http://ionicons.com/</p>
+        <p>This application uses icons from: https://materialdesignicons.com/</p>
+        <p>This application uses icons from: http://ionicons.com/</p>
+        ]]>
+    </string>
+    <string name="content_attribution"><![CDATA[
+        <h1>Content Attribution</h1>
+        <p>To view content atttribution, go to this page: https://github.com/stevesea/Adventuresmith/blob/master/content_attribution.md
         ]]>
     </string>
     <string name="artwork_public_domain"><![CDATA[
@@ -80,10 +85,10 @@
     </string>
     <string name="content_thanks"><![CDATA[
         <h1>Thanks!</h1>
-        Many people helped during development — testing, ideas, encouragement, etc. An incomplete list includes
+        Many people helped during development — testing, ideas, encouragement, etc. An incomplete list includes:
         <p>Brian Christensen, Liz Christensen, Camilla Nash, Kate Moir, Jason Lutes, Eric Nieudan, Matthieu B, Luka Rejec,
         Joe Banner, Jeremy Strandberg, Aaron Griffin, Ben Milton, Norbert G. Matausch, Jarrett Crader, Ben George, Myles Corcoran,
-        Sophia Brandt, and others!</p>
+        Sophia Brandt, and many others!</p>
 
         <br/>
         <p>James D`Amato, Kat Kuhl, and others at http://oneshotpodcast.com/ — thank you for re-invigorating my love of RPGs! </p>

@@ -31,17 +31,6 @@ import java.util.*
 
 class AttributionActivity : AppCompatActivity() {
 
-    fun getAttributions(adapter: FastItemAdapter<ResultItem>, locale: Locale) {
-        val colls = AdventuresmithCore.getCollections(locale)
-
-        for (coll in colls) {
-            if (coll.credit == null)
-                continue
-            val str = coll.toHtmlStr()
-            adapter.add(ResultItem(str))
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -73,11 +62,10 @@ class AttributionActivity : AppCompatActivity() {
         recycler_attribution.itemAnimator = DefaultItemAnimator()
         recycler_attribution.adapter = itemAdapter
 
-        itemAdapter.add(ResultItem(getString(R.string.artwork_advsmith)))
         itemAdapter.add(ResultItem(getString(R.string.content_thanks)))
-        getAttributions(itemAdapter, AdventuresmithActivity.getCurrentLocale(resources))
+        itemAdapter.add(ResultItem(getString(R.string.content_attribution)))
+        itemAdapter.add(ResultItem(getString(R.string.artwork_advsmith)))
         itemAdapter.add(ResultItem(getString(R.string.artwork_icons)))
         itemAdapter.add(ResultItem(getString(R.string.artwork_public_domain)))
-
     }
 }
