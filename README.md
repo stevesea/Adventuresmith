@@ -9,9 +9,10 @@ Adventuresmith is an Android app for randomly generating elements for tabletop R
 items, monsters, characters, alien worlds, etc). Adventuresmith is free, and ad-free (and will remain so).
 
 Adventuresmith software is licensed under the GPL. The licensing terms of the content within
-Adventuresmith varies, depending on the source of the data. See [this section](#content) for content
+Adventuresmith varies, depending on the source of the data, see [this section](#content) for content
 attribution and information about the content within the app.
 
+### How to use the app
 Random tables are a great tool to provide a framework for improvisation.
 
 During game prep or in-game, if you have a choice of:
@@ -31,10 +32,6 @@ Or, if you decide your party encounters a humanoid in the woods...
 
 ... would you have come up with an asthmatic half-orc bandit, laying a trap?
 
-Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
-
-Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
-
 ## Downloads
 
 [Google Play](https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith)
@@ -45,6 +42,12 @@ Want to keep up with development? Here's the [G+ community](https://plus.google.
 
 If you're interested in creating generators, or want to run Adventuresmith on the desktop, there
 are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
+
+## Info
+
+Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
+
+Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
 
 ## Screenshots
 
@@ -57,8 +60,8 @@ are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 
 ## Content
 Adventuresmith is a tool to help players and GMs use RPG supplements and systems. Adventuresmith would
-not exist without the amazing work of many creators. All content added to Adventuresmith has been used
-with the permission of the creators of the content.
+not exist without the amazing creativity of many content creators. All content added to Adventuresmith
+has been used with the permission of the individual creators of the content.
 
 Attribution and licensing statements for the all content within Adventuresmith is
 available [here](./content_attribution.md).
@@ -71,11 +74,11 @@ If you enjoy using Adventuresmith, follow the attribution links to the creators'
 pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and other feedback; buy
 their products, and become a patron on Patreon.
 
+### Open Content
 Adventuresmith includes Open Content released under the OGL. To see the Open Content copied
 from these OGL sources, follow the links below:
 * [Macchiato Monsters](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters)
 * [Sharp Swords & Sinister Spells](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss)
-
 
 ## Artwork
 
@@ -100,5 +103,6 @@ Adventuresmith source code is licensed under [GNU General Public License, versio
 * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
 * [FastAdapter](https://github.com/mikepenz/fastadapter)
 * [AndroidIconics](https://github.com/mikepenz/Android-Iconics)
+* [Jackson](https://github.com/FasterXML/jackson)
 * [Crashlytics/Answers/Beta](https://fabric.io)
 * [LeakCanary](https://github.com/square/leakcanary)
