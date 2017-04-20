@@ -1,6 +1,6 @@
 # Content Attribution
 ## Augmented Reality - Paul D. Gallagher / Geist Hack Games
-[url](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
+[http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
 
 <cite>Augmented Reality</cite> was designed and compiled by <strong>Paul D. Gallagher</strong>.
 <br/><a href="http://neuralarchive.blogspot.co.uk">Geist's blog</a>
@@ -20,7 +20,7 @@ gamesmasters to let their twisted imaginations shine through, without slowing do
 
 
 ## Conjecture Games - Zach Best
-[url](http://conjecturegames.com/)
+[http://conjecturegames.com/](http://conjecturegames.com/)
 
 <h5>CRGE, Conjectural Roleplaying GM Emulator</h5>
 All text is © Zach Best (2014).
@@ -56,7 +56,7 @@ in to entire stories.</p>
 
 
 ## Freebooters on the Frontier - Jason Lutes
-[url](http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier)
+[http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier](http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier)
 
 <p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
 <p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A.</p>
@@ -67,7 +67,7 @@ by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed unde
 
 
 ## Hack & Slash - Courtney C. Campbell
-[url](http://hackslashmaster.blogspot.com/)
+[http://hackslashmaster.blogspot.com/](http://hackslashmaster.blogspot.com/)
 
 <h5>Tricks, Empty Rooms, & Basic Trap Design</h5>
 All text is © Courtney C. Campbell (2011).
@@ -76,7 +76,7 @@ All text is © Courtney C. Campbell (2011).
 
 
 ## Kaigaku - Jacob DC Ross / Thunderegg Productions
-[url](http://www.drivethrurpg.com/product/186267/Kaigaku-RPG)
+[http://www.drivethrurpg.com/product/186267/Kaigaku-RPG](http://www.drivethrurpg.com/product/186267/Kaigaku-RPG)
 
 Copyright 2016, Thunderegg Productions
 <blockquote>
@@ -87,7 +87,7 @@ bushi, wars of words among courtiers, ninja missions and more.</p>
 
 
 ## Macchiato Monsters - Eric Nieudan
-[url](http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO)
+[http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO](http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO)
 
 
 <h4>Core Game</h4>
@@ -197,7 +197,7 @@ Swords & Wizardry, Copyright 2008, Matthew J. Finch. Whitebox, Copyright 2008, M
 
 
 ## Maze Rats - Ben Milton
-[url](http://questingblog.com/maze-rats/)
+[http://questingblog.com/maze-rats/](http://questingblog.com/maze-rats/)
 
 Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
 <p><a href="http://www.drivethrurpg.com/product/197158/Maze-Rats">Maze Rats on DriveThruRPG</a></p>
@@ -207,7 +207,7 @@ https://creativecommons.org/licenses/by/4.0/</p>
 
 
 ## Roll XX - The Sentinels of Meregoth / Neoplastic Press
-[url](http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press)
+[http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press](http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press)
 
 <p><a href="http://www.drivethrurpg.com/product/108917/Roll-XX">Roll XX on DriveThruRPG</a></p>
 <blockquote>
@@ -226,7 +226,7 @@ Roll XX: Double Damage is a book of random tables for fantasy role-playing games
 
 
 ## Sharp Swords & Sinister Spells - Diogo Nogueira / Old Skull Publishing
-[url](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
+[http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
 
 <a href="http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells">Sharp Swords & Sinister Spells on DriveThruRPG</a>
 
@@ -406,7 +406,7 @@ artwork, logos and layout are Copyright 2016, David Black.
 </blockquote>
 
 ## Stars Without Number - Kevin Crawford / Sine Nomine Publishing
-[url](http://www.sinenomine-pub.com/)
+[http://www.sinenomine-pub.com/](http://www.sinenomine-pub.com/)
 
 <p><a href="http://www.drivethrurpg.com/product/94621/Stars-Without-Number%3A-Core-Edition">Stars Without Number on DriveThruRPG</a></p>
 
@@ -423,7 +423,7 @@ own sandbox-style adventures in the far future.</p>
 
 
 ## The Perilous Wilds - Jason Lutes
-[url](http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds)
+[http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds](http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds)
 
 <p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
 <p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A. with assistance from <strong>Jeremy Strandberg</strong> in Madison, Wisconsin, U.S.A.</p>
@@ -433,7 +433,7 @@ licensed under a Creative Commons Attribution 3.0 Unported license</p>
 
 
 ## /r/BehindTheTables - /r/DnDBehindTheScreen
-[url](https://www.reddit.com/r/BehindTheTables/)
+[https://www.reddit.com/r/BehindTheTables/](https://www.reddit.com/r/BehindTheTables/)
 
 /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
 <p>/u/OrkishBlade has done an incredible job curating a fun set of tables</p>

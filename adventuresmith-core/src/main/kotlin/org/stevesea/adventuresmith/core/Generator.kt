@@ -229,7 +229,7 @@ data class CollectionMetaDto(val url: String? = null,
     fun toMarkdownStr() : String {
         val sb = StringBuffer("## ${name} - ${credit}\n")
         if (url != null)
-            sb.append("[url](${url})\n")
+            sb.append("[$url]($url)\n")
         sb.append("\n")
         sb.append(attribution.orEmpty())
         sb.append("\n")
