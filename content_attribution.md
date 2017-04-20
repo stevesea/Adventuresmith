@@ -210,6 +210,15 @@ https://creativecommons.org/licenses/by/4.0/</p>
 [http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press](http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press)
 
 <p><a href="http://www.drivethrurpg.com/product/108917/Roll-XX">Roll XX on DriveThruRPG</a></p>
+<p>
+<em>
+To game designers: <cite>Roll XX</cite> is an open-source game sourcebook,
+meaning that you have our permission to use the contents to
+create other commercial works -- there is no need to solicit our
+permission. Do as thou wilt! All we ask is that you kindly credit
+<cite>The Sentinels of Meregoth</cite> somewhere in the text.
+</em>
+</p>
 <blockquote>
 <p>Roll XX is a system-agnostic book of random tables for fantasy, sci-fi, superheroes, and horror role-playing games.
 <br/>Packed with adventure hooks, story seeds, NPCs, magic items, spaceships, demons, and locations, Roll XX features 90 questions and 1800 answers.
