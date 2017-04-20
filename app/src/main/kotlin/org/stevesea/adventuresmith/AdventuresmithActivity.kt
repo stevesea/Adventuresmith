@@ -33,6 +33,7 @@ import android.support.v7.widget.SearchView
 import android.text.Editable
 import android.text.InputType
 import android.text.InputType.*
+import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
 import android.view.*
 import android.widget.*
@@ -1234,7 +1235,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     return true
                 }
                 R.id.action_collection_info -> {
-                    var str = "See 'Attribution & Thanks' for content attribution information"
+                    var str = "See 'Attribution & Thanks' for content attribution information."
                     if (currentDrawerItemId != null && drawerIdToGroup.containsKey(currentDrawerItemId!!)) {
                         // if currentDrawerItemId isin drawerIdToGroup, that means user has selected
                         // a collection/group and not a favorite
@@ -1251,12 +1252,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                             verticalLayout {
                                 scrollView {
                                     orientation = LinearLayout.VERTICAL
-
                                     textView {
+                                        movementMethod = LinkMovementMethod.getInstance()
                                         setTextIsSelectable(true)
                                         padding = resources.getDimensionPixelSize(R.dimen.alert_text_padding)
                                         text = htmlStrToSpanned(str)
-                                        autoLinkMask = Linkify.WEB_URLS // TODO: links aren't working
+                                        autoLinkMask = Linkify.WEB_URLS
                                         textSizeDimen = R.dimen.resultListFontSize
                                     }
                                 }

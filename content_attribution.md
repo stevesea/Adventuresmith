@@ -423,7 +423,8 @@ licensed under a Creative Commons Attribution 3.0 Unported license</p>
 
 /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
 <p>/u/OrkishBlade has done an incredible job curating a fun set of tables</p>
-<p>https://www.reddit.com/r/BehindTheTables/comments/3und28/welcome_to_behindthetables/</p>
+<p>Re-Use rules: https://www.reddit.com/r/BehindTheTables/comments/5ruebp/new_rules_for_behindthetables/</p>
+<p>https://www.reddit.com/r/BehindTheTables/wiki/index</p>
 <blockquote>
 <p>Our tables are meant to supplement what's in the various editions of the DMG and PHB, cover
 ground that the tables in the books do not cover, or replace what's in the books for situations
@@ -444,25 +445,26 @@ printable cheat sheets for use at the gaming table free of laptop, tablet, and o
 <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>
 
 <h5>Joel Priddy</h5>
-Joel Priddy's blog: http://abominablefancy.blogspot.com/
+<a href="http://abominablefancy.blogspot.com/">Joel Priddy's blog</a>
 <h6>Patron Deity Generator</h6>
 <p>© Joel Priddy 2016</p>
-The Patron Deity generator is from the Cleric playbook in Joel's Boiler Plate Fantasy playbooks,
-available here: http://abominablefancy.blogspot.com/2016/02/boilerplate-fantasy-playbooks.html
+The Patron Deity generator is from the Cleric playbook in Joel's
+<a href="http://abominablefancy.blogspot.com/2016/02/boilerplate-fantasy-playbooks.html">Boiler Plate Fantasy playbooks</a>
 <h6>Potion Quaffing Contest</h6>
 <p>© Joel Priddy 2017</p>
-http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html
+<a href="http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html">Mini-game: Potion Quaffing</a>
 
 <h5>Jeremy Strandberg</h5>
-Stonetop https://plus.google.com/collection/c0dRb
-<br/>Minor Arcana generator
+<a href="https://plus.google.com/collection/c0dRb">Stonetop on G+</a>
+<h6>Minor Arcana generator</h6>
 <br/>Licensed under Creative Commons Attribution 3.0 Unported License. To view a copy
 of this license, visit https://creativecommons.org/licenses/by/3.0/
 
 
 <h5>Zenopus Archives</h5>
-Zenopus Archives blog is at http://zenopusarchives.blogspot.com/
-<p>Reference Sheets for Holmes Basic Referees: https://sites.google.com/site/zenopusarchives/home/holmes-ref</p>
+<p>
+<a href="http://zenopusarchives.blogspot.com/">Zenopus Archives blog</a>
+<br/><a href="https://sites.google.com/site/zenopusarchives/home/holmes-ref">Reference Sheets for Holmes Basic Referees</a> </p>
 <blockquote>
 In 1977, TSR published the first introductory set for Dungeons & Dragons. This Basic Set
 included a monochrome blue rulebook (the Blue Book) edited by Dr. J. Eric Holmes from the
@@ -476,13 +478,15 @@ expansion to an entire game of its own. Many gamers involved in the current
 "Old School Renaissance" (OSR) started with the Holmes Set.
 </blockquote>
 
-<h5>Tiny Universal Engine</h5>
-From Sophia Brandt: http://dieheart.net/tiny-universal/
-<p>Sophia's blog http://dieheart.net/ is full great resources (reviews, actual plays, resource lists) for
+<h5>Sophia Brandt</h5>
+<p><a href="http://dieheart.net/">Sophia's blog</a> is full great resources (reviews, actual plays, resource lists) for
 Dungeon World, The Black Hack, solo RPGs, and much more.
+<br/>
 <br/>The content of Sophia's blog is licensed under a Creative Commons Attribution 4.0 International License.
  To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
-
 </p>
+
+<h6>Tiny Universal Engine</h6>
+<a href="http://dieheart.net/tiny-universal/">Tiny Universal Engine</a>
 
 

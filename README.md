@@ -38,6 +38,7 @@ Want to keep up with development? Here's the [G+ community](https://plus.google.
 ## Downloads
 
 [Google Play](https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith)
+
 [Amazon](http://a.co/9nXGqBY)
 
 ## Wiki/FAQ
