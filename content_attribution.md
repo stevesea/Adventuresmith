@@ -470,7 +470,7 @@ of this license, visit https://creativecommons.org/licenses/by/3.0/
 <p>© Joel Priddy 2016</p>
 The Patron Deity generator is from the Cleric playbook in Joel's
 <a href="http://abominablefancy.blogspot.com/2016/02/boilerplate-fantasy-playbooks.html">Boiler Plate Fantasy playbooks</a>
-<h6>Potion Quaffing Contest</h6>
+<h6>Dungeon Cocktail</h6>
 <p>© Joel Priddy 2017</p>
 <a href="http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html">Mini-game: Potion Quaffing</a>
 
