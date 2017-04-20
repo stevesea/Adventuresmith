@@ -72,7 +72,7 @@ by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed unde
 <h5>Tricks, Empty Rooms, & Basic Trap Design</h5>
 All text is © Courtney C. Campbell (2011).
 <br/>
-<br/><a href=" http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html">Tricks, Empty Rooms, & Basic Trap Design</a>
+<br/><a href="http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html">Tricks, Empty Rooms, & Basic Trap Design</a>
 
 
 ## Kaigaku - Jacob DC Ross / Thunderegg Productions
