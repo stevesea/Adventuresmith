@@ -5,7 +5,7 @@
 <cite>Augmented Reality</cite> was designed and compiled by <strong>Paul D. Gallagher</strong>.
 <br/><a href="http://neuralarchive.blogspot.co.uk">Geist's blog</a>
 <p>© Geist Hack Games 2017</p>
-<p><a href="http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games">Augmented reality on DTPRG</a></p>
+<p><a href="http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games">Augmented Reality on DriveThruPRG</a></p>
 
 <blockquote>
 Style And Substance: Enhance your games of the dark future, with the easy to use Augmented Reality
@@ -93,7 +93,7 @@ bushi, wars of words among courtiers, ninja missions and more.</p>
 <h4>Core Game</h4>
 <a href="http://quenouille.com/macchiato-monsters-dungeonverse-build-together/">http://quenouille.com/macchiato-monsters-dungeonverse-build-together/</a>
 <br/>
-<br/><a href="http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO">http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO</a>
+<br/><a href="http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO">Macchiato-Monster-ZERO on DriveThruRPG</a>
 <h4>Community Additions</h4>
 
 Americano Anomalies by <strong>Tore Nielsen</strong>
@@ -411,7 +411,7 @@ artwork, logos and layout are Copyright 2016, David Black.
 <p><a href="http://www.drivethrurpg.com/product/94621/Stars-Without-Number%3A-Core-Edition">Stars Without Number on DriveThruRPG</a></p>
 
 <p><a href="http://www.drivethrurpg.com/browse/pub/3482/Sine-Nomine-Publishing">Sine Nomine Publishing on DriveThruRPG</a></p>
-The content reproduced here is from the free version of the core SWN rulebook and various free supplements.
+<p>The content reproduced here is from the free version of the core SWN rulebook and various free supplements.</p>
 <blockquote>
 <p>Stars Without Number is a retro science fiction role playing game influenced by the Old School
 Renaissance and partially inspired by the great fantasy role-playing game editions written by
@@ -419,7 +419,7 @@ Tom Moldvay and Frank Mentzer. The contents are compatible with most old school 
 designed to be easily imported to your own favorite gaming system. In addition to a complete
 pre-made stellar sector, Stars Without Number offers GMs and players the tools to create their
 own sandbox-style adventures in the far future.</p>
-<blockquote>
+</blockquote>
 
 
 ## The Perilous Wilds - Jason Lutes
