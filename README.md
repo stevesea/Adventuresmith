@@ -51,8 +51,8 @@ Want to keep up with development? Here's the [G+ community](https://plus.google.
 
 ## Screenshots
 
-![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer.png "Sliding nav bar")
-![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/pw_discovery.png "Perilous Wilds - Discovery")
+![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer1.png "Sliding nav bar")
+![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer2.png "Sliding nav bar #2")
 
 ----------------------------------
 
