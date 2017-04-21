@@ -2,9 +2,14 @@
 
 ## Overview
 
-This is an Android app for randomly generating elements for tabletop RPGs (names, spells,
-items, monsters, characters, alien worlds, etc).
+Adventuresmith is an Android app for randomly generating elements for tabletop RPGs (names, spells,
+items, monsters, characters, alien worlds, etc). Adventuresmith is free, and ad-free (and will remain so).
 
+Adventuresmith software is licensed under the GPL. Depending on the source of the content, the
+licensing terms of the content within Adventuresmith varies -- see [this section](#content) for
+content attribution and information about the content within the app.
+
+### How to use the app
 Random tables are a great tool to provide a framework for improvisation.
 
 During game prep or in-game, if you have a choice of:
@@ -24,27 +29,52 @@ Or, if you decide your party encounters a humanoid in the woods...
 
 ... would you have come up with an asthmatic half-orc bandit, laying a trap?
 
-Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
-
-Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
-
 ## Downloads
 
 [Google Play](https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith)
+
+[Amazon](http://a.co/9nXGqBY)
 
 ## Wiki/FAQ
 
 If you're interested in creating generators, or want to run Adventuresmith on the desktop, there
 are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 
+## Info
+
+Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
+
+Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
+
 ## Screenshots
 
-![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer.png "Sliding nav bar")
-![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/pw_discovery.png "Perilous Wilds - Discovery")
+![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer1.png "Sliding nav bar")
+![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer2.png "Sliding nav bar #2")
 
 ----------------------------------
 
 # Attribution
+
+## Content
+Adventuresmith is a tool to help players and GMs use RPG supplements and systems. Adventuresmith would
+not exist without the amazing creativity of many people. All content included within Adventuresmith
+has been used with the permission of the individual content creators.
+
+Attribution and licensing statements for all content within Adventuresmith is available [here](./content_attribution.md).
+
+Attribution for each set of generators is also available within the app. When you've selected a set of
+generators, click on the info button on the toolbar to be shown the attribution statement for the
+generators you're using.
+
+If you enjoy using Adventuresmith, follow the attribution links to the creators' blogs or to their
+pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and other feedback; buy
+their products, and become a patron on Patreon.
+
+### Open Content
+Adventuresmith includes Open Content released under the OGL. To see the Open Content copied
+from these OGL sources, follow the links below:
+* [Macchiato Monsters](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters)
+* [Sharp Swords & Sinister Spells](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss)
 
 ## Artwork
 
@@ -60,54 +90,6 @@ Application launch icon, splash screen logo, and nav-drawer-header logo were cre
 * This application uses icons from [https://materialdesignicons.com/](https://materialdesignicons.com/)
 * This application uses icons from [http://ionicons.com/](http://ionicons.com/)
 
-## Content
-Adventuresmith uses content from the following sources
-
-NOTE: this README may be out-of-date, but the app itself has a 'Attribution & Thanks' page
-that lists all the content contained within it.
-
-### Jason Lutes
-[Lampblack & Brimstone](http://lampblackandbrimstone.blogspot.com/)
-
-* the Perilous Wilds
-* Freebooters on the Frontier
-
-#### Antoine Pempie
-French translation of Freebooters on the Frontier, released under Creative Commons
-Attribution - ShareAlike 3.0 Unported license.
-
-### Kevin Crawford / Sine Nomine Publishing
-[Sine Nomine Publishing](http://www.sinenomine-pub.com/)
-
-* Stars Without Number - content is from the free version of the SWN rule book
-
-### Courtney C Campbell
-[Hack & Slash blog](http://hackslashmaster.blogspot.com/)
-
-* [Tricks, Empty Rooms, & Basic Trap Design](http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html)
-
-### Paul D. Gallagher / Geist Hack Games
-[Neural Archive blog](http://neuralarchive.blogspot.co.uk)
-
-* [Augmented Reality](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
-
-### The Sentinels of Meregoth / Neoplastic Press
-* [Roll XX](http://www.drivethrurpg.com/product/108917/Roll-XX)
-* [Roll XX: Double Damage](http://www.drivethrurpg.com/product/113448/Roll-XX-Double-Damage)
-
-### Ben Milton
-[Maze Rats](http://questingblog.com/downloads/)
-
-* Maze Rats 4.1 
-* Maze Rats 0.1 http://questingblog.com/maze-rats/
-
-### Jeremy Strandberg
-* Minor Arcana Generator for Stonetop https://plus.google.com/collection/c0dRb
-
-### Mike Riverso
-* the Fourth Page generators for World of Dungeons. Licensed under the Creative Commons Attribute 3.0 Unported License. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/
-
-
 ## Software
 
 ### License
@@ -117,5 +99,6 @@ Adventuresmith source code is licensed under [GNU General Public License, versio
 * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
 * [FastAdapter](https://github.com/mikepenz/fastadapter)
 * [AndroidIconics](https://github.com/mikepenz/Android-Iconics)
+* [Jackson](https://github.com/FasterXML/jackson)
 * [Crashlytics/Answers/Beta](https://fabric.io)
 * [LeakCanary](https://github.com/square/leakcanary)
