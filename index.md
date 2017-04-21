@@ -60,7 +60,7 @@ Adventuresmith is a tool to help players and GMs use RPG supplements and systems
 not exist without the amazing creativity of many people. All content included within Adventuresmith
 has been used with the permission of the individual content creators.
 
-Attribution and licensing statements for all content within Adventuresmith is available [here](./content_attribution.md).
+Attribution and licensing statements for all content within Adventuresmith is available [here](https://github.com/stevesea/Adventuresmith/blob/master/content_attribution.md).
 
 Attribution for each set of generators is also available within the app. When you've selected a set of
 generators, click on the info button on the toolbar to be shown the attribution statement for the
