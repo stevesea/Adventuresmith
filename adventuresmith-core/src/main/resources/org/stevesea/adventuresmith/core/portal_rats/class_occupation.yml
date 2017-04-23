@@ -1,6 +1,6 @@
 ---
 templates:
-- "class_occupation"
+- "{{class_occupation}}"
 
 tables:
   class_occupation:
