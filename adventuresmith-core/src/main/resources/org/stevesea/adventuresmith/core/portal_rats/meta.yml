@@ -5,15 +5,19 @@ icon: cmd_white_balance_sunny
 url: "http://www.drivethrurpg.com/product/209750/Portal-Rats"
 attribution: |
   <h4>Portal Rats: High Misadventure on the Infinite Planes</h4>
-  <a href="http://www.drivethrurpg.com/product/209750/Portal-Rats">Portal Rats on DriveThruRPG</a>
   <p>Copyright <strong>Tore Nielsen</strong> and <strong>Neal Stidham</strong> 2017</p>
-  <p>Licensed under Open Gaming License (see below)</p>
-
   <blockquote>
   Based on the popular The Black Hack, Portal Rats is a standalone game of planar adventure. Create
   weird denizens of the multiverse, face down an expanded range of interdimensional adversaries,
   and work your way up from being just another "portal rat" - the nobodies of the planes, capable of anything.
   </blockquote>
+  <a href="http://www.drivethrurpg.com/product/209750/Portal-Rats">Portal Rats on DriveThruRPG</a>
+  <p>Licensed under Open Game License (see below)</p>
+
+  <h5><cite>Portal Rats</cite> Open Content in Adventuresmith</h5>
+  <p>The text from <cite>Portal Rats</cite> included in Adventuresmith is located
+  <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/portal_rats">here</a>
+  in the Adventuresmith github repository. </p>
 
   <h4>Loot of Countless Spheres</h4>
   <a href="http://www.drivethrurpg.com/product/210215/Loot-of-Countless-Spheres">Loot of Countless Spheres on DriveThruRPG</a>
@@ -21,9 +25,9 @@ attribution: |
   <blockquote>
   A free supplement for Portal Rats, the Black Hack-based game of planar adventure. Find weird new
   treasures with this random generator!
-  <blockquote>
+  </blockquote>
 
-  <h4>Open Gaming License</h4>
+  <h4>Open Game License</h4>
   <h5>DESIGNATION OF PRODUCT IDENTITY</h5>
   The names The Black Hack, The Cthulhu Hack, and all artwork, logos and layout are product identity.
   <h5>DESIGNATION OF OPEN GAME CONTENT</h5>

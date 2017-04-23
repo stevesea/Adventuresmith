@@ -11,7 +11,6 @@ attribution: |
   <p>The text from <cite>Sharp Swords & Sinister Spells</cite> included in Adventuresmith is located
   <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss">here</a>
   in the Adventuresmith github repository. </p>
-  <p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
   <blockquote>
   <h4>What is Sharp Swords & Sinister Spells?</h4>
