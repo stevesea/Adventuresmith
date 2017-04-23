@@ -1,0 +1,8 @@
+---
+templates:
+- <strong>KO’d</strong> - Just knocked out.
+- <strong>Fat Head</strong> - Disadvantage on all tests for the next hour.
+- <strong>Cracked Bones</strong> - STR, DEX and CON are temp. -2 for the next day.
+- <strong>Crippled</strong> - STR or DEX is permanently reduced by 2.
+- <strong>Disfigured</strong> - CHA reduced to 4.
+- <strong>Dead</strong> - Not alive anymore.

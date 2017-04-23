@@ -1,0 +1,42 @@
+---
+templates:
+- "{{>pickN: 3d2 monster_features}}"
+
+tables:
+  monster_features:
+  - Chitinous
+  - Scaled
+  - Oozing
+  - Slithering
+  - Shadowed
+  - Luminous
+  - Bubbling
+  - Furred
+  - Stinking
+  - Rolling
+  - Hypnotic
+  - Fanged
+  - Knobby
+  - Encrusted
+  - Horned
+  - Shambling
+  - Asymmetric
+  - Clawed
+  - Rubbery
+  - Acrid
+  - Tentacled
+  - Flying
+  - Fuming
+  - Finned
+  - Tumerous
+  - Translucent
+  - Dripping
+  - Levitating
+  - Unstable
+  - Beaked
+  - Fleshy
+  - Spined
+  - Bulbous
+  - Phasing
+  - Pulsating
+  - Budding

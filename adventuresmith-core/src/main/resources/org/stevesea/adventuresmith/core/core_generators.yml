@@ -279,6 +279,11 @@ generators:
   - dungeon
   - steading
   - discovery
+  portal_rats:
+  - monster_features
+  - npc_reaction
+  - out_of_action
+  - portal_destination
   stars_without_number:
   # - world          faction/world   Not converted completely to new template format
   #- faction
