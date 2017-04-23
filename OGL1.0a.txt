@@ -1,11 +1,7 @@
 Designation of Product Identity
 ----------------
 
-Adventuresmith logo, name,
-
-Macchiato Monsters
-Shar
-
+Adventuresmith name, logo, splashscreen, nav-drawer header, icons are product identity.
 
 --------------
 OPEN GAME LICENSE Version 1.0a
@@ -110,7 +106,12 @@ are Copyright 2016, David Black.
 “Sharp Swords & Sinister Spells” Copyright ©2016 Diogo Nogueira.
 
 Whitehack 2nd Edition, Copyright 2015, Christian Mehrstam.
+
 Swords & Wizardry, Copyright 2008, Matthew J. Finch.
+
 Whitebox, Copyright 2008, Matthew J.Finch.
+
 Macchiato Monsters, Copyright 2016, Eric Nieudan.
+
+Portal Rats, Copyright 2017, Tore Nielsen and Neal Stidham
 
