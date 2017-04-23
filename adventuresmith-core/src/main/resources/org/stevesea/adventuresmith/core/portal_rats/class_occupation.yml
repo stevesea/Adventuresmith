@@ -1,0 +1,82 @@
+---
+templates:
+- "class_occupation"
+
+tables:
+  class_occupation:
+  - "<strong>Adventurer:</strong> {{Adventurer}}"
+  - "<strong>Arcanist:</strong> {{Arcanist}}"
+  - "<strong>Priest:</strong> {{Priest}}"
+  - "<strong>Rogue:</strong> {{Rogue}}"
+  - "<strong>Warrior:</strong> {{Warrior}}"
+  Adventurer:
+  - |
+    <strong>Bard</strong> <br/><br/>When playing a musical instrument, may give allies Advantage on a single test.
+  - |
+    <strong>Cataloguer</strong> <br/><br/>Starts with 1d6 portal keys; the Cataloguer’s portal keys have
+    a d8 Usage Die. For each key, you can determine where one end of the
+    portal pair is located, and the GM determines the other.
+  - |
+    <strong>Dungeoneer</strong> <br/><br/>Roll with Advantage when dealing with ruins or other
+    hazardous structures.
+  - |
+    <strong>Thrillseeker</strong> <br/><br/>Has 1 natural AP, which is also applicable against
+    intoxicants and other CON saves.
+
+  Arcanist:
+  - |
+    <strong>Conjurer</strong> <br/><br/>Roll with Advantage when identifying an existing spell or
+    magical effect.
+  - |
+    <strong>Necromancer</strong> <br/><br/>Roll with Advantage when dealing with the undead or
+    necromantic effects, whether divine or arcane.
+  - |
+    <strong>Solipsist</strong> <br/><br/>Automatically rolls a save against any other being’s spell or
+    magical effect, harmful or not.
+  - |
+    <strong>Warlock</strong> <br/><br/>Roll with Advantage when on your patron’s home plane, or
+    when dealing with natives of your patron’s home plane.
+
+
+  Priest:
+  - |
+    <strong>Apotheist</strong> <br/><br/>May learn new Divine Spells by making a WIS test.
+  - |
+    <strong>Cleric</strong> <br/><br/>Roll with Advantage on tests to heal allies.
+  - |
+    <strong>Druid</strong> <br/><br/>Roll with Advantage on tests in natural surroundings.
+  - |
+    <strong>Paladin</strong> <br/><br/>Proficient in swords; rolls with Advantage on combat tests
+    against Lower Celestial beings.
+
+
+  Rogue:
+  - |
+    <strong>Anarchist</strong> <br/><br/>If you pretend to be another class or occupation, roll with
+    Advantage to persuade others of this. The Anarchist may have multiple
+    “identities” operating at the same time.
+  - |
+    <strong>Assassin</strong> <br/><br/>Roll with Advantage when attacking from behind, dealing 2d6 /
+    2d4 + the Assassin’s level as damage.
+  - |
+    <strong>Chaotician</strong> <br/><br/>Once per session, if you would have to roll with Disadvantage,
+    roll with Advantage instead.
+  - |
+    <strong>Thief</strong> <br/><br/>Roll with Advantage when testing DEX to avoid damage or effects
+    from traps and magical devices; roll with Advantage when performing
+    delicate tasks, climbing, hearing sounds, moving silently, understanding
+    written languages and opening locks.
+
+
+  Warrior:
+  - |
+    <strong>Duelist</strong> <br/><br/>Roll combat tests with Advantage when in single combat against
+    a roughly humanoid opponent wielding non-natural weapons.
+  - |
+    <strong>Enforcer</strong> <br/><br/>Roll with Advantage when wielding two-handed weapons.
+  - |
+    <strong>Peacekeeper</strong> <br/><br/>Roll with Advantage to save against any attempts at
+    persuasion or influence, mundane or otherwise.
+  - |
+    <strong>Man-at-arms</strong> <br/><br/>Starts with (4d6)x10 coins to buy starting equipment; add
+    your level to your STR for determining Encumbrance level.

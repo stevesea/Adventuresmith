@@ -280,6 +280,7 @@ generators:
   - steading
   - discovery
   portal_rats:
+  - class_occupation
   - monster_features
   - npc_reaction
   - out_of_action
