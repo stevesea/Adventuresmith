@@ -1,0 +1,814 @@
+---
+templates:
+- "{{background.template}}"
+
+nested_tables:
+  background:
+    template:
+    - "1-2, <h5>Elemental Planes</h5>{{background.Elemental}}"
+    - "3-4, <h5>Upper Celestial Planes</h5>{{background.Upper}}"
+    - "5-6, <h5>Lower Celestial Planes</h5>{{background.Lower}}"
+    - "7, <h5>Transitory Planes</h5>{{background.Transitory}}"
+    - "8, <h5>Prime Planes</h5>{{background.Prime}}"
+    Elemental:
+    - |
+      You lived for untold years in the eye of the Everlasting Typhoon.
+      There is a shantytown of survivors and daredevils in there, but
+      your past beyond that is swept away.
+      You roll with Advantage when predicting the weather, or acting in
+      adverse weather conditions.
+    - |
+      You were born from the Exhalation of Susanoo, the impetuous
+      brother of the Sun Herself. You spent your youth in free fall,
+      watching floating worlds from afar.
+      Falling does not hurt you. Ever.
+    - |
+      You were a guard in the opulent crystal palace of a djinn emir.
+      You roll with Advantage to discover ambushes and tactical ruses.
+    - |
+      You worked as a night-farmer in the fields of Blind Storms. Down
+      there in the endless dark you saw no light. Now you cannot get
+      enough of it.
+      You can see in the dark.
+    - |
+      You were a foraging slave in the maggot-men’s caves. You ate
+      venomous grubs, blind tunnel-fish, and dirt to stay alive.
+      You roll with Advantage against any ingested poison, including alcohol,
+      spoiled food and brackish water.
+    - |
+      You were a freedom fighter in the doomed war against the
+      Cacophonist. You saw your comrades cut down by his War
+      Flautists. There will be a reckoning. You will raise an army and
+      bring freedom to the Jungle of Reverberations.
+      You are immune to sound-based attacks. You are also profoundly tonedeaf,
+      and a bit suspicious of musicians.
+    - |
+      You walked for years behind a drudge-drake, plowing the Magma
+      Plains.
+      Heat and fire will not hurt you, unless you antagonize it.
+    - |
+      Your parents were rich merchants in Doon, grandest of the Nomad
+      Cities floating on the elemental vortices.
+      You start the game with +2 to CHA (up to a maximum of 19).
+    - |
+      You were a midwife in the City of Brass, cracking open molds and
+      helping the infant ifrits take their first stumbling steps.
+      You roll with Advantage against heat damage, and when dealing with
+      small children (newlyhatched
+      rocs, baby dragons, fussy infants, et cetera.)
+    - |
+      You were a boatman at the Wellspring of Rivers, just like your
+      ancestors since time immemorial.
+      You roll with Advantage when swimming or sailing. Also, you speak the
+      language of amphibeans.
+    - |
+      Your mother was armorer to one of the Cinder Dukes. Which one?
+      It matters not. They are forever at each other’s throats, ascending
+      thrones or fleeing.
+      You may appraise the worth of weapons accurately, and roll with
+      Advantage when handling explosives and Greek fire.
+    - |
+      The Council of Frost has picked you to be thawed and sent to locate
+      the new world of Soon as their envoy. You’re still a bit woozy from
+      being chiseled out of the permafrost and dumped down a churning
+      warp glacier.
+      Cold doesn’t bother you, and you have 2 AP of icy armor.
+    - |
+      You lived in one of the Pearl Palaces under the Sea Without End.
+      You were are teaboy or a parlor maid, an invisible menial in the
+      heart of power. You may have slit a few narrow patrician throats
+      before making your escape.
+      You are a strong swimmer, and have gills. Your skin is turquoise scales,
+      and you have webbed hands and feet.
+    - |
+      You came of age in Kettle, the metropolis at the Heart of Steam.
+      Your eyebrows are singed and your hands calloused.
+      You roll with Advantage when dealing with machines and steam-power.
+    - |
+      You were a stable hand at the court of Iskur, the Storm King.
+      You rode the wild zephyr when no one looked, and polished the
+      pegasi’s feathers.
+      You roll with Advantage when riding or interacting with horses and
+      horse-like beings.
+    - |
+      You lived an uneventful life on a floating island, sometimes
+      buffered by cold winds, sometimes all all but resting on mighty
+      waters. A tedious life! That was why you stowed away on a skyship
+      bound for the Celestial Planes.
+      You roll with Advantage when hiding (or farming, but you’d rather not).
+    - |
+      You were raised by masked nomads in the ash-dunes of Fires Past.
+      Some of them must have been your parents. You eked out a living
+      by scavenging, and spent your free hours searching for a way out.
+      You found one.
+      You have a mask, a second face which will fool anyone who hasn’t seen
+      you before.
+    - |
+      You were a nurse in the Filth Meadows. You looked after the
+      spawn of slug barons and ooze elementals, and became a power to
+      be reckoned. Oh, but what does power matter if you live in mud
+      and silt?
+      Diseases and infections do not bother you. You may be slightly addicted to
+      perfumes and incense.
+    - |
+      Dwarves carved you and your siblings out from the living rock.
+      You were their spoiled golden children.
+      You have two AP of rocky armor. Your features are beautifully chiseled,
+      but you are a lot heavier than you look.
+    - |
+      You grew up in the place where the first raindrop fell on the first
+      seed and begat the first tree. The rain never stopped, and the
+      plants never ceased spreading. You were born of a large, obscenely
+      colorful orchid.
+      You have a pocket full of seeds. If you scatter them over even the thinnest
+      layer of soil, they will grow into a forest within an hour.
+    Upper:
+    - |
+      In Elysium you were a craftsman, working only with the most
+      beautiful and perfect of materials. You worked hard, but the
+      lightness of Elysium made it all seem insubstantial. Maybe it was
+      rash to leave, but out here in the worlds you feel you make a
+      difference. Your body aches from honest toil.
+      You roll with Advantage when dealing with your craft (and you must
+      decide what it is now).
+    - |
+      You bought your way into heaven. Now, celestials cannot be
+      bribed, but you bought the name of a man who was virtuous but
+      poor. In Elysium there is no time, but the cheat was discovered,
+      and you were cast adrift in the universe. Somewhere out there
+      there is a man who paid for your misdeeds, and he too is free from
+      his assigned afterlife.
+      Someone is coming after you. Talk briefly with the GM about your
+      expectations in that regard. You start the game with +2 to CHA, as well as
+      a red scar where a wroth angel touched you as you were thrown out of the
+      Afterlife.
+    - |
+      You guarded a sylvan glade with word and spear. You had a
+      thousand merry wars with fauns and elves.
+      You start game with a spear, and a breastplate made from silver scales (4
+      AP).
+    - |
+      You are an envoy for Ezur, the valley where Thought and Action
+      are equally humble, and the Thunder Queen rules with the clarity
+      of lightning and the weight of thunder. You have been sent out
+      into the world to spread the good news of your Queen and her
+      message of balance.
+      You start the game with a shining broadsword and a cuirass (2 AP of
+      armor).
+    - |
+      You tended the World Ash, whose leaves are stars and whose roots
+      extend into the Abyss. You traded gossip with the squirrels, and
+      fought the maggot-offspring of Nidhógg. The work, like the Tree
+      requires renewal, and you were sent out into the world after
+      uncounted years of golden toil.
+      Whenever you meet someone with connection to Asgard, you may test
+      CHA to see if you know something salacious or dark about them. You may
+      do this once per individual.
+    - |
+      You were an agent of Dispater, in deep cover in Heaven. It was the
+      greatest and most audacious strike against the Manors Benevolent
+      since the elves learned speech. No one suspected a thing, and soon
+      you felt at home among the well-ordered fields and orchards. This
+      was Law without the threat of punishment, work without a shove
+      of resentment or a dagger of ambition. You knew that you had to
+      leave, as you were undeserving. One day you shall return, and your
+      lies shall become truth.
+      Once per day/level you may tell an undetectable lie. A person might think
+      you’re wrong, but they will never think you lie.
+    - |
+      The Crystal Isle is a near-abandoned heaven, a place of cold
+      perfection teetering on the edge of Order Itself. Those few who
+      are sent here sit in silent contemplation of the crystals, until they
+      become another part of of the breathtaking scenery. You could not
+      quite make the transition.
+      You may hurl shards ripped from your partly crystallized body. They do
+      damage according to how closely the target is aligned with Order (GM’s
+      discretion). Strongly aligned: no damage; somewhat aligned: 1d4 points;
+      neutral (most people): 1d6 points; a force of chaos, progress, or anarchy:
+      d10; a being straight out of Chaos Itself: 1d12 points of damage.
+    - |
+      Your reward was Nepenthe, a city build from fond memories and
+      cool breezes. Like a dark mirror image the city of Lost Hope was
+      beneath, dimly visible from towers and occasionally reflected in
+      the river. You felt a deep compassion for those unfortunates, and
+      were allowed to set out on a pilgrimage to give them Hope.
+      Once per day you may give a person Hope, thus making them friendly
+      towards you. The downside is that Hope shatters easily, and the target will
+      blame you for making them hurt.
+    - |
+      You were one of the caretakers in the Stores of Wrath, where the
+      Instruments of Just Retribution are kept. Your task was to make
+      sure that the Behemoth was in working order. You tightened
+      the bolts, cleaned the cogs, and polished the brass until it shone
+      angrily. It filled your mind, the Behemoth did. Its hammering
+      pistons, roaring furnace and seismic trumpeting. You saw temples
+      broken under your feet, lances breaking against your metal flanks.
+      You have left of your own volition to find mental fortitude and
+      strength.
+      Once per day you may call upon a pale reflection of the Behemoth’s
+      unstoppable force. During one fight your fists (or similar) do 1d12 damage.
+      This costs you 1d6 hit points, deducted after the end of the fight.
+    - |
+      You volunteered to leave Asgard. Intelligence was needed before
+      the looming Last War. The doings of demons and giants have to be
+      brought to the light, and they have to be put to the steel.
+      You roll with Advantage to eavesdrop, and you always deal maximum
+      damage to giants (GM’s got final say on what constitutes a giant).
+    - |
+      Heaven is a vast plain, full of gentle sun and crystal water. It is also
+      a place where hunters and prey find a breathless comfort in their
+      natural roles. You are a hunter.
+      You may track by scent, provided that you have an idea what your prey
+      smells like. You can see by low light, but not in complete darkness.
+    - |
+      You lived a simple life as a hunter and forager in the place they call
+      the Green Dream. It was a heaven, but not for such as you. Trees of
+      a million worlds come here and wander in vast herds, freed from
+      their sessile duties.
+      You speak the slow song-language of plants, but answers may be a long
+      time in coming.
+    - |
+      You were a chef in Cornucopia, and you still smell of freshly baked
+      bread and roast pork. Devas and celestials probably still talk of
+      your broth and your herb rolls.
+      You roll with Advantage when preparing or assessing food. You get -2 to
+      all INT, WIS and CHA tests against those who have partaken of your food.
+    - |
+      You were a minor bureaucrat in the Sapphire City of Eternals, and
+      a happy one. One day you were sent down to the World Archive for
+      documentation. You must’ve lost your way somewhere, and things
+      are less clear out here, but certainly interesting.
+      You roll with Advantage when forging paperwork, and when gaining a
+      favorable reaction from another bureaucrat.
+    - |
+      You were a minor celestial, given the unenviable task of serving
+      the one thousand blessed fools. You quickly learned that the
+      difference between a holy fool and the more common variety is
+      minimal.
+      You get -2 to INT and +2 to WIS. You are a mountain of restraint and common
+      sense, but some idiocy has rubbed off on you.
+    - |
+      You spent a timeless eternity in the Asphodel Meadows, resting
+      mutely under the vast trees. You were summoned out from under
+      the eaves, and the offering of lamb’s blood gave you back your
+      voice. Maybe one day you will go back to your righteous rest, but
+      not now.
+      You do not need food, drink, or breathable air. You revel in them though.
+    - |
+      In the Hidden Court sit twelve masked judges. They dispense
+      gentle wisdom and stern imperatives to those who know to seek
+      them out. They look not upon past deeds, only how a Seeker may
+      become good. You were such a judge. These days you struggle with
+      doubt, and seek experience in all the worlds.
+      Once per day you may determine whether a statement is true or false, and
+      whether the falsehood (or truth!) is intended. If the source of the statement
+      is very powerful (GM’s decision), a WIS roll may be required.
+    - |
+      You were a minor functionary in the Bureaucracy of Color, which
+      lies where Chaos laps at the shores of Heaven. You kept tally of
+      hues, nuances and tints, a great responsibility, that only came with
+      the bitter dregs of actual power. Roll a D6 to discover your color:
+      1 Crimson: You hunger to vent your aggressions on the world. You inflict
+      Critical Damage on 1s and 2s.
+      2 Saffron: Once per session you can give Advantage to an ally’s roll by shouting
+      encouragements and affirmations.
+      3 Azure: You are a cerebral sort. You get +2 to INT, but -1 to STR and CON.
+      4 Olive: You are familiar with envy and exaggeration. Once per session you may
+      tell a lie and have all NPCs who hear it believe it. It must be utterly grand in
+      scope though, or the GM is allowed to let your attempt fail. Those who have
+      once believed one of your lies are immune in the future.
+      5 Ecru You roll with Advantage when trying to calm someone with bland
+      platitudes.
+      6 Umber: You roll with Advantage when testing your CON. You leave a trail of
+      brown dirt behind you everywhere.
+    - |
+      You dug watering canals in the beautiful orchards of Ceres. You
+      know the value of honest toil, as well as the life-giving libation
+      made from grain, grapes, apples and hops.
+      You start with a +2 to CON (up to a maximum of 19). You roll with Advantage
+      to hold your liquor.
+    - |
+      Your heaven was a place of excess and abandon, food, sex, music,
+      as well as every drink and herb that one might want to partake of.
+      Can an eternal reward become dull? Not to the truly deserving,
+      seemed to be the consensus. You snuck out during a mid-morning
+      orgy, with ambrosia, celestial wine, and emerald lotus under your
+      toga.
+      The comestibles of heaven have strange effects on those unused to them.
+      You cannot communicate nor predict the possible effects, and of course
+      they do not work on you. Their Usage die is D8. Each time a new person
+      partakes, roll a d8:
+      1 Nothing, but it tastes heavenly!
+      2 Once eaten you learn a secret about the thing that is right in front of you.
+      This knowledge comes with a side of kaleidoscopic lights, which start as a
+      hallucination peculiar to you, but ‘infects’ those in the immediate vicinity.
+      3 It heals 1d10 points of damage. Your hair turns a scintillating mother-ofpearl,
+      and nothing but the will of a higher power can change that.
+      4 It makes you pleasantly inebriated and is an antidote to most poisons.
+      5 It makes you invisible to people who do not know you. This lasts for about
+      ten minutes.
+      6 You feel power course through you. You have Advantage on your next roll.
+      7 For the next 1d6 hours your bodily fluids become holy water.
+      8 You feel no pain for the next day (or similar cycle). The purely physical side
+      is only a part of it, the you are free of emotional and psychological pain,
+      including habits formed around a pain response which no longer has a
+      trigger. Depending on the person, the response could range from reckless
+      psychopathy, to relief and serenity, to a crippling new pain stemming from
+      absence.
+    Lower:
+    - |
+      Since you could walk you’ve been stomping grapes of bile and
+      rage, under the watchful eyes of stupid and brutal giants. You
+      will be a kind ruler, and turn all oppressors into bone-meal.
+      You are immune to ingested poisons, and you roll with Advantage to
+      appraise wine. Your back is a mass of cruel scars.
+    - |
+      You come from darkness, and have learned to hide from the
+      shadow-filth that live in the failed Hell of Metzack.
+      You roll with Advantage to hide in darkness or gloom. You can see in
+      the dark.
+    - |
+      Your ancestors were fooled by Polyphon, the Archduke of Lies,
+      and you have spent generations in his land of fog and false
+      imaginings. Never let it be said you haven’t learned from past
+      mistakes!
+      You roll with Advantage on all WIS rolls to see through illusions.
+    - |
+      You spent aeons atoning for crimes you don’t remember
+      anymore. In Tartarus all things are drained of color, energy, and
+      life. When you found a tunnel which lead to another place, you
+      didn’t think twice.
+      You have no particular powers, but you get a +2 to INT and a -2 to WIS.
+    - |
+      You are cunning, but Tartarus has given you an unhealthy yearning
+      for new experiences, no matter how dangerous: you may not wear
+      armor.
+      You died and went to Hel. This meant a near-eternity crewing
+      Naglfar, the ship made from the nails of the dead.
+      You are dead, which is obvious to all who see you. Once per session
+      you can attempt to speak to some creature that has died. You roll with
+      Advantage when you attempt to pilot a ship.
+    - |
+      Your home was the chained floating mesas that make up the
+      Badlands of Heartless Law. You committed a crime, and had to
+      run from justice. What does it matter what you did? You got
+      away, and besides everything is a crime in that place.
+      You are branded with a sigil of guilt. The nature of your crime is not
+      apparent, but people seem to intuit that it is a punishment. The criminal
+      class might take to you, but upstanding individuals won’t!
+
+    - |
+      In the afterlife you fought alongside other damned against the
+      endless legions of barbed metal demons. You have been
+      mutilated, disemboweled, and blown up more times than you
+      can remember.
+      You are dead, and you look it. You may choose to start the game with
+      one of these demon- forged firearms:
+      Bolt Spewer: A hunk of dull grey metal with a muzzle that disgorges metal bolts
+      at an alarming rate. You can bypass the DEX test to hit and deal automatic
+      damage but you have to roll the Ammo’s Usage die immediately. Usage die: d8
+      Thunder Cannon: An ugly piece of pipe with a hand grip crudely attached.
+      Roars like an angry god. Replace class damage with a d12; the Usage die for this
+      gun is always a d6.
+      Hellfire Jezzail: A long, slender rifle, adorned with etchings of demonic copulations
+      and autocannibalism. You may skip a turn, aiming, and automatically
+      deal damage the next turn. Roll Usage die at the end of the combat as per
+      normal. Usage die: d10
+
+    - |
+      You are one of a few people who were born in the Birthgrave,
+      on the corpse of a stillborn star. Here your parents fought the
+      all-encompassing cosmic loss to scrape enough money together
+      to send you off-world. Here you are now, basking in heady relief.
+      You are still closely acquainted with titanic sorrows. Once per session
+      you may test INT to paralyze an opponent with a raw unthinking memory
+      of alien grief.
+    - |
+      You served your time on the Mountain of Knives. While your
+      skin was flayed and flayed again, the worlds moved on. Now
+      that you have been brought out to life again, you feel bereft of
+      purpose.
+      You are a frightening mass of scars. You have 2 AP of natural armor.
+    - |
+      The hell you’re from has no name. It is a place of absence. It
+      doesn’t rain, and food is practically non-existent. There are
+      few ruins which provide shadow, and the hungry ghosts fight
+      desperate hopeless fights over these places, since the sun burns
+      their dessicated skin.
+      You possess a crude makeshift spear that may harm the living, the
+      dead, and the incorporeal.
+    - |
+      Ours was not a hell, or any sordid place of punishment and
+      sinners. We worked our fingers to the bone inside the World
+      Engine. What will happen to the universe now that irresponsible
+      angels have freed us?
+      Your people were killed in the struggle between your saviors and
+      overseers. You are the last of your kind, but their dust is still on your
+      skin. You speak of yourself in the plural and never bathe. You roll with
+      Advantage when trying to repair, operate, or understand machines.
+    - |
+      You lived a life on the run. Every night the Widows descend on
+      you. Their hands and tongues were knives, and they meant to
+      inscribe secrets on you, write a world history in wounds on you
+      body. Inside and out. And so they did, until the day pilgrims
+      rescued you.
+      You may cut yourself for 1d3 damage and reveal an answer to a
+      question. Lost hit points only heal between sessions.
+    - |
+      You were a tailor in Hell, and your creations were all the rage.
+      The iron headdresses, the skirts of living skin, the dog heads
+      stuffed with silver flies: that was all you. One day you used one
+      of your horrid masterpieces as a disguise and made your escape.
+      You own a garment which makes you appear as infernal nobility to
+      most. It will give you Advantage on intimidation rolls, and a good deal
+      of deference (or fear) from most normal people. It takes you an hour to
+      put it on, and while you’re wearing it you do not heal any damage.
+    - |
+      Your punishment for dereliction of duty was the Sea Grave, the
+      dark ocean where sinners drown eternally, but never die.
+      You can’t drown or die from lack of breathable air.
+    - |
+      They blinded you and left you in an endless cave. You felt along
+      the walls, and fought the feral things that lived there. Perhaps
+      they were once like you. Have you made it out at all?
+      You are blind, and thus immune to attacks which depend on eyesight.
+      Your other senses are sharp enough to compensate, but you cannot
+      read or consult a map.
+    - |
+      You spent an aeon in the form of a nightmare, a demon horse.
+      You were one of the Crone Empress’s favorite mounts. Of course,
+      someone learned of the pride you took in your position, and you
+      were cursed with the weak biped shape you now wear.
+      Your feet remain iron hooves, and you may run as fast as a charger.
+    - |
+      You made quite a fortune as a dung farmer. The underworld has
+      some potent waste, and you were the one to fight through the
+      instinctive disgust and hit paydirt, as it were. Envy was your
+      downfall, as your siblings robbed you of your empire, with the
+      help of Dispater’s greatest legal minds. They will all pay. And
+      pay again.
+      You are immune to attacks which depend on foul odors or revulsion.
+    - |
+      You’re not a person. You’re a collective of imps disguised in this
+      human-suit. Pretty shrewd, eh?
+      Imps are nimble (+2 to DEX), but not all that good at pulling in the
+      same direction (-2 to STR). Once per session you may discorporate to
+      avoid an attack. It will take you 1D6 turns to put yourself back together
+      again, though.
+    - |
+      You ran through the city of Lost Hope, where forgotten cities
+      and forgotten people end up, tormented by grief connected to
+      lost memories. High above its Heavenly mirror image (called
+      Nepenthe) glimmered. You started your ascend on crumbling
+      stairs and precarious roofs, and wound up in a different city
+      altogether. Perhaps all cities meet at one glorious point?
+      You gain Advantage on all DEX rolls in an urban environment.
+    - |
+      You have forgotten your mortal life in the Madlands where the
+      Lower is touched by Chaos Itself. There is nothing to depend on,
+      whether place, time, or the certainties of one’s own body. There
+      is no security either, and you managed to escape one day when
+      you had wings. But Chaos is eternal and Hell has a long memory.
+      Maybe your path will send you back to the Madlands if you are
+      not careful.
+      Chaos still rumbles and churns within you. Other creatures that are
+      touched by chaos will seek you out, and and their attitude will be
+      predictably unpredictable. Once per session you may spit forth a glob
+      of Chaos which has one of the following effects; roll 1d8, and once an
+      effect has occurred, cross it off the list and replace it with a new one:
+      1 The target takes 1D8 points of damage and catches fire.
+      2 Everyone but you and the target turn into pigs. Powerful creatures may be
+      able to simply turn back into their real form.
+      3 You rob the target of 1D6 hit points (which you may add to your own, but
+      they disappear the next time you sleep).
+      4 The target can only communicate in song.
+      5 The target turns into a copy of you.
+      6 The target itself turns into raw Chaos for 1D6 turns. Chaos does no harm,
+      unless you touch it.
+      7 You turn into Chaos as above.
+      8 The glob does 1D4 damage per level you possess.
+    Transitory:
+    - |
+      The Shroud stretches through the lightless caves of the Elemental,
+      the endless night of Hells, and the arctic nights of many primes.
+      Your tribe was nomadic thieves, stealing to stay alive, moving
+      to keep ahead of the repercussions. It was a life you were caught
+      red-handed by Elysian paladins. Only you escaped.
+      You can see in darkness, and generally prefer it.
+    - |
+      You entered the Shroud as a Torchbearer, a growing cult
+      dedicated to enlightenment in a literal and figurative sense. Your
+      faith-powered light cannons were no match for the Universe of
+      Night. You barely made it out, and now home is nowhere.
+      Once per day you may cast a Light spell. It lasts until you dismiss it.
+    - |
+      Near Chaos Itself lies the island called Inspiration. It is never the
+      same two days in a row. One might go to sleep in a bed and wake
+      up in a giant lilly. Most people revel in it, but you took your leave
+      as soon as you could. Eating crusts next to a campfire is surprisingly
+      reassuring.
+      You own a piece of Potential, a blue blob about the size of your hand. You
+      can turn it into any (non-magical) item of that size. It returns to blobform
+      after 1d10 hours. You can turn it into food, or some other perishable
+      item, in which case it is used up.
+    - |
+      You were an Astral pirate from a long line of black-hearted
+      scoundrels. You were caught by the authorities on the Halcyon
+      Isles. You were subjected to hard labor, but also to freely given
+      kindness, and the opportunity to learn. After many years you
+      were released a better person.
+      You roll with Advantage when climbing, and when dealing with a
+      scholarly subject of your choice. Your family might be coming for you
+      though.
+    - |
+      You are a creature of the Cacophonist, a living song, trapped in a
+      humanoid body of ebony and brass.
+      You have a beautiful singing voice, but you are incapable of experiencing
+      any physical sensation. You may imitate any sound that you have heard.
+    - |
+      Your mother was a Rightly-Guided Sky Captain, ferrying the
+      worthy across the Astral in a golden barge. She brought you along
+      with her.
+      You roll with Advantage for piloting a ship, as well as all rope-work.
+    - |
+      Who your parents were remains a mystery, but you grew up alone
+      in the city of Cordoa, which all giants consider their lost home.
+      You ate gargantuan table-scraps, fought monstrous vermin, and
+      with time grew to a prodigious size yourself.
+      You start the game with a STR of 18. You are nine feet tall, heavy as a
+      draft horse, and eat like one too.
+    - |
+      You’re from the place that outsiders call Ethereal. Here you
+      worked since an early age in the fog spinneries. You have gained
+      much substance since you left, but your are still kin to ghosts and
+      mirages.
+      Once per session you may become liminal, gaining Advantage to all hiding
+      and sneaking rolls for an hour. Alternately you may become
+      completely intangible for the time it takes to ignore a blow or pass
+      through a single wall.
+    - |
+      You are a journeyman claviger, a key-maker and opener of doors.
+      You opened a portal which lead you to the Astral. This place leads
+      everywhere!
+      You roll with Advantage when picking locks and sussing out the
+      operational rules of a portal or gate.
+    - |
+      The 10,000 Shining Isles have always fought the Levitaton Empire
+      in endless skyship battles. You were a newly conscripted mariner,
+      who got thrown into the wild Astral by the first cannon volley.
+      When you were recovered by strangers, barnacles covered your
+      body like a pearlescent carapace.
+      You have 1 AP of natural armor, and you roll with Advantage when dealing
+      with cannons and the like.
+    - |
+      You were the spoiled child of Imperial nobles. In a tantrum you
+      ran off, and are starting to realize that the world is quite hard,
+      even if the plebs are powerfully stupid!
+      Your family name may open some doors, depending on where you go.
+      You roll with Advantage when appraising wine, gems, and riding
+      animals. Your nanny is on your scent by the way, her pistons clanking,
+      her golden hooves thrumming relentlessly.
+    - |
+      You are a cloud doctor, traveling the Astral, helping people with
+      problems relating to the multitudes of miasma, mists, and
+      condensations that seem to occur so frequently here.
+      You roll with Advantage when diagnosing and identifying clouds and
+      related illnesses. Once per day you may roll to make a dangerous cloud
+      inert, or heal 1d6 hit points worth of cloud-related damage (distributed
+      as you wish).
+    - |
+      Your city was a floating sky-marvel, until it was cursed by the
+      horrid Cacophonist to become one great mind inhabiting many
+      bodies. With this the Cacophonist hoped to create a choir
+      greater than the Heavenly Host itself. You have lived your life
+      in the warm oceanic feeling of the hive mind, always being part
+      of the harmonious chorus. You stumbled through a portal, and
+      ended up in this new world. Stranger still is the feeling of having
+      an identity of your own.
+      You have perfect pitch, and may communicate telepathically with any
+      one being out to a range of Near.
+    - |
+      You were a city guard in one of the ports of the 10,000 Shining
+      Isles. You saw the world pass by, while you performed your simple
+      duty. One day you walked away to give the rest of creation its due.
+      You start the game with a spear, a crossbow, and a chainmail hauberk
+      (6 AP). You roll with Advantage on rolls against ambushes and other
+      surprise attacks.
+    - |
+      Your floating island was a peaceful place of rice paddies and
+      gentle mist, until the fugitive angel Penemue passed by, brushing
+      your home with its bright garments. Enlightenment drove many
+      mad, but you managed to contain this new wisdom. Your home
+      seemed limiting and prosaic though, and you soon hitch a ride on
+      a skyship.
+      You start with a +2 to INT and WIS(!) but a -2 to CON. You roll with
+      Advantage when trying to decipher written language or code.
+    - |
+      As the Astral approaches Law Itself, it hardens and becomes stairs,
+      walkways and balustrades. Your parents were traveling peddlers
+      of trinkets and talismans on those stairs.
+      You own a talisman made from a deva’s feather. Once per session you
+      may invoke it to gain Advantage on one roll. Alternately you may destroy
+      the talisman and survive a fall from any height.
+    - |
+      Love is a wild ungovernable force, despite what Tu Er Shen,
+      Aphrodite or Cupid might tell you. You know, since your
+      livelihood is scavenging in the ruined Manors of those very gods,
+      torn loose from the Upper Planes. It’s dangerous, and often
+      melancholy and filthy. You are done eating nothing but oysters
+      and strawberries dug out of throbbing rubble!
+      Once per session you may cast the equivalent of a Charm spell, but only if
+      you don’t believe a thing you’re saying.
+    - |
+      Before a person is born there is a grim, naked struggle to be the
+      one to enter into the mortal realms. Sexless maggot-creatures
+      tearing into each other, all for the dubious honor of being born.
+      You fought your way across the gray and blood-slicked battlefield,
+      and expected to find yourself being nursed, burped and doted on.
+      This body was not what you expected.
+      You are right at home fighting against hordes of opponents. When you
+      roll a 1 in combat, you may hit 1d4+1 opponents at the same time. (You
+      only deal Critical Damage to one foe, though.)
+    - |
+      Imagine a city full of knowledge, whose only purpose is storing
+      knowledge. That is the libraries of Gann, floating in the Astral.
+      You are a young librarian, out in the worlds looking for that gathering
+      of information that will make your name and your specialization.
+      1 Celestial Planes: You roll with Advantage when dealing with the Upper and
+      Lower planes, their geography, politics and customs.
+      2 Elemental Planes: You roll with Advantage when dealing with lore
+      concerning the Elemental planes, their geography, politics and makeup.
+      3 Primes: You roll with Advantage when recalling the strange lore of the
+      Primes, their beliefs, symbols and place.
+      4 Astral: You roll with Advantage when recalling the lkore of the Astral, who
+      lives on the islands, and where portals may lead.
+      5 Sensation: Once per day you may produce a sensation from the vast archive.
+      It is not real in the sense that it cannot do physical weal or woe, but it may
+      have a profound effect on the recipient.
+      6 Dead Lore: Once per day you may call forth a dead idea. Again, this does not
+      have a physical reality, but may have a profound effect on the recipient.
+      Some example dead ideas:
+      Gluttox: There is no difference between food and not-food
+      Absensation: The utterly paradoxical, yet peaceful feeling of non-existence.
+      When it disappears, the weight of existence may be lethal.
+      Onis: Being suddenly conscious of the fact that being trapped in one
+      biological entity, locked in by time and space, is profoundly unnatural.
+      Sonder: A sudden oceanic certainty that every living soul is as complete a
+      being as you. A paralyzing moment of total empathy.
+    - |
+      As the Astral approaches Chaos Itself, it becomes a bewildering
+      array of creatures given substance by the aether and form by the
+      forces of whim and impulse. Most of these beings are nonviable,
+      or fall to their death. Not you.
+      You start the game with +2 to CON, and you must roll 1d3 times on the
+      Mutations table below.
+      1 You contain a star seed. When you die you will become an infant sun!
+      2 Ungainly, muscular hulk (STR 16, DEX 6)
+      3 Grey bat-like wings. You can fly.
+      4 Octopus-like suckers growing from skin. You roll with Advantage when
+      climbing.
+      5 Insectile carapace giving 2 points of armor
+      6 No head. Your face is in your chest.
+      7 Body odor is like honey and coriander.
+      8 Entire body lumpy and tumorous.
+      9 Fetus-like parasite twin. Once per session it may whisper a warning of
+      nearby danger.
+      10 Hippopotamus-headed
+      11 Beautiful singing voice
+      12 Body grotesquely fat. You roll with Advantage on CHA rolls dealing with
+      demons of gluttony.
+      13 Body covered with coarse orange fur. You are immune to cold.
+      14 1d6+1 arms
+      15 Angelic features (+2 CHA)
+      16 No mouth but a pair of metallic mandibles (damage 1d6)
+      17 Mouth at the end of a fleshy proboscis
+      18 Eyes are fish-like and never blink
+      19 Eyes are yellow, veiny, and three in number
+      20 Eyes on long, prehensile, snail-like stalks
+    Prime:
+    - |
+      Your world is rubble, atomized by the generational struggle of the six
+      Warlock Houses. You did not want to leave, but there was no place to
+      stay, nor any ground to stand on.
+      You roll with Advantage to avoid magical attacks.
+    - |
+      You were a pampered plaything of the golden elves in the Forests of
+      Keriel. One day you explored the Oracle’s hut, and found a crack in
+      the wall to hide in when she returned. You have yet to find your way
+      out.
+      You start with a CHA of 16.
+    - |
+      You were a carpenter’s apprentice in the village of Packton Green. It
+      was boring and safe, until the Filth Hounds invaded from some
+      unimaginable hell. One of them swallowed you up.
+      You roll with Advantage when working with wood, appraising or haggling
+      over wooden objects.
+    - |
+      You plowed the meager fields of your homestead in the Silver Hills.
+      One day your plowing uncovered a scintillating hand mirror.
+      You have that mirror still, although it continues to be a mystery. It clearly
+      has some magic to it. Something connected with travel.
+    - |
+      You were a proud citizen of the Seven Tribes Confederacy. Others call
+      you barbarian. You call them soft.
+      Start the game with a +2 to either STR, CON or DEX, as well as a -2 to either
+      INT or CHA.
+    - |
+      In Kornhaime where you’re from, the grindstones are bigger than
+      castles. You worked your fingers to the bone in the immense mills,
+      until one evening when a voice seemed to beckon you from one of the
+      grain silos.
+      Once per day you may Purify any grain-based comestible.
+    - |
+      Your people had ascended to greatness, and in the bid for ultimate
+      power you hunted and devoured your gods. Little did you know that
+      they were the only thing which kept your world from tumbling into
+      the darkness they call the Shroud. Now you are lost among
+      night-logged worlds, and so very hungry!
+      A small piece of the Corpus Divine is still lodged in your stomach lining. Once
+      per day you may either Bless a person (giving them Advantage on a roll),
+      Smite a person (with 1d8 points of damage, as along as you can see them), or
+      project your voice so that it booms like a divine edict, and may be heard for
+      miles.
+    - |
+      You were in Lord Ethis the Righteous’ retinue when he descended
+      into the Pit of Iniquity. He was soon undone, and you bolted. Anyone
+      would have done so!
+      Your sword glows when in the presence of demonic evil. In many places it just
+      won’t quit.
+    - |
+      You are on the run from the Undertaker Whales who guard the
+      Cetacean Graveyard. You are a grave robber, but purely out of need.
+      You have a bagful of ambergris, which is potentially worth a fortune.
+    - |
+      Your home was Canopy, where cities grow on trees, and nomadic
+      tribes travel at the bosom of titanic sloth-beasts.
+      You roll with Advantage when climbing (and when attempting to calm a
+      spooked beast of burden, irrespective of its size).
+    - |
+      You tended the gardens that grow on the Sleeping Ones’ mausoleum.
+      One day your fool son went exploring in there. Of course you had to
+      go in and get him.
+      You roll with Advantage when dealing with matters of gardening, botany,
+      and plants. This includes communicating and impressing plant-creatures.
+    - |
+      Your world was still being formed by the warring wills of the gods.
+      During one upheaval, the lake next to your farm rose up as a great
+      beast and washed you out of the world.
+      You are no stranger to adverse fighting conditions. If terrain would give you
+      Disadvantage on a physical roll, you may ignore it.
+    - |
+      You were given in marriage to the Mage Supreme. One day you tried
+      one of their forbidden doors. Behind it was a world of ghostly paths
+      and gently humming insects.
+      You know a single cantrip, learned from your preoccupied spouse:
+      Song of the Spring Rose
+      You sing a nonsense verse, and one Nearby person sees the world as a kinder
+      place, and problems as less insurmountable. Roll WIS against subjects who
+      would resist the effect. You may use this cantrip once per day.
+    - |
+      You were a child apprentice in the Third Great Necropolis. You slept
+      among the dead, and suckled at the Corpse Mother’s teat (praise due
+      to Her). You were sent to the Afterlives to complete your education.
+      No dead person will initiate hostilities against you. This does not extend to
+      your companions, nor does it keep them from lying to you, informing on you,
+      or overcharging you.
+    - |
+      You were a farrier of such skill and renown that the Kestrel Princess
+      of the Seven Winds heard of you and had you abducted.
+      You speak the language of horses (also spoken by unicorns, zephyrs, nightmares
+      and pegasi). If you need to roll when shoeing a horse (or horse-like
+      creature) you roll with Advantage.
+    - |
+      You hatched from a crimson egg that was left in the care of the
+      Sisterhood of Ptah. They raised you to explore and walk through every
+      door until you found home.
+      Your blood holds the blessing of Ptah. You may cut yourself for 1d4 damage
+      and use your blood as a universal portal key. You need to know of the portal’s
+      existence and location for this to work, but not its destination.
+    - |
+      You piloted one of the Witch-Queen’s longships as her undead draugr
+      rowed tirelessly. During one brutal raid of the world’s shores you
+      slipped away.
+      You can talk with the undead, no matter what language they spoke in life.
+      Their level of intellect greatly influences the degree to which they talk back.
+    - |
+      You escaped the Glass Mountain’s stultifying pleasures, and the
+      automata Protectors who would keep humanity there for its own
+      good. The world beyond is full of deep and wondrous chasms to explore.
+      The Protectors imbued you with a protective measure. You roll with Advantage
+      against diseases, poisons and venoms.
+    - |
+      You home was the metropolis of Buer, where humans and penitent
+      demons met and built a smoke-belching city of industry, speed and
+      love. Of course some curious fools had to explore the cave from
+      whence the demons came. You are the latest of such fools.
+      There is something of the lower planes about you. You roll with Advantage
+      against environmental hazards of the Lower planes.
+    - |
+      Your world was spent, and you left with your idols, your family and
+      your livestock in a silver ship to fins a new home. You stole that ship,
+      but then the situation was dire.
+      You have a poorly-understood silver ship which may fly, but has a d6 utility
+      die. There must be something that unlocks its secrets and recharges its
+      magic.
