@@ -22,12 +22,12 @@ nested_tables:
     - A folksy tune which details assassination plans on the Cacophonist
     potion:
     - A cerulean liquid that tastes sharply of lemon and black pepper. A mouthful lets the imbiber go without food for a week
-    - A black bitter liquid which allowes the drinker to spit a gob of dark, sticky flame (D12 damage)
+    - A black bitter liquid which allows the drinker to spit a gob of dark, sticky flame (D12 damage)
     - A deadly poison which only takes effect if the drinker goes to the Prime ocean-world of Tidevand
-    - A healing potion (heals 1D6 points of damage, as well as provides an antidote to many poisons. It has notes of ripe cherries and peat
+    - A healing potion (heals 1D6 points of damage), as well as provides an antidote to many poisons. It has notes of ripe cherries and peat
     - Celestial grain alcohol. A mouthful turns the drinker into a raving drunk, but there is no hangover
     - The flask is empty, but may be used as a vessel for liquid memories
-    - Doomsday oil. A mouthful does 1D8 points of damage, but gives Advatage on the next melee attack roll
+    - Doomsday oil. A mouthful does 1D8 points of damage, but gives Advantage on the next melee attack roll
     - This brown fluid tastes like sweet rot. When the drinker dies they rise as a mindless zombie
     memory_of:
     - Ghespar the Poet
@@ -54,19 +54,19 @@ nested_tables:
     - Zephyr dung
 
     natural_weapon:
-    - An ornate silver halberd,
-    - A crude short sword,
-    - A heavy maul,
-    - A tail-blade (to wield with your tail),
-    - A cruelly serrated hatchet,
-    - A staff with a half-moon blade.
+    - An ornate silver halberd
+    - A crude short sword
+    - A heavy maul
+    - A tail-blade (to wield with your tail)
+    - A cruelly serrated hatchet
+    - A staff with a half-moon blade
     book:
-    - A leather-bound tome in a celestial script. The title is We All Burn and outlines how the lower planes are needed to keep the ’merely good’ on the straight and narrow.
+    - A leather-bound tome in a celestial script. The title is <cite>We All Burn</cite> and outlines how the lower planes are needed to keep the ’merely good’ on the straight and narrow.
     - A blood-splattered pamphlet concerning the anatomy of the serpent people of Kzaa.
     - A musty ledger, detailing the breathtaking earnings of the Jhesper merchant house in Doon.
     - A manual on the topography of Gehenna’s top layer.
     - A five volume work on the heraldry of ooze nobility.
-    - A sensationalistic manuscript entitled Who Is The Cacophonist?
+    - A sensationalistic manuscript entitled <cite>Who Is The Cacophonist?</cite>
     - A compilation of infernal sheet music, entitled The Complete Works of Sulfurick and Pissgoat.
     - A spellbook containing 1D6+4 spells of level 1D6 (roll for each one).
     - A partially burned atlas of the Birthgrave, a stillborn star.
@@ -74,8 +74,8 @@ nested_tables:
     ring:
     - A congealed mass of failure, in ring-shape. All DEX and INT-based rolls have Disadvantage until the ring is gotten rid of.
     - An expensive wrought gold ring.
-    - A pair of verdigris’d rings. If two individuals are wearing one each, they may communicate telepathically, as long as they’re on the same plan.
-    - A deep blue ring which gives painful jolts every few minutes. Certain cults wear these as an act of repentence or sign of commiment.
+    - A pair of verdigris’d rings. If two individuals are wearing one each, they may communicate telepathically, as long as they’re on the same plane.
+    - A deep blue ring which gives painful jolts every few minutes. Certain cults wear these as an act of repentence or sign of commitment.
     - A largely worthless brass ring.
     - This silver ring has a vein of deep crimson from where a deva bled into the liquid metal.
     - This lapis lazuli ring allows the wearer to breathe underwater. It smells of fish.
@@ -165,14 +165,14 @@ nested_tables:
     - A pickled roc-egg in a huge glass jar.
     - A goatskin cloak. The Arch-capramancer will want it back.
     - A soiled tablecloth. Soiled.
-    - A canopy jar full of mummy dust.
+    - A canopic jar full of mummy dust.
     - A silver pendant in the shape of a herring.
     - A ruby the size of your head. It is the crystallized embarrasment of a Prime warlock. Now it's yours.
     - A mahogany box full of singing maggots. They are hungry, and feebly hum a sea shanty when the box is opened.
     - Titanic toenail clippings. They're the size of scimitars, and sharp too.
     - A flagon of demon wine. It tastes like bile and broken glass, and turn most people into mean drunks. The drunk person feels great though.
     - A corpse with a bundle of sage in its mouth. If the sage is removed it will spring to life.
-    - A purse full of Tartarean coins (1D6x20 GP). They burn naked flesh like hot coals.
+    - "A purse full of Tartarean coins ({{>roll: 1d6*20}} GP). They burn naked flesh like hot coals."
     - A sturdy leather coat.
     - A gold anklet shaped like an ouboros.
     - An unlabelled potion (D4 mouthfuls) <br/><br/>{{items.potion}}
@@ -182,13 +182,15 @@ nested_tables:
     - A wig of living snakes
     - The liquid (and bottled) memory of {{items.memory_of}}
     - A large chunk of amber with a squirrel-like creature encased in it.
-    - "A small chest containing spice - {{items.spice}}"
+    - "A small chest containing a spice - <em>{{items.spice}}</em>"
     - Ten gold pieces fused together in a big lump
     - A small crate of blue opium.
-    - A breastplate of deep green chitin (AP: 3)
+    - "A breastplate of deep green chitin (AP: 3)"
     - A letter of mark, signed by the Ifrit Sultan of the Brass City.
-    - A natural weapon, spontaneously forged when Elemental forces clash <br/><br/>{{items.natural_weapon}}
-    - No matter the shape, a natural weapon may wound incorporeal opponents as readily as corporeal ones.
+    - |
+      A natural weapon, spontaneously forged when Elemental forces clash
+      <br/><br/>{{items.natural_weapon}}
+      <br/><br/>No matter the shape, a natural weapon may wound incorporeal opponents as readily as corporeal ones.
     - Five necklaces depicting personifications of Necromancy, Prayer, Law, Love, Flesh, and Travel.
     - A scintillating fist-sized pearl. It was stolen from the 66th Oyster Prince.
     - |
@@ -204,12 +206,12 @@ nested_tables:
     - A silver-studded eyepatch.
     - A bronze urn containing a dust witch.
     - An empty bronze urn
-    - Firewater, an elemental tipple. The bottle is full of an amber steam which scalds the nostrils and provides a wild and energetic enibriation.
+    - Firewater, an elemental tipple. The bottle is full of an amber steam which scalds the nostrils and provides a wild and energetic inebriation.
     - A necklace of ears. Human, pointed, frilled, furry, sulphur-stinking ears strung together indiscriminately.
     - A full-body segmented carapace armor (AP 4)
     - A fly-whisk made from beautiful auburn hair.
     - An angular cone of opalescent crystal.
-    - "{{>roll: 1d6}} fruits from the Heaven of Hedonism (see Portal Rats p. 13 for possible effects)."
+    - 1D6 fruits from the Heaven of Hedonism (see Portal Rats p. 13 for possible effects).
     - A rusted metal torso. It seems to have a heartbeat.
     - A small hunting trap
     - A crate of arrowheads, shaped like lightning bolts.
@@ -222,7 +224,7 @@ nested_tables:
       <br/><strong><u>Instinctual Flight:</u></strong> You automatically win initiative – for the purpose of removing yourself from danger!
       <br/><strong><u>Unbearable Recollection:</u></strong> up to 4 HD of creatures are terrified and repulsed. Roll INT. Success: They flee/failure: next roll against them gain Advantage. This use burns out the item for good.
       </em>
-    - "{{>roll: 1d10}} chests of good tea."
+    - 1D10 chests of good tea.
     - Baked goods <br/><br/><em>{{items.baked_goods}}</em>
     - A bag of fine coffee beans from the slopes of Mount Olympus.
     - Several crates of potpourri  <br/><br/><em>{{items.potpourri}}</em>
@@ -243,6 +245,6 @@ nested_tables:
     - One of the Cat Queen’s whiskers. It may be swallowed, which makes one’s movements utterly silent. After 2D6 hours the user will extrude a large hairball. Loudly.
     - An ointment, unguent, or tonic (a jar with D6 doses) <br/><br/><em>{{items.ointment}}</em>
     - A dagger-sized icicle that never thaws.
-    - "{{>pickN: 1d6 items.items <br/><br/>}}"
-    - "{{>pickN: 1d8 items.items <br/><br/>}}"
+    - "{{>pickN: 1d6 items.items <br/><br/>---<br/><br/>}}"
+    - "{{>pickN: 1d8 items.items <br/><br/>---<br/><br/>}}"
 
