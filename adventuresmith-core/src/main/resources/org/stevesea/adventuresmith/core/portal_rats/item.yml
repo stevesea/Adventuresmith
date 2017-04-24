@@ -75,7 +75,7 @@ nested_tables:
     - A congealed mass of failure, in ring-shape. All DEX and INT-based rolls have Disadvantage until the ring is gotten rid of.
     - An expensive wrought gold ring.
     - A pair of verdigris’d rings. If two individuals are wearing one each, they may communicate telepathically, as long as they’re on the same plane.
-    - A deep blue ring which gives painful jolts every few minutes. Certain cults wear these as an act of repentence or sign of commitment.
+    - A deep blue ring which gives painful jolts every few minutes. Certain cults wear these as an act of repentance or sign of commitment.
     - A largely worthless brass ring.
     - This silver ring has a vein of deep crimson from where a deva bled into the liquid metal.
     - This lapis lazuli ring allows the wearer to breathe underwater. It smells of fish.
@@ -182,7 +182,7 @@ nested_tables:
     - A wig of living snakes
     - The liquid (and bottled) memory of {{items.memory_of}}
     - A large chunk of amber with a squirrel-like creature encased in it.
-    - "A small chest containing a spice - <em>{{items.spice}}</em>"
+    - "A small chest containing spice - <em>{{items.spice}}</em>"
     - Ten gold pieces fused together in a big lump
     - A small crate of blue opium.
     - "A breastplate of deep green chitin (AP: 3)"
