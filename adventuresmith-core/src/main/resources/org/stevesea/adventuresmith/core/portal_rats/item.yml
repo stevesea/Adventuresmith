@@ -1,0 +1,235 @@
+---
+templates:
+- "{{items}}"
+
+table:
+  items:
+  Several ostentatious hats made from living skin.
+  A hairshirt woven from zephyr mane.
+  A scroll containing a spell. Anyone who can read (and makes an INT check) may cast it, but only an
+  Arcanist may learn it. (Roll 1D8)
+  1: Memory Stream (2nd): You are able to hear and see a montage of past impressions and sensory data from the immediate area.
+  2: Deathless Heritage (5th): There was a time when humans were not limited by death. You may still suffer all the other OofA effects. - 1 hr.
+  3: Calling the Empress (4th): The Vagabond Empress appears, pale as driftwood and impossibly tall. She will stay to answer thre questions, but might not be in the best of moods.
+  4: Goat Stomach (2nd): You may eat and take nourishment from any non-magical material.
+  5-6: A 1st-level Divine spell, but researched by Arcanists.
+  7: A curse, which causes the reader to grow spider-legs like fur.
+  8: Conjuration of Dead Thoughts (6th): Summons a flickering memory of a pre-creation monstrosity, with 2HD/level.
+  A jug of flat (but very potent) ale.
+  An art-deco hand cannon, of the sort Arnimh (Viscount of Cleanliness)'s honor guard carries.
+  An impressive crimson penis, floating in a glass sphere.
+  A smashed lute.
+  A leaden idol depicting the Toad God.
+  50 meters of lightly used hemp rope.
+  A pouch of pungent tobacco. The pouch is embroidered with the word ONEIROS.
+  A bolt of coral silk.
+  A moldy patchwork of rags, made from chitin, wool, thick leather and tarnished silver chains.
+  A figurine depicting a fat, smiling man. It's a portal key, but gods know to what.
+  A hand mirror depicting a stretch of rough-hewn corridor in Tartarus. The viewpoint never seems to change, but it seems to depict what transpires at that unnamed place.
+  A pair of knuckle dusters, made from jade.
+  Sweet wine, flatbread and dried apricots. Enough for D6 rations.
+  A selection of amulets made from bone and dessicated skin. They are attached to leather cords, and may be strapped to arms, thigs and ankles.
+  A bundle of lacquered femurs.
+  A wild-hued, tusked demon mask. If you wear it it becomes your face.
+  A circlet which a small person may wear on their head. It is also a portal to the glutton's paradise that some call Slaraffenland. Most people will be able to fit an arm through, at best.
+  A necklace of dog-teeth.
+  Erotic etchings. The participants are all various types of slugs, snails, and other gastropods.
+  A curse-eater lamprey in brandy. It will remove a curse, along with a point of CON, if placed on bare skin. The brandy tastes a bit off.
+  A bottle of Elysian wine. This vintage is rare, and will fetch a small fortune from a buyer who know her onions.
+  A beautiful shining sword. Its shine is barely dimmed by sheathing it, and it shines through even a metal chest.
+  A ragged piece of Midnight Itself. It is about the size of a blanket.
+  A papaya. It screams like a wounded deer when eaten.
+  Sheet music. (roll 1D6)
+  1: A requiem for a god named Baldr,
+  2: A bawdy ballad about a fire elemental and a duchess,
+  3: A windwood piece entitled Ghost Drone,
+  4: An inhumanly precise sonata, made to please the hearing aggregates of those aligned with Order Itself,
+  5: An inaudible chant which will please dogs, celestial hounds, and the slavering mutts of Hell in equal measure,
+  6: A folksy tune which details assassination plans on the Cacophonist.
+  A pickled roc-egg in a huge glass jar.
+  A goatskin cloak. The Arch-capramancer will want it back.
+  A soiled tablecloth. Soiled.
+  A canopy jar full of mummy dust.
+  A silver pendant in the shape of a herring.
+  A ruby the size of your head. It is the crystallized embarrasment of a Prime warlock. Now it's yours.
+  A mahogany box full of singing maggots. They are hungry, and feebly hum a sea shanty when the box is opened.
+  Titanic toenail clippings. They're the size of scimitars, and sharp too.
+  A flagon of demon wine. It tastes like bile and broken glass, and turn most people into mean drunks. The drunk person feels great though.
+  A corpse with a bundle of sage in its mouth. If the sage is removed it will spring to life.
+  A purse full of Tartarean coins (1D6x20 GP). They burn naked flesh like hot coals.
+  A sturdy leather coat.
+  A gold anklet shaped like an ouboros.
+  An unlabelled potion (D4 mouthfuls) (Roll 1D8)
+  1: A cerulean liquid that tastes sharply of lemon and black pepper. A mouthful lets the imbiber go without food for a week,
+  2: A black bitter liquid which allowes the drinker to spit a gob of dark, sticky flame (D12 damage),
+  3: A deadly poison which only takes effect if the drinker goes to the Prime ocean-world of Tidevand,
+  4: A healing potion (heals 1D6 points of damage, as well as provides an antidote to many poisons. It has notes of ripe cherries and peat,
+  5: Celestial grain alcohol. A mouthful turns the drinker into a raving drunk, but there is no hangover,
+  6: The flask is empty, but may be used as a vessel for liquid memories,
+  7: Doomsday oil. A mouthful does 1D8 points of damage, but gives Advatage on the next melee attack roll,
+  8: This brown fluid tastes like sweet rot. When the drinker dies they rise as a mindless zombie.
+  Seven pairs of trousers and seven workshirts. They’re a bit worn, but clean.
+  An egg containing the shrivelled gray heart of a warlock.
+  A tiny sprite in a cage. If fed honey or sugar it sings of lost things.
+  A wig of living snakes
+  The liquid (and bottled) memory of (roll 1D12)
+  1: Ghespar the Poet,
+  2: The Seven Thieves (before their unsuccesful heist on Dispater),
+  3: A nameless celestial hound,
+  4: The 786th Ooze Prince of Filthwater Flats,
+  5: Fhenlooch, the fungal hive mind,
+  6: The famed Prime general Evandrel Fenwix,
+  8: Shirea the Midwife,
+  9: Twelve ogres,
+  10: Ghredd-Sagor, Arch-demon-in-exile,
+  11: Mikkael Dust, a no-account cutpurse,
+  12: The slow philosphical mind of a sentinel-oak.
+  A large chunk of amber with a squirrel-like creature encased in it.
+  A small chest containing spice (Roll 1D10)
+  1: Black pepper,
+  2: Saffron,
+  3: Crushed mint,
+  4: Sweet seaweed,
+  5: Elemental salt,
+  6: Powdered euphoria,
+  7: Dried lava-ants,
+  8: Cardamom,
+  9: Aniseed,
+  10: Zephyr dung
+  Ten gold pieces fused together in a big lump
+  A small crate of blue opium.
+  A breastplate of deep green chitin (AP: 3)
+  A letter of mark, signed by the Ifrit Sultan of the Brass City.
+  A natural weapon, spontaneously forged when Elemental forces clash (Roll 1D6)
+  1: An ornate silver halberd,
+  2: A crude short sword,
+  3: A heavy maul,
+  4: A tail-blade (to wield with your tail),
+  5: A cruelly serrated hatchet,
+  6: A staff with a half-moon blade.
+  No matter the shape, a natural weapon may wound incorporeal opponents as readily as corporeal ones.
+  Five necklaces depicting personifications of Necromancy, Prayer, Law, Love, Flesh, and Travel.
+  A scintillating fist-sized pearl. It was stolen from the 66th Oyster Prince.
+  A Hellfire Jezzail (see Portal Rats p. 15)
+      A long, slender rifle, adorned with etchings of demonic copulations
+           and autocannibalism. You may skip a turn, aiming, and automatically
+           deal damage the next turn. Roll Usage die at the end of the combat as per
+           normal. Usage die: d10
+  A glass case full of exquisite sugar confections.
+  Slabs of ripe horsemeat.
+  A book (Roll 1D10)
+  1) A leather-bound tome in a celestial script. The title is We All Burn and outlines how the lower planes are needed to keep the ’merely good’ on the straight and narrow.
+  2) A blood-splattered pamphlet concerning the anatomy of the serpent people of Kzaa.
+  3) A musty ledger, detailing the breathtaking earnings of the Jhesper merchant house in Doon.
+  4) A manual on the topography of Gehenna’s top layer.
+  5) A five volume work on the heraldry of ooze nobility.
+  6) A sensationalistic manuscript entitled Who Is The Cacophonist?
+  7) A compilation of infernal sheet music, entitled The Complete Works of Sulfurick and Pissgoat.
+  8) A spellbook containing 1D6+4 spells of level 1D6 (roll for each one).
+  9) A partially burned atlas of the Birthgrave, a stillborn star.
+  10) Divine Nectar, a book on wine.
+  A ring (Roll 1D12)
+  1) A congealed mass of failure, in ring-shape. All DEX and INT-based rolls have Disadvantage until the ring is gotten rid of.
+  2) An expensive wrought gold ring.
+  3) A pair of verdigris’d rings. If two individuals are wearing one each, they may communicate telepathically, as long as they’re on the same plan.
+  4) A deep blue ring which gives painful jolts every few minutes. Certain cults wear these as an act of repentence or sign of commiment.
+  5) A largely worthless brass ring.
+  6) This silver ring has a vein of deep crimson from where a deva bled into the liquid metal.
+  7) This lapis lazuli ring allows the wearer to breathe underwater. It smells of fish.
+  8) Twin crimson rings which function as knuckle dusters.
+  9) An assassin’s ring with a small compartment for a dose of poison.
+  10) This pulsating and fever-hot ring may fire a ray of extreme heat (D12 damage). It has D4 charges.
+  11) A signet ring. If struck against a hard surface it emits a fanfare worthy of a god.
+  12) A cloud doctor’s ring of office. It makes the wearer light as air.
+  A silver-studded eyepatch.
+  A bronze urn containing a dust witch.
+  An empty bronze urn
+  Firewater, an elemental tipple. The bottle is full of an amber steam which scalds the nostrils and provides a wild and energetic enibriation.
+  A necklace of ears. Human, pointed, frilled, furry, sulphur-stinking ears strung together indiscriminately.
+  A full-body segmented carapace armor (AP 4)
+  A fly-whisk made from beautiful auburn hair.
+  An angular cone of opalescent crystal.
+  1D6 fruits from the Heaven of Hedonism (see Portal Rats p. 13 for possible effects).
+  A rusted metal torso. It seems to have a heartbeat.
+  A small hunting trap
+  A crate of arrowheads, shaped like lightning bolts.
+  A large tin of oat biscuits.
+  A four-armed sheep-goblin with its throat cut.
+  A tiny knot of contorted tubes. It has 1D4 uses, and may cast the following spells:
+  1) Deja Vu: You have done this before. You gain Advantage on your next non-attack roll.
+  2) Instinctual Flight: You automatically win initiative – for the purpose of removing yourself from danger!
+  3) Unbearable Recollection: up to 4 HD of creatures are terrified and repulsed. Roll INT. Success: They flee/failure: next roll against them gain Advantage. This use burns out the item for good.
+  1D10 chests of good tea.
+  Baked goods (Roll 1D8)
+  1) A huge loaf of stone bread. Earth elementals find it delicious, fire elementals consider it insipid and bland. Most other creatures might as well eat a block of granite.
+  2) Sugar cookies in a velvet-lined box. They taste wicked good, but do nothing for your hunger.
+  3) Steak and kidney pies. Hearty and good for 1D4 meals.
+  4) A bag of bloodcakes from the Howling Caves. The first one tastes vile, but you’ll want to try another.
+  5) A sackful of gunk rolls. To most sane creatures they look like fist-sized balls of slime.
+  6) A spiral meringue. These magical cakes serve as delicious portals to the Maelstrom Empress’s court on the Elemental plane.
+  7) A hollow bread with a message in an infernal tongue ”We are discovered. Beware the Margrave of Knives”.
+  8) A beautiful cake, fit for an abyssal wedding. It is made of sugar filigree, powdered rubies and children’s lips.
+  A bag of fine coffee beans from the slopes of Mount Olympus.
+  Several crates of potpourri (Roll 1D6)
+  1: Abyssal hyssop with a heavy smoky smell.
+  2: Elemental mistblossom with a wistful scent of pines after rain.
+  3: Shroud-orchids, whose imperceptible scent covers many unpleasant odors.
+  4: A variety of honeysuckle, beach rose, and gardenia from the Prime world of Amnementiah. They lift the spirits and makes you forget your woes.
+  5: Star gazer lillies from the Birthgrave. Theirs is a bittersweet scent, and so is the mood they invoke.
+  6: Irises from Elysium’s gardens. They smell of citrus, anise, and sleep after toil.
+  Cured strips of man-flesh.
+  A razor, a bone comb, a small jar of beard-wax, a bar of blue-black soap, a small mirror, and a washcloth with a lotus flower pattern.
+  A ten-person whale-bone tea set, etched with images of merfolk at play.
+  A makeshift shiv made from a large insect’s mandible.
+  A child’s ragdoll, fit for a four meter tall child.
+  A map (Roll 1D6)
+  1) This map was drawn by sylphs, and gives a bird’s eye view of the Colleges of Doon. It is very revealing, but sylphs are attracted to shiny things, and these have been given most attention.
+  2) The map is etched into a stone tablet. It details the hiding place of a treasure where the Styx enters Gehenna (the Fruitless Vale). The exact nature of the treasure is not disclosed.
+  3) A map of the Cerulean Waste where the 11000 Brilliant Sinners are imprisoned in abject boredom.
+  4) The map is a cipher, disguised as sheet music. When played it reveals the way to Kotuncala, The Singing City.
+  5) The goblin fleshcrafter Gublik the Surgeon artfully carved this map into the back of a corpse (a foe that was just defeated?) It seemingly gives directions to the Vault of Eyes, a huge diamond mine within elemental earth.
+  6) This sharp-edged metal map shows the way to a portal which leads to Tlaanocta, a demi-plane of iron creatures on the cusp of Order Itself.
+  A clockwork hunting falcon. It needs to be wound up.
+  A crate full of crude swords, meant for a conflict on the Prime world of Milksparrow.
+  An ape-creature in an ostentatious uniform. Its nose and mouth is a metal proboscis which ends in a trumpet-like orifice. It appears to be dead, or in some form of stasis.
+  A set of excellent lockpicks and a crowbar.
+  A folding metal canoe and three paddles.
+  Several bear-skins.
+  A wand (Roll 1D8)
+  1) An officer’s wand of office.
+  2) A twisted root with a single Detect Portal spell.
+  3) A slim lacquered rod which contains a Light spell (and 1D8 charges).
+  4) A peppermint wand.
+  5) This wand is a slim metal flute, a sign of the Cacophonist’s favor.
+  6) This weighted wand doesn’t look like much, but is a quite efficient kosh.
+  7) The wand is very phallic in nature. Two priesthoods of Pan both covet it.
+  8) The wand may be extended to a length of three meters.
+  4D6x10 silver coins. On one side is a rose and on the other is a regal woman with an elegant goatee. The coins are counterfeit.
+  One of the Cat Queen’s whiskers. It may be swallowed, which makes one’s movements utterly silent. After 2D6 hours the user will extrude a large hairball. Loudly.
+  An ointment, unguent, or tonic (a jar with D6 doses)
+  (Roll 1D10)
+  1) The Best Foot Balm makes the user look as good as possible. The light flatters them, and blemishes seem charming rather than ugly. This effect lasts for 12 hours.
+  2) The Fleeting Youth ointment makes the user look around twenty for a 24-hour period.
+  3) The Mask of Czaaa makes the user look human for 2D20 hours. It was created by serpent people.
+  4) Kobold Fat makes you smell of rancid fat. Kobolds will want to end you.
+  5) Flying Salve gives the user the ability to fly at a leisurely pace. It wears off suddenly after 1D4 hours.
+  6) The Pentecostal Lip Balm gives the user the ability to speak (and understand, but not read or write) any language that uses sound. The user’s lips are a fetching peach for as long as the balm is effective (2D4 hours).
+  7) The Purple Tonic is a cruel trick. It does 1D8 damage and leaves nasty scarring.
+  8) Hallowed Mud stinks like manure. It allows the user to ask three questions of their deity, if they have one. If they don’t arch-fiends and sorcerers have been known to usurp the conversation.
+  9) Healing Salve heals 1D10 damage, but gives Disadvantage to the next DEX check. Greasy stuff
+  10) The Hellfire Unguent protects the user from hellfire (but not normal fire). It also turns the user into a large crimson goat. The effects last for 1D6 hours, but each effect is rolled seperately.
+  A dagger-sized icicle that never thaws.
+  Roll 1D6 times.
+  Roll 1D8 times.
+
+
+
+  Several crates of potpourri (Roll 1D6)
+
+  1: Abyssal hyssop with a heavy smoky smell.
+  2: Elemental mistblossom with a wistful scent of pines after rain.
+  3: Shroud-orchids, whose imperceptible scent covers many unpleasant odors.
+  4: A variety of honeysuckle, beach rose, and gardenia from the Prime world of Amnementiah. They lift the spirits and makes you forget your woes.
+  5: Star gazer lillies from the Birthgrave. Theirs is a bittersweet scent, and so is the mood they invoke.
+  6: Irises from Elysium’s gardens. They smell of citrus, anise, and sleep after toil. ﻿
+
