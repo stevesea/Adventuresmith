@@ -282,6 +282,7 @@ generators:
   portal_rats:
   - background
   - class_occupation
+  - item
   - monster_features
   - npc
   - npc_reaction
