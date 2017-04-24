@@ -6,16 +6,16 @@ nested_tables:
   npc:
     template:
     - |
-      <strong>How do they LOOK?</strong> {{npc.look}}
+      <strong>Appearance:</strong> {{npc.look}}
       <br/>
       <br/>
-      <strong>What do they DO?</strong> {{npc.do}}
+      <strong>Occupation/Background:</strong> {{npc.do}}
       <br/>
       <br/>
-      <strong>POWERS?</strong> {{npc.powers}}
+      <strong>Powers:</strong> {{npc.powers}}
       <br/>
       <br/>
-      <strong>MOTIVATION?</strong> {{npc.motivation}}
+      <strong>Motivation:</strong> {{npc.motivation}}
     look_animal:
     - cat
     - dog/wolf
@@ -61,6 +61,15 @@ nested_tables:
     - tarnished silver
     - covered with moving images
     - covered with unholy litanies
+    look_branded:
+    - With the Infernal sigil for ’traitor’.
+    - ’Thief’ in a swirling script that appears to be in the onlooker’s native tongue.
+    - A stick figure with wings.
+    - A rose.
+    - ’S’ (for sycophant) across the lips.
+    - ’H’ (for heretic) across the forehead.
+    - The brand is a sentient entity, controlling the body, like a hand in a glove.
+    - ’Failure to transcend’ across the chest
     look:
     - Androgynous obsidian beauty
     - Imperious and lionheaded
@@ -122,7 +131,7 @@ nested_tables:
     - Scholarly and distracted
     - Rattling metal person
     - Bleary-eyed and disheveled
-    - Has plant features {{npc.look_plant}}
+    - Has plant features <br/><br/><em>{{npc.look_plant}}</em>
     - Warty, tusked and brutish.
     - Lithe and statuesque.
     - Aggressively drab
@@ -130,7 +139,7 @@ nested_tables:
     - Uniformed and officious
     - Singing mouths in the abdomen
     - Extravagantly pierced and serene
-    - Branded
+    - Branded <br/><br/><em>{{npc.look_branded}}</em>
     - Golem
     - Quadroplegic and verbose
     - Red-furred primate
@@ -145,7 +154,7 @@ nested_tables:
     - Attired in the ghastly couture of Hell
     - A slowly-spinning spiral shape
     - A house-sized talking tigress
-    - Unusual skin - {{npc.look_skin}}
+    - Unusual skin <br/><br/><em>{{npc.look_skin}}</em>
     - Elephant-headed and bejewelled
     - Conspicuously armed
     - A multitude of gelatinous globes
@@ -309,12 +318,9 @@ nested_tables:
     - Monstrous strength
     - Has allies nearby
     - |
-      Overkill (”if they pull a lighting bolt,
-      you pull a sphere of
-      annihilation. If they send one of
-      you to the morgue, you have one
-      of them retroactively erased
-      from Creation”)
+      Overkill
+      <br/><br/><em>”if they pull a lighting bolt, you pull a sphere of annihilation.
+      If they send one of you to the morgue, you have one of them retroactively erased from Creation”</em>
     - Force field
     - Magic (Symbolism)
     - Alchemical transformations
