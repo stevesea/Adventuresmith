@@ -1,0 +1,471 @@
+---
+templates:
+- "{{npc.template}}"
+
+nested_tables:
+  npc:
+    template:
+    - |
+      <strong>How do they LOOK?</strong> {{npc.look}}
+      <br/>
+      <br/>
+      <strong>What do they DO?</strong> {{npc.do}}
+      <br/>
+      <br/>
+      <strong>POWERS?</strong> {{npc.powers}}
+      <br/>
+      <br/>
+      <strong>MOTIVATION?</strong> {{npc.motivation}}
+    look_animal:
+    - cat
+    - dog/wolf
+    - horse
+    - goat
+    - tardigrade
+    - fish
+    - tortoise
+    - snake
+    - spider
+    - bee
+    look_animal2:
+    - parrot
+    - duck
+    - badger
+    - mole
+    - maggot
+    - cow
+    - crow
+    - tiger
+    - rat
+    - swan
+    look_plant:
+    - orchid
+    - cactus
+    - apple
+    - venus flytrap
+    - kudzu
+    - rose
+    - lily-of-the-valley
+    - sunflower
+    - oak
+    - fir
+    - brimstone hyacinth
+    - pumpkin
+    look_skin:
+    - sleek seal-like
+    - bright blue
+    - burnt orange
+    - pink (weathered red to you)
+    - burnished gold scales
+    - leather straps covering skinless form
+    - tarnished silver
+    - covered with moving images
+    - covered with unholy litanies
+    look:
+    - Androgynous obsidian beauty
+    - Imperious and lionheaded
+    - A broken, bearded bum
+    - Adroit and baby-faced
+    - Alarmingly fat
+    - Alarmingly thin
+    - Wings, horns, tail and red skin.
+    - Wreathed in flame
+    - Pock-marked and deadeyed.
+    - Elemental (Air/gas)
+    - Hairy barbarian
+    - Ostentatious and feeble
+    - Blandly handsome and efficient
+    - Ancient and wise
+    - Old fool
+    - Eight-limbed monkey
+    - Wide-eyed youth
+    - Hairless and scarred
+    - Anthropomorphic {{npc.look_animal}}
+    - Covered with eyes
+    - Turned out in ermine, silk, and gold brocade
+    - Pointy-eared and impish
+    - Elemental (Ooze)
+    - Covered in armor
+    - Mangy and filthy
+    - Elemental (Water)
+    - Kitsune
+    - Mollusk-headed mystic
+    - A humming sphere
+    - Bent and bookish
+    - Olympian physique
+    - Made from intricate clockwork
+    - Cyclops
+    - "Sheep-goblin with {{>roll: 1d6}} limbs"
+    - Dressed in layers of wispy veils
+    - Elemental (Earth/stone)
+    - Emaciated, pale and rat-like
+    - Naked, blind and agile
+    - Imperious toad-demon
+    - Fungus-person
+    - Sprite
+    - A giant, a six-meter tall debased child of titans
+    - A mutilated figure in rags.
+    - A regal slug
+    - A dwarf, hewn from rock with a crystal beard
+    - Elemental (Fire, heat)
+    - Anthropomorphic {{npc.look_animal2}}
+    - Skeletal and scorpiontailed
+    - Rotund, homely and hard-working
+    - Well-armed and numerous (2D4)
+    - Large-eyed troglodyte
+    - Elemental (Steam, mist)
+    - Lightly feathered and dressed in simple robes
+    - A knight in shining armor
+    - Vapid and foppish
+    - Foppish, yet archly insightful
+    - Wears a heavy encounter suit
+    - Scholarly and distracted
+    - Rattling metal person
+    - Bleary-eyed and disheveled
+    - Has plant features {{npc.look_plant}}
+    - Warty, tusked and brutish.
+    - Lithe and statuesque.
+    - Aggressively drab
+    - Elemental (Ash, dust)
+    - Uniformed and officious
+    - Singing mouths in the abdomen
+    - Extravagantly pierced and serene
+    - Branded
+    - Golem
+    - Quadroplegic and verbose
+    - Red-furred primate
+    - Exquisitely muscled
+    - Masked and elegant
+    - Saw-toothed and tattooed
+    - Of unstable shape
+    - Ifrit
+    - Afflicted with horrid boils
+    - Congealed memory (an idealized phantom)
+    - Stinking drunk
+    - Attired in the ghastly couture of Hell
+    - A slowly-spinning spiral shape
+    - A house-sized talking tigress
+    - Unusual skin - {{npc.look_skin}}
+    - Elephant-headed and bejewelled
+    - Conspicuously armed
+    - A multitude of gelatinous globes
+    - A dragon
+    - A swarm of mother-of-pearl insects
+    - Tall, gaunt, and dressed in mirror-plate
+    - Djinn
+    - A massive rat wearing a crown
+    - Piloting a methanebelching bio-mecha.
+    - Cone covered in stolen skins
+    - Fetal princeling in walking iron womb
+    - Starfish-person
+    - Skulking and sneering
+    - Elemental (Exotic - paper, cake, absence etc)
+    - Skull-faced and robed
+    do:
+    - Tax collector
+    - Baker/chocolatier
+    - Gong farmer
+    - Assassin
+    - Burglar
+    - Chamber hunter (vermin catcher)
+    - Peasant
+    - Horse-thief
+    - Carpenter
+    - Brigand
+    - Sailor
+    - Military
+    - Merchant
+    - Peddler
+    - Black marketeer
+    - Brewer
+    - Cobbler
+    - Beggar
+    - Acrobat/Juggler/Contortionist
+    - Daylaborer
+    - On quest for deity
+    - On quest for secular employer
+    - Wizard
+    - Agonist
+    - Musician
+    - Archer
+    - Musician (Cacophonist-cultist)
+    - Apothecary
+    - Resurrectionist
+    - Noble
+    - Grifter
+    - Drifter
+    - Shape-shifter
+    - Penitent/flagellant
+    - Barrister
+    - Mercenary
+    - Prostitute
+    - Scholar (Enumerator)
+    - Scholar (Beliefs)
+    - Scholar (Cosmology)
+    - Scholar (A ridiculous specialty)
+    - Farmer
+    - Adventurer
+    - Jester
+    - Marauder
+    - Warrior-priest
+    - (insert animal) herder
+    - Candlemaker
+    - Sommerlier/wealthy wine-sot
+    - Ghost-usher
+    - Priest
+    - Warlock
+    - Patrician
+    - Roofer
+    - Serf
+    - Slave
+    - Bodyguard/hired muscle
+    - Blacksmith
+    - Alchemist
+    - Reporter
+    - Thief-taker
+    - Bureaucrat (petty)
+    - Bureaucrat (powerful)
+    - Law enforcement
+    - Chaos enforcement
+    - Barge-skipper
+    - Miner
+    - Prisoner
+    - Dope fiend
+    - Artist (painter)
+    - Artist (fleshcrafter)
+    - Architect
+    - Telepath
+    - Sorcerer
+    - Goat groomer
+    - Dreamweaver
+    - Thespian
+    - Executioner
+    - Tourist guide
+    - Consulting detective
+    - Engineer (civil)
+    - Engineer (war)
+    - Bull-fighter
+    - Blacksmith
+    - Builder
+    - Locksmith
+    - Gemcutter
+    - Gunsmith
+    - Tailor
+    - Weaver
+    - Gladiator
+    - Commisar (officer of ideological purity)
+    - Armorer/Gunsmith
+    - Silversmith/Goldsmith
+    - Gemcutter/Jeweller
+    - Gangster
+    - Rumor-monger
+    - Mortician
+    - Divine imposter
+    powers:
+    - Magic (Capramancy)
+    - None
+    - Magic (Diabolical)
+    - Eyebeams
+    - Magic (Illusions)
+    - None
+    - Magic (Transportation)
+    - Surrenders at first opportunity
+    - Magic (Food)
+    - Spreads disease
+    - May change color (self and others)
+    - Telekinesis
+    - Explosive!
+    - Creates portals
+    - Gasous form
+    - Priestly powers
+    - Heavily armored
+    - Many attacks
+    - Twice as many hit dice as one might guess.
+    - Acid urine
+    - Rage-fueled strength
+    - Filthy rich
+    - Magic (War)
+    - Splits off into several copies
+    - Closes portals
+    - Gray beams of absence
+    - Invisibility at will
+    - Detects portals
+    - Hypnotism
+    - Nauseating music
+    - Regenerates
+    - All show. Has much less power than appearances suggest
+    - Massive attack
+    - Returns from apparent death
+    - Attacks of elemental force
+    - Swallows people whole
+    - Petrifying gaze
+    - Flings excrement
+    - Sows madness
+    - Flies with wings
+    - Flies on gust of wind
+    - Flies, period
+    - Randomly cycles through planes
+    - Contagious hallucinations
+    - Monstrous strength
+    - Has allies nearby
+    - |
+      Overkill (”if they pull a lighting bolt,
+      you pull a sphere of
+      annihilation. If they send one of
+      you to the morgue, you have one
+      of them retroactively erased
+      from Creation”)
+    - Force field
+    - Magic (Symbolism)
+    - Alchemical transformations
+    - A doppelgänger
+    - None
+    - Camouflage
+    - Combat origami
+    - Rainbow breathweapon
+    - Magic (Elementalism)
+    - Causes uncontrollable hideous laughter
+    - Summons extra-planar reinforcements
+    - None
+    - Largely non-corporeal
+    - Witnesses and rubberneckers
+    - always seem to be around
+    - Others ignore the fracas
+    - None
+    - Teleportation
+    - Jinx
+    - Lamprey entrails
+    - Anti-magic presence
+    - Aggressive fleshcrafting
+    - Wall-crawler
+    - None
+    - Turns into immovable object
+    - Never surprised
+    - Magic (Adiposomancy)
+    - Ignores armor
+    - Only harmed by silver
+    - None
+    - Only harmed by fire
+    - Fake magic
+    - Screams loudly
+    - X-ray vision
+    - Dust of confusion
+    - Secretly undead
+    - None
+    - Magic (Sanguinous)
+    - Banishes others to the Shroud
+    - Turns into insect and flies off
+    - Miasma of deadly stench
+    - None
+    - Just a novice
+    - Regurgitates former victims as minions
+    - Liquid form
+    - Has trapped the area extensively
+    - Cloud of darkness
+    - Magic (Several schools)
+    - Corrosive touch
+    - Immune to non-magical attacks
+    - None
+    - None
+    - A deity in disguise
+    motivation:
+    - Looking for purpose
+    - Looking for validation
+    - Looking for secular power
+    - Looking for magical power
+    - Looking for godhood
+    - A quiet life
+    - Family
+    - Class
+    - Species
+    - Revenge (violent)
+    - Revenge (social)
+    - Revenge (metaphysical)
+    - Revenge (cosmic)
+    - Love (comradely)
+    - Love (romantic)
+    - Love (divine)
+    - Love (serial)
+    - Love (vocational)
+    - Love (ideological)
+    - Death (hopelessness)
+    - Death (ideological)
+    - Death (vindictive)
+    - Death (selfless)
+    - Death (avenue to afterlife)
+    - Duty
+    - Violence (instinctual)
+    - Violence (sadistic)
+    - Violence (instrumental)
+    - Violence (ideological)
+    - Violence (duty)
+    - Violence (desperation)
+    - I am lost and yearn for home
+    - Food!
+    - Greed (money)
+    - Greed (collectibles of a certain kind)
+    - Fame (vocational)
+    - Fame (attribute)
+    - Fame (greed)
+    - Fame (fear)
+    - Fame (not fussed)
+    - Fame (power)
+    - Addiction
+    - Justice (secular)
+    - Justice (divine)
+    - Justice (individual)
+    - Advanced laziness
+    - Life is only worth living if one puts oneself in mortal peril
+    - Prophecy must be fulfilled
+    - Prophecy must be averted
+    - To create a perfect environment (for their kind, hobbies, belief etc)
+    - Spreading chaos
+    - Haunted by past failure
+    - Blackmail
+    - To return to the earliest days, before ideology and consciousness.
+    - Spreading order
+    - Cure (genuine ailment)
+    - Cure (imagined ailment)
+    - Lust (specific)
+    - Lust (general)
+    - Spreading happiness
+    - Immortality. And end to fear, powerlessness, urgency, and pain. To always be as they are now.
+    - Freedom from bondage
+    - Getting rid of someone
+    - Getting rid of something
+    - Return to a state of innocence
+    - Return to a state of rightness with deity
+    - Winning back love or affection
+    - Settling this mess
+    - Returning a favor
+    - "MacGuffin: the object our heroes are pursuing too!"
+    - Fear (other plane)
+    - Fear (all-encompassing)
+    - Fear (specific individual or group)
+    - Fear (phobia)
+    - Recognition as a ’real person’
+    - Suffering (penance)
+    - Suffering (has become pleasure)
+    - Suffering (to feel something)
+    - Suffering (to force a deity’s hand)
+    - Evil for its own sake
+    - Knowledge for its own sake
+    - Art for its own sake
+    - Getting out of a Faustian bargain
+    - Sleep after toil, port after stormy seas
+    - To pass something worthwhile on to the children
+    - Finding the perfect mate
+    - Creating something that will
+    - outlast them
+    - Personal honor
+    - Utter alienation
+    - To shrug off the material
+    - Just do my job
+    - A yearning for the new
+    - Compelled to help everyone, all the time
+    - A few stolen moments of joy. To go fishing now and then
+    - The thrill of taking from others
+    - To appease the Things from Pre-Creation
+    - Limitless freedom
+    - Total cosmic destruction (end of all things)
+    - Total cosmic destruction (new multiverse)

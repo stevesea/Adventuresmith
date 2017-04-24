@@ -283,6 +283,7 @@ generators:
   - background
   - class_occupation
   - monster_features
+  - npc
   - npc_reaction
   - out_of_action
   - portal_destination
