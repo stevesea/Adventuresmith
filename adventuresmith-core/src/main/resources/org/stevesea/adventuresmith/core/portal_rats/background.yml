@@ -41,15 +41,15 @@ nested_tables:
       <h6>Dead Lore:</h6> Once per day you may call forth a dead idea. Again, this does not have a physical reality, but may have a profound effect on the recipient.
       Some example dead ideas:
       <br/>
-      <u>Gluttox:</u> There is no difference between food and not-food
+      <u><strong>Gluttox:</strong></u> There is no difference between food and not-food
       <br/>
-      <u>Absensation:</u> The utterly paradoxical, yet peaceful feeling of non-existence.
+      <u><strong>Absensation:</strong></u> The utterly paradoxical, yet peaceful feeling of non-existence.
       When it disappears, the weight of existence may be lethal.
       <br/>
-      <u>Onis:</u> Being suddenly conscious of the fact that being trapped in one
+      <u><strong>Onis:</strong></u> Being suddenly conscious of the fact that being trapped in one
       biological entity, locked in by time and space, is profoundly unnatural.
       <br/>
-      <u>Sonder:</u> A sudden oceanic certainty that every living soul is as complete a
+      <u><strong>Sonder:</strong></u> A sudden oceanic certainty that every living soul is as complete a
       being as you. A paralyzing moment of total empathy.
     mutation:
     - You contain a star seed. When you die you will become an infant sun!
@@ -521,15 +521,16 @@ nested_tables:
       You are dead, and you look it. You may choose to start the game with
       one of these demon-forged firearms:
       <br/>
-      <strong>Bolt Spewer:</strong> A hunk of dull grey metal with a muzzle that disgorges metal bolts
+      <br/>
+      <strong><u>Bolt Spewer:</u></strong> A hunk of dull grey metal with a muzzle that disgorges metal bolts
       at an alarming rate. You can bypass the DEX test to hit and deal automatic
       damage but you have to roll the Ammo’s Usage die immediately. Usage die: d8
       <br/>
-      <strong>Thunder Cannon:</strong> An ugly piece of pipe with a hand grip crudely attached.
+      <strong><u>Thunder Cannon:</u></strong> An ugly piece of pipe with a hand grip crudely attached.
       Roars like an angry god. Replace class damage with a d12; the Usage die for this
       gun is always a d6.
       <br/>
-      <strong>Hellfire Jezzail:</strong>  A long, slender rifle, adorned with etchings of demonic copulations
+      <strong><u>Hellfire Jezzail:</u></strong>  A long, slender rifle, adorned with etchings of demonic copulations
       and autocannibalism. You may skip a turn, aiming, and automatically
       deal damage the next turn. Roll Usage die at the end of the combat as per
       normal. Usage die: d10
@@ -881,6 +882,7 @@ nested_tables:
       or fall to their death. Not you.
       <p><em>
       You start the game with +2 to CON, and the mutations below.
+      <br/>
       <br/>
       {{>pickN: 1d3 background.mutation <br/>}}
       </em></p>
