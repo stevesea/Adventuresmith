@@ -1,3 +1,14 @@
 ---
 name: Battlefield Peril
 collectionId: kaigaku
+#input:
+#  displayTemplate: "Adventure Level HD: {{levelHD}}"
+#  params:
+#  - name: levelHD
+#    uiName: Adventure Level HD
+#    helpText: Adventure Level HD
+#    defaultValue: 1
+#    numbersOnly: true
+#    isInt: true
+#    maxVal: 30
+#    minVal: 1

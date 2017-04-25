@@ -1,8 +1,52 @@
 ---
 templates:
-- Commander in Peril
-- Comrade Under Pressure
-- Position Overrun
-- Singled Out
-- Eliminate Unit
-- Nemesis' Arrival
+- |
+  Commander in Peril
+  <br/><br/>
+  Create Adventure Level times 2
+  HD worth of battlefield enemies near the commander. You
+  have to make it to your general before they get overrun. On
+  each turn roll 1d4, keeping track of the total. Once the total
+  equals 20 or more your commander is defeated and you
+  suffer a heavy morale blow, if not an outright loss. If a PC is
+  the commander begin combat immediately, and add the
+  other PCs to the fight as they arrive.
+- |
+  Comrade Under Pressure
+  <br/><br/>
+  Create Adventure Level HD
+  worth of battlefield enemies near your friend. On each turn
+  roll 1d6, keeping track of the total. Once the total reaches
+  20 your ally is overcome. Make it to him before he’s killed
+  and fight off the attackers to save his life.
+- |
+  Position Overrun
+  <br/><br/>
+  Create Adventure Level times 1.5 HD
+  worth of battlefield enemies near your fortifications or
+  supply caches. On each turn roll 1d6, keeping track of the
+  total. Once the total reaches 20 you lose the supplies
+  (arrows, food, horses, et cetera) or the fortification, unless
+  you make it there in time to stop the advance. This can
+  break a siege if done wrong.
+- |
+  Singled Out
+  <br/><br/>
+  You must face Adventure Level times 2 HD
+  worth of enemies. There are no secondary targets, just the
+  party. Their attacks are brutal and do +2 damage with each
+  hit.
+- |
+  Eliminate Unit
+  <br/><br/>
+  An entrenched unit sits at an important
+  location. They have Adventure Level worth of HD. On
+  reaching the unit roll 1D4, and on a 1 create an additional
+  Adventure Level’s HD of enemies.
+- |
+  Nemesis' Arrival
+  <br/><br/>
+  An old enemy surfaces, bitter about
+  your last encounter. They challenge you to a duel. They
+  have at least your character level in HD. Gain half their HD
+  in Victory Points if you defeat them.

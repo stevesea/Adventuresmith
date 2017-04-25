@@ -4,16 +4,40 @@ templates:
 
 nested_tables:
   battlefield_enemies:
+    # for pickN to work, you need to have at least as many entries in the table
+    # as you're trying to select.
+    pick_many:
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
+    - "{{battlefield_enemies.templates}}"
     templates:
     - |
       <strong><small>Type:</small></strong> {{battlefield_enemies.type}}
       <br/>
       <br/><strong><small>Abilities:</small></strong> {{battlefield_enemies.abilities}}
     type:
-    - Mounted Lancer (w/Yari)
-    - Mounted Lancer (w/Naginata)
-    - Infantry (w/Katana)
-    - Infantry (w/Naginata)
+    - Mounted Lancer (w/ Yari)
+    - Mounted Lancer (w/ Naginata)
+    - Infantry (w/ Katana)
+    - Infantry (w/ Naginata)
     - Archer
     - Mounted Archer
     abilities:
