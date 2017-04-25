@@ -1,0 +1,137 @@
+---
+templates:
+- |
+  {{Virtue}}
+  <br/><br/>
+  {{Vice}}
+
+tables:
+  Virtue:
+  - Diligence
+  - Mercy
+  - Compassion
+  - Humility
+  - Honesty
+  - Courage
+  - Chastity
+  - Loyalty
+  - Chastity
+  - Temperance
+  - Charity
+  - Diligence
+  - Mercy
+  - Compassion
+  - Humility
+  - Honesty
+  - Courage
+  - Temperance
+  - Honesty
+  - Courage
+  - Temperance
+  - Loyalty
+  - Chastity
+  - Temperance
+  - Charity
+  - Diligence
+  - Mercy
+  - Compassion
+  - Humility
+  - Honesty
+  - Diligence
+  - Mercy
+  - Compassion
+  - Humility
+  - Honesty
+  - Courage
+  - Mercy
+  - Compassion
+  - Humility
+  - Honesty
+  - Courage
+  - Mercy
+  - Loyalty
+  - Chastity
+  - Temperance
+  - Charity
+  - Diligence
+  - Mercy
+  - Temperance
+  - Charity
+  - DIligence
+  - Mercy
+  - Compassion
+  - Humility
+  - Charity
+  - Diligence
+  - Mercy
+  - Compassion
+  - Humility
+  - Honesty
+
+  Vice:
+  - Treachery
+  - Treachery
+  - Treachery
+  - Treachery
+  - Treachery
+  - Wrath
+  - Envy
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Wrath
+  - Envy
+  - Fear
+  - Fear
+  - Envy
+  - Fear
+  - Fear
+  - Fear
+  - Fear
+  - Fear
+  - Fraud
+  - Fraud
+  - Fraud
+  - Fraud
+  - Fraud
+  - Fraud
+  - Fraud
+  - Fraud
+  - Gluttony
+  - Gluttony
+  - Gluttony
+  - Gluttony
+  - Gluttony
+  - Gluttony
+  - Gluttony
+  - Greed
+  - Envy
+  - Greed
+  - Greed
+  - Greed
+  - Greed
+  - Greed
+  - Greed
+  - Lust
+  - Pride
+  - Pride
+  - Pride
+  - Pride
+  - Pride
+  - Pride
+  - Pride
+  - Sloth
+  - Sloth
+  - Sloth
+  - Sloth
+  - Sloth
+
+
+
+

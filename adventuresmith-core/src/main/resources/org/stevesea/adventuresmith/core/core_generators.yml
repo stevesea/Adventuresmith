@@ -190,6 +190,7 @@ generators:
   - names
   - random_event
   - sensory_snippet
+  - virtue_vice
   maze_rats:
   - mr01_afflictions
   - mr01_characters
