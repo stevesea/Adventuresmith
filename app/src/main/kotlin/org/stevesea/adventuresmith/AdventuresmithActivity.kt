@@ -1306,7 +1306,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             )
                         }
                         info("Loading collections done. took ${outerStopwatch} (since app start: ${AdventuresmithApp.watch})")
-                        Answers.getInstance().logCustom(CustomEvent("getCollections")
+                        Answers.getInstance().logCustom(CustomEvent("GetCollections")
                                 .putCustomAttribute("elapsedMS", outerStopwatch.elapsed(TimeUnit.MILLISECONDS))
                                 .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
                         )
