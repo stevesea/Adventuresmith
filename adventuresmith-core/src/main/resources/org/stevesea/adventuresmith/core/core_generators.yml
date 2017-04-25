@@ -185,6 +185,7 @@ generators:
   - belongings
   - difficulty
   - likely_odds
+  - names
   - random_event
   - sensory_snippet
   maze_rats:
