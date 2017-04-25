@@ -188,6 +188,7 @@ generators:
   - likely_odds
   - location
   - names
+  #- norse_runes
   - random_event
   - sensory_snippet
   - virtue_vice

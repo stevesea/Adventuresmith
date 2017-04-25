@@ -4,6 +4,9 @@ templates:
 
 tables:
   runes:
+  - "\u16a0"
+
+  runes_test:
   - ᚠ
   - ᚢ
   - ᚦ
