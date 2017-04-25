@@ -76,30 +76,6 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         Iconics.registerFont(CommunityMaterial())
         Iconics.registerFont(Ionicons())
 
-        // doing this asynchronously didn't seem to have a huge effect on startup time.
-        // still took ~4secs until app was ready-to-use.
-        // this is async, but nav-drawer is waiting on the same lazy property
-        //
-        // another approach is to async-load the coll+group cache via initCaches
-        // after the nav drawer is created. that way, there isn't the blocked
-        // waiting for the lazy-property. That did result in the main activity
-        // drawing earlier, but the app wasn't usable for another second.
-        //
-        // Seems like the simplest thing to do is just do this initialization
-        // by blocking here. Maybe look at this again after adding more generators.
-
-        doAsync {
-            val stopwatch = Stopwatch.createStarted()
-            AdventuresmithCore.initCaches()
-            stopwatch.stop()
-            info("loading core generators took ${stopwatch} (time since app start: ${watch})")
-
-            Answers.getInstance().logCustom(CustomEvent("App.InitCaches")
-                    .putCustomAttribute("initCaches elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-            )
-        }
-
-
         info("App onCreate done: ${watch}")
     }
 }

@@ -41,7 +41,6 @@ import com.crashlytics.android.answers.*
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Stopwatch
 import com.google.common.collect.ImmutableMap
-import com.google.common.collect.ImmutableSet
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -358,7 +357,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                             )
 
                             uiThread {
-
                                 synchronized(resultAdapter) {
                                     resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
 
@@ -682,11 +680,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         drawerIdToGroup.clear()
         favoriteIdToName.clear()
 
-
-        val stopwatch = Stopwatch.createStarted()
         val generatorCollections = getCachedCollections(resources)
-        stopwatch.stop()
-        info("Loading collections for nav drawer done. took ${stopwatch} (since app start: ${AdventuresmithApp.watch})")
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
@@ -823,6 +817,9 @@ class AdventuresmithActivity : AppCompatActivity(),
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val stopwatch = Stopwatch.createStarted()
+        info("Activity onCreate started: $stopwatch (since app start: ${AdventuresmithApp.watch})")
 
         LayoutInflaterCompat.setFactory(getLayoutInflater(), IconicsLayoutInflater(getDelegate()));
         super.onCreate(savedInstanceState)
@@ -1007,6 +1004,8 @@ class AdventuresmithActivity : AppCompatActivity(),
             drawer = drawerBuilder.build()
         }
 
+        info("Activity onCreate built drawer: $stopwatch (since app start: ${AdventuresmithApp.watch})")
+
         val btnSpanShort = resources.getInteger(R.integer.buttonSpanShort)
         val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)
         val btnSpanLong = resources.getInteger(R.integer.buttonSpanLong)
@@ -1047,6 +1046,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.layoutManager = resultsGridLayoutMgr
         recycler_results.itemAnimator = DefaultItemAnimator()
         recycler_results.adapter = resultAdapter
+
+        info("Activity onCreate done: $stopwatch (since app start: ${AdventuresmithApp.watch})")
     }
 
     private fun selectDrawerItem(drawerItemId: Long?, savedInstanceState: Bundle?) {
@@ -1280,7 +1281,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         return super.onOptionsItemSelected(item)
     }
 
-    companion object {
+    companion object : AnkoLogger {
         var lastLocale : Locale? = null
         // cache is invalidated if locale changes
         var cachedCollectionMeta : Map<String, CollectionMetaDto> = ImmutableMap.of()
@@ -1289,7 +1290,27 @@ class AdventuresmithActivity : AppCompatActivity(),
             synchronized(cachedCollectionMeta) {
                 val curLocale = getCurrentLocale(r)
                 if (!curLocale.equals(lastLocale)) {
+                    val outerStopwatch = Stopwatch.createStarted()
                     cachedCollectionMeta = AdventuresmithCore.getCollections(curLocale)
+                    outerStopwatch.stop()
+                    if (lastLocale == null) {
+                        // if this is first time, also spawn thread to initialize caches
+                        doAsync {
+                            val innerStopwatch = Stopwatch.createStarted()
+                            AdventuresmithCore.initCaches()
+                            innerStopwatch.stop()
+                            info("Init-caches done: $innerStopwatch (since app start: ${AdventuresmithApp.watch})")
+                            Answers.getInstance().logCustom(CustomEvent("InitCaches")
+                                    .putCustomAttribute("elapsedMS", innerStopwatch.elapsed(TimeUnit.MILLISECONDS))
+                                    .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
+                            )
+                        }
+                        info("Loading collections done. took ${outerStopwatch} (since app start: ${AdventuresmithApp.watch})")
+                        Answers.getInstance().logCustom(CustomEvent("getCollections")
+                                .putCustomAttribute("elapsedMS", outerStopwatch.elapsed(TimeUnit.MILLISECONDS))
+                                .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
+                        )
+                    }
                     lastLocale = curLocale
                 }
                 return cachedCollectionMeta
