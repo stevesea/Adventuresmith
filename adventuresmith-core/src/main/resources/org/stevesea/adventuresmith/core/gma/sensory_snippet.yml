@@ -4,18 +4,20 @@ templates:
 
 tables:
   Pick1:
-  - "{{Hear}}…"
-  - "{{See}}…"
-  - "{{Feel}}…"
-  - "{{Smell_Taste}}…"
+  - "{{Hear}}"
+  - "{{See}}"
+  - "{{Feel}}"
+  - "{{Smell_Taste}}"
   All:
   - |
-    <u>Hear:</u> {{Hear}}…
-    <br/><br/><u>See:</u> {{See}}…
-    <br/><br/><u>Feel:</u> {{Feel}}…
-    <br/><br/><u>Smell/Taste:</u> {{Smell_Taste}}…
+    <u>Hear:</u> {{Hear}}
+    <br/><br/><u>See:</u> {{See}}
+    <br/><br/><u>Feel:</u> {{Feel}}
+    <br/><br/><u>Smell/Taste:</u> {{Smell_Taste}}
 
   Hear:
+  - "{{Hear_}}…"
+  Hear_:
   - The frightened neighing of horses
   - Something slithering
   - A booming, unnaturally loud voice
@@ -79,6 +81,8 @@ tables:
 
 
   See:
+  - "{{See_}}…"
+  See_:
   - Discarded armor
   - Lustrous pearls
   - Glowing, slitted eyes
@@ -141,6 +145,8 @@ tables:
   - A grimy, broken crown
 
   Feel:
+  - "{{Feel_}}…"
+  Feel_:
   - Hit your funny bone
   - Knocked to the gorund
   - Your ears suddenly pop
@@ -204,6 +210,8 @@ tables:
 
 
   Smell_Taste:
+  - "{{Smell_Taste_}}…"
+  Smell_Taste_:
   - Abrasive, eye-watering bleach
   - Apples and plums
   - Jasmine flowers

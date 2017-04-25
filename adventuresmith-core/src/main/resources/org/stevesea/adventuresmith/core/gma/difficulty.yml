@@ -1,6 +1,6 @@
 ---
 templates:
-- "<big><strong>{{difficulty}}</strong></big>"
+- "<big>{{difficulty}}</big>"
 
 tables:
   difficulty:
