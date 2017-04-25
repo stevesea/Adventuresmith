@@ -183,8 +183,10 @@ generators:
   - watchmen
   gma:
   - belongings
+  - catalyst
   - difficulty
   - likely_odds
+  - location
   - names
   - random_event
   - sensory_snippet
