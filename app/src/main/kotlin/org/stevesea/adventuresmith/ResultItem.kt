@@ -28,6 +28,7 @@ import android.widget.*
 import com.mikepenz.fastadapter.commons.utils.*
 import com.mikepenz.fastadapter.items.*
 import com.mikepenz.fastadapter.utils.*
+import com.mikepenz.iconics.view.IconicsTextView
 import com.mikepenz.materialize.util.*
 import java.util.concurrent.atomic.*
 
@@ -37,6 +38,9 @@ class ResultItem(val htmlTxt: String) :
     val spannedText = htmlStrToSpanned(htmlTxt)
     val plainText by lazy {
         spannedText.toString()
+    }
+    val hasIconics by lazy {
+        plainText.contains('{')
     }
 
     init {
@@ -53,15 +57,36 @@ class ResultItem(val htmlTxt: String) :
 
     override fun bindView(holder: ViewHolder, payloads: List<*>?) {
         super.bindView(holder, payloads)
-        holder.itemText.text = (spannedText)
 
-        val ctx = holder.itemText.getContext()
-        //set the background for the item
-        UIUtils.setBackground(holder.itemText, FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true));
+        // iconics layout inflater causes crash after a few results (sometimes).
+        // using iconicstextview fixes crash, but it doesn't treat html->spannables the same way
+        // as regular textview.
+        //
+        // so... how about an awful compromise! If result has icon in it, use IconicsTextView,
+        // if not, use the TextView
+        if (hasIconics) {
+            holder.itemText.visibility = View.GONE
+            holder.itemIconicsText.visibility = View.VISIBLE
+            holder.itemIconicsText.text = (spannedText)
+            val ctx = holder.itemIconicsText.getContext()
+            //set the background for the item
+            UIUtils.setBackground(holder.itemIconicsText,
+                    FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true));
+        } else {
+            holder.itemText.visibility = View.VISIBLE
+            holder.itemIconicsText.visibility = View.GONE
+            holder.itemText.text = (spannedText)
+            val ctx = holder.itemText.getContext()
+            //set the background for the item
+            UIUtils.setBackground(holder.itemText,
+                    FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true));
+        }
+
     }
 
     class ViewHolder(val v: View?) : RecyclerView.ViewHolder(v) {
         val itemText = v!!.findViewById(R.id.result_list_item_text) as TextView
+        val itemIconicsText = v!!.findViewById(R.id.result_list_item_iconics_text) as IconicsTextView
     }
 
     override fun getViewHolder(v: View?): ViewHolder {

@@ -1,0 +1,36 @@
+---
+templates:
+- "{{>pickN: 3 tags <br/><br/>}}"
+
+tables:
+  tags:
+  - |
+    {cmd-castle}&nbsp;&nbsp;
+    Tower: Significant obstacle; probably static in nature.
+  - |
+    {cmd-crown}&nbsp;&nbsp;
+    Crown: An important individual, with power over you.
+  - |
+    {cmd-heart}&nbsp;&nbsp;
+    Heart: Family, friendship, or romance.
+  - |
+    {cmd-skull}&nbsp;&nbsp;
+    Skull: Impending loss, predictable but hard to avoid.
+  - |
+    {cmd-white-balance-sunny}&nbsp;&nbsp;
+    Sun: Clarity or revelation.
+  - |
+    {cmd-weather-night}&nbsp;&nbsp;
+    Moon: Confusion or misunderstanding.
+  - |
+    {cmd-sword}&nbsp;&nbsp;
+    Sword: Conflict; not always physical.
+  - |
+    {cmd-shield}&nbsp;&nbsp;
+    Shield: Protection; not always physical.
+  - |
+    {cmd-bullseye}&nbsp;&nbsp;
+    Target: A new goal; a distant or dynamic objective.
+  - |
+    {cmd-auto-fix}&nbsp;&nbsp;
+    Wand: Powerful technology or magic.

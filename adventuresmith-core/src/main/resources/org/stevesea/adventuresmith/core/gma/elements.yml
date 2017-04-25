@@ -1,0 +1,14 @@
+---
+templates:
+- |
+  {cmd-weather-windy}&nbsp;&nbsp;
+  Air: Movement, curiosity, exploration; life in its most dynamic form. Chaotic but friendly; social.
+- |
+  {ion-waterdrop}&nbsp;&nbsp;
+  Water: Intelligence, knowledge, eloquence; adaptable and understanding. Orderly but shifting; intellect.
+- |
+  {ion-flame}&nbsp;&nbsp;
+  Fire: Aggression, energy, destruction; empowered but unchecked. Chaotic and dangerous; combat.
+- |
+  {cmd-image-filter-hdr}&nbsp;&nbsp;
+  Earth: Survival, determination, defense; slow but steady and impervious. Orderly and unchanging; health.

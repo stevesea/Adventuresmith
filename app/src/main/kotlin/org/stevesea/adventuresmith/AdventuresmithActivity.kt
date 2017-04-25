@@ -821,7 +821,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         val stopwatch = Stopwatch.createStarted()
         info("Activity onCreate started: $stopwatch (since app start: ${AdventuresmithApp.watch})")
 
-        LayoutInflaterCompat.setFactory(getLayoutInflater(), IconicsLayoutInflater(getDelegate()));
+        // seems like this bug https://github.com/mikepenz/Android-Iconics/issues/169
+        //LayoutInflaterCompat.setFactory(getLayoutInflater(), IconicsLayoutInflater(getDelegate()));
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_adventuresmith)
