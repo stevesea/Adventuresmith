@@ -39,8 +39,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
+        <!--
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/btn_icon_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:iiv_color="@color/colorAccentLight"
+            app:iiv_icon="cmd-flask-outline"
 
-        <!-- in most cases, the following is hidden -->
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="4dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            />
+            -->
+
+        <!-- in most cases, the following ImageView is hidden -->
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,33 +69,33 @@
             android:layout_alignParentTop="true"
             />
 
-            <TextView
-                android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@id/btn_settings"
-                android:id="@+id/btn_txt"
-                android:textSize="@dimen/buttonFontSize"
-                android:textAllCaps="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:minWidth="88dp"
-                android:minLines="2"
-                android:padding="4dp"
-                android:text="Cardview Button"
-                android:textColor="@color/textPrimary"/>
+        <TextView
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/btn_settings"
+            android:id="@+id/btn_txt"
+            android:textSize="@dimen/buttonFontSize"
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minWidth="88dp"
+            android:minLines="2"
+            android:padding="4dp"
+            android:text="Cardview Button"
+            android:textColor="@color/textPrimary"/>
 
-            <TextView
-                android:layout_below="@id/btn_txt"
-                android:id="@+id/btn_txt_config"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/buttonConfigFontSize"
-                android:textAllCaps="false"
-                android:padding="4dp"
-                android:gravity="center"
-                android:text="generator config"
-                android:textColor="@color/colorAccentDarkDark"
-                />
+        <TextView
+            android:layout_below="@id/btn_txt"
+            android:id="@+id/btn_txt_config"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/buttonConfigFontSize"
+            android:textAllCaps="false"
+            android:padding="4dp"
+            android:gravity="center"
+            android:text="generator config"
+            android:textColor="@color/colorAccentDarkDark"
+            />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
