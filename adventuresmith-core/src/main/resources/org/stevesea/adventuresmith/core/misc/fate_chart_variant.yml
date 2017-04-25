@@ -1,7 +1,7 @@
 ---
 templates:
 - |
-  %[[roller.{{input.odds}}]]%
+  <big>%[[roller.{{input.odds}}]]%</big>
   <br/>
   <br/><small><em>[Odds: {{input.odds}}]</em></small>
 
