@@ -184,6 +184,7 @@ generators:
   gma:
   - difficulty
   - likely_odds
+  - norse_runes
   maze_rats:
   - mr01_afflictions
   - mr01_characters
