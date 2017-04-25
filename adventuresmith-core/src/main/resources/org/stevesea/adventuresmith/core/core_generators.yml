@@ -253,6 +253,7 @@ generators:
   - magic_item
   - names
 
+  - fate_chart_variant
   - tiny_universal
 
   perilous_wilds:
