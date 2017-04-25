@@ -1,0 +1,15 @@
+---
+name: Likely Odds
+collectionId: gma
+input:
+  displayTemplate: "Odds: {{odds}}"
+  params:
+  - name: odds
+    uiName: Odds
+    helpText: How likely is a positive result?
+    defaultValue: Even
+    values:
+    - Good
+    - Even
+    - Bad
+

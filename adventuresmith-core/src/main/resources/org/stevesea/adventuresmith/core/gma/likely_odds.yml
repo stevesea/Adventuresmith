@@ -1,0 +1,43 @@
+---
+templates:
+- |
+  <big>%[[roller.{{input.odds}}]]%</big>
+  <br/>
+  <br/><small><em>[Odds: {{input.odds}}]</em></small>
+
+definitions:
+  roller:
+    Good: "{{Good.template}}"
+    Even: "{{Even.template}}"
+    Bad: "{{Bad.template}}"
+nested_tables:
+  Even:
+    template:
+    - 1-50, {{Even.positive}}
+    - 51-100, {{Even.negative}}
+    positive:
+    - 1-5, Yes!
+    - 6-100, Yes
+    negative:
+    - 1-5, No!
+    - 6-100, No
+  Good:
+    template:
+    - 1-75, {{Good.positive}}
+    - 76-100, {{Good.negative}}
+    positive:
+    - 1-10, Yes!
+    - 11-100, Yes
+    negative:
+    - 1, No!
+    - 2-100, No
+  Bad:
+    template:
+    - 1-25, {{Bad.positive}}
+    - 26-100, {{Bad.negative}}
+    positive:
+    - 1, Yes!
+    - 2-100, Yes
+    negative:
+    - 1-10, No!
+    - 11-100, No

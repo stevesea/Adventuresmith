@@ -181,6 +181,9 @@ generators:
   - urban_gang
   - watch_guard
   - watchmen
+  gma:
+  - difficulty
+  - likely_odds
   maze_rats:
   - mr01_afflictions
   - mr01_characters
