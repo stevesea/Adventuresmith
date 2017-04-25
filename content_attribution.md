@@ -66,6 +66,21 @@ by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed unde
 <p><strong>Antoine Pempie</strong> - French translation of Freebooters on the Frontier, released under Creative Commons Attribution - ShareAlike 3.0 Unported license.﻿</p>
 
 
+## GameMaster's Apprentice - Larcenous Designs, LLC
+[http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck](http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck)
+
+<a href="http://www.larcenousdesigns.com/">Larcenous Designs, LLC</a>
+<p><a href="http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck">GameMaster's Apprentice on DriveThruRPG</a></p>
+
+<p>The GameMaster’s Apprentice deck, copyright 2014, owned by Larcenous Designs, LLC and Nathan Rockwood.</p>
+
+<p>The text content in Adventuresmith from the <cite>GameMaster's Apprentice</cite> is from the GMA half-deck within
+<a href="http://www.drivethrurpg.com/product/168609/ALONe-A-Solo-Game-Engine-BETA">ALONe: A Solo Game Engine BETA</a>,
+released under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported  license.
+<br/>
+To see a copy of this license, go <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">here</a></p>
+
+
 ## Hack & Slash - Courtney C. Campbell
 [http://hackslashmaster.blogspot.com/](http://hackslashmaster.blogspot.com/)
 
@@ -93,7 +108,7 @@ bushi, wars of words among courtiers, ninja missions and more.</p>
 <h4>Core Game</h4>
 <a href="http://quenouille.com/macchiato-monsters-dungeonverse-build-together/">http://quenouille.com/macchiato-monsters-dungeonverse-build-together/</a>
 <br/>
-<br/><a href="http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO">Macchiato-Monster-ZERO on DriveThruRPG</a>
+<br/><a href="http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO">Macchiato Monsters ZERO on DriveThruRPG</a>
 <h4>Community Additions</h4>
 
 Americano Anomalies by <strong>Tore Nielsen</strong>
@@ -106,7 +121,6 @@ Americano Anomalies by <strong>Tore Nielsen</strong>
 <p>The text from <cite>Macchiato Monsters</cite> included in Adventuresmith is located
 <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters">here</a>
 in the Adventuresmith github repository. </p>
-<p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
 
 <h4>License</h4>
@@ -206,6 +220,118 @@ https://creativecommons.org/licenses/by/4.0/</p>
 <p>Spanish translation by: <strong>Séregras</strong>. Available here <a href="http://questingblog.com/downloads/">http://questingblog.com/downloads/</a></p>
 
 
+## Portal Rats - Parenthesis Press / Tore Nielsen and Neal Stidham
+[http://www.drivethrurpg.com/product/209750/Portal-Rats](http://www.drivethrurpg.com/product/209750/Portal-Rats)
+
+<h4>Portal Rats: High Misadventure on the Infinite Planes</h4>
+<p>Written by Tore Nielsen and Neal Stidham</p>
+<p>Copyright Parenthesis Press 2017. </p>
+<blockquote>
+Based on the popular The Black Hack, Portal Rats is a standalone game of planar adventure. Create
+weird denizens of the multiverse, face down an expanded range of interdimensional adversaries,
+and work your way up from being just another "portal rat" - the nobodies of the planes, capable of anything.
+</blockquote>
+<a href="http://www.drivethrurpg.com/product/209750/Portal-Rats">Portal Rats on DriveThruRPG</a>
+<p>Licensed under Open Game License (see below)</p>
+
+<h5><cite>Portal Rats</cite> Open Content in Adventuresmith</h5>
+<p>The text from <cite>Portal Rats</cite> included in Adventuresmith is located
+<a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/portal_rats">here</a>
+in the Adventuresmith github repository. </p>
+
+<h4>Loot of Countless Spheres</h4>
+<a href="http://www.drivethrurpg.com/product/210215/Loot-of-Countless-Spheres">Loot of Countless Spheres on DriveThruRPG</a>
+<p>Copyright Tore Nielsen 2017</p>
+<blockquote>
+A free supplement for Portal Rats, the Black Hack-based game of planar adventure. Find weird new
+treasures with this random generator!
+</blockquote>
+
+<h4>A Cast Of Thousands</h4>
+<a href="http://www.drivethrurpg.com/product/210325/A-Cast-of-Thousands">A Cast of Thousands on DriveThruRPG</a>
+<p>Copyright Tore Nielsen 2017</p>
+<blockquote>
+Generate random planar NPCs for your Portal Rats game using this table.
+</blockquote>
+
+
+<h4>Open Game License</h4>
+<h5>DESIGNATION OF PRODUCT IDENTITY</h5>
+The names The Black Hack, The Cthulhu Hack, and all artwork, logos and layout are product identity.
+<h5>DESIGNATION OF OPEN GAME CONTENT</h5>
+All text and tables are open game content.
+<h5>OPEN GAME LICENSE Version 1.0a</h5>
+The following text is the property of Wizards of the Coast, Inc. and is Copyright 2000 Wizards of the
+Coast, Inc (“Wizards”). All Rights Reserved.
+<br/>1. Definitions: (a)”Contributors” means the copyright and/or trademark owners who have contributed
+Open Game Content; (b)”Derivative Material” means copyrighted material including derivative works
+and translations (including into other computer languages), potation, modification, correction, addition,
+extension, upgrade, improvement, compilation, abridgment or other form in which an existing
+work may be recast, transformed or adapted; (c) “Distribute” means to reproduce, license, rent, lease,
+sell, broadcast, publicly display, transmit or otherwise distribute; (d)”Open Game Content” means the
+game mechanic and includes the methods, procedures, processes and routines to the extent such content
+does not embody the Product Identity and is an enhancement over the prior art and any additional
+content clearly identified as Open Game Content by the Contributor, and means any work covered by
+this License, including translations and derivative works under copyright law, but specifically excludes
+Product Identity. (e) “Product Identity” means product and product line names, logos and identifying
+marks including trade dress; artifacts; creatures characters; stories, storylines, plots, thematic elements,
+dialogue, incidents, language, artwork, symbols, designs, depictions, likenesses, formats, poses,
+concepts, themes and graphic, photographic and other visual or audio representations; names and
+descriptions of characters, spells, enchantments, personalities, teams, personas, likenesses and special
+abilities; places, locations, environments, creatures, equipment, magical or supernatural abilities or
+effects, logos, symbols, or graphic designs; and any other trademark or registered trademark clearly
+identified as Product identity by the owner of the Product Identity, and which specifically excludes the
+Open Game Content; (f) “Trademark” means the logos, names, mark, sign, motto, designs that are used
+by a Contributor to identify itself or its products or the associated products contributed to the Open
+Game License by the Contributor (g) “Use”, “Used” or “Using” means to use, Distribute, copy, edit,
+format, modify, translate and otherwise create Derivative Material of Open Game Content. (h) “You” or
+“Your” means the licensee in terms of this agreement.
+<br/>2. The License: This License applies to any Open Game Content that contains a notice indicating that
+the Open Game Content may only be Used under and in terms of this License. You must affix such a notice
+to any Open Game Content that you Use. No terms may be added to or subtracted from this License
+except as described by the License itself. No other terms or conditions may be applied to any Open
+Game Content distributed using this License.
+<br/>3.Offer and Acceptance: By Using the Open Game Content You indicate Your acceptance of the terms of
+this License.
+<br/>4. Grant and Consideration: In consideration for agreeing to use this License, the Contributors grant
+You a perpetual, worldwide, royalty-free, non-exclusive license with the exact terms of this License to
+Use, the Open Game Content.
+<br/>5.Representation of Authority to Contribute: If You are contributing original material as Open Game
+Content, You represent that Your Contributions are Your original creation and/or You have sufficient
+rights to grant the rights conveyed by this License.
+<br/>6.Notice of License Copyright: You must update the COPYRIGHT NOTICE portion of this License to include
+the exact text of the COPYRIGHT NOTICE of any Open Game Content You are copying, modifying
+or distributing, and You must add the title, the copyright date, and the copyright holder’s name to the
+COPYRIGHT NOTICE of any original Open Game Content you Distribute.
+<br/>7. Use of Product Identity: You agree not to Use any Product Identity, including as an indication as
+to compatibility, except as expressly licensed in another, independent Agreement with the owner of
+each element of that Product Identity. You agree not to indicate compatibility or co-adaptability with
+any Trademark or Registered Trademark in conjunction with a work containing Open Game Content
+except as expressly licensed in another, independent Agreement with the owner of such Trademark
+or Registered Trademark. The use of any Product Identity in Open Game Content does not constitute a
+challenge to the ownership of that Product Identity. The owner of any Product Identity used in Open
+Game Content shall retain all rights, title and interest in and to that Product Identity.
+<br/>8. Identification: If you distribute Open Game Content You must clearly indicate which portions of the
+work that you are distributing are Open Game Content.
+<br/>9. Updating the License: Wizards or its designated Agents may publish updated versions of this License.
+You may use any authorized version of this License to copy, modify and distribute any Open Game
+Content originally distributed under any version of this License.
+<br/>10 Copy of this License: You MUST include a copy of this License with every copy of the Open Game
+Content You Distribute.
+<br/>11. Use of Contributor Credits: You may not market or advertise the Open Game Content using the
+name of any Contributor unless You have written permission from the Contributor to do so.
+<br/>12 Inability to Comply: If it is impossible for You to comply with any of the terms of this License with
+respect to some or all of the Open Game Content due to statute, judicial order, or governmental regulation
+then You may not Use any Open Game Material so affected.
+<br/>13 Termination: This License will terminate automatically if You fail to comply with all terms herein
+and fail to cure such breach within 30 days of becoming aware of the breach. All sublicenses shall survive
+the termination of this License.
+<br/>14 Reformation: If any provision of this License is held to be unenforceable, such provision shall be
+reformed only to the extent necessary to make it enforceable.
+<br/>15 COPYRIGHT NOTICE
+Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+
+
 ## Roll XX - The Sentinels of Meregoth / Neoplastic Press
 [http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press](http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press)
 
@@ -244,7 +370,6 @@ Roll XX: Double Damage is a book of random tables for fantasy role-playing games
 <p>The text from <cite>Sharp Swords & Sinister Spells</cite> included in Adventuresmith is located
 <a href="https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss">here</a>
 in the Adventuresmith github repository. </p>
-<p>The files are YaML text documents, and have some embedded Mustache templates which Adventuresmith processes.</p>
 
 <blockquote>
 <h4>What is Sharp Swords & Sinister Spells?</h4>
@@ -482,6 +607,12 @@ The Patron Deity generator is from the Cleric playbook in Joel's
 <h6>Dungeon Cocktail</h6>
 <p>© Joel Priddy 2017</p>
 <a href="http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html">Mini-game: Potion Quaffing</a>
+
+<h5>solodungeoneer</h5>
+<a href="http://solodungeoneer.blogspot.com">Solo Dungeoneer Blog</a>
+
+<h6>Mythic Fate Chart Variant</h6>
+From this post: <a href="http://solodungeoneer.blogspot.com/2012/09/mythic-fate-chart-variant.html">Mythic Fate Chart Variant</a>
 
 <h5>Sophia Brandt</h5>
 <p><a href="http://dieheart.net/">Sophia's blog</a> is full great resources (reviews, actual plays, resource lists) for
