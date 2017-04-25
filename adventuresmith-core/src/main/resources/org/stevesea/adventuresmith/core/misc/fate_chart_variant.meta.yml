@@ -1,0 +1,22 @@
+---
+name: Mythic Fate Chart Variant
+collectionId: misc
+groupId: grpGME
+input:
+  displayTemplate: "Odds: {{odds}}"
+  params:
+  - name: odds
+    uiName: Odds
+    helpText: What are the odds?
+    defaultValue: Fifty_Fifty
+    values:
+    - Sure_Thing
+    - Very_Likely
+    - Likely
+    - Somewhat_Likely
+    - Fifty_Fifty
+    - Somewhat_Unlikely
+    - Unlikely
+    - Very_Unlikely
+    - Almost_Impossible
+
