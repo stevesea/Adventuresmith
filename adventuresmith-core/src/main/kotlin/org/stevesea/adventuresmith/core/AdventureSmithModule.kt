@@ -141,27 +141,24 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         return collMetaLoader.load(collectionId, locale)
     }
 
-    fun getCollections(locale: Locale): Set<CollectionMetaDto> {
-        val result: MutableSet<CollectionMetaDto> = mutableSetOf()
-
-        val alreadyLoadedIds : MutableSet<String> = mutableSetOf()
+    fun getCollections(locale: Locale): Map<String, CollectionMetaDto> {
+        val result: MutableMap<String, CollectionMetaDto> = mutableMapOf()
 
         val collMetaLoader = kodein.instance<CollectionMetaLoader>()
 
         for (gen in generators) {
             try {
                 val genMeta = gen.value.getMetadata(locale)
-                if (alreadyLoadedIds.contains(genMeta.collectionId)) {
+                if (result.containsKey(genMeta.collectionId)) {
                     continue
                 }
 
-                result.add(collMetaLoader.load(genMeta.collectionId, locale))
-                alreadyLoadedIds.add(genMeta.collectionId)
+                result.put(genMeta.collectionId, collMetaLoader.load(genMeta.collectionId, locale))
             } catch (e: Exception) {
                 logger.warn("problem loading collection metadata", e)
             }
         }
-        return result.toSortedSet()
+        return result
     }
 
     fun getGenerator(input: File) : Generator {

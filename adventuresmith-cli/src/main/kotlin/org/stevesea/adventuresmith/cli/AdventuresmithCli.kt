@@ -194,7 +194,7 @@ object AdventuresmithCli : KLoggable {
         } else {
             opts.out!!.writeText(message)
         }
-        for (coll in AdventuresmithCore.getCollections(l)) {
+        for (coll in AdventuresmithCore.getCollections(l).values.toSortedSet()) {
             if (coll.credit == null)
                 continue
             if (opts.out == null) {
@@ -222,7 +222,7 @@ object AdventuresmithCli : KLoggable {
 
     private fun list(opts: Options) {
         val l = opts.locale
-        for (coll in AdventuresmithCore.getCollections(l)) {
+        for (coll in AdventuresmithCore.getCollections(l).values.toSortedSet()) {
             if (coll.groups == null || coll.groups!!.isEmpty()) {
                 logger.info("{} - {} ({})", l, coll.name, coll.id)
                 listGens(l, coll.id)
@@ -243,7 +243,7 @@ object AdventuresmithCli : KLoggable {
             }
         }
 
-        for (coll in AdventuresmithCore.getCollections(l)) {
+        for (coll in AdventuresmithCore.getCollections(l).values.toSortedSet()) {
             if (coll.groups == null || coll.groups!!.isEmpty()) {
                 if (!opts.filter.isNullOrEmpty() && !coll.id.toLowerCase().startsWith(opts.filter.toLowerCase())) {
                     continue
