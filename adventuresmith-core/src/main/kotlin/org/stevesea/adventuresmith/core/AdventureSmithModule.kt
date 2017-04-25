@@ -128,7 +128,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     //   a map of genid -> generator
     //   and a map of collId/grpId -> list<generator>
     // calling this during app startup ensures those maps have been initialized.
-    // otherwise, there was noticable lag the first time we try to traverse the generators.
+    // otherwise, there was noticeable lag the first time we try to traverse the generators.
     // NOTE: we don't cache metadata, since locale might change during runtime
     fun initCaches() {
         for (g in groupedGenerators) {

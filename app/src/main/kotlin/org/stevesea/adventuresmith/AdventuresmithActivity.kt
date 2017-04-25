@@ -40,6 +40,8 @@ import android.widget.*
 import com.crashlytics.android.answers.*
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Stopwatch
+import com.google.common.collect.ImmutableMap
+import com.google.common.collect.ImmutableSet
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -653,7 +655,10 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     fun getNavDrawerItemIcon(id: String, grpId : String? = null): IIcon {
-        val collMeta = AdventuresmithCore.getCollectionMetaData(id, getCurrentLocale(resources))
+        val collMeta = getCachedCollections(resources).getOrElse(id) {
+            error("Couldn't find collection id: $id")
+            return CommunityMaterial.Icon.cmd_help
+        }
 
         val collIcon = collMeta.icon
         val iconicsDrawable : IconicsDrawable =
@@ -672,22 +677,23 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
     }
 
-    fun getNavDrawerItems(locale: Locale) : List<IDrawerItem<*, *>> {
+    fun getNavDrawerItems() : List<IDrawerItem<*, *>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
         favoriteIdToName.clear()
 
+
         val stopwatch = Stopwatch.createStarted()
-        val generatorCollections = AdventuresmithCore.getCollections(locale)
+        val generatorCollections = getCachedCollections(resources)
         stopwatch.stop()
-        debug("Loading nav drawer done. took ${stopwatch} (since app start: ${AdventuresmithApp.watch})")
+        info("Loading collections for nav drawer done. took ${stopwatch} (since app start: ${AdventuresmithApp.watch})")
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
         result.add(favExpandItem)
 
-        for (coll in generatorCollections) {
-            debug("collection: ${coll}")
+        for (coll in generatorCollections.values.toSortedSet()) {
+            debug("collection: ${coll.id}")
 
             if (coll.groups != null && coll.groups!!.isNotEmpty()) {
 
@@ -821,8 +827,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         LayoutInflaterCompat.setFactory(getLayoutInflater(), IconicsLayoutInflater(getDelegate()));
         super.onCreate(savedInstanceState)
 
-        debug("AdventuresmithActivity Started: ${AdventuresmithApp.watch}")
-
         setContentView(R.layout.activity_adventuresmith)
 
         setSupportActionBar(toolbar)
@@ -892,7 +896,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withAccountHeader(drawerHeader!!, false)
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
-                .withDrawerItems(getNavDrawerItems(getCurrentLocale(resources)))
+                .withDrawerItems(getNavDrawerItems())
                 .withOnDrawerItemLongClickListener(object : Drawer.OnDrawerItemLongClickListener {
                     override fun onItemLongClick(view: View?, position: Int, drawerItem: IDrawerItem<*, *>?): Boolean {
                         if (drawerItem == null)
@@ -1247,7 +1251,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         // a collection/group and not a favorite
                         val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
                         if (collGrp != null) {
-                            val collMeta = AdventuresmithCore.getCollectionMetaData(collGrp.collectionId, getCurrentLocale(resources))
+                            val collMeta = getCachedCollections(resources).get(collGrp.collectionId)!!
                             if (collMeta.credit != null)
                                 str = collMeta.toHtmlStr()
                         }
@@ -1277,6 +1281,20 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     companion object {
+        var lastLocale : Locale? = null
+        // cache is invalidated if locale changes
+        var cachedCollectionMeta : Map<String, CollectionMetaDto> = ImmutableMap.of()
+
+        private fun getCachedCollections(r: Resources): Map<String, CollectionMetaDto> {
+            synchronized(cachedCollectionMeta) {
+                val curLocale = getCurrentLocale(r)
+                if (!curLocale.equals(lastLocale)) {
+                    cachedCollectionMeta = AdventuresmithCore.getCollections(curLocale)
+                    lastLocale = curLocale
+                }
+                return cachedCollectionMeta
+            }
+        }
 
         @TargetApi(Build.VERSION_CODES.N)
         fun getCurrentLocale(r: Resources): Locale {

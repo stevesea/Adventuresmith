@@ -58,7 +58,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
     override fun onCreate() {
         super.onCreate()
-        debug("App Started: ${watch}")
+        info("App Started: ${watch}")
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
@@ -88,19 +88,19 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         // Seems like the simplest thing to do is just do this initialization
         // by blocking here. Maybe look at this again after adding more generators.
 
-        //doAsync {
-        val stopwatch = Stopwatch.createStarted()
-        AdventuresmithCore.initCaches()
-        stopwatch.stop()
-        debug("loading core generators took ${stopwatch} (time since app start: ${watch})")
-        //}
+        doAsync {
+            val stopwatch = Stopwatch.createStarted()
+            AdventuresmithCore.initCaches()
+            stopwatch.stop()
+            info("loading core generators took ${stopwatch} (time since app start: ${watch})")
 
-        Answers.getInstance().logCustom(CustomEvent("App.InitCaches")
-                .putCustomAttribute("initCaches elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-        )
+            Answers.getInstance().logCustom(CustomEvent("App.InitCaches")
+                    .putCustomAttribute("initCaches elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+            )
+        }
 
 
-        debug("App onCreate done: ${watch}")
+        info("App onCreate done: ${watch}")
     }
 }
 
