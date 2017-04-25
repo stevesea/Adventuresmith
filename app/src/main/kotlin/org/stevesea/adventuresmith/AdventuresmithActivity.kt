@@ -1108,6 +1108,7 @@ class AdventuresmithActivity : AppCompatActivity(),
     private val BUNDLE_RESULT_ITEMS = AdventuresmithActivity::class.java.name + ".resultItems"
 
     override fun onSaveInstanceState(outState: Bundle?) {
+        val stopwatch = Stopwatch.createStarted()
 
         synchronized(resultAdapter) {
             resultAdapter.saveInstanceState(outState)
@@ -1123,10 +1124,12 @@ class AdventuresmithActivity : AppCompatActivity(),
         outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         super.onSaveInstanceState(outState)
+        debug("onSaveInstanceState: $stopwatch elapsed")
     }
 
     @Suppress("UNCHECKED_CAST")
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        val stopwatch = Stopwatch.createStarted()
         super.onRestoreInstanceState(savedInstanceState)
 
         // NOTE: currentDrawerItem _may_ have saved null
@@ -1148,6 +1151,7 @@ class AdventuresmithActivity : AppCompatActivity(),
             resultAdapter.withSavedInstanceState(savedInstanceState)
             resultAdapter.deselect()
         }
+        debug("onRestoreInstanceState: $stopwatch elapsed")
     }
 
     override fun onResume() {
