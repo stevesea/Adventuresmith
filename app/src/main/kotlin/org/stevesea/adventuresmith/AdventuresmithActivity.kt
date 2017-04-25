@@ -25,7 +25,6 @@ import android.content.*
 import android.content.res.*
 import android.graphics.*
 import android.os.*
-import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.*
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.*
@@ -1236,6 +1235,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (item != null) {
             when(item.itemId) {
                 R.id.action_clear -> {
+                    if (!currentFilter.isNullOrBlank()) {
+                        toast("Disable filter to clear list")
+                        return false
+                    }
                     // clear results
                     synchronized(resultAdapter) {
                         resultAdapter.clear()
