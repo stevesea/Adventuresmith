@@ -1,0 +1,268 @@
+---
+templates:
+- "%[[{{input.sense}}]]%"
+
+tables:
+  Pick1:
+  - "{{Hear}}..."
+  - "{{See}}..."
+  - "{{Feel}}..."
+  - "{{Smell_Taste}}..."
+  All:
+  - |
+    <u>Hear:</u> {{Hear}}...
+    <br/><br/><u>See:</u> {{See}}...
+    <br/><br/><u>Feel:</u> {{Feel}}...
+    <br/><br/><u>Smell/Taste:</u> {{Smell_Taste}}...
+
+  Hear:
+  - The frightened neighing of horses
+  - Something slithering
+  - A booming, unnaturally loud voice
+  - Muffled, stealthy footsteps
+  - A pained bellow
+  - Shouts of triumph
+  - Mournful howling
+  - The skittering of a many-legged thing
+  - Low noises of appreciation
+  - The clattering of bones
+  - A stone slab slamming to the ground
+  - Murmuring in an unknown language
+  - Grotesque, gristly chewing
+  - The hiss of escaping gas
+  - The creaking and groaning of
+  - Merchants hawking their wares
+  - A drunken scuffle
+  - A bestial roar
+  - Shuffling steps
+  - The step-clop-step of
+  - A scream
+  - Running feet, closer and closer
+  - Tick, tock, tick, tock
+  - The sound of a fight
+  - A wet, meaty THUMP
+  - Curious murmuring
+  - Marching feet
+  - Faint buzzing
+  - Heavy breathing
+  - A sharp snap
+  - A beating heart
+  - Heart-rending shrieks
+  - Pained cries
+  - The snicker-snack of slicing blades
+  - The clash of metal on metal
+  - A distinctive ca-click
+  - Horrible grinding and gnashing
+  - Harsh static
+  - Zap
+  - Smashing pottery
+  - Shattering glass
+  - Distant revelry
+  - Terrified squealing
+  - Rapidly approaching sirens
+  - The blast of a horn
+  - Screeching tires
+  - The scrape of a blade on stone
+  - A snatch of song
+  - A phone ringing
+  - Pounding, discordant music
+  - A reverberating echo
+  - Distant drums
+  - Mocking snickers
+  - An ominous chuckle
+  - Tall grass and underbrush rustling
+  - The beat of swords on shields
+  - A cacophony of animal calls
+  - The growing rumble of hooves
+  - A one-sided conversation
+  - The whump of spinning blades
+
+
+  See:
+  - Discarded armor
+  - Lustrous pearls
+  - Glowing, slitted eyes
+  - A strange city in the distance
+  - Mountaintops obscured by clouds
+  - Stones of all shapes and sizes
+  - A crack runs through the
+  - Brilliant, darting fish
+  - A palace in the sky
+  - A long-necked bird stares
+  - A half-seen figure beckons
+  - Roiling, oily smoke
+  - Dead, sun-bleached branches
+  - A venerable tree reaches high
+  - A blackened skull
+  - Strange fungus covers
+  - Ancient and blocky architecture
+  - A child's toy sits
+  - A familiar face
+  - The flash of a knife
+  - A splash of red
+  - Flames in the distance
+  - Thick fog
+  - Dense black smoke
+  - Blood stains
+  - Blinking lights
+  - A darting shape
+  - Bloodshot eyes
+  - Stormy clouds
+  - A heap of scrap
+  - A palid and bloodless face
+  - It grows dark
+  - Dingy and dusty
+  - Faint lines carved into
+  - Flashy clothing
+  - Faded and worn
+  - The air is hazy
+  - Vivid rainbow hues
+  - Smudged glass
+  - Bright streaks
+  - Tarnished brass
+  - Swirls of dust
+  - Glistening wetly
+  - Shining chrome
+  - An age-faded tattoo
+  - Chiseled stone
+  - Tapestries depicting mythic scenes
+  - Waving lines of sparkles
+  - A dark bird, watching
+  - One-eyed
+  - Masked and robed
+  - A shock of corn-silk hair
+  - A suspicious hesitation
+  - Swaying in the wind
+  - Hideously serrated teeth
+  - Backed into a corner
+  - Carrying their young
+  - Pursued by armed men
+  - Flanked by servants and guards
+  - A grimy, broken crown
+
+  Feel:
+  - Hit your funny bone
+  - Knocked to the gorund
+  - Your ears suddenly pop
+  - A wave of dizziness and nausea
+  - Squirming under your skin
+  - A twisted ankle
+  - A crunch underfoot
+  - Your muscles burn
+  - Lifted off the ground
+  - Your weapon gets caught in
+  - So full you can't move
+  - Like you could eat a horse
+  - Tired and irritated
+  - Lighthearted and cheerful
+  - A phlegmy cough wracks your body
+  - Bored to tears
+  - Blind, stinking drunk
+  - A thud against your side
+  - Muscle spasms cramp
+  - A surprising pinch
+  - Soot makes your eyes itch
+  - The urge to sneeze
+  - A stomach-tilting lurch
+  - An eletrical jolt
+  - Deep, throbbing heartache
+  - A rush of adrenaline
+  - Something dragging at your feet
+  - Droplets splatter you
+  - Clamped tight around your wrists
+  - Slamming into you
+  - An oily coating
+  - Rubbery coils around your neck
+  - A feathery touch
+  - An unseen presence
+  - Grit in your teeth
+  - Leathery wings beat against
+  - Squelching steps in something nasty
+  - Tickling on the back of your neck
+  - As insubstantial as mist
+  - Abruptly feeling naked and exposed
+  - Tread on something gummy
+  - Cold steel presses
+  - Warm woolly fabric
+  - A rumble in the ground
+  - A burst of frost and ice
+  - Soggy, crumbling ground
+  - Dry blasts of furnace air
+  - A vicious, stabbing pain
+  - Eye-stinging drips of sweat
+  - Fizzy water
+  - Air so humid you can hardly breathe
+  - Slimy goo
+  - Numb teeth
+  - Tingling arms
+  - Sparks of rage
+  - A moment of deja-vu
+  - A gut-wrenching acceleration
+  - Your stomach drops
+  - The crush of a crowd carrying you
+  - A friendly purr against your leg
+
+
+  Smell_Taste:
+  - Abrasive, eye-watering bleach
+  - Apples and plums
+  - Jasmine flowers
+  - Toasting nuts
+  - A clinical, hospital quality
+  - Fresh linens
+  - Coppery blood
+  - Almond oil
+  - The elderly
+  - Artificially recycled atmosphere
+  - A trace of spice
+  - Putrid flesh
+  - Deoderizing spray
+  - Sage incense
+  - A dusty cellar
+  - Aromatic potpourri
+  - Rancid oil
+  - Rank sweat and sour bodies
+  - Flowered water
+  - Industrial grease
+  - A light, delicate bouquet
+  - Burning hair
+  - An odd fragrance
+  - Moist earth
+  - Damp, wretched air
+  - Petrichor -- rain on dry earth
+  - Moldering vegetation
+  - Cloying perfume
+  - Ripe dung
+  - The vanilla of ancient books
+  - An aura of mothballs
+  - The heady aroma of wine
+  - A disinfectant tag
+  - The reek of vomit
+  - Fresh-brewed tea
+  - Nutmeg and warm spices
+  - A riot of conflicting scents
+  - Lively springtime air
+  - Smoked ham
+  - Chipped-wood mulch
+  - The acrid stench of a tannery
+  - Nervous sweat
+  - The stink of death
+  - A pungent fart
+  - Lemon and soap
+  - Frying sausage
+  - Burning candles
+  - Snow
+  - Fried dough
+  - Clean breeze
+  - Coal smoke
+  - Cat piss
+  - Sharp spearmint
+  - Spoiled milk
+  - The odd, dusty scent of snake-skin
+  - The dank of a tomb
+  - An exotic, floral aroma
+  - An overpowering, musky odor
+  - An oncoming storm
+  - Moss and old earth
+
+

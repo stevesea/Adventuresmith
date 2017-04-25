@@ -182,9 +182,11 @@ generators:
   - watch_guard
   - watchmen
   gma:
+  - belongings
   - difficulty
   - likely_odds
-  - norse_runes
+  - random_event
+  - sensory_snippet
   maze_rats:
   - mr01_afflictions
   - mr01_characters

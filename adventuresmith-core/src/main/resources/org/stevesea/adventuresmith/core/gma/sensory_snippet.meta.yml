@@ -1,0 +1,18 @@
+---
+name: Sensory Snippet
+collectionId: gma
+input:
+  displayTemplate: "Sense: {{sense}}"
+  params:
+  - name: sense
+    uiName: Sense
+    helpText: Which sense?
+    defaultValue: Pick1
+    values:
+    - All
+    - Pick1
+    - See
+    - Hear
+    - Feel
+    - Smell_Taste
+
