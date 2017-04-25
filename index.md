@@ -71,9 +71,10 @@ pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and oth
 their products, and become a patron on Patreon.
 
 ### Open Content
-Adventuresmith includes Open Content released under the OGL. To see the Open Content copied
+Adventuresmith includes Open Content released under the OGL. To see the Open Content
 from these OGL sources, follow the links below:
 * [Macchiato Monsters](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/macchiato_monsters)
+* [Portal Rats](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/portal_rats)
 * [Sharp Swords & Sinister Spells](https://github.com/stevesea/Adventuresmith/tree/master/adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core/ss_and_ss)
 
 ## Artwork
