@@ -194,6 +194,7 @@ generators:
   # using layoutinflator+textview results in icons in text... but also a crash
   # using iconicstextview fixes the crash, but then we don't get the same HTML->Spannable support
   - elements
+  - scatter
   - tags
   #- norse_runes
   maze_rats:

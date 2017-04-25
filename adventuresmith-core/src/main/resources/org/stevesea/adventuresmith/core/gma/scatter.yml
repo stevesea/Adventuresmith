@@ -1,0 +1,12 @@
+---
+templates:
+- "{cmd-arrow-top-left}"
+- "{cmd-arrow-top-right}"
+- "{cmd-arrow-bottom-left}"
+- "{cmd-arrow-bottom-right}"
+- "{cmd-arrow-up}"
+- "{cmd-arrow-down}"
+- "{cmd-arrow-left}"
+- "{cmd-arrow-right}"
+- "{cmd-minus-circle-outline}"
+- "{cmd-star-circle}"
