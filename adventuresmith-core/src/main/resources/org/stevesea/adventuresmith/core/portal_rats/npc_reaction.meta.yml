@@ -1,3 +1,4 @@
 ---
 name: NPC/Creature Reaction
 collectionId: portal_rats
+priority: 0

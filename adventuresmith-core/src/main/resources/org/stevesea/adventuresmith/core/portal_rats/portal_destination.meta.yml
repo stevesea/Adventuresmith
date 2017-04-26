@@ -1,3 +1,4 @@
 ---
 name: Portal Destination
 collectionId: portal_rats
+priority: 0
