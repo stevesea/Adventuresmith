@@ -39,4 +39,6 @@
 
     <string name="generator_config">Configure Generator</string>
 
+    <string name="back_button_press">Exit Adventuresmith?</string>
+
 </resources>

@@ -1172,10 +1172,14 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     override fun onBackPressed() {
-        if (drawer != null && drawer!!.isDrawerOpen())
+        if (drawer != null && drawer!!.isDrawerOpen()) {
             drawer!!.closeDrawer()
-        else
-            super.onBackPressed()
+        } else {
+            alert(R.string.back_button_press) {
+                yesButton { super.onBackPressed() }
+                noButton {}
+            }.show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
