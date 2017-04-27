@@ -145,15 +145,11 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         val result: MutableMap<String, CollectionMetaDto> = mutableMapOf()
 
         val collMetaLoader = kodein.instance<CollectionMetaLoader>()
+        val generatorsList = kodein.instance<GeneratorListDto>()
 
-        for (gen in generators) {
+        for (collectionId in generatorsList.generators.keys) {
             try {
-                val genMeta = gen.value.getMetadata(locale)
-                if (result.containsKey(genMeta.collectionId)) {
-                    continue
-                }
-
-                result.put(genMeta.collectionId, collMetaLoader.load(genMeta.collectionId, locale))
+                result.put(collectionId, collMetaLoader.load(collectionId, locale))
             } catch (e: Exception) {
                 logger.warn("problem loading collection metadata", e)
             }
@@ -216,6 +212,8 @@ val generatorModule = Kodein.Module {
         val generatorsListDto: GeneratorListDto = objectMapper.reader().forType(GeneratorListDto::class.java).readValue(generatorsStr)
         val genList : MutableList<String> = mutableListOf()
 
+        bind<GeneratorListDto>() with instance(generatorsListDto)
+
         for (generatorPkg in generatorsListDto.generators) {
             for (id in generatorPkg.value) {
                 val genStr = "${generatorPkg.key}/${id}"
@@ -227,7 +225,6 @@ val generatorModule = Kodein.Module {
                 }
             }
         }
-
         bind<List<String>>(AdventuresmithCore.RESOURCE_GENERATORS) with instance(genList)
 
     } catch (ex: Exception) {

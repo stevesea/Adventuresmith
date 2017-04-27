@@ -57,6 +57,7 @@ generators:
   - whats_on_corpse
   - whats_on_thing
   - where_has_it_been
+  dice_roller: []
   conjecture_games:
   - connection
   - loom
