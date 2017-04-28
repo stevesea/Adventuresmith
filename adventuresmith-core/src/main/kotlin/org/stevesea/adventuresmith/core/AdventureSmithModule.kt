@@ -80,6 +80,15 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         generators.forEach {
             // can't cache metadata, since the locale might change at runtime. But, we can crack open the
             // default locale's metadata to get collection/group IDs
+
+            // TODO: this is slowing us down. we read all generator's metadata just to retrieve the collid/group
+            // instead, if this was part of collection metadata it'd be much faster. it'd also centralize
+            //
+            // where this stuff is... the collectionId/groupId within each generator's meta.yml is also
+            // the only thing that doesn't have to change per translation... why have it there at all?
+            //
+            // if the parent->child relationship is put in the collection metadata, seems like that'd
+            // centralize the hierarchy
             val genMeta = it.value.getMetadata()
             val grpKey = GroupKey(genMeta.collectionId, genMeta.groupId)
             val genList : MutableList<Generator> = groupedGens.getOrPut(grpKey,

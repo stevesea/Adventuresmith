@@ -77,6 +77,17 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         Iconics.registerFont(Ionicons())
 
         info("App onCreate done: ${watch}")
+
+        doAsync {
+            val innerStopwatch = Stopwatch.createStarted()
+            AdventuresmithCore.initCaches()
+            innerStopwatch.stop()
+            info("Init-caches done: $innerStopwatch (since app start: ${AdventuresmithApp.watch})")
+            Answers.getInstance().logCustom(CustomEvent("InitCaches")
+                    .putCustomAttribute("elapsedMS", innerStopwatch.elapsed(TimeUnit.MILLISECONDS))
+                    .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
+            )
+        }
     }
 }
 

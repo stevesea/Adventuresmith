@@ -1301,28 +1301,15 @@ class AdventuresmithActivity : AppCompatActivity(),
         private fun getCachedCollections(r: Resources): Map<String, CollectionMetaDto> {
             synchronized(cachedCollectionMeta) {
                 val curLocale = getCurrentLocale(r)
-                if (!curLocale.equals(lastLocale)) {
+                if (curLocale != lastLocale) {
                     val outerStopwatch = Stopwatch.createStarted()
                     cachedCollectionMeta = AdventuresmithCore.getCollections(curLocale)
                     outerStopwatch.stop()
-                    if (lastLocale == null) {
-                        // if this is first time, also spawn thread to initialize caches
-                        doAsync {
-                            val innerStopwatch = Stopwatch.createStarted()
-                            AdventuresmithCore.initCaches()
-                            innerStopwatch.stop()
-                            info("Init-caches done: $innerStopwatch (since app start: ${AdventuresmithApp.watch})")
-                            Answers.getInstance().logCustom(CustomEvent("InitCaches")
-                                    .putCustomAttribute("elapsedMS", innerStopwatch.elapsed(TimeUnit.MILLISECONDS))
-                                    .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
-                            )
-                        }
-                        info("Loading collections done. took ${outerStopwatch} (since app start: ${AdventuresmithApp.watch})")
-                        Answers.getInstance().logCustom(CustomEvent("GetCollections")
-                                .putCustomAttribute("elapsedMS", outerStopwatch.elapsed(TimeUnit.MILLISECONDS))
-                                .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
-                        )
-                    }
+                    info("Loading collections done. took ${outerStopwatch} (since app start: ${AdventuresmithApp.watch})")
+                    Answers.getInstance().logCustom(CustomEvent("GetCollections")
+                            .putCustomAttribute("elapsedMS", outerStopwatch.elapsed(TimeUnit.MILLISECONDS))
+                            .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
+                    )
                     lastLocale = curLocale
                 }
                 return cachedCollectionMeta
