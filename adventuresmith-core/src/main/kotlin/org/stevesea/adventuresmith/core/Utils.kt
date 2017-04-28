@@ -73,9 +73,9 @@ fun titleCase(input: String) : String {
  *   ButtonLabel
  * </pre>
  */
-object LocaleAwareResourceFinder : KLoggable {
-    override val logger = logger()
-    private fun locale_names(name: String, locale: Locale, ext: String) : List<String> {
+
+abstract class AbstractLocaleAwareFinder {
+    protected fun locale_names(name: String, locale: Locale, ext: String) : List<String> {
         // look for things similar to a resource bundle:
 
         val defaultLocale = Locale.getDefault()
@@ -100,6 +100,10 @@ object LocaleAwareResourceFinder : KLoggable {
         // for all those left, append name as prefix, ext as suffix
         return suffixes_sanitized.map { String.format("%s%s%s", name, it, ext)}
     }
+}
+
+object LocaleAwareFinderForClasspathResources : AbstractLocaleAwareFinder(), KLoggable {
+    override val logger = logger()
 
     /**
      * our resources are going to be YaML
@@ -114,6 +118,10 @@ object LocaleAwareResourceFinder : KLoggable {
         }
         return foundList.first()
     }
+}
+
+object LocaleAwareFinderForFiles : AbstractLocaleAwareFinder(), KLoggable {
+    override val logger = logger()
 
     fun findBestFile(f: File, locale: Locale, ext: String = ".yml") : File {
         val fnorm = File(f.parentFile, f.nameWithoutExtension).absolutePath
@@ -129,11 +137,9 @@ object LocaleAwareResourceFinder : KLoggable {
 
 /**
  * possibly premature optimization
- *    - i'm going to assume loading file resource, and deserializing into a DTO
- *      is a not-insignificant performance hit. This class caches the N most-recently
- *      accessed DTOs.
- *    - it's bound in Kodein as a singleton, so the cache is shared by many
- *      different generators
+ *    - i'm going to assume loading file resource, and deserializing into a DTO is a not-insignificant
+ *      performance hit. This class caches the N most-recently accessed DTOs.
+ *    - it's bound in Kodein as a singleton, so the cache is shared by many different generators
  */
 class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
 {
@@ -170,7 +176,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
                                          resource_prefix : String,
                                          locale: Locale,
                                          charset: Charset): T {
-        val url = LocaleAwareResourceFinder.find(resource_prefix,locale,clazz)
+        val url = LocaleAwareFinderForClasspathResources.find(resource_prefix,locale,clazz)
         val str = Resources.toString(url, charset)
         try {
             val result: T = objectReader.forType(clazz).readValue(str)

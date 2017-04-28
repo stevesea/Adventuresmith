@@ -302,14 +302,14 @@ class DataDrivenGenDtoFileDeserializer(val input: File, override val kodein: Kod
     val objectReader : ObjectReader = instance()
 
     override fun load(locale: Locale): DataDrivenGenDto {
-        val bestFileForLocale = LocaleAwareResourceFinder.findBestFile(input, locale)
+        val bestFileForLocale = LocaleAwareFinderForFiles.findBestFile(input, locale)
         return bestFileForLocale.bufferedReader().use {
             objectReader.forType(DataDrivenGenDto::class.java).readValue(it)
         }
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        val bestFileForLocale = LocaleAwareResourceFinder.findBestFile(File(input.absolutePath.replace(".yml", ".meta.yml")), locale)
+        val bestFileForLocale = LocaleAwareFinderForFiles.findBestFile(File(input.absolutePath.replace(".yml", ".meta.yml")), locale)
         return bestFileForLocale.bufferedReader().use {
             objectReader.forType(GeneratorMetaDto::class.java).readValue(it)
         }
