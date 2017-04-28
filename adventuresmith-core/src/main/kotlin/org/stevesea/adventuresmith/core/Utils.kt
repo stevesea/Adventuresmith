@@ -105,10 +105,6 @@ abstract class AbstractLocaleAwareFinder {
 object LocaleAwareFinderForClasspathResources : AbstractLocaleAwareFinder(), KLoggable {
     override val logger = logger()
 
-    /**
-     * our resources are going to be YaML
-     * TODO: instead of picking best, seems like we could gather dtos from multiple languages here and combine
-     */
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
         val fnames_precendence_order = locale_names(name, locale, ext)
         val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
@@ -116,6 +112,9 @@ object LocaleAwareFinderForClasspathResources : AbstractLocaleAwareFinder(), KLo
         if (foundList.isEmpty()) {
             throw FileNotFoundException("Unable to find any resources matching $name. Looked in: ${clazz.`package`.name} Tried: $fnames_precendence_order ")
         }
+        /**
+         * TODO: instead of picking best, seems like we could gather dtos from multiple languages here and combine
+         */
         return foundList.first()
     }
 }
@@ -130,7 +129,9 @@ object LocaleAwareFinderForFiles : AbstractLocaleAwareFinder(), KLoggable {
         if (files.isEmpty()) {
             throw FileNotFoundException("Unable to find files matching '$fnorm'. Tried: $fnames_precendence_order")
         }
-        //logger.info("file {}", files.first())
+        /**
+         * TODO: instead of picking best, seems like we could gather dtos from multiple languages here and combine
+         */
         return files.first()
     }
 }
