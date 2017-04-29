@@ -21,17 +21,37 @@
 package org.stevesea.adventuresmith.camel
 
 import mu.KLoggable
+import org.apache.camel.Exchange
+import org.apache.camel.FluentProducerTemplate
 import org.apache.camel.Handler
+import org.apache.camel.builder.DefaultFluentProducerTemplate
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
+import java.util.*
 
-class Locator : KLoggable {
+class StringToInt : KLoggable {
     override val logger = AdventuresmithCamel.logger()
     @Handler
-    fun test(param: String) {
-        logger.info("{}", param)
+    fun test(param: String, exchange: Exchange) : Int {
+        logger.info("body: {}", param)
+        return param.toInt()
     }
 }
+class IntToSquare : KLoggable {
+    override val logger = AdventuresmithCamel.logger()
+    @Handler
+    fun test(param: Int, exchange: Exchange) : Int {
+        logger.info("body: {}", param)
+        return param * param
+    }
+}
+
+//
+//      generator_id
+//      + locale      --> data merger -> merged data
+//
+//      <merged ctxt>
+//      + <input> (optional) --> template processor -> result
 
 object AdventuresmithCamel : KLoggable {
 
@@ -43,19 +63,32 @@ object AdventuresmithCamel : KLoggable {
             context.addRoutes(object : RouteBuilder() {
                 override fun configure() {
                     from("direct:in")
-                            .to("log:AdventuresmithCamel?level=INFO")
-                            .bean(Locator())
+                            .to("log:AdventuresmithCamel?level=INFO&showAll=true")
+                            .bean(StringToInt())
+                            .to("log:AdventuresmithCamel?level=INFO&showAll=true")
+                            .bean(IntToSquare())
+                            .to("log:AdventuresmithCamel?level=INFO&showAll=true")
+                            .bean(IntToSquare())
                 }
             })
+
 
             val template = context.createProducerTemplate()
 
             context.start()
 
-            args.forEach {
-                template.sendBody("direct:in", it)
-            }
+            val headers : MutableMap<String, Any> = mutableMapOf()
+            headers.put("hdr1", "val1")
+            headers.put("input", mapOf("i1" to "i1val", "i2" to "i2val"))
 
+            args.forEach {
+                val v = template.requestBodyAndHeaders(
+                        "direct:in",
+                        it,
+                        headers,
+                        Int::class.java)
+                logger.info("returned: {}", v)
+            }
 
         } finally {
             context.stop()

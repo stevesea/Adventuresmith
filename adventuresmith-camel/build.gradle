@@ -67,5 +67,5 @@ mainClassName = 'org.stevesea.adventuresmith.camel.AdventuresmithCamel'
 
 
 run {
-    args += ["test1", "test2"]
+    args += ["1", "2", "3"]
 }
