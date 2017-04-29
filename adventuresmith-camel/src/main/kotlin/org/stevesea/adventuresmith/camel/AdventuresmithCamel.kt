@@ -22,12 +22,9 @@ package org.stevesea.adventuresmith.camel
 
 import mu.KLoggable
 import org.apache.camel.Exchange
-import org.apache.camel.FluentProducerTemplate
 import org.apache.camel.Handler
-import org.apache.camel.builder.DefaultFluentProducerTemplate
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
-import java.util.*
 
 class StringToInt : KLoggable {
     override val logger = AdventuresmithCamel.logger()
@@ -47,11 +44,22 @@ class IntToSquare : KLoggable {
 }
 
 //
-//      generator_id
-//      + locale      --> data merger -> merged data
+//   advsmith_generate
+//      inputMap + locale
+//      + generator_id    --->  which gen? -+--> data merger -> whencedata? ??? -> read FS -> <merged ctxt>
+//                                          \                          \-----> read resources -> <merged ctxt>
+//                                           \---> run generator from D.I. -> <result>
 //
-//      <merged ctxt>
-//      + <input> (optional) --> template processor -> result
+//
+//      advsmith_process_template
+//        <merged ctxt>  --> template processor -> <result>
+//
+//  advsmith_get_collections
+//      locale --> ???? --> coll. of collection metadata
+//
+//  advsmith_get_generators
+//      locale --> ???? --> coll. of generator metadata
+//
 
 object AdventuresmithCamel : KLoggable {
 
@@ -69,6 +77,11 @@ object AdventuresmithCamel : KLoggable {
                             .bean(IntToSquare())
                             .to("log:AdventuresmithCamel?level=INFO&showAll=true")
                             .bean(IntToSquare())
+                            .to("direct:stage2")
+                    from("direct:stage2")
+                            .to("log:AdventuresmithCamel?level=INFO&showAll=true")
+                            .bean(IntToSquare())
+                            .to("log:AdventuresmithCamel?level=INFO&showAll=true")
                 }
             })
 
