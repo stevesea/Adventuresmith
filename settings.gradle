@@ -1,1 +1,1 @@
-include ':app', ':adventuresmith-core', ':adventuresmith-cli'
+include ':app', ':adventuresmith-core', ':adventuresmith-cli', ':adventuresmith-camel'
