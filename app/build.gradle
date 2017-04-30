@@ -160,6 +160,18 @@ dependencies {
 
 }
 
+task syncFiles(type: Sync) {
+    description = 'synchronizing assets files....'
+    from '../adventuresmith-core/src/main/resources/org/stevesea/adventuresmith/core'
+    into 'src/main/assets/'
+}
+
+project.afterEvaluate {
+    preBuild.dependsOn syncFiles
+}
+
+
+
 // APT doesn't know to make these directories for tests. Force them to
 // be written.
 afterEvaluate {
