@@ -38,24 +38,6 @@ fun getFinalPackageName(clz : Class<Any> ) : String {
     return words[words.size - 1 ]
 }
 
-fun titleCase(input: String) : String {
-
-    val DELIMITERS = setOf<Char>(' ', '\'', '-', '(', ')')
-
-    val sb = StringBuilder()
-    var capNext = true
-
-    for (inc in input.toCharArray()) {
-        val c = if (capNext)
-            Character.toUpperCase(inc)
-        else
-            Character.toLowerCase(inc)
-        sb.append(c)
-        capNext = DELIMITERS.contains(c)
-    }
-    return sb.toString()
-}
-
 /**
  * attempts to find things similar to a ResourceBundle
  *

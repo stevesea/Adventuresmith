@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/adventuresmith-cli" />
             <option value="$PROJECT_DIR$/adventuresmith-core" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/libgenerator" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

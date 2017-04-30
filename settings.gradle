@@ -1,1 +1,1 @@
-include ':app', ':adventuresmith-core', ':adventuresmith-cli', ':adventuresmith-camel'
+include ':app', ':adventuresmith-core', ':adventuresmith-cli', ':adventuresmith-camel', ':libgenerator'

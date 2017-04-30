@@ -40,6 +40,7 @@ task copyMainResources(type: Copy) {
 copyTestResources.dependsOn copyMainResources
 
 dependencies {
+    compile project(':libgenerator')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

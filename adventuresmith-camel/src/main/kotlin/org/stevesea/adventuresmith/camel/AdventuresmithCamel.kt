@@ -23,6 +23,8 @@ package org.stevesea.adventuresmith.camel
 import mu.KLoggable
 import org.apache.camel.Exchange
 import org.apache.camel.Handler
+import org.apache.camel.Processor
+import org.apache.camel.builder.PredicateBuilder.and
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
 
@@ -43,6 +45,7 @@ class IntToSquare : KLoggable {
     }
 }
 
+
 //
 //   advsmith_generate
 //      inputMap + locale
@@ -59,6 +62,7 @@ class IntToSquare : KLoggable {
 //
 //  advsmith_get_generators
 //      locale --> ???? --> coll. of generator metadata
+//
 //
 
 object AdventuresmithCamel : KLoggable {
@@ -82,6 +86,35 @@ object AdventuresmithCamel : KLoggable {
                             .to("log:AdventuresmithCamel?level=INFO&showAll=true")
                             .bean(IntToSquare())
                             .to("log:AdventuresmithCamel?level=INFO&showAll=true")
+
+                    // input:
+                    //
+                    //   header values:
+                    //     generator_id
+                    //     locale
+                    //     input (optional)
+                    //   body
+                    //     (empty) -- will be the processing context
+                    //
+                    //
+                    from("direct:generate_from_resources")
+                            .validate(
+                                    and(header("generator_id").isNotNull,
+                                            header("locale").isNotNull)
+                            )
+                            .process(object: Processor {
+                                override fun process(exchange: Exchange?) {
+                                    // data loader & merger, load it into body
+                                }
+                            })
+                            .to("direct:process_template")
+
+                    from("direct:process_template")
+                            .process(object: Processor {
+                                override fun process(exchange: Exchange?) {
+                                    // pick template, process via context
+                                }
+                            })
                 }
             })
 

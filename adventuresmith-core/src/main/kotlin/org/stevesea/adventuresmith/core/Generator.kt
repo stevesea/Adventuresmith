@@ -27,6 +27,7 @@ import com.google.common.base.Throwables
 import com.google.common.collect.*
 import com.samskivert.mustache.*
 import mu.KLoggable
+import org.stevesea.adventuresmith.generator.titleCase
 import java.io.*
 import java.util.*
 
