@@ -3,14 +3,22 @@ id: misc
 priority: 900
 credit: Various Authors
 icon: cmd_hexagon_multiple
+
 groups:
-  grpChar: Characters
-  grpGME: GM Emulators
-  grpItems: Items
-groupIcons:
-  grpItems: cmd-engine
-  grpChar: cmd-account
-  grpGME: cmd-lightbulb-on-outline
+  - name: grpChar
+    uiName: Characters
+    icon: cmd-account
+  - name: grpGME
+    uiName: GM Emulators
+    icon: cmd-lightbulb-on-outline
+  - name: grpItems
+    uiName: Items
+    icon: cmd-engine
+
+groupedGenerators:
+  grpItems: []
+  grpChar: []
+  grpGME: []
 
 attribution: |
   <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>

@@ -2,16 +2,27 @@ name: Dice Roller
 id: dice_roller
 priority: 999
 icon: cmd-dice-6
-groupIcons:
-  grpPolys: cmd-dice-1
-  grpCombinations: cmd-dice-2
-  grpCustom: cmd-multiplication-box
-  grpFudge: cmd-plus-box
-  grpEOTE: cmd-scale-balance     # cmd-sync , cmd-theme-light-dark
-groups:
-  grpPolys: Single Polyhedral
-  grpCombinations: Common Combos
-  grpCustom: Custom Dice
-  grpFudge: Fudge & Exploding
-  grpEOTE: EotE Dice
 
+groupedGenerators:
+  grpPolys: []
+  grpCombinations: []
+  grpCustom: []
+  grpFudge: []
+  grpEOTE: []
+
+groups:
+- name: grpPolys
+  uiName: Single Polyhedral
+  icon: cmd-dice-1
+- name: grpCombinations
+  uiName: Common Combos
+  icon: cmd-dice-2
+- name: grpCustom
+  uiName: Custom Dice
+  icon: cmd-multiplication-box
+- name: grpFudge
+  uiName: Fudge & Exploding
+  icon: cmd-plus-box
+- name: grpEOTE
+  uiName: EotE Dice
+  icon: cmd-scale-balance  # cmd-sync , cmd-theme-light-dark

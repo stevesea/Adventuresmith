@@ -16,15 +16,26 @@ attribution: |
   own sandbox-style adventures in the far future.</p>
   </blockquote>
 icon: cmd-rocket
-groupIcons:
-  grp1: ion-planet
-  grp2: ion-person-stalker
-  grp3: ion-edit
-  grp4: cmd-factory
-  grp5: ion-person
+
+groupedGenerators:
+  aaw: []
+  cr: []
+  names: []
+  tech_arch: []
+  chars_npcs: []
 groups:
-  grp1: Aliens, Animals, Worlds…
-  grp2: Corps, Religions…
-  grp3: Names
-  grp4: Tech, Architecture…
-  grp5: Characters, NPCs…
+- name: aaw
+  uiName: Aliens, Animals, Worlds…
+  icon: ion-planet
+- name: cr
+  uiName: Corps, Religions…
+  icon: ion-person-stalker
+- name: names
+  uiName: Names
+  icon: ion-edit
+- name: tech_arch
+  uiName: Tech, Architecture…
+  icon: cmd-factory
+- name: chars_npcs
+  uiName: Characters, NPCs…
+  icon: ion-person

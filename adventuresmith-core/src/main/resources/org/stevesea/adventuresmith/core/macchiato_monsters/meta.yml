@@ -3,14 +3,23 @@ id: macchiato_monsters
 url: http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO
 credit: Eric Nieudan
 icon: ion-coffee
-groupIcons:
-  grpChar: cmd-coffee
-  grpEnc: cmd-coffee-to-go
-  grpCommunity: ion-beer
+
+groupedGenerators:
+  grpChar: []
+  grpEnc: []
+  grpCommunity: []
+
 groups:
-  grpChar: Characters
-  grpEnc: Encounters & Travel
-  grpCommunity: Community Hacks
+  - name: grpChar
+    uiName: Characters
+    icon: cmd-coffee
+  - name: grpEnc
+    uiName: Encounters & Travel
+    icon: cmd-coffe-to-go
+  - name: grpCommunity
+    uiName: Community Hacks
+    icon: ion-beer
+
 attribution: |
 
   <h4>Core Game</h4>

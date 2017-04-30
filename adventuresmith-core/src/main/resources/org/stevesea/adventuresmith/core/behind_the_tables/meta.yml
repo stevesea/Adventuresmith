@@ -4,55 +4,108 @@ url: https://www.reddit.com/r/BehindTheTables/
 credit: /r/DnDBehindTheScreen
 priority: 900
 hasGroupHierarchy: true
+
+groupedGenerators:
+  grpEncountersCastle: []
+  grpEncountersDungeon: []
+  grpEncountersTown: []
+  grpEncountersWild: []
+  grpFactionsSettlement: []
+  grpFactionsWild: []
+  grpLocationsCastle: []
+  grpLocationsCavern: []
+  grpLocationsDungeon: []
+  grpLocationsTown: []
+  grpLocationsWild: []
+  grpNPCsAppPersMotiv: []
+  grpNPCsCastle: []
+  grpNPCsCastleCourt: []
+  grpNPCsCastleDungeon: []
+  grpNPCsCavern: []
+  grpNPCsTown: []
+  grpNPCsTownLaw: []
+  grpNPCsTownMerchant: []
+  grpNPCsWild: []
+
 groups:
-  grpEncountersCastle: Encounters / Castle
-  grpEncountersDungeon: Encounters / Dungeon
-  grpEncountersTown: Encounters / Town
-  grpEncountersWild: Encounters / Wilderness
-  grpFactionsSettlement: Factions & Groups / Settlement
-  grpFactionsWild: Factions & Groups / Wilderness
-  grpLocationsCastle: Locations / Castle
-  grpLocationsCavern: Locations / Cavern
-  grpLocationsDungeon: Locations / Dungeon
-  grpLocationsTown: Locations / Town
-  grpLocationsWild: Locations / Wilderness
-  grpNPCsAppPersMotiv: NPCs / Appearance, Motivations...
-  grpNPCsCastle: NPCs / Castle
-  grpNPCsCastleCourt: NPCs / Castle Court
-  grpNPCsCastleDungeon: NPCs / Castle Dungeon
-  grpNPCsCavern: NPCs / Cavern
-  grpNPCsTown: NPCs / Town
-  grpNPCsTownLaw: NPCs / Town Law & Order
-  grpNPCsTownMerchant: NPCs / Town Merchant
-  grpNPCsWild: NPCs / Wilderness
+  - name: encounters
+    uiName: Encounters
+    icon: cmd-run
+    groups:
+    - name: grpEncountersCastle
+      uiName: Castle
+      icon: cmd-castle
+    - name: grpEncountersDungeon
+      uiName: Dungeon
+      icon: cmd-cube-unfolded
+    - name: grpEncountersTown
+      uiName: Town
+      icon: cmd-home
+    - name: grpEncountersWild
+      uiName: Wildnerness
+      icon: cmd-pine-tree
+  - name: factions
+    uiName: Factions & Groups
+    icon: cmd-account-multiple
+    groups:
+    - name: grpFactionsSettlement
+      uiName: Settlement
+      icon: cmd-home
+    - name: grpFactionsWild
+      uiName: Wilderness
+      icon: cmd-pine-tree
+  - name: locations
+    uiName: Locations
+    icon: cmd-map-marker
+    groups:
+    - name: grpLocationsCastle
+      uiName: Castle
+      icon: cmd-castle
+    - name: grpLocationsCavern
+      uiName: Cavern
+      icon: cmd-fire
+    - name: grpLocationsDungeon
+      uiName: Dungeon
+      icon: cmd-cube-unfolded
+    - name: grpLocationsTown
+      uiName: Town
+      icon: cmd-home
+    - name: grpLocationsWild
+      uiName: Wilderness
+      icon: cmd-pine-tree
+  - name: npcs
+    uiName: NPCs
+    icon: cmd-account
+    groups:
+    - name: grpNPCsAppPersMotiv
+      uiName: Appearance, Motivations...
+      icon: cmd-face
+    - name: grpNPCsCastle
+      uiName: Castle
+      icon: cmd-castle
+    - name: grpNPCsCastleCourt
+      uiName: Castle Court
+      icon: cmd-castle
+    - name: grpNPCsCastleDungeon
+      uiName: Dungeon
+      icon: cmd-castle
+    - name: grpNPCsCavern
+      uiName: Cavern
+      icon: cmd-fire
+    - name: grpNPCsTown
+      uiName: Town
+      icon: cmd-home
+    - name: grpNPCsTownLaw
+      uiName: Town Law & Order
+      icon: cmd-home
+    - name: grpNPCsTownMerchant
+      uiName: Town Merchant
+      icon: cmd-home
+    - name: grpNPCsWild
+      uiName: Wilderness
+      icon: cmd-pine-tree
 
 icon: cmd-reddit
-groupIcons:
-  Locations: cmd-map-marker
-  Encounters: cmd-run
-  Factions & Groups: cmd-account-multiple
-  NPCs: cmd-account
-
-  grpEncountersCastle: cmd-castle
-  grpEncountersDungeon: cmd-cube-unfolded
-  grpEncountersTown: cmd-home
-  grpEncountersWild: cmd-pine-tree
-  grpFactionsSettlement: cmd-home
-  grpFactionsWild: cmd-pine-tree
-  grpLocationsCastle: cmd-castle
-  grpLocationsCavern: cmd-fire
-  grpLocationsDungeon: cmd-cube-unfolded
-  grpLocationsTown: cmd-home
-  grpLocationsWild: cmd-pine-tree
-  grpNPCsAppPersMotiv: cmd-face
-  grpNPCsCastle: cmd-castle
-  grpNPCsCastleCourt: cmd-castle
-  grpNPCsCastleDungeon: cmd-castle
-  grpNPCsCavern: cmd-fire
-  grpNPCsTown: cmd-home
-  grpNPCsTownLaw: cmd-home
-  grpNPCsTownMerchant: cmd-home
-  grpNPCsWild: cmd-pine-tree
 attribution: |
   /r/BehindTheTables is a companion to /r/DnDBehindTheScreen, content is from multiple users and sources.
   <p>/u/OrkishBlade has done an incredible job curating a fun set of tables</p>

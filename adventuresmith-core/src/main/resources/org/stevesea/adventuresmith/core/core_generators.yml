@@ -57,23 +57,6 @@ generators:
   - whats_on_corpse
   - whats_on_thing
   - where_has_it_been
-  dice_roller: []
-  conjecture_games:
-  - connection
-  - loom
-  - npc_creator
-  - npc_interaction
-  - waylay
-  - waylay_arced
-  kaigaku:
-  - animals
-  - battlefield_enemies
-  - battlefield_peril
-  - court_enemies
-  - urban_enemies
-  freebooters_on_the_frontier:
-  #- chars   Not converted to new template format
-  - spells
   behind_the_tables:
   - apprentice_crafter
   - artisan
@@ -182,22 +165,6 @@ generators:
   - urban_gang
   - watch_guard
   - watchmen
-  gma:
-  - belongings
-  - catalyst
-  - difficulty
-  - likely_odds
-  - location
-  - names
-  - random_event
-  - sensory_snippet
-  - virtue_vice
-  # using layoutinflator+textview results in icons in text... but also a crash
-  # using iconicstextview fixes the crash, but then we don't get the same HTML->Spannable support
-  - elements
-  - scatter
-  - tags
-  #- norse_runes
   maze_rats:
   - mr01_afflictions
   - mr01_characters
@@ -297,15 +264,6 @@ generators:
   - dungeon
   - steading
   - discovery
-  portal_rats:
-  - background
-  - class_occupation
-  - item
-  - monster_features
-  - npc
-  - npc_reaction
-  - out_of_action
-  - portal_destination
   stars_without_number:
   # - world          faction/world   Not converted completely to new template format
   #- faction
@@ -339,27 +297,6 @@ generators:
   - room_dressing
   - scavenger_fleet
   - temple_shrine
-  ss_and_ss:
-  - adventure_complication
-  - adventure_idea
-  - adventure_title
-  - antagonist
-  - complication
-  - opponent_reaction
-  - reward
-  - spell_catastrophe
-  - supporting_character
-  hack_and_slash:
-  - contents_of_pit
-  - corridors
-  - curses
-  - doors
-  - empty_rooms
-  - magic_pools
-  - things
-  - traps
-  - tricks
-  - wfc
   roll_xx:
   - fant_assassins
   - fant_automaton

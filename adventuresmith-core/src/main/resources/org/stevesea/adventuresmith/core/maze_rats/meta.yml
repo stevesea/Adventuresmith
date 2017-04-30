@@ -2,23 +2,40 @@ name: Maze Rats
 id: maze_rats
 credit: Ben Milton
 url: "http://questingblog.com/maze-rats/"
+
+groupedGenerators:
+  grpChar: []
+  grpCity: []
+  grpWild: []
+  grpMaze: []
+  grpItems: []
+  grpMisc: []
+  grpZZ: []
+
 groups:
-  grpChar: Characters & NPCs
-  grpCity: The City
-  grpWild: The Wild
-  grpMaze: The Maze
-  grpItems: Treasure & Equipment
-  grpMisc: Other...
-  grpZZ: Maze Rats 0.1
+  - name: grpChar
+    uiName: Characters & NPCs
+    icon: ion-android-people
+  - name: grpCity
+    uiName: The City
+    icon: cmd-castle
+  - name: grpWild
+    uiName: The Wild
+    icon: cmd-pine-tree
+  - name: grpMaze
+    uiName: The Maze
+    icon: cmd-view-dashboard
+  - name: grpItems
+    uiName: Treasure & Equipment
+    icon: cmd-diamond
+  - name: grpMisc
+    uiName: Other...
+    icon: cmd-dice-d20
+  - name: grpZZ
+    uiName: Maze Rats 0.1
+    icon: cmd-cube-unfolded
+
 icon: cmd-cube-unfolded
-groupIcons:
-  grpChar: ion-android-people
-  grpCity: cmd-castle
-  grpWild: cmd-pine-tree
-  grpMaze: cmd-view-dashboard
-  grpItems: cmd-diamond
-  grpMisc: cmd-dice-d20
-  grpZZ: cmd-cube-unfolded
 attribution: |
   Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
   <p><a href="http://www.drivethrurpg.com/product/197158/Maze-Rats">Maze Rats on DriveThruRPG</a></p>

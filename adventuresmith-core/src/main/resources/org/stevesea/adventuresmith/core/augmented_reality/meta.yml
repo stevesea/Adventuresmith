@@ -19,20 +19,32 @@ attribution: |
   gamesmasters to let their twisted imaginations shine through, without slowing down the action.</p>
   </blockquote>
 icon: cmd-nfc-variant
-groupIcons:
-  grpNPCs: cmd_account_multiple
-  grpSenses: cmd_eye
-  grpEncounters: cmd_human_greeting
-  grpCity: cmd_city
-  grpCorps: cmd_factory
-  grpLoot: cmd_cash
+
+groupedGenerators:
+  grpNPCs: []
+  grpSenses: []
+  grpEncounters: []
+  grpCity:
+  - alternative_business
+  grpCorps: []
+  grpLoot: []
+
 groups:
-  grpNPCs: NPCs
-  grpSenses: Sense & the City
-  grpEncounters: Encounters & Jobs
-  grpCity: Buildings & Assets
-  grpCorps: Corps & Cops
-  grpLoot: Technology & Items
-
-
-
+  - name: grpNPCs
+    uiName: NPCs
+    icon: cmd_account_multiple
+  - name: grpSenses
+    uiName: Sense & the City
+    icon: cmd_eye
+  - name: grpEncounters
+    uiName: Encounters & Jobs
+    icon: cmd_human_greeting
+  - name: grpCity
+    uiName: Buildings & Assets
+    icon: cmd_city
+  - name: grpCorps
+    uiName: Corps & Cops
+    icon: cmd_factory
+  - name: grpLoot
+    uiName: Technology & Items
+    icon: cmd_cash

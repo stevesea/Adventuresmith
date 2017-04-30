@@ -4,63 +4,120 @@ url: http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press
 credit: The Sentinels of Meregoth / Neoplastic Press
 hasGroupHierarchy: true
 icon: cmd-format-superscript
-groupIcons:
-  Fantasy: cmd-castle
-  grpFantAdvSeed: cmd-sword
-  grpFantCityDressing: cmd-castle
-  grpFantDungeonDressing: cmd-cube-unfolded
-  grpFantChars: cmd-account
-  grpFantNPCs: cmd-account-multiple
-  grpFantMagic: cmd-auto-fix
-  grpFantMonsters: cmd-paw
-  grpFantTreasure: cmd-diamond
 
-  Horror: cmd-ghost
-  grpHorrorAdvSeeds: ion-bonfire
-  grpHorrorChars: cmd-emoticon-devil
-  grpHorrorMonsters: cmd-duck
-  grpHorrorSights: cmd-face
-  grpHorrorSounds: cmd-face-profile
+groupedGenerators:
+  grpFantAdvSeed: []
+  grpFantCityDressing: []
+  grpFantDungeonDressing: []
+  grpFantChars: []
+  grpFantNPCs: []
+  grpFantMagic: []
+  grpFantMonsters: []
+  grpFantTreasure: []
 
-  Modern: cmd-city
-  grpModernChars: cmd-account
-  grpModernMissions: cmd-puzzle
-  grpModernRoomDressing: cmd-domain
+  grpHorrorAdvSeeds: []
+  grpHorrorChars: []
+  grpHorrorMonsters: []
+  grpHorrorSights: []
+  grpHorrorSounds: []
 
-  Science Fiction: ion-planet
-  grpSciFiAdvSeed: cmd-robot
-  grpSciFiShip: cmd-rocket
+  grpModernChars: []
+  grpModernMissions: []
+  grpModernRoomDressing: []
 
-  Superheroes: cmd-dna
-  grpSuperAdvSeed: cmd-bomb
-  grpSuperHeroes: cmd-emoticon
-  grpSuperVillains: cmd-emoticon-devil
+  grpSciFiAdvSeed: []
+  grpSciFiShip: []
+
+  grpSuperAdvSeed: []
+  grpSuperHeroes: []
+  grpSuperVillains: []
+
+
 groups:
-  grpFantAdvSeed: Fantasy / Adventure Seeds
-  grpFantCityDressing: Fantasy / City Dressing
-  grpFantDungeonDressing: Fantasy / Dungeon Dressing
-  grpFantChars: Fantasy / Characters
-  grpFantNPCs: Fantasy / NPCs
-  grpFantMagic: Fantasy / Magic
-  grpFantMonsters: Fantasy / Monsters
-  grpFantTreasure: Fantasy / Treasure & Items
+- name: fantasy
+  uiName: Fantasy
+  icon: cmd-castle
+  groups:
+  - name: grpFantAdvSeed
+    uiName: Adventure Seeds
+    icon: cmd-sword
+  - name: grpFantCityDressing
+    uiName: City Dressing
+    icon: cmd-castle
+  - name: grpFantDungeonDressing
+    uiName: Dungeon Dressing
+    icon: cmd-cube-unfolded
+  - name: grpFantChars
+    uiName: Characters
+    icon: cmd-account
+  - name: grpFantNPCs
+    uiName: NPCs
+    icon: cmd-account-multiple
+  - name: grpFantMagic
+    uiName: Magic
+    icon: cmd-auto-fix
+  - name: grpFantMonsters
+    uiName: Monsters
+    icon: cmd-paw
+  - name: grpFantTreasure
+    uiName: Treasure & Items
+    icon: cmd-diamond
+- name: horror
+  uiName: Horror
+  icon: cmd-ghost
+  groups:
+  - name: grpHorrorAdvSeeds
+    uiName: Adventure Seeds
+    icon: ion-bonfire
+  - name: grpHorrorChars
+    uiName: Characters
+    icon: cmd-emoticon-devil
+  - name: grpHorrorMonsters
+    uiName: Monsters
+    icon: cmd-duck
+  - name: grpHorrorSights
+    uiName: Sights
+    icon: cmd-face
+  - name: grpHorrorSounds
+    uiName: Sounds
+    icon: cmd-face-profile
+- name: modern
+  uiName: Modern
+  icon: cmd-city
+  groups:
+  - name: grpModernChars
+    uiName: Characters
+    icon: cmd-account
+  - name: grpModernMissions
+    uiName: Missions
+    icon: cmd-puzzle
+  - name: grpModernRoomDressing
+    uiName: Room Dressing
+    icon: cmd-domain
+- name: scifi
+  uiName: Science Fiction
+  icon: ion-planet
+  groups:
+  - name: grpSciFiAdvSeed
+    uiName: Adventure Seeds
+    icon: cmd-robot
+  - name: grpSciFiShip
+    uiName: Starships
+    icon: cmd-rocket
+- name: superheroes
+  uiName: Superheroes
+  icon: cmd-dna
+  groups:
+  - name: grpSuperAdvSeed
+    uiName: Adventure Seeds
+    icon: cmd-bomb
+  - name: grpSuperHeroes
+    uiName: Heroes
+    icon: cmd-emoticon
+  - name: grpSuperVillains
+    uiName: Villains
+    icon: cmd-emoticon-devil
 
-  grpHorrorAdvSeeds: Horror / Adventure Seeds
-  grpHorrorChars: Horror / Characters
-  grpHorrorMonsters: Horror / Monsters
-  grpHorrorSights: Horror / Sights
-  grpHorrorSounds: Horror / Sounds
-
-  grpModernChars: Modern / Characters
-  grpModernMissions: Modern / Missions
-  grpModernRoomDressing: Modern / Room Dressing
-
-  grpSciFiAdvSeed: Science Fiction / Adventure Seeds
-  grpSciFiShip: Science Fiction / Starships
-
-  grpSuperAdvSeed: Superheroes / Adventure Seeds
-  grpSuperHeroes: Superheroes / Heroes
-  grpSuperVillains: Superheroes / Villains
 attribution: |
   <p><a href="http://www.drivethrurpg.com/product/108917/Roll-XX">Roll XX on DriveThruRPG</a></p>
   <p>

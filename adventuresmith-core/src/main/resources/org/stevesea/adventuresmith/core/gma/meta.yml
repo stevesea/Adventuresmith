@@ -3,6 +3,23 @@ id: gma
 credit: Larcenous Designs, LLC
 icon: cmd_cards
 url: "http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck"
+
+generators:
+  - belongings
+  - catalyst
+  - difficulty
+  - likely_odds
+  - location
+  - names
+  - random_event
+  - sensory_snippet
+  - virtue_vice
+  # using layoutinflator+textview results in icons in text... but also a crash
+  # using iconicstextview fixes the crash, but then we don't get the same HTML->Spannable support
+  - elements
+  - scatter
+  - tags
+  #- norse_runes
 attribution: |
   <a href="http://www.larcenousdesigns.com/">Larcenous Designs, LLC</a>
   <p><a href="http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck">GameMaster's Apprentice on DriveThruRPG</a></p>

@@ -3,6 +3,15 @@ id: portal_rats
 credit: Parenthesis Press / Tore Nielsen and Neal Stidham
 icon: cmd_white_balance_sunny
 url: "http://www.drivethrurpg.com/product/209750/Portal-Rats"
+generators:
+  - background
+  - class_occupation
+  - item
+  - monster_features
+  - npc
+  - npc_reaction
+  - out_of_action
+  - portal_destination
 attribution: |
   <h4>Portal Rats: High Misadventure on the Infinite Planes</h4>
   <p>Written by Tore Nielsen and Neal Stidham</p>

@@ -3,18 +3,29 @@ id: perilous_wilds
 credit: Jason Lutes
 url: "http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds"
 icon: cmd-image-filter-hdr
-groupIcons:
-  grp1: cmd-magnify
-  grp2: cmd-book-open-page-variant
-  grp3: ion-ios-paw
-  grp4: cmd-account-multiple
-  grp5: cmd-white-balance-iridescent
+
+groupedGenerators:
+  dang_disc: []
+  create_name: []
+  creatures: []
+  npcs: []
+  treasure: []
 groups:
-  grp1: Dangers & Discoveries
-  grp2: Create & Name
-  grp3: Creatures
-  grp4: NPCs
-  grp5: Treasure
+- name: dang_disc
+  uiName: Dangers & Discoveries
+  icon: cmd-magnify
+- name: create_name
+  uiName: Create & Name
+  icon: cmd-book-open-page-variant
+- name: creatures
+  uiName: Creatures
+  icon: ion-ios-paw
+- name: npcs
+  uiName: NPCs
+  icon: cmd-account-multiple
+- name: treasure
+  uiName: Treasure
+  icon: cmd-white-balance-iridescent
 attribution: |
   <p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
   <p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A. with assistance from <strong>Jeremy Strandberg</strong> in Madison, Wisconsin, U.S.A.</p>

@@ -208,23 +208,36 @@ data class GeneratorMetaDto(val name: String,
 
 data class GeneratorListDto(val generators: Map<String,List<String>>);
 
+data class CollGroupMetaDto(val name: String,
+                            val uiName: String,
+                            val icon: String,
+                            val groups: List<CollGroupMetaDto> = listOf())
+
 data class CollectionMetaDto(val url: String? = null,
                              val id: String,
                              val name: String,
                              val priority: Int,
                              val icon: String,
-                             val groupIcons: Map<String,String>? = null,
                              val desc: String? = null,
                              val credit: String? = null,
                              val attribution: String? = null,
                              val hasGroupHierarchy: Boolean = false,
-                             val groups: Map<String, String>? = null) : Comparable<CollectionMetaDto> {
+                             val generators: List<String> = listOf(),
+                             val groupGenerators: Map<String, List<String>> = mapOf(),
+                             val groups: List<CollGroupMetaDto>? = null) : Comparable<CollectionMetaDto> {
     override fun compareTo(other: CollectionMetaDto): Int {
         return ComparisonChain.start()
                 .compare(priority, other.priority)
                 .compare(name, other.name)
                 .compare(id, other.id)
                 .result()
+    }
+    fun getGenerators(groupId: String? = null) : List<String> {
+        if (groupId.isNullOrEmpty()) {
+            return generators
+        } else {
+            return groupGenerators.getOrDefault(groupId!!, listOf())
+        }
     }
     fun toMarkdownStr() : String {
         val sb = StringBuffer("## ${name} - ${credit}\n")

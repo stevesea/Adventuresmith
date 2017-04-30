@@ -1,0 +1,22 @@
+---
+# This needs to be here since we can't programmatically discover resources in the classpath.
+# When impl other filesystem/REST schemes, can probably just use file/directory semantics to
+# organize generators and metadata
+
+collections:
+- augmented_reality
+- behind_the_tables
+- conjecture_games
+- dice_roller
+- freebooters_on_the_frontier
+- gma
+- hack_and_slash
+- kaigaku
+- macchiato_monsters
+- maze_rats
+- misc
+- perilous_wilds
+- portal_rats
+- roll_xx
+- ss_and_ss
+- stars_without_number
