@@ -58,6 +58,7 @@ import com.mikepenz.materialize.util.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.core.*
+import java.security.SecureRandom
 import java.text.*
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -558,10 +559,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .apply()
     }
 
-
-
-    val shuffler = AdventuresmithCore.shuffler
-
     val headerImages = listOf(
             R.drawable.header_graphic,
             R.drawable.header_graphic_b
@@ -836,13 +833,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         collapsing_toolbar.title = ""
 
-        bkg_image.setImageResource(shuffler.pick(bkgImages))
+        bkg_image.setImageResource(pick(bkgImages))
 
         drawerHeader = AccountHeaderBuilder()
                 .withActivity(this)
                 .withCompactStyle(useStaticNavbar())
                 .withSavedInstance(savedInstanceState)
-                .withHeaderBackground(shuffler.pick(headerImages))
+                .withHeaderBackground(pick(headerImages))
                 .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
                 /*
                 .withProfileImagesVisible(false)
@@ -1323,6 +1320,13 @@ class AdventuresmithActivity : AppCompatActivity(),
             } else {
                 return r.configuration.locale
             }
+        }
+        val random = SecureRandom()
+
+        fun <T> pick(items: Collection<T>?) : T {
+            // use modulo because the randomizer might be a mock that's been setup to do something dumb
+            // and returns greater than the # of items in list
+            return items!!.elementAt(random.nextInt(items.size) % items.size)
         }
     }
 }
