@@ -43,15 +43,6 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     // the tag for the resource-generators held in core
     val RESOURCE_GENERATORS = "resource_generators"
 
-    val BehindTheTables = "behind_the_tables"
-    val MazeRats = "maze_rats"
-    val Kaigaku = "kaigaku"
-    val PerilousWilds = "perilous_wilds"
-    val HackSlash = "hack_and_slash"
-    val AugmentedReality = "augmented_reality"
-    val RollXX = "roll_xx"
-    val SSandSS = "ss_and_ss"
-
     override val kodein: Kodein by Kodein.lazy {
         import(adventureSmithModule)
     }
