@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith
 
 import android.annotation.*
+import android.content.res.AssetManager
 import android.os.*
 import android.support.multidex.*
 import android.text.*
@@ -29,7 +30,9 @@ import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import com.crashlytics.android.core.*
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.github.salomonbrys.kodein.instance
 import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.Iconics
@@ -38,6 +41,12 @@ import com.squareup.leakcanary.*
 import io.fabric.sdk.android.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.core.AdventuresmithCore
+import org.stevesea.adventuresmith.core.CollectionMetaDto
+import org.stevesea.adventuresmith.core.CollectionMetaLoader
+import org.stevesea.adventuresmith.core.GeneratorListDto
+import java.io.BufferedInputStream
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.concurrent.TimeUnit
 
 class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
@@ -54,6 +63,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         val objectWriter by lazy {
             objectMapper.writer()
         }
+
     }
 
     override fun onCreate() {
@@ -88,8 +98,29 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
                     .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
             )
         }
+        //testAssets(assets)
+    }
+
+    fun testAssets(assets: AssetManager) {
+        val collMetaLoader = AdventuresmithCore.kodein.instance<CollectionMetaLoader>()
+        val yamlMapper = AdventuresmithCore.kodein.instance<ObjectMapper>()
+
+        val sw = Stopwatch.createStarted()
+
+        val v : GeneratorListDto = assets.open("core_generators.yml").bufferedReader(Charsets.UTF_8).use {
+            yamlMapper.reader().forType(GeneratorListDto::class.java).readValue(it)
+        }
+
+        for (collId in v.generators.keys) {
+            info(collId)
+            assets.open("${collId}/meta.yml").bufferedReader(Charsets.UTF_8).use {
+                val meta : CollectionMetaDto = yamlMapper.reader().forType(CollectionMetaDto::class.java).readValue(it)
+            }
+        }
+        info("Read from assets in $sw (since app start: ${AdventuresmithApp.watch})")
     }
 }
+
 
 
 @TargetApi(Build.VERSION_CODES.N)
