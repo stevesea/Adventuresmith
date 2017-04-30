@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/adventuresmith-cli/adventuresmith-cli.iml" filepath="$PROJECT_DIR$/adventuresmith-cli/adventuresmith-cli.iml" />
       <module fileurl="file://$PROJECT_DIR$/adventuresmith-core/adventuresmith-core.iml" filepath="$PROJECT_DIR$/adventuresmith-core/adventuresmith-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libgenerator/libgenerator.iml" filepath="$PROJECT_DIR$/libgenerator/libgenerator.iml" />
     </modules>
   </component>
 </project>
