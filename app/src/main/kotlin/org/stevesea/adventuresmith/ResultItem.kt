@@ -68,23 +68,23 @@ class ResultItem(val htmlTxt: String) :
             holder.itemText.visibility = View.GONE
             holder.itemIconicsText.visibility = View.VISIBLE
             holder.itemIconicsText.text = (spannedText)
-            val ctx = holder.itemIconicsText.getContext()
+            val ctx = holder.itemIconicsText.context
             //set the background for the item
             UIUtils.setBackground(holder.itemIconicsText,
-                    FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true));
+                    FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true))
         } else {
             holder.itemText.visibility = View.VISIBLE
             holder.itemIconicsText.visibility = View.GONE
             holder.itemText.text = (spannedText)
-            val ctx = holder.itemText.getContext()
+            val ctx = holder.itemText.context
             //set the background for the item
             UIUtils.setBackground(holder.itemText,
-                    FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true));
+                    FastAdapterUIUtils.getSelectableBackground(ctx, ContextCompat.getColor(ctx, R.color.resultCardBgSelected), true))
         }
 
     }
 
-    class ViewHolder(val v: View?) : RecyclerView.ViewHolder(v) {
+    class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
         val itemText = v!!.findViewById(R.id.result_list_item_text) as TextView
         val itemIconicsText = v!!.findViewById(R.id.result_list_item_iconics_text) as IconicsTextView
     }

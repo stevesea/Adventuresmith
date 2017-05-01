@@ -152,7 +152,7 @@ object AdventuresmithCli : KLoggable {
             }
         } catch ( e: ArgumentParserException) {
             parser.handleError(e)
-            System.exit(1);
+            System.exit(1)
         } catch ( e: IOException) {
             logger.error(e.message)
             System.exit(1)
@@ -221,14 +221,13 @@ object AdventuresmithCli : KLoggable {
         AdventuresmithCore.collections.forEach { collId, collDto ->
             val coll = AdventuresmithCore.getCollectionMetaData(collId, l)
 
-            if (collDto.groupedGenerators.isEmpty()) {
-                logger.info("{} - {} ({})", l, coll.name, collDto.id)
-                listGens(l, collDto.id)
-            } else {
-                collDto.groupedGenerators.keys.forEach { grp ->
-                    logger.info("{} - {} / {} ({})", l, coll.name, grp, collDto.id)
-                    listGens(l, collDto.id, grp)
-                }
+            if (collDto.generators.isNotEmpty()) {
+                logger.info("{} - {} ({})", l, coll.name, collId)
+                listGens(l, collId)
+            }
+            collDto.groupedGenerators.keys.forEach { grp ->
+                logger.info("{} - {} / {} ({})", l, coll.name, grp, collId)
+                listGens(l, collId, grp)
             }
         }
     }
@@ -243,15 +242,15 @@ object AdventuresmithCli : KLoggable {
         AdventuresmithCore.collections.forEach { collId, coll ->
             val collMeta = AdventuresmithCore.getCollectionMetaData(collId, l)
             if (coll.generators.isNotEmpty()) {
-                logger.info("{} - {} ({})", l, collMeta.name, coll.id)
-                runGens(opts, l, coll.id)
+                logger.info("{} - {} ({})", l, collMeta.name, collId)
+                runGens(opts, l, collId)
             }
             if (coll.groupedGenerators.isNotEmpty()) {
                 coll.groupedGenerators.keys.forEach { grp ->
-                    logger.info("{} - {} / {} ({}/{})", l, collMeta.name, grp, coll.id)
-                    runGens(opts, l, coll.id, grp)
+                    logger.info("{} - {} / {} ({}/{})", l, collMeta.name, grp, collId)
+                    runGens(opts, l, collId, grp)
                 }
-                logger.info("{} - {} / {} ({})", l, collMeta.name, coll.id)
+                logger.info("{} - {} / {} ({})", l, collMeta.name, collId)
             }
         }
     }

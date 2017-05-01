@@ -36,7 +36,7 @@ class AboutActivity : AppCompatActivity() {
         var versionName = ""
         var versionCode = -1
         try {
-            val packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
+            val packageInfo = packageManager.getPackageInfo(packageName, 0)
             versionName = packageInfo.versionName
             versionCode = packageInfo.versionCode
         } catch (e: PackageManager.NameNotFoundException) {

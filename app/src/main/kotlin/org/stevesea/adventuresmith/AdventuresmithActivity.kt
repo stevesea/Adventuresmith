@@ -47,7 +47,6 @@ import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.listeners.EventHook
 import com.mikepenz.fastadapter_extensions.*
 import com.mikepenz.iconics.*
-import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.mikepenz.iconics.typeface.*
 import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.interfaces.*
@@ -58,11 +57,9 @@ import com.mikepenz.materialize.util.*
 import kotlinx.android.synthetic.main.activity_adventuresmith.*
 import org.jetbrains.anko.*
 import org.stevesea.adventuresmith.core.*
-import java.security.SecureRandom
 import java.text.*
 import java.util.*
 import java.util.concurrent.TimeUnit
-
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
@@ -212,7 +209,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return
                         val genId = genBtn.generator.getId()
                         val params = genBtn.meta.input!!.params
-                        val param = params.get(stepInd)
+                        val param = params[stepInd]
                         val k = param.name
                         // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
                         val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {param.defaultValue}}
@@ -656,15 +653,19 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     fun getNavDrawerItemIcon(id: String, grpId : String? = null): IIcon {
-        val collMeta = getCachedCollections(resources).getOrElse(id) {
+        val collMeta = getCachedCollectionMetas(resources).getOrElse(id) {
+            error("Couldn't find metadata for collection id: $id")
+            return CommunityMaterial.Icon.cmd_help
+        }
+        val coll = AdventuresmithCore.collections.getOrElse(id) {
             error("Couldn't find collection id: $id")
             return CommunityMaterial.Icon.cmd_help
         }
 
-        val collIcon = collMeta.icon
+        val collIcon = coll.icon
         val iconicsDrawable : IconicsDrawable =
-        if (!grpId.isNullOrEmpty() && collMeta.groupIcons != null) {
-            val grpIcon = collMeta.groupIcons!!.getOrElse(grpId!!) {collIcon}
+        if (!grpId.isNullOrEmpty()) {
+            val grpIcon = collMeta.iconIndex.getOrElse(grpId!!) {collIcon}
             IconicsDrawable(this, grpIcon)
         } else {
             IconicsDrawable(this, collIcon)
@@ -683,33 +684,36 @@ class AdventuresmithActivity : AppCompatActivity(),
         drawerIdToGroup.clear()
         favoriteIdToName.clear()
 
-        val generatorCollections = getCachedCollections(resources)
 
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
         result.add(favExpandItem)
 
-        for (coll in generatorCollections.values.toSortedSet()) {
-            debug("collection: ${coll.id}")
+        val collections = getCachedCollections()
+        val collectionMetas = getCachedCollectionMetas(resources)
+        for (collId in collections.keys) {
 
-            if (coll.groups != null && coll.groups!!.isNotEmpty()) {
+            val coll = collections.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId")}
+            val collMeta = collectionMetas.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId")}
+            info("collection: $collId")
 
+            if (collMeta.hasGroups) {
                 // has groups, create header & children
                 if (coll.hasGroupHierarchy) {
 
                     val rootExpandableItem = ExpandableDrawerItem()
-                            .withName(coll.name)
-                            .withIcon(getNavDrawerItemIcon(coll.id))
-                            .withIdentifier(coll.id.hashCode().toLong())
-                            .withDescription(coll.desc)
+                            .withName(collMeta.name)
+                            .withIcon(getNavDrawerItemIcon(collId))
+                            .withIdentifier(collId.hashCode().toLong())
+                            .withDescription(collMeta.desc)
                             .withDescriptionTextColorRes(R.color.textSecondary)
                             .withSelectable(false)
                             .withIsExpanded(false)
 
                     val groupGroupMap : MutableMap<String, ExpandableDrawerItem> = mutableMapOf()
                     for (grp in coll.groups!!.entries) {
-                        val navId = "${coll.id}.${grp.key}".hashCode().toLong()
-                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
+                        val navId = "${collId}.${grp.key}".hashCode().toLong()
+                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = "${collMeta.name} / ${grp.value}", groupId = grp.key))
 
                         val words = grp.value.split("/", limit = 2).map { it.trim() }
                         if (words.size != 2) {
@@ -720,7 +724,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val subGrpItem = SecondaryDrawerItem()
                                 .withName(subGrpName)
-                                .withIcon(getNavDrawerItemIcon(coll.id, grp.key))
+                                .withIcon(getNavDrawerItemIcon(collId, grp.key))
                                 .withIdentifier(navId)
                                 .withSelectable(true)
                                 .withLevel(3)
@@ -733,7 +737,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     .withSelectable(false)
                                     .withIsExpanded(false)
                                     .withIdentifier(grpGrp.hashCode().toLong())
-                                    .withIcon(getNavDrawerItemIcon(coll.id, grpGrp))
+                                    .withIcon(getNavDrawerItemIcon(collId, grpGrp))
                                     .withSubItems(subGrpItem)
                             groupGroupMap.put(grpGrp, groupGroupItem)
                         } else {
@@ -748,19 +752,19 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                 } else {
                     val expandableItem = ExpandableDrawerItem()
-                            .withName(coll.name)
-                            .withIcon(getNavDrawerItemIcon(coll.id))
-                            .withIdentifier(coll.id.hashCode().toLong())
-                            .withDescription(coll.desc)
+                            .withName(collMeta.name)
+                            .withIcon(getNavDrawerItemIcon(collId))
+                            .withIdentifier(collId.hashCode().toLong())
+                            .withDescription(collMeta.desc)
                             .withDescriptionTextColorRes(R.color.textSecondary)
                             .withSelectable(false)
                             .withIsExpanded(false)
                     for (grp in coll.groups!!.entries) {
-                        val navId = "${coll.id}.${grp.key}".hashCode().toLong()
-                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = "${coll.name} / ${grp.value}", groupId = grp.key))
+                        val navId = "${collId}.${grp.key}".hashCode().toLong()
+                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = "${collMeta.name} / ${grp.value}", groupId = grp.key))
                         val childItem = SecondaryDrawerItem()
                                 .withName(grp.value)
-                                .withIcon(getNavDrawerItemIcon(coll.id, grp.key))
+                                .withIcon(getNavDrawerItemIcon(collId, grp.key))
                                 .withIdentifier(navId)
                                 .withSelectable(true)
                                 .withLevel(2)
@@ -770,14 +774,14 @@ class AdventuresmithActivity : AppCompatActivity(),
                 }
             } else {
                 // no groups, just create item
-                val navId = coll.id.hashCode().toLong()
-                drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = coll.id, name = coll.name))
+                val navId = collId.hashCode().toLong()
+                drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = collMeta.name))
                 result.add(PrimaryDrawerItem()
-                        .withName(coll.name)
-                        .withIcon(getNavDrawerItemIcon(coll.id))
+                        .withName(collMeta.name)
+                        .withIcon(getNavDrawerItemIcon(collId))
                         .withIdentifier(navId)
                         .withSelectable(true)
-                        .withDescription(coll.desc)
+                        .withDescription(collMeta.desc)
                         .withDescriptionTextColorRes(R.color.textSecondary)
                 )
             }
@@ -1264,7 +1268,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         // a collection/group and not a favorite
                         val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
                         if (collGrp != null) {
-                            val collMeta = getCachedCollections(resources).get(collGrp.collectionId)!!
+                            val collMeta = getCachedCollectionMetas(resources).get(collGrp.collectionId)!!
                             if (collMeta.credit != null)
                                 str = collMeta.toHtmlStr()
                         }
@@ -1296,23 +1300,39 @@ class AdventuresmithActivity : AppCompatActivity(),
     companion object : AnkoLogger {
         var lastLocale : Locale? = null
         // cache is invalidated if locale changes
-        var cachedCollectionMeta : Map<String, CollectionMetaDto> = ImmutableMap.of()
+        var cachedCollectionMeta : Map<String, CollectionMetaDto> = mapOf()
 
-        private fun getCachedCollections(r: Resources): Map<String, CollectionMetaDto> {
+        private fun getCachedCollectionMetas(r: Resources): Map<String, CollectionMetaDto> {
             synchronized(cachedCollectionMeta) {
                 val curLocale = getCurrentLocale(r)
                 if (curLocale != lastLocale) {
-                    val outerStopwatch = Stopwatch.createStarted()
-                    cachedCollectionMeta = AdventuresmithCore.getCollections(curLocale)
-                    outerStopwatch.stop()
-                    info("Loading collections done. took ${outerStopwatch} (since app start: ${AdventuresmithApp.watch})")
-                    Answers.getInstance().logCustom(CustomEvent("GetCollections")
-                            .putCustomAttribute("elapsedMS", outerStopwatch.elapsed(TimeUnit.MILLISECONDS))
+                    val stopwatch = Stopwatch.createStarted()
+                    cachedCollectionMeta = AdventuresmithCore.getCollectionMetas(curLocale)
+                    stopwatch.stop()
+                    info("Loading collection Metas done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
+                    Answers.getInstance().logCustom(CustomEvent("GetCollectionMetas")
+                            .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
                             .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
                     )
                     lastLocale = curLocale
                 }
                 return cachedCollectionMeta
+            }
+        }
+        // this cache doesn't need to change if locale does
+        var collections : Map<String, CollectionDto> = mapOf()
+        private fun getCachedCollections() : Map<String, CollectionDto> {
+            synchronized(collections) {
+                if (collections.isEmpty()) {
+                    val stopwatch = Stopwatch.createStarted()
+                    collections = AdventuresmithCore.collections
+                    stopwatch.stop()
+                    info("Loading collections done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
+                    Answers.getInstance().logCustom(CustomEvent("GetCollections")
+                            .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+                            .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
+                    )
+                }
             }
         }
 

@@ -220,7 +220,15 @@ data class CollectionDto(val id: String,
 data class CollGroupMetaDto(val name: String,
                             val uiName: String,
                             val icon: String,
-                            val groups: List<CollGroupMetaDto> = listOf())
+                            val groups: List<CollGroupMetaDto> = listOf()) {
+    fun getIconIndex() : Map<String, String> {
+        val result : MutableMap<String, String> = mutableMapOf(name to icon)
+        groups.forEach {
+            result.putAll(it.getIconIndex())
+        }
+        return result
+    }
+}
 
 // the 'metadata' for a collection -- in file: <collection-dir>/meta.yml (differs depending on locale)
 data class CollectionMetaDto(val url: String? = null,
@@ -228,8 +236,19 @@ data class CollectionMetaDto(val url: String? = null,
                              val desc: String? = null,
                              val credit: String? = null,
                              val attribution: String? = null,
-                             val hasGroupHierarchy: Boolean = false,
                              val groups: List<CollGroupMetaDto>? = null) {
+
+    val iconIndex : Map<String, String> by lazy {
+        val result : MutableMap<String, String> = mutableMapOf()
+        groups?.forEach { grpMeta ->
+            result.putAll(grpMeta.getIconIndex())
+        }
+        result
+    }
+    val hasGroups : Boolean by lazy {
+        groups?.isNotEmpty() ?: false
+    }
+
     fun toMarkdownStr() : String {
         val sb = StringBuffer("## ${name} - ${credit}\n")
         if (url != null)

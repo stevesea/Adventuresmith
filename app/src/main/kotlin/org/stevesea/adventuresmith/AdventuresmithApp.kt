@@ -78,6 +78,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
         info("App onCreate done: ${watch}")
 
+        /*
         doAsync {
             val innerStopwatch = Stopwatch.createStarted()
             AdventuresmithCore.initCaches()
@@ -88,6 +89,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
                     .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
             )
         }
+        */
     }
 }
 

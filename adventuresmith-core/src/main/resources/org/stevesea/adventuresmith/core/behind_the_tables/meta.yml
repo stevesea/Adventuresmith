@@ -1,7 +1,6 @@
 name: /r/BehindTheTables
 url: https://www.reddit.com/r/BehindTheTables/
 credit: /r/DnDBehindTheScreen
-hasGroupHierarchy: true
 groups:
   - name: encounters
     uiName: Encounters
