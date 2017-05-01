@@ -6,44 +6,6 @@
 # almost every generator uses this scheme to populate the nav.
 # exceptions are noted below
 generators:
-  maze_rats:
-  - mr01_afflictions
-  - mr01_characters
-  - mr01_items
-  - mr01_magic
-  - mr01_monsters
-  - mr01_potion_effects
-  - after_the_party
-  - animals
-  - books
-  - buildings
-  - characters
-  - city
-  - district
-  - divine_domains
-  - dungeon
-  - dungeon_room
-  - dungeon_trick
-  - factions
-  - forage
-  - inns
-  - insanities
-  - items
-  - magical_ingredients
-  - misfortunes
-  - missions
-  - monsters
-  - mutations
-  - names
-  - npcs
-  - omens_catastrophes
-  - pick_pocket
-  - potions
-  - spells
-  - traps
-  - treasure
-  - wild_disc
-  - wilderness
 
   misc:
   - minor_arcana

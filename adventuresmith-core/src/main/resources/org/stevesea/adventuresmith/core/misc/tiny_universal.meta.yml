@@ -1,7 +1,5 @@
 ---
 name: Tiny Universal
-collectionId: misc
-groupId: grpGME
 input:
   displayTemplate: "Roll: {{roll}}"
   params:
