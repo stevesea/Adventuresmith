@@ -24,9 +24,6 @@ import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
 import com.github.salomonbrys.kodein.*
-import com.google.common.collect.Multimap
-import com.google.common.collect.Multimaps
-import com.google.common.collect.Table
 import com.google.common.io.*
 import mu.KLoggable
 import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
@@ -45,10 +42,6 @@ object AdventuresmithCore : KodeinAware, KLoggable {
 
     override val kodein: Kodein by Kodein.lazy {
         import(adventureSmithModule)
-    }
-
-    val shuffler : Shuffler by lazy {
-        kodein.instance<Shuffler>()
     }
 
     val generators : Map<String,Generator> by lazy {

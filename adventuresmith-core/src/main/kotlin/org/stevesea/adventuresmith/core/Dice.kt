@@ -193,10 +193,7 @@ val diceModule = Kodein.Module {
                     return it
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it,
-                            groupId = "grpPolys",
-                            collectionId = DiceConstants.CollectionName,
-                            priority = DiceConstants.regularDice.indexOf(it))
+                    return GeneratorMetaDto(name = it)
                 }
 
                 val diceParser : DiceParser = instance()
@@ -215,10 +212,7 @@ val diceModule = Kodein.Module {
                     return it.key
                 }
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it.key,
-                            groupId = "grpCombinations",
-                            collectionId = DiceConstants.CollectionName,
-                            priority = 100)
+                    return GeneratorMetaDto(name = it.key)
                 }
 
                 val diceParser : DiceParser = instance()
@@ -245,7 +239,7 @@ val diceModule = Kodein.Module {
                 return "2d20 Advantage: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "2d20 Advantage", groupId = "grpCombinations", collectionId = DiceConstants.CollectionName)
+                return GeneratorMetaDto(name = "2d20 Advantage")
             }
         }
     }
@@ -263,9 +257,7 @@ val diceModule = Kodein.Module {
                 return "2d20 Disadvantage: <strong>${nf.format(worst)}</strong> <small>${rolls}</small>"
             }
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                return GeneratorMetaDto(name = "2d20 Disadvantage",
-                        collectionId = DiceConstants.CollectionName,
-                        groupId = "grpCombinations")
+                return GeneratorMetaDto(name = "2d20 Disadvantage")
             }
         }
     }
@@ -385,9 +377,6 @@ abstract class CustomizeableDiceGenerator(
     }
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return GeneratorMetaDto(name = myname,
-                collectionId = DiceConstants.CollectionName,
-                priority = 3000,
-                groupId = "grpCustom",
                 input = GeneratorInputDto(
                         displayTemplate = "<big>{{x}}d{{y}} + {{z}}</big>{{#dropNHigh}}<br/>Drop {{dropNHigh}} Highest{{/dropNHigh}}{{#dropNLow}}<br/>Drop {{dropNLow}} Lowest{{/dropNLow}}{{#tn}}<br/>Target number: {{tn}}{{/tn}}",
                         useWizard = false,
@@ -493,9 +482,6 @@ abstract class ExplodingDiceGenerator( val myid: String,
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return GeneratorMetaDto(name = myname,
-                collectionId = DiceConstants.CollectionName,
-                priority = 3000,
-                groupId = "grpFudge",
                 input = GeneratorInputDto(
                         displayTemplate = "<big>{{x}}d{{y}}!{{#eGreater}}>{{eGreater}}{{/eGreater}}{{^eGreater}}{{#eEqual}}{{eEqual}}{{/eEqual}}{{/eGreater}}{{^eGreater}}{{^eEqual}}{{y}}{{/eEqual}}{{/eGreater}}</big>",
                         useWizard = false,
@@ -556,7 +542,7 @@ abstract class FudgeDiceGenerator(
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        return GeneratorMetaDto(name = myname, groupId = "grpFudge", collectionId = DiceConstants.CollectionName, priority = 2000,
+        return GeneratorMetaDto(name = myname,
                 input = GeneratorInputDto(
                         displayTemplate = "<big>{{n}}dF</big>",
                         useWizard = false,
@@ -686,7 +672,7 @@ abstract class EotEDiceGenerator(
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        return GeneratorMetaDto(name = myname, groupId = "grpEOTE", collectionId = DiceConstants.CollectionName, priority = 4000,
+        return GeneratorMetaDto(name = myname,
                 input = GeneratorInputDto(
                         displayTemplate = """
                             <big>

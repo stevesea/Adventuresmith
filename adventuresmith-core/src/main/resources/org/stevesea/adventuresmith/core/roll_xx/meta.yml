@@ -147,7 +147,6 @@ groupedGenerators:
   - supers_villain_target
   - supers_villain_threat
 
-
 groups:
 - name: fantasy
   uiName: Fantasy
