@@ -183,7 +183,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
             val result: T = objectReader.forType(clazz).readValue(str)
             return result
         } catch (ex: Exception) {
-            throw IOException("problem reading file ${url} - ${ex.message}", ex)
+            throw IOException("problem reading file $url - ${ex.message}", ex)
         }
     }
 }

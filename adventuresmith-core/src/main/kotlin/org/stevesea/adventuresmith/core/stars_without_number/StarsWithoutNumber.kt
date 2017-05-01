@@ -430,22 +430,19 @@ val swnModule = Kodein.Module {
                 viewTransform = SwnFactionView()
         )
     }
-
-    bind<List<String>>(SwnConstantsCustom.GROUP) with singleton {
-        listOf(
-                SwnConstantsCustom.WORLD,
-                SwnConstantsCustom.FACTION
-        )
-    }
 }
 
 object SwnConstantsCustom {
     val GROUP = getFinalPackageName(this.javaClass)
 
-    val WORLD = "${GROUP}/world"
-    val FACTION = "${GROUP}/faction"
+    val WORLD = "$GROUP/world"
+    val FACTION = "$GROUP/faction"
 
+    val NAMES = "$GROUP/names"
 
-    val NAMES = "${GROUP}/names"
+    val generators =  listOf(
+            SwnConstantsCustom.WORLD,
+            SwnConstantsCustom.FACTION
+    )
 
 }

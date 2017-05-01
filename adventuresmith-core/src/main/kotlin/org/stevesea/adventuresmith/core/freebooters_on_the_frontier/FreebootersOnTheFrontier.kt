@@ -208,17 +208,13 @@ val fotfModule = Kodein.Module {
                 viewTransform = FotfCharacterView()
         )
     }
-
-    bind<List<String>>(FotfConstants.GROUP) with singleton {
-        listOf(
-                FotfConstants.CHARS
-        )
-    }
 }
 
 object FotfConstants {
     val GROUP = getFinalPackageName(this.javaClass)
 
-    val SPELLS = "${GROUP}/spells"
-    val CHARS = "${GROUP}/chars"
+    val SPELLS = "$GROUP/spells"
+    val CHARS = "$GROUP/chars"
+
+    val generators = listOf(FotfConstants.CHARS)
 }

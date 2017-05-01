@@ -21,8 +21,8 @@
 package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
-import com.google.common.base.Throwables
 import mu.KLoggable
+import org.stevesea.adventuresmith.core.dice_roller.DiceParser
 import java.util.*
 
 class Shuffler(override val kodein: Kodein): KodeinAware, KLoggable {

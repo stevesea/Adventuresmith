@@ -22,6 +22,7 @@ package org.stevesea.adventuresmith.core
 
 import com.github.salomonbrys.kodein.*
 import org.junit.*
+import org.stevesea.adventuresmith.core.dice_roller.DiceParser
 import kotlin.test.*
 
 class DiceParserTest {

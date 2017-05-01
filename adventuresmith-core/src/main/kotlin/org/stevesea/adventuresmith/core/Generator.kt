@@ -203,12 +203,17 @@ data class CollectionDto(val id: String,
                          val icon: String,
                          val generators: List<String> = listOf(),
                          val groupGenerators: Map<String, List<String>> = mapOf()) {
+    // retrieve the generators from a specific group
     fun getGenerators(groupId: String? = null) : List<String> {
         if (groupId.isNullOrEmpty()) {
             return generators
         } else {
             return groupGenerators.getOrDefault(groupId!!, listOf())
         }
+    }
+    // get all the generators in this collection
+    fun getAllGeneratorIds() : List<String> {
+        return generators + groupGenerators.values.flatten()
     }
 }
 

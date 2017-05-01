@@ -520,9 +520,8 @@ class AdventuresmithActivity : AppCompatActivity(),
     fun getFavorites(groupName : String) : SortedSet<String> {
         return sharedPreferences.getStringSet(getFavoriteSettingKey(groupName), setOf()).toSortedSet()
     }
-    fun getFavoriteGenerators(groupName: String) : Map<GeneratorMetaDto, Generator> {
+    fun getFavoriteGenerators(groupName: String) : List<Generator> {
         return AdventuresmithCore.getGeneratorsByIds(
-                getCurrentLocale(resources),
                 getFavorites(groupName)
         )
     }
@@ -1063,14 +1062,13 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
         doAsync {
-            val generators : Map<GeneratorMetaDto, Generator> =
+            val generators : List<Generator> =
                     if (collGrp != null) {
                         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
                                 .putCustomAttribute("Dataset", collGrp.collectionId)
                         )
                         debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
                         AdventuresmithCore.getGeneratorsByGroup(
-                                getCurrentLocale(resources),
                                 collGrp.collectionId,
                                 collGrp.groupId
                         )
@@ -1078,9 +1076,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
                         getFavoriteGenerators(favName)
                     } else {
-                        mapOf()
+                        listOf()
                     }
-            debug("Discovered generators: ${generators.keys}")
 
             uiThread {
                 if (collGrp != null) {
@@ -1091,13 +1088,11 @@ class AdventuresmithActivity : AppCompatActivity(),
                 synchronized(buttonAdapter) {
                     buttonAdapter.clear()
                     for (g in generators) {
-                        debug(g.value.getId())
                         buttonAdapter.add(
                                 GeneratorButton(
-                                        g.value,
-                                        getGeneratorConfig(g.value.getId()),
-                                        getCurrentLocale(resources),
-                                        g.key)
+                                        g,
+                                        getGeneratorConfig(g.getId()),
+                                        getCurrentLocale(resources))
                         )
                     }
                     buttonAdapter.withSavedInstanceState(savedInstanceState)
