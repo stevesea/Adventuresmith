@@ -42,6 +42,9 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     // all generators read from collection definitions
     val ALL_GENERATORS = "all-generators"
 
+    // TODO: every time add a translation, add its locale here.
+    val ALL_LOCALES = listOf(Locale.FRANCE, Locale.US, Locale("es"))
+
     // generators which shouldn't have classpath-loading-generators created for them
     val NON_RESOURCE_GENERATORS : Set<String> by lazy {
         val result : MutableSet<String> = mutableSetOf()

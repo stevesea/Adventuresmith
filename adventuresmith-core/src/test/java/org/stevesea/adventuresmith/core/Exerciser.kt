@@ -38,12 +38,15 @@ class Exerciser {
                 "misc/patron_deity"
         )
 
+        for (locale in AdventuresmithCore.ALL_LOCALES) {
+            AdventuresmithCore.getCollectionMetas(locale)
+        }
+
         for (g in AdventuresmithCore.generators) {
             val generator_instance = g.value
             val m = generator_instance.getMetadata()
 
-            // TODO: every time add a translation, add its locale here.
-            for (locale in listOf(Locale.FRANCE, Locale.US, Locale("es"))) {
+            for (locale in AdventuresmithCore.ALL_LOCALES) {
                 val meta = generator_instance.getMetadata(locale)
 
                 try {
@@ -57,10 +60,6 @@ class Exerciser {
                     throw IOException("Problem running generator ${g.key} (locale: $locale) - ${ex.message}", ex)
                 }
             }
-        }
-
-        for (locale in listOf(Locale.FRANCE, Locale.US, Locale("es"))) {
-            AdventuresmithCore.getCollectionMetas(locale)
         }
     }
 }
