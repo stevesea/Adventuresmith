@@ -1,6 +1,5 @@
 ---
 name: Loom of Fate
-collectionId: conjecture_games
 input:
   displayTemplate: "Heading to: {{heading}}<br/>Surge Count: {{surgeCount}}"
   useWizard: true

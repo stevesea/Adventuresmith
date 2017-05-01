@@ -5,14 +5,14 @@ icon: cmd_cards
 url: "http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck"
 
 generators:
-  - belongings
+  - belongings # 0
+  - difficulty #0
+  - likely_odds #0
+  - sensory_snippet #0
   - catalyst
-  - difficulty
-  - likely_odds
   - location
   - names
   - random_event
-  - sensory_snippet
   - virtue_vice
   # using layoutinflator+textview results in icons in text... but also a crash
   # using iconicstextview fixes the crash, but then we don't get the same HTML->Spannable support

@@ -1,7 +1,5 @@
 ---
 name: Caffeine vs Decaf (Old West MM) Equipment
-collectionId: macchiato_monsters
-groupId: grpCommunity
 input:
   displayTemplate: "d20: {{d20}}, d12: {{d12}}<br/>d10: {{d10}}, d8: {{d8}}<br/>d6: {{d6}}, d4: {{d4}}"
   params:

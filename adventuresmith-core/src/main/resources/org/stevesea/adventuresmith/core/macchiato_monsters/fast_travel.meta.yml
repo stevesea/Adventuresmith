@@ -1,7 +1,5 @@
 ---
 name: Fast Travel
-collectionId: macchiato_monsters
-groupId: grpEnc
 input:
   displayTemplate: "Encounter dR: {{encRisk}}"
   params:

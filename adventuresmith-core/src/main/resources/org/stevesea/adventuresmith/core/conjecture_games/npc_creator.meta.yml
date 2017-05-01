@@ -1,6 +1,5 @@
 ---
 name: NPC Creator
-collectionId: conjecture_games
 input:
   displayTemplate: "Randomness Level: {{rLevel}}"
   params:

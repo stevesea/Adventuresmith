@@ -1,7 +1,5 @@
 ---
 name: Sensory Snippet
-collectionId: gma
-priority: 0
 input:
   displayTemplate: "Sense: {{sense}}"
   params:

@@ -1,7 +1,5 @@
 ---
 name: Weather
-collectionId: macchiato_monsters
-groupId: grpEnc
 input:
   displayTemplate: "Weather dR: {{weatherRisk}}"
   params:

@@ -1,7 +1,5 @@
 ---
 name: Likely Odds
-collectionId: gma
-priority: 0
 input:
   displayTemplate: "Odds: {{odds}}"
   params:

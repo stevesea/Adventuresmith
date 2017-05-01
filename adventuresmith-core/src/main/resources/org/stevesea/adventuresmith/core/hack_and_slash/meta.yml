@@ -4,14 +4,14 @@ credit: Courtney C. Campbell
 url: "http://hackslashmaster.blogspot.com/"
 icon: cmd-sword
 generators:
+  - doors #100
+  - empty_rooms #100
+  - magic_pools #100
+  - traps #100
   - contents_of_pit
   - corridors
   - curses
-  - doors
-  - empty_rooms
-  - magic_pools
   - things
-  - traps
   - tricks
   - wfc
 attribution: |

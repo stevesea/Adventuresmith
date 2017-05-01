@@ -1,7 +1,5 @@
 ---
 name: Hireling
-collectionId: macchiato_monsters
-groupId: grpChar
 input:
   displayTemplate: "Hireling availability: {{availability}}"
   params:

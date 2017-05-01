@@ -1,7 +1,5 @@
 ---
 name: NPC Motivation
-collectionId: macchiato_monsters
-groupId: grpChar
 input:
   displayTemplate: "NPC Motivation: {{motivation}}"
   params:

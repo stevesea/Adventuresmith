@@ -1,7 +1,5 @@
 ---
 name: Just Joined the Party
-collectionId: macchiato_monsters
-groupId: grpEnc
 input:
   displayTemplate: "Encounter dR: {{encRisk}}"
   params:

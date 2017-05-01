@@ -4,7 +4,7 @@ credit: Jason Lutes
 url: "http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier"
 icon: ion-map
 generators:
-  #- chars   Not converted to new template format
+  - chars   #Not converted to new template format
   - spells
 attribution: |
   <p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
