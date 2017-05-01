@@ -652,33 +652,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withSubItems(getFavoriteGroupDrawerItems())
     }
 
-    fun getNavDrawerItemIcon(id: String, grpId : String? = null): IIcon {
-        val collMeta = getCachedCollectionMetas(resources).getOrElse(id) {
-            error("Couldn't find metadata for collection id: $id")
-            return CommunityMaterial.Icon.cmd_help
-        }
-        val coll = AdventuresmithCore.collections.getOrElse(id) {
-            error("Couldn't find collection id: $id")
-            return CommunityMaterial.Icon.cmd_help
-        }
-
-        val collIcon = coll.icon
-        val iconicsDrawable : IconicsDrawable =
-        if (!grpId.isNullOrEmpty()) {
-            val grpIcon = collMeta.iconIndex.getOrElse(grpId!!) {collIcon}
-            IconicsDrawable(this, grpIcon)
-        } else {
-            IconicsDrawable(this, collIcon)
-        }
-
-        if (iconicsDrawable.icon == null) {
-            error("Couldn't find icon $id.$grpId")
-            return CommunityMaterial.Icon.cmd_help
-        } else {
-            return iconicsDrawable.icon
-        }
-    }
-
     fun getNavDrawerItems() : List<IDrawerItem<*, *>> {
         //info("Creating navDrawerItems")
         drawerIdToGroup.clear()
@@ -691,99 +664,83 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         val collections = getCachedCollections()
         val collectionMetas = getCachedCollectionMetas(resources)
-        for (collId in collections.keys) {
 
-            val coll = collections.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId")}
+        collections.forEach { collId, coll ->
+
             val collMeta = collectionMetas.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId")}
             info("collection: $collId")
 
-            if (collMeta.hasGroups) {
-                // has groups, create header & children
-                if (coll.hasGroupHierarchy) {
-
-                    val rootExpandableItem = ExpandableDrawerItem()
-                            .withName(collMeta.name)
-                            .withIcon(getNavDrawerItemIcon(collId))
-                            .withIdentifier(collId.hashCode().toLong())
-                            .withDescription(collMeta.desc)
-                            .withDescriptionTextColorRes(R.color.textSecondary)
-                            .withSelectable(false)
-                            .withIsExpanded(false)
-
-                    val groupGroupMap : MutableMap<String, ExpandableDrawerItem> = mutableMapOf()
-                    for (grp in coll.groups!!.entries) {
-                        val navId = "${collId}.${grp.key}".hashCode().toLong()
-                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = "${collMeta.name} / ${grp.value}", groupId = grp.key))
-
-                        val words = grp.value.split("/", limit = 2).map { it.trim() }
-                        if (words.size != 2) {
-                            error("Invalid group name: $grp")
-                        }
-                        val grpGrp = words[0]
-                        val subGrpName = words[1]
-
-                        val subGrpItem = SecondaryDrawerItem()
-                                .withName(subGrpName)
-                                .withIcon(getNavDrawerItemIcon(collId, grp.key))
-                                .withIdentifier(navId)
-                                .withSelectable(true)
-                                .withLevel(3)
-
-                        var groupGroupItem = groupGroupMap.get(grpGrp)
-                        if (groupGroupItem == null) {
-                            groupGroupItem = ExpandableDrawerItem()
-                                    .withName(grpGrp)
-                                    .withLevel(2)
-                                    .withSelectable(false)
-                                    .withIsExpanded(false)
-                                    .withIdentifier(grpGrp.hashCode().toLong())
-                                    .withIcon(getNavDrawerItemIcon(collId, grpGrp))
-                                    .withSubItems(subGrpItem)
-                            groupGroupMap.put(grpGrp, groupGroupItem)
-                        } else {
-                            groupGroupItem.withSubItems(subGrpItem)
-                        }
-                    }
-                    groupGroupMap.values.forEach {
-                        rootExpandableItem.withSubItems(it)
-                    }
-
-                    result.add(rootExpandableItem)
-
-                } else {
-                    val expandableItem = ExpandableDrawerItem()
-                            .withName(collMeta.name)
-                            .withIcon(getNavDrawerItemIcon(collId))
-                            .withIdentifier(collId.hashCode().toLong())
-                            .withDescription(collMeta.desc)
-                            .withDescriptionTextColorRes(R.color.textSecondary)
-                            .withSelectable(false)
-                            .withIsExpanded(false)
-                    for (grp in coll.groups!!.entries) {
-                        val navId = "${collId}.${grp.key}".hashCode().toLong()
-                        drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = "${collMeta.name} / ${grp.value}", groupId = grp.key))
-                        val childItem = SecondaryDrawerItem()
-                                .withName(grp.value)
-                                .withIcon(getNavDrawerItemIcon(collId, grp.key))
-                                .withIdentifier(navId)
-                                .withSelectable(true)
-                                .withLevel(2)
-                        expandableItem.withSubItems(childItem)
-                    }
-                    result.add(expandableItem)
-                }
-            } else {
+            if (!collMeta.hasGroups) {
                 // no groups, just create item
                 val navId = collId.hashCode().toLong()
                 drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = collMeta.name))
                 result.add(PrimaryDrawerItem()
                         .withName(collMeta.name)
-                        .withIcon(getNavDrawerItemIcon(collId))
+                        .withIcon(IconicsDrawable(this, coll.icon))
                         .withIdentifier(navId)
                         .withSelectable(true)
                         .withDescription(collMeta.desc)
                         .withDescriptionTextColorRes(R.color.textSecondary)
                 )
+            } else {
+                // has groups, create expandable item and populate it.
+
+                val collExpandableItem = ExpandableDrawerItem()
+                        .withName(collMeta.name)
+                        .withIcon(IconicsDrawable(this, coll.icon))
+                        .withIdentifier(collId.hashCode().toLong())
+                        .withDescription(collMeta.desc)
+                        .withDescriptionTextColorRes(R.color.textSecondary)
+                        .withSelectable(false)
+                        .withIsExpanded(false)
+
+                collMeta.groups?.forEach { grpMeta ->
+
+                    val subItems = grpMeta.groups.map { subGrpMeta ->
+                        val navId = "${collId}.${subGrpMeta.name}".hashCode().toLong()
+                        drawerIdToGroup.put(navId, CollectionAndGroup(
+                                collectionId = collId,
+                                name = "${collMeta.name} / ${subGrpMeta.uiName}",
+                                groupId = subGrpMeta.name))
+
+                        SecondaryDrawerItem()
+                                .withName(subGrpMeta.uiName)
+                                .withIcon(IconicsDrawable(this, subGrpMeta.icon))
+                                .withIdentifier(navId)
+                                .withSelectable(true)
+                                .withLevel(3)
+                    }
+
+                    // no subitems, this is just added beneath collection
+                    val navId = "${collId}.${grpMeta.name}".hashCode().toLong()
+
+                    if (subItems.isNotEmpty()) {
+                        // if there are subitems, we need to put them under another expander
+                        val grpGrp = ExpandableDrawerItem()
+                                .withName(grpMeta.uiName)
+                                .withLevel(2)
+                                .withSelectable(false)
+                                .withIsExpanded(false)
+                                .withIdentifier(navId)
+                                .withIcon(IconicsDrawable(this, grpMeta.icon))
+                                .withSubItems(subItems)
+                        collExpandableItem.withSubItems(grpGrp)
+                    } else {
+                        drawerIdToGroup.put(navId, CollectionAndGroup(
+                                collectionId = collId,
+                                name = "${collMeta.name} / ${grpMeta.uiName}",
+                                groupId = grpMeta.name))
+
+                        val grpItem = SecondaryDrawerItem()
+                                .withName(grpMeta.uiName)
+                                .withIcon(IconicsDrawable(this, grpMeta.icon))
+                                .withIdentifier(navId)
+                                .withSelectable(true)
+                                .withLevel(2)
+                        collExpandableItem.withSubItems(grpItem)
+                    }
+                }
+                result.add(collExpandableItem)
             }
         }
         result.add(SectionDrawerItem()
@@ -1319,19 +1276,27 @@ class AdventuresmithActivity : AppCompatActivity(),
                 return cachedCollectionMeta
             }
         }
-        // this cache doesn't need to change if locale does
-        var collections : Map<String, CollectionDto> = mapOf()
+        // this collection is already cached in Core, don't need to create another reference to it.
+        // but, it'll be interesting to time it. Also, by having a method to access the data in
+        // core, it means we won't get the hang of kodein initialization until _after_ activity is
+        // constructed.
+        var alreadyInitializedCollections = false
         private fun getCachedCollections() : Map<String, CollectionDto> {
-            synchronized(collections) {
-                if (collections.isEmpty()) {
+            synchronized(alreadyInitializedCollections) {
+                if (!alreadyInitializedCollections) {
                     val stopwatch = Stopwatch.createStarted()
-                    collections = AdventuresmithCore.collections
-                    stopwatch.stop()
-                    info("Loading collections done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
-                    Answers.getInstance().logCustom(CustomEvent("GetCollections")
-                            .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-                            .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
-                    )
+                    try {
+                        return AdventuresmithCore.collections
+                    } finally {
+                        stopwatch.stop()
+                        info("Loading collections done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
+                        Answers.getInstance().logCustom(CustomEvent("GetCollections")
+                                .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+                                .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
+                        )
+                    }
+                } else {
+                    return AdventuresmithCore.collections
                 }
             }
         }
