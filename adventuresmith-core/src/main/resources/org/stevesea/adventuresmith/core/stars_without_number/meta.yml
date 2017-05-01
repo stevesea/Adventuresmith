@@ -15,44 +15,6 @@ attribution: |
   own sandbox-style adventures in the far future.</p>
   </blockquote>
 
-groupedGenerators:
-  aaw:
-  - alien
-  - animal
-  - world # other format
-  - backwater_spaceport
-  - scavenger_fleet
-  cr:
-  - corporation
-  - faction  #other format
-  - heresy
-  - political_party
-  - religion
-  - religious_revolt
-  names:
-  - names_arabic
-  - names_chinese
-  - names_english
-  - names_indian
-  - names_japanese
-  - names_nigerian
-  - names_russian
-  - names_spanish
-  tech_arch:
-  - mandate_tech_hand_held
-  - mandate_tech_worn
-  - architecture
-  - room_dressing
-  - abandoned_structure #2000
-  - temple_shrine #2000
-  chars_npcs:
-  - family_background
-  - life_event
-  - npc
-  - charclass_expert
-  - charclass_psychic
-  - charclass_warrior
-  - adventure_seed
 groups:
 - name: aaw
   uiName: Aliens, Animals, Worlds…
