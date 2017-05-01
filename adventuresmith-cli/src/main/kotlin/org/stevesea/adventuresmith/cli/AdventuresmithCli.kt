@@ -50,9 +50,6 @@ class Options {
     var iterations: Int = 1
 
     @Arg
-    var filter: String = ""
-
-    @Arg
     var subcmd : String = ""
 
     @Arg
@@ -127,9 +124,6 @@ object AdventuresmithCli : KLoggable {
                 .help("Output file to which generator output will be written. If none given, will be output to console")
         }
 
-        cmdExercise.addArgument("--filter")
-                .help("filter which generators to run")
-
         cmdRun.addArgument("input")
                 .type(Arguments.fileType().verifyExists().verifyCanRead())
                 .metavar("FILE")
@@ -181,8 +175,9 @@ object AdventuresmithCli : KLoggable {
     }
 
     private fun listGens(locale: Locale, collId: String, grpId: String? = null) {
-        AdventuresmithCore.getGeneratorsByGroup(locale, collId, grpId).forEach {
-            it -> logger.info("   -> {}", it.key.name)
+        AdventuresmithCore.getGeneratorsByGroup(collId, grpId).forEach {
+            val genMeta = it.getMetadata(locale)
+            logger.info("   -> {}", genMeta.name)
         }
     }
 
@@ -194,26 +189,27 @@ object AdventuresmithCli : KLoggable {
         } else {
             opts.out!!.writeText(message)
         }
-        for (coll in AdventuresmithCore.getCollections(l).values.toSortedSet()) {
-            if (coll.credit == null)
-                continue
-            if (opts.out == null) {
-                print(coll.toMarkdownStr())
-            } else {
-                opts.out!!.appendText(coll.toMarkdownStr())
+        AdventuresmithCore.getCollectionMetas(l).forEach { collId, coll ->
+            if (coll.credit != null) {
+                if (opts.out == null) {
+                    print(coll.toMarkdownStr())
+                } else {
+                    opts.out!!.appendText(coll.toMarkdownStr())
+                }
             }
         }
     }
 
     private fun runGens(opts: Options, locale: Locale, collId: String, grpId: String? = null) {
-        AdventuresmithCore.getGeneratorsByGroup(locale, collId, grpId).forEach {
+        AdventuresmithCore.getGeneratorsByGroup(collId, grpId).forEach {
             it ->
-                val gen = it.value
+                val genMeta = it.getMetadata(locale)
+                val gen = it
                 val results = (1..opts.iterations).map { gen.generate(locale) }.joinToString("\n")
                 if (opts.out == null) {
-                    logger.info("   -> {}\n{}", it.key.name, results)
+                    logger.info("   -> {}\n{}", genMeta.name, results)
                 } else {
-                    logger.info("   -> {}", it.key.name)
+                    logger.info("   -> {}", genMeta.name)
                     // TODO: this isn't efficient, should user buffered writer
                     opts.out!!.appendText(results + "\n")
                 }
@@ -222,15 +218,17 @@ object AdventuresmithCli : KLoggable {
 
     private fun list(opts: Options) {
         val l = opts.locale
-        for (coll in AdventuresmithCore.getCollections(l).values.toSortedSet()) {
-            if (coll.groups == null || coll.groups!!.isEmpty()) {
-                logger.info("{} - {} ({})", l, coll.name, coll.id)
-                listGens(l, coll.id)
-                continue
-            }
-            for (grp in coll.groups!!.entries) {
-                logger.info("{} - {} / {} ({}/{})", l, coll.name, grp.value, coll.id, grp.key)
-                listGens(l, coll.id, grp.key)
+        AdventuresmithCore.collections.forEach { collId, collDto ->
+            val coll = AdventuresmithCore.getCollectionMetaData(collId, l)
+
+            if (collDto.groupedGenerators.isEmpty()) {
+                logger.info("{} - {} ({})", l, coll.name, collDto.id)
+                listGens(l, collDto.id)
+            } else {
+                collDto.groupedGenerators.keys.forEach { grp ->
+                    logger.info("{} - {} / {} ({})", l, coll.name, grp, collDto.id)
+                    listGens(l, collDto.id, grp)
+                }
             }
         }
     }
@@ -242,22 +240,18 @@ object AdventuresmithCli : KLoggable {
                 opts.out!!.delete()
             }
         }
-
-        for (coll in AdventuresmithCore.getCollections(l).values.toSortedSet()) {
-            if (coll.groups == null || coll.groups!!.isEmpty()) {
-                if (!opts.filter.isNullOrEmpty() && !coll.id.toLowerCase().startsWith(opts.filter.toLowerCase())) {
-                    continue
-                }
-                logger.info("{} - {} ({})", l, coll.name, coll.id)
+        AdventuresmithCore.collections.forEach { collId, coll ->
+            val collMeta = AdventuresmithCore.getCollectionMetaData(collId, l)
+            if (coll.generators.isNotEmpty()) {
+                logger.info("{} - {} ({})", l, collMeta.name, coll.id)
                 runGens(opts, l, coll.id)
-                continue
             }
-            for (grp in coll.groups!!.entries) {
-                if (!opts.filter.isNullOrEmpty() && !"${coll.id}/${grp.key}".toLowerCase().startsWith(opts.filter.toLowerCase())) {
-                    continue
+            if (coll.groupedGenerators.isNotEmpty()) {
+                coll.groupedGenerators.keys.forEach { grp ->
+                    logger.info("{} - {} / {} ({}/{})", l, collMeta.name, grp, coll.id)
+                    runGens(opts, l, coll.id, grp)
                 }
-                logger.info("{} - {} / {} ({}/{})", l, coll.name, grp.value, coll.id, grp.key)
-                runGens(opts, l, coll.id, grp.key)
+                logger.info("{} - {} / {} ({})", l, collMeta.name, coll.id)
             }
         }
     }

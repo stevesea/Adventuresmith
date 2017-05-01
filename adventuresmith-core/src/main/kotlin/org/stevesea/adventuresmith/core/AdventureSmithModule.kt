@@ -133,7 +133,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
 
     // retrieve all collection metadata
     fun getCollectionMetas(locale: Locale): Map<String, CollectionMetaDto> {
-        val result: MutableMap<String, CollectionMetaDto> = mutableMapOf()
+        val result: MutableMap<String, CollectionMetaDto> = linkedMapOf()
         for (collectionId in collections.keys) {
             try {
                 result.put(collectionId, getCollectionMetaData(collectionId, locale))
