@@ -171,20 +171,9 @@ data class GeneratorInputDto(
 }
 
 data class GeneratorMetaDto(val name: String,
-                            val collectionId: String,
                             val input: GeneratorInputDto? = null,
-                            val groupId: String? = null,
                             val tags: List<String>? = null,
-                            val desc: String? = null,
-                            val priority: Int = 1000) : Comparable<GeneratorMetaDto> {
-    override fun compareTo(other: GeneratorMetaDto): Int {
-        return ComparisonChain.start()
-                .compare(priority, other.priority)
-                .compare(name, other.name)
-                .compare(collectionId, other.collectionId)
-                .compare(groupId.orEmpty(), other.groupId.orEmpty())
-                .result()
-    }
+                            val desc: String? = null) {
     fun mergeInputWithDefaults(inputMap: Map<String,String>?) : Map<String,Any?> {
         if (input != null) {
             return input.mergeInputWithDefaults(inputMap)

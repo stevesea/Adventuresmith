@@ -21,13 +21,62 @@ attribution: |
 icon: cmd-nfc-variant
 
 groupedGenerators:
-  grpNPCs: []
-  grpSenses: []
-  grpEncounters: []
+  grpNPCs:
+  - cabbies
+  - corporate_aristocrats
+  - covert_go_between
+  - fixers
+  - gangs
+  - guns_for_hire
+  - hackers
+  - instacitizen
+  - street_walkers
+  - tattoo
+  - vices
+  grpSenses:
+  - augmented_reality
+  - infotainment
+  - quirky_interiors
+  - sights
+  - smells
+  - sounds
+  - vehicle_river
+  - vehicle_road
+  - vehicle_sky
+  - weather
+  grpEncounters:
+  - bio_horrors
+  - first_contact
+  - freak_fighters
+  - gigs
+  - jobs
+  - ops
+  - trespass
   grpCity:
   - alternative_business
-  grpCorps: []
-  grpLoot: []
+  - area_events
+  - downtown
+  - hackable_assets
+  - legacy_data
+  - legacy_infrastructure
+  - local_conflict
+  - nightlife
+  - street_uses
+  grpCorps:
+  - boardroom_manoeuvers #0
+  - company_resources #0
+  - backup
+  - department
+  - first_responders
+  - job_sheet
+  - response_level
+  grpLoot:
+  - condition
+  - one_mans_trash
+  - vendomat
+  - whats_on_corpse
+  - whats_on_thing
+  - where_has_it_been
 
 groups:
   - name: grpNPCs
