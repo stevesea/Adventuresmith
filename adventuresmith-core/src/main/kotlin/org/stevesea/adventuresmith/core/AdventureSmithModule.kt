@@ -69,7 +69,7 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         instance<CollectionMetaLoader>()
     }
     /**
-     * a map of generator-id to generator instance
+     * a map of "<collId>/<generator-id>" to generator instance
      */
     val generators : Map<String,Generator> by lazy {
         val generators :  MutableMap<String, Generator> = mutableMapOf()
@@ -102,26 +102,27 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     fun getGeneratorsByGroup(collId: String, grpId: String? = null) : List<Generator> {
         val result : MutableList<Generator> = mutableListOf()
 
-        val collDto = collections[collId]
-        if (collDto == null) {
-            throw IOException("Unknown collection: $collId")
-        }
+        val collDto = collections[collId] ?: throw IOException("Unknown collection: $collId")
 
-        val genIds = collDto.getGenerators(grpId)
+        val genIds = collDto.getGeneratorsForGroup(grpId)
         if (genIds.isEmpty()) {
             logger.warn("Unable to find coll/grp: $collId/$grpId")
             return listOf()
         }
 
+        if (genIds.isEmpty()) {
+            logger.warn("No generators found for $collId + $grpId")
+            return listOf()
+        }
+
         genIds.forEach {
-            try {
-                val gen = generators[it]
-                if (gen != null) {
-                    result.add(gen)
-                }
-            } catch (e : Exception) {
-                logger.warn("problem loading generator", e)
+            val gen = generators["$collId/$it"]
+            if (gen != null) {
+                result.add(gen)
             }
+        }
+        if (result.isEmpty()) {
+            throw IOException("No generators found for $collId + $grpId")
         }
         return result
     }
@@ -244,8 +245,4 @@ val adventureSmithModule = Kodein.Module {
     import(diceModule)
     import(fotfModule)
     import(swnModule)
-
-    val non_resource_genIds : MutableSet<String> = mutableSetOf()
-    non_resource_genIds.addAll(FotfConstants.generators)
-    non_resource_genIds.addAll(SwnConstantsCustom.generators)
 }

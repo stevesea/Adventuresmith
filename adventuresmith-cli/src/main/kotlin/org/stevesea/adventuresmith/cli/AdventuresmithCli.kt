@@ -250,7 +250,6 @@ object AdventuresmithCli : KLoggable {
                     logger.info("{} - {} / {} ({}/{})", l, collMeta.name, grp, collId)
                     runGens(opts, l, collId, grp)
                 }
-                logger.info("{} - {} / {} ({})", l, collMeta.name, collId)
             }
         }
     }
