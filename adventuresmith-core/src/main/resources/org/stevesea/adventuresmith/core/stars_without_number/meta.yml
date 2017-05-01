@@ -1,5 +1,4 @@
 name: Stars Without Number
-id: stars_without_number
 credit: Kevin Crawford / Sine Nomine Publishing
 url: "http://www.sinenomine-pub.com/"
 attribution: |
@@ -15,7 +14,6 @@ attribution: |
   pre-made stellar sector, Stars Without Number offers GMs and players the tools to create their
   own sandbox-style adventures in the far future.</p>
   </blockquote>
-icon: cmd-rocket
 
 groupedGenerators:
   aaw:

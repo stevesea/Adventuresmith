@@ -1,0 +1,23 @@
+id: macchiato_monsters
+icon: ion-coffee
+groupedGenerators:
+  grpChar:
+  - hireling
+  - npc_motivation
+  - spell_mishap
+  - mm_equip #3000
+  grpEnc:
+  - fast_travel
+  - just_joined
+  - monsters
+  - morale
+  - reaction
+  - trouble_at_camp
+  - weather
+  grpCommunity:
+  - aa_equip
+  - cc_equip
+  - cvd_equip
+  - moka_mechanoid_equip
+  - robusta_robots_equip
+  - rtt_equip

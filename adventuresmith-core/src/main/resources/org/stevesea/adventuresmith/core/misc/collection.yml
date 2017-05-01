@@ -1,0 +1,16 @@
+id: misc
+icon: cmd_hexagon_multiple
+
+groupedGenerators:
+  grpItems:
+  - magic_item
+  - minor_arcana
+  - potion_quaffing_contest
+  grpChar:
+  - backgrounds
+  - names
+  - patron_deity
+  grpGME:
+  - fate_chart_variant
+  - tiny_universal
+

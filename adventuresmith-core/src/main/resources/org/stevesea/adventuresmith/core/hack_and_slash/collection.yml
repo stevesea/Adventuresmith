@@ -1,0 +1,13 @@
+id: hack_and_slash
+icon: cmd-sword
+generators:
+  - doors #100
+  - empty_rooms #100
+  - magic_pools #100
+  - traps #100
+  - contents_of_pit
+  - corridors
+  - curses
+  - things
+  - tricks
+  - wfc

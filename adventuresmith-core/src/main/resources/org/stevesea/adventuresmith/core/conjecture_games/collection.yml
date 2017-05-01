@@ -1,0 +1,10 @@
+---
+id: conjecture_games
+icon: cmd-lightbulb-on-outline
+generators:
+  - connection
+  - loom
+  - npc_creator
+  - npc_interaction
+  - waylay
+  - waylay_arced

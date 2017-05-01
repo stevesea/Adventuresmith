@@ -1,19 +1,6 @@
 name: Hack & Slash
-id: hack_and_slash
 credit: Courtney C. Campbell
 url: "http://hackslashmaster.blogspot.com/"
-icon: cmd-sword
-generators:
-  - doors #100
-  - empty_rooms #100
-  - magic_pools #100
-  - traps #100
-  - contents_of_pit
-  - corridors
-  - curses
-  - things
-  - tricks
-  - wfc
 attribution: |
   <h5>Tricks, Empty Rooms, & Basic Trap Design</h5>
   All text is © Courtney C. Campbell (2011).

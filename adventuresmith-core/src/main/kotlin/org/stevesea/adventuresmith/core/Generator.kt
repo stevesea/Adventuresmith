@@ -195,32 +195,14 @@ data class GeneratorMetaDto(val name: String,
     }
 }
 
-data class GeneratorListDto(val generators: Map<String,List<String>>);
+// the list of collections
+data class CollectionListDto(val collections: List<String>)
 
-data class CollGroupMetaDto(val name: String,
-                            val uiName: String,
-                            val icon: String,
-                            val groups: List<CollGroupMetaDto> = listOf())
-
-data class CollectionMetaDto(val url: String? = null,
-                             val id: String,
-                             val name: String,
-                             val priority: Int,
-                             val icon: String,
-                             val desc: String? = null,
-                             val credit: String? = null,
-                             val attribution: String? = null,
-                             val hasGroupHierarchy: Boolean = false,
-                             val generators: List<String> = listOf(),
-                             val groupGenerators: Map<String, List<String>> = mapOf(),
-                             val groups: List<CollGroupMetaDto>? = null) : Comparable<CollectionMetaDto> {
-    override fun compareTo(other: CollectionMetaDto): Int {
-        return ComparisonChain.start()
-                .compare(priority, other.priority)
-                .compare(name, other.name)
-                .compare(id, other.id)
-                .result()
-    }
+// the collection of generators -- in file: <collection-dir>/collection.yml (differs depending on locale)
+data class CollectionDto(val id: String,
+                         val icon: String,
+                         val generators: List<String> = listOf(),
+                         val groupGenerators: Map<String, List<String>> = mapOf()) {
     fun getGenerators(groupId: String? = null) : List<String> {
         if (groupId.isNullOrEmpty()) {
             return generators
@@ -228,6 +210,21 @@ data class CollectionMetaDto(val url: String? = null,
             return groupGenerators.getOrDefault(groupId!!, listOf())
         }
     }
+}
+
+data class CollGroupMetaDto(val name: String,
+                            val uiName: String,
+                            val icon: String,
+                            val groups: List<CollGroupMetaDto> = listOf())
+
+// the 'metadata' for a collection -- in file: <collection-dir>/meta.yml (differs depending on locale)
+data class CollectionMetaDto(val url: String? = null,
+                             val name: String,
+                             val desc: String? = null,
+                             val credit: String? = null,
+                             val attribution: String? = null,
+                             val hasGroupHierarchy: Boolean = false,
+                             val groups: List<CollGroupMetaDto>? = null) {
     fun toMarkdownStr() : String {
         val sb = StringBuffer("## ${name} - ${credit}\n")
         if (url != null)

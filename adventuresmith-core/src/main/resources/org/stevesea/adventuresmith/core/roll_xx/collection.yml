@@ -1,0 +1,145 @@
+
+id: roll_xx
+icon: cmd-format-superscript
+
+groupedGenerators:
+  grpFantAdvSeed:
+  - fant_assassins
+  - fant_hirer
+  - fant_searching
+  - fant_stole_blade
+  - fant_time_period
+  - fant_where_going
+  grpFantCityDressing:
+  - fant_banquet
+  - fant_bird_beak
+  - fant_guard
+  - fant_medical_procedure
+  - fant_shopkeeper
+  - fant_sky
+  grpFantDungeonDressing:
+  - fant_dungeon
+  - fant_locked_door
+  - fant_sepulchre
+  - fant_sprung_trap
+  - fant_treasure_seeker
+  - fant_wall_runes
+  grpFantChars:
+  - fant_barbarian
+  - fant_believe
+  - fant_cleric
+  - fant_dark_secret
+  - fant_mage_truth
+  - fant_oath
+  grpFantNPCs:
+  - fant_elves
+  - fant_frost_dragon
+  - fant_orc_chieftan
+  - fant_queen
+  - fant_rider
+  - fant_warrior_armor
+  grpFantMagic:
+  - fant_miscast_spell
+  - fant_necromancer
+  - fant_potion
+  - fant_sorcerors
+  - fant_summoned
+  - fant_wand
+  grpFantMonsters:
+  - fant_monster_gen #0
+  - fant_new_threat #0
+  - fant_automaton
+  - fant_blob
+  - fant_hybrid
+  - fant_demon_from #2000
+  - fant_demon_kind #2000
+  grpFantTreasure:
+  - fant_dragon
+  - fant_enchanted_jewelry
+  - fant_obelisk
+  - fant_search_corpse
+  - fant_treasure_chest
+
+
+  grpHorrorAdvSeeds:
+  - horror_bodies_hidden
+  - horror_clue
+  - horror_cure
+  - horror_signature
+  - horror_soul
+  - horror_zombie_story
+  grpHorrorChars:
+  - horror_familiar
+  - horror_love
+  - horror_make_it_stop
+  - horror_memories
+  - horror_scars
+  - horror_under_skin
+  - horror_vices
+  grpHorrorMonsters:
+  - horror_bites
+  - horror_crypt
+  - horror_escape
+  - horror_monster_type
+  - horror_they
+  - horror_unseen_entity
+  grpHorrorSights:
+  - horror_body_part
+  - horror_ceiling
+  - horror_crime_scene
+  - horror_hole
+  - horror_shadow
+  - horror_under_bed
+  grpHorrorSounds:
+  - horror_noise
+  - horror_sound
+
+
+  grpModernChars:
+  - modern_callsign
+  - modern_expertise
+  - modern_fingerprints
+  - modern_secret
+  - modern_secret_society
+  - modern_sentry
+  grpModernMissions:
+  - modern_duffel
+  - modern_primary_objective
+  - modern_suitcase
+  - modern_tonight
+  grpModernRoomDressing:
+  - modern_insects
+  - modern_liquid
+  - modern_magic
+  - modern_pool
+  - modern_smell
+  - modern_vehicle
+
+  grpSciFiAdvSeed:
+  - scifi_ancient_terminal
+  - scifi_anomaly
+  - scifi_bounty_hunter
+  - scifi_escape
+  - scifi_rubble
+  - scifi_xenomorph
+  grpSciFiShip:
+  - scifi_land
+  - scifi_malfunction
+  - scifi_passengers
+  - scifi_starship_type
+  - scifi_went_dark
+
+  grpSuperAdvSeed:
+  - supers_aliens
+  - supers_connections
+  - supers_protecting
+  grpSuperHeroes:
+  - supers_origin
+  - supers_useless_power
+  - supers_weakness
+  - supers_who_the_heck
+  grpSuperVillains:
+  - supers_villain_lair
+  - supers_villain_rant
+  - supers_villain_target
+  - supers_villain_threat

@@ -44,6 +44,9 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         import(adventureSmithModule)
     }
 
+    /**
+     * a map of generator-id to generator instance
+     */
     val generators : Map<String,Generator> by lazy {
         val generators :  MutableMap<String, Generator> = mutableMapOf()
 
@@ -57,76 +60,41 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         generators
     }
 
-    data class GroupKey(val coll: String, val grpId: String? = null)
-
-    val groupedGenerators: Map<GroupKey, List<Generator>> by lazy {
-        val groupedGens : MutableMap<GroupKey, MutableList<Generator>> = mutableMapOf()
-        generators.forEach {
-            // can't cache metadata, since the locale might change at runtime. But, we can crack open the
-            // default locale's metadata to get collection/group IDs
-
-            // TODO: this is slowing us down. we read all generator's metadata just to retrieve the collid/group
-            // instead, if this was part of collection metadata it'd be much faster. it'd also centralize
-            //
-            // where this stuff is... the collectionId/groupId within each generator's meta.yml is also
-            // the only thing that doesn't have to change per translation... why have it there at all?
-            //
-            // if the parent->child relationship is put in the collection metadata, seems like that'd
-            // centralize the hierarchy
-            val genMeta = it.value.getMetadata()
-            val grpKey = GroupKey(genMeta.collectionId, genMeta.groupId)
-            val genList : MutableList<Generator> = groupedGens.getOrPut(grpKey,
-                    {
-                        mutableListOf()
-                    }
-            )
-            genList.add(it.value)
-        }
-        groupedGens
-    }
-
     fun getGeneratorsByIds(locale: Locale, genIds: Set<String>) : Map<GeneratorMetaDto, Generator> {
         val result : MutableMap<GeneratorMetaDto, Generator> = mutableMapOf()
         genIds.forEach {
-            val gen = generators.get(it)
+            val gen = generators[it]
             if (gen != null) {
                 val genMeta = gen.getMetadata(locale)
                 result.put(genMeta,gen)
             }
         }
-        return result.toSortedMap()
+        return result
     }
 
 
-    fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : Map<GeneratorMetaDto, Generator> {
-        val result : MutableMap<GeneratorMetaDto, Generator> = mutableMapOf()
+    fun getGeneratorsByGroup(locale: Locale, collId: String, grpId: String? = null) : List<Generator> {
+        val result : MutableList<Generator> = mutableListOf()
 
-        val grpKey = GroupKey(collId, grpId)
-        groupedGenerators.getOrElse(grpKey, {mutableListOf()}).forEach {
+        val collMeta = getCollectionMetaData(collId, locale)
+
+        val genIds = collMeta.getGenerators(grpId)
+        if (genIds.isEmpty()) {
+            logger.warn("Unable to find coll/grp: $collId/$grpId (locale: $locale)")
+            return listOf()
+        }
+
+        genIds.forEach {
             try {
-                val genMeta = it.getMetadata(locale)
-                if (collId == genMeta.collectionId &&
-                        grpId.orEmpty() == genMeta.groupId.orEmpty()) {
-                    result.put(genMeta, it)
+                val gen = generators[it]
+                if (gen != null) {
+                    result.add(gen)
                 }
             } catch (e : Exception) {
                 logger.warn("problem loading generator", e)
             }
         }
-        return result.toSortedMap()
-    }
-
-
-    // we have two lazy-init maps (which don't actually hold generator metadata/data)
-    //   a map of genid -> generator
-    //   and a map of collId/grpId -> list<generator>
-    // calling this during app startup ensures those maps have been initialized.
-    // otherwise, there was noticeable lag the first time we try to traverse the generators.
-    // NOTE: we don't cache metadata, since locale might change during runtime
-    fun initCaches() {
-        for (g in groupedGenerators) {
-            logger.debug { g.key }
-        }
+        return result
     }
 
     fun getCollectionMetaData(collectionId: String, locale: Locale) : CollectionMetaDto {
@@ -138,9 +106,8 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         val result: MutableMap<String, CollectionMetaDto> = mutableMapOf()
 
         val collMetaLoader = kodein.instance<CollectionMetaLoader>()
-        val generatorsList = kodein.instance<GeneratorListDto>()
 
-        for (collectionId in generatorsList.generators.keys) {
+        for (collectionId in kodein.instance<CollectionListDto>().collections) {
             try {
                 result.put(collectionId, collMetaLoader.load(collectionId, locale))
             } catch (e: Exception) {
@@ -198,14 +165,15 @@ val generatorModule = Kodein.Module {
         CollectionMetaLoader(kodein)
     }
 
-    val generatorsFile = "core_generators.yml"
+    val collectionsFile = "collections.yml"
     try {
-        val generatorsUrl = Resources.getResource(AdventuresmithCore.javaClass, generatorsFile)
-        val generatorsStr = Resources.toString(generatorsUrl, Charsets.UTF_8)
-        val generatorsListDto: GeneratorListDto = objectMapper.reader().forType(GeneratorListDto::class.java).readValue(generatorsStr)
+        val collectionsUrl = Resources.getResource(AdventuresmithCore.javaClass, collectionsFile)
+        val collectionsStr = Resources.toString(collectionsUrl, Charsets.UTF_8)
+        val collListDto: CollectionListDto = objectMapper.reader().forType(CollectionListDto::class.java).readValue(collectionsStr)
+
         val genList : MutableList<String> = mutableListOf()
 
-        bind<GeneratorListDto>() with instance(generatorsListDto)
+        bind<CollectionListDto>() with instance(collListDto)
 
         for (generatorPkg in generatorsListDto.generators) {
             for (id in generatorPkg.value) {
@@ -221,7 +189,7 @@ val generatorModule = Kodein.Module {
         bind<List<String>>(AdventuresmithCore.RESOURCE_GENERATORS) with instance(genList)
 
     } catch (ex: Exception) {
-        throw IOException("problem reading $generatorsFile - ${ex.message}")
+        throw IOException("problem reading $collectionsFile - ${ex.message}")
     }
 }
 

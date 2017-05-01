@@ -1,9 +1,0 @@
----
-# This needs to be here since we can't programmatically discover resources in the classpath.
-# When impl other filesystem/REST schemes, can probably just use file/directory semantics to
-# organize generators and metadata
-
-# almost every generator uses this scheme to populate the nav.
-# exceptions are noted below
-generators:
-  roll_xx:

@@ -1,0 +1,11 @@
+id: portal_rats
+icon: cmd_white_balance_sunny
+generators:
+  - background
+  - class_occupation
+  - npc_reaction
+  - portal_destination
+  - item
+  - monster_features
+  - npc
+  - out_of_action

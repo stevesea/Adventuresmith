@@ -1,8 +1,5 @@
 name: Misc. Generators
-id: misc
-priority: 900
 credit: Various Authors
-icon: cmd_hexagon_multiple
 
 groups:
   - name: grpChar
@@ -14,19 +11,6 @@ groups:
   - name: grpItems
     uiName: Items
     icon: cmd-engine
-
-groupedGenerators:
-  grpItems:
-  - magic_item
-  - minor_arcana
-  - potion_quaffing_contest
-  grpChar:
-  - backgrounds
-  - names
-  - patron_deity
-  grpGME:
-  - fate_chart_variant
-  - tiny_universal
 
 attribution: |
   <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>

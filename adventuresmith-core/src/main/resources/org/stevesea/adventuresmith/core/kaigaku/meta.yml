@@ -1,14 +1,6 @@
 name: Kaigaku
-id: kaigaku
 url: http://www.drivethrurpg.com/product/186267/Kaigaku-RPG
 credit: Jacob DC Ross / Thunderegg Productions
-icon: cmd-yin-yang
-generators:
-  - animals
-  - battlefield_enemies
-  - battlefield_peril
-  - court_enemies
-  - urban_enemies
 attribution: |
   Copyright 2016, Thunderegg Productions
   <blockquote>

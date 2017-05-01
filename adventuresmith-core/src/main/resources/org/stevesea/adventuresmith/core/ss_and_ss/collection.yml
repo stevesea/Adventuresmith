@@ -1,0 +1,13 @@
+
+icon: cmd-auto-fix #cmd-sword-cross
+id: ss_and_ss
+generators:
+  - adventure_complication
+  - adventure_idea
+  - adventure_title
+  - antagonist
+  - complication
+  - opponent_reaction
+  - reward
+  - spell_catastrophe
+  - supporting_character

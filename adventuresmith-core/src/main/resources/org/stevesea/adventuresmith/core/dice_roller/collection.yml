@@ -1,0 +1,37 @@
+
+id: dice_roller
+icon: cmd-dice-6
+groupedGenerators:
+  grpPolys:
+  - 1d3
+  - 1d4
+  - 1d6
+  - 1d8
+  - 1d10
+  - 1d12
+  - 1d20
+  - 1d30
+  - 1d100
+  grpCombinations:
+  - 2d6
+  - 3d6
+  - 4d4
+  - 1d20 advantage
+  - 1d20 disadvantage
+  grpCustom:
+  - xdy_z_1
+  - xdy_z_2
+  - xdy_z_3
+  - xdy_z_4
+  - xdy_z_5
+  - xdy_z_6
+  grpFudge:
+  - NdF_1
+  - NdF_2
+  - XdY!_1
+  - XdY!_2
+  - XdY!_3
+  grpEOTE:
+  - eote_1
+  - eote_2
+  - eote_3
