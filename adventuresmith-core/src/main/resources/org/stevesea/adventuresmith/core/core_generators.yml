@@ -6,39 +6,6 @@
 # almost every generator uses this scheme to populate the nav.
 # exceptions are noted below
 generators:
-  stars_without_number:
-  # - world          faction/world   Not converted completely to new template format
-  #- faction
-  - abandoned_structure
-  - adventure_seed
-  - alien
-  - animal
-  - architecture
-  - backwater_spaceport
-  - charclass_expert
-  - charclass_psychic
-  - charclass_warrior
-  - corporation
-  - family_background
-  - heresy
-  - life_event
-  - mandate_tech_hand_held
-  - mandate_tech_worn
-  - names_arabic
-  - names_chinese
-  - names_english
-  - names_indian
-  - names_japanese
-  - names_nigerian
-  - names_russian
-  - names_spanish
-  - npc
-  - political_party
-  - religion
-  - religious_revolt
-  - room_dressing
-  - scavenger_fleet
-  - temple_shrine
   roll_xx:
   - fant_assassins
   - fant_automaton

@@ -1,6 +1,5 @@
 ---
 name: Spell Catastrophe
-collectionId: ss_and_ss
 
 input:
   displayTemplate: "Power Level: {{powerLevel}}"
