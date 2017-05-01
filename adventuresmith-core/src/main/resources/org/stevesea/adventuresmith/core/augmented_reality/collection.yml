@@ -44,7 +44,7 @@ groupedGenerators:
   - nightlife
   - street_uses
   grpCorps:
-  - boardroom_manoeuvers #0
+  - boardroom_manoeuvres #0
   - company_resources #0
   - backup
   - department

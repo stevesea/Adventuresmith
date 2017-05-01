@@ -55,12 +55,12 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         import(adventureSmithModule)
     }
 
-    val collections : MutableMap<String, CollectionDto> = linkedMapOf()
-    val collectionMetas : MutableMap<String, CollectionMetaDto> = linkedMapOf()
+    val collections : Map<String, CollectionDto> by lazy {
+        instance<Map<String, CollectionDto>>()
+    }
 
     val objectMapper = ObjectMapper(YAMLFactory())
             .registerKotlinModule()
-
 
     val collMetaLoader : CollectionMetaLoader by lazy {
         instance<CollectionMetaLoader>()
@@ -201,25 +201,35 @@ val generatorModule = Kodein.Module {
 
     val collectionsFile = "collections.yml"
     try {
-        val genList : MutableList<String> = mutableListOf()
+        val collMap: MutableMap<String, CollectionDto> = mutableMapOf()
+        val genList: MutableSet<String> = mutableSetOf()
 
         val collListDto = AdventuresmithCore.loadCollectionResource(CollectionListDto::class.java, collectionsFile)
 
-        collListDto.collections.forEach  { collId ->
-            val collDto = AdventuresmithCore.loadCollectionResource(CollectionDto::class.java, "$collId/collection.yml")
-            AdventuresmithCore.collections.put(collId, collDto)
+        collListDto.collections.forEach { collId ->
 
-            collDto.getAllGeneratorIds().forEach { genId ->
-                val genStr = "$collId/$genId"
-                genList.add(genStr)
-                if (!AdventuresmithCore.NON_RESOURCE_GENERATORS.contains(genStr)) {
-                    bind<Generator>(genStr) with provider {
-                        DataDrivenGeneratorForResources(genStr, kodein)
+            val collFile = "$collId/collection.yml"
+            try {
+                val collDto = AdventuresmithCore.loadCollectionResource(CollectionDto::class.java, collFile)
+                collMap.put(collId, collDto)
+
+                collDto.getAllGeneratorIds().forEach { genId ->
+                    val genStr = "$collId/$genId"
+                    genList.add(genStr)
+                    if (!AdventuresmithCore.NON_RESOURCE_GENERATORS.contains(genStr)) {
+                        bind<Generator>(genStr) with provider {
+                            DataDrivenGeneratorForResources(genStr, kodein)
+                        }
                     }
                 }
+            } catch (ex: Exception) {
+                throw IOException("Problem reading $collFile - ${ex.message}")
             }
         }
-        bind<List<String>>(AdventuresmithCore.ALL_GENERATORS) with instance(genList)
+        bind<Set<String>>(AdventuresmithCore.ALL_GENERATORS) with instance(genList)
+        bind<Map<String, CollectionDto>>() with instance(collMap)
+    } catch (ex: IOException) {
+        throw ex
     } catch (ex: Exception) {
         throw IOException("problem reading $collectionsFile - ${ex.message}")
     }

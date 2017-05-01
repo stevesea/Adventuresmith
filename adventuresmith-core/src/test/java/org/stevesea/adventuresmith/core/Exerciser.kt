@@ -23,6 +23,7 @@ package org.stevesea.adventuresmith.core
 import com.google.common.collect.Multimap
 import com.google.common.collect.MultimapBuilder
 import org.junit.*
+import java.io.IOException
 import java.util.*
 
 
@@ -37,38 +38,29 @@ class Exerciser {
                 "misc/patron_deity"
         )
 
-        val genNameToId : Multimap<String, String> = MultimapBuilder
-                .treeKeys()
-                .linkedListValues()
-                .build<String, String>()
-
         for (g in AdventuresmithCore.generators) {
             val generator_instance = g.value
             val m = generator_instance.getMetadata()
-            genNameToId.put("${m.collectionId}.${m.groupId}.${m.name}", g.key)
 
             // TODO: every time add a translation, add its locale here.
             for (locale in listOf(Locale.FRANCE, Locale.US, Locale("es"))) {
                 val meta = generator_instance.getMetadata(locale)
 
-                for (i in 1..25) {
-                    if (enablePrinting.contains(g.key))
-                        println(generator_instance.generate(locale))
-                    else
-                        generator_instance.generate(locale)
+                try {
+                    for (i in 1..25) {
+                        if (enablePrinting.contains(g.key))
+                            println(generator_instance.generate(locale))
+                        else
+                            generator_instance.generate(locale)
+                    }
+                } catch (ex: Exception) {
+                    throw IOException("Problem running generator ${g.key} (locale: $locale) - ${ex.message}", ex)
                 }
             }
         }
 
-        for (nameToIds in genNameToId.asMap()) {
-            if (nameToIds.value.size > 1) {
-                throw IllegalStateException(
-                        "multiple generators with same display name: ${nameToIds.key} -  ${nameToIds.value}")
-            }
-        }
-
-        for (locale in listOf(Locale.FRANCE, Locale.US)) {
-            AdventuresmithCore.getCollections(locale)
+        for (locale in listOf(Locale.FRANCE, Locale.US, Locale("es"))) {
+            AdventuresmithCore.getCollectionMetas(locale)
         }
     }
 }

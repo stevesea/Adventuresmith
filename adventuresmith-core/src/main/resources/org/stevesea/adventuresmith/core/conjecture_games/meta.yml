@@ -3,13 +3,6 @@ url: http://conjecturegames.com/
 credit: Zach Best
 desc: CRGE, BOLD, UNE
 
-generators:
-  - connection
-  - loom
-  - npc_creator
-  - npc_interaction
-  - waylay
-  - waylay_arced
 attribution: |
   <h5>CRGE, Conjectural Roleplaying GM Emulator</h5>
   All text is © Zach Best (2014).

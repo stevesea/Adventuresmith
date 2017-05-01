@@ -143,7 +143,18 @@ class DiceParser(override val kodein: Kodein) : KodeinAware {
 object DiceConstants {
     val GROUP = getFinalPackageName(this.javaClass)
 
-    val regularDice = listOf("1d3","1d4","1d6","1d8","1d10","1d12","1d20","1d30","1d100").map { "$GROUP/$it" }
+    val regularDice =
+            listOf(
+            "1d3",
+            "1d4",
+            "1d6",
+            "1d8",
+            "1d10",
+            "1d12",
+            "1d20",
+            "1d30",
+            "1d100"
+    ).map { "$GROUP/$it" to it}.toMap()
 
     val fudgeDice = mapOf(
             "$GROUP/NdF_1" to "Fudge Dice #1",
@@ -183,7 +194,7 @@ object DiceConstants {
     )
 
     val generators =  listOf(
-        DiceConstants.regularDice,
+        DiceConstants.regularDice.keys,
         DiceConstants.multDice.keys,
         listOf(
             DiceConstants.d20adv,
@@ -199,20 +210,20 @@ object DiceConstants {
 val diceModule = Kodein.Module {
     // simple rolls
     DiceConstants.regularDice.forEach {
-        bind<Generator>(it) with provider {
+        bind<Generator>(it.key) with provider {
             object : Generator {
                 override fun getId(): String {
-                    return it
+                    return it.key
                 }
 
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it)
+                    return GeneratorMetaDto(name = it.value)
                 }
 
                 val diceParser: DiceParser = instance()
                 override fun generate(locale: Locale, input: Map<String, String>?): String {
                     val nf = NumberFormat.getInstance(locale)
-                    return "${it}: <strong>${nf.format(diceParser.roll(it))}</strong>"
+                    return "${it.value}: <strong>${nf.format(diceParser.roll(it.value))}</strong>"
                 }
             }
         }
@@ -226,7 +237,7 @@ val diceModule = Kodein.Module {
                 }
 
                 override fun getMetadata(locale: Locale): GeneratorMetaDto {
-                    return GeneratorMetaDto(name = it.key)
+                    return GeneratorMetaDto(name = it.key.split("/")[1])
                 }
 
                 val diceParser: DiceParser = instance()

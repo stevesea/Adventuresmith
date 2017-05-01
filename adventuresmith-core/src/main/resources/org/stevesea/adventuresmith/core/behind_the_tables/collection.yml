@@ -15,7 +15,7 @@ groupedGenerators:
   grpEncountersWild:
   - monastery_encounter
   - prison_encounter
-  - encounters_acient_forest #2000
+  - encounters_ancient_forest #2000
   - encounters_ship_sea #2000
   grpFactionsSettlement:
   - assassin_guild
