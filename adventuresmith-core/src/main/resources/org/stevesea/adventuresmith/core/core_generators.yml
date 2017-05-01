@@ -6,49 +6,6 @@
 # almost every generator uses this scheme to populate the nav.
 # exceptions are noted below
 generators:
-
-  misc:
-  - minor_arcana
-  - patron_deity
-  - potion_quaffing_contest
-
-  - backgrounds
-  - magic_item
-  - names
-
-  - fate_chart_variant
-  - tiny_universal
-
-  perilous_wilds:
-  - place_names
-  - region_names
-
-  - names_arpad
-  - names_oloru
-  - names_tamanarugan
-  - names_valkoina
-
-  - treasure_item
-  - treasure_unguarded
-  - treasure_guarded
-
-  - npc
-  - npc_rural
-  - npc_urban
-  - npc_wilderness
-
-  - creature
-  - creature_beast
-  - creature_human
-  - creature_humanoid
-  - creature_monster
-
-  - danger
-  - explore_dungeon
-  - follower
-  - dungeon
-  - steading
-  - discovery
   stars_without_number:
   # - world          faction/world   Not converted completely to new template format
   #- faction

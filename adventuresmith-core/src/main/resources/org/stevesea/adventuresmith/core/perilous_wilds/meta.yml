@@ -5,11 +5,37 @@ url: "http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds"
 icon: cmd-image-filter-hdr
 
 groupedGenerators:
-  dang_disc: []
-  create_name: []
-  creatures: []
-  npcs: []
-  treasure: []
+  dang_disc:
+  - danger
+  - discovery
+  - explore_dungeon
+  create_name:
+  - dungeon #100
+  - steading
+  - follower #200
+
+  - place_names
+  - region_names
+
+  - names_arpad #2000
+  - names_oloru #2000
+  - names_tamanarugan #2000
+  - names_valkoina
+  creatures:
+  - creature #100
+  - creature_beast
+  - creature_human
+  - creature_humanoid
+  - creature_monster
+  npcs:
+  - npc #100
+  - npc_rural
+  - npc_urban
+  - npc_wilderness
+  treasure:
+  - treasure_unguarded
+  - treasure_item #100
+  - treasure_guarded
 groups:
 - name: dang_disc
   uiName: Dangers & Discoveries
