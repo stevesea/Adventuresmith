@@ -676,7 +676,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 drawerIdToGroup.put(navId, CollectionAndGroup(collectionId = collId, name = collMeta.name))
                 result.add(PrimaryDrawerItem()
                         .withName(collMeta.name)
-                        .withIcon(IconicsDrawable(this, coll.icon))
+                        .withIcon(IconicsDrawable(this, coll.icon).icon)
                         .withIdentifier(navId)
                         .withSelectable(true)
                         .withDescription(collMeta.desc)
@@ -687,7 +687,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                 val collExpandableItem = ExpandableDrawerItem()
                         .withName(collMeta.name)
-                        .withIcon(IconicsDrawable(this, coll.icon))
+                        .withIcon(IconicsDrawable(this, coll.icon).icon)
                         .withIdentifier(collId.hashCode().toLong())
                         .withDescription(collMeta.desc)
                         .withDescriptionTextColorRes(R.color.textSecondary)
@@ -705,7 +705,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         SecondaryDrawerItem()
                                 .withName(subGrpMeta.uiName)
-                                .withIcon(IconicsDrawable(this, subGrpMeta.icon))
+                                .withIcon(IconicsDrawable(this, subGrpMeta.icon).icon)
                                 .withIdentifier(navId)
                                 .withSelectable(true)
                                 .withLevel(3)
@@ -722,7 +722,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 .withSelectable(false)
                                 .withIsExpanded(false)
                                 .withIdentifier(navId)
-                                .withIcon(IconicsDrawable(this, grpMeta.icon))
+                                .withIcon(IconicsDrawable(this, grpMeta.icon).icon)
                                 .withSubItems(subItems)
                         collExpandableItem.withSubItems(grpGrp)
                     } else {
@@ -733,7 +733,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val grpItem = SecondaryDrawerItem()
                                 .withName(grpMeta.uiName)
-                                .withIcon(IconicsDrawable(this, grpMeta.icon))
+                                .withIcon(IconicsDrawable(this, grpMeta.icon).icon)
                                 .withIdentifier(navId)
                                 .withSelectable(true)
                                 .withLevel(2)
@@ -1286,6 +1286,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 if (!alreadyInitializedCollections) {
                     val stopwatch = Stopwatch.createStarted()
                     try {
+                        alreadyInitializedCollections = true
                         return AdventuresmithCore.collections
                     } finally {
                         stopwatch.stop()
