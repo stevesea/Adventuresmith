@@ -657,7 +657,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         drawerIdToGroup.clear()
         favoriteIdToName.clear()
 
-
         val result: MutableList<IDrawerItem<*, *>> = mutableListOf()
 
         result.add(favExpandItem)
@@ -665,10 +664,12 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collections = getCachedCollections()
         val collectionMetas = getCachedCollectionMetas(resources)
 
-        collections.forEach { collId, coll ->
+        for (collEntry in collections.entries) {
+            val collId = collEntry.key
+            val coll = collEntry.value
 
             val collMeta = collectionMetas.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId")}
-            info("collection: $collId")
+            debug("collection: $collId")
 
             if (!collMeta.hasGroups) {
                 // no groups, just create item

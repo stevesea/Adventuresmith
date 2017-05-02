@@ -19,6 +19,8 @@
 -dontoptimize
 -dontpreverify
 
+-printmapping mapping.txt
+
 
 # from https://github.com/cypressious/KotlinReflectionProguard,
 # proguard strips off dto ctors, making jackson deserialization unhappy
