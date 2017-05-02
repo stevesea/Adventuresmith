@@ -1004,6 +1004,8 @@ class AdventuresmithActivity : AppCompatActivity(),
             return
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
+
+        val dlg = indeterminateProgressDialog(R.string.loading_dlg_title)
         doAsync {
             val getGenSW = Stopwatch.createStarted()
             val generators : List<Generator> =
@@ -1058,6 +1060,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
                     buttonAdapter.withSavedInstanceState(savedInstanceState)
                 }
+
+                dlg.dismiss()
 
                 appbar.visibility = View.VISIBLE
                 appbar.setExpanded(true, true)
