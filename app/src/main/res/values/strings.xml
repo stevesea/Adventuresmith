@@ -18,6 +18,7 @@
     <string name="nav_favs">Favorites</string>
 
     <string name="loading_dlg_title">Loading…</string>
+    <string name="generating_dlg_title">Generating…</string>
 
     <string name="fav_add_to_group">Add Favorite to Group</string>
     <string name="fav_remove">Remove Favorite?</string>

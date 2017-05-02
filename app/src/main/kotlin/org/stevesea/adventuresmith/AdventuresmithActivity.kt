@@ -327,37 +327,42 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val inputConfig = getGeneratorConfig(generator.getId())
 
+                        val dlg = indeterminateProgressDialog(R.string.generating_dlg_title)
                         doAsync {
-                            val stopwatch = Stopwatch.createStarted()
-                            val resultItems : MutableList<String> = mutableListOf()
-                            for (i in 1..num_to_generate) {
-                                try {
-                                    resultItems.add(generator.generate(currentLocale, inputConfig))
-                                } catch (e: Exception) {
-                                    warn(e.toString(), e)
-                                    resultItems.add(
-                                            "<font color=\"#b71c1c\">" +
-                                            e.message.orEmpty() +
-                                            "</font>"
-                                    )
+                            try {
+                                val stopwatch = Stopwatch.createStarted()
+                                val resultItems: MutableList<String> = mutableListOf()
+                                for (i in 1..num_to_generate) {
+                                    try {
+                                        resultItems.add(generator.generate(currentLocale, inputConfig))
+                                    } catch (e: Exception) {
+                                        warn(e.toString(), e)
+                                        resultItems.add(
+                                                "<font color=\"#b71c1c\">" +
+                                                        e.message.orEmpty() +
+                                                        "</font>"
+                                        )
+                                    }
                                 }
-                            }
-                            stopwatch.stop()
+                                stopwatch.stop()
 
-                            Answers.getInstance().logCustom(
-                                    CustomEvent("Generate")
-                                            .putCustomAttribute("NumGenerated", num_to_generate)
-                                            .putCustomAttribute("ElapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-                                            .putCustomAttribute("GeneratorId", item.generator.getId())
-                            )
+                                Answers.getInstance().logCustom(
+                                        CustomEvent("Generate")
+                                                .putCustomAttribute("NumGenerated", num_to_generate)
+                                                .putCustomAttribute("ElapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
+                                                .putCustomAttribute("GeneratorId", item.generator.getId())
+                                )
 
-                            uiThread {
-                                synchronized(resultAdapter) {
-                                    resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
+                                uiThread {
+                                    synchronized(resultAdapter) {
+                                        resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
 
-                                    recycler_results.scrollToPosition(0)
-                                    debug("Number of items ${resultAdapter.adapterItemCount}")
+                                        recycler_results.scrollToPosition(0)
+                                        debug("Number of items ${resultAdapter.adapterItemCount}")
+                                    }
                                 }
+                            } finally {
+                                dlg.dismiss()
                             }
                         }
                         return true
@@ -1005,66 +1010,73 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
 
-        val dlg = indeterminateProgressDialog(R.string.loading_dlg_title)
+        val dlg = progressDialog(R.string.loading_dlg_title)
         doAsync {
-            val getGenSW = Stopwatch.createStarted()
-            val generators : List<Generator> =
+            try {
+                val getGenSW = Stopwatch.createStarted()
+                val generators: List<Generator> =
+                        if (collGrp != null) {
+                            info("Finding generators... $collGrp ")
+                            Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
+                                    .putCustomAttribute("Dataset", collGrp.collectionId)
+                            )
+                            debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
+                            AdventuresmithCore.getGeneratorsByGroup(
+                                    collGrp.collectionId,
+                                    collGrp.groupId
+                            )
+                        } else if (favName != null) {
+                            info("Finding favorites... $favName")
+                            Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
+                            getFavoriteGenerators(favName)
+                        } else {
+                            listOf()
+                        }
+                getGenSW.stop()
+                info("Loading generators for drawer selection done ($getGenSW elapsed)")
+                Answers.getInstance().logCustom(CustomEvent("GetDrawerGenerators")
+                        .putCustomAttribute("elapsedMS", getGenSW.elapsed(TimeUnit.MILLISECONDS))
+                )
+
+                val getGenMetaSW = Stopwatch.createStarted()
+                dlg.max = generators.size
+
+                generators.forEach { gen ->
+                    gen.getMetadata(getCurrentLocale(resources))
+                    dlg.incrementProgressBy(1)
+                }
+                getGenMetaSW.stop()
+                info("Loading generator metadata for drawer selection done ($getGenMetaSW elapsed)")
+                Answers.getInstance().logCustom(CustomEvent("GetDrawerGeneratorMetas")
+                        .putCustomAttribute("elapsedMS", getGenMetaSW.elapsed(TimeUnit.MILLISECONDS))
+                )
+
+                uiThread {
                     if (collGrp != null) {
-                        info("Finding generators... $collGrp ")
-                        Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
-                                .putCustomAttribute("Dataset", collGrp.collectionId)
-                        )
-                        debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
-                        AdventuresmithCore.getGeneratorsByGroup(
-                                collGrp.collectionId,
-                                collGrp.groupId
-                        )
+                        toolbar.title = collGrp.name
                     } else if (favName != null) {
-                        info("Finding favorites... $favName")
-                        Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
-                        getFavoriteGenerators(favName)
-                    } else {
-                        listOf()
+                        toolbar.title = getString(R.string.nav_favs) + " / $favName"
                     }
-            getGenSW.stop()
-            info("Loading generators for drawer selection done ($getGenSW elapsed)")
-            Answers.getInstance().logCustom(CustomEvent("GetDrawerGenerators")
-                    .putCustomAttribute("elapsedMS", getGenSW.elapsed(TimeUnit.MILLISECONDS))
-            )
-
-            val getGenMetaSW = Stopwatch.createStarted()
-            generators.forEach { gen ->
-                gen.getMetadata(getCurrentLocale(resources))
-            }
-            getGenMetaSW.stop()
-            info("Loading generator metadata for drawer selection done ($getGenMetaSW elapsed)")
-            Answers.getInstance().logCustom(CustomEvent("GetDrawerGeneratorMetas")
-                    .putCustomAttribute("elapsedMS", getGenMetaSW.elapsed(TimeUnit.MILLISECONDS))
-            )
-
-            uiThread {
-                if (collGrp != null) {
-                    toolbar.title = collGrp.name
-                } else if (favName != null) {
-                    toolbar.title = getString(R.string.nav_favs) + " / $favName"
-                }
-                synchronized(buttonAdapter) {
-                    buttonAdapter.clear()
-                    for (g in generators) {
-                        buttonAdapter.add(
-                                GeneratorButton(
-                                        g,
-                                        getGeneratorConfig(g.getId()),
-                                        getCurrentLocale(resources))
-                        )
+                    synchronized(buttonAdapter) {
+                        buttonAdapter.clear()
+                        for (g in generators) {
+                            buttonAdapter.add(
+                                    GeneratorButton(
+                                            g,
+                                            getGeneratorConfig(g.getId()),
+                                            getCurrentLocale(resources))
+                            )
+                        }
+                        buttonAdapter.withSavedInstanceState(savedInstanceState)
                     }
-                    buttonAdapter.withSavedInstanceState(savedInstanceState)
-                }
 
+                    dlg.dismiss()
+
+                    appbar.visibility = View.VISIBLE
+                    appbar.setExpanded(true, true)
+                }
+            } finally {
                 dlg.dismiss()
-
-                appbar.visibility = View.VISIBLE
-                appbar.setExpanded(true, true)
             }
         }
     }
