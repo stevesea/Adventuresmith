@@ -3,20 +3,20 @@ id: augmented_reality
 icon: cmd-nfc-variant
 groupedGenerators:
   grpNPCs:
-  - cabbies
+  - instacitizen
   - corporate_aristocrats
+  - cabbies
   - covert_go_between
   - fixers
   - gangs
   - guns_for_hire
   - hackers
-  - instacitizen
   - street_walkers
   - tattoo
   - vices
   grpSenses:
-  - augmented_reality
   - infotainment
+  - augmented_reality
   - quirky_interiors
   - sights
   - smells
@@ -28,33 +28,33 @@ groupedGenerators:
   grpEncounters:
   - bio_horrors
   - first_contact
-  - freak_fighters
-  - gigs
   - jobs
   - ops
   - trespass
+  - freak_fighters
+  - gigs
   grpCity:
+  - legacy_infrastructure
   - alternative_business
+  - street_uses
   - area_events
   - downtown
   - hackable_assets
   - legacy_data
-  - legacy_infrastructure
   - local_conflict
   - nightlife
-  - street_uses
   grpCorps:
-  - boardroom_manoeuvres #0
-  - company_resources #0
-  - backup
   - department
   - first_responders
+  - boardroom_manoeuvres #0
+  - company_resources #0
   - job_sheet
+  - backup
   - response_level
   grpLoot:
   - condition
-  - one_mans_trash
-  - vendomat
   - whats_on_corpse
   - whats_on_thing
+  - one_mans_trash
+  - vendomat
   - where_has_it_been

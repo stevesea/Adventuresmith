@@ -5,19 +5,19 @@ groupedGenerators:
   grpChar:
   - characters #1
   - npcs #1
-  - monsters
   - names
   - spells
+  - monsters
   - animals #2000
   grpCity:
   - buildings
-  - city
   - district
   - factions
+  - city
   grpWild:
-  - inns
   - wild_disc
   - wilderness
+  - inns
   - forage #2000
   grpMaze:
   - dungeon
@@ -25,24 +25,24 @@ groupedGenerators:
   - dungeon_trick
   - traps
   grpItems:
-  - items
   - magical_ingredients
   - potions
-  - treasure
   - books #2000
+  - treasure
   - pick_pocket #2000
+  - items
   grpMisc:
+  - omens_catastrophes
+  - misfortunes
   - after_the_party
   - divine_domains
   - insanities
-  - misfortunes
   - missions
   - mutations
-  - omens_catastrophes
   grpZZ:
-  - mr01_afflictions #2000
   - mr01_characters
-  - mr01_items
   - mr01_magic
   - mr01_monsters
+  - mr01_items
+  - mr01_afflictions #2000
   - mr01_potion_effects #2000

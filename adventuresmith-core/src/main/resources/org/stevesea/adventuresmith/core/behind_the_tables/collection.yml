@@ -13,10 +13,10 @@ groupedGenerators:
   - encounters_idyllic_village #2000
   - encounters_rotting_city #2000
   grpEncountersWild:
-  - monastery_encounter
-  - prison_encounter
   - encounters_ancient_forest #2000
   - encounters_ship_sea #2000
+  - monastery_encounter
+  - prison_encounter
   grpFactionsSettlement:
   - assassin_guild
   - crafting_guild
@@ -61,9 +61,9 @@ groupedGenerators:
   - prison_explore #200
   - mage_towers
   grpNPCsAppPersMotiv:
-  - npc # 0
   - npc_appearance
   - npc_personality
+  - npc # 0
   grpNPCsCastle:
   - c_archer
   - c_armorer
@@ -107,11 +107,11 @@ groupedGenerators:
   - t_law_official
   - watch_guard
   grpNPCsTownMerchant:
+  - shopkeeper
   - apprentice_crafter
   - artisan
   - assassin
   - merchant
-  - shopkeeper
   - t_alchemist
   - t_server
   - t_smith

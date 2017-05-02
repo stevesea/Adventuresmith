@@ -20,10 +20,10 @@ groupedGenerators:
   - names_valkoina
   creatures:
   - creature #100
+  - creature_monster
   - creature_beast
   - creature_human
   - creature_humanoid
-  - creature_monster
   npcs:
   - npc #100
   - npc_rural

@@ -4,18 +4,18 @@ icon: cmd-rocket
 
 groupedGenerators:
   aaw:
+  - world # other format
   - alien
   - animal
-  - world # other format
   - backwater_spaceport
   - scavenger_fleet
   cr:
-  - corporation
   - faction  #other format
   - heresy
   - political_party
   - religion
   - religious_revolt
+  - corporation
   names:
   - names_arabic
   - names_chinese
@@ -33,10 +33,10 @@ groupedGenerators:
   - abandoned_structure #2000
   - temple_shrine #2000
   chars_npcs:
+  - adventure_seed
   - family_background
   - life_event
-  - npc
   - charclass_expert
   - charclass_psychic
   - charclass_warrior
-  - adventure_seed
+  - npc

@@ -13,11 +13,11 @@ groupedGenerators:
   - 1d30
   - 1d100
   grpCombinations:
+  - 1d20 advantage
+  - 1d20 disadvantage
   - 2d6
   - 3d6
   - 4d4
-  - 1d20 advantage
-  - 1d20 disadvantage
   grpCustom:
   - xdy_z_1
   - xdy_z_2

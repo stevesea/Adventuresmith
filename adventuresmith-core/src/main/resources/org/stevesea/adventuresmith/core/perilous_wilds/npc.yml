@@ -14,21 +14,21 @@ definitions:
       <br/><strong><small>Personality:</small></strong> {{npc.personality}}
       <br/><strong><small>Quirk:</small></strong> {{npc.quirk}}
     wilderness: |
-       <h4>NPC Wilderness</h4>
+       <h4>Wilderness NPC</h4>
        <strong><small>Occupation:</small></strong> {{npc_occupation.wilderness}}
        <br/><strong><small>Activity:</small></strong> {{details.activities}}
        <br/><strong><small>Alignment:</small></strong> {{details.alignments}}
        <br/>
        <br/>{{npc_templates.traits}}
     rural: |
-       <h4>NPC Rural</h4>
+       <h4>Rural NPC</h4>
        <strong><small>Occupation:</small></strong> {{npc_occupation.rural}}
        <br/><strong><small>Activity:</small></strong> {{details.activities}}
        <br/><strong><small>Alignment:</small></strong> {{details.alignments}}
        <br/>
        <br/>{{npc_templates.traits}}
     urban: |
-       <h4>NPC Urban</h4>
+       <h4>Urban NPC</h4>
        <strong><small>Occupation:</small></strong> {{npc_occupation.urban}}
        <br/><strong><small>Activity:</small></strong> {{details.activities}}
        <br/><strong><small>Alignment:</small></strong> {{details.alignments}}

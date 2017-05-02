@@ -26,11 +26,11 @@ groupedGenerators:
   - fant_wall_runes
   grpFantChars:
   - fant_barbarian
-  - fant_believe
   - fant_cleric
   - fant_dark_secret
   - fant_mage_truth
   - fant_oath
+  - fant_believe
   grpFantNPCs:
   - fant_elves
   - fant_frost_dragon
@@ -46,13 +46,13 @@ groupedGenerators:
   - fant_summoned
   - fant_wand
   grpFantMonsters:
-  - fant_monster_gen #0
   - fant_new_threat #0
   - fant_automaton
   - fant_blob
   - fant_hybrid
   - fant_demon_from #2000
   - fant_demon_kind #2000
+  - fant_monster_gen #0
   grpFantTreasure:
   - fant_dragon
   - fant_enchanted_jewelry
@@ -64,10 +64,10 @@ groupedGenerators:
   grpHorrorAdvSeeds:
   - horror_bodies_hidden
   - horror_clue
-  - horror_cure
   - horror_signature
   - horror_soul
   - horror_zombie_story
+  - horror_cure
   grpHorrorChars:
   - horror_familiar
   - horror_love
@@ -79,10 +79,10 @@ groupedGenerators:
   grpHorrorMonsters:
   - horror_bites
   - horror_crypt
-  - horror_escape
   - horror_monster_type
   - horror_they
   - horror_unseen_entity
+  - horror_escape
   grpHorrorSights:
   - horror_body_part
   - horror_ceiling
@@ -99,9 +99,9 @@ groupedGenerators:
   - modern_callsign
   - modern_expertise
   - modern_fingerprints
-  - modern_secret
   - modern_secret_society
   - modern_sentry
+  - modern_secret
   grpModernMissions:
   - modern_duffel
   - modern_primary_objective

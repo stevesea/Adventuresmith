@@ -7,13 +7,13 @@ groupedGenerators:
   - spell_mishap
   - mm_equip #3000
   grpEnc:
-  - fast_travel
   - just_joined
-  - monsters
+  - trouble_at_camp
+  - fast_travel
   - morale
   - reaction
-  - trouble_at_camp
   - weather
+  - monsters
   grpCommunity:
   - aa_equip
   - cc_equip

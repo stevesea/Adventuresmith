@@ -1,8 +1,8 @@
 id: kaigaku
 icon: cmd-yin-yang
 generators:
-  - animals
   - battlefield_enemies
   - battlefield_peril
+  - animals
   - court_enemies
   - urban_enemies
