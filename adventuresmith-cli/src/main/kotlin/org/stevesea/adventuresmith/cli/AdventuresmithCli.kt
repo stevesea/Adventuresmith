@@ -218,7 +218,7 @@ object AdventuresmithCli : KLoggable {
 
     private fun list(opts: Options) {
         val l = opts.locale
-        AdventuresmithCore.collections.forEach { collId, collDto ->
+        AdventuresmithCore.collections.forEach { (collId, collDto) ->
             val coll = AdventuresmithCore.getCollectionMetaData(collId, l)
 
             if (collDto.generators.isNotEmpty()) {
@@ -239,7 +239,7 @@ object AdventuresmithCli : KLoggable {
                 opts.out!!.delete()
             }
         }
-        AdventuresmithCore.collections.forEach { collId, coll ->
+        AdventuresmithCore.collections.forEach { (collId, coll) ->
             val collMeta = AdventuresmithCore.getCollectionMetaData(collId, l)
             if (coll.generators.isNotEmpty()) {
                 logger.info("{} - {} ({})", l, collMeta.name, collId)

@@ -39,7 +39,6 @@ import android.widget.*
 import com.crashlytics.android.answers.*
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Stopwatch
-import com.google.common.collect.ImmutableMap
 import com.mikepenz.community_material_typeface_library.*
 import com.mikepenz.fastadapter.*
 import com.mikepenz.fastadapter.commons.adapters.*
@@ -47,7 +46,6 @@ import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.listeners.EventHook
 import com.mikepenz.fastadapter_extensions.*
 import com.mikepenz.iconics.*
-import com.mikepenz.iconics.typeface.*
 import com.mikepenz.materialdrawer.*
 import com.mikepenz.materialdrawer.interfaces.*
 import com.mikepenz.materialdrawer.model.*
@@ -698,6 +696,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 collMeta.groups?.forEach { grpMeta ->
 
                     val subItems = grpMeta.groups.map { subGrpMeta ->
+
                         val navId = "${collId}.${subGrpMeta.name}".hashCode().toLong()
                         drawerIdToGroup.put(navId, CollectionAndGroup(
                                 collectionId = collId,
@@ -712,7 +711,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 .withLevel(3)
                     }
 
-                    // no subitems, this is just added beneath collection
+                    // this is just added beneath collection
                     val navId = "${collId}.${grpMeta.name}".hashCode().toLong()
 
                     if (subItems.isNotEmpty()) {
@@ -946,6 +945,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             return false
 
                         val drawerItemId = drawerItem.identifier
+                        info("Drawer item selected: $drawerItemId")
                         if (drawerIdToGroup.containsKey(drawerItemId) || favoriteIdToName.containsKey(drawerItemId)) {
                             selectDrawerItem(drawerItemId, null)
                             currentDrawerItemId = drawerItemId
@@ -1024,8 +1024,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
         doAsync {
+            val getGenSW = Stopwatch.createStarted()
             val generators : List<Generator> =
                     if (collGrp != null) {
+                        info("Finding generators... $collGrp ")
                         Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
                                 .putCustomAttribute("Dataset", collGrp.collectionId)
                         )
@@ -1035,11 +1037,27 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 collGrp.groupId
                         )
                     } else if (favName != null) {
+                        info("Finding favorites... $favName")
                         Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
                         getFavoriteGenerators(favName)
                     } else {
                         listOf()
                     }
+            getGenSW.stop()
+            info("Loading generators for drawer selection done ($getGenSW elapsed)")
+            Answers.getInstance().logCustom(CustomEvent("GetDrawerGenerators")
+                    .putCustomAttribute("elapsedMS", getGenSW.elapsed(TimeUnit.MILLISECONDS))
+            )
+
+            val getGenMetaSW = Stopwatch.createStarted()
+            generators.forEach { gen ->
+                gen.getMetadata(getCurrentLocale(resources))
+            }
+            getGenMetaSW.stop()
+            info("Loading generator metadata for drawer selection done ($getGenMetaSW elapsed)")
+            Answers.getInstance().logCustom(CustomEvent("GetDrawerGeneratorMetas")
+                    .putCustomAttribute("elapsedMS", getGenMetaSW.elapsed(TimeUnit.MILLISECONDS))
+            )
 
             uiThread {
                 if (collGrp != null) {
