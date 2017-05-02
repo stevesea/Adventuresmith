@@ -20,6 +20,9 @@ machine:
 
 dependencies:
     override:
+        - npm install -g cloc
+        - cloc . > cloc.txt
+        - cat cloc.txt
         - echo y | android update sdk --no-ui --all --filter "tools"
         - echo y | android update sdk --no-ui --all --filter "platform-tools"
         - echo y | android update sdk --no-ui --all --filter "android-25"
