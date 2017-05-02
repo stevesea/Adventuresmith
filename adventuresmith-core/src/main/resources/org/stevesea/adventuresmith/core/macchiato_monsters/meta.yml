@@ -8,7 +8,7 @@ groups:
     icon: cmd-coffee
   - name: grpEnc
     uiName: Encounters & Travel
-    icon: cmd-coffe-to-go
+    icon: cmd-coffee-to-go
   - name: grpCommunity
     uiName: Community Hacks
     icon: ion-beer
