@@ -102,7 +102,7 @@ class PwTest {
     @Test
     fun npc() {
         Assert.assertEquals("""
-        <h4>NPC Wilderness</h4>
+        <h4>Wilderness NPC</h4>
         <strong><small>Occupation:</small></strong> Criminal: bandit/brigand/thug
         <br/><strong><small>Activity:</small></strong> fighting/at war
         <br/><strong><small>Alignment:</small></strong> Chaotic
