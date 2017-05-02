@@ -208,7 +208,7 @@ data class CollectionDto(val id: String,
         if (groupId.isNullOrEmpty()) {
             return generators
         } else {
-            return groupedGenerators.getOrDefault(groupId!!, listOf())
+            return groupedGenerators.getOrElse(groupId!!) { listOf() }
         }
     }
     // get all the generators in this collection
