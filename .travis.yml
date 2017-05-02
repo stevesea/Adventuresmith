@@ -26,6 +26,7 @@ android:
 
 before_install:
   - chmod +x gradlew
+  - sudo apt-get -qq update
   - sudo apt-get install -y cloc
 
 script:
