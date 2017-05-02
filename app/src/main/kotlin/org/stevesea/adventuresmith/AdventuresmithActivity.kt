@@ -1010,7 +1010,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
 
-        val dlg = progressDialog(R.string.loading_dlg_title)
+        val dlg = indeterminateProgressDialog(R.string.loading_dlg_title)
         doAsync {
             try {
                 val getGenSW = Stopwatch.createStarted()
@@ -1039,11 +1039,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                 )
 
                 val getGenMetaSW = Stopwatch.createStarted()
-                dlg.max = generators.size
 
                 generators.forEach { gen ->
                     gen.getMetadata(getCurrentLocale(resources))
-                    dlg.incrementProgressBy(1)
                 }
                 getGenMetaSW.stop()
                 info("Loading generator metadata for drawer selection done ($getGenMetaSW elapsed)")
@@ -1069,9 +1067,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                         }
                         buttonAdapter.withSavedInstanceState(savedInstanceState)
                     }
-
-                    dlg.dismiss()
-
                     appbar.visibility = View.VISIBLE
                     appbar.setExpanded(true, true)
                 }
