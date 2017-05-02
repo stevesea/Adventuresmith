@@ -26,12 +26,8 @@ android:
 
 before_install:
   - chmod +x gradlew
-  - sudo apt-get -qq update
-  - sudo apt-get install -y cloc
 
 script:
-  - cloc . > cloc.txt
-  - cat cloc.txt
   - ./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:runGenerateDocs adventuresmith-cli:distZip
 
 before_cache:
