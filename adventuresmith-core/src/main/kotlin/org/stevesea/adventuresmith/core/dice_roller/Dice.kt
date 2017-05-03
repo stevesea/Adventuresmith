@@ -310,25 +310,25 @@ val diceModule = Kodein.Module {
 
     DiceConstants.customizableDice.forEach {
         bind<Generator>(it.key) with provider {
-            object : CustomizeableDiceGenerator(it.key, it.value, instance()) {}
+            CustomizeableDiceGenerator(it.key, it.value, instance())
         }
     }
 
     DiceConstants.explodingDice.forEach {
         bind<Generator>(it.key) with provider {
-            object : ExplodingDiceGenerator(it.key, it.value, instance()) {}
+            ExplodingDiceGenerator(it.key, it.value, instance())
         }
     }
 
     DiceConstants.fudgeDice.forEach {
         bind<Generator>(it.key) with provider {
-            object : FudgeDiceGenerator(it.key, it.value, instance()) {}
+            FudgeDiceGenerator(it.key, it.value, instance())
         }
     }
 
     DiceConstants.eoteDice.forEach {
         bind<Generator>(it.key) with provider {
-            object : EotEDiceGenerator(it.key, it.value, instance()) {}
+            EotEDiceGenerator(it.key, it.value, instance())
         }
     }
 
@@ -341,7 +341,7 @@ val diceModule = Kodein.Module {
  * custom dice all share the same generator logic and similar metadata. but need to have separate
  * generator IDs so that the user can have multiple custom dice configurations.
  */
-abstract class CustomizeableDiceGenerator(
+class CustomizeableDiceGenerator(
         val myid: String,
         val myname: String,
         val diceParser: DiceParser) : Generator {
@@ -428,9 +428,9 @@ abstract class CustomizeableDiceGenerator(
     }
 }
 
-abstract class ExplodingDiceGenerator( val myid: String,
-                                       val myname: String,
-                                       val diceParser: DiceParser) : Generator, KLoggable {
+class ExplodingDiceGenerator( val myid: String,
+                              val myname: String,
+                              val diceParser: DiceParser) : Generator, KLoggable {
     override val logger = logger()
     override fun getId(): String {
         return myid
@@ -531,7 +531,7 @@ abstract class ExplodingDiceGenerator( val myid: String,
 
 }
 
-abstract class FudgeDiceGenerator(
+class FudgeDiceGenerator(
         val myid: String,
         val myname: String,
         val shuffler: Shuffler) : Generator {
@@ -583,7 +583,7 @@ abstract class FudgeDiceGenerator(
 
 }
 
-abstract class EotEDiceGenerator(
+class EotEDiceGenerator(
         val myid: String,
         val myname: String,
         val shuffler: Shuffler) : Generator, KLoggable {
