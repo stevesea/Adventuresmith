@@ -178,6 +178,6 @@ tasks.withType(Test) {
         exceptionFormat 'full'
     }
 }
-repositories {
-    mavenCentral()
-}
+
+check.dependsOn ktlint
+check.dependsOn detekt

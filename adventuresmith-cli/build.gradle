@@ -92,3 +92,4 @@ task(runGenerateDocs, dependsOn: 'classes', type: JavaExec) {
 }
 
 check.dependsOn ktlint
+check.dependsOn detekt
