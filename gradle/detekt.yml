@@ -42,7 +42,7 @@ code-smell:
     base: 0.5
 
 formatting:
-  active: false
+  active: true
   useTabs: false
   Indentation:
     active: false
@@ -64,7 +64,7 @@ formatting:
     autoCorrect: true
   SpacingAroundCurlyBraces:
     active: true
-    autoCorrect: true
+    autoCorrect: false
   SpacingAroundOperator:
     active: true
     autoCorrect: true
