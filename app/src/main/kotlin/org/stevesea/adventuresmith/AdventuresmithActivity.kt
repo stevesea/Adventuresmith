@@ -354,6 +354,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 )
 
                                 uiThread {
+                                    dlg.dismiss()
                                     synchronized(resultAdapter) {
                                         resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
 
@@ -1043,6 +1044,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 generators.forEach { gen ->
                     gen.getMetadata(getCurrentLocale(resources))
                 }
+
                 getGenMetaSW.stop()
                 info("Loading generator metadata for drawer selection done ($getGenMetaSW elapsed)")
                 Answers.getInstance().logCustom(CustomEvent("GetDrawerGeneratorMetas")
@@ -1050,6 +1052,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 )
 
                 uiThread {
+                    dlg.dismiss()
                     if (collGrp != null) {
                         toolbar.title = collGrp.name
                     } else if (favName != null) {
