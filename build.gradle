@@ -7,6 +7,8 @@ buildscript {
     ext.robolectric_version = '3.0'
     ext.junit_version = '4.12'
     ext.mockito_version = '1.10.19'
+    ext.ktlint_version = '0.6.1'
+    ext.detekt_version = '1.0.0.M8.1'
 
     repositories {
         jcenter()
@@ -24,22 +26,33 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //classpath 'eu.inloop:easyrelease:0.2.2'
 
+        classpath 'gradle.plugin.info.adavis:qualityChecks:0.2.3'
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
-
 plugins {
     id 'com.gladed.androidgitversion' version '0.2.21'
 }
-
 
 allprojects {
     repositories {
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://dl.bintray.com/jetbrains/anko' }
+        maven { url  "http://dl.bintray.com/arturbosch/code-analysis" }
+    }
+
+    configurations {
+        ktlint
+        detekt
+    }
+    dependencies {
+        ktlint "com.github.shyiko:ktlint:$ktlint_version"
+        detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detekt_version"
+        detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
     }
 }
 
