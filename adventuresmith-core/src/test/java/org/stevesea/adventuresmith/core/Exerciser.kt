@@ -40,10 +40,9 @@ class Exerciser {
 
         for (g in AdventuresmithCore.generators) {
             val generator_instance = g.value
-            val m = generator_instance.getMetadata()
 
             for (locale in AdventuresmithCore.ALL_LOCALES) {
-                val meta = generator_instance.getMetadata(locale)
+                generator_instance.getMetadata(locale)
 
                 try {
                     for (i in 1..25) {
