@@ -20,21 +20,23 @@
 
 package org.stevesea.adventuresmith.cli
 
-import mu.*
-import net.sourceforge.argparse4j.*
-import net.sourceforge.argparse4j.annotation.*
-import net.sourceforge.argparse4j.impl.*
-import net.sourceforge.argparse4j.inf.*
-import org.stevesea.adventuresmith.core.*
-import java.io.*
-import java.util.*
-
-
+import mu.KLoggable
+import net.sourceforge.argparse4j.ArgumentParsers
+import net.sourceforge.argparse4j.annotation.Arg
+import net.sourceforge.argparse4j.impl.Arguments
+import net.sourceforge.argparse4j.inf.Argument
+import net.sourceforge.argparse4j.inf.ArgumentParser
+import net.sourceforge.argparse4j.inf.ArgumentParserException
+import net.sourceforge.argparse4j.inf.ArgumentType
+import org.stevesea.adventuresmith.core.AdventuresmithCore
+import java.io.File
+import java.io.IOException
+import java.util.Locale
 
 class LocaleArgType : ArgumentType<Locale> {
     override fun convert(parser: ArgumentParser?, arg: Argument?, value: String?): Locale {
         try {
-            val split = value!!.split('-','_')
+            val split = value!!.split('-', '_')
             when (split.size ) {
                 1 -> return Locale(split[0])
                 2 -> return Locale(split[0].toLowerCase(), split[1])
@@ -189,7 +191,7 @@ object AdventuresmithCli : KLoggable {
         } else {
             opts.out!!.writeText(message)
         }
-        AdventuresmithCore.getCollectionMetas(l).forEach { collId, coll ->
+        AdventuresmithCore.getCollectionMetas(l).forEach { (collId, coll) ->
             if (coll.credit != null) {
                 if (opts.out == null) {
                     print(coll.toMarkdownStr())

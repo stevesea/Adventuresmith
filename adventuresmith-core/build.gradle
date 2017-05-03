@@ -21,6 +21,10 @@
 apply plugin: 'java'
 apply plugin: "kotlin"
 
+configurations {
+    ktlint
+}
+
 // http://stackoverflow.com/questions/24870464/android-studio-with-java-library-module-unable-to-load-test-resources
 sourceSets {
     test {
@@ -38,6 +42,10 @@ task copyMainResources(type: Copy) {
     into "${buildDir}/classes/main"
 }
 copyTestResources.dependsOn copyMainResources
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -58,6 +66,8 @@ dependencies {
 
     compile 'com.samskivert:jmustache:1.13'
 
+    ktlint 'com.github.shyiko:ktlint:0.6.1'
+
     // framework for dice expression parser
     compile 'me.sargunvohra.lib:cakeparse:1.1.1'
     compile 'io.github.microutils:kotlin-logging:1.4.4'
@@ -67,6 +77,17 @@ dependencies {
     testCompile "com.nhaarman:mockito-kotlin:1.4.0"
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
 }
-repositories {
-    mavenCentral()
+
+task ktlint(type: JavaExec) {
+    main = "com.github.shyiko.ktlint.Main"
+    classpath = configurations.ktlint
+    args "src/main/kotlin/**/*.kt"
 }
+
+task ktlintFormat(type: JavaExec) {
+    main = "com.github.shyiko.ktlint.Main"
+    classpath = configurations.ktlint
+    args "-F", "src/main/kotlin/**/*.kt"
+}
+
+check.dependsOn ktlint

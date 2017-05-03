@@ -22,8 +22,6 @@ package org.stevesea.adventuresmith.core
 
 // this is mostly taken from https://kotlinlang.org/docs/reference/type-safe-builders.html
 
-
-
 interface Element {
     fun render(builder: StringBuilder, indent: String)
 }

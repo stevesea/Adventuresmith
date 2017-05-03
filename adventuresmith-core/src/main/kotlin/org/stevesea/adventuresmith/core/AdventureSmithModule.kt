@@ -20,21 +20,31 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.fasterxml.jackson.databind.*
-import com.fasterxml.jackson.dataformat.yaml.*
-import com.fasterxml.jackson.module.kotlin.*
-import com.github.salomonbrys.kodein.*
-import com.google.common.io.*
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.factory
+import com.github.salomonbrys.kodein.instance
+import com.github.salomonbrys.kodein.lazy
+import com.github.salomonbrys.kodein.provider
+import com.github.salomonbrys.kodein.singleton
+import com.google.common.io.Resources
 import mu.KLoggable
 import org.stevesea.adventuresmith.core.dice_roller.DiceConstants
 import org.stevesea.adventuresmith.core.dice_roller.diceModule
-import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.*
-import org.stevesea.adventuresmith.core.stars_without_number.*
-import java.io.*
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.FotfConstants
+import org.stevesea.adventuresmith.core.freebooters_on_the_frontier.fotfModule
+import org.stevesea.adventuresmith.core.stars_without_number.SwnConstantsCustom
+import org.stevesea.adventuresmith.core.stars_without_number.swnModule
+import java.io.File
+import java.io.IOException
 import java.nio.charset.Charset
-import java.security.*
-import java.util.*
-
+import java.security.SecureRandom
+import java.util.Locale
+import java.util.Random
 
 object AdventuresmithCore : KodeinAware, KLoggable {
     override val logger = logger()
@@ -71,8 +81,8 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     /**
      * a map of "<collId>/<generator-id>" to generator instance
      */
-    val generators : Map<String,Generator> by lazy {
-        val generators :  MutableMap<String, Generator> = mutableMapOf()
+    val generators : Map<String, Generator> by lazy {
+        val generators : MutableMap<String, Generator> = mutableMapOf()
 
         for (g in instance<Set<String>>(ALL_GENERATORS)) {
             try {
@@ -97,7 +107,6 @@ object AdventuresmithCore : KodeinAware, KLoggable {
         }
         return result
     }
-
 
     fun getGeneratorsByGroup(collId: String, grpId: String? = null) : List<Generator> {
         val result : MutableList<Generator> = mutableListOf()

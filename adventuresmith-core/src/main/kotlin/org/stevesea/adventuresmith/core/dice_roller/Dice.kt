@@ -20,15 +20,35 @@
 
 package org.stevesea.adventuresmith.core.dice_roller
 
-import com.github.salomonbrys.kodein.*
-import me.sargunvohra.lib.cakeparse.api.*
-import me.sargunvohra.lib.cakeparse.exception.*
-import me.sargunvohra.lib.cakeparse.parser.*
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.instance
+import com.github.salomonbrys.kodein.provider
+import com.github.salomonbrys.kodein.singleton
+import me.sargunvohra.lib.cakeparse.api.and
+import me.sargunvohra.lib.cakeparse.api.before
+import me.sargunvohra.lib.cakeparse.api.lexer
+import me.sargunvohra.lib.cakeparse.api.map
+import me.sargunvohra.lib.cakeparse.api.optional
+import me.sargunvohra.lib.cakeparse.api.or
+import me.sargunvohra.lib.cakeparse.api.parseToEnd
+import me.sargunvohra.lib.cakeparse.api.ref
+import me.sargunvohra.lib.cakeparse.api.then
+import me.sargunvohra.lib.cakeparse.api.token
+import me.sargunvohra.lib.cakeparse.exception.LexerException
+import me.sargunvohra.lib.cakeparse.parser.Parser
 import mu.KLoggable
-import org.stevesea.adventuresmith.core.*
-import java.text.*
-import java.util.*
-
+import org.stevesea.adventuresmith.core.Generator
+import org.stevesea.adventuresmith.core.GeneratorInputDto
+import org.stevesea.adventuresmith.core.GeneratorMetaDto
+import org.stevesea.adventuresmith.core.InputParamDto
+import org.stevesea.adventuresmith.core.RangeMap
+import org.stevesea.adventuresmith.core.Shuffler
+import org.stevesea.adventuresmith.core.getFinalPackageName
+import java.text.NumberFormat
+import java.util.Locale
+import java.util.Random
 
 // TODO: add support for drop lowest/highest, min/max?
 // hey, it parses dice! practically identical to the CakeParse sample for calculator
@@ -50,7 +70,6 @@ class DiceParser(override val kodein: Kodein) : KodeinAware {
         }
         return result
     }
-
 
     private fun roll(nDice: Int, nSides: Int) : Int {
         var sum = 0
@@ -138,8 +157,6 @@ class DiceParser(override val kodein: Kodein) : KodeinAware {
     val expr: Parser<Int> = addExpr
 }
 
-
-
 object DiceConstants {
     val GROUP = getFinalPackageName(this.javaClass)
 
@@ -154,7 +171,7 @@ object DiceConstants {
             "1d20",
             "1d30",
             "1d100"
-    ).map { "$GROUP/$it" to it}.toMap()
+    ).map { "$GROUP/$it" to it }.toMap()
 
     val fudgeDice = mapOf(
             "$GROUP/NdF_1" to "Fudge Dice #1",
@@ -169,7 +186,7 @@ object DiceConstants {
 
     // if we just want to roll dice, these could just be in the 'regularDice' above. But, i like
     // showing the individual rolls too
-    val multDice : Map<String,Pair<Int,String>> = mapOf(
+    val multDice = mapOf(
             "$GROUP/2d6" to Pair(2, "1d6"),
             "$GROUP/3d6" to Pair(3, "1d6"),
             "$GROUP/4d4" to Pair(4, "1d4")
@@ -178,7 +195,7 @@ object DiceConstants {
     val d20adv = "$GROUP/1d20 advantage"
     val d20disadv = "$GROUP/1d20 disadvantage"
 
-    val customizableDice: Map<String,String> = mapOf(
+    val customizableDice = mapOf(
             "$GROUP/xdy_z_1" to "Custom Dice #1",
             "$GROUP/xdy_z_2" to "Custom Dice #2",
             "$GROUP/xdy_z_3" to "Custom Dice #3",
@@ -193,7 +210,7 @@ object DiceConstants {
             "$GROUP/eote_3" to "EotE Dice #3"
     )
 
-    val generators =  listOf(
+    val generators = listOf(
         DiceConstants.regularDice.keys,
         DiceConstants.multDice.keys,
         listOf(
@@ -327,7 +344,7 @@ val diceModule = Kodein.Module {
 abstract class CustomizeableDiceGenerator(
         val myid: String,
         val myname: String,
-        val diceParser: DiceParser): Generator {
+        val diceParser: DiceParser) : Generator {
     override fun getId(): String {
         return myid
     }
@@ -381,7 +398,7 @@ abstract class CustomizeableDiceGenerator(
         }
         sb.append("]<br/><br/>Total: <big><strong>${nf.format(result)}</strong></big> = ${afterDroppedHighAndLow} + $add")
         if (tnVal.isNotEmpty()) {
-            val successes = afterDroppedHighAndLow.count {  it >= tn }
+            val successes = afterDroppedHighAndLow.count { it >= tn }
             sb.append("<br/><br/>Successes: <big><strong>${successes}</strong></big> (>= ${tn})")
         }
         return sb.toString()

@@ -20,16 +20,19 @@
 
 package org.stevesea.adventuresmith.core
 
-
-import com.fasterxml.jackson.databind.*
-import com.github.salomonbrys.kodein.*
-import com.google.common.base.Throwables
-import com.google.common.collect.*
-import com.samskivert.mustache.*
+import com.fasterxml.jackson.databind.ObjectReader
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.factory
+import com.github.salomonbrys.kodein.instance
+import com.samskivert.mustache.Mustache
+import com.samskivert.mustache.MustacheException
 import mu.KLoggable
-import java.io.*
-import java.util.*
-
+import java.io.File
+import java.io.IOException
+import java.io.Reader
+import java.io.StringReader
+import java.util.Locale
 
 interface Generator {
     fun getId() : String
@@ -96,7 +99,7 @@ data class InputParamDto(val name: String,
                          val isInt: Boolean = false,
                          val maxVal: Int = Int.MAX_VALUE,
                          val minVal: Int = 0,
-                         val values: List<String>? = null   // valid values
+                         val values: List<String>? = null // valid values
 ) {
     fun getVal(inputVal: String?) : Any? {
         var result = defaultValue
@@ -144,8 +147,8 @@ data class GeneratorInputDto(
         val useWizard: Boolean = true,
         val params: List<InputParamDto> = listOf()
 ) {
-    fun mergeInputWithDefaults(input: Map<String,String>?) : Map<String,Any?> {
-        val merged : MutableMap<String,Any?> = mutableMapOf()
+    fun mergeInputWithDefaults(input: Map<String, String>?) : Map<String, Any?> {
+        val merged : MutableMap<String, Any?> = mutableMapOf()
         params.forEach {
             if (input != null) {
                 merged.put(it.name, it.getVal(input.get(it.name)))
@@ -174,7 +177,7 @@ data class GeneratorMetaDto(val name: String,
                             val input: GeneratorInputDto? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null) {
-    fun mergeInputWithDefaults(inputMap: Map<String,String>?) : Map<String,Any?> {
+    fun mergeInputWithDefaults(inputMap: Map<String, String>?) : Map<String, Any?> {
         if (input != null) {
             return input.mergeInputWithDefaults(inputMap)
         }
@@ -272,7 +275,7 @@ data class CollectionMetaDto(val url: String? = null,
                     p { + """<a href="$url">$url</a>""" }
                 }
                 if (desc != null) {
-                    p { +desc}
+                    p { +desc }
                 }
                 if (attribution != null) {
                     p { + attribution }
@@ -301,7 +304,7 @@ data class DataDrivenGenDto(val templates: RangeMap?,
                             val definitions: Map<String, Any>?)
 
 class DataDrivenGenDtoCachingResourceLoader(val resource_prefix: String, override val kodein: Kodein)
-: DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware  {
+: DtoLoadingStrategy<DataDrivenGenDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
     override fun load(locale: Locale): DataDrivenGenDto {
         return resourceDeserializer.deserialize(
@@ -411,7 +414,6 @@ class DataDrivenGeneratorForResources(
             )
             val template = shuffler.pick(dto.templates)
 
-
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
             throw IOException("problem running generator ${resource_prefix}: ${ex.message}", ex)
@@ -458,7 +460,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
                             throw IOException("conflicting context key: ${it.key}")
                         }
                     }
-                    result.put(it.key,it.value)
+                    result.put(it.key, it.value)
                 }
             }
             d.nested_tables?.let {
@@ -468,7 +470,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
                             throw IOException("conflicting context key: ${it.key}")
                         }
                     }
-                    result.put(it.key,it.value)
+                    result.put(it.key, it.value)
                 }
             }
             d.definitions?.let {
@@ -478,7 +480,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
                             throw IOException("conflicting context key: ${it.key}")
                         }
                     }
-                    result.put(it.key,it.value)
+                    result.put(it.key, it.value)
                 }
             }
         }
@@ -527,7 +529,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                         if (findVal.contains(".")) {
                             val pieces = findVal.split(".")
                             val v = context.get(pieces[0])
-                            if (v is Map<*,*>) {
+                            if (v is Map<*, *>) {
                                 val v2 = v.get(pieces[1])
                                 if (v2 != null) {
                                     return v2
@@ -557,7 +559,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                             val ctxtKey = params[1]
                             val ctxtVal = findCtxtVal(ctxtKey)
                             val results = shuffler.pickN(ctxtVal, n)
-                            val delim = if (params.size > 2) { params[2] } else { ", "}
+                            val delim = if (params.size > 2) { params[2] } else { ", " }
                             return StringReader(results.joinToString(delim))
                         } else if (cmd_and_params[0] == "pick:") {
                             // {{>pick: <dice> <key>}}
@@ -663,7 +665,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                             if (curVal == null) {
                                 throw IllegalStateException("key '$key' from command '>$name' is null")
                             } else if (curVal is Collection<*>) {
-                                val delim = if (params.size > 1) { params[1] } else { ", "}
+                                val delim = if (params.size > 1) { params[1] } else { ", " }
                                 return StringReader(curVal.joinToString(delim))
                             } else {
                                 return StringReader(curVal.toString())
@@ -676,7 +678,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
 
         var result = template
 
-        var count = 0;
+        var count = 0
         do {
             try {
                 result = compiler
@@ -689,7 +691,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                         result = compiler
                                 .compile(result
                                         .replace("%[[", "{{")
-                                        .replace("]]%","}}"))
+                                        .replace("]]%", "}}"))
                                 .execute(context)
                                 .trim()
                     } else {

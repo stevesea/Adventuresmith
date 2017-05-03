@@ -20,18 +20,25 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.fasterxml.jackson.databind.*
-import com.github.salomonbrys.kodein.*
+import com.fasterxml.jackson.databind.ObjectReader
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.instance
 import com.google.common.base.Throwables
-import com.google.common.cache.*
-import com.google.common.io.*
+import com.google.common.cache.Cache
+import com.google.common.cache.CacheBuilder
+import com.google.common.io.Resources
 import com.google.common.util.concurrent.UncheckedExecutionException
-import mu.*
-import java.io.*
-import java.net.*
-import java.nio.charset.*
-import java.util.*
-import java.util.concurrent.*
+import mu.KLoggable
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.net.URL
+import java.nio.charset.Charset
+import java.util.Locale
+import java.util.concurrent.Callable
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.TimeUnit
 
 fun getFinalPackageName(clz : Class<Any> ) : String {
     val words = clz.`package`.name.split(".")
@@ -96,9 +103,9 @@ abstract class AbstractLocaleAwareFinder {
         )
         // if any of the locales didn't have country/variant, the list will have things like
         //   _en__ or _en_ , remove them
-        val suffixes_sanitized = locale_suffixes.filter { !it.endsWith("_")}
+        val suffixes_sanitized = locale_suffixes.filter { !it.endsWith("_") }
         // for all those left, append name as prefix, ext as suffix
-        return suffixes_sanitized.map { String.format("%s%s%s", name, it, ext)}
+        return suffixes_sanitized.map { String.format("%s%s%s", name, it, ext) }
     }
 }
 
@@ -125,7 +132,7 @@ object LocaleAwareFinderForFiles : AbstractLocaleAwareFinder(), KLoggable {
     fun findBestFile(f: File, locale: Locale, ext: String = ".yml") : File {
         val fnorm = File(f.parentFile, f.nameWithoutExtension).absolutePath
         val fnames_precendence_order = locale_names(fnorm, locale, ext)
-        val files = fnames_precendence_order.filter { File(it).exists() }.map{File(it)}
+        val files = fnames_precendence_order.filter { File(it).exists() }.map { File(it) }
         if (files.isEmpty()) {
             throw FileNotFoundException("Unable to find files matching '$fnorm'. Tried: $fnames_precendence_order")
         }
@@ -177,7 +184,7 @@ class CachingResourceDeserializer(override val kodein: Kodein) : KodeinAware
                                          resource_prefix : String,
                                          locale: Locale,
                                          charset: Charset): T {
-        val url = LocaleAwareFinderForClasspathResources.find(resource_prefix,locale,clazz)
+        val url = LocaleAwareFinderForClasspathResources.find(resource_prefix, locale, clazz)
         val str = Resources.toString(url, charset)
         try {
             val result: T = objectReader.forType(clazz).readValue(str)

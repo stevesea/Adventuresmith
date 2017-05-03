@@ -20,14 +20,17 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.fasterxml.jackson.annotation.*
-import com.fasterxml.jackson.core.*
-import com.fasterxml.jackson.databind.*
-import com.fasterxml.jackson.databind.annotation.*
-import com.fasterxml.jackson.databind.deser.std.*
+import com.fasterxml.jackson.annotation.JsonIdentityInfo
+import com.fasterxml.jackson.annotation.ObjectIdGenerators
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JsonMappingException
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer
 import com.google.common.base.Throwables
 import mu.KLoggable
-import java.util.*
+import java.util.TreeMap
 
 /**
  * this assumes the incoming data is a list of strings. each string needs to be parsed and applied
@@ -109,7 +112,7 @@ class RangeMapDeserializer : StdDeserializer<RangeMap>(RangeMap::class.java) {
             }
             val start = words[0].trim().toInt()
             val end = words[1].trim().toInt()
-            return IntRange(start,end)
+            return IntRange(start, end)
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("bad format for range : '%s'. Must be <Start>..<End> or <Int>. %s".format(rangeStr, e.message))
         }
@@ -140,7 +143,7 @@ class RangeMap(
 
     init {
         for (i in delegate.keys) {
-            ranges.add(IntRange(i,i))
+            ranges.add(IntRange(i, i))
         }
         if (delegate.keys.size > 0) {
             maxKey = delegate.lastKey()

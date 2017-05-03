@@ -20,13 +20,16 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.github.salomonbrys.kodein.*
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.instance
 import mu.KLoggable
 import org.stevesea.adventuresmith.core.dice_roller.DiceParser
-import java.util.*
+import java.util.Collections
+import java.util.Random
 
-class Shuffler(override val kodein: Kodein): KodeinAware, KLoggable {
-    override val logger =  logger()
+class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
+    override val logger = logger()
 
     val random: Random = instance()
     val diceParser : DiceParser = instance()
@@ -46,7 +49,7 @@ class Shuffler(override val kodein: Kodein): KodeinAware, KLoggable {
             return listOf()
         val itemsInds = rmap!!.keyRange().toList()
         val selN = pickN(itemsInds, num)
-        return selN.map { rmap.select(it)}
+        return selN.map { rmap.select(it) }
     }
 
     fun <T> pickN(items: Collection<T>?, num: Int) : Collection<T> {

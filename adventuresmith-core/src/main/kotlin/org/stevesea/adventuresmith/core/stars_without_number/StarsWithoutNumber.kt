@@ -20,20 +20,37 @@
 
 package org.stevesea.adventuresmith.core.stars_without_number
 
-import com.github.salomonbrys.kodein.*
-import com.samskivert.mustache.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
-
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.instance
+import com.github.salomonbrys.kodein.provider
+import com.samskivert.mustache.Mustache
+import org.stevesea.adventuresmith.core.BaseGenerator
+import org.stevesea.adventuresmith.core.BaseGeneratorWithView
+import org.stevesea.adventuresmith.core.CachingResourceDeserializer
+import org.stevesea.adventuresmith.core.DataDrivenGenDto
+import org.stevesea.adventuresmith.core.DtoLoadingStrategy
+import org.stevesea.adventuresmith.core.Generator
+import org.stevesea.adventuresmith.core.GeneratorMetaDto
+import org.stevesea.adventuresmith.core.HTML
+import org.stevesea.adventuresmith.core.ModelGenerator
+import org.stevesea.adventuresmith.core.ModelGeneratorStrategy
+import org.stevesea.adventuresmith.core.RangeMap
+import org.stevesea.adventuresmith.core.Shuffler
+import org.stevesea.adventuresmith.core.ViewStrategy
+import org.stevesea.adventuresmith.core.getFinalPackageName
+import org.stevesea.adventuresmith.core.html
+import java.util.Locale
 
 data class WorldTag(val flavor: String,
-                       val enemies: List<String>,
-                       val friends: List<String>,
-                       val complications: List<String>,
-                       val things: List<String>,
-                       val places: List<String>)
+                    val enemies: List<String>,
+                    val friends: List<String>,
+                    val complications: List<String>,
+                    val things: List<String>,
+                    val places: List<String>)
 
-data class WorldTagsDto(val world_tags: Map<String, WorldTag>){
+data class WorldTagsDto(val world_tags: Map<String, WorldTag>) {
     companion object Resource {
         val resource_prefix = "world_tags"
     }
@@ -61,7 +78,7 @@ data class WorldDto(val config: WorldConfig,
                     val temperatures: RangeMap,
                     val biospheres: RangeMap,
                     val populations: RangeMap,
-                    val techlevels: RangeMap){
+                    val techlevels: RangeMap) {
 
     companion object Resource {
         val resource_prefix = "world"
@@ -77,7 +94,7 @@ data class WorldRule(val atmosphere: Map<Int, WorldRuleSub>,
 data class WorldRulesDto(val num_cultures: RangeMap,
                          val num_tags: String,
                          val num_tag_flavor: String,
-                         val rules: WorldRule){
+                         val rules: WorldRule) {
     companion object Resource {
         val resource_prefix = "world_rules"
     }
@@ -88,7 +105,7 @@ data class WorldBundleDto(val world: WorldDto,
                           val worldRules: WorldRulesDto,
                           val names: DataDrivenGenDto)
 
-class SwnWorldDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBundleDto>, KodeinAware {
+class SwnWorldDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<WorldBundleDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
@@ -124,17 +141,16 @@ class SwnWorldDtoLoader(override val kodein: Kodein): DtoLoadingStrategy<WorldBu
     }
 }
 data class SwnFactionTypeDto(val stats_input: List<Int>,
-                              val hp: Int,
-                              val primary_assets: Int,
-                              val secondary_assets: Int,
+                             val hp: Int,
+                             val primary_assets: Int,
+                             val secondary_assets: Int,
                              val ntags: List<Int>)
-data class SwnFactionDto(val faction_types: Map<String,SwnFactionTypeDto>,
+data class SwnFactionDto(val faction_types: Map<String, SwnFactionTypeDto>,
                          val faction_type_chance: RangeMap,
                          val goals: List<String>,
                          val tags: List<String>,
-                         val assets: Map<String, Map<Int,List<String>>>,
-                         val template: String
-                      ) {
+                         val assets: Map<String, Map<Int, List<String>>>,
+                         val template: String) {
     companion object Resource {
         val resource_prefix = "faction"
     }
@@ -240,8 +256,6 @@ class SwnFactionView : ViewStrategy<SwnFactionModel, String> {
     }
 }
 
-
-
 data class SwnWorldTagModel(val tags_and_flavor: Collection<Pair<String, String>>,
                             val enemies: Collection<String>,
                             val friends: Collection<String>,
@@ -313,12 +327,12 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
 
     }
 
-    private fun getWorldTags(worldRules: WorldRulesDto, worldTags: Map<String,WorldTag>): SwnWorldTagModel{
+    private fun getWorldTags(worldRules: WorldRulesDto, worldTags: Map<String, WorldTag>): SwnWorldTagModel {
         // pick N tags
         val n = shuffler.roll(worldRules.num_tags)
         val tags : List<String> = shuffler.pickN(worldTags.keys, n).toList()
 
-        val flavors : MutableList<Pair<String,String>> = mutableListOf()
+        val flavors : MutableList<Pair<String, String>> = mutableListOf()
         val enemies : MutableList<String> = mutableListOf()
         val friends : MutableList<String> = mutableListOf()
         val complications : MutableList<String> = mutableListOf()
@@ -346,38 +360,38 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
     }
 }
 
-class SwnWorldView: ViewStrategy<SwnWorldModel, HTML> {
-    override fun transform(model: SwnWorldModel): HTML {
+class SwnWorldView : ViewStrategy<SwnWorldModel, HTML> {
+    override fun transform(model: SwnWorldModel) : HTML {
         return html {
             body {
                 h3 { + model.config.headers.main }
-                h4 { + model.config.headers.physical}
+                h4 { + model.config.headers.physical }
                 p {
                     strong { small { + model.config.headers.atmosphere } }
                     + model.atmosphere
-                    br {  }
+                    br { }
                     strong { small { + model.config.headers.temperature } }
                     + model.temperature
-                    br {  }
+                    br { }
                     strong { small { + model.config.headers.biosphere } }
                     + model.biosphere
                 }
-                h4 { + model.config.headers.cultural}
+                h4 { + model.config.headers.cultural }
                 p {
                     strong { small { + model.config.headers.name } }
                     + model.name
-                    br {  }
+                    br { }
                     strong { small { + model.config.headers.cultures } }
                     + model.cultures.joinToString(", ")
                 }
                 p {
                     strong { small { + model.config.headers.population } }
                     + model.population
-                    br {  }
+                    br { }
                     strong { small { + model.config.headers.techlevel } }
                     + model.techlevel
                 }
-                h4 { + model.config.headers.worldtags}
+                h4 { + model.config.headers.worldtags }
 
                 model.worldTags.tags_and_flavor.forEach {
                     h6 { + it.first }
@@ -396,7 +410,6 @@ class SwnWorldView: ViewStrategy<SwnWorldModel, HTML> {
 
             }
         }
-
 
     }
 }
@@ -440,7 +453,7 @@ object SwnConstantsCustom {
 
     val NAMES = "$GROUP/names"
 
-    val generators =  listOf(
+    val generators = listOf(
             SwnConstantsCustom.WORLD,
             SwnConstantsCustom.FACTION
     )

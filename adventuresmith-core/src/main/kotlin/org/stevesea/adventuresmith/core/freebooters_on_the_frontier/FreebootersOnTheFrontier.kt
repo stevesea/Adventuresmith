@@ -20,18 +20,35 @@
 
 package org.stevesea.adventuresmith.core.freebooters_on_the_frontier
 
-import com.github.salomonbrys.kodein.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.KodeinAware
+import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.instance
+import com.github.salomonbrys.kodein.provider
+import org.stevesea.adventuresmith.core.BaseGenerator
+import org.stevesea.adventuresmith.core.BaseGeneratorWithView
+import org.stevesea.adventuresmith.core.CachingResourceDeserializer
+import org.stevesea.adventuresmith.core.DtoLoadingStrategy
+import org.stevesea.adventuresmith.core.Generator
+import org.stevesea.adventuresmith.core.GeneratorMetaDto
+import org.stevesea.adventuresmith.core.HTML
+import org.stevesea.adventuresmith.core.ModelGenerator
+import org.stevesea.adventuresmith.core.ModelGeneratorStrategy
+import org.stevesea.adventuresmith.core.RangeMap
+import org.stevesea.adventuresmith.core.Shuffler
+import org.stevesea.adventuresmith.core.ViewStrategy
+import org.stevesea.adventuresmith.core.getFinalPackageName
+import org.stevesea.adventuresmith.core.html
+import java.util.Locale
 
-
-data class FotfCharNames(val names: Map<String,Map<String, List<String>>>) {
+data class FotfCharNames(val names: Map<String, Map<String, List<String>>>) {
     companion object Resource {
         val resource_prefix = "char_names"
     }
 }
+
 data class FotfCharNoTrans(val playbooks: RangeMap,
-                           val hitdie: Map<String,String>,
+                           val hitdie: Map<String, String>,
                            val heritages: Map<String, RangeMap>,
                            val alignments: Map<String, RangeMap>,
                            val virtues: Map<String, Int>,
@@ -42,6 +59,7 @@ data class FotfCharNoTrans(val playbooks: RangeMap,
         val resource_prefix = "char_no_translate"
     }
 }
+
 data class FotfCharHeadersDto(val virtues_vices: String,
                               val playbook: String,
                               val name_heritage: String,
@@ -57,13 +75,13 @@ data class FotfCharConfigDto(val headers: FotfCharHeadersDto,
 data class FotfCharDto(val config: FotfCharConfigDto,
                        val gear: Map<String, List<RangeMap>>,
                        val appearances: Map<String, List<String>>
-                       ){
+                       ) {
     companion object Resource {
         val resource_prefix = "char"
     }
 }
 data class FotfTraitsDto(val virtues: List<String>,
-                         val vices:List<String>) {
+                         val vices: List<String>) {
     companion object Resource {
         val resource_prefix = "traits"
     }
@@ -73,7 +91,6 @@ data class FotfCharBundleDto(val char: FotfCharDto,
                              val charSetup: FotfCharNoTrans,
                              val names: FotfCharNames,
                              val traits: FotfTraitsDto)
-
 
 class FotfCharDtoLoader(override val kodein: Kodein) : DtoLoadingStrategy<FotfCharBundleDto>, KodeinAware {
     val resourceDeserializer: CachingResourceDeserializer = instance()
@@ -133,19 +150,19 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
                 playbook = dto.char.config.playbooks.get(playbook)!!,
                 heritage = dto.char.config.heritages.get(heritage)!!,
                 alignment = dto.char.config.alignments.get(alignment)!!,
-                abilRolls = shuffler.rollN("3d6",dto.char.config.abilities.size),
+                abilRolls = shuffler.rollN("3d6", dto.char.config.abilities.size),
                 name = name,
                 appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.roll("1d2+1")),
-                virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) {0}),
-                vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) {0}),
-                gear = dto.char.gear.get(playbook)?.map { shuffler.pick(it)}!!
+                virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) { 0 }),
+                vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) { 0 }),
+                gear = dto.char.gear.get(playbook)?.map { shuffler.pick(it) }!!
         )
     }
 }
 
-class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
-    override fun transform(model: FotfCharModel): HTML {
-        val abils = model.config.abilities.zip(model.abilRolls) { it1, it2 -> "${it1}: ${it2}"}
+class FotfCharacterView : ViewStrategy<FotfCharModel, HTML> {
+    override fun transform(model: FotfCharModel) : HTML {
+        val abils = model.config.abilities.zip(model.abilRolls) { it1, it2 -> "${it1}: ${it2}" }
         return html {
             body {
                 h4 {
@@ -166,11 +183,11 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
                 }
                 p {
                     + "${abils.elementAt(0)}&nbsp;&nbsp;${abils.elementAt(1)}"
-                    br{}
+                    br { }
                     + "${abils.elementAt(2)}&nbsp;&nbsp;${abils.elementAt(3)}"
-                    br{}
+                    br { }
                     + "${abils.elementAt(4)}&nbsp;&nbsp;${abils.elementAt(5)}"
-                    br{}
+                    br { }
                     + abils.elementAt(6)
                 }
                 strong {
@@ -180,7 +197,7 @@ class FotfCharacterView: ViewStrategy<FotfCharModel, HTML> {
                 }
                 + listOf(model.virtues, model.vices).flatten().joinToString(", ")
 
-                br {  }
+                br { }
 
                 strong {
                     small {
