@@ -72,28 +72,5 @@ dependencies {
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
 }
 
-
-task detekt(type: JavaExec) {
-    main = "io.gitlab.arturbosch.detekt.cli.Main"
-    classpath = configurations.detekt
-    def input = "$project.projectDir.absolutePath"
-    def config = "$rootDir/detekt.yml"
-    def filters = ".*test.*"
-    def rulesets = ""
-    def params = [ '-p', input, '-c', config, '-f', filters, '-r', rulesets]
-    args(params)
-}
-
-
-task ktlint(type: JavaExec) {
-    main = "com.github.shyiko.ktlint.Main"
-    classpath = configurations.ktlint
-    args "src/**/*.kt"
-}
-
-task ktlintFormat(type: JavaExec) {
-    main = "com.github.shyiko.ktlint.Main"
-    classpath = configurations.ktlint
-    args "-F", "src/**/*.kt"
-}
 check.dependsOn ktlint
+check.dependsOn detekt

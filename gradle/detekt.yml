@@ -2,7 +2,7 @@ autoCorrect: true
 
 build:
   warningThreshold: 5
-  failThreshold: 10
+  failThreshold: 100
   weights:
     code-smell: 2
     LongParameterList: 1
@@ -42,8 +42,8 @@ code-smell:
     base: 0.5
 
 formatting:
-  active: true
-  useTabs: true
+  active: false
+  useTabs: false
   Indentation:
     active: false
     autoCorrect: false
