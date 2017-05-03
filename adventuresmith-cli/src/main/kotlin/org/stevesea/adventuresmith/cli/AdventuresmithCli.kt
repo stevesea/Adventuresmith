@@ -191,7 +191,7 @@ object AdventuresmithCli : KLoggable {
         } else {
             opts.out!!.writeText(message)
         }
-        AdventuresmithCore.getCollectionMetas(l).forEach { (collId, coll) ->
+        AdventuresmithCore.getCollectionMetas(l).values.forEach { coll ->
             if (coll.credit != null) {
                 if (opts.out == null) {
                     print(coll.toMarkdownStr())
