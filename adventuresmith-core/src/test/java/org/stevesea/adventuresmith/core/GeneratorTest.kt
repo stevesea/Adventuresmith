@@ -20,10 +20,14 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.fasterxml.jackson.databind.*
-import com.github.salomonbrys.kodein.*
-import org.junit.*
-import java.util.*
+import com.fasterxml.jackson.databind.ObjectReader
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.instance
+import com.github.salomonbrys.kodein.provider
+import org.junit.Assert
+import org.junit.Test
+import java.util.Locale
 
 class GeneratorTest {
     val input = """
@@ -70,7 +74,7 @@ class GeneratorTest {
 
         Assert.assertEquals(3, dto.tables!!.size)
         Assert.assertEquals(4, dto.templates!!.size)
-        Assert.assertEquals(listOf("effect1", "effect2"),dto.tables!!.get("effect")!!.values.toList())
+        Assert.assertEquals(listOf("effect1", "effect2"), dto.tables!!.get("effect")!!.values.toList())
     }
 
     @Test

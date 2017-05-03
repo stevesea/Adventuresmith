@@ -20,10 +20,10 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.fasterxml.jackson.databind.*
-import com.github.salomonbrys.kodein.*
-import org.junit.*
-
+import com.fasterxml.jackson.databind.ObjectReader
+import com.github.salomonbrys.kodein.instance
+import org.junit.Assert
+import org.junit.Test
 
 data class PlaybooksDto( val playbooks: RangeMap)
 
@@ -57,7 +57,7 @@ class RangeMapTest {
         Assert.assertEquals(7, dto.playbooks.size)
         Assert.assertEquals(20, dto.playbooks.maxKey)
 
-        Assert.assertEquals(IntRange(2,20), dto.playbooks.keyRange())
+        Assert.assertEquals(IntRange(2, 20), dto.playbooks.keyRange())
 
         Assert.assertEquals("Human", dto.playbooks.select(2))
         Assert.assertEquals("missing range means +1 to last range", dto.playbooks.select(16))

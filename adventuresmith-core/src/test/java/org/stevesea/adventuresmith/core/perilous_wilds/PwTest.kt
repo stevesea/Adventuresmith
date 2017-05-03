@@ -20,10 +20,11 @@
 
 package org.stevesea.adventuresmith.core.perilous_wilds
 
-import org.junit.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
-
+import org.junit.Assert
+import org.junit.Test
+import org.stevesea.adventuresmith.core.getFinalPackageName
+import org.stevesea.adventuresmith.core.getGenerator
+import java.util.Locale
 
 object PwConstants {
     private val GROUP = getFinalPackageName(this.javaClass)
@@ -62,7 +63,6 @@ object PwConstants {
     val DISCOVERY = "${GROUP}/discovery"
 
 }
-
 
 class PwTest {
 
@@ -139,7 +139,6 @@ class PwTest {
         """.trimIndent(),
                 getGenerator(PwConstants.CREATURE_Monster, 0).generate(Locale.US))
     }
-
 
     @Test
     fun danger() {

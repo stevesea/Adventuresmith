@@ -20,10 +20,10 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.github.salomonbrys.kodein.*
-import org.junit.*
+import com.github.salomonbrys.kodein.instance
+import org.junit.Test
 import org.stevesea.adventuresmith.core.dice_roller.DiceParser
-import kotlin.test.*
+import kotlin.test.assertEquals
 
 class DiceParserTest {
 

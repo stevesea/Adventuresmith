@@ -20,10 +20,14 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.github.salomonbrys.kodein.*
-import com.nhaarman.mockito_kotlin.*
-import java.security.*
-import java.util.*
+import com.github.salomonbrys.kodein.Kodein
+import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.instance
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.whenever
+import java.security.SecureRandom
+import java.util.Random
 
 fun getMockRandom(mockRandomVal: Int = 1) : Random {
     val mockRandom : Random = mock()
@@ -36,7 +40,7 @@ fun getKodein(random: Random) = Kodein {
     bind<Random>(overrides = true) with instance (random)
 }
 
-fun getGenerator(genName: String, mockRandomVal: Int = -1) : Generator{
+fun getGenerator(genName: String, mockRandomVal: Int = -1) : Generator {
     if (mockRandomVal < 0)
         return getKodein(SecureRandom()).instance(genName)
     return getKodein(getMockRandom(mockRandomVal)).instance(genName)

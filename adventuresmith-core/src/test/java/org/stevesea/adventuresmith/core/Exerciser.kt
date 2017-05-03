@@ -20,12 +20,8 @@
 
 package org.stevesea.adventuresmith.core
 
-import com.google.common.collect.Multimap
-import com.google.common.collect.MultimapBuilder
-import org.junit.*
+import org.junit.Test
 import java.io.IOException
-import java.util.*
-
 
 // this test doesn't actually do any verification, but it does run all the generators a bunch of
 // times in a bunch of locales to try and smoke out any NPEs or other exceptions

@@ -18,12 +18,13 @@
  *
  */
 
-package org.stevesea.adventuresmith.core.maze_rats;
+package org.stevesea.adventuresmith.core.maze_rats
 
-import org.junit.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
-
+import org.junit.Assert
+import org.junit.Test
+import org.stevesea.adventuresmith.core.getFinalPackageName
+import org.stevesea.adventuresmith.core.getGenerator
+import java.util.Locale
 
 object MrConstants {
     private val GROUP = getFinalPackageName(this.javaClass)

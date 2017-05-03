@@ -20,30 +20,29 @@
 
 package org.stevesea.adventuresmith.core.freebooters_on_the_frontier
 
-import org.junit.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
-
+import org.junit.Assert
+import org.junit.Test
+import org.stevesea.adventuresmith.core.getGenerator
+import java.util.Locale
 
 class FotfGeneratorTest {
     @Test
     fun spell_english() {
-        Assert.assertEquals("All-Seeing Arrow", getGenerator(FotfConstants.SPELLS,1).generate(Locale.ENGLISH))
-        Assert.assertEquals("Blade of Black Avarice", getGenerator(FotfConstants.SPELLS,5).generate(Locale.ENGLISH))
-        Assert.assertEquals("Bolt of Bolcas", getGenerator(FotfConstants.SPELLS,10).generate(Locale.ENGLISH))
-        Assert.assertEquals("Concealing Boon of Canderol", getGenerator(FotfConstants.SPELLS,12).generate(Locale.ENGLISH))
-        Assert.assertEquals("Bane of Anger", getGenerator(FotfConstants.SPELLS,3).generate(Locale.ENGLISH))
+        Assert.assertEquals("All-Seeing Arrow", getGenerator(FotfConstants.SPELLS, 1).generate(Locale.ENGLISH))
+        Assert.assertEquals("Blade of Black Avarice", getGenerator(FotfConstants.SPELLS, 5).generate(Locale.ENGLISH))
+        Assert.assertEquals("Bolt of Bolcas", getGenerator(FotfConstants.SPELLS, 10).generate(Locale.ENGLISH))
+        Assert.assertEquals("Concealing Boon of Canderol", getGenerator(FotfConstants.SPELLS, 12).generate(Locale.ENGLISH))
+        Assert.assertEquals("Bane of Anger", getGenerator(FotfConstants.SPELLS, 3).generate(Locale.ENGLISH))
     }
 
     @Test
     fun spell_french() {
-        Assert.assertEquals("Éther Clairvoyant", getGenerator(FotfConstants.SPELLS,1).generate(Locale.FRANCE))
-        Assert.assertEquals("Aura de/des/de de l'Air", getGenerator(FotfConstants.SPELLS,2).generate(Locale.FRANCE))
-        Assert.assertEquals("Fléau du/de la Fléau Grisant", getGenerator(FotfConstants.SPELLS,3).generate(Locale.FRANCE))
-        Assert.assertEquals("Équilibre Flamboyant de Asmoasta", getGenerator(FotfConstants.SPELLS,6).generate(Locale.FRANCE))
-        Assert.assertEquals("Bénédiction de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS,7).generate(Locale.FRANCE))
+        Assert.assertEquals("Éther Clairvoyant", getGenerator(FotfConstants.SPELLS, 1).generate(Locale.FRANCE))
+        Assert.assertEquals("Aura de/des/de de l'Air", getGenerator(FotfConstants.SPELLS, 2).generate(Locale.FRANCE))
+        Assert.assertEquals("Fléau du/de la Fléau Grisant", getGenerator(FotfConstants.SPELLS, 3).generate(Locale.FRANCE))
+        Assert.assertEquals("Équilibre Flamboyant de Asmoasta", getGenerator(FotfConstants.SPELLS, 6).generate(Locale.FRANCE))
+        Assert.assertEquals("Bénédiction de Rouille de Bahabalia", getGenerator(FotfConstants.SPELLS, 7).generate(Locale.FRANCE))
     }
-
 
     @Test
     fun char_french() {
@@ -99,7 +98,7 @@ class FotfGeneratorTest {
             Cotte de mailles, Bouclier
           </body>
         </html>
-""".trimIndent(), getGenerator(FotfConstants.CHARS,1).generate(Locale.FRANCE))
+""".trimIndent(), getGenerator(FotfConstants.CHARS, 1).generate(Locale.FRANCE))
 
     }
 
@@ -157,12 +156,9 @@ class FotfGeneratorTest {
             Chainmail, Shield
           </body>
         </html>
-""".trimIndent(), getGenerator(FotfConstants.CHARS,1).generate(Locale.ENGLISH))
+""".trimIndent(), getGenerator(FotfConstants.CHARS, 1).generate(Locale.ENGLISH))
 
     }
-
-
-
 
 }
 
