@@ -20,22 +20,18 @@
 
 package org.stevesea.adventuresmith
 
-import android.content.SharedPreferences
-import android.support.v7.widget.*
-import android.text.Editable
-import android.text.InputType
-import android.view.*
-import android.widget.*
-import com.fasterxml.jackson.core.type.TypeReference
-import com.google.common.base.Strings
-import com.mikepenz.fastadapter.items.*
-import com.mikepenz.fastadapter.utils.*
-import org.jetbrains.anko.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
+import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import com.mikepenz.fastadapter.items.AbstractItem
+import org.jetbrains.anko.AnkoLogger
+import org.stevesea.adventuresmith.core.Generator
+import org.stevesea.adventuresmith.core.GeneratorMetaDto
+import java.util.Locale
 
 class GeneratorButton(val generator: Generator,
-                      var inputMap: Map<String,String>,
+                      var inputMap: Map<String, String>,
                       locale: Locale = Locale.US,
                       val meta : GeneratorMetaDto = generator.getMetadata(locale)) :
         AbstractItem<GeneratorButton, GeneratorButton.ViewHolder>(),
@@ -55,7 +51,7 @@ class GeneratorButton(val generator: Generator,
         return R.layout.button_grid_item
     }
 
-    fun updateInputMap(i: Map<String,String>) {
+    fun updateInputMap(i: Map<String, String>) {
         inputMap = i
         if (vh != null) {
             vh!!.btnTextConfig.text = htmlStrToSpanned(meta.processInputForDisplay(inputMap))
@@ -89,8 +85,8 @@ class GeneratorButton(val generator: Generator,
     }
 
     class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
-        val btnText =  v!!.findViewById(R.id.btn_txt) as TextView
-        val btnTextConfig =  v!!.findViewById(R.id.btn_txt_config) as TextView
+        val btnText = v!!.findViewById(R.id.btn_txt) as TextView
+        val btnTextConfig = v!!.findViewById(R.id.btn_txt_config) as TextView
         val btnSettings = v!!.findViewById(R.id.btn_settings) as ImageView
     }
 

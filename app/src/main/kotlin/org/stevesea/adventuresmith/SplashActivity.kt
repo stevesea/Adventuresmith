@@ -20,10 +20,11 @@
 
 package org.stevesea.adventuresmith
 
-import android.content.*
-import android.os.*
-import android.support.v7.app.*
-import org.jetbrains.anko.*
+import android.content.Intent
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
 
 class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -20,13 +20,15 @@
 
 package org.stevesea.adventuresmith
 
-import android.content.pm.*
-import android.os.*
-import android.support.v7.app.*
-import android.support.v7.widget.*
-import com.mikepenz.fastadapter.commons.adapters.*
-import com.mikepenz.materialize.*
-import kotlinx.android.synthetic.main.activity_about.*
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.StaggeredGridLayoutManager
+import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
+import com.mikepenz.materialize.MaterializeBuilder
+import kotlinx.android.synthetic.main.activity_about.recycler_about
+import kotlinx.android.synthetic.main.activity_about.toolbar
 
 class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

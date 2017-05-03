@@ -20,17 +20,17 @@
 
 package org.stevesea.adventuresmith
 
-import android.os.*
-import android.support.v4.content.*
-import android.support.v7.widget.*
-import android.view.*
-import android.widget.*
-import com.mikepenz.fastadapter.commons.utils.*
-import com.mikepenz.fastadapter.items.*
-import com.mikepenz.fastadapter.utils.*
+import android.os.Parcel
+import android.os.Parcelable
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.TextView
+import com.mikepenz.fastadapter.commons.utils.FastAdapterUIUtils
+import com.mikepenz.fastadapter.items.AbstractItem
 import com.mikepenz.iconics.view.IconicsTextView
-import com.mikepenz.materialize.util.*
-import java.util.concurrent.atomic.*
+import com.mikepenz.materialize.util.UIUtils
+import java.util.concurrent.atomic.AtomicLong
 
 class ResultItem(val htmlTxt: String) :
         AbstractItem<GeneratorButton, ResultItem.ViewHolder>(),

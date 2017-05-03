@@ -20,43 +20,95 @@
 
 package org.stevesea.adventuresmith
 
-import android.annotation.*
-import android.content.*
-import android.content.res.*
-import android.graphics.*
-import android.os.*
-import android.support.v7.app.*
+import android.annotation.TargetApi
+import android.content.Intent
+import android.content.SharedPreferences
+import android.content.res.Resources
+import android.graphics.Color
+import android.os.Build
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.view.ActionMode
-import android.support.v7.widget.*
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.text.Editable
 import android.text.InputType
-import android.text.InputType.*
+import android.text.InputType.TYPE_CLASS_TEXT
+import android.text.InputType.TYPE_TEXT_FLAG_CAP_WORDS
 import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
-import android.view.*
-import android.widget.*
-import com.crashlytics.android.answers.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.CompoundButton
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.LinearLayout
+import com.crashlytics.android.answers.Answers
+import com.crashlytics.android.answers.CustomEvent
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.common.base.Stopwatch
-import com.mikepenz.community_material_typeface_library.*
-import com.mikepenz.fastadapter.*
-import com.mikepenz.fastadapter.commons.adapters.*
+import com.mikepenz.community_material_typeface_library.CommunityMaterial
+import com.mikepenz.fastadapter.FastAdapter
+import com.mikepenz.fastadapter.IAdapter
+import com.mikepenz.fastadapter.IItemAdapter
+import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import com.mikepenz.fastadapter.listeners.ClickEventHook
 import com.mikepenz.fastadapter.listeners.EventHook
-import com.mikepenz.fastadapter_extensions.*
-import com.mikepenz.iconics.*
-import com.mikepenz.materialdrawer.*
-import com.mikepenz.materialdrawer.interfaces.*
-import com.mikepenz.materialdrawer.model.*
-import com.mikepenz.materialdrawer.model.interfaces.*
+import com.mikepenz.fastadapter_extensions.ActionModeHelper
+import com.mikepenz.iconics.IconicsDrawable
+import com.mikepenz.materialdrawer.AccountHeader
+import com.mikepenz.materialdrawer.AccountHeaderBuilder
+import com.mikepenz.materialdrawer.Drawer
+import com.mikepenz.materialdrawer.DrawerBuilder
+import com.mikepenz.materialdrawer.interfaces.OnCheckedChangeListener
+import com.mikepenz.materialdrawer.model.DividerDrawerItem
+import com.mikepenz.materialdrawer.model.ExpandableDrawerItem
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
+import com.mikepenz.materialdrawer.model.SecondarySwitchDrawerItem
+import com.mikepenz.materialdrawer.model.SectionDrawerItem
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialize.MaterializeBuilder
-import com.mikepenz.materialize.util.*
-import kotlinx.android.synthetic.main.activity_adventuresmith.*
-import org.jetbrains.anko.*
-import org.stevesea.adventuresmith.core.*
-import java.text.*
-import java.util.*
+import com.mikepenz.materialize.util.UIUtils
+import kotlinx.android.synthetic.main.activity_adventuresmith.appbar
+import kotlinx.android.synthetic.main.activity_adventuresmith.bkg_image
+import kotlinx.android.synthetic.main.activity_adventuresmith.collapsing_toolbar
+import kotlinx.android.synthetic.main.activity_adventuresmith.nav_tablet
+import kotlinx.android.synthetic.main.activity_adventuresmith.recycler_buttons
+import kotlinx.android.synthetic.main.activity_adventuresmith.recycler_results
+import kotlinx.android.synthetic.main.activity_adventuresmith.toolbar
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.debug
+import org.jetbrains.anko.defaultSharedPreferences
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.editText
+import org.jetbrains.anko.indeterminateProgressDialog
+import org.jetbrains.anko.info
+import org.jetbrains.anko.padding
+import org.jetbrains.anko.scrollView
+import org.jetbrains.anko.selector
+import org.jetbrains.anko.singleLine
+import org.jetbrains.anko.textSizeDimen
+import org.jetbrains.anko.textView
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.verticalLayout
+import org.jetbrains.anko.warn
+import org.stevesea.adventuresmith.core.AdventuresmithCore
+import org.stevesea.adventuresmith.core.CollectionDto
+import org.stevesea.adventuresmith.core.CollectionMetaDto
+import org.stevesea.adventuresmith.core.Generator
+import java.text.SimpleDateFormat
+import java.util.ArrayList
+import java.util.GregorianCalendar
+import java.util.Locale
+import java.util.Random
+import java.util.SortedSet
 import java.util.concurrent.TimeUnit
 
 data class CollectionAndGroup(val collectionId: String,
@@ -130,12 +182,11 @@ class AdventuresmithActivity : AppCompatActivity(),
         res
     }
 
-
     val buttonAdapter : FastItemAdapter<GeneratorButton> by lazy {
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
-                .withItemEvent(object: ClickEventHook<GeneratorButton>(), EventHook<GeneratorButton> {
+                .withItemEvent(object : ClickEventHook<GeneratorButton>(), EventHook<GeneratorButton> {
                     override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
                         if (viewHolder is GeneratorButton.ViewHolder) {
                             return viewHolder.btnSettings
@@ -155,7 +206,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
 
                     private fun showGenCfg(genBtn: GeneratorButton,
-                                           oldState: Map<String,String>) {
+                                           oldState: Map<String, String>) {
                         if (genBtn.meta.input == null)
                             return
                         val genId = genBtn.generator.getId()
@@ -166,7 +217,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     val edits : MutableMap<String, EditText> = mutableMapOf()
                                     params.forEach {
                                         val k = it.name
-                                        val displayVal = oldState.getOrElse(k) {it.defaultValue}
+                                        val displayVal = oldState.getOrElse(k) { it.defaultValue }
 
                                         if (!it.helpText.isNullOrEmpty()) {
                                             textView {
@@ -201,7 +252,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                     private fun showGenWizard(genBtn: GeneratorButton,
                                               stepInd: Int,
-                                              oldState: Map<String,String>,
+                                              oldState: Map<String, String>,
                                               newState: MutableMap<String, String>) {
                         if (genBtn.meta.input == null)
                             return
@@ -210,7 +261,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val param = params[stepInd]
                         val k = param.name
                         // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
-                        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) {param.defaultValue}}
+                        val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) { param.defaultValue } }
                         val isFirstPage = stepInd == 0
                         val isFinalPage = stepInd == params.size - 1
                         if (param.values == null) {
@@ -470,7 +521,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             sharedPreferences.edit().putStringSet(SETTING_FAVORITE_GROUPS, value).apply()
         }
 
-
     val SETTING_FAVORITE_CONTENTS_PREFIX = "FavoriteGroup."
 
     fun getFavoriteGroups() : SortedSet<String> {
@@ -549,7 +599,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (str.isNullOrEmpty()) {
             return mapOf()
         } else {
-            return AdventuresmithApp.objectReader.forType(object: TypeReference<Map<String, String>>(){}).readValue(str)
+            return AdventuresmithApp.objectReader.forType(object : TypeReference<Map<String, String>>() {}).readValue(str)
         }
     }
     fun setGeneratorConfig(genId: String, value: Map<String, String>) {
@@ -653,7 +703,7 @@ class AdventuresmithActivity : AppCompatActivity(),
             val collId = collEntry.key
             val coll = collEntry.value
 
-            val collMeta = collectionMetas.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId")}
+            val collMeta = collectionMetas.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId") }
             debug("collection: $collId")
 
             if (!collMeta.hasGroups) {
@@ -762,10 +812,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         return result
     }
 
-    fun useStaticNavbar() : Boolean  {
+    fun useStaticNavbar() : Boolean {
         return resources.getDimension(R.dimen.navigation_menu_width) > 0
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -912,8 +961,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                             }.show()
                             return true
                         } else if (drawerItemId == ID_GENERATE_MANY) {
-                            val genManyItems = listOf(5, 10,25,50,100)
-                            selector(getString(R.string.gen_many_selector), genManyItems.map{it.toString()}) { i ->
+                            val genManyItems = listOf(5, 10, 25, 50, 100)
+                            selector(getString(R.string.gen_many_selector), genManyItems.map { it.toString() }) { i ->
                                 settingsGenerateManyCount = genManyItems.get(i)
                             }
                         }
@@ -963,7 +1012,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)
         val btnSpanLong = resources.getInteger(R.integer.buttonSpanLong)
         val buttonGridLayoutMgr = GridLayoutManager(this, resources.getInteger(R.integer.buttonCols))
-        buttonGridLayoutMgr.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
+        buttonGridLayoutMgr.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 val item = buttonAdapter.getAdapterItem(position)
                 if (item == null) {
@@ -1183,10 +1232,10 @@ class AdventuresmithActivity : AppCompatActivity(),
                         resultAdapter.filter(newText)
                     }
                     if (newText.isNullOrBlank()) {
-                        appbar.setExpanded(true,true)
+                        appbar.setExpanded(true, true)
                         currentFilter = null
                     } else {
-                        appbar.setExpanded(false,false)
+                        appbar.setExpanded(false, false)
                         currentFilter = newText
                     }
                 }
@@ -1212,7 +1261,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         if (item != null) {
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.action_clear -> {
                     if (!currentFilter.isNullOrBlank()) {
                         toast("Disable filter to clear list")
@@ -1258,7 +1307,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         textSizeDimen = R.dimen.resultListFontSize
                                     }
                                 }
-                                okButton {  }
+                                okButton { }
                             }
                         }
                     }.show()

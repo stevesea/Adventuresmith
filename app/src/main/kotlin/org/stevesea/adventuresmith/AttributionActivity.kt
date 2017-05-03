@@ -20,14 +20,14 @@
 
 package org.stevesea.adventuresmith
 
-import android.os.*
-import android.support.v7.app.*
-import android.support.v7.widget.*
-import com.mikepenz.fastadapter.commons.adapters.*
-import com.mikepenz.materialize.*
-import kotlinx.android.synthetic.main.activity_attribution.*
-import org.stevesea.adventuresmith.core.*
-import java.util.*
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.StaggeredGridLayoutManager
+import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
+import com.mikepenz.materialize.MaterializeBuilder
+import kotlinx.android.synthetic.main.activity_attribution.recycler_attribution
+import kotlinx.android.synthetic.main.activity_attribution.toolbar
 
 class AttributionActivity : AppCompatActivity() {
 
@@ -52,7 +52,6 @@ class AttributionActivity : AppCompatActivity() {
                 .withMultiSelect(false)
                 .withPositionBasedStateManagement(false)
                 as FastItemAdapter<ResultItem>
-
 
         val resultsGridLayoutMgr = StaggeredGridLayoutManager(
                 resources.getInteger(R.integer.resultCols),

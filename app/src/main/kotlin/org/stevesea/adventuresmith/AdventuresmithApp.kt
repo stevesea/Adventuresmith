@@ -20,25 +20,23 @@
 
 package org.stevesea.adventuresmith
 
-import android.annotation.*
-import android.os.*
-import android.support.multidex.*
-import android.text.*
-import com.crashlytics.android.*
-import com.crashlytics.android.answers.Answers
-import com.crashlytics.android.answers.CustomEvent
-import com.crashlytics.android.core.*
+import android.annotation.TargetApi
+import android.os.Build
+import android.support.multidex.MultiDexApplication
+import android.text.Html
+import android.text.Spanned
+import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.Iconics
 import com.mikepenz.ionicons_typeface_library.Ionicons
-import com.squareup.leakcanary.*
-import io.fabric.sdk.android.*
-import org.jetbrains.anko.*
-import org.stevesea.adventuresmith.core.AdventuresmithCore
-import java.util.concurrent.TimeUnit
+import com.squareup.leakcanary.LeakCanary
+import io.fabric.sdk.android.Fabric
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
 class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
@@ -63,7 +61,7 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
-            return;
+            return
         }
         LeakCanary.install(this)
 
@@ -92,7 +90,6 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         */
     }
 }
-
 
 @TargetApi(Build.VERSION_CODES.N)
 fun htmlStrToSpanned(input: String): Spanned {

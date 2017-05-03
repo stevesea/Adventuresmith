@@ -7,6 +7,10 @@ apply plugin: 'io.fabric'
 
 apply from: "$rootDir/gradle/signing.gradle"
 
+configurations {
+    ktlint
+}
+
 androidGitVersion {
     // default:
     //format = '%tag%%.count%%<commit>%%-branch%%...dirty%'
@@ -158,6 +162,8 @@ dependencies {
 
     compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.22'
 
+
+    ktlint 'com.github.shyiko:ktlint:0.6.1'
 }
 
 // APT doesn't know to make these directories for tests. Force them to
@@ -181,3 +187,17 @@ tasks.withType(Test) {
 repositories {
     mavenCentral()
 }
+
+task ktlint(type: JavaExec) {
+    main = "com.github.shyiko.ktlint.Main"
+    classpath = configurations.ktlint
+    args "src/main/kotlin/**/*.kt"
+}
+
+task ktlintFormat(type: JavaExec) {
+    main = "com.github.shyiko.ktlint.Main"
+    classpath = configurations.ktlint
+    args "-F", "src/main/kotlin/**/*.kt"
+}
+
+check.dependsOn ktlint
