@@ -37,7 +37,7 @@ dependencies:
 # TODO: https://github.com/circleci/EspressoSample/blob/master/circle.yml
 test:
     override:
-        - (./gradlew test adventuresmith-cli:runExercise adventuresmith-cli:runGenerateDocs adventuresmith-cli:distZip -PdisablePreDex):
+        - (./gradlew check test adventuresmith-cli:runExercise adventuresmith-cli:runGenerateDocs adventuresmith-cli:distZip -PdisablePreDex):
             timeout: 1200
     post:
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
