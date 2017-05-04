@@ -29,8 +29,10 @@ import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import com.mikepenz.materialize.MaterializeBuilder
 import kotlinx.android.synthetic.main.activity_about.recycler_about
 import kotlinx.android.synthetic.main.activity_about.toolbar
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
@@ -42,7 +44,7 @@ class AboutActivity : AppCompatActivity() {
             versionName = packageInfo.versionName
             versionCode = packageInfo.versionCode
         } catch (e: PackageManager.NameNotFoundException) {
-            // no-op
+            debug("Ignored exception. ${e.message}")
         }
 
         setSupportActionBar(toolbar)

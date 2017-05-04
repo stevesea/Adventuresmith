@@ -103,7 +103,6 @@ import org.stevesea.adventuresmith.core.AdventuresmithCore
 import org.stevesea.adventuresmith.core.CollectionDto
 import org.stevesea.adventuresmith.core.CollectionMetaDto
 import org.stevesea.adventuresmith.core.Generator
-import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.ArrayList
 import java.util.GregorianCalendar
@@ -260,7 +259,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val genId = genBtn.generator.getId()
                         val params = genBtn.meta.input?.params ?: throw IllegalArgumentException("missing params")
                         val param = params[stepInd]
-                        val k = param.name ?: ""
+                        val k = param.name
                         // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
                         val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) { param.defaultValue } }
                         val isFirstPage = stepInd == 0
