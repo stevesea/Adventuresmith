@@ -7,7 +7,6 @@ buildscript {
     ext.robolectric_version = '3.0'
     ext.junit_version = '4.12'
     ext.mockito_version = '1.10.19'
-    ext.ktlint_version = '0.6.1'
     ext.detekt_version = '1.0.0.M8.1'
 
     repositories {
@@ -47,26 +46,11 @@ subprojects {
     }
 
     configurations {
-        ktlint
         detekt
     }
     dependencies {
-        ktlint "com.github.shyiko:ktlint:$ktlint_version"
         detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detekt_version"
         detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
-    }
-
-
-    task ktlint(type: JavaExec) {
-        main = "com.github.shyiko.ktlint.Main"
-        classpath = configurations.ktlint
-        args "src/**/*.kt"
-    }
-
-    task ktlintFormat(type: JavaExec) {
-        main = "com.github.shyiko.ktlint.Main"
-        classpath = configurations.ktlint
-        args "-F", "src/**/*.kt"
     }
 
     task detekt(type: JavaExec) {

@@ -91,5 +91,4 @@ task(runGenerateDocs, dependsOn: 'classes', type: JavaExec) {
     args = ['core-docs','-o','../content_attribution.md']
 }
 
-check.dependsOn ktlint
 check.dependsOn detekt

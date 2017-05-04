@@ -72,5 +72,4 @@ dependencies {
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
 }
 
-check.dependsOn ktlint
 check.dependsOn detekt
