@@ -47,8 +47,8 @@ class AboutActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
-        supportActionBar!!.setTitle(R.string.nav_about)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.nav_about)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         MaterializeBuilder()
                 .withActivity(this)

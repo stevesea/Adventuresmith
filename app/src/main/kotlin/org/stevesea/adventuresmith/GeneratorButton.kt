@@ -54,7 +54,7 @@ class GeneratorButton(val generator: Generator,
     fun updateInputMap(i: Map<String, String>) {
         inputMap = i
         if (vh != null) {
-            vh!!.btnTextConfig.text = htmlStrToSpanned(meta.processInputForDisplay(inputMap))
+            vh?.btnTextConfig?.text = htmlStrToSpanned(meta.processInputForDisplay(inputMap))
         }
     }
 

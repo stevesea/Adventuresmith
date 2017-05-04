@@ -36,11 +36,11 @@ import java.util.Locale
 class LocaleArgType : ArgumentType<Locale> {
     override fun convert(parser: ArgumentParser?, arg: Argument?, value: String?): Locale {
         try {
-            val split = value!!.split('-', '_')
-            when (split.size ) {
+            val split = value?.split('-', '_')
+            when (split?.size ) {
                 1 -> return Locale(split[0])
                 2 -> return Locale(split[0].toLowerCase(), split[1])
-                else -> return Locale(split[0].toLowerCase(), split[1], split[3])
+                else -> return Locale(split?.get(0)?.toLowerCase(), split?.get(1), split?.get(3))
             }
         } catch (e: Exception) {
             throw ArgumentParserException(e, parser)
@@ -169,10 +169,10 @@ object AdventuresmithCli : KLoggable {
 
         val results = (1..opts.iterations).map { generator.generate(opts.locale) }.joinToString("\n")
         if (opts.out == null) {
-            logger.info("Running generator: {}\n{}", opts.input!!.normalize(), results)
+            logger.info("Running generator: {}\n{}", opts.input?.normalize(), results)
         } else {
-            logger.info("Running generator: {} -> {}", opts.input!!.normalize(), opts.out!!.absolutePath)
-            opts.out!!.writeText(results)
+            logger.info("Running generator: {} -> {}", opts.input?.normalize(), opts.out?.absolutePath)
+            opts.out?.writeText(results)
         }
     }
 
@@ -189,14 +189,14 @@ object AdventuresmithCli : KLoggable {
         if (opts.out == null) {
             print(message)
         } else {
-            opts.out!!.writeText(message)
+            opts.out?.writeText(message)
         }
         AdventuresmithCore.getCollectionMetas(l).values.forEach { coll ->
             if (coll.credit != null) {
                 if (opts.out == null) {
                     print(coll.toMarkdownStr())
                 } else {
-                    opts.out!!.appendText(coll.toMarkdownStr())
+                    opts.out?.appendText(coll.toMarkdownStr())
                 }
             }
         }
@@ -213,7 +213,7 @@ object AdventuresmithCli : KLoggable {
                 } else {
                     logger.info("   -> {}", genMeta.name)
                     // TODO: this isn't efficient, should user buffered writer
-                    opts.out!!.appendText(results + "\n")
+                    opts.out?.appendText(results + "\n")
                 }
         }
     }
@@ -237,8 +237,8 @@ object AdventuresmithCli : KLoggable {
     private fun exercise(opts: Options) {
         val l = opts.locale
         if (opts.out != null) {
-            if (opts.out!!.exists()) {
-                opts.out!!.delete()
+            if (opts.out?.exists() as Boolean) {
+                opts.out?.delete()
             }
         }
         AdventuresmithCore.collections.forEach { (collId, coll) ->

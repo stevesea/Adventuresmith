@@ -211,7 +211,7 @@ data class CollectionDto(val id: String,
         if (groupId.isNullOrEmpty()) {
             return generators
         } else {
-            return groupedGenerators.getOrElse(groupId!!) { listOf() }
+            return groupedGenerators.getOrElse(groupId ?: "" ) { listOf() }
         }
     }
     // get all the generators in this collection
@@ -362,7 +362,7 @@ class DataDrivenGeneratorForFiles(
             val context = dtoMerger.mergeDtos(
                     gatherDtoResources(dto, locale),
                     inputMapForContext)
-            val template = shuffler.pick(dto.templates)
+            val template = if (dto.templates != null) shuffler.pick(dto.templates) else throw IllegalArgumentException("missing templates key from merged context")
 
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
@@ -412,7 +412,10 @@ class DataDrivenGeneratorForResources(
                     gatherDtoResources(dto, locale),
                     inputMap
             )
-            val template = shuffler.pick(dto.templates)
+            val template = if (dto.templates != null)
+                shuffler.pick(dto.templates)
+            else
+                throw IllegalArgumentException("missing templates key from merged context")
 
             return templateProcessor.processTemplate(template, context)
         } catch (ex: Exception) {
@@ -485,9 +488,11 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
             }
         }
         // templates are only read from the first DTO
-        if (dtos[0].templates == null)
+        if (dtos[0].templates == null) {
             throw IOException("missing 'templates' table")
-        result.put("template", shuffler.pick(dtos[0].templates))
+        } else {
+            result.put("template", shuffler.pick(dtos[0].templates ?: RangeMap()))
+        }
         result.put("input", input)
 
         return result

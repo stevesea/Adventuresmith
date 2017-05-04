@@ -141,9 +141,9 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
     override fun transform(dto: FotfCharBundleDto, input: Map<String, String>?): FotfCharModel {
         val gender = shuffler.pick(dto.charSetup.genders)
         val playbook = shuffler.pick(dto.charSetup.playbooks)
-        val heritage = shuffler.pick(dto.charSetup.heritages.get(playbook))
-        val alignment = shuffler.pick(dto.charSetup.alignments.get(playbook))
-        val name = shuffler.pick(dto.names.names.get(heritage)?.get(gender))
+        val heritage = shuffler.pick(dto.charSetup.heritages.get(playbook)!!)
+        val alignment = shuffler.pick(dto.charSetup.alignments.get(playbook)!!)
+        val name = shuffler.pick(dto.names.names.get(heritage)?.get(gender)!!)
         return FotfCharModel(
                 config = dto.char.config,
                 gender = dto.char.config.genders.get(gender)!!,
@@ -152,7 +152,7 @@ class FotfCharModelGenerator(override val kodein: Kodein) : ModelGeneratorStrate
                 alignment = dto.char.config.alignments.get(alignment)!!,
                 abilRolls = shuffler.rollN("3d6", dto.char.config.abilities.size),
                 name = name,
-                appearances = shuffler.pickN(dto.char.appearances.get(playbook), shuffler.roll("1d2+1")),
+                appearances = shuffler.pickN(dto.char.appearances.get(playbook)!!, shuffler.roll("1d2+1")),
                 virtues = shuffler.pickN(dto.traits.virtues, dto.charSetup.virtues.getOrElse(alignment) { 0 }),
                 vices = shuffler.pickN(dto.traits.vices, dto.charSetup.vices.getOrElse(alignment) { 0 }),
                 gear = dto.char.gear.get(playbook)?.map { shuffler.pick(it) }!!

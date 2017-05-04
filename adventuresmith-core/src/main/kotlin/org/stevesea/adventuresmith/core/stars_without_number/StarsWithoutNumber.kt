@@ -280,7 +280,7 @@ class SwnWorldModelGenerator(override val kodein: Kodein) :
         val numCultures = shuffler.pick(dto.worldRules.num_cultures).toInt()
         val cultures = shuffler.pickN(dto.names.nested_tables!!.keys, numCultures)
         val primaryCulture = cultures.elementAt(0)
-        val worldName = shuffler.pick(dto.names.nested_tables[primaryCulture]?.get("place"))
+        val worldName = shuffler.pick(dto.names.nested_tables[primaryCulture]?.get("place")!!)
 
         val atmoRoll = shuffler.roll("2d6")
         var tempRoll = shuffler.roll("2d6")

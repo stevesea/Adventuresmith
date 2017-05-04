@@ -34,43 +34,43 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
     val random: Random = instance()
     val diceParser : DiceParser = instance()
 
-    fun <T> pick(items: Collection<T>?) : T {
+    fun <T> pick(items: Collection<T>) : T {
         // use modulo because the randomizer might be a mock that's been setup to do something dumb
         // and returns greater than the # of items in list
-        return items!!.elementAt(random.nextInt(items.size) % items.size)
+        return items.elementAt(random.nextInt(items.size) % items.size)
     }
-    fun pick(rmap: RangeMap?) : String {
-        val itemsInds = rmap!!.keyRange().toList()
+    fun pick(rmap: RangeMap) : String {
+        val itemsInds = rmap.keyRange().toList()
         val sel = pick(itemsInds)
         return rmap.select(sel)
     }
-    fun pickN(rmap: RangeMap?, num: Int) : List<String> {
+    fun pickN(rmap: RangeMap, num: Int) : List<String> {
         if (num <= 0)
             return listOf()
-        val itemsInds = rmap!!.keyRange().toList()
+        val itemsInds = rmap.keyRange().toList()
         val selN = pickN(itemsInds, num)
         return selN.map { rmap.select(it) }
     }
 
-    fun <T> pickN(items: Collection<T>?, num: Int) : Collection<T> {
+    fun <T> pickN(items: Collection<T>, num: Int) : Collection<T> {
         if (num <= 0)
             return listOf()
-        val localItems = items!!.toMutableList()
+        val localItems = items.toMutableList()
         Collections.shuffle(localItems, random)
         return localItems.take(num)
     }
 
-    fun pickN(thing: Any?, num: Int) : List<String> {
+    fun pickN(thing: Any, num: Int) : Collection<String> {
         if (thing is RangeMap) {
             return pickN(thing, num)
         } else if (thing is Collection<*>) {
-            return pickN(thing, num) as List<String>
+            return pickN(thing, num) as Collection<String>
         } else {
-            throw IllegalArgumentException("don't know how to select thing of type " + thing!!.javaClass)
+            throw IllegalArgumentException("don't know how to select thing of type " + thing.javaClass)
         }
     }
 
-    fun pickD(diceStr: String, thing: Any?) : String {
+    fun pickD(diceStr: String, thing: Any) : String {
         if (thing is RangeMap) {
             return pickD(diceStr, thing)
 
@@ -78,23 +78,23 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
             return pickD(diceStr, thing as Collection<String>)
 
         } else {
-            throw IllegalArgumentException("don't know how to select thing of type " + thing!!.javaClass)
+            throw IllegalArgumentException("don't know how to select thing of type " + thing.javaClass)
         }
 
     }
-    fun pickD(diceStr: String, items: RangeMap?) : String {
+    fun pickD(diceStr: String, items: RangeMap) : String {
         try {
-            return items!!.select(roll(diceStr))
+            return items.select(roll(diceStr))
         } catch (e: Exception) {
             logger.warn("Error looking up $diceStr from rmap", e.message)
             throw e
         }
     }
 
-    fun <T> pickD(diceStr: String, items: Collection<T>?): T {
+    fun <T> pickD(diceStr: String, items: Collection<T>): T {
         // use mod to ensure our index is within the acceptable range for the collection
         // dice are 1-based, list indexes are 0-based so subtract 1
-        return items!!.elementAt(roll(diceStr) % items.size - 1)
+        return items.elementAt(roll(diceStr) % items.size - 1)
     }
 
     fun roll(diceStr: String) : Int = diceParser.roll(diceStr)
