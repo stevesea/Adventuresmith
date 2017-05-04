@@ -38,8 +38,8 @@ class AttributionActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
-        supportActionBar!!.setTitle(R.string.nav_thanks)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.nav_thanks)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         MaterializeBuilder()
                 .withActivity(this)

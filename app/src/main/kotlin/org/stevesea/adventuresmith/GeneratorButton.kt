@@ -58,10 +58,10 @@ class GeneratorButton(val generator: Generator,
         }
     }
 
-    override fun bindView(holder: ViewHolder?, payloads: MutableList<Any?>?) {
+    override fun bindView(holder: ViewHolder, payloads: MutableList<Any?>?) {
         super.bindView(holder, payloads)
 
-        holder!!.btnText.text = htmlStrToSpanned(name)
+        holder.btnText.text = htmlStrToSpanned(name)
 
         if (meta.input != null) {
             holder.btnSettings.visibility = View.VISIBLE
@@ -85,9 +85,9 @@ class GeneratorButton(val generator: Generator,
     }
 
     class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
-        val btnText = v!!.findViewById(R.id.btn_txt) as TextView
-        val btnTextConfig = v!!.findViewById(R.id.btn_txt_config) as TextView
-        val btnSettings = v!!.findViewById(R.id.btn_settings) as ImageView
+        val btnText = v?.findViewById(R.id.btn_txt) as TextView
+        val btnTextConfig = v?.findViewById(R.id.btn_txt_config) as TextView
+        val btnSettings = v?.findViewById(R.id.btn_settings) as ImageView
     }
 
     override fun getViewHolder(v: View?): ViewHolder {

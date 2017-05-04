@@ -30,6 +30,7 @@ import net.sourceforge.argparse4j.inf.ArgumentParserException
 import net.sourceforge.argparse4j.inf.ArgumentType
 import org.stevesea.adventuresmith.core.AdventuresmithCore
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.IOException
 import java.util.Locale
 
@@ -165,7 +166,7 @@ object AdventuresmithCli : KLoggable {
     }
 
     private fun runGenerator(opts: Options) {
-        val generator = AdventuresmithCore.getGenerator(opts.input!!)
+        val generator = AdventuresmithCore.getGenerator(opts.input ?: throw IllegalArgumentException("No file specified"))
 
         val results = (1..opts.iterations).map { generator.generate(opts.locale) }.joinToString("\n")
         if (opts.out == null) {

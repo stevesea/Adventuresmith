@@ -103,6 +103,7 @@ import org.stevesea.adventuresmith.core.AdventuresmithCore
 import org.stevesea.adventuresmith.core.CollectionDto
 import org.stevesea.adventuresmith.core.CollectionMetaDto
 import org.stevesea.adventuresmith.core.Generator
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.ArrayList
 import java.util.GregorianCalendar
@@ -197,7 +198,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     override fun onClick(v: View?, position: Int, fastAdapter: FastAdapter<GeneratorButton>?, item: GeneratorButton?) {
                         if (item != null && item.meta.input != null) {
                             val previousConfig = getGeneratorConfig(item.generator.getId())
-                            if (item.meta.input!!.useWizard) {
+                            if (item.meta.input?.useWizard as Boolean) {
                                 showGenWizard(item, 0, previousConfig, mutableMapOf())
                             } else {
                                 showGenCfg(item, previousConfig)
@@ -210,12 +211,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (genBtn.meta.input == null)
                             return
                         val genId = genBtn.generator.getId()
-                        val params = genBtn.meta.input!!.params
+                        val params = genBtn.meta.input?.params
                         alert(R.string.generator_config) {
                             customView {
                                 verticalLayout {
                                     val edits : MutableMap<String, EditText> = mutableMapOf()
-                                    params.forEach {
+                                    params?.forEach {
                                         val k = it.name
                                         val displayVal = oldState.getOrElse(k) { it.defaultValue }
 
@@ -257,9 +258,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (genBtn.meta.input == null)
                             return
                         val genId = genBtn.generator.getId()
-                        val params = genBtn.meta.input!!.params
+                        val params = genBtn.meta.input?.params ?: throw IllegalArgumentException("missing params")
                         val param = params[stepInd]
-                        val k = param.name
+                        val k = param.name ?: ""
                         // if entry is in newState, use it. Otherwise fall back to previous config. Otherwise fallback to default value
                         val displayVal = newState.getOrElse(k) { oldState.getOrElse(k) { param.defaultValue } }
                         val isFirstPage = stepInd == 0
@@ -347,16 +348,17 @@ class AdventuresmithActivity : AppCompatActivity(),
                             // otherwise, they're on a fav-group draweritem.
                             // long-click means remove a favorite from the current nav item
                             val favGroup = favoriteIdToName.get(currentDrawerItemId)
-                            alert(item.name, getString(R.string.fav_remove)) {
-                                yesButton {
-                                    removeFavoriteFromGroup(favGroup!!, genid)
-                                    synchronized(buttonAdapter) {
-                                        buttonAdapter.remove(position)
+                            favGroup?.let {
+                                alert(item.name, getString(R.string.fav_remove)) {
+                                    yesButton {
+                                        removeFavoriteFromGroup(favGroup, genid)
+                                        synchronized(buttonAdapter) {
+                                            buttonAdapter.remove(position)
+                                        }
                                     }
-                                }
-                                noButton {}
-                            }.show()
-
+                                    noButton {}
+                                }.show()
+                            }
                             return true
                         }
                         return false
@@ -443,7 +445,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         synchronized(resultAdapter) {
                             resultAdapter.deleteAllSelectedItems()
                         }
-                        mode!!.finish()
+                        mode?.finish()
                         showUsualToolbar()
                         return true // consume
                     }
@@ -463,7 +465,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                             intent.putExtra(Intent.EXTRA_HTML_TEXT, selectedTextHtml)
                             startActivity(Intent.createChooser(intent, null))
 
-                            mode!!.finish()
+                            mode?.finish()
                             showUsualToolbar()
                             resultAdapter.deselect()
                             return true // consume
@@ -611,10 +613,10 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     val random = Random()
 
-    fun <T> pick(items: Collection<T>?) : T {
+    fun <T> pick(items: Collection<T>) : T {
         // use modulo because the randomizer might be a mock that's been setup to do something dumb
         // and returns greater than the # of items in list
-        return items!!.elementAt(random.nextInt(items.size) % items.size)
+        return items.elementAt(random.nextInt(items.size) % items.size)
     }
 
     val headerImages = listOf(
@@ -669,12 +671,12 @@ class AdventuresmithActivity : AppCompatActivity(),
         favExpandItem.subItems.addAll(getFavoriteGroupDrawerItems())
         // TODO: hardcoding favposition... getPos always returned -1
         //val favPosition = drawer!!.getPosition(favExpandItem)
-        drawer!!.adapter.notifyAdapterSubItemsChanged(1)
+        drawer?.adapter?.notifyAdapterSubItemsChanged(1)
         // notifying dataset changed just messed up rendering... dunno why
         //drawer!!.adapter.notifyAdapterDataSetChanged()
 
-        drawer!!.adapter.expand(1)
-        drawer!!.adapter.select(1)
+        drawer?.adapter?.expand(1)
+        drawer?.adapter?.select(1)
     }
 
     val favExpandItem by lazy {
@@ -891,7 +893,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withActivity(this)
                 .withHasStableIds(true)
                 .withToolbar(toolbar)
-                .withAccountHeader(drawerHeader!!, false)
+                .withAccountHeader(drawerHeader ?: AccountHeaderBuilder().build(), false)
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .withDrawerItems(getNavDrawerItems())
@@ -1001,7 +1003,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         if (useStaticNavbar()) {
             drawer = drawerBuilder.buildView()
-            nav_tablet.addView(drawer!!.slider)
+            nav_tablet.addView(drawer?.slider)
         } else {
             drawer = drawerBuilder.build()
         }
@@ -1139,13 +1141,13 @@ class AdventuresmithActivity : AppCompatActivity(),
 
             val results: ArrayList<ResultItem> = ArrayList()
             results.addAll(resultAdapter.adapterItems)
-            outState!!.putSerializable(BUNDLE_RESULT_ITEMS, results)
+            outState?.putSerializable(BUNDLE_RESULT_ITEMS, results)
         }
-        drawerHeader!!.saveInstanceState(outState)
-        drawer!!.saveInstanceState(outState)
+        drawerHeader?.saveInstanceState(outState)
+        drawer?.saveInstanceState(outState)
         debug("saveInstanceState: $currentDrawerItemId")
 
-        outState!!.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
+        outState?.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         super.onSaveInstanceState(outState)
         debug("onSaveInstanceState: $stopwatch elapsed")
@@ -1158,12 +1160,12 @@ class AdventuresmithActivity : AppCompatActivity(),
 
         // NOTE: currentDrawerItem _may_ have saved null
         // the following will setup the button adapter
-        currentDrawerItemId = savedInstanceState!!.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?
+        currentDrawerItemId = savedInstanceState?.getSerializable(BUNDLE_CURRENT_DRAWER_ITEM) as Long?
         debug("restoreInstanceState: $currentDrawerItemId")
         selectDrawerItem(currentDrawerItemId, savedInstanceState)
 
         // restore previous results
-        val restoredResults: ArrayList<ResultItem> = savedInstanceState.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
+        val restoredResults: ArrayList<ResultItem> = savedInstanceState?.getSerializable(BUNDLE_RESULT_ITEMS) as ArrayList<ResultItem>
         synchronized(resultAdapter) {
             // NOTE: doing deselect after the clear resulted in crash
             resultAdapter.deselect()
@@ -1183,8 +1185,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         // TODO: between onRestore & onResume, something setting toolbar title to appname.
         //   change it here in onResume to make it consistent.
         if (currentDrawerItemId != null) {
-            val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
-            val favName = favoriteIdToName.get(currentDrawerItemId!!)
+            val collGrp = drawerIdToGroup.get(currentDrawerItemId ?: 0)
+            val favName = favoriteIdToName.get(currentDrawerItemId ?: 0)
             if (collGrp != null || favName != null) {
                 if (collGrp != null) {
                     toolbar.title = collGrp.name
@@ -1196,8 +1198,8 @@ class AdventuresmithActivity : AppCompatActivity(),
     }
 
     override fun onBackPressed() {
-        if (drawer != null && drawer!!.isDrawerOpen()) {
-            drawer!!.closeDrawer()
+        if (drawer != null && drawer?.isDrawerOpen() as Boolean) {
+            drawer?.closeDrawer()
         } else {
             alert(R.string.back_button_press) {
                 yesButton { super.onBackPressed() }
@@ -1283,12 +1285,12 @@ class AdventuresmithActivity : AppCompatActivity(),
                         Select a set of generators to see their attribution, or go
                         <a href="https://github.com/stevesea/Adventuresmith/blob/master/content_attribution.md">here</a> to see all content attribution.
                         """
-                    if (currentDrawerItemId != null && drawerIdToGroup.containsKey(currentDrawerItemId!!)) {
-                        // if currentDrawerItemId isin drawerIdToGroup, that means user has selected
-                        // a collection/group and not a favorite
+                    currentDrawerItemId?.let {
                         val collGrp = drawerIdToGroup.get(currentDrawerItemId!!)
                         if (collGrp != null) {
-                            val collMeta = getCachedCollectionMetas(resources).get(collGrp.collectionId)!!
+                            // if currentDrawerItemId isin drawerIdToGroup, that means user has selected
+                            // a collection/group and not a favorite
+                            val collMeta = getCachedCollectionMetas(resources).get(collGrp.collectionId) ?: throw IllegalArgumentException("Unable to find metadata for collection ${collGrp.collectionId}")
                             if (collMeta.credit != null)
                                 str = collMeta.toHtmlStr()
                         }
