@@ -11,7 +11,7 @@ potential-bugs:
   active: true
 
 exceptions:
-  active: true
+  active: false
 
 comments:
   active: true
@@ -86,7 +86,7 @@ style:
   WildcardImport:
     active: true
   NamingConventionViolation:
-    active: true
+    active: false
     variablePattern: '^(_)?[a-z$][a-zA-Z$0-9]*$'
     constantPattern: '^([A-Z_]*|serialVersionUID)$'
     methodPattern: '^[a-z$][a-zA-Z$0-9]*$'
