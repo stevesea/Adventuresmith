@@ -27,8 +27,6 @@ import android.text.Html
 import android.text.Spanned
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.Iconics
