@@ -333,7 +333,13 @@ class AdventuresmithActivity : AppCompatActivity(),
                             // if the current drawer selection is a regular gen group, then user is adding a favorite
                             val favList = getFavoriteGroups().toList()
 
-                            if (favList.size == 1) {
+                            if (favList.isEmpty()) {
+                                // no fav groups, add it to 'Default'
+                                addFavoriteGroup(getString(R.string.fav_group_default))
+                                addFavoriteToGroup(getString(R.string.fav_group_default), genid)
+                                updateFavGroupsInNavDrawer(false)
+                                toast(R.string.fav_added)
+                            } else if (favList.size == 1) {
                                 // if there's only one fav group, don't make user select
                                 addFavoriteToGroup(favList.get(0), genid)
                                 toast(R.string.fav_added)
@@ -671,7 +677,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         }
     }
 
-    fun updateFavGroupsInNavDrawer() {
+    fun updateFavGroupsInNavDrawer(selectFavs: Boolean = true) {
         favExpandItem.subItems.clear()
         favExpandItem.subItems.addAll(getFavoriteGroupDrawerItems())
         // TODO: hardcoding favposition... getPos always returned -1
@@ -680,8 +686,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         // notifying dataset changed just messed up rendering... dunno why
         //drawer!!.adapter.notifyAdapterDataSetChanged()
 
-        drawer?.adapter?.expand(1)
-        drawer?.adapter?.select(1)
+        if (selectFavs) {
+            drawer?.adapter?.expand(1)
+            drawer?.adapter?.select(1)
+        }
     }
 
     val favExpandItem by lazy {
