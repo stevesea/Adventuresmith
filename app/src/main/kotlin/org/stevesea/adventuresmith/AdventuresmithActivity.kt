@@ -408,7 +408,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 )
 
                                 uiThread {
-                                    dlg.dismiss()
+                                    if (dlg.isShowing()) {
+                                        dlg.dismiss()
+                                    }
                                     synchronized(resultAdapter) {
                                         resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
 
@@ -417,7 +419,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     }
                                 }
                             } finally {
-                                dlg.dismiss()
+                                if (dlg.isShowing()) {
+                                    dlg.dismiss()
+                                }
                             }
                         }
                         return true
@@ -1105,7 +1109,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                 )
 
                 uiThread {
-                    dlg.dismiss()
+                    if (dlg.isShowing()) {
+                        dlg.dismiss()
+                    }
                     if (collGrp != null) {
                         toolbar.title = collGrp.name
                     } else if (favName != null) {
@@ -1127,7 +1133,9 @@ class AdventuresmithActivity : AppCompatActivity(),
                     appbar.setExpanded(true, true)
                 }
             } finally {
-                dlg.dismiss()
+                if (dlg.isShowing()) {
+                    dlg.dismiss()
+                }
             }
         }
     }
