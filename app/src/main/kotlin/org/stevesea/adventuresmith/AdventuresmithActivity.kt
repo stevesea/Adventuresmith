@@ -23,7 +23,7 @@ package org.stevesea.adventuresmith
 import android.annotation.TargetApi
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Resources
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -50,6 +50,8 @@ import android.widget.LinearLayout
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.CustomEvent
 import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.fastadapter.FastAdapter
@@ -375,7 +377,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val num_to_generate = if (settingsGenerateMany) settingsGenerateManyCount else 1
                         val generator = item.generator
-                        val currentLocale = getCurrentLocale(resources)
+                        val currentLocale = getCurrentLocale()
 
                         val inputConfig = getGeneratorConfig(generator.getId())
 
@@ -600,11 +602,11 @@ class AdventuresmithActivity : AppCompatActivity(),
         if (str.isNullOrEmpty()) {
             return mapOf()
         } else {
-            return AdventuresmithApp.objectReader.forType(object : TypeReference<Map<String, String>>() {}).readValue(str)
+            return objectReader.forType(object : TypeReference<Map<String, String>>() {}).readValue(str)
         }
     }
     fun setGeneratorConfig(genId: String, value: Map<String, String>) {
-        val str = AdventuresmithApp.objectWriter.writeValueAsString(value)
+        val str = objectWriter.writeValueAsString(value)
         sharedPreferences.edit()
                 .putString(SETTING_GENERATOR_CONFIG_PREFIX + genId, str)
                 .apply()
@@ -686,6 +688,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 .withSelectable(false)
                 .withIsExpanded(false)
                 .withSubItems(getFavoriteGroupDrawerItems())
+                .withDescriptionTextColorRes(R.color.textSecondary)
     }
 
     fun getNavDrawerItems() : List<IDrawerItem<*, *>> {
@@ -698,7 +701,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         result.add(favExpandItem)
 
         val collections = getCachedCollections()
-        val collectionMetas = getCachedCollectionMetas(resources)
+        val collectionMetas = getCachedCollectionMetas(getCurrentLocale())
 
         for (collEntry in collections.entries) {
             val collId = collEntry.key
@@ -1092,7 +1095,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                 val getGenMetaSW = Stopwatch.createStarted()
 
                 generators.forEach { gen ->
-                    gen.getMetadata(getCurrentLocale(resources))
+                    gen.getMetadata(getCurrentLocale())
                 }
 
                 getGenMetaSW.stop()
@@ -1115,7 +1118,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     GeneratorButton(
                                             g,
                                             getGeneratorConfig(g.getId()),
-                                            getCurrentLocale(resources))
+                                            getCurrentLocale())
                             )
                         }
                         buttonAdapter.withSavedInstanceState(savedInstanceState)
@@ -1289,7 +1292,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                         if (collGrp != null) {
                             // if currentDrawerItemId isin drawerIdToGroup, that means user has selected
                             // a collection/group and not a favorite
-                            val collMeta = getCachedCollectionMetas(resources).get(collGrp.collectionId) ?: throw IllegalArgumentException("Unable to find metadata for collection ${collGrp.collectionId}")
+                            val collMeta = getCachedCollectionMetas(getCurrentLocale()).get(collGrp.collectionId) ?: throw IllegalArgumentException("Unable to find metadata for collection ${collGrp.collectionId}")
                             if (collMeta.credit != null)
                                 str = collMeta.toHtmlStr()
                         }
@@ -1318,24 +1321,51 @@ class AdventuresmithActivity : AppCompatActivity(),
         return super.onOptionsItemSelected(item)
     }
 
+    fun getCurrentLocale(): Locale {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return getSystemLocale(resources.configuration)
+        } else {
+            return getSystemLocaleLegacy(resources.configuration)
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    fun getSystemLocale(cfg: Configuration) : Locale {
+        return cfg.locales.get(0)
+    }
+    @Suppress("DEPRECATION")
+    @SuppressWarnings("deprecation")
+    fun getSystemLocaleLegacy(cfg: Configuration) : Locale {
+        return cfg.locale
+    }
+
     companion object : AnkoLogger {
+        val objectMapper by lazy {
+            ObjectMapper().registerKotlinModule()
+        }
+        val objectReader by lazy {
+            objectMapper.reader()
+        }
+        val objectWriter by lazy {
+            objectMapper.writer()
+        }
+
         var lastLocale : Locale? = null
         // cache is invalidated if locale changes
         var cachedCollectionMeta : Map<String, CollectionMetaDto> = mapOf()
 
-        private fun getCachedCollectionMetas(r: Resources): Map<String, CollectionMetaDto> {
+        private fun getCachedCollectionMetas(l: Locale): Map<String, CollectionMetaDto> {
             synchronized(cachedCollectionMeta) {
-                val curLocale = getCurrentLocale(r)
-                if (curLocale != lastLocale) {
+                if (l != lastLocale) {
                     val stopwatch = Stopwatch.createStarted()
-                    cachedCollectionMeta = AdventuresmithCore.getCollectionMetas(curLocale)
+                    cachedCollectionMeta = AdventuresmithCore.getCollectionMetas(l)
                     stopwatch.stop()
                     info("Loading collection Metas done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
                     Answers.getInstance().logCustom(CustomEvent("GetCollectionMetas")
                             .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
                             .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
                     )
-                    lastLocale = curLocale
+                    lastLocale = l
                 }
                 return cachedCollectionMeta
             }
@@ -1366,13 +1396,5 @@ class AdventuresmithActivity : AppCompatActivity(),
             }
         }
 
-        @TargetApi(Build.VERSION_CODES.N)
-        fun getCurrentLocale(r: Resources): Locale {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                return r.configuration.locales.get(0)
-            } else {
-                return r.configuration.locale
-            }
-        }
     }
 }
