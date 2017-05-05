@@ -390,6 +390,8 @@ class AdventuresmithActivity : AppCompatActivity(),
                         val dlg = indeterminateProgressDialog(R.string.generating_dlg_title)
                         doAsync {
                             try {
+                                val genMeta = generator.getMetadata(getCurrentLocale())
+
                                 val stopwatch = Stopwatch.createStarted()
                                 val resultItems: MutableList<String> = mutableListOf()
                                 for (i in 1..num_to_generate) {
@@ -418,7 +420,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         dlg.dismiss()
                                     }
                                     synchronized(resultAdapter) {
-                                        resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it) })
+                                        resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it, genMeta.useIconicsTextView) })
 
                                         recycler_results.scrollToPosition(0)
                                         debug("Number of items ${resultAdapter.adapterItemCount}")

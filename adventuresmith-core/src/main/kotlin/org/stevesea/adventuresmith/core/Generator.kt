@@ -174,6 +174,7 @@ data class GeneratorInputDto(
 }
 
 data class GeneratorMetaDto(val name: String,
+                            val useIconicsTextView : Boolean = false,
                             val input: GeneratorInputDto? = null,
                             val tags: List<String>? = null,
                             val desc: String? = null) {

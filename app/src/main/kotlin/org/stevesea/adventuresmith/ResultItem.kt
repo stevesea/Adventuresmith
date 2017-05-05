@@ -20,6 +20,7 @@
 
 package org.stevesea.adventuresmith
 
+import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
 import android.support.v4.content.ContextCompat
@@ -32,15 +33,13 @@ import com.mikepenz.iconics.view.IconicsTextView
 import com.mikepenz.materialize.util.UIUtils
 import java.util.concurrent.atomic.AtomicLong
 
-class ResultItem(val htmlTxt: String) :
+class ResultItem(val htmlTxt: String, val useIconicsTextView: Boolean = false) :
         AbstractItem<GeneratorButton, ResultItem.ViewHolder>(),
         Parcelable {
+    @SuppressLint("NewApi")
     val spannedText = htmlStrToSpanned(htmlTxt)
     val plainText by lazy {
         spannedText.toString()
-    }
-    val hasIconics by lazy {
-        plainText.contains('{')
     }
 
     init {
@@ -64,7 +63,7 @@ class ResultItem(val htmlTxt: String) :
         //
         // so... how about an awful compromise! If result has icon in it, use IconicsTextView,
         // if not, use the TextView
-        if (hasIconics) {
+        if (useIconicsTextView) {
             holder.itemText.visibility = View.GONE
             holder.itemIconicsText.visibility = View.VISIBLE
             holder.itemIconicsText.text = (spannedText)
@@ -103,11 +102,12 @@ class ResultItem(val htmlTxt: String) :
         }
     }
 
-    constructor(source: Parcel) : this(source.readString())
+    constructor(source: Parcel) : this(source.readString(), if (source.readInt() == 1) true else false)
 
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         dest?.writeString(htmlTxt)
+        dest?.writeInt(if (useIconicsTextView) 1 else 0 )
     }
 }
