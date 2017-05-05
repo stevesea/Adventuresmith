@@ -8,6 +8,7 @@ buildscript {
     ext.junit_version = '4.12'
     ext.mockito_version = '1.10.19'
     ext.detekt_version = '1.0.0.M8.1'
+    ext.crashlytics_version = '2.6.8'
 
     repositories {
         jcenter()
