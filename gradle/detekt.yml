@@ -2,7 +2,7 @@ autoCorrect: true
 
 build:
   warningThreshold: 5
-  failThreshold: 100
+  failThreshold: 20
   weights:
     code-smell: 2
     LongParameterList: 1
