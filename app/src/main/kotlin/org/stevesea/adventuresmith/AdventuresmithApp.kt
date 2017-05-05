@@ -42,16 +42,6 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
     companion object {
         val watch = Stopwatch.createStarted()
-
-        val objectMapper by lazy {
-            ObjectMapper().registerKotlinModule()
-        }
-        val objectReader by lazy {
-            objectMapper.reader()
-        }
-        val objectWriter by lazy {
-            objectMapper.writer()
-        }
     }
 
     override fun onCreate() {
@@ -75,22 +65,11 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         Iconics.registerFont(Ionicons())
 
         info("App onCreate done: ${watch}")
-
-        /*
-        doAsync {
-            val innerStopwatch = Stopwatch.createStarted()
-            AdventuresmithCore.initCaches()
-            innerStopwatch.stop()
-            info("Init-caches done: $innerStopwatch (since app start: ${AdventuresmithApp.watch})")
-            Answers.getInstance().logCustom(CustomEvent("InitCaches")
-                    .putCustomAttribute("elapsedMS", innerStopwatch.elapsed(TimeUnit.MILLISECONDS))
-                    .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
-            )
-        }
-        */
     }
 }
 
+@Suppress("DEPRECATION")
+@SuppressWarnings("deprecation")
 @TargetApi(Build.VERSION_CODES.N)
 fun htmlStrToSpanned(input: String): Spanned {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
