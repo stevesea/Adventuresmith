@@ -220,6 +220,16 @@ https://creativecommons.org/licenses/by/4.0/</p>
 <p>Spanish translation by: <strong>Séregras</strong>. Available here <a href="http://questingblog.com/downloads/">http://questingblog.com/downloads/</a></p>
 
 
+## The Perilous Wilds - Jason Lutes
+[http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds](http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds)
+
+<p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
+<p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A. with assistance from <strong>Jeremy Strandberg</strong> in Madison, Wisconsin, U.S.A.</p>
+<p>The contents of this supplement rely upon the rules contained in <em>Dungeon World</em>, by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>,
+licensed under a Creative Commons Attribution 3.0 Unported license</p>
+<p>The text of The <em>Perilous Wilds</em> is released under a Creative Commons Attribution - ShareAlike 3.0 Unported license.</p>
+
+
 ## Portal Rats - Parenthesis Press / Tore Nielsen and Neal Stidham
 [http://www.drivethrurpg.com/product/209750/Portal-Rats](http://www.drivethrurpg.com/product/209750/Portal-Rats)
 
@@ -256,6 +266,7 @@ Generate random planar NPCs for your Portal Rats game using this table.
 
 
 <h4>Open Game License</h4>
+<blockquote>
 <h5>DESIGNATION OF PRODUCT IDENTITY</h5>
 The names The Black Hack, The Cthulhu Hack, and all artwork, logos and layout are product identity.
 <h5>DESIGNATION OF OPEN GAME CONTENT</h5>
@@ -330,6 +341,7 @@ the termination of this License.
 reformed only to the extent necessary to make it enforceable.
 <br/>15 COPYRIGHT NOTICE
 Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+</blockquote>
 
 
 ## Roll XX - The Sentinels of Meregoth / Neoplastic Press
@@ -554,16 +566,6 @@ designed to be easily imported to your own favorite gaming system. In addition t
 pre-made stellar sector, Stars Without Number offers GMs and players the tools to create their
 own sandbox-style adventures in the far future.</p>
 </blockquote>
-
-
-## The Perilous Wilds - Jason Lutes
-[http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds](http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds)
-
-<p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
-<p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A. with assistance from <strong>Jeremy Strandberg</strong> in Madison, Wisconsin, U.S.A.</p>
-<p>The contents of this supplement rely upon the rules contained in <em>Dungeon World</em>, by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>,
-licensed under a Creative Commons Attribution 3.0 Unported license</p>
-<p>The text of The <em>Perilous Wilds</em> is released under a Creative Commons Attribution - ShareAlike 3.0 Unported license.</p>
 
 
 ## /r/BehindTheTables - /r/DnDBehindTheScreen
