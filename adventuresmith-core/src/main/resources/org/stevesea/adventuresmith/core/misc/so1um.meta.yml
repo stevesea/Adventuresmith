@@ -1,0 +1,14 @@
+---
+name: so1um
+input:
+  displayTemplate: "Roll: {{roll}}"
+  params:
+  - name: roll
+    uiName: Roll
+    helpText: Does the hero have advantage / disadvantage?
+    defaultValue: Normal
+    values:
+    - Advantage
+    - Normal
+    - Disadvantage
+

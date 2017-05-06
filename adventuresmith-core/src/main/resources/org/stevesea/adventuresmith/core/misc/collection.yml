@@ -12,5 +12,6 @@ groupedGenerators:
   - patron_deity
   grpGME:
   - fate_chart_variant
+  - so1um
   - tiny_universal
 
