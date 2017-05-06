@@ -27,9 +27,9 @@ tables:
   - 2-3, Neutral
   - 4-6, Not friendly
   vals:
-  - 1, No, And<br/><br/> <small>{{details}}</small>
-  - 2, No
-  - 3, No, But<br/><br/> <small>{{details}}</small>
-  - 4, Yes, But<br/><br/> <small>{{details}}</small>
-  - 5, Yes
-  - 6, Yes, And<br/><br/> <small>{{details}}</small>
+  - 1, <big>No, And</big><br/><br/> {{details}}
+  - 2, <big>No</big>
+  - 3, <big>No, But</big><br/><br/> {{details}}
+  - 4, <big>Yes, But</big><br/><br/> {{details}}
+  - 5, <big>Yes</big>
+  - 6, <big>Yes, And</big><br/><br/> {{details}}
