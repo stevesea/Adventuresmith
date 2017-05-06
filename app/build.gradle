@@ -5,7 +5,28 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'io.fabric'
 //apply plugin: 'easyrelease'
 
-apply from: "$rootDir/gradle/signing.gradle"
+try {
+    // wrap with try so build works even if signing stuff is missing
+    apply from: "../../advsmith_signing.gradle"
+
+    // now part of ../../advsmith_signing
+//    signingConfigs {
+//        debug {
+//            storeFile file('debug.keystore')
+//            storePassword 'android'
+//            keyAlias 'androiddebugkey'
+//            keyPassword 'android'
+//        }
+//        release {
+//            storeFile file("$keystorePath")
+//            storePassword "$keystorePassword"
+//            keyAlias "$storeKeyAlias"
+//            keyPassword "$aliasKeyPassword"
+//        }
+//    }
+} catch (ex) {
+
+}
 
 
 androidGitVersion {
@@ -32,21 +53,6 @@ android {
 
         multiDexEnabled true
     }
-
-    signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
-        release {
-            storeFile file("$keystorePath")
-            storePassword "$keystorePassword"
-            keyAlias "$storeKeyAlias"
-            keyPassword "$aliasKeyPassword"
-        }
-    }
     productFlavors {
         // Define separate dev and prod product flavors.
         dev {
@@ -68,13 +74,20 @@ android {
             minifyEnabled false
             debuggable true
             applicationIdSuffix
-            signingConfig signingConfigs.debug
+            try {
+                signingConfig signingConfigs.debug
+            } catch (ex) {
+            }
         }
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            try {
+                signingConfig signingConfigs.release
+            } catch (ex) {
+
+            }
         }
     }
 
