@@ -1,0 +1,43 @@
+---
+nested_tables:
+  gear:
+    thief_1:
+      - 1..2, Knife
+      - 3..4, Dagger
+      - 5..6, Shortsword
+    thief_2:
+      - 1..2, 3 throwing knives
+      - 3..4, Sling
+      - 5..6, Shortbow
+
+    magic-user_1:
+      - 1..2, Magic wand
+      - 3..5, Magic staff
+      - 6, Arcane orb
+    magic-user_2:
+      - 1..2, Bag of books
+      - 3, Dagger
+      - 4, Healing potion
+      - 5..6, Spell components
+
+    cleric_1:
+      - 1..2, Staff
+      - 3..4, Mace
+      - 5..6, Warhammer
+    cleric_2:
+      - 1..2, Shield
+      - 3..4, Leather Armor
+      - 5..6, Chainmail
+
+    fighter_1:
+      - 1, Leather armor
+      - 2..5, Chainmail
+      - 6, Scale mail
+    fighter_2:
+      - 1, Healing potion
+      - 2, Shield
+      - 3, Poultices &amp; herbs
+      - 4, Antitoxin
+      - 5, Rations
+      - 6, Adventuring gear
+

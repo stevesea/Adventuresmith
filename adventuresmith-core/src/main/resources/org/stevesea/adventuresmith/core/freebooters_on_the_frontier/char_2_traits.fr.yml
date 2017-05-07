@@ -1,0 +1,154 @@
+---
+tables:
+  virtues:
+  - Ambitieux
+  - Bienveillant
+  - Audacieux
+  - Brave
+  - Charitable
+  - Chaste
+  - Prudent
+  - Sensible
+  - Confiant
+  - Réfléchi
+  - Coopératif
+  - Courtois
+  - Créatif
+  - Curieux
+  - Courageux
+  - Digne
+  - Fiable
+  - Déterminé
+  - Enthousiaste
+  - Juste
+  - Concentré
+  - Clément
+  - Amical
+  - Frugal
+  - Amusant
+  - Généreux
+  - Sociable
+  - Serviable
+  - Honnête
+  - Honorable
+  - Optimiste
+  - Humble
+  - Idéaliste
+  - Équitable
+  - Gentil
+  - Affectueux
+  - Loyal
+  - Miséricordieux
+  - Discipliné
+  - Méthodique
+  - Patient
+  - Tenace
+  - Pieux
+  - Ingénieux
+  - Respectueux
+  - Responsable
+  - Altruiste
+  - Résolu
+  - Poli
+  - Tolérant
+
+  vices:
+  - Accro
+  - Agressif
+  - Alcoolique
+  - Hostile
+  - Arrogant
+  - Prétentieux
+  - Tricheur
+  - Cupide
+  - Couard
+  - Cruel
+  - Décadent
+  - Fourbe
+  - Déloyal
+  - Indécis
+  - Egoiste
+  - Envieux
+  - Glouton
+  - Avare
+  - Intolérant
+  - Hédoniste
+  - Impatient
+  - Inflexible
+  - Colérique
+  - Feignant
+  - Obscène
+  - Menteur
+  - Lubrique
+  - Dingue
+  - Indiscret
+  - Manipulateur
+  - Insensible
+  - Lunatique
+  - Violent
+  - Obsessionnel
+  - Grincheux
+  - Partial
+  - Téméraire
+  - Vengeur
+  - Grossier
+  - Impitoyable
+  - Misérabiliste
+  - Égotiste
+  - Hautain
+  - Pingre
+  - Têtu
+  - Vaniteux
+  - Irritable
+  - Gaspilleur
+  - Vindicatif
+  - Fanatique
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

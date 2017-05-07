@@ -1,0 +1,36 @@
+---
+
+definitions:
+  headers:
+    virtues: Virtues
+    vices: Vices
+    playbook: Playbook
+    name_heritage: Name &amp; Heritage
+    appearance: Appearance
+    gear: Gear
+    abilities: Abilities
+  tags:
+    abilities: |
+      Strength: {{>roll: 3d6}}&nbsp;&nbsp;Dexterity: ${>>roll: 3d6}}
+      <br/>Charisma: {{>roll: 3d6}}&nbsp;&nbsp;Constitution: ${>>roll: 3d6}}
+      <br/>Wisdom: {{>roll: 3d6}}&nbsp;&nbsp;Intelligence: ${>>roll: 3d6}}
+      <br/>Luck: {{>roll: 3d6}}
+    genders:
+      male: Male
+      female: Female
+    heritages:
+      human: Human
+      halfling: Halfling
+      dwarf: Dwarf
+      elf: Elf
+    playbooks:
+      fighter: Fighter
+      thief: Thief
+      cleric: Cleric
+      magic-user: Magic-User
+    alignments:
+      evil: Evil
+      chaotic: Chaotic
+      neutral: Neutral
+      lawful: Lawful
+      good: Good

@@ -1,0 +1,43 @@
+---
+nested_tables:
+  gear:
+    thief_1:
+      - 1..2, Couteau
+      - 3..4, Dague
+      - 5..6, Épée courte
+    thief_2:
+      - 1..2, 3 Dagues de lancer
+      - 3..4, Fronde
+      - 5..6, Arc court
+
+    magic-user_1:
+      - 1..2, Baguette magique
+      - 3..5, Bâton magique
+      - 6, Orbe arcanique
+    magic-user_2:
+      - 1..2, Sac de livres
+      - 3, Dague
+      - 4, Potion de soins
+      - 5..6, Composants de sorts
+
+    cleric_1:
+      - 1..2, Bâton
+      - 3..4, Masse
+      - 5..6, Marteau de guerre
+    cleric_2:
+      - 1..2, Bouclier
+      - 3..4, Armure de cuir
+      - 5..6, Cotte de mailles
+
+    fighter_1:
+      - 1, Armure de cuir
+      - 2..5, Cotte de mailles
+      - 6, Armure d’écailles
+    fighter_2:
+      - 1, Potion de soin
+      - 2, Bouclier
+      - 3, Herbes et cataplasmes
+      - 4, Antidote
+      - 5, Rations
+      - 6, Matériel d’aventurier
+

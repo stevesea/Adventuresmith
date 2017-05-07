@@ -3,5 +3,5 @@ id: freebooters_on_the_frontier
 icon: ion-map
 generators:
   - chars   #Not converted to new template format
-  #- char_2  # experiment with template-driven one
+  - char_2  # experiment with template-driven one
   - spells

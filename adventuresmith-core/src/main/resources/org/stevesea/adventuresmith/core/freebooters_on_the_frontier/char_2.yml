@@ -1,4 +1,104 @@
 ---
 templates:
-- ""
+- "{{pick_gender}}{{pick_playbook}}"
 
+definitions:
+  templ_body: |
+    <h4>{{headers.playbook}} - {{>get: playbook}}</h4>
+    <h5>{{headers.name_heritage}}</h5>
+    %[[names_{{>get: heritage}}.{{>get: gender}}]]% &nbsp;&nbsp;<em>{{>get: gender}}</em>
+    <br/>
+    {{>get: heritage}} &nbsp;&nbsp;<em>{{>get: alignment}}</em>
+    <h5>{{headers.abilities}}</h5>
+    {{tags.abilities}}
+    <br/>
+    <br/><strong><small>{{headers.virtues}}:</small></strong> %[[>pickN: {{>get: nvirtues}} virtues]]%
+    <br/><strong><small>{{headers.vices}}:</small></strong> %[[>pickN: {{>get: nvices}} vices]]%
+    <h5>{{headers.appearance}}</h5>
+    %[[>pickN: 1d2+1 appearances.{{>get: playbook}}]]%
+    <h5>{{headers.gear}}</h5>
+    %[[gear.{{>get: playbook}}_1]]%
+    <br/>%[[gear.{{>get: playbook}}_2]]%
+
+  pick_heritage: "%[[heritages.{{>get: playbook}}]]%"
+  pick_alignment: "%[[alignments.{{>get: playbook}}]]%"
+
+
+imports:
+- char_2_names
+- char_2_appearances
+- char_2_traits
+- char_2_tags
+- char_2_gear
+
+tables:
+  pick_gender:
+  - "{{>set: gender male}}"
+  - "{{>set: gender female}}"
+
+  pick_playbook:
+  - |
+    1-6,
+    {{>set: playbook fighter}}
+    %[[pick_heritage]]%
+    %[[pick_alignment]]%
+  - |
+    7-9,
+    {{>set: playbook thief}}
+    %[[pick_heritage]]%
+    %[[pick_alignment]]%
+  - |
+    10-11,
+    {{>set: playbook cleric}}
+    %[[pick_heritage]]%
+    %[[pick_alignment]]%
+  - |
+    12,
+    {{>set: playbook magic-user}}
+    %[[pick_heritage]]%
+    %[[pick_alignment]]%
+
+nested_tables:
+  heritages:
+    thief:
+      - "1..7, {{>set: heritage human}}"
+      - "8..10, {{>set: heritage halfling}}"
+      - "11, {{>set: heritage dwarf}}"
+      - "12, {{>set: heritage elf}}"
+    magic-user:
+      - "1..8, {{>set: heritage human}}"
+      - "9, {{>set: heritage halfling}}"
+      - "10, {{>set: heritage dwarf}}"
+      - "11..12, {{>set: heritage elf}}"
+    cleric:
+      - "1..7, {{>set: heritage human}}"
+      - "8, {{>set: heritage halfling}}"
+      - "9..11, {{>set: heritage dwarf}}"
+      - "12, {{>set: heritage elf}}"
+    fighter:
+      - "1..7, {{>set: heritage human}}"
+      - "8, {{>set: heritage halfling}}"
+      - "9..11, {{>set: heritage dwarf}}"
+      - "12, {{>set: heritage elf}}"
+  alignments:
+    thief:
+      - "1..2, {{>set: alignment evil}}{{>set: nvirtues 0}}{{>set: nvices 3}}%[[templ_body]]%"
+      - "3..6, {{>set: alignment chaotic}}{{>set: nvirtues 1}}{{>set: nvices 2}} %[[templ_body]]%"
+      - "7..10, {{>set: alignment neutral}}{{>set: nvirtues 1}}{{>set: nvices 1}} %[[templ_body]]%"
+      - "11..12, {{>set: alignment good}}{{>set: nvirtues 3}}{{>set: nvices 0}}%[[templ_body]]%"
+    magic-user:
+      - "1..3, {{>set: alignment evil}}{{>set: nvirtues 0}}{{>set: nvices 3}} %[[templ_body]]%"
+      - "4..8, {{>set: alignment chaotic}}{{>set: nvirtues 1}}{{>set: nvices 2}} %[[templ_body]]%"
+      - "9..12, {{>set: alignment good}}{{>set: nvirtues 3}}{{>set: nvices 0}}%[[templ_body]]%"
+    cleric:
+      - "1..3, {{>set: alignment evil}}{{>set: nvirtues 0}}{{>set: nvices 3}} %[[templ_body]]%"
+      - "4..5, {{>set: alignment chaotic}}{{>set: nvirtues 1}}{{>set: nvices 2}} %[[templ_body]]%"
+      - "6..7, {{>set: alignment neutral}}{{>set: nvirtues 1}}{{>set: nvices 1}}%[[templ_body]]%"
+      - "8..9, {{>set: alignment lawful}}{{>set: nvirtues 2}}{{>set: nvices 1}}%[[templ_body]]%"
+      - "10..12, {{>set: alignment good}}{{>set: nvirtues 3}}{{>set: nvices 0}}%[[templ_body]]%"
+    fighter:
+      - "1..2, {{>set: alignment evil}}{{>set: nvirtues 0}}{{>set: nvices 3}} %[[templ_body]]%"
+      - "3..4, {{>set: alignment chaotic}}{{>set: nvirtues 1}}{{>set: nvices 2}} %[[templ_body]]%"
+      - "5..8, {{>set: alignment neutral}}{{>set: nvirtues 1}}{{>set: nvices 1}}%[[templ_body]]%"
+      - "9..10, {{>set: alignment lawful}}{{>set: nvirtues 2}}{{>set: nvices 1}}%[[templ_body]]%"
+      - "11..12, {{>set: alignment good}}{{>set: nvirtues 3}}{{>set: nvices 0}}%[[templ_body]]%"
