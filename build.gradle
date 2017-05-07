@@ -58,7 +58,7 @@ subprojects {
         def input = "$project.projectDir.absolutePath"
         def config = "$rootDir/gradle/detekt.yml"
         def filters = ".*test.*"
-        def rulesets = ""
+        def rulesets = " "
         def params = [ '-p', input, '-c', config, '-f', filters, '-r', rulesets]
         args(params)
     }

@@ -27,7 +27,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="horizontal">
 
     <!-- this will hold the nav drawer when configured for tablet, otherwise it is hidden -->

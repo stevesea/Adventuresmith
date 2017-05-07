@@ -279,7 +279,7 @@ val diceModule = Kodein.Module {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val best = rolls.max()
-                return "2d20 Advantage: <strong>${nf.format(best)}</strong> <small>${rolls}</small>"
+                return "2d20 Advantage: <strong>${nf.format(best)}</strong> <small>$rolls</small>"
             }
 
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
@@ -299,7 +299,7 @@ val diceModule = Kodein.Module {
                 val nf = NumberFormat.getInstance(locale)
                 val rolls = diceParser.rollN("1d20", 2)
                 val worst = rolls.min()
-                return "2d20 Disadvantage: <strong>${nf.format(worst)}</strong> <small>${rolls}</small>"
+                return "2d20 Disadvantage: <strong>${nf.format(worst)}</strong> <small>$rolls</small>"
             }
 
             override fun getMetadata(locale: Locale): GeneratorMetaDto {
@@ -372,13 +372,13 @@ class CustomizeableDiceGenerator(
 
         val keptDiceSum = afterDroppedHighAndLow.sum()
 
-        val dStr = "${nDie}d${die}"
+        val dStr = "${nDie}d$die"
 
         val result = keptDiceSum + add
         val nf = NumberFormat.getInstance(locale)
 
         val sb = StringBuilder()
-        sb.append("${dStr}: [")
+        sb.append("$dStr: [")
         if (droppedHigh.isNotEmpty()) {
             val droppedHighStr = droppedHigh.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
             sb.append(droppedHighStr)
@@ -396,10 +396,10 @@ class CustomizeableDiceGenerator(
             val droppedLowStr = droppedLow.joinToString(", ", prefix = "<strike><small>", postfix = "</small></strike>")
             sb.append(droppedLowStr)
         }
-        sb.append("]<br/><br/>Total: <big><strong>${nf.format(result)}</strong></big> = ${afterDroppedHighAndLow} + $add")
+        sb.append("]<br/><br/>Total: <big><strong>${nf.format(result)}</strong></big> = $afterDroppedHighAndLow + $add")
         if (tnVal.isNotEmpty()) {
             val successes = afterDroppedHighAndLow.count { it >= tn }
-            sb.append("<br/><br/>Successes: <big><strong>${successes}</strong></big> (>= ${tn})")
+            sb.append("<br/><br/>Successes: <big><strong>$successes</strong></big> (>= $tn)")
         }
         return sb.toString()
     }
@@ -472,7 +472,7 @@ class ExplodingDiceGenerator( val myid: String,
 
             numToRoll = matched_rolls.size
 
-            logger.debug("Rolled: ${rolls}. matches: ${matched_rolls} ($numToRoll)")
+            logger.debug("Rolled: $rolls. matches: $matched_rolls ($numToRoll)")
             if (numIters > 100) {
                 logger.info("Too many explodes. abandon ship!")
                 collected_rolls.add(listOf(0))
@@ -480,9 +480,9 @@ class ExplodingDiceGenerator( val myid: String,
             }
         } while (matched_rolls.isNotEmpty())
 
-        logger.debug(" ... done. Collected rolls: ${collected_rolls}")
+        logger.debug(" ... done. Collected rolls: $collected_rolls")
 
-        val dStrSb = StringBuilder("${nDie}d${die}!")
+        val dStrSb = StringBuilder("${nDie}d$die!")
 
         if (eGreater > 0)
             dStrSb.append(">" + eGreater)
@@ -498,7 +498,7 @@ class ExplodingDiceGenerator( val myid: String,
         val nf = NumberFormat.getInstance(locale)
 
         val sb = StringBuilder()
-        sb.append("${dStr}: <big><strong>${nf.format(sum)}</strong></big><br/><br/>")
+        sb.append("$dStr: <big><strong>${nf.format(sum)}</strong></big><br/><br/>")
         sb.append(collected_rolls.map {
             it -> it.map {
             it -> if ((eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)) "<strong>$it</strong>" else "$it"
@@ -566,7 +566,7 @@ class FudgeDiceGenerator(
             rolls.add(roll)
         }
 
-        return "${n}dF: ${rolls}<br/><br/><big><strong>${nf.format(sum)}</strong></big>"
+        return "${n}dF: $rolls<br/><br/><big><strong>${nf.format(sum)}</strong></big>"
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
@@ -622,7 +622,7 @@ class EotEDiceGenerator(
                         continue
                     logger.debug("${it.key}: $roll")
                     val rolls = roll.split("+").map { it.trim() }
-                    all_rolls.get(curDice)?.add(roll)
+                    all_rolls[curDice]?.add(roll)
 
                     rolls.forEach {
                         when (it) {

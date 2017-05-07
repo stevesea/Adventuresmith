@@ -71,17 +71,17 @@ abstract class TagWithText(name: String) : Tag(name) {
     }
 }
 
-class HTML() : TagWithText("html") {
+class HTML : TagWithText("html") {
     fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
     fun body(init: Body.() -> Unit) = initTag(Body(), init)
 }
 
-class Head() : TagWithText("head") {
+class Head : TagWithText("head") {
     fun title(init: Title.() -> Unit) = initTag(Title(), init)
 }
 
-class Title() : TagWithText("title")
+class Title : TagWithText("title")
 
 abstract class BodyTag(name: String) : TagWithText(name) {
     fun b(init: B.() -> Unit) = initTag(B(), init)
@@ -103,24 +103,24 @@ abstract class BodyTag(name: String) : TagWithText(name) {
     fun br(init: Br.() -> Unit) = initTag(Br(), init)
 }
 
-class Body() : BodyTag("body")
-class B() : BodyTag("b")
-class Small() : BodyTag("small")
-class Strong() : BodyTag("strong")
-class Em() : BodyTag("em")
-class P() : BodyTag("p")
-class H1() : BodyTag("h1")
-class H2() : BodyTag("h2")
-class H3() : BodyTag("h3")
-class H4() : BodyTag("h4")
-class H5() : BodyTag("h5")
-class H6() : BodyTag("h6")
-class Blockquote() : BodyTag("blockquote")
+class Body : BodyTag("body")
+class B : BodyTag("b")
+class Small : BodyTag("small")
+class Strong : BodyTag("strong")
+class Em : BodyTag("em")
+class P : BodyTag("p")
+class H1 : BodyTag("h1")
+class H2 : BodyTag("h2")
+class H3 : BodyTag("h3")
+class H4 : BodyTag("h4")
+class H5 : BodyTag("h5")
+class H6 : BodyTag("h6")
+class Blockquote : BodyTag("blockquote")
 
-class Br() : Tag("br")
+class Br : Tag("br")
 
-class A() : BodyTag("a") {
-    public var href: String
+class A : BodyTag("a") {
+    var href: String
         get() = attributes["href"]!!
         set(value) {
             attributes["href"] = value

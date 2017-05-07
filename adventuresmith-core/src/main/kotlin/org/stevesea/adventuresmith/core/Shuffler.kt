@@ -60,11 +60,11 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
         return localItems.take(num)
     }
 
-    fun pickN(thing: Any, num: Int) : Collection<String> {
+    fun pickN(thing: Any, num: Int) : Collection<Any?> {
         if (thing is RangeMap) {
             return pickN(thing, num)
         } else if (thing is Collection<*>) {
-            return pickN(thing, num) as Collection<String>
+            return pickN(thing, num)
         } else {
             throw IllegalArgumentException("don't know how to select thing of type " + thing.javaClass)
         }
@@ -73,10 +73,8 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
     fun pickD(diceStr: String, thing: Any) : String {
         if (thing is RangeMap) {
             return pickD(diceStr, thing)
-
         } else if (thing is Collection<*>) {
             return pickD(diceStr, thing as Collection<String>)
-
         } else {
             throw IllegalArgumentException("don't know how to select thing of type " + thing.javaClass)
         }
