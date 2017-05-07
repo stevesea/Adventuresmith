@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectReader
 import com.github.salomonbrys.kodein.Kodein
 import com.github.salomonbrys.kodein.KodeinAware
 import com.github.salomonbrys.kodein.instance
+import com.google.common.base.Optional
 import com.google.common.base.Throwables
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
@@ -112,12 +113,31 @@ abstract class AbstractLocaleAwareFinder {
 object LocaleAwareFinderForClasspathResources : AbstractLocaleAwareFinder(), KLoggable {
     override val logger = logger()
 
+    val maxSize = 100L
+
+    val cache : Cache<Pair<String,String>, Optional<URL>> = CacheBuilder.newBuilder()
+            .maximumSize(maxSize)
+            .expireAfterAccess(10, TimeUnit.MINUTES)
+            .build()
+
+    fun <T> getPossiblyCachedResourceURL(clazz: Class<T>, path: String) : URL? {
+        val key = Pair(clazz.`package`.name, path)
+        try {
+            return cache.get(key) { Optional.fromNullable(clazz.getResource(path)) }.orNull()
+        } catch (e: ExecutionException) {
+            Throwables.throwIfInstanceOf(e.cause, IOException::class.java)
+            throw e.cause!!
+        } catch (e: UncheckedExecutionException) {
+            throw e.cause!!
+        }
+    }
+
     fun <T> find(name: String, locale: Locale, clazz: Class<T>, ext: String = ".yml") : URL {
-        val fnames_precendence_order = locale_names(name, locale, ext)
-        val urls = fnames_precendence_order.map { it -> clazz.getResource(it) }
+        val fnames_precedence_order = locale_names(name, locale, ext)
+        val urls = fnames_precedence_order.map { it -> getPossiblyCachedResourceURL(clazz, it) }
         val foundList = urls.filterNotNull()
         if (foundList.isEmpty()) {
-            throw FileNotFoundException("Unable to find any resources matching $name. Looked in: ${clazz.`package`.name} Tried: $fnames_precendence_order ")
+            throw FileNotFoundException("Unable to find any resources matching $name. Looked in: ${clazz.`package`.name} Tried: $fnames_precedence_order ")
         }
         /**
          * TODO: instead of picking best, seems like we could gather dtos from multiple languages here and combine
@@ -131,10 +151,10 @@ object LocaleAwareFinderForFiles : AbstractLocaleAwareFinder(), KLoggable {
 
     fun findBestFile(f: File, locale: Locale, ext: String = ".yml") : File {
         val fnorm = File(f.parentFile, f.nameWithoutExtension).absolutePath
-        val fnames_precendence_order = locale_names(fnorm, locale, ext)
-        val files = fnames_precendence_order.filter { File(it).exists() }.map { File(it) }
+        val fnames_precedence_order = locale_names(fnorm, locale, ext)
+        val files = fnames_precedence_order.filter { File(it).exists() }.map { File(it) }
         if (files.isEmpty()) {
-            throw FileNotFoundException("Unable to find files matching '$fnorm'. Tried: $fnames_precendence_order")
+            throw FileNotFoundException("Unable to find files matching '$fnorm'. Tried: $fnames_precedence_order")
         }
         /**
          * TODO: instead of picking best, seems like we could gather dtos from multiple languages here and combine
