@@ -23,7 +23,6 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@+id/activity_attribution"
               android:orientation="vertical"
-              android:background="?attr/colorPrimary"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               tools:context="org.stevesea.adventuresmith.AttributionActivity">
