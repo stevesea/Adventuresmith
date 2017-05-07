@@ -4,16 +4,14 @@ definitions:
   headers:
     virtues: Vertus
     vices: Vices
-    playbook: Livret
-    name_heritage: Nom &amp; Héritage
+    name: Nom
     appearance: Apparence
     gear: Équipement
-    abilities: Caractéristiques
   tags:
     abilities: |
-      Force: {{>roll: 3d6}}&nbsp;&nbsp;Dextérité: ${>>roll: 3d6}}
-      <br/>Charisme: {{>roll: 3d6}}&nbsp;&nbsp;Constitution: ${>>roll: 3d6}}
-      <br/>Sagesse: {{>roll: 3d6}}&nbsp;&nbsp;Intelligence: ${>>roll: 3d6}}
+      Force: {{>roll: 3d6}}&nbsp;&nbsp;Dextérité: {{>roll: 3d6}}
+      <br/>Charisme: {{>roll: 3d6}}&nbsp;&nbsp;Constitution: {{>roll: 3d6}}
+      <br/>Sagesse: {{>roll: 3d6}}&nbsp;&nbsp;Intelligence: {{>roll: 3d6}}
       <br/>Chance: {{>roll: 3d6}}
     genders:
       male: Masculin

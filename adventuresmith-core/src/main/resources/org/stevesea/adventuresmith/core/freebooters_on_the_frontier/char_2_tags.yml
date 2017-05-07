@@ -4,16 +4,14 @@ definitions:
   headers:
     virtues: Virtues
     vices: Vices
-    playbook: Playbook
-    name_heritage: Name &amp; Heritage
+    name: Name
     appearance: Appearance
     gear: Gear
-    abilities: Abilities
   tags:
     abilities: |
-      Strength: {{>roll: 3d6}}&nbsp;&nbsp;Dexterity: ${>>roll: 3d6}}
-      <br/>Charisma: {{>roll: 3d6}}&nbsp;&nbsp;Constitution: ${>>roll: 3d6}}
-      <br/>Wisdom: {{>roll: 3d6}}&nbsp;&nbsp;Intelligence: ${>>roll: 3d6}}
+      Strength: {{>roll: 3d6}}&nbsp;&nbsp;Dexterity: {{>roll: 3d6}}
+      <br/>Charisma: {{>roll: 3d6}}&nbsp;&nbsp;Constitution: {{>roll: 3d6}}
+      <br/>Wisdom: {{>roll: 3d6}}&nbsp;&nbsp;Intelligence: {{>roll: 3d6}}
       <br/>Luck: {{>roll: 3d6}}
     genders:
       male: Male

@@ -4,21 +4,18 @@ templates:
 
 definitions:
   templ_body: |
-    <h4>{{headers.playbook}} - {{>get: playbook}}</h4>
-    <h5>{{headers.name_heritage}}</h5>
-    %[[names_{{>get: heritage}}.{{>get: gender}}]]% &nbsp;&nbsp;<em>{{>get: gender}}</em>
+    <h4>%[[tags.playbooks.{{>get: playbook}}]]% - %[[tags.genders.{{>get: gender}}]]% %[[tags.heritages.{{>get: heritage}}]]%, %[[tags.alignments.{{>get: alignment}}]]%<</h4>
+    <strong>{{headers.name}}:</strong> %[[names_{{>get: heritage}}.{{>get: gender}}]]%
     <br/>
-    {{>get: heritage}} &nbsp;&nbsp;<em>{{>get: alignment}}</em>
-    <h5>{{headers.abilities}}</h5>
+    <br/>
     {{tags.abilities}}
+    <br/>
+    <br/><strong><small>{{headers.appearance}}:</small></strong> %[[>pickN: 1d2+1 appearances.{{>get: playbook}}]]%
     <br/>
     <br/><strong><small>{{headers.virtues}}:</small></strong> %[[>pickN: {{>get: nvirtues}} virtues]]%
     <br/><strong><small>{{headers.vices}}:</small></strong> %[[>pickN: {{>get: nvices}} vices]]%
-    <h5>{{headers.appearance}}</h5>
-    %[[>pickN: 1d2+1 appearances.{{>get: playbook}}]]%
-    <h5>{{headers.gear}}</h5>
-    %[[gear.{{>get: playbook}}_1]]%
-    <br/>%[[gear.{{>get: playbook}}_2]]%
+    <br/>
+    <br/><strong><small>{{headers.gear}}:</small></strong> %[[gear.{{>get: playbook}}_1]]%, %[[gear.{{>get: playbook}}_2]]%
 
   pick_heritage: "%[[heritages.{{>get: playbook}}]]%"
   pick_alignment: "%[[alignments.{{>get: playbook}}]]%"
