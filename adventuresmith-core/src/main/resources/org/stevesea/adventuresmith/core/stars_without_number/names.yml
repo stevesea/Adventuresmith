@@ -1,4 +1,15 @@
 ---
+tables:
+  culture_list:
+  - Arabic
+  - Chinese
+  - English
+  - Indian
+  - Japanese
+  - Nigerian
+  - Russian
+  - Spanish
+
 
 nested_tables:
   Arabic:
