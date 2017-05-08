@@ -115,7 +115,7 @@ object LocaleAwareFinderForClasspathResources : AbstractLocaleAwareFinder(), KLo
 
     val maxSize = 100L
 
-    val cache : Cache<Pair<String,String>, Optional<URL>> = CacheBuilder.newBuilder()
+    val cache : Cache<Pair<String, String>, Optional<URL>> = CacheBuilder.newBuilder()
             .maximumSize(maxSize)
             .expireAfterAccess(10, TimeUnit.MINUTES)
             .build()
