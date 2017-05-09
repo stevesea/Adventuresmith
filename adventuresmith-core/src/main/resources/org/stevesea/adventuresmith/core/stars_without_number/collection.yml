@@ -4,7 +4,6 @@ icon: cmd-rocket
 
 groupedGenerators:
   aaw:
-  - world # other format
   - world_2
   - alien
   - animal
