@@ -1,0 +1,31 @@
+---
+templates:
+- "{{world_init}}"
+
+imports:
+- world_2_tags
+
+definitions:
+  headers:
+    enemies: Enemies
+    friends: Friends
+    complications: Complications
+    things: Things
+    places: Places
+  world_init: |
+    %[[>set: world_tag1 {{world_tags_keys}}]]%
+    %[[world_template]]%
+  world_template: |
+    <h6>%[[world_tags.{{>get: world_tag1}}.name]]%</h6>
+    <blockquote><em>%[[world_tags.{{>get: world_tag1}}.flavor]]%</em></blockquote>
+    <h6>{{headers.enemies}}</h6>
+    %[[>pickN: 1d2+1 world_tags.{{>get: world_tag1}}.enemies <br/>]]%
+    <h6>{{headers.friends}}</h6>
+    %[[>pickN: 1d2+1 world_tags.{{>get: world_tag1}}.friends <br/>]]%
+    <h6>{{headers.complications}}</h6>
+    %[[>pickN: 1d2+1 world_tags.{{>get: world_tag1}}.complications <br/>]]%
+    <h6>{{headers.things}}</h6>
+    %[[>pickN: 1d2+1 world_tags.{{>get: world_tag1}}.things <br/>]]%
+    <h6>{{headers.places}}</h6>
+    %[[>pickN: 1d2+1 world_tags.{{>get: world_tag1}}.places <br/>]]%
+

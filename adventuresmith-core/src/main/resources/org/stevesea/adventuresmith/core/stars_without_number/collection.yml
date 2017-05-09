@@ -5,6 +5,7 @@ icon: cmd-rocket
 groupedGenerators:
   aaw:
   - world_2
+  - world_tag
   - alien
   - animal
   - backwater_spaceport

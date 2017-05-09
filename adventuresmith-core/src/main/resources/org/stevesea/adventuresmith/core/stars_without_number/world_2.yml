@@ -27,19 +27,20 @@ definitions:
     places: Places
   world_init: |
     %[[>set: cult {{culture_list}}]]%
+    {{>set: pop populations}}
+    {{>set: tech techlevels}}
     %[[>set: world_tag1 {{world_tags_keys}}]]%
     %[[>set: world_tag2 {{world_tags_keys}}]]%
-    %[[world_template]]%
-  world_template: |
     <h4>{{headers.physical}}</h4>
     {{atmosphere_and_temp}}
-
+    %[[world_template]]%
+  world_template: |
     <h4>{{headers.cultural}}</h4>
     <strong><small>{{headers.name}}:</small></strong> %[[{{>get: cult}}.place]]%
     <br/><strong><small>{{headers.culture}}:</small></strong> {{>get: cult}}
     <br/>
-    <br/><strong><small>{{headers.population}}:</small></strong> {{populations}}
-    <br/><strong><small>{{headers.techlevel}}:</small></strong> {{techlevels}}
+    <br/><strong><small>{{headers.population}}:</small></strong> %[[{{>get: pop}}]]%
+    <br/><strong><small>{{headers.techlevel}}:</small></strong>  %[[{{>get: tech}}]]%
 
     <h4>{{headers.worldtags}}</h4>
     <h6>%[[world_tags.{{>get: world_tag1}}.name]]%</h6>
@@ -62,21 +63,26 @@ definitions:
     %[[>pickN: 1d2 world_tags.{{>get: world_tag1}}.places <br/>]]%
     <br/>%[[>pickN: 1d2 world_tags.{{>get: world_tag2}}.places <br/>]]%
 
-
 tables:
   atmosphere_and_temp: #2d6
   - |
     2,
+    {{>set: tech techlevels_advanced}}
+    {{>set: pop populations_minimal}}
     <strong><small>{{headers.atmosphere}}:</small></strong> Corrosive
     <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
     <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
   - |
     3,
+    {{>set: tech techlevels_advanced}}
+    {{>set: pop populations_minimal}}
     <strong><small>{{headers.atmosphere}}:</small></strong> Inert gas
     <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
     <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
   - |
     4,
+    {{>set: tech techlevels_advanced}}
+    {{>set: pop populations_minimal}}
     <strong><small>{{headers.atmosphere}}:</small></strong> Airless or thin atmosphere
     <br/><strong><small>{{headers.temperature}}:</small></strong> {{temp_froze_burn}}
     <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_burn_frozen}}
@@ -92,11 +98,15 @@ tables:
     <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biospheres}}
   - |
     11,
+    {{>set: tech techlevels_advanced}}
+    {{>set: pop populations_minimal}}
     <strong><small>{{headers.atmosphere}}:</small></strong> Invasive, toxic atmosphere
     <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
     <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
   - |
     12,
+    {{>set: tech techlevels_advanced}}
+    {{>set: pop populations_minimal}}
     <strong><small>{{headers.atmosphere}}:</small></strong> Corrosive, invasive, toxic atmosphere
     <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
     <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
@@ -143,6 +153,11 @@ tables:
   - 11, Billions of inhabitants
   - 12, Alien civilization
 
+  populations_minimal: #2d6
+  - 2, Failed colony
+  - 3, Outpost
+  - 4..5, Tens of thousands of inhabitants
+
   techlevels: #2d6
   - 2, Tech Level 0. Stone-age technology.
   - 3, Tech level 1. Medieval technology.
@@ -151,6 +166,12 @@ tables:
   - 7..10, Tech level 4. Baseline postech.
   - 11, Tech level 4 with specialties or some surviving pretech.
   - 12, Tech level 5. Pretech, pre-Silence technology.
+
+  techlevels_advanced:
+  - 1..2, Tech level 3. Twentieth-century technology.
+  - 3..8, Tech level 4. Baseline postech.
+  - 9, Tech level 4 with specialties or some surviving pretech.
+  - 10, Tech level 5. Pretech, pre-Silence technology.
 
 
 
