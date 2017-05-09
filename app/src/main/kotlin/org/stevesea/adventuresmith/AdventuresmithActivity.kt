@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith
 
 import android.annotation.TargetApi
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
@@ -387,7 +388,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         val inputConfig = getGeneratorConfig(generator.getId())
 
-                        val dlg = indeterminateProgressDialog(R.string.generating_dlg_title)
+                        setProgressDialog(indeterminateProgressDialog(R.string.generating_dlg_title))
                         doAsync {
                             try {
                                 val genMeta = generator.getMetadata(getCurrentLocale())
@@ -416,9 +417,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                                 )
 
                                 uiThread {
-                                    if (dlg.isShowing()) {
-                                        dlg.dismiss()
-                                    }
                                     synchronized(resultAdapter) {
                                         resultAdapter.add(0, resultItems.filterNotNull().map { ResultItem(it, genMeta.useIconicsTextView) })
 
@@ -427,9 +425,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                                     }
                                 }
                             } finally {
-                                if (dlg.isShowing()) {
-                                    dlg.dismiss()
-                                }
+                                dismissProgressDialog()
                             }
                         }
                         return true
@@ -834,6 +830,11 @@ class AdventuresmithActivity : AppCompatActivity(),
         return resources.getDimension(R.dimen.navigation_menu_width) > 0
     }
 
+    override fun onPause() {
+        dismissProgressDialog()
+        super.onPause()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val stopwatch = Stopwatch.createStarted()
@@ -1078,7 +1079,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collGrp = drawerIdToGroup.get(drawerItemId)
         val favName = favoriteIdToName.get(drawerItemId)
 
-        val dlg = indeterminateProgressDialog(R.string.loading_dlg_title)
+        setProgressDialog(indeterminateProgressDialog(R.string.loading_dlg_title))
         doAsync {
             try {
                 val getGenSW = Stopwatch.createStarted()
@@ -1119,9 +1120,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                 )
 
                 uiThread {
-                    if (dlg.isShowing()) {
-                        dlg.dismiss()
-                    }
                     if (collGrp != null) {
                         toolbar.title = collGrp.name
                     } else if (favName != null) {
@@ -1143,9 +1141,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     appbar.setExpanded(true, true)
                 }
             } finally {
-                if (dlg.isShowing()) {
-                    dlg.dismiss()
-                }
+                dismissProgressDialog()
             }
         }
     }
@@ -1414,5 +1410,44 @@ class AdventuresmithActivity : AppCompatActivity(),
             }
         }
 
+        var progressDlg : ProgressDialog? = null
+        @Synchronized fun setProgressDialog(dlg: ProgressDialog) {
+            progressDlg = dlg
+        }
+        @Synchronized fun dismissProgressDialog() {
+            if (progressDlg != null && progressDlg?.isShowing ?: false) {
+                /*
+                val ctxt = (progressDlg?.context as ContextWrapper).baseContext
+                if (ctxt is Activity) {
+                    val a : Activity = ctxt
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                        // isDestroyed only available on 17+
+                        if (!a.isFinishing && !a.isDestroyed) {
+                            dismissProgressDialogWithCatch()
+                        }
+                    } else {
+                        if (!a.isFinishing) {
+                            dismissProgressDialogWithCatch()
+                        }
+                    }
+                } else {
+                    dismissProgressDialogWithCatch()
+                }
+                */
+                // the above seems convoluted... just always do the try/catch instead
+                dismissProgressDialogWithCatch()
+            }
+            progressDlg = null
+        }
+        // fall back to version that swallows exceptions if other checks failed or weren't available
+        @Synchronized private fun dismissProgressDialogWithCatch() {
+            progressDlg?.let {
+                try {
+                    progressDlg?.dismiss()
+                } catch (ex: Exception) {
+                    debug("Ignoring exception thrown when failed to dismiss dialog. ${ex.message}")
+                }
+            }
+        }
     }
 }
