@@ -8,7 +8,6 @@ imports:
 
 definitions:
   headers:
-    main: World
     physical: Physical Attributes
     atmosphere: Atmosphere
     temperature: Temperature
@@ -32,12 +31,8 @@ definitions:
     %[[>set: world_tag2 {{world_tags_keys}}]]%
     %[[world_template]]%
   world_template: |
-    <h3>{{headers.main}}</h3>
-
     <h4>{{headers.physical}}</h4>
-    <strong><small>{{headers.atmosphere}}:</small></strong> {{atmosphere}}
-    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
-    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biospheres}}
+    {{atmosphere_and_temp}}
 
     <h4>{{headers.cultural}}</h4>
     <strong><small>{{headers.name}}:</small></strong> %[[{{>get: cult}}.place]]%
@@ -69,14 +64,42 @@ definitions:
 
 
 tables:
-  atmosphere: #2d6
-  - 2, Corrosive
-  - 3, Inert gas
-  - 4, Airless or thin atmosphere     # forces frozen/burning temp
-  - 5..9, Breatheable mix
-  - 10, Thick atmosphere, breathable with a pressure mask
-  - 11, Invasive, toxic atmosphere
-  - 12, Corrosive, invasive, toxic atmosphere
+  atmosphere_and_temp: #2d6
+  - |
+    2,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Corrosive
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
+  - |
+    3,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Inert gas
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
+  - |
+    4,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Airless or thin atmosphere
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temp_froze_burn}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_burn_frozen}}
+  - |
+    5..9,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Breatheable mix
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biospheres}}
+  - |
+    10,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Thick atmosphere, breathable with a pressure mask
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biospheres}}
+  - |
+    11,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Invasive, toxic atmosphere
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
+  - |
+    12,
+    <strong><small>{{headers.atmosphere}}:</small></strong> Corrosive, invasive, toxic atmosphere
+    <br/><strong><small>{{headers.temperature}}:</small></strong> {{temperatures}}
+    <br/><strong><small>{{headers.biosphere}}:</small></strong> {{biosphere_non_human}}
 
   temperatures: #2d6
   - 2, Frozen
@@ -86,7 +109,10 @@ tables:
   - 9..10, Warm
   - 11, Variable temperate-to-warm
   - 12, Burning
-  - Frozen/Burning  # selected if airless/thin
+  temp_froze_burn:  # selected if airless/thin
+  - Frozen
+  - Burning
+  - Frozen/Burning
 
   biospheres: #2d6
   - 2, Biosphere remnants
@@ -96,6 +122,17 @@ tables:
   - 9..10, Immiscible biosphere
   - 11, Hybrid biosphere
   - 12, Engineered biosphere
+  biosphere_non_human:
+  - 2, Biosphere remnants
+  - 3, Microbial life
+  - 4..5, No native biosphere
+  - 6..7, Immiscible biosphere
+  - 8, Engineered biosphere
+  biosphere_burn_frozen: # if airless/thin
+  - 2..3, Biosphere remnants
+  - 4..5, Microbial life
+  - 6..9, No native biosphere
+  - 10, Engineered biosphere
 
   populations: #2d6
   - 2, Failed colony
