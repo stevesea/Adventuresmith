@@ -156,7 +156,6 @@ class SwnFactionView : ViewStrategy<SwnFactionModel, String> {
     }
 }
 
-
 val swnModule = Kodein.Module {
 
     bind<ModelGenerator<SwnFactionModel>>() with provider {
