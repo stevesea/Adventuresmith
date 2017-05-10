@@ -1,0 +1,369 @@
+---
+templates:
+- "{{faction_init}}"
+
+definitions:
+  # sets:
+  #   ftype - minor, major, hegemon
+  faction_init: |
+    %[[>set: ftype {{faction_type_chance}}]]%
+    %[[faction_stage2]]%
+
+  # sets:
+  #   stats_[force,cunning,weath] - #
+  #   ntags - #, how many tags to pick (usually 1, sometimes 2)
+  faction_stage2: |
+    %[[stats_tables.{{>get: ftype}}]]%
+    %[[ntags_tables.{{>get: ftype}}]]%
+    %[[faction_stage3]]%
+
+  # sets:
+  #   force_assets, cunning_assets, wealth_assets - lists of possible assets (sized according to each stat)
+  faction_stage3: |
+    %[[assets.force.{{>get: stats_force}}]]%
+    %[[assets.cunning.{{>get: stats_cunning}}]]%
+    %[[assets.wealth.{{>get: stats_wealth}}]]%
+
+    %[[faction_render]]%
+
+  faction_render: |
+     <h4>%[[>titleCase: {{>get: ftype}}]]% Faction</h4>
+     <small>Force:</small> {{>get: stats_force}} <small>Cunning:</small> {{>get: stats_cunning}} <small>Wealth:</small> {{>get: stats_wealth}}
+     <br/><small>HP:</small> %[[faction_types.{{>get: ftype}}.hp]]%
+     <br/>
+     <br/><small><strong>Tags:</strong></small> %[[>pickN: {{>get: ntags}} tags]]%
+     <br/>
+     <br/><small><strong>Goal:</strong></small> {{goals}}
+     <h5>Assets</h5>
+     %[[faction_types.{{>get: ftype}}.primary_assets]]%
+     <br/>%[[faction_types.{{>get: ftype}}.secondary_assets]]%
+
+  faction_types:
+    minor:
+      hp: 15
+      primary_assets: |
+        %[[>pickN: 1 {{>get: stats_primary}}_assets]]%
+      secondary_assets: |
+        %[[>pickN: 1 {{>get: stats_secondary1}}_assets]]%
+
+    major:
+      hp: 29
+      primary_assets: |
+         %[[>pickN: 2 {{>get: stats_primary}}_assets <br/>]]%
+      secondary_assets: |
+         %[[>pickN: 1d2 {{>get: stats_secondary1}}_assets <br/>]]%
+         <br/>%[[>pickN: 1 {{>get: stats_secondary2}}_assets]]%
+
+    hegemon:
+      hp: 49
+      primary_assets: |
+         %[[>pickN: 4 {{>get: stats_primary}}_assets <br/>]]%
+      secondary_assets: |
+         %[[>pickN: 1d2+1 {{>get: stats_secondary1}}_assets <br/>]]%
+         <br/>%[[>pickN: 1d2 {{>get: stats_secondary2}}_assets <br/>]]%
+
+  assets:
+    force:
+      1: |
+        {{>accum: force_assets Security Personnel}}
+        {{>accum: force_assets Hitmen}}
+        {{>accum: force_assets Militia Unit}}
+      2: |
+        {{assets.force.1}}
+        {{>accum: force_assets Heavy Drop Assets}}
+        {{>accum: force_assets Elite Skirmishers}}
+        {{>accum: force_assets Hardened Personnel}}
+        {{>accum: force_assets Guerilla Populace}}
+      3: |
+        {{assets.force.2}}
+        {{>accum: force_assets Zealots}}
+        {{>accum: force_assets Cunning Trap}}
+        {{>accum: force_assets Counterintel Unit}}
+      4: |
+        {{assets.force.3}}
+        {{>accum: force_assets Beachhead Landers}}
+        {{>accum: force_assets Extended Theater}}
+        {{>accum: force_assets Strike Fleet}}
+        {{>accum: force_assets Postech Infantry}}
+      5: |
+        {{assets.force.4}}
+        {{>accum: force_assets Blockade Fleet}}
+        {{>accum: force_assets Pretech Logistics}}
+        {{>accum: force_assets Psychic Assassins}}
+      6: |
+        {{assets.force.5}}
+        {{>accum: force_assets Pretech Infantry}}
+        {{>accum: force_assets Planetary Defenses}}
+        {{>accum: force_assets Gravtank Formation}}
+      7: |
+        {{assets.force.6}}
+        {{>accum: force_assets Deep Strike Landers}}
+        {{>accum: force_assets Integral Protocols}}
+        {{>accum: force_assets Space Marines}}
+      8: |
+        {{assets.force.7}}
+        {{>accum: force_assets Capital Fleet}}
+    cunning:
+      1: |
+        {{>accum: cunning_assets Smugglers}}
+        {{>accum: cunning_assets Informers}}
+        {{>accum: cunning_assets False Front}}
+      2: |
+        {{assets.cunning.1}}
+        {{>accum: cunning_assets Lobbyists}}
+        {{>accum: cunning_assets Saboteurs}}
+        {{>accum: cunning_assets Blackmail}}
+        {{>accum: cunning_assets Seductress}}
+      3: |
+        {{assets.cunning.2}}
+        {{>accum: cunning_assets Cyberninjas}}
+        {{>accum: cunning_assets Stealth}}
+        {{>accum: cunning_assets Covert Shipping}}
+      4: |
+        {{assets.cunning.3}}
+        {{>accum: cunning_assets Party Machine}}
+        {{>accum: cunning_assets Vanguard Cadres}}
+        {{>accum: cunning_assets Tripwire Cells}}
+        {{>accum: cunning_assets Seditionists}}
+      5: |
+        {{assets.cunning.4}}
+        {{>accum: cunning_assets Organization Moles}}
+        {{>accum: cunning_assets Cracked Comms}}
+        {{>accum: cunning_assets Boltholes}}
+      6: |
+        {{assets.cunning.5}}
+        {{>accum: cunning_assets Transport Lockdown}}
+        {{>accum: cunning_assets Covert Transit Net}}
+        {{>accum: cunning_assets Demagogue}}
+      7: |
+        {{assets.cunning.6}}
+        {{>accum: cunning_assets Popular Movement}}
+        {{>accum: cunning_assets Book of Secrets}}
+        {{>accum: cunning_assets Treachery}}
+      8: |
+        {{assets.cunning.7}}
+        {{>accum: cunning_assets Panopticon Matrix}}
+    wealth:
+      1: |
+        {{>accum: wealth_assets Franchise}}
+        {{>accum: wealth_assets Harvesters}}
+        {{>accum: wealth_assets Local Investments}}
+      2: |
+        {{assets.wealth.1}}
+        {{>accum: wealth_assets Freighter Contract}}
+        {{>accum: wealth_assets Lawyers}}
+        {{>accum: wealth_assets Union Toughs}}
+        {{>accum: wealth_assets Surveyors}}
+      3: |
+        {{assets.wealth.2}}
+        {{>accum: wealth_assets Postech Industry}}
+        {{>accum: wealth_assets Laboratory}}
+        {{>accum: wealth_assets Mercenaries}}
+      4: |
+        {{assets.wealth.3}}
+        {{>accum: wealth_assets Shipping Combine}}
+        {{>accum: wealth_assets Monopoly}}
+        {{>accum: wealth_assets Medical Center}}
+        {{>accum: wealth_assets Bank}}
+      5: |
+        {{assets.wealth.4}}
+        {{>accum: wealth_assets Marketers}}
+        {{>accum: wealth_assets Pretech Researchers}}
+        {{>accum: wealth_assets Blockade Runners}}
+      6: |
+        {{assets.wealth.5}}
+        {{>accum: wealth_assets Venture Capital}}
+        {{>accum: wealth_assets R&D Department}}
+        {{>accum: wealth_assets Commodities Broker}}
+      7: |
+        {{assets.wealth.6}}
+        {{>accum: wealth_assets Pretech Manufactory}}
+        {{>accum: wealth_assets Hostile Takeover}}
+        {{>accum: wealth_assets Transit Web}}
+      8: |
+        {{assets.wealth.7}}
+        {{>accum: wealth_assets Scavenger Fleet}}
+
+
+tables:
+  faction_type_chance:
+  - 1..4, minor
+  - 5..6, major
+  - 7, hegemon
+
+  goals:
+  - Military Conquest
+  - Commercial Expansion
+  - Intelligence Coup
+  - Planetary Seizure
+  - Expand Influence
+  - Blood the Enemy
+  - Peacable Kingdom
+  - Destroy the Foe
+  - Inside Enemy Territory
+  - Invincible Valor
+  - Wealth of Worlds
+
+  tags:
+  - Colonists
+  - Deep Rooted
+  - Eugenics Cult
+  - Exchange Consulate
+  - Fanatical
+  - Imperialists
+  - Machiavellian
+  - Mercenary Group
+  - Perimeter Agency
+  - Pirates
+  - Planetary Government
+  - Plutocratic
+  - Preceptor Archive
+  - Psychic Academy
+  - Savage
+  - Scavengers
+  - Secretive
+  - Technical Expertise
+  - Theocratic
+  - Warlike
+
+nested_tables:
+  ntags_tables:
+    minor:
+    - "{{>set: ntags 1}}"
+    major:
+    - "1-3, {{>set: ntags 1}}"
+    - "{{>set: ntags 2}}"
+    hegemon:
+    - "{{>set: ntags 2}}"
+  stats_tables:
+    minor:
+    - |
+      {{>set: stats_primary force}}
+      {{>accum: stats_secondary1 cunning}}
+      {{>accum: stats_secondary2 wealth}}
+      {{>set: stats_force 4}}
+      {{>set: stats_cunning 3}}
+      {{>set: stats_wealth 1}}
+    - |
+      {{>set: stats_primary force}}
+      {{>accum: stats_secondary1 wealth}}
+      {{>accum: stats_secondary2 cunning}}
+      {{>set: stats_force 4}}
+      {{>set: stats_wealth 3}}
+      {{>set: stats_cunning 1}}
+    - |
+      {{>set: stats_primary cunning}}
+      {{>accum: stats_secondary1 force}}
+      {{>accum: stats_secondary2 wealth}}
+      {{>set: stats_cunning 4}}
+      {{>set: stats_force 3}}
+      {{>set: stats_wealth 1}}
+    - |
+      {{>set: stats_primary cunning}}
+      {{>accum: stats_secondary2 force}}
+      {{>accum: stats_secondary1 wealth}}
+      {{>set: stats_cunning 4}}
+      {{>set: stats_wealth 3}}
+      {{>set: stats_force 1}}
+    - |
+      {{>set: stats_primary wealth}}
+      {{>accum: stats_secondary1 cunning}}
+      {{>accum: stats_secondary2 force}}
+      {{>set: stats_wealth 4}}
+      {{>set: stats_cunning 3}}
+      {{>set: stats_force 1}}
+    - |
+      {{>set: stats_primary wealth}}
+      {{>accum: stats_secondary2 cunning}}
+      {{>accum: stats_secondary1 force}}
+      {{>set: stats_wealth 4}}
+      {{>set: stats_force 3}}
+      {{>set: stats_cunning 1}}
+    major:
+    - |
+      {{>set: stats_primary force}}
+      {{>accum: stats_secondary1 cunning}}
+      {{>accum: stats_secondary2 wealth}}
+      {{>set: stats_force 6}}
+      {{>set: stats_cunning 5}}
+      {{>set: stats_wealth 3}}
+    - |
+      {{>set: stats_primary force}}
+      {{>accum: stats_secondary2 cunning}}
+      {{>accum: stats_secondary1 wealth}}
+      {{>set: stats_force 6}}
+      {{>set: stats_wealth 5}}
+      {{>set: stats_cunning 3}}
+    - |
+      {{>set: stats_primary cunning}}
+      {{>accum: stats_secondary1 force}}
+      {{>accum: stats_secondary2 wealth}}
+      {{>set: stats_cunning 6}}
+      {{>set: stats_force 5}}
+      {{>set: stats_wealth 3}}
+    - |
+      {{>set: stats_primary cunning}}
+      {{>accum: stats_secondary2 force}}
+      {{>accum: stats_secondary1 wealth}}
+      {{>set: stats_cunning 6}}
+      {{>set: stats_wealth 5}}
+      {{>set: stats_force 3}}
+    - |
+      {{>set: stats_primary wealth}}
+      {{>accum: stats_secondary1 cunning}}
+      {{>accum: stats_secondary2 force}}
+      {{>set: stats_wealth 6}}
+      {{>set: stats_cunning 5}}
+      {{>set: stats_force 3}}
+    - |
+      {{>set: stats_primary wealth}}
+      {{>accum: stats_secondary2 cunning}}
+      {{>accum: stats_secondary1 force}}
+      {{>set: stats_wealth 6}}
+      {{>set: stats_force 5}}
+      {{>set: stats_cunning 3}}
+    hegemon:
+    - |
+      {{>set: stats_primary force}}
+      {{>accum: stats_secondary1 cunning}}
+      {{>accum: stats_secondary2 wealth}}
+      {{>set: stats_force 8}}
+      {{>set: stats_cunning 7}}
+      {{>set: stats_wealth 5}}
+    - |
+      {{>set: stats_primary force}}
+      {{>accum: stats_secondary2 cunning}}
+      {{>accum: stats_secondary1 wealth}}
+      {{>set: stats_force 8}}
+      {{>set: stats_wealth 7}}
+      {{>set: stats_cunning 5}}
+    - |
+      {{>set: stats_primary cunning}}
+      {{>accum: stats_secondary1 force}}
+      {{>accum: stats_secondary2 wealth}}
+      {{>set: stats_cunning 8}}
+      {{>set: stats_force 7}}
+      {{>set: stats_wealth 5}}
+    - |
+      {{>set: stats_primary cunning}}
+      {{>accum: stats_secondary2 force}}
+      {{>accum: stats_secondary1 wealth}}
+      {{>set: stats_cunning 8}}
+      {{>set: stats_wealth 7}}
+      {{>set: stats_force 5}}
+    - |
+      {{>set: stats_primary wealth}}
+      {{>accum: stats_secondary1 cunning}}
+      {{>accum: stats_secondary2 force}}
+      {{>set: stats_wealth 8}}
+      {{>set: stats_cunning 7}}
+      {{>set: stats_force 5}}
+    - |
+      {{>set: stats_primary wealth}}
+      {{>accum: stats_secondary2 cunning}}
+      {{>accum: stats_secondary1 force}}
+      {{>set: stats_wealth 8}}
+      {{>set: stats_force 7}}
+      {{>set: stats_cunning 5}}
+
+

@@ -35,8 +35,6 @@ import com.google.common.io.Resources
 import mu.KLoggable
 import org.stevesea.adventuresmith.core.dice_roller.DiceConstants
 import org.stevesea.adventuresmith.core.dice_roller.diceModule
-import org.stevesea.adventuresmith.core.stars_without_number.SwnConstantsCustom
-import org.stevesea.adventuresmith.core.stars_without_number.swnModule
 import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
@@ -56,7 +54,6 @@ object AdventuresmithCore : KodeinAware, KLoggable {
     // generators which shouldn't have classpath-loading-generators created for them
     val NON_RESOURCE_GENERATORS : Set<String> by lazy {
         val result : MutableSet<String> = mutableSetOf()
-        result.addAll(SwnConstantsCustom.generators)
         result.addAll(DiceConstants.generators)
         result
     }
@@ -247,7 +244,5 @@ val generatorModule = Kodein.Module {
 
 val adventureSmithModule = Kodein.Module {
     import(generatorModule)
-
     import(diceModule)
-    import(swnModule)
 }

@@ -35,18 +35,11 @@ object SwnConstants {
     val ARCHITECTURE = "${GROUP}/architecture"
     val CORPORATION = "${GROUP}/corporation"
     val HERESY = "${GROUP}/heresy"
-    val NAME_Arabic = "${GROUP}/names_arabic"
-    val NAME_Chinese = "${GROUP}/names_chinese"
-    val NAME_English = "${GROUP}/names_english"
-    val NAME_Indian = "${GROUP}/names_indian"
-    val NAME_Japanese = "${GROUP}/names_japanese"
-    val NAME_Nigerian = "${GROUP}/names_nigerian"
-    val NAME_Russian = "${GROUP}/names_russian"
-    val NAME_Spanish = "${GROUP}/names_spanish"
-    val NPC = "${GROUP}/npc"
     val POLITICAL_PARTY = "${GROUP}/political_party"
     val RELIGION = "${GROUP}/religion"
     val ROOM_DRESSING = "${GROUP}/room_dressing"
+    val FACTION_2 = "${GROUP}/faction_2"
+
 
     val WORLD = "${GROUP}/world"
 
@@ -71,6 +64,22 @@ class SwnTest {
         Square foundations<br/>Bas-relief on walls
         <br/>Canals and pools
         """.trimIndent(), getGenerator(SwnConstants.ARCHITECTURE, 0).generate(Locale.US))
+    }
+    @Test
+    fun faction() {
+        Assert.assertEquals("""
+        <h4>Minor Faction</h4>
+        <small>Force:</small> 4 <small>Cunning:</small> 3 <small>Wealth:</small> 1
+        <br/><small>HP:</small> 15
+        <br/>
+        <br/><small><strong>Tags:</strong></small> Deep Rooted
+        <br/>
+        <br/><small><strong>Goal:</strong></small> Military Conquest
+        <h5>Assets</h5>
+        Extended Theater
+
+        <br/>Stealth
+        """.trimIndent(), getGenerator(SwnConstants.FACTION_2, 0).generate(Locale.US))
     }
 
     @Test

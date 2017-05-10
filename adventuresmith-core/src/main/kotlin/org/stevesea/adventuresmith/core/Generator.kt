@@ -531,6 +531,9 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                         val ctxtVal = context[findVal]
                         if (ctxtVal != null)
                             return ctxtVal
+                        val stateVal = state[findVal]
+                        if (stateVal != null)
+                            return stateVal
 
                         if (findVal.contains(".")) {
                             val pieces = findVal.split(".")
@@ -711,14 +714,12 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                         .execute(context)
                         .trim()
                 if (!result.contains("{{")) {
+                    // all normal curlies are consumed, see if there are final-curlies.
+                    // if so, replace them and re-process
                     if (result.contains("%[[")) {
-
-                        result = compiler
-                                .compile(result
-                                        .replace("%[[", "{{")
-                                        .replace("]]%", "}}"))
-                                .execute(context)
-                                .trim()
+                        result = result
+                                .replace("%[[", "{{")
+                                .replace("]]%", "}}")
                     } else {
                         // result didn't contain curlies, or our final-curlies,
                         // so we are done
@@ -726,12 +727,12 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                     }
                 }
                 // don't let a template force us into infinite loop
-                if (count > 12)
+                if (count > 20)
                     break
 
                 count++
             } catch (ex: MustacheException) {
-                throw MustacheException("problem processing: $template - ${ex.message}", ex)
+                throw MustacheException("problem processing: $result - ${ex.message}", ex)
             }
         } while (true)
 

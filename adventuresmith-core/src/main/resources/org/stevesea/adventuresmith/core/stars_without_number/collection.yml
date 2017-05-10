@@ -11,7 +11,7 @@ groupedGenerators:
   - backwater_spaceport
   - scavenger_fleet
   cr:
-  - faction  #other format
+  - faction_2
   - heresy
   - political_party
   - religion
