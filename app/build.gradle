@@ -134,24 +134,24 @@ dependencies {
     // used to provide out of the box icon font support. simplifies development,
     // and provides scalable icons. the core is very very light
     // https://github.com/mikepenz/Android-Iconics
-    compile 'com.mikepenz:iconics-core:2.8.3@aar'
-    compile 'com.mikepenz:community-material-typeface:1.8.36.1@aar'
-    compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
+    compile "com.mikepenz:iconics-core:$iconics_core_version"
+    compile "com.mikepenz:community-material-typeface:$iconics_cmd_version"
+    compile "com.mikepenz:ionicons-typeface:$iconics_ion_version"
 
-    compile('com.mikepenz:materialdrawer:5.9.0@aar') {
+    compile("com.mikepenz:materialdrawer:$materialdrawer_version") {
         transitive = true
         exclude module: "fastadapter"
     }
 
-    compile 'com.mikepenz:fastadapter:2.5.2@aar'
-    compile 'com.mikepenz:fastadapter-commons:2.5.2@aar'
-    compile 'com.mikepenz:fastadapter-extensions:2.5.2@aar'
+    compile "com.mikepenz:fastadapter:$fastadapter_version"
+    compile "com.mikepenz:fastadapter-commons:$fastadapter_version"
+    compile "com.mikepenz:fastadapter-extensions:$fastadapter_version"
 
-    compile "com.mikepenz:materialize:1.0.0@aar"
+    compile "com.mikepenz:materialize:$materialize_version"
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
 
     testCompile "junit:junit:$junit_version"
     testCompile "org.mockito:mockito-core:$mockito_version"
@@ -170,7 +170,7 @@ dependencies {
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 
 
-    compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.22'
+    compile group: 'org.slf4j', name: 'slf4j-android', version: slf4j_version
 }
 
 // APT doesn't know to make these directories for tests. Force them to

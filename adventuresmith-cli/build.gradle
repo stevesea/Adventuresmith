@@ -46,17 +46,17 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     // for CLI, we'll use logback
-    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
 
-    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
+    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: argparse4j_version
 
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
 
 // alternatives to gradle's application:
 //    https://github.com/libgdx/packr
