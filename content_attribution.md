@@ -594,13 +594,13 @@ printable cheat sheets for use at the gaming table free of laptop, tablet, and o
 
 <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>
 
-<h5>Jeremy Strandberg</h5>
+<h4>Jeremy Strandberg</h4>
 <a href="https://plus.google.com/collection/c0dRb">Stonetop on G+</a>
 <h6>Minor Arcana generator</h6>
 <br/>Licensed under Creative Commons Attribution 3.0 Unported License. To view a copy
 of this license, visit https://creativecommons.org/licenses/by/3.0/
 
-<h5>Joel Priddy</h5>
+<h4>Joel Priddy</h4>
 <a href="http://abominablefancy.blogspot.com/">Joel Priddy's blog</a>
 <h6>Patron Deity Generator</h6>
 <p>© Joel Priddy 2016</p>
@@ -610,7 +610,7 @@ The Patron Deity generator is from the Cleric playbook in Joel's
 <p>© Joel Priddy 2017</p>
 <a href="http://abominablefancy.blogspot.com/2017/04/mini-game-potion-quaffing.html">Mini-game: Potion Quaffing</a>
 
-<h5>Matt Jackson</h5>
+<h4>Matt Jackson</h4>
 <a href="http://www.msjx.org/">msjx.org</a>
 <h6>so1um</h6>
 <a href="http://www.msjx.org/search/label/so1um">so1um posts on msjx.org</a>
@@ -619,13 +619,13 @@ The Patron Deity generator is from the Cleric playbook in Joel's
 so1um is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Commercial-ShareAlike 3.0 Unported License</a></p>
 
 
-<h5>solodungeoneer</h5>
+<h4>solodungeoneer</h4>
 <a href="http://solodungeoneer.blogspot.com">Solo Dungeoneer Blog</a>
 
 <h6>Mythic Fate Chart Variant</h6>
 From this post: <a href="http://solodungeoneer.blogspot.com/2012/09/mythic-fate-chart-variant.html">Mythic Fate Chart Variant</a>
 
-<h5>Sophia Brandt</h5>
+<h4>Sophia Brandt</h4>
 <p><a href="http://dieheart.net/">Sophia's blog</a> is full great resources (reviews, actual plays, resource lists) for
 Dungeon World, The Black Hack, solo RPGs, and much more.
 <br/>
@@ -637,7 +637,7 @@ Dungeon World, The Black Hack, solo RPGs, and much more.
 <a href="http://dieheart.net/tiny-universal/">Tiny Universal Engine</a>
 
 
-<h5>Zenopus Archives</h5>
+<h4>Zenopus Archives</h4>
 <p>
 <a href="http://zenopusarchives.blogspot.com/">Zenopus Archives blog</a>
 <br/><a href="https://sites.google.com/site/zenopusarchives/home/holmes-ref">Reference Sheets for Holmes Basic Referees</a> </p>
