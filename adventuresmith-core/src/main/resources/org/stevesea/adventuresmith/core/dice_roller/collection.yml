@@ -1,6 +1,6 @@
 
 id: dice_roller
-icon: cmd-dice-6
+icon: cmd-dice-multiple
 groupedGenerators:
   grpPolys:
   - 1d3

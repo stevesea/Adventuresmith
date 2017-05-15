@@ -1,5 +1,5 @@
 id: hack_and_slash
-icon: cmd-sword
+icon: cmd-sword-cross
 generators:
   - magic_pools #100
   - contents_of_pit

@@ -1,5 +1,5 @@
 
-icon: cmd-auto-fix #cmd-sword-cross
+icon: cmd-sword
 id: ss_and_ss
 generators:
   - adventure_title

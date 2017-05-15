@@ -15,4 +15,4 @@ groups:
   icon: cmd-plus-box
 - name: grpEOTE
   uiName: EotE Dice
-  icon: cmd-scale-balance  # cmd-sync , cmd-theme-light-dark
+  icon: cmd-theme-light-dark
