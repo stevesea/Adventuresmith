@@ -1,4 +1,29 @@
 # Content Attribution
+## Adventuresmith
+Adventuresmith name, logo, splashscreen, nav-drawer header, icons are product identity.
+
+Names of the individual RPG supplements and systems are product identity, and owned by their respective
+publishers and copyright holders. See below for full listing.
+
+## Index
+- [Augmented Reality](#augmented_reality)
+- [Conjecture Games](#conjecture_games)
+- [Freebooters on the Frontier](#freebooters_on_the_frontier)
+- [GameMaster's Apprentice](#gma)
+- [Hack & Slash](#hack_and_slash)
+- [Kaigaku](#kaigaku)
+- [Macchiato Monsters](#macchiato_monsters)
+- [Maze Rats](#maze_rats)
+- [The Perilous Wilds](#perilous_wilds)
+- [Portal Rats](#portal_rats)
+- [Roll XX](#roll_xx)
+- [Sharp Swords & Sinister Spells](#ss_and_ss)
+- [Stars Without Number](#stars_without_number)
+- [/r/BehindTheTables](#behind_the_tables)
+- [Misc. Generators](#misc)
+
+
+<a name="augmented_reality"></a>
 ## Augmented Reality - Paul D. Gallagher / Geist Hack Games
 [http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games](http://www.drivethrurpg.com/product/202175/Augmented-Reality-The-Holistic-City-Kit-For-Cyberpunk-Games)
 
@@ -19,6 +44,9 @@ gamesmasters to let their twisted imaginations shine through, without slowing do
 </blockquote>
 
 
+
+
+<a name="conjecture_games"></a>
 ## Conjecture Games - Zach Best
 [http://conjecturegames.com/](http://conjecturegames.com/)
 
@@ -55,6 +83,9 @@ in to entire stories.</p>
 </blockquote>
 
 
+
+
+<a name="freebooters_on_the_frontier"></a>
 ## Freebooters on the Frontier - Jason Lutes
 [http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier](http://www.drivethrurpg.com/product/157011/Freebooters-on-the-Frontier)
 
@@ -66,6 +97,9 @@ by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed unde
 <p><strong>Antoine Pempie</strong> - French translation of Freebooters on the Frontier, released under Creative Commons Attribution - ShareAlike 3.0 Unported license.﻿</p>
 
 
+
+
+<a name="gma"></a>
 ## GameMaster's Apprentice - Larcenous Designs, LLC
 [http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck](http://www.drivethrurpg.com/product/125685/The-GameMasters-Apprentice-Base-Deck)
 
@@ -81,6 +115,9 @@ released under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unpor
 To see a copy of this license, go <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">here</a></p>
 
 
+
+
+<a name="hack_and_slash"></a>
 ## Hack & Slash - Courtney C. Campbell
 [http://hackslashmaster.blogspot.com/](http://hackslashmaster.blogspot.com/)
 
@@ -90,6 +127,9 @@ All text is © Courtney C. Campbell (2011).
 <br/><a href="http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html">Tricks, Empty Rooms, & Basic Trap Design</a>
 
 
+
+
+<a name="kaigaku"></a>
 ## Kaigaku - Jacob DC Ross / Thunderegg Productions
 [http://www.drivethrurpg.com/product/186267/Kaigaku-RPG](http://www.drivethrurpg.com/product/186267/Kaigaku-RPG)
 
@@ -101,6 +141,9 @@ bushi, wars of words among courtiers, ninja missions and more.</p>
 </blockquote>
 
 
+
+
+<a name="macchiato_monsters"></a>
 ## Macchiato Monsters - Eric Nieudan
 [http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO](http://www.drivethrurpg.com/product/203614/Macchiato-Monster-ZERO)
 
@@ -210,6 +253,9 @@ Swords & Wizardry, Copyright 2008, Matthew J. Finch. Whitebox, Copyright 2008, M
 </blockquote>
 
 
+
+
+<a name="maze_rats"></a>
 ## Maze Rats - Ben Milton
 [http://questingblog.com/maze-rats/](http://questingblog.com/maze-rats/)
 
@@ -220,6 +266,9 @@ https://creativecommons.org/licenses/by/4.0/</p>
 <p>Spanish translation by: <strong>Séregras</strong>. Available here <a href="http://questingblog.com/downloads/">http://questingblog.com/downloads/</a></p>
 
 
+
+
+<a name="perilous_wilds"></a>
 ## The Perilous Wilds - Jason Lutes
 [http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds](http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds)
 
@@ -230,6 +279,9 @@ licensed under a Creative Commons Attribution 3.0 Unported license</p>
 <p>The text of The <em>Perilous Wilds</em> is released under a Creative Commons Attribution - ShareAlike 3.0 Unported license.</p>
 
 
+
+
+<a name="portal_rats"></a>
 ## Portal Rats - Parenthesis Press / Tore Nielsen and Neal Stidham
 [http://www.drivethrurpg.com/product/209750/Portal-Rats](http://www.drivethrurpg.com/product/209750/Portal-Rats)
 
@@ -344,6 +396,9 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 </blockquote>
 
 
+
+
+<a name="roll_xx"></a>
 ## Roll XX - The Sentinels of Meregoth / Neoplastic Press
 [http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press](http://www.drivethrurpg.com/browse/pub/2623/Neoplastic-Press)
 
@@ -372,6 +427,9 @@ Roll XX: Double Damage is a book of random tables for fantasy role-playing games
 </blockquote>
 
 
+
+
+<a name="ss_and_ss"></a>
 ## Sharp Swords & Sinister Spells - Diogo Nogueira / Old Skull Publishing
 [http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
 
@@ -551,6 +609,9 @@ artwork, logos and layout are Copyright 2016, David Black.
 <br/>“Sharp Swords & Sinister Spells” Copyright ©2016 Diogo  Nogueira.
 </blockquote>
 
+
+
+<a name="stars_without_number"></a>
 ## Stars Without Number - Kevin Crawford / Sine Nomine Publishing
 [http://www.sinenomine-pub.com/](http://www.sinenomine-pub.com/)
 
@@ -568,6 +629,9 @@ own sandbox-style adventures in the far future.</p>
 </blockquote>
 
 
+
+
+<a name="behind_the_tables"></a>
 ## /r/BehindTheTables - /r/DnDBehindTheScreen
 [https://www.reddit.com/r/BehindTheTables/](https://www.reddit.com/r/BehindTheTables/)
 
@@ -590,6 +654,9 @@ printable cheat sheets for use at the gaming table free of laptop, tablet, and o
 </blockquote>
 
 
+
+
+<a name="misc"></a>
 ## Misc. Generators - Various Authors
 
 <p>The 'Misc' section includes generators that aren't part of any particular larger grouping. (yet)</p>

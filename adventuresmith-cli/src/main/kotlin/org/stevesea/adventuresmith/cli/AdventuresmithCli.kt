@@ -185,17 +185,43 @@ object AdventuresmithCli : KLoggable {
 
     private fun docsGen(opts: Options) {
         val l = opts.locale
-        val message = "# Content Attribution\n"
+        val message = """
+            # Content Attribution
+            ## Adventuresmith
+            Adventuresmith name, logo, splashscreen, nav-drawer header, icons are product identity.
+
+            Names of the individual RPG supplements and systems are product identity, and owned by their respective
+            publishers and copyright holders. See below for full listing.
+
+            ## Index
+
+            """.trimIndent()
         if (opts.out == null) {
             print(message)
         } else {
             opts.out?.writeText(message)
         }
-        AdventuresmithCore.getCollectionMetas(l).values.forEach { coll ->
+        // TOC:
+        AdventuresmithCore.collections.keys.forEach { collId ->
+            val coll = AdventuresmithCore.getCollectionMetaData(collId, l)
+            if (coll.credit != null) {
+                val name = coll.name
+                if (opts.out == null) {
+                    print("- [$name](#$collId)\n")
+                } else {
+                    opts.out?.appendText("- [$name](#$collId)\n")
+                }
+            }
+        }
+        // SECTIONS:
+        AdventuresmithCore.collections.keys.forEach { collId ->
+            val coll = AdventuresmithCore.getCollectionMetaData(collId, l)
             if (coll.credit != null) {
                 if (opts.out == null) {
+                    print("\n\n<a name=\"$collId\"></a>\n")
                     print(coll.toMarkdownStr())
                 } else {
+                    opts.out?.appendText("\n\n<a name=\"$collId\"></a>\n")
                     opts.out?.appendText(coll.toMarkdownStr())
                 }
             }
