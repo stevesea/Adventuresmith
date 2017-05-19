@@ -2,6 +2,8 @@
 
 [![Build status](https://circleci.com/gh/stevesea/Adventuresmith.svg?&style=shield&circle-token=d5b638c2be4157b4b3bdd347bd139c392968d7db)](https://circleci.com/gh/stevesea/Adventuresmith)
 [![Build Status](https://travis-ci.org/stevesea/Adventuresmith.svg?branch=master)](https://travis-ci.org/stevesea/Adventuresmith)
+![Kotlin LoC](https://img.shields.io/badge/Kotlin_LoC-4215-lightgrey.svg)
+![YaML LoC](https://img.shields.io/badge/YaML_LoC-48872-blue.svg)
 
 ## Overview
 
