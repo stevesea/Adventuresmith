@@ -265,25 +265,29 @@ data class CollectionMetaDto(val url: String? = null,
     }
     fun toHtmlStr(): String {
         val collname = name
-        val str = html {
-            body {
-                if (credit != null) {
-                    h2 { +"$collname - ${credit.orEmpty() }" }
-                } else {
-                    h2 { +"$collname}" }
-                }
-                if (url != null) {
-                    p { + """<a href="$url">$url</a>""" }
-                }
-                if (desc != null) {
-                    p { +desc }
-                }
-                if (attribution != null) {
-                    p { + attribution }
-                }
-            }
-        }.toString()
-        return str
+        val sb = StringBuilder()
+        sb.append("<h2>$collname")
+        if (credit != null) {
+            sb.append(" - ${credit.orEmpty()}")
+        }
+        sb.append("</h2>")
+
+        if (url != null) {
+            sb.append("<p>")
+            sb.append("<a href=\"$url\">$url</a>")
+            sb.append("</p>")
+        }
+        if (desc != null) {
+            sb.append("<p>")
+            sb.append(desc)
+            sb.append("</p>")
+        }
+        if (attribution != null) {
+            sb.append("<p>")
+            sb.append(attribution)
+            sb.append("</p>")
+        }
+        return sb.toString()
     }
 }
 
