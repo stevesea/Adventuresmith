@@ -145,7 +145,7 @@ dependencies {
 
     compile "com.mikepenz:fastadapter:$fastadapter_version"
     compile "com.mikepenz:fastadapter-commons:$fastadapter_version"
-    compile "com.mikepenz:fastadapter-extensions:$fastadapter_version"
+    compile "com.mikepenz:fastadapter-extensions:$fastadapter_extensions_version"
 
     compile "com.mikepenz:materialize:$materialize_version"
 
