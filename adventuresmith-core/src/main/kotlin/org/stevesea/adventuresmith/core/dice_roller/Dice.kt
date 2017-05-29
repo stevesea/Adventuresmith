@@ -136,7 +136,7 @@ val diceModule = Kodein.Module {
                     val nf = NumberFormat.getInstance(locale)
                     val rolls = diceParser.rollN(it.value.second, it.value.first)
                     val sum = rolls.sum()
-                    return "${it.key}: <strong>${nf.format(sum)}</strong> <small>${rolls.map { nf.format(it) }}</small>"
+                    return "${it.key.split("/")[1]}: <strong>${nf.format(sum)}</strong> <small>${rolls.map { nf.format(it) }}</small>"
                 }
             }
         }
