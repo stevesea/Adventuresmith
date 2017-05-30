@@ -54,7 +54,7 @@ android {
         multiDexEnabled true
 
         // Enable VectorDrawableCompat for API < 21
-        vectorDrawables.useSupportLibrary = true
+        //vectorDrawables.useSupportLibrary = true
     }
     productFlavors {
         // Define separate dev and prod product flavors.
