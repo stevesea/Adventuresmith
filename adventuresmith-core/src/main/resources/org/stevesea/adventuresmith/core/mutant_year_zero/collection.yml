@@ -1,0 +1,5 @@
+id: mutant_year_zero
+icon: cmd_radioactive
+generators:
+  - mutation
+  - mutation_misfire

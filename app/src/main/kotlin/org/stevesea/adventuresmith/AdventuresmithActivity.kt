@@ -714,11 +714,13 @@ class AdventuresmithActivity : AppCompatActivity(),
         val collections = getCachedCollections()
         val collectionMetas = getCachedCollectionMetas(getCurrentLocale())
 
-        for (collEntry in collections.entries) {
-            val collId = collEntry.key
-            val coll = collEntry.value
+        for ((collId, coll) in collections) {
 
-            val collMeta = collectionMetas.getOrElse(collId) { throw IllegalArgumentException("unknown coll: $collId") }
+            val collMeta = collectionMetas[collId]
+            if (collMeta == null) {
+                error("unknown coll: $collId")
+                continue
+            }
             debug("collection: $collId")
 
             if (!collMeta.hasGroups) {
