@@ -1,13 +1,13 @@
 ---
 templates:
-- ""
+- "{{environment}}"
 
 imports:
 - artifact
 - threat_zone
 
 definitions:
-  sector_rot_level: "<em>Rot Level: </em>"
+  sector_rot_level: "<strong>Rot Level:</strong> {{rot_level}}"
   sector_threat: "<strong>Threat:</strong> {{threat_zone.pick}}"
   sector_ruins: "<strong>Ruin:</strong> {{ruins_normal}}"
   sector_ruins_industry: "<strong>Ruin:</strong> {{ruins_normal}}"
@@ -16,48 +16,60 @@ definitions:
 tables:
   environment: # ruin, threat, artifact
   - |
-    1-2, Thick Woods {{sector_rot_level}}
+    1-2, Thick Woods
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    3-5, Scrublands {{sector_rot_level}}
+    3-5, Scrublands
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    6-7, Marshlands {{sector_rot_level}}
+    6-7, Marshlands
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    8-10, Dead Woods {{sector_rot_level}}
+    8-10, Dead Woods
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    11-12, Ash Desert {{sector_rot_level}}
+    11-12, Ash Desert
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    13, Huge Crater {{sector_rot_level}}
+    13, Huge Crater
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    14, Glasified Field {{sector_rot_level}}
+    14, Glasified Field
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_threat}}
   - |
-    15-17, Overgrown Ruins {{sector_rot_level}}
+    15-17, Overgrown Ruins
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_ruins}}
     <br/><br/>{{sector_threat}}
     <br/><br/>{{sector_artifact}}
   - |
-    18-20, Crumbling Ruins {{sector_rot_level}}
+    18-20, Crumbling Ruins
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_ruins}}
     <br/><br/>{{sector_threat}}
     <br/><br/>{{sector_artifact}}
   - |
-    21-25, Decayed Ruins {{sector_rot_level}}
+    21-25, Decayed Ruins
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_ruins}}
     <br/><br/>{{sector_threat}}
     <br/><br/>{{sector_artifact}}
   - |
-    26-30, Unscathed Ruins {{sector_rot_level}}
+    26-30, Unscathed Ruins
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_ruins}}
     <br/><br/>{{sector_threat}}
     <br/><br/>{{sector_artifact}}
   - |
-    31-34, Derelict Industries {{sector_rot_level}}
+    31-34, Derelict Industries
+    <br/><br/>{{sector_rot_level}}
     <br/><br/>{{sector_ruins_industry}}
     <br/><br/>{{sector_threat}}
     <br/><br/>{{sector_artifact}}
@@ -120,4 +132,4 @@ tables:
   rot_level:
   - 1-2, 0 <small>(Rot Oasis)</small>
   - 3-29, 1 <small>(Weak Rot)</small>
-  - 30–36,7 2 <small>(Rot-Heavy Area)</small>
+  - 30-36, 2 <small>(Rot-Heavy Area)</small>
