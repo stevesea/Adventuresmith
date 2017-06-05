@@ -12,8 +12,8 @@ definitions:
     <br/>
     <br/><strong><small>{{headers.appearance}}:</small></strong> %[[>pickN: 1d2+1 appearances.{{>get: playbook}}]]%
     <br/>
-    <br/><strong><small>{{headers.virtues}}:</small></strong> %[[>pickN: {{>get: nvirtues}} virtues]]%
-    <br/><strong><small>{{headers.vices}}:</small></strong> %[[>pickN: {{>get: nvices}} vices]]%
+    <br/><strong><small>{{headers.virtues}}:</small></strong> {{>pickN: nvirtues virtues}}
+    <br/><strong><small>{{headers.vices}}:</small></strong> {{>pickN: nvices vices}}
     <br/>
     <br/><strong><small>{{headers.gear}}:</small></strong> %[[gear.{{>get: playbook}}_1]]%, %[[gear.{{>get: playbook}}_2]]%
 

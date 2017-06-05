@@ -531,6 +531,13 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                     // in mustache, this typically means loading a different file.
                     // i'm going to abuse it to allow some dynamic template stuff
 
+                    fun findCtxtValNoThrow(findVal: String) : Any? {
+                        try {
+                            return findCtxtVal(findVal)
+                        } catch (ignored: Exception) {
+                            return null
+                        }
+                    }
                     fun findCtxtVal(findVal: String) : Any {
                         val ctxtVal = context[findVal]
                         if (ctxtVal != null)
@@ -573,8 +580,13 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 }
 
                                 // could be entry in state or context, if neither of those try to roll it
-                                val n = if (state.containsKey(params[0])) state[params[0]] as Int
-                                else if (context.containsKey(params[0])) context[params[0]] as Int
+                                val nCtxtVal = findCtxtValNoThrow(params[0])
+                                val n = if (nCtxtVal != null) when (nCtxtVal)
+                                {
+                                    is String -> nCtxtVal.toInt()
+                                    else -> nCtxtVal as Int
+                                }
+                                else if (state.containsKey(params[0])) state[params[0]] as Int
                                 else shuffler.roll(params[0])
                                 // 2nd param must be which key in context to load
                                 val ctxtKey = params[1]
@@ -699,6 +711,21 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 } else {
                                     return StringReader(curVal.toString())
                                 }
+                            } else if (cmd_and_params[0] == "repeat:") {
+                                // {{>repeat: <#> <val>}}
+
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                // could be entry in state or context, if neither of those try to roll it
+                                val nCtxtVal = findCtxtValNoThrow(params[0])
+                                val n = if (nCtxtVal != null) when (nCtxtVal)
+                                    {
+                                    is String -> nCtxtVal.toInt()
+                                    else -> nCtxtVal as Int
+                                    }
+                                else if (state.containsKey(params[0])) state[params[0]] as Int
+                                else shuffler.roll(params[0])
+                                val torepeat = params[1]
+                                return StringReader(torepeat.repeat(n))
                             } else {
                                 throw IllegalArgumentException("unknown instruction: '$name'")
                             }

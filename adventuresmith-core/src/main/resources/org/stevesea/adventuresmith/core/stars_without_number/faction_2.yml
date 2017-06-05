@@ -31,7 +31,7 @@ definitions:
      <small>Force:</small> {{>get: stats_force}} <small>Cunning:</small> {{>get: stats_cunning}} <small>Wealth:</small> {{>get: stats_wealth}}
      <br/><small>HP:</small> %[[faction_types.{{>get: ftype}}.hp]]%
      <br/>
-     <br/><small><strong>Tags:</strong></small> %[[>pickN: {{>get: ntags}} tags]]%
+     <br/><small><strong>Tags:</strong></small> {{>pickN: ntags tags}}
      <br/>
      <br/><small><strong>Goal:</strong></small> {{goals}}
      <h5>Assets</h5>
