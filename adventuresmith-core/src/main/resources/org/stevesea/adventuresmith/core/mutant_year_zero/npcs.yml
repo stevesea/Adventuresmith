@@ -1,0 +1,287 @@
+---
+templates:
+- "{{pick_role}}"
+
+definitions:
+  npc_template: |
+    <strong>%[[{{>get: role}}.name]]% - %[[{{>get: role}}.role]]%</strong>
+    <br/><br/>%[[{{>get: role}}.appearance]]%
+    <br/><br/><strong>Goal:</strong> %[[{{>get: role}}.goal]]%
+    <br/><br/><strong>Weapon:</strong> %[[{{>get: role}}.weapon]]%
+
+tables:
+  pick_role:
+  - |
+    {{>set: role enforcer}}
+    %[[npc_template]]%
+  - |
+    {{>set: role gearhead}}
+    %[[npc_template]]%
+  - |
+    {{>set: role stalkers}}
+    %[[npc_template]]%
+  - |
+    {{>set: role fixers}}
+    %[[npc_template]]%
+  - |
+    {{>set: role dog_handlers}}
+    %[[npc_template]]%
+  - |
+    {{>set: role chroniclers}}
+    %[[npc_template]]%
+  - |
+    {{>set: role bosses}}
+    %[[npc_template]]%
+  - |
+    {{>set: role slaves}}
+    %[[npc_template]]%
+nested_tables:
+  enforcer:
+    role:
+    - Enforcer
+    name:
+    - Hugust
+    - Ingrit
+    - Lenny
+    - Marl
+    - Nelma
+    - Rebeth
+    appearance:
+    - Hulking posture, ape-like arms, grunts
+    - Short and stocky, hoarse voice
+    - Wiry, skinny and muscular
+    - Fat and with a wheezing voice
+    - Grotesquely tall, abnormal face
+    - Weathered and scarred, hissing voice
+    goal:
+    - Stop fighting and build something instead
+    - Beat up anyone in her way
+    - Live another day, there is nothing else
+    - Torment others and hear them scream
+    - Please the Boss
+    - Show who’s strongest
+    weapon:
+    - Brass knuckles
+    - Bicycle chain
+    - Spiked bat
+    - Scrap knife
+    - Scrap axe
+    - Scrap pistol
+  gearhead:
+    role:
+    - Gearhead
+    name:
+    - Quark
+    - Lambda
+    - Loranga
+    - Naphta
+    - Tetris
+    - Zippo
+    appearance:
+    - Skinny, spiked hair, always smiling
+    - Old blue coveralls, tools in every pocket
+    - Bald, extremely dirty, kind
+    - Burn-scarred skin, googles, smells of smoke
+    - Wears a headpiece made of scrap, mumbles constantly
+    - Wears a coat adorned by scrap
+    goal:
+    - Find Eden and the truth about the People
+    - Recreate the technical marvels of the Old Age
+    - Build things to help others
+    - Blow stuff up
+    - Create a device that controls the minds of others
+    - Build a huge scrap sculpture in the Ark
+    weapon:
+    - Scrap pistol, Gear Bonus +2
+    - Scrap pistol with three barrels
+    - None
+    - Flamethrower
+    - —
+    - Bicycle chain
+  stalkers:
+    role:
+    - Stalker
+    name:
+    - Danko
+    - Franton
+    - Hammed
+    - Jena
+    - Krin
+    - Tula
+    appearance:
+    - Always wears a gasmask, never speaks
+    - Scarred face, brags a lot
+    - Dead eyes, coughs from Rot damage, smells of booze
+    - Camouflage gear, constantly fiddles with her gun
+    - Skinny and wiry, always on her guard
+    - Wears a torn raincoat, pulls an old shopping cart
+    goal:
+    - Go farther into the Zone than anyone else
+    - Be revered as a hero by the People
+    - Walk into the Zone and let the Rot take him
+    - Stalk a victim for days and then kill it
+    - Keep out of trouble, avoid others
+    - Find something worth fighting for
+    weapon:
+    - Scrap rifle, Gear Bonus +2
+    - Scrap pistol with two barrels
+    - Scrap spear
+    - Scrap rifle, weapon damage 3
+    - Bow, Gear Bonus +2
+    - Slingshot
+  fixers:
+    role:
+    - Fixer
+    name:
+    - Abed
+    - Denrik
+    - Fillix
+    - Jolisa
+    - Lula
+    - Monja
+    appearance:
+    - Bald and pudgy, constantly smiling
+    - Unnaturally handsome, shiny hair
+    - Stares at others’ gear, kleptomaniac
+    - Skinny, large staring eyes
+    - Abnormally short, talks constantly
+    - Wheezing voice, always wants to trade something
+    goal:
+    - Make the deal of a lifetime
+    - Make others feel good and take advantage of it
+    - Collect a large stockpile of grub and gear
+    - Abnormally interested in artifacts and scrap
+    - Swindle the last bullet from everyone else
+    - Become a Boss one day
+    weapon:
+    - Scrap knife
+    - —
+    - Scrap pistol, Gear Bonus
+    - +2
+    - Bicycle chain
+    - Scrap pistol
+    - Scrap knife
+  dog_handlers:
+    role:
+    - Dog Handler
+    name:
+    - Anny
+    - Brie
+    - Finn
+    - Jony
+    - Krinnel
+    - Montiac
+    appearance:
+    - Chews on a root, spits constantly
+    - Black bangs cover a deformed eye
+    - Greenish, rough skin, mostly drunk
+    - Face shaded by hood, silent and aggressive
+    - Only talks to her dog, never to people
+    - Crew cut, irritable and violent
+    goal:
+    - Find someone other than her dog to care for
+    - Kill anyone who comments on her appearance
+    - Forget his sorrows
+    - Leave the Ark and find a better life
+    - Give her dog something good to eat
+    - Beat up anyone who speaks ill of his dog
+    weapon:
+    - Slingshot
+    - Scrap knife
+    - Baseball bat
+    - Scrap axe
+    - Bow
+    - Brass knuckles
+  chroniclers:
+    role:
+    - Chronicler
+    name:
+    - Astrina
+    - Danova
+    - Hanneth
+    - Maxim
+    - Silas
+    - Victon
+    appearance:
+    - Red mohawk, sees good in everyone
+    - Wears a dress from the Old Age
+    - Black bangs, silent, takes notes constantly
+    - Skinny and weak, aged beyond his years
+    - Unnaturally pale, translucent skin, sad
+    - Boyish, reddish complexion, always happy
+    goal:
+    - Find a hero who can save the People
+    - Understand what the Elder needs, and make it happen
+    - Rise from the misery and dedicate her life to study
+    - Write the story of how the People finds Eden
+    - To make the Ark evolve into an advanced society
+    - Become the hero in the story about the People
+    weapon:
+    - Scrap knife
+    - –
+    - –
+    - –
+    - –
+    - Scrap knife
+  bosses:
+    role:
+    - Boss
+    name:
+    - Brictoria
+    - Gunitt
+    - Cristor
+    - Marlotte
+    - Mohamin
+    - Oscartian
+    appearance:
+    - Cold eyes, scarred face, crew cut
+    - Short, skinny, wears a top hat
+    - Tall and skinny, fiery eyes
+    - Cool and detached
+    - Legless and is carried around by Slaves
+    - Extremely fat, can hardly move
+    goal:
+    - Turn the People into an army and conquer the Zone
+    - Collect large amounts of artifacts
+    - Topple the Elder and establish equality in the Ark
+    - Develop the Ark and lead the People to a better life
+    - Rally more followers and leave the Ark with his cult
+    - Get rid of all rivals and take sole power in the Ark
+    weapon:
+    - Scrap rifle, Gear Bonus +2
+    - Scrap pistol with three barrels
+    - Spiked bat
+    - —
+    - Scrap knife
+    - Scrap pistol, weapon damage 3
+  slaves:
+    role:
+    - Slave
+    name:
+    - Dink
+    - Eria
+    - Henny
+    - Hent
+    - Lin
+    - Wilo
+    appearance:
+    - Silent and observant, bitter and treacherous
+    - Arms and legs like logs, grim
+    - Dirty, always hums on some melody
+    - Massive body with knobby skin, hunchback
+    - Wiry and grumpy, fights a lot
+    - Skinny and weak, a dreamer
+    goal:
+    - Find someone to use to get free
+    - Toil away without complaining
+    - See the bright side of things
+    - Work and suffer until death sets him free
+    - To take her aggressions out on anyone
+    - To escape from the Ark and never come back
+    weapon:
+    - —
+    - —
+    - —
+    - —
+    - —
+    - —

@@ -1,0 +1,71 @@
+---
+templates:
+- "{{threat_zone.pick}}"
+
+
+nested_tables:
+  threat_zone:
+    pick:
+    - "1-2, Humanoid - {{threat_zone.humanoid}}"
+    - "3-5, Monster - {{threat_zone.monster}}"
+    - "6, Phenomenon - {{threat_zone.phenomenon}}"
+    humanoid:
+    - 1, Amnesiac
+    - 2-3, Beast Mutants
+    - 4-6, Cannibals
+    - 7-8, Doom Cultists
+    - 9-11, Exiled Mutants
+    - 12-16, Expedition from another Ark
+    - 17-19, Helldrivers
+    - 20-23, Morlocks
+    - 24-25, Nova Cultists
+    - 26-27, Patrol from the Ark
+    - 28-30, Scrap Oracle
+    - 31-32, Wanderers
+    - 33-34, Water Trader
+    - 35-37, Wreckers
+    - 38-41, Zone-Ghouls
+    monster:
+    - 1-2, Acid Grass
+    - 3, Air Jellies
+    - 4, Automaton
+    - 5-6, Bitterbeasts
+    - 7-8, Deathworm
+    - 9-10, Devourer
+    - 11-12, Grazers
+    - 13, Gutfish (infected water)
+    - 14, Killer Tree
+    - 15, Mind Mosquitoes
+    - 16, Nightmare Flowers
+    - 17, Parasite Fungus
+    - 18, Razorback
+    - 19-20, Rot Ants
+    - 21, Rotfish
+    - 22-23, Scrap Crows
+    - 24, Trash Hawk
+    - 25, Worm Swarm
+    - 26-28, Zone Dogs
+    - 29-30, Zone Leeches
+    - 31-33, Zone Rats
+    - 34-35, Zone Spider
+    - 36-37, Zone Wasps
+    phenomenon:
+    - 1-3, Acid Rain
+    - 4-5, Ash Storm
+    - 6-7, Dust Tornado
+    - 8-9, Electric Storm
+    - 10, Ghost Lights
+    - 11, Inertia Field
+    - 12-13, Magnetic Field
+    - 14, Mirage
+    - 15-16, Mud Puddles
+    - 17-18, Night Lights
+    - 19, Obelisk
+    - 20-21, Pillars of Light
+    - 22-24, Rot Hotspot
+    - 25-26, Rot Wind
+    - 27-28, Sinkhole
+    - 29-30, Temperature Drop / Heat Wave
+    - 31-32, Unexploded Ordnance
+    - 33, Vacuum
+    - 34–36, Zone Smog

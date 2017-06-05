@@ -1,5 +1,12 @@
 id: mutant_year_zero
 icon: cmd_radioactive
 generators:
+  - critical_injury
+  - event_ark
+  - event_zone
   - mutation
   - mutation_misfire
+  - npc_zone_exped
+  - npcs
+  - threat_ark
+  - threat_zone

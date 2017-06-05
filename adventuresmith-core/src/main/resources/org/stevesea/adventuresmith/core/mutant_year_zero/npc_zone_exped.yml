@@ -1,0 +1,31 @@
+---
+templates:
+  - |
+    <p>{cmd_biohazard}</p>
+    One or a few survivors stagger back into the Ark. They
+    are hurt, exhausted, unhinged – or all of the above. <br/><br/>The
+    GM decides what has happened to the expedition – and
+    if someone or something has followed the survivors back
+    to the Ark.
+  - |
+    The entire expedition returns to the Ark, having failed
+    to reach the target sector. <br/><br/>Something has forced them to
+    turn back – the GM decides what.
+  - |
+    3-4,
+    Nothing is heard from the expedition, and rumors
+    spread in the Ark regarding its fate. <br/><br/>Roll again on this
+    table in the next gaming session. If you roll this result
+    three times, the expedition is lost for good and never
+    comes back. Its actual fate is up to the GM to decide.
+  - |
+    The expedition returns, apart from D6 members who
+    have been killed along the way. It didn’t reach the target
+    sector, but found something else that is valuable or
+    interesting. <br/><br/>One DEV rating other than the chosen one
+    (the GM decides which) is increased by 2D6.
+  - |
+    <p>{cmd_radioactive}</p>
+    The expedition returns in triumph. Its mission is accomplished
+    and the chosen DEV rating is increased by 2D6.
+    <br/><br/>One D6 expedition members have been lost along the way.
