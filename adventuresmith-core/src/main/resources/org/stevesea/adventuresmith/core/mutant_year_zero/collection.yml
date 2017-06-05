@@ -17,4 +17,8 @@ groupedGenerators:
   - zone_sector_mood
   - event_zone
   - threat_zone
+  gla:
+  - checkpoint_response
+  - feral_effect
+  - gla_artifact
 

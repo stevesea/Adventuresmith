@@ -9,6 +9,9 @@ groups:
 - name: zone
   uiName: The Zone
   icon: cmd-biohazard
+- name: gla
+  uiName: GenLab Alpha
+  icon: cmd-test-tube
 attribution: |
   <h4>Mutant: Year Zero</h4>
   <p>

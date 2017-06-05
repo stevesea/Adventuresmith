@@ -1,0 +1,48 @@
+---
+templates:
+  - |
+    <p>{cmd_biohazard}</p>
+    The beast takes complete control and you are temporarily
+    controlled by the GM as an NPC. You lose both your
+    ability to speak and to use tools.
+    <br/><br/>You immediately run away into the wilderness and must
+    Fight whoever tries to stop you. You regain control of
+    your character only when someone Heals you – but that
+    is only possible after D6 hours. Once you regain your
+    senses you have developed another animal power of
+    your choosing
+  - |
+    You must immediately either run away or Fight against
+    an individual of your choosing, friend or foe, until you or
+    your opponent is broken. After that, you lose your ability
+    to speak and to use tools.
+  - |
+    You temporarily lose your capacity for coherent, logical
+    thinking.
+    <br/><br/>You lose the ability to form human words and can only
+    communicate through primitive animal sounds.
+    You are also completely unable to use tools.
+    <br/><br/>You also lose the ability to use the skill Comprehend.
+    The effect lasts D6 days.
+  - |
+    You lose the ability to form human words and can only
+    communicate through primitive animal sounds. You can
+    still use all your skills. <br/><br/>To simulate this effect, you as a
+    player should also stop speaking, other than to describe
+    the actions of your animal. After D6 days you regain the
+    ability to speak.
+  - |
+    Your animal side is completely suppressed, and your
+    human side takes over.
+    <br/><br/>This means you lose all your FP
+    and are unable to gain more. You can push as usual, but
+    won’t gain any FP. You cannot use the Dominate skill. The
+    effect lasts D6 days.
+  - |
+    <p>{cmd_radioactive}</p>
+    You connect with your inner beast, and for a moment
+    it acts in perfect harmony with your human side.
+
+    <br/><br/>You regain the FP you just spent and can immediately, in the
+    same turn, activate the same power again – with the
+    same purpose as the first time, or another.
