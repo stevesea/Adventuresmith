@@ -1,6 +1,14 @@
 name: "Mutant: Year Zero"
 credit: Fria Ligan
 url: "http://frialigan.se/en/games/mutant-year-zero/"
+
+groups:
+- name: ark
+  uiName: The Ark
+  icon: cmd_gate #cmd_domain #cmd_home_map_marker
+- name: zone
+  uiName: The Zone
+  icon: cmd-biohazard
 attribution: |
   <h4>Mutant: Year Zero</h4>
   <p>

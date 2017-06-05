@@ -1,16 +1,20 @@
 id: mutant_year_zero
 icon: cmd_radioactive
-generators:
-  - artifact
+
+groupedGenerators:
+  ark:
   - critical_injury
   - event_ark
-  - event_zone
   - mutation
   - mutation_misfire
-  - npc_zone_exped
   - npcs
-  - scrap
   - threat_ark
+  zone:
+  - artifact
+  - event_zone
+  - npc_zone_exped
+  - scrap
   - threat_zone
   - zone_sector
   - zone_sector_mood
+
