@@ -17,7 +17,7 @@ groups:
   icon: cmd-account-multiple
 - name: treasure
   uiName: Treasure
-  icon: cmd-white-balance-iridescent
+  icon: cmd-treasure-chest
 attribution: |
   <p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
   <p>Written by <strong>Jason Lutes</strong> in Hartland, Vermont, U.S.A. with assistance from <strong>Jeremy Strandberg</strong> in Madison, Wisconsin, U.S.A.</p>
