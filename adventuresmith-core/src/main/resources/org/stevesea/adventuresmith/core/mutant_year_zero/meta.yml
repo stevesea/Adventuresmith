@@ -5,7 +5,7 @@ url: "http://frialigan.se/en/games/mutant-year-zero/"
 groups:
 - name: ark
   uiName: The Ark
-  icon: cmd_gate #cmd_domain #cmd_home_map_marker
+  icon: cmd_domain #cmd_home #cmd_home_map_marker #cmd_gate
 - name: zone
   uiName: The Zone
   icon: cmd-biohazard

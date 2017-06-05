@@ -4,17 +4,17 @@ icon: cmd_radioactive
 groupedGenerators:
   ark:
   - critical_injury
-  - event_ark
   - mutation
   - mutation_misfire
   - npcs
+  - event_ark
   - threat_ark
   zone:
   - artifact
-  - event_zone
-  - npc_zone_exped
   - scrap
-  - threat_zone
+  - npc_zone_exped
   - zone_sector
   - zone_sector_mood
+  - event_zone
+  - threat_zone
 
