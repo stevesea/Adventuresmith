@@ -15,16 +15,16 @@ nested_tables:
     - 4-6, Cannibals
     - 7-8, Doom Cultists
     - 9-11, Exiled Mutants
-    - 12-16, Expedition from another Ark
-    - 17-19, Helldrivers
-    - 20-23, Morlocks
-    - 24-25, Nova Cultists
-    - 26-27, Patrol from the Ark
-    - 28-30, Scrap Oracle
-    - 31-32, Wanderers
-    - 33-34, Water Trader
-    - 35-37, Wreckers
-    - 38-41, Zone-Ghouls
+    - 12-14, Expedition from another Ark
+    - 15-17, Helldrivers
+    - 18-20, Morlocks
+    - 21-22, Nova Cultists
+    - 23-24, Patrol from the Ark
+    - 25-26, Scrap Oracle
+    - 27-28, Wanderers
+    - 29-30, Water Trader
+    - 31-32, Wreckers
+    - 33-36, Zone-Ghouls
     monster:
     - 1-2, Acid Grass
     - 3, Air Jellies
