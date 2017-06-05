@@ -1,0 +1,222 @@
+---
+templates:
+- "{{scrap}}"
+
+tables:
+  scrap:
+  - Action figure (He-Man)
+  - Alarm clock, mechanical
+  - Aquarium, no fish
+  - Barbie doll
+  - Baseball bat
+  - Basket ball, flat
+  - Beard trimmer
+  - Beret, red
+  - Bible
+  - Bicycle chain
+  - Bicycle frame, no wheels
+  - Bicycle pump
+  - Binder, full of financial records
+  - Boots (Gear Bonus +1 when hiking)
+  - Bouncing ball
+  - Box of cereal, unopened
+  - Box of chocolates (still edible, D6 rations of grub)
+  - Boxing glove
+  - Briefcase
+  - Bullhorn (broken)
+  - Can opener
+  - Candelabra
+  - Car tire
+  - Carving knife
+  - Cash register
+  - Cat 5 cable, 2D6 feet long
+  - Ceiling fan
+  - Champagne glasses, D6
+  - Chandelier
+  - Charcoal grill
+  - Children’s drawing
+  - Cigarettes, half-empty pack
+  - Clothes hanger
+  - Coffee cup with print
+  - Coffee table
+  - Coloring book for kids (half done)
+  - Comb
+  - Comic book, very violent
+  - Concrete mixer, rusty
+  - Cooking pot
+  - Credit card
+  - Crime novel
+  - Cutlery, D6 pieces
+  - Cylinder hat
+  - Dala horse
+  - Deodorant bottle
+  - Desk lamp
+  - Detergent, bottle
+  - Dice, D6
+  - Diving snorkel
+  - Doll
+  - Downhill ski (only one)
+  - Dress shoes, worn down
+  - Dumbbell, 10 lb
+  - Easel, for painting
+  - Eating knife (scrap knife)
+  - Electric guitar, broken
+  - Electric mixer
+  - Electric shaver
+  - Electric toothbrush
+  - Empty frame
+  - Extension cord
+  - Face mask, Donald Duck
+  - Face mask, skeleton
+  - Facemask, Santa Claus
+  - Fake fangs
+  - False teeth
+  - Fantasy novel, very thick
+  - Fire extinguisher
+  - Fireworks, D6, still functional
+  - Flashlight, broken
+  - Floor lamp
+  - Flute, plastic
+  - Folding chair
+  - Football
+  - Fork
+  - Frying pan (blunt instrument)
+  - Gaffer tape
+  - Glass pearls
+  - Golf club (blunt instrument)
+  - Grass seeds in small bag
+  - Hair dryer
+  - Hair gel
+  - Headphones, with microphone
+  - Hedge trimmer (scrap knife)
+  - Herbal salt
+  - Hockey club (blunt instrument)
+  - Hot dog cart
+  - Hubcap, Volvo
+  - IKEA chair
+  - Infant formula (gives D6 rations of grub)
+  - Instant coffee
+  - Instant noodles (D6 rations of grub)
+  - Iron pipe (blunt instrument)
+  - Jack
+  - Jeans, stonewashed
+  - Jigsaw puzzle
+  - Jumpsuit, cloth
+  - Key ring, 2D6 keys
+  - Keyboard, missing a few keys
+  - Ladder, rusty (Gear Bonus +1 when climbing)
+  - Ladies boots
+  - Ladies hat
+  - Laptop computer, broken
+  - Lawn mower
+  - Light bulbs, D6
+  - Lipstick
+  - Liquid soap
+  - Loudspeaker (broken)
+  - Love letter, yellowed
+  - Magnifying glass
+  - Mascara
+  - Mathematics book
+  - Microwave oven (broken)
+  - Mirror
+  - Movie DVDs, D6
+  - Movie poster
+  - Music CDs, D6
+  - National flag, torn
+  - Necktie
+  - Nicotine chewing gum
+  - Oriental carpet
+  - Pacifier
+  - Pack of tube socks
+  - Paper handkerchiefs, D666
+  - Pepper mill
+  - Photo album
+  - Photo of happy family
+  - Picture of a cat
+  - Piggy bank (empty)
+  - Plastic bags, D66
+  - Plastic bottle, empty
+  - Plastic dinosaur
+  - Plastic flowers, D6
+  - Plastic skeleton model
+  - Plastic straws, pack of 100
+  - Playing cards
+  - Popcorn, unopened bag
+  - Princess dress, for kids
+  - Prize medal
+  - Quilted jacket (Gear Bonus +1 against cold)
+  - Rabbit suit, adult size
+  - Recliner
+  - Remote control
+  - Roller skates
+  - Rubber boot
+  - Rubber duck
+  - Saxophone
+  - Scarf, colorful (Gear Bonus +1 against cold)
+  - Scientific dissertation
+  - Scuba mask
+  - Scuba suit, worn out
+  - Sex toy
+  - Shopping cart
+  - Skateboard
+  - Sketch book, full of sketches
+  - Ski boot
+  - Ski hat (Gear Bonus +1 against cold)
+  - Skin lotion, bottle
+  - Sleeping pad
+  - Snowglobe
+  - Sofa, broken
+  - Spider-Man suit for kids
+  - Sports bottle
+  - Sports jersey
+  - Sports prize cup
+  - Stapler
+  - Starburst candy (one ration of grub)
+  - Stroller
+  - Surf board
+  - Suspenders
+  - Swimming goggles
+  - Synthesizer
+  - T-shirt with text “Heisenberg”
+  - Tabletop globe
+  - Teddy bear
+  - Telephone
+  - Tennis ball
+  - Thermometer, broken
+  - Tire iron
+  - Toilet brush
+  - Toothbrush
+  - Towel marked "Sheraton"
+  - Toy car
+  - Toy pirates
+  - Toy sword
+  - Toy tractor
+  - Toy train set
+  - Traffic cones, D6
+  - Trombone
+  - TV set, broken
+  - Twinkies, D6 (still edible, each is a ration of grub)
+  - Typewriter
+  - Umbrella, broken
+  - Underwear
+  - Vacuum cleaner
+  - Vacuum flask
+  - Vase
+  - VHS cassette
+  - Video game console
+  - Vinyl record, well played
+  - Walking frame
+  - Walkman with headphones and cassette
+  - Wall clock
+  - Wallet full of moldy cash
+  - Water pistol
+  - Welding mask
+  - Whiskey bottle (empty)
+  - Whiteboard marker
+  - Wig, blonde
+  - Wine bottle, undrinkable (1 Rot Point)
+  - Wok
+  - Wrecking bar
+  - Wristwatch, broken
+  - Yellowed copy of the Mutant Chronicles RPG
+  - Yo-yo (blunt instrument)

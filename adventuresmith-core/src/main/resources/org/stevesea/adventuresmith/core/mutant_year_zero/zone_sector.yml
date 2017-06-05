@@ -1,0 +1,123 @@
+---
+templates:
+- ""
+
+imports:
+- artifact
+- threat_zone
+
+definitions:
+  sector_rot_level: "<em>Rot Level: </em>"
+  sector_threat: "<strong>Threat:</strong> {{threat_zone.pick}}"
+  sector_ruins: "<strong>Ruin:</strong> {{ruins_normal}}"
+  sector_ruins_industry: "<strong>Ruin:</strong> {{ruins_normal}}"
+  sector_artifact: "<strong>Artifact:</strong> {{artifact}}"
+
+tables:
+  environment: # ruin, threat, artifact
+  - |
+    1-2, Thick Woods {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    3-5, Scrublands {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    6-7, Marshlands {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    8-10, Dead Woods {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    11-12, Ash Desert {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    13, Huge Crater {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    14, Glasified Field {{sector_rot_level}}
+    <br/><br/>{{sector_threat}}
+  - |
+    15-17, Overgrown Ruins {{sector_rot_level}}
+    <br/><br/>{{sector_ruins}}
+    <br/><br/>{{sector_threat}}
+    <br/><br/>{{sector_artifact}}
+  - |
+    18-20, Crumbling Ruins {{sector_rot_level}}
+    <br/><br/>{{sector_ruins}}
+    <br/><br/>{{sector_threat}}
+    <br/><br/>{{sector_artifact}}
+  - |
+    21-25, Decayed Ruins {{sector_rot_level}}
+    <br/><br/>{{sector_ruins}}
+    <br/><br/>{{sector_threat}}
+    <br/><br/>{{sector_artifact}}
+  - |
+    26-30, Unscathed Ruins {{sector_rot_level}}
+    <br/><br/>{{sector_ruins}}
+    <br/><br/>{{sector_threat}}
+    <br/><br/>{{sector_artifact}}
+  - |
+    31-34, Derelict Industries {{sector_rot_level}}
+    <br/><br/>{{sector_ruins_industry}}
+    <br/><br/>{{sector_threat}}
+    <br/><br/>{{sector_artifact}}
+  - |
+    35-36, Settlement*
+    <br/><br/>{{sector_rot_level}}
+
+  ruins_normal:
+  - Airplane Wreck
+  - Amusement Park
+  - Battlefield
+  - Bus Station
+  - Car Park
+  - Church
+  - Cinema
+  - Crater
+  - Dilapidated Mansion
+  - Fast Food Joint
+  - Gas Station
+  - Highway
+  - Hospital
+  - Hunting Store
+  - Mall
+  - Marina
+  - Museum
+  - Office Building
+  - Overgrown Park
+  - Playground
+  - Police Station
+  - Radio Station
+  - Residential Blocks
+  - Road Tunnel
+  - Ruined Bridge
+  - School
+  - Shelter
+  - Skyscraper
+  - Sports Center
+  - Suburbia
+  - Subway Station
+  - Supermarket
+  - Swimming Hall
+  - Tank
+  - Theater
+  - Train Station
+
+  ruins_industry:
+  - 1-3, Factory
+  - 4-6, Military Base
+  - 7-9, Oil Cistern
+  - 10-12, Pipeline
+  - 13-15, Purification Plant
+  - 16-18, Power Line
+  - 19-21, Radio Mast
+  - 22-24, Refinery
+  - 25-27, Rubbish Dump
+  - 28-30, Shipwreck
+  - 31-33, Shooting Range
+  - 34-36, Windmill
+
+  rot_level:
+  - 1-2, 0 <small>(Rot Oasis)</small>
+  - 3-29, 1 <small>(Weak Rot)</small>
+  - 30–36,7 2 <small>(Rot-Heavy Area)</small>

@@ -1,0 +1,56 @@
+---
+templates:
+- "{{artifact}}"
+
+tables:
+  artifact:
+  - Air Mattress
+  - Antidepressants
+  - Assault Rifle
+  - Automobile
+  - Battery
+  - Bicycle
+  - Binoculars
+  - Bow & Arrow
+  - Canoe
+  - Cassette Player (Metaplot)
+  - Chainsaw
+  - Comic Book
+  - Compass
+  - Crossbow
+  - Diary
+  - Diving Gear
+  - Dress
+  - Energy Pills
+  - Flashlight
+  - Flare Gun
+  - Gas Mask
+  - Generator
+  - Guitar
+  - Hand Grenade
+  - Hockey Helmet
+  - Hunting Rifle
+  - ID Card (Metaplot)
+  - Jerrycan
+  - Katana
+  - Kevlar Vest
+  - Lifestyle Magazine
+  - Map of the Zone
+  - Motor Boat
+  - Painkillers
+  - Painting
+  - Perfume Bottle
+  - Protective Suit
+  - REGEN
+  - Revolver
+  - Scooter
+  - Semi-Automatic Pistol
+  - Shotgun
+  - Smoke Grenade
+  - Soda Can
+  - Stimulants
+  - Sunglasses
+  - Tuxedo
+  - Umbrella
+  - Video Camera (Metaplot)
+  - Wrench

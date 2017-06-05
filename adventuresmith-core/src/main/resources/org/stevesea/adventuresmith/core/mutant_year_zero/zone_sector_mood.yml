@@ -1,0 +1,47 @@
+---
+templates:
+  #PEOPLE
+  - <strong>Wanderers</strong><br/><br/> Some silhouettes are seen in the distance. Who walks in the Zone?
+  - <strong>Camp</strong><br/><br/> The remains of a campsite, perhaps embers are still smoldering in the fireplace.
+  - <strong>Final Rest</strong><br/><br/> D6 shallow graves, marked with pieces of scrap. Who is buried here?
+  - <strong>Victim</strong><br/><br/> A corpse, hanged or bound to a pole. Who did this, and why?
+  - <strong>Message</strong><br/><br/> Someone has written something on a wall. What does it say, and how recent is it?
+  - <strong>Tracks</strong><br/><br/> They lead deeper into the Zone. Who walked here and where did they go?
+  #NATURE
+  - <strong>Boulder</strong><br/><br/> A huge piece of rock. Protection from the Zone winds or a good lookout point?
+  - <strong>Tree</strong><br/><br/> A lonely tree still grows in the desolate wasteland. Does it hide some secret?
+  - <strong>Creek</strong><br/><br/> A narrow stream flows through the landscape. Is it a source of life or of death by the Rot?
+  - <strong>Zone Flowers</strong><br/><br/> Out of place in the pale zonelands, a field of strange flowers with striking colors grow.
+  - <strong>Thistles</strong><br/><br/> A thick undergrowth covers the sector. Boots and gear gets stuck in it. Do the bushes hide some secret?
+  - <strong>Vines</strong><br/><br/> Lots of thick vines cover the ruins here. Are they dead and shriveled or still alive?
+  #WEATHER
+  - <strong>Torrential Rain</strong><br/><br/> A sudden downpour or heavy snowfall hits the PCs. They’d better seek cover.
+  - <strong>Fog</strong><br/><br/> A thick haze blankets the area. Visibility is reduced to a few yards, and sounds muffled. What lurks in the fog?
+  - <strong>Blazing Sun</strong><br/><br/> Scorching sunlight bakes the PCs. Their skin burns and their clothes are soon wet from sweat.
+  - <strong>Blue Sky</strong><br/><br/> The ever-present dirty Zone haze suddenly evaporates, revealing a stark blue sky. It is both beautiful and frightening.
+  - <strong>Dark Clouds</strong><br/><br/> The sky darkens and the wind picks up. Dust whirls around across the broken old pavement. A storm is brewing.
+  - <strong>Thunder</strong><br/><br/> The deep sound distant thunder rolls over the Zone. Sudden lightning flashes across the ruins.
+  #REMAINS
+  - <strong>Road Sign</strong><br/><br/> A metal sign stands alone, left from the Old Age. Does it show the way to something, or warn of some danger?
+  - <strong>Wreck</strong><br/><br/> The remains of some old vehicle, rusted beyond repair. Its metal husk is still intact. Has someone sought shelter there?
+  - <strong>Movie Poster</strong><br/><br/> A torn and worn old poster from the Old Age shows a strange scene. What do the PCs make of it?
+  - <strong>The Dead</strong><br/><br/> D6 withering skeletons from the Old Age. What story could these old bones tell?
+  - <strong>Checkpoint</strong><br/><br/> A roadblock from the final dying days of the Old Age. Could there be useful scrap here?
+  - <strong>Railroad Track</strong><br/><br/> These rusty old tracks are completely overgrown. Where does the track lead?
+  #EVENTS
+  - <strong>Hole</strong><br/><br/> There’s a deep dark hole in the ground in front of the PCs. Is it an old well, or a path into tunnels below?
+  - <strong>Howling</strong><br/><br/> An inhuman, long howl echoes across the Zone. Is someone in dire need of help - or is a Zone monster nearby?
+  - <strong>Collapse</strong><br/><br/> A ruined building suddenly collapses in a deafening roar. Perhaps something interesting is revealed?
+  - <strong>Birds</strong><br/><br/> A flock of small Zone birds suddenly take to the air. Did something startle them?
+  - <strong>Noise</strong><br/><br/> A deep bellowing sound echoes across the Zone. It’s repeated a few times, then falls silent.
+  - <strong>Hut</strong><br/><br/> Someone has built a nest or a hut made of scrap. Is someone home?
+  #TERRAIN
+  - <strong>Lake</strong><br/><br/> A small black lake appears in the Zone haze. What is hidden underneath the mirrorlike surface?
+  - <strong>Escarpment</strong><br/><br/> A sudden steep slope in front of the PCs. How do the PCs get down, and what awaits down below?
+  - <strong>Crevice</strong><br/><br/> A deep fissure, several yards wide, cuts across the landscape. How do the PCs get across?
+  - <strong>Swamp</strong><br/><br/> Foul Zone-water has engulfed the area, submerging the old crumbling streets. Dark, cold water leaks in to the PCs’ shoes.
+  - <strong>Copse</strong><br/><br/> A dark copse of dark, dead trees cast their shadow over the PCs. What could be hidden among them?
+  - <strong>Hill</strong><br/><br/> A steep hill or mound appears in the middle of the Zone. What is it, what’s on top of it?
+
+
+
