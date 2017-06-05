@@ -11,61 +11,66 @@ definitions:
   sector_threat: "<strong>Threat:</strong> {{threat_zone.pick}}"
   sector_artifact: "<strong>Artifact:</strong> {{artifact}}"
 
+  threat_roll: "{{>repeat: input.threat_level %[[threat_die]]%}}"
+  threat_roll_artifact: "{{>repeat: input.threat_level %[[threat_die_artifact]]%}}"
+
 tables:
+  threat_die_artifact:
+  - "1, <br/><br/>{{sector_threat}}"
+  - 2-5,
+  - "6, <br/><br/>{{sector_artifact}}"
+  threat_die:
+  - "1, <br/><br/>{{sector_threat}}"
+  - 2-6,
   environment: # ruin, threat, artifact
   - |
     1-2, <h4>Thick Woods</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     3-5, <h4>Scrublands</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     6-7, <h4>Marshlands</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     8-10, <h4>Dead Woods</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     11-12, <h4>Ash Desert</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     13, <h4>Huge Crater</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     14, <h4>Glasified Field</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
+    {{threat_roll}}
   - |
     15-17, <h4>Overgrown Ruins - {{ruins_normal}}</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
-    <br/><br/>{{sector_artifact}}
+    {{threat_roll_artifact}}
   - |
     18-20, <h4>Crumbling Ruins - {{ruins_normal}}</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
-    <br/><br/>{{sector_artifact}}
+    {{threat_roll_artifact}}
   - |
     21-25, <h4>Decayed Ruins - {{ruins_normal}}</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
-    <br/><br/>{{sector_artifact}}
+    {{threat_roll_artifact}}
   - |
     26-30, <h4>Unscathed Ruins - {{ruins_normal}}</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
-    <br/><br/>{{sector_artifact}}
+    {{threat_roll_artifact}}
   - |
     31-34, <h4>Derelict Industries - {{ruins_industry}}</h4>
     {{sector_rot_level}}
-    <br/><br/>{{sector_threat}}
-    <br/><br/>{{sector_artifact}}
+    {{threat_roll_artifact}}
   - |
     35-36, <h4>Settlement*</h4>
     {{sector_rot_level}}

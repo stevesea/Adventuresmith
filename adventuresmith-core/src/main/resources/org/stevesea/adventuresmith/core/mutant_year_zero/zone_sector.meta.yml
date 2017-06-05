@@ -1,2 +1,20 @@
 ---
 name: Zone Sector
+input:
+  displayTemplate: "Threat Level: {{threat_level}}"
+  params:
+  - name: threat_level
+    uiName: Threat Level
+    helpText: Select Threat Level
+    defaultValue: 3
+    values:
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 12
