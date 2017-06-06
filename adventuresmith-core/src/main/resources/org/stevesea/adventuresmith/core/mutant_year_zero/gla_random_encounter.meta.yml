@@ -1,5 +1,5 @@
 ---
-name: Random Encounter
+name: Random Encounter (GLA)
 useIconicsTextView: true
 input:
   displayTemplate: "Location: {{location}}"
