@@ -1,0 +1,251 @@
+---
+templates:
+- |
+  %[[loc_2_encounter.{{input.location}}]]%
+
+nested_tables:
+  loc_2_encounter:
+    Forest:
+    - "1-2, {{>pick: 1 encounters}}" #11–12
+    - "3, {{>pick: 2 encounters}}" #13
+    - "4-6, {{>pick: 3 encounters}}" #14–16
+    - "7-9, {{>pick: 4 encounters}}" #21–23
+    - "10-12, {{>pick: 5 encounters}}" #24–26
+    - "13-14, {{>pick: 6 encounters}}" #31–32
+    - "15, {{>pick: 8 encounters}}" #33
+    - "16-17, {{>pick: 9 encounters}}" #34–35
+    - "18, {{>pick: 10 encounters}}" #36
+    - "19-20, {{>pick: 11 encounters}}" #41–42
+    - "21, {{>pick: 12 encounters}}" #43
+    - "22, {{>pick: 13 encounters}}" #44
+    - "23, {{>pick: 14 encounters}}" #45
+    - "24, {{>pick: 16 encounters}}" #46
+    - "25, {{>pick: 18 encounters}}" #51
+    - "26-27, {{>pick: 19 encounters}}" #52–53
+    - "28, {{>pick: 22 encounters}}" #54
+    - "29, {{>pick: 23 encounters}}" #55
+    - "30-31, {{>pick: 24 encounters}}" #56–61
+    - "32-34, {{>pick: 25 encounters}}" #62–64
+    - "35-36, {{>pick: 26 encounters}}" #65–66
+    Moors:
+    - "1-3, {{>pick: 1 encounters}}" #11–13
+    - "4, {{>pick: 2 encounters}}" #14
+    - "5-6, {{>pick: 3 encounters}}" #15–16
+    - "7-9, {{>pick: 7 encounters}}" #21–23
+    - "10-12, {{>pick: 8 encounters}}" #24–26
+    - "13-14, {{>pick: 9 encounters}}" #31–32
+    - "15, {{>pick: 10 encounters}}" #33
+    - "16-17, {{>pick: 11 encounters}}" #34–35
+    - "18, {{>pick: 12 encounters}}" #36
+    - "19-20, {{>pick: 13 encounters}}" #41–42
+    - "21, {{>pick: 14 encounters}}" #43
+    - "22-23, {{>pick: 16 encounters}}" #44–45
+    - "24, {{>pick: 18 encounters}}" #46
+    - "25, {{>pick: 19 encounters}}" #51
+    - "26, {{>pick: 22 encounters}}" #52
+    - "27, {{>pick: 23 encounters}}" #53
+    - "28-29, {{>pick: 24 encounters}}" #54–55
+    - "30-32, {{>pick: 25 encounters}}" #56–62
+    - "33-36, {{>pick: 26 encounters}}" #63–66
+    Mountain:
+    - "1-2, {{>pick: 1 encounters}}" #11–12
+    - "3, {{>pick: 2 encounters}}" #13
+    - "4, {{>pick: 3 encounters}}" #14
+    - "5-7, {{>pick: 11 encounters}}" #15–21
+    - "8-9, {{>pick: 12 encounters}}" #22–23
+    - "10-13, {{>pick: 13 encounters}}" #24–31
+    - "14-15, {{>pick: 14 encounters}}" #32–33
+    - "16-19, {{>pick: 15 encounters}}" #34–41
+    - "20-22, {{>pick: 16 encounters}}" #42–44
+    - "23-25, {{>pick: 17 encounters}}" #45–51
+    - "26, {{>pick: 23 encounters}}" #52
+    - "27, {{>pick: 24 encounters}}" #53
+    - "28-29, {{>pick: 25 encounters}}" #54–55
+    - "30-33, {{>pick: 26 encounters}}" #56–63
+    - "34-35, {{>pick: 30 encounters}}" #64–65
+    - "36, {{>pick: 31 encounters}}" #66
+    River_or_Lake:
+    - "1, {{>pick: 1 encounters}}" #11
+    - "2-3, {{>pick: 2 encounters}}" #12–13
+    - "4-6, {{>pick: 3 encounters}}" #14–16
+    - "7, {{>pick: 6 encounters}}" #21
+    - "8-10, {{>pick: 7 encounters}}" #22–24
+    - "11-12, {{>pick: 8 encounters}}" #25–26
+    - "13, {{>pick: 9 encounters}}" #31
+    - "14, {{>pick: 10 encounters}}" #32
+    - "15-16, {{>pick: 11 encounters}}" #33–34
+    - "17, {{>pick: 12 encounters}}" #35
+    - "18-19, {{>pick: 13 encounters}}" #36–41
+    - "20, {{>pick: 14 encounters}}" #42
+    - "21, {{>pick: 18 encounters}}" #43
+    - "22-23, {{>pick: 19 encounters}}" #44–45
+    - "24-27, {{>pick: 20 encounters}}" #46–53
+    - "28, {{>pick: 22 encounters}}" #54
+    - "29, {{>pick: 23 encounters}}" #55
+    - "30, {{>pick: 24 encounters}}" #56
+    - "31-33, {{>pick: 25 encounters}}" #61–63
+    - "34-36, {{>pick: 26 encounters}}" #64–66
+    Road_or_Trail:
+    - "1, {{>pick: 1 encounters}}" #11
+    - "2-3, {{>pick: 3 encounters}}" #12–13
+    - "4, {{>pick: 7 encounters}}" #14
+    - "5, {{>pick: 8 encounters}}" #15
+    - "6, {{>pick: 13 encounters}}" #16
+    - "7, {{>pick: 14 encounters}}" #21
+    - "8-9, {{>pick: 18 encounters}}" #22–23
+    - "10, {{>pick: 19 encounters}}" #24
+    - "11-14, {{>pick: 21 encounters}}" #25–32
+    - "15, {{>pick: 22 encounters}}" #33
+    - "16, {{>pick: 23 encounters}}" #34
+    - "17-18, {{>pick: 24 encounters}}" #35–36
+    - "19-22, {{>pick: 25 encounters}}" #41–44
+    - "23-27, {{>pick: 26 encounters}}" #45–53
+    - "28-31, {{>pick: 27 encounters}}" #54–61
+    - "32-34, {{>pick: 28 encounters}}" #62–64
+    - "35-36, {{>pick: 30 encounters}}" #65–66
+    Near_Inner_Fence:
+    - "{{loc_2_encounter.Near_Forbidden_Zone_or_Outer_Fence}}"
+    Near_Forbidden_Zone_or_Outer_Fence:
+    - "1, {{>pick: 1 encounters}}" #11
+    - "2-3, {{>pick: 3 encounters}}" #12–13
+    - "4, {{>pick: 7 encounters}}" #14
+    - "5, {{>pick: 8 encounters}}" #15
+    - "6, {{>pick: 9 encounters}}" #16
+    - "7-8, {{>pick: 12 encounters}}" #21–22
+    - "9, {{>pick: 13 encounters}}" #23
+    - "10-11, {{>pick: 14 encounters}}" #24–25
+    - "12, {{>pick: 16 encounters}}" #26
+    - "13-14, {{>pick: 18 encounters}}" #31–32
+    - "15-18, {{>pick: 26 encounters}}" #33–36
+    - "19-21, {{>pick: 27 encounters}}" #41–43
+    - "22-23, {{>pick: 28 encounters}}" #44–45
+    - "24-29, {{>pick: 29 encounters}}" #46–55
+    - "30-34, {{>pick: 30 encounters}}" #56–64
+    - "35-36, {{>pick: 31 encounters}}" #65–66
+
+
+tables:
+  encounters:
+  - |
+    The ground shakes and suddenly a ravenous landshark
+    lunges up from the earth and attacks the PCs. The shark’s
+    Strength is 7+{cmd_radioactive}
+  - |
+    A centipede snake contacts the PCs telepathically and asks
+    for food. The snake can offer the PCs return the favor in
+    some way. If they treat the snake badly, it attacks.
+  - |
+    A gnat storm suddenly envelops the PCs. The swarm’s
+    Strength is 5+{cmd_radioactive}.
+  - |
+    A wildfire suddenly sweeps towards the PCs. If they try to
+    Move away their roll is modified negatively by {cmd_radioactive} minus
+    one (that is, no modification if you rolled one {cmd_radioactive} on the
+    Threat Roll).
+  - |
+    A hungry winged moray lurks in a tree and attacks the PCs
+    as they pass. They moray’s Strength is 5+{cmd_radioactive}
+  - |
+    The sounds of snapping branches and falling trees alert
+    the PCs to the fact that something huge is coming their
+    way. A giant hornbug rushes at them! The bug’s Strength
+    is 9+{cmd_radioactive}.
+  - |
+    A foul stench spreads through the air and a powerful
+    buzzing sound comes closer. A swarm of gas flies sweeps
+    down towards the PCs. The swarm’s Strength is 4+{cmd_radioactive}.
+  - |
+    {cmd_radioactive} number of sniper bugs hide in the grass and attack the
+    PCs without warning.
+  - |
+    The PCs meet a shambletusk (page 125) that has been
+    expelled from its flock. It’s aggressive and might attack
+    careless PCs.
+  - |
+    {cmd_radioactive} number of big and beautiful butterflies sit on a branch
+    in front of the PCs. They are psionic butterflies, and the
+    PCs should Move away if they know what’s good for
+    them...
+  - |
+    The PCs encounter a hermit, a tainted animal mutant who
+    has been cast out from his tribe. He is suspicious but can
+    help the PCs if they treat him well.
+  - |
+    The PCs encounter an abomination. It might be an NPC the
+    PCs know personally. The NPCs personality is wiped away
+    and the abomination acts like a robot.
+  - |
+    The temperature suddenly plummets and a lethal ice storm
+    surprises the PCs. It lasts D6+{cmd_radioactive} hours.
+  - |
+    A muffled rumble rises from within the very earth itself and
+    grows into a powerful roaring crescendo. The earthquake
+    attacks with 3+{cmd_radioactive}.
+  - |
+    A roar is heard from the mountain above the PCs, and
+    they are horrified as an avalance thunders towards them!
+    If they Move away their roll is modified negatively by {cmd_radioactive}.
+  - |
+    An unlucky PC falls down into a sinkhole. Any attempt to
+    Move out of danger is modified negatively by {cmd_radioactive}.
+  - |
+    A geyser suddenly spews scaldingly hot water from within
+    the bedrock.
+  - |
+    The PCs meet an animal mutant on the run from Watchers
+    who want to abduct her. Preferably it is someone the PCs
+    know. There are {cmd_radioactive} robots.
+  - |
+    The PCs meet a Scavenger from another tribe. The Scavenger
+    has just found a valuable artifact (choose one randomly)
+    and attempts to hide it from the PCs.
+  - |
+    The PCs meet D6+{cmd_radioactive} Hunters from another tribe who are
+    out fishing. They have caught D6 rations of fish and are
+    interested in trading.
+  - |
+    A small trade caravan walks by, heading towards a neighboring
+    territory. The traders are suspicious of the PCs.
+  - |
+    The PCs find a hideout belonging to a trader from the closest
+    outpost. The Scavenger appears while the PCs explore
+    the hideout. He accuses them of theft.
+  - |
+    Strange song and exclamations are heard from a small
+    hut. If the PCs hurry over to the hut they encounted a Seer
+    in the midst of performing a ritual, and she resents being
+    disturbed. The seer may have something important to tell
+    the PCs.
+  - |
+    The PCs hear a scuffle and screaming in the distance. If
+    they investigate they see two hunting parties from different
+    territories in a fight over who controls the hunting grounds.
+    Both sides ask the PCs for help.
+  - |
+    The PCs meet D6+{cmd_radioactive} Hunters from a tribe from a neighboring
+    habitat, intruding in this one. The hunters are threatening
+    and demand that the PCs leave “their” hunting ground.
+  - |
+    A Drone discovers the PCs and follows them for {cmd_radioactive} hours. If
+    they act suspisciously - like trying to hide from the drone -
+    it summons a squad of Sentinels.
+  - |
+    The road ahead is blocked by D6+{cmd_radioactive} Sentinels who have
+    established a temporary roadblock. This roadblock works
+    just like the permanent ones (page 150).
+  - |
+    A squad consisting of {cmd_radioactive} Sentinels drags away an unconscious
+    animal mutant, who is about to be abducted. Preferably
+    it is someone the PCs have a relationship with. If the
+    Sentinels are attacked they summon reinforcements.
+  - |
+    A robotic voice requests that the PCs leave the area immediately.
+    If they do not comply a Drone and {cmd_radioactive} Sentinels
+    arrive to force them to leave or to kill them.
+  - |
+    A squad of {cmd_radioactive}+1 Sentinels approaches. If the robots spot
+    the PCs they request they leave the area immediately. If the
+    PCs act suspisciously the Sentinels attack.
+  - |
+    A Walker blocks the road. It seems to be inactive, but if the
+    PCs come close it activates and attacks at once.

@@ -83,6 +83,12 @@ object DiceConstants {
             "$GROUP/eote_2" to "EotE Dice #2",
             "$GROUP/eote_3" to "EotE Dice #3"
     )
+    val myzDice = mapOf(
+            "$GROUP/myz_1" to "MYZ Dice #1",
+            "$GROUP/myz_2" to "MYZ Dice #2",
+            "$GROUP/myz_3" to "MYZ Dice #3",
+            "$GROUP/myz_4" to "MYZ Dice #4"
+    )
 
     val generators = listOf(
         DiceConstants.regularDice.keys,
@@ -94,7 +100,8 @@ object DiceConstants {
         DiceConstants.customizableDice.keys,
         DiceConstants.fudgeDice.keys,
         DiceConstants.explodingDice.keys,
-        DiceConstants.eoteDice.keys
+        DiceConstants.eoteDice.keys,
+        DiceConstants.myzDice.keys
         ).flatten()
 }
 
@@ -203,6 +210,11 @@ val diceModule = Kodein.Module {
     DiceConstants.eoteDice.forEach {
         bind<Generator>(it.key) with provider {
             EotEDiceGenerator(it.key, it.value, instance())
+        }
+    }
+    DiceConstants.myzDice.forEach {
+        bind<Generator>(it.key) with provider {
+            MYZDiceGenerator(it.key, it.value, instance())
         }
     }
 

@@ -7,7 +7,7 @@ groups:
     icon: cmd-account
   - name: grpGME
     uiName: GM Emulators
-    icon: cmd-lightbulb-on-outline
+    icon: cmd-forum #cmd-message-processing #cmd-lightbulb-on-outline
   - name: grpItems
     uiName: Items
     icon: cmd-engine

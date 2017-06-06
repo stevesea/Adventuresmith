@@ -35,3 +35,8 @@ groupedGenerators:
   - eote_1
   - eote_2
   - eote_3
+  grpMYZ:
+  - myz_1
+  - myz_2
+  - myz_3
+  - myz_4

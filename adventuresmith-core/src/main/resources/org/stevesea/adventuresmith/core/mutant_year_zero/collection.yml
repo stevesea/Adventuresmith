@@ -13,12 +13,13 @@ groupedGenerators:
   - artifact
   - scrap
   - npc_zone_exped
-  - zone_sector
-  - zone_sector_mood
   - event_zone
   - threat_zone
+  - zone_sector_mood
+  - zone_sector
   gla:
   - checkpoint_response
   - feral_effect
   - gla_artifact
+  - gla_random_encounter
 

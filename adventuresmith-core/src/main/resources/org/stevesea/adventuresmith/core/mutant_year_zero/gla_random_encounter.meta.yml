@@ -1,0 +1,18 @@
+---
+name: Random Encounter
+useIconicsTextView: true
+input:
+  displayTemplate: "Location: {{location}}"
+  params:
+  - name: location
+    uiName: Location
+    helpText: Select Location
+    defaultValue: Forest
+    values:
+    - Forest
+    - Moors
+    - Mountain
+    - River_or_Lake
+    - Road_or_Trail
+    - Near_Inner_Fence
+    - Near_Forbidden_Zone_or_Outer_Fence

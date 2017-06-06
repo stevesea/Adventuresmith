@@ -16,3 +16,6 @@ groups:
 - name: grpEOTE
   uiName: EotE Dice
   icon: cmd-theme-light-dark
+- name: grpMYZ
+  uiName: "Mutant: Year Zero"
+  icon: cmd-radioactive
