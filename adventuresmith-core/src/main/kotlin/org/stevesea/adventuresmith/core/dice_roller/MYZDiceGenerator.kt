@@ -120,7 +120,7 @@ class MYZDiceGenerator(
         if (resultLines.isEmpty()) {
             return "You must configure your dice pool."
         }
-        if (totalRadioactive > 0|| totalBiohazard > 0 || totalGear > 0) {
+        if (totalRadioactive > 0 || totalBiohazard > 0 || totalGear > 0) {
             val sb = StringBuilder()
             sb.append("Totals:")
             if (totalRadioactive > 0) {
