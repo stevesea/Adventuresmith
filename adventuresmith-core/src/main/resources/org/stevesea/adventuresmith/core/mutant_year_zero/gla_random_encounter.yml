@@ -128,124 +128,124 @@ tables:
   encounters:
   - |
     The ground shakes and suddenly a ravenous landshark
-    lunges up from the earth and attacks the PCs. The shark’s
+    lunges up from the earth and attacks the PCs. <br/><br/>The shark’s
     Strength is 7+{cmd_radioactive}
   - |
     A centipede snake contacts the PCs telepathically and asks
-    for food. The snake can offer the PCs return the favor in
+    for food. <br/><br/>The snake can offer the PCs return the favor in
     some way. If they treat the snake badly, it attacks.
   - |
-    A gnat storm suddenly envelops the PCs. The swarm’s
+    A gnat storm suddenly envelops the PCs. <br/><br/>The swarm’s
     Strength is 5+{cmd_radioactive}.
   - |
-    A wildfire suddenly sweeps towards the PCs. If they try to
+    A wildfire suddenly sweeps towards the PCs. <br/><br/>If they try to
     Move away their roll is modified negatively by {cmd_radioactive} minus
     one (that is, no modification if you rolled one {cmd_radioactive} on the
     Threat Roll).
   - |
     A hungry winged moray lurks in a tree and attacks the PCs
-    as they pass. They moray’s Strength is 5+{cmd_radioactive}
+    as they pass. <br/><br/>They moray’s Strength is 5+{cmd_radioactive}
   - |
     The sounds of snapping branches and falling trees alert
     the PCs to the fact that something huge is coming their
-    way. A giant hornbug rushes at them! The bug’s Strength
+    way. <br/><br/>A giant hornbug rushes at them! The bug’s Strength
     is 9+{cmd_radioactive}.
   - |
     A foul stench spreads through the air and a powerful
     buzzing sound comes closer. A swarm of gas flies sweeps
-    down towards the PCs. The swarm’s Strength is 4+{cmd_radioactive}.
+    down towards the PCs. <br/><br/>The swarm’s Strength is 4+{cmd_radioactive}.
   - |
     {cmd_radioactive} number of sniper bugs hide in the grass and attack the
     PCs without warning.
   - |
     The PCs meet a shambletusk (page 125) that has been
-    expelled from its flock. It’s aggressive and might attack
+    expelled from its flock. <br/><br/>It’s aggressive and might attack
     careless PCs.
   - |
     {cmd_radioactive} number of big and beautiful butterflies sit on a branch
-    in front of the PCs. They are psionic butterflies, and the
+    in front of the PCs. <br/><br/>They are psionic butterflies, and the
     PCs should Move away if they know what’s good for
     them...
   - |
     The PCs encounter a hermit, a tainted animal mutant who
-    has been cast out from his tribe. He is suspicious but can
+    has been cast out from his tribe. <br/><br/>He is suspicious but can
     help the PCs if they treat him well.
   - |
-    The PCs encounter an abomination. It might be an NPC the
+    The PCs encounter an abomination. <br/><br/>It might be an NPC the
     PCs know personally. The NPCs personality is wiped away
     and the abomination acts like a robot.
   - |
     The temperature suddenly plummets and a lethal ice storm
-    surprises the PCs. It lasts D6+{cmd_radioactive} hours.
+    surprises the PCs. <br/><br/>It lasts D6+{cmd_radioactive} hours.
   - |
     A muffled rumble rises from within the very earth itself and
-    grows into a powerful roaring crescendo. The earthquake
+    grows into a powerful roaring crescendo. <br/><br/>The earthquake
     attacks with 3+{cmd_radioactive}.
   - |
     A roar is heard from the mountain above the PCs, and
     they are horrified as an avalance thunders towards them!
-    If they Move away their roll is modified negatively by {cmd_radioactive}.
+    <br/><br/>If they Move away their roll is modified negatively by {cmd_radioactive}.
   - |
-    An unlucky PC falls down into a sinkhole. Any attempt to
+    An unlucky PC falls down into a sinkhole. <br/><br/>Any attempt to
     Move out of danger is modified negatively by {cmd_radioactive}.
   - |
     A geyser suddenly spews scaldingly hot water from within
     the bedrock.
   - |
     The PCs meet an animal mutant on the run from Watchers
-    who want to abduct her. Preferably it is someone the PCs
+    who want to abduct her. <br/><br/>Preferably it is someone the PCs
     know. There are {cmd_radioactive} robots.
   - |
-    The PCs meet a Scavenger from another tribe. The Scavenger
+    The PCs meet a Scavenger from another tribe. <br/><br/>The Scavenger
     has just found a valuable artifact (choose one randomly)
     and attempts to hide it from the PCs.
   - |
     The PCs meet D6+{cmd_radioactive} Hunters from another tribe who are
-    out fishing. They have caught D6 rations of fish and are
+    out fishing. <br/><br/>They have caught D6 rations of fish and are
     interested in trading.
   - |
     A small trade caravan walks by, heading towards a neighboring
-    territory. The traders are suspicious of the PCs.
+    territory. <br/><br/>The traders are suspicious of the PCs.
   - |
     The PCs find a hideout belonging to a trader from the closest
-    outpost. The Scavenger appears while the PCs explore
+    outpost. <br/><br/>The Scavenger appears while the PCs explore
     the hideout. He accuses them of theft.
   - |
     Strange song and exclamations are heard from a small
-    hut. If the PCs hurry over to the hut they encounted a Seer
+    hut. <br/><br/>If the PCs hurry over to the hut they encounted a Seer
     in the midst of performing a ritual, and she resents being
     disturbed. The seer may have something important to tell
     the PCs.
   - |
-    The PCs hear a scuffle and screaming in the distance. If
+    The PCs hear a scuffle and screaming in the distance. <br/><br/>If
     they investigate they see two hunting parties from different
     territories in a fight over who controls the hunting grounds.
     Both sides ask the PCs for help.
   - |
     The PCs meet D6+{cmd_radioactive} Hunters from a tribe from a neighboring
-    habitat, intruding in this one. The hunters are threatening
+    habitat, intruding in this one. <br/><br/>The hunters are threatening
     and demand that the PCs leave “their” hunting ground.
   - |
-    A Drone discovers the PCs and follows them for {cmd_radioactive} hours. If
+    A Drone discovers the PCs and follows them for {cmd_radioactive} hours.<br/><br/> If
     they act suspisciously - like trying to hide from the drone -
     it summons a squad of Sentinels.
   - |
     The road ahead is blocked by D6+{cmd_radioactive} Sentinels who have
-    established a temporary roadblock. This roadblock works
+    established a temporary roadblock. <br/><br/>This roadblock works
     just like the permanent ones (page 150).
   - |
     A squad consisting of {cmd_radioactive} Sentinels drags away an unconscious
-    animal mutant, who is about to be abducted. Preferably
+    animal mutant, who is about to be abducted. <br/><br/>Preferably
     it is someone the PCs have a relationship with. If the
     Sentinels are attacked they summon reinforcements.
   - |
     A robotic voice requests that the PCs leave the area immediately.
-    If they do not comply a Drone and {cmd_radioactive} Sentinels
+    <br/><br/>If they do not comply a Drone and {cmd_radioactive} Sentinels
     arrive to force them to leave or to kill them.
   - |
-    A squad of {cmd_radioactive}+1 Sentinels approaches. If the robots spot
+    A squad of {cmd_radioactive}+1 Sentinels approaches. <br/><br/>If the robots spot
     the PCs they request they leave the area immediately. If the
     PCs act suspisciously the Sentinels attack.
   - |
-    A Walker blocks the road. It seems to be inactive, but if the
+    A Walker blocks the road. <br/><br/>It seems to be inactive, but if the
     PCs come close it activates and attacks at once.
