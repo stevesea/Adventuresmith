@@ -10,7 +10,7 @@ groups:
   uiName: The Zone
   icon: cmd-biohazard
 - name: gla
-  uiName: GenLab Alpha
+  uiName: Genlab Alpha
   icon: cmd-test-tube
 attribution: |
   <h4>Mutant: Year Zero</h4>
@@ -28,3 +28,4 @@ attribution: |
   and distinctive likenesses thereof are trademarks or registered trademarks of Game Ark Limited.
   Used with permission. All rights reserved.
   </p>
+  <p>The content in Adventuresmith is from the <cite>Mutant: Year Zero</cite> and  <cite>Mutant: Genlab Alpha</cite> corebooks</p>
