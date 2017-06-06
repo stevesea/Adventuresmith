@@ -120,15 +120,21 @@ class MYZDiceGenerator(
         if (resultLines.isEmpty()) {
             return "You must configure your dice pool."
         }
-        if (totalRadioactive > 0) {
-            resultLines.add("Total $RADIOACTIVE : $totalRadioactive")
+        if (totalRadioactive > 0|| totalBiohazard > 0 || totalGear > 0) {
+            val sb = StringBuilder()
+            sb.append("Totals:")
+            if (totalRadioactive > 0) {
+                sb.append(" $RADIOACTIVE : $totalRadioactive")
+            }
+            if (totalBiohazard > 0) {
+                sb.append(" $BIOHAZARD : $totalBiohazard")
+            }
+            if (totalGear > 0) {
+                sb.append(" $GEAR_BREAK : $totalGear")
+            }
+            resultLines.add(sb.toString())
         }
-        if (totalBiohazard > 0) {
-            resultLines.add("Total $BIOHAZARD : $totalBiohazard")
-        }
-        if (totalGear > 0) {
-            resultLines.add("Total $GEAR_BREAK : $totalGear")
-        }
+
         return resultLines.joinToString("<br/><br/>")
     }
 
