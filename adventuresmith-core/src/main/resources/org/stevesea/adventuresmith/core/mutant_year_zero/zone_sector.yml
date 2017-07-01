@@ -8,19 +8,19 @@ imports:
 
 definitions:
   sector_rot_level: "<strong>Rot Level:</strong> {{rot_level}}"
-  sector_threat: "<strong>Threat:</strong> {{threat_zone.pick}}"
-  sector_artifact: "<strong>Artifact:</strong> {{artifact}}"
+  sector_threat: "<h5>Threat: {{threat_zone.pick}}"
+  sector_artifact: "<h5>Artifact:</strong> {{artifact}}</h5>"
 
   threat_roll: "{{>repeat: input.threat_level %[[threat_die]]%}}"
   threat_roll_artifact: "{{>repeat: input.threat_level %[[threat_die_artifact]]%}}"
 
 tables:
   threat_die_artifact:
-  - "1, <br/><br/>{{sector_threat}}"
+  - "1, {{sector_threat}}"
   - 2-5,
-  - "6, <br/><br/>{{sector_artifact}}"
+  - "6, {{sector_artifact}}"
   threat_die:
-  - "1, <br/><br/>{{sector_threat}}"
+  - "1, {{sector_threat}}"
   - 2-6,
   environment: # ruin, threat, artifact
   - |
@@ -52,80 +52,419 @@ tables:
     {{sector_rot_level}}
     {{threat_roll}}
   - |
-    15-17, <h4>Overgrown Ruins - {{ruins_normal}}</h4>
+    15-17, <h4>Overgrown Ruins - {{ruins_normal}}
+    <br/><br/>
     {{sector_rot_level}}
     {{threat_roll_artifact}}
   - |
-    18-20, <h4>Crumbling Ruins - {{ruins_normal}}</h4>
+    18-20, <h4>Crumbling Ruins - {{ruins_normal}}
+    <br/><br/>
     {{sector_rot_level}}
     {{threat_roll_artifact}}
   - |
-    21-25, <h4>Decayed Ruins - {{ruins_normal}}</h4>
+    21-25, <h4>Decayed Ruins - {{ruins_normal}}
+    <br/><br/>
     {{sector_rot_level}}
     {{threat_roll_artifact}}
   - |
-    26-30, <h4>Unscathed Ruins - {{ruins_normal}}</h4>
+    26-30, <h4>Unscathed Ruins - {{ruins_normal}}
+    <br/><br/>
     {{sector_rot_level}}
     {{threat_roll_artifact}}
   - |
-    31-34, <h4>Derelict Industries - {{ruins_industry}}</h4>
+    31-34, <h4>Derelict Industries - {{ruins_industry}}
+    <br/><br/>
     {{sector_rot_level}}
     {{threat_roll_artifact}}
   - |
     35-36, <h4>Settlement*</h4>
+    Settlements in the Zone are uncommon and unique
+    locations. There can be ruins, threats and artifacts
+    in a settlement, but don’t roll them up the normal
+    way. Instead, describe the sector in greater detail.
+    Use the Special Zone Sectors in Chapter 15 if you
+    like – all of them are settlements of different sorts.
+    <br/><br/>
     {{sector_rot_level}}
 
   ruins_normal:
-  - Airplane Wreck
-  - Amusement Park
-  - Battlefield
-  - Bus Station
-  - Car Park
-  - Church
-  - Cinema
-  - Crater
-  - Dilapidated Mansion
-  - Fast Food Joint
-  - Gas Station
-  - Highway
-  - Hospital
-  - Hunting Store
-  - Mall
-  - Marina
-  - Museum
-  - Office Building
-  - Overgrown Park
-  - Playground
-  - Police Station
-  - Radio Station
-  - Residential Blocks
-  - Road Tunnel
-  - Ruined Bridge
-  - School
-  - Shelter
-  - Skyscraper
-  - Sports Center
-  - Suburbia
-  - Subway Station
-  - Supermarket
-  - Swimming Hall
-  - Tank
-  - Theater
-  - Train Station
+  - |
+    Airplane Wreck</h4>
+    A huge metal tube lies broken and crushed on
+    the ground. It is scorched by fire and inside there
+    are rows of ancient seats, all blackened by flames.
+    Stretching away from the tube, the ground is
+    scorched and all houses destroyed, as if the tube
+    had come crashing from the sky at incredible
+    speed.
+  - |
+    Amusement Park</h4>
+    A bizarre huddle of rusting machines and decrepit
+    large tents, in colors that once were stark. The
+    remains of the tent cloth flaps in the wind. On a
+    picture, a man with a white face and a large red
+    nose smiles at you. One machine is a large wooden
+    disc with plastic horses mounted on it. The disc is
+    placed on a motor and seems to have been able
+    to rotate.
+  - |
+    Battlefield</h4>
+    This area is completely devastated. Rusty rebars
+    protrude from broken blocks of concrete that once
+    were the walls of homes. The ruins are scorched
+    by explosions and riddled with bullet holes. Small
+    craters pockmark the ground.
+  - |
+    Bus Station</h4>
+    Among flaking road signs with illegible numbers
+    and letters, several big old motor vehicles stand
+    rusting away. Some have two decks, others have an
+    accordion-like contraption in the middle and can
+    bend. The Ancients’ machines are truly mysterious.
+  - |
+    Car Park</h4>
+    The concrete pillars have given in and the entire,
+    circular building has collapsed like an accordion
+    pressed together. In the debris, lots of motor vehicles
+    from the Old Age are buried. Maybe some of
+    them could be repaired?
+  - |
+    Church</h4>
+    The ancient spire on the stone building reaches far
+    into the sky, its sharp point lost in the Zone haze.
+    Inside, there are rows of rotten wooden benches,
+    all turned toward the figure of a man hanging on
+    a cross. The Ancients used to come here to talk to
+    their Boss in the sky. Now, all is quiet. If there is a
+    god, it has abandoned this place long ago.
+  - |
+    Cinema</h4>
+    Next to a large entrance leading into the dark interior
+    of this building, a number of yellowing posters
+    hang in huge frames. Each of the posters depict
+    dramatic motifs from the Old Age. In this cavernous
+    building, the Ancients watched moving images
+    on a screen.
+  - |
+    Crater</h4>
+    A gigantic hole appears in the ground, at least 50
+    yards across. Some ancient weapon of annihilation
+    must have struck here, destroying everything
+    nearby. In the bottom of the crater, there is a small
+    lake of greenish rotwater.
+  - |
+    Dilapidated Mansion</h4>
+    This dark and decrepit house was old even before
+    the Fall. It’s built of wood and stone and has somehow
+    managed to withstand the decades of neglect.
+    What could be hidden inside its dark halls?
+  - |
+    Fast Food Joint</h4>
+    A large M in the shape of two dirty yellow arcs
+    adorn the facade of this ruined building. There are
+    many facilities like this in the Zone. What used to
+    be in them no one knows any longer, but Stalkers
+    tend to avoid them because of the strong Rot
+    inside.
+  - |
+    Gas Station</h4>
+    Underneath an open roof next to a low house, a
+    number of car wrecks are left to rust. Next to them
+    there are machines with hoses and faucets. Anyone
+    who knows his way around the Zone knows that this
+    is a place where the Ancients repaired their vehicles
+    and filled them up with fuel.
+  - |
+    Highway</h4>
+    The concrete is cracked and the markings on the
+    road surface are all but worn away. Before the Fall,
+    the Ancients would whizz by here at incredible
+    speeds in their shiny motor carriages. Now, the old
+    cars stand by the roadside, burnt out and rusted
+    beyond repair.
+  - |
+    Hospital</h4>
+    When the Apocalypse came, the Ancients flooded
+    this concrete hulk of a building, desperately hoping
+    to be saved. Now, this is a crumbling ruin. Decayed
+    corpses lie everywhere in rooms and hallways, on
+    beds and on the floors.
+  - |
+    Hunting Store</h4>
+    Among the decrepit shelves in this place you can
+    find fishing poles, hooks and lines. A skilled Stalker
+    can use these items to find edible fish in the Zone
+    waters (page 56). On the walls, yellowed pictures
+    of rifles hang. In one corner, there is a heavy metal
+    locker tall as a mutant – perhaps there is something
+    valuable in there?
+  - |
+    Mall</h4>
+    A city within a city reveals itself, huge halls with
+    ancient shops and restaurants in several levels. Everything
+    in here is scorched by fire long ago and
+    covered in soot, but perhaps something valuable is
+    hidden among the ashes? Here and there strange
+    plastic figures stand in strange poses, as if preaching
+    to a crowd.
+  - |
+    Marina</h4>
+    Just off the shore, a great number of boat wrecks
+    lie half sunken in the rotwater. Sailing boats, motor
+    boats and canoes that the Ancients used for recreation
+    have turned into a dangerous reef of cracked
+    plastic and metal beams.
+  - |
+    Museum</h4>
+    Large steps in broken stone lead up to this grand
+    building. Inside, there are dark halls with strange
+    items from the Old Age and even ages before that,
+    all showcased for the Ancients to see.
+  - |
+    Office Building</h4>
+    In this dark ruin you can find large halls, all filled
+    with identical tables in small booths. On the floor,
+    there are yellowed papers everywhere. Before
+    the Fall, important work was probably done here.
+    Now, the Zone dust blows in through the broken
+    windows.
+  - |
+    Overgrown Park</h4>
+    Tall trees and thick bushes grow wild here and have
+    completely overgrown the area. Benches, walking
+    paths and fountains are hidden by thick weeds and
+    the lawns are turned into marshlands. There are
+    many rumors about the creatures that roam the old
+    parks in the Zone.
+  - |
+    Playground</h4>
+    Car tires hang in rusty chains from a metal frame.
+    A wooden sandbox has turned into a stinking pool
+    of mud. Acid rains have gnawed holes in the metal
+    slides long ago. Here, the Ancients played with their
+    children. A few cracked plastic toys have survived
+    the decades of wear and still lie abandoned in the
+    sand.
+  - |
+    Police Station</h4>
+    Outside of this large building, wrecks of identical
+    blue and white cars are rusting away. The tires and
+    long since gone, but the blue plastic lamps on their
+    roofs are still there. In the basement of the building,
+    there are rooms that cannot be opened from
+    the inside.
+  - |
+    Radio Station</h4>
+    A forest of rusty antennae and metal discs protrude
+    from the roof of this massive building. A sign on
+    the facade shows an antenna with rings around it.
+  - |
+    Residential Blocks</h4>
+    Several identical tall buildings, made of concrete
+    that is now cracked and crumbling. On the ground
+    between these monoliths, there are rotted benches
+    and tall weeds. Car wrecks are everywhere, most
+    rusted beyond repair. Each of the buildings has
+    a large number of identical apartments. Inside,
+    you can find decrepit furniture, clothes and other
+    items.
+  - |
+    Road Tunnel</h4>
+    The entrance to this broad tunnel looks like the
+    maw of an enormous beast. Outside, an innumerable
+    amount of cars, trucks and buses stand tightly
+    packed together, slowly rusting into nothing. Whatever
+    horror the occupants of these vehicles were
+    fleeing from, it is obvious few survived.
+  - |
+    Ruined Bridge</h4>
+    The remains of a majestic bridge rise tall in the
+    Zone haze. It has collapsed in both directions and
+    only two thick pillars remain, but if you can climb
+    up onto the remaining roadway you’ll have a great
+    lookout position.
+  - |
+    School</h4>
+    On the crumbling brick facade of this building
+    hangs a clock that stopped long ago. Below it
+    someone has written text on the wall, no longer
+    legible. On the concrete ground in front of the
+    building there are two rusty metal rods, each a
+    little taller than a mutant and with a metal ring
+    at the top.
+  - |
+    Shelter</h4>
+    A massive rusty metal door in the rockside leads
+    deep underground. Down there, the Ancients
+    sought refuge from the horrors on the surface. Now,
+    it’s a perfect place to look for artifacts. But who
+    knows what’s lurking down here, who else might
+    have found this dungeon full of treasure?
+  - |
+    Skyscraper</h4>
+    A tall building rises toward the yellow haze of the
+    Zone sky. The concrete is withered and broken, and
+    all of the hundreds of windows have fallen from
+    their frames long ago. Now, the Zone wind blows
+    right through the many floors of this majestic building.
+    Every floor is filled by small and identical apartments
+    or offices. Only the top floor looks different,
+    with bigger and more luxurious accommodations
+    – if you can get all the way up there…
+  - |
+    Sports Center</h4>
+    A large, spacious hall made of rusty corrugated
+    steel. Inside, there are strange objects like thick
+    mattresses covered in red plastic, large nets on
+    frames, clubs with holes in them and balls in all
+    colors and sizes. They say the Ancients went to
+    places like this to exercise.
+  - |
+    Suburbia</h4>
+    A street with identical small houses in even rows
+    on each side. The grass and bushes have withered
+    away long ago, everything is covered in ashes. Inside
+    the houses, decomposing clothes and other
+    personal items remain. The inhabitants must have
+    left in a hurry. Car wrecks, and other remains from
+    the Ancients who used to live here, abound. Much
+    has decayed over time and some of the houses have
+    completely collapsed.
+  - |
+    Subway Station</h4>
+    By a stairway leading down into the underground
+    a large sign with flaking paint hangs. All Stalkers
+    know what this sign means. This is an entrance to
+    the tunnels under the Zone. In the deeps, terrible
+    dangers await – but perhaps also many untouched
+    artifacts.
+  - |
+    Supermarket</h4>
+    A grand building rises among the ruins. Its large
+    windows were broken many decades ago, and the
+    Zone dust drifts in unhindered. Before the Fall, this
+    building housed an unimaginable amount of food,
+    drink, kitchen utensils and other things that the
+    Ancients consumed at a dizzying rate. Now, most
+    of it is looted, burnt or decayed.
+  - |
+    Swimming Hall</h4>
+    Inside this large ruin, there are big pools filled with
+    mud and slimy algae. Noxious and toxic fumes meet
+    anyone who enters. It’s hard to imagine that the
+    Ancients went here voluntarily to bathe in the pools.
+  - |
+    Tank</h4>
+    A massive and awe-inspiring metal vehicle blocks
+    the path. Its enormous tracks have rusted stuck
+    long ago and no death or destruction has spewed
+    out from its cannon for many decades, but coming
+    close to this metal beast still strikes fear into the
+    heart of almost any Zone wanderer.
+  - |
+    Theater</h4>
+    Inside of this dark ruin is a great hall, filled with
+    rows of seats facing a large stage with a grand red
+    curtain. The Ancients came here to see singing,
+    dancing and stage plays.
+  - |
+    Train Station</h4>
+    Ancient railway cars stand rusting on overgrown
+    tracks. In these, the Ancients used to travel quickly
+    and effectively all across the Zone and beyond. Now,
+    the only passengers are decaying corpses.
 
   ruins_industry:
-  - 1-3, Factory
-  - 4-6, Military Base
-  - 7-9, Oil Cistern
-  - 10-12, Pipeline
-  - 13-15, Purification Plant
-  - 16-18, Power Line
-  - 19-21, Radio Mast
-  - 22-24, Refinery
-  - 25-27, Rubbish Dump
-  - 28-30, Shipwreck
-  - 31-33, Shooting Range
-  - 34-36, Windmill
+  - |
+    1-3, Factory</h4>
+    The metal roof of this large, flat building has caved
+    in long ago. Inside, there are machines and strange
+    vehicles with huge forks in the front. Everything in
+    here is ravaged by decades of rain and wind. Some
+    rusty old barrels have fallen over and a greenish
+    sludge has leaked out onto the floor.
+  - |
+    4-6, Military Base</h4>
+    A large square courtyard with brick buildings on
+    each side. In the buildings, there are a great number
+    of identical rooms with metal bunk beds. Beyond
+    these buildings there is a large garage with several
+    burnt out vehicles inside.
+  - |
+    7-9, Oil Cistern</h4>
+    This large cylinder-shaped metal building has a
+    narrow stairway winding its way around the outside
+    wall, all the way to the top. Up there, you could
+    spot any threats from a safe distance. The building
+    contains a huge tank filled by a sticky, black liquid.
+    A Gearhead could use this as fuel. The problem is
+    just getting it out…
+  - |
+    10-12, Pipeline</h4>
+    A thick rusty metal pipe runs through this part of
+    the Zone. It’s wide enough for a mutant to crawl
+    through. The gas and oil has stopped flowing
+    through these pipes long ago. Now, they can only
+    serve as scrap.
+  - |
+    13-15, Purification Plant</h4>
+    The stench intensifies for each and every step closer
+    to this building. But Stalkers know that the smell of
+    decay can hide an invaluable treasure. These large
+    pools, tanks and machines purified the Ancients’
+    drinking water. Could there still be clean water in
+    any of the tanks?
+  - |
+    16-18, Power Line</h4>
+    A tall tower made of rusty metal beams rises into
+    the Zone sky. It has collapsed halfway up, and the
+    sharp spire has folded down toward the ground.
+    Thick cables, that once supplied electricity to the
+    entire Zone, now lie draped across the ground.
+  - |
+    19-21, Radio Mast</h4>
+    A tall metal mast rises high above the zonescape. It
+    is held up by thick metal wires, and at the top big
+    rusty antennae sprout. Once, wireless transmissions
+    were sent from here to the people of the Old Age,
+    for their amusement and education. Now, there is
+    nothing to hear but the Zone wind.
+  - |
+    22-24, Refinery</h4>
+    An entire landscape full of rusting and decaying
+    machinery covers this part of the Zone. Enormous
+    tanks are connected by metal tubes, some wide
+    enough for a mutant to crawl through. If you dare,
+    you can climb through these metallic deadlands on
+    ladders, girders and walkways.
+  - |
+    25-27, Rubbish Dump</h4>
+    A mountain of trash blocks your path. Here, the
+    Ancients dumped everything they didn’t need. Most
+    has been ground to dust by the passage of time,
+    but plastic items and large chunks of rusty metal
+    protrude from the heap.
+  - |
+    28-30, Shipwreck</h4>
+    A big rusty ship lies wrecked just off the shore, half
+    sunken beneath the waves. The empty portholes
+    make the ship look like a huge beached whale.
+    Could there still be useful scrap in the engine room?
+  - |
+    31-33, Shooting Range</h4>
+    Empty shell casings litter this large open area. In
+    one end, there is a large earthwork with lots of
+    pockmarks from bullets. In a shed close by there
+    are targets in the shape of humans and animals. In
+    the Old Age, they could afford to spend bullets on
+    shooting at paper figures.
+  - |
+    34-36, Windmill</h4>
+    A thin, white tower rises tall over the zonelands. At
+    the top, a huge propeller is mounted. They say the
+    Ancients started to build windmills like this one to
+    get energy when the oil in the ground started to run
+    out. It was much too late, of course.
 
   rot_level:
   - 1-2, 0 - Rot Oasis
