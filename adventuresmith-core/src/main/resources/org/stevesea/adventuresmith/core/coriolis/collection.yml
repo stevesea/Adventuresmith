@@ -4,4 +4,5 @@ icon: cmd_brightness_4
 groupedGenerators:
   asdf:
   - critical_injury
+  - critical_ship_damage
   - failed_portal_jump
