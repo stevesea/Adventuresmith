@@ -101,7 +101,7 @@ class ExplodingDiceGenerator( val myid: String,
         sb.append("$dStr: <big><strong>${nf.format(sum)}</strong></big><br/><br/>")
         sb.append(collected_rolls.map {
             it -> it.map {
-            it -> if ((eGreater > 0 && it >= eGreater) || (eEqual > 0 && it == eEqual)) "<strong>$it</strong>" else "$it"
+            it2 -> if ((eGreater > 0 && it2 >= eGreater) || (eEqual > 0 && it2 == eEqual)) "<strong>$it2</strong>" else "$it2"
         }.joinToString(", ", "[", "]")
         }.joinToString(" + <br/>"))
 
