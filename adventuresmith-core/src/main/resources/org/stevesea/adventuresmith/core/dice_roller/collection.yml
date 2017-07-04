@@ -39,4 +39,6 @@ groupedGenerators:
   - myz_1
   - myz_2
   - myz_3
-  - myz_4
+  - coriolis_1
+  - coriolis_2
+  - coriolis_3
