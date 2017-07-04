@@ -1,0 +1,7 @@
+id: coriolis
+icon: cmd_brightness_4
+
+groupedGenerators:
+  asdf:
+  - critical_injury
+  - failed_portal_jump

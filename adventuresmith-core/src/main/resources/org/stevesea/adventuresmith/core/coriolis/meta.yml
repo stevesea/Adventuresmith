@@ -1,0 +1,22 @@
+name: "Coriolis"
+credit: Fria Ligan
+url: "http://frialigan.se/en/games/coriolis/"
+
+groups:
+- name: asdf
+  uiName: asdf
+  icon: cmd_rocket
+attribution: |
+  <h4>Coriolis</h4>
+  <p>
+  <a href="http://www.drivethrurpg.com/product/204291/Coriolis--The-Third-Horizon-core-book">Coriolis: The Third Horizon core book on DrivethruRPG</a>
+  </p>
+  <p>
+  <a href="http://frialigan.se/en/games/coriolis/">Coriolis: The Third Horizon on Fria Ligan's Site</a>
+  </p>
+  <p>
+  <a href="http://freeleaguepublishing.com/">Free League Publishing</a>
+  </p>
+  <p>
+  © CORIOLIS™ Copyright© 2017 Paradox Interactive AB. All rights reserved. <a href="http://www.paradoxplaza.com">www.paradoxplaza.com</a>
+  </p>

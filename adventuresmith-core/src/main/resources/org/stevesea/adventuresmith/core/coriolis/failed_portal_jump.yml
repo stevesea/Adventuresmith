@@ -1,0 +1,30 @@
+---
+templates:
+- "{{failed_jump}}"
+
+definitions:
+  failed_jump: "%[[failed_jump_tbl.{{input.isblind}}]]%"
+
+nested_tables:
+  failed_jump_tbl:
+    # blind jumps add +1 to the 'tens' d6
+    yes:
+    - 7-8, The field absorbs the energy of the ship’s reactor. <br/><br/>The ship is disabled, requiring D6 days of repairs.
+    - 9-12, The ship enters the portal but is flung out again, after taking D6 points of damage.
+    - 13-16, The ship is hit by powerful discharges from the portal, suffering a -1 to Maneuverability until repaired in a dockyard.
+    - 17-22, The ship collides with another ship or some debris on its way into the portal. <br/><br/>This has the same effects as ramming (page 169).
+    - 23-27, The ship enters the portal and is lost there for D6 hours. <br/><br/>Then it returns, now haunted by something from beyond the Darkness. The GM decides the details.
+    - 28-31, The ship disappears into the portal for D6 days, but is then spat back out in the system it tried to leave. <br/><br/>One PC onboard suffers a Mania (page 337).
+    - 32-36, The ship disappears into the portal for D6 months, but is then spat back out in the system it tried to leave.
+    - 37-42, The ship enters the portal, but exits it in a random system.
+    no:
+    - 1-4, The ship enters the field at its very edge, causing explosive decompression in a random module.
+    - 5-8, The field absorbs the energy of the ship’s reactor. <br/><br/>The ship is disabled, requiring D6 days of repairs.
+    - 9-12, The ship enters the portal but is flung out again, after taking D6 points of damage.
+    - 13-16, The ship is hit by powerful discharges from the portal, suffering a -1 to Maneuverability until repaired in a dockyard.
+    - 17-22, The ship collides with another ship or some debris on its way into the portal. <br/><br/>This has the same effects as ramming (page 169).
+    - 23-27, The ship enters the portal and is lost there for D6 hours. <br/><br/>Then it returns, now haunted by something from beyond the Darkness. The GM decides the details.
+    - 28-31, The ship disappears into the portal for D6 days, but is then spat back out in the system it tried to leave. <br/><br/>One PC onboard suffers a Mania (page 337).
+    - 32-36, The ship disappears into the portal for D6 months, but is then spat back out in the system it tried to leave.
+
+
