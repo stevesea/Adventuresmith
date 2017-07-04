@@ -1,0 +1,176 @@
+---
+templates:
+- "{{factionaries_template}}"
+
+definitions:
+  factionaries_template: |
+    <h5>{{factionaries.name}} - {{factionaries.career}}</h5>
+    <strong>Quirk:</strong> {{factionaries.quirk}}
+    <br/><br/><strong>Faction:</strong> {{factionaries.faction}}
+    <br/><br/><strong>Goal:</strong> {{factionaries.goal}}
+
+
+nested_tables:
+  factionaries:
+    name:
+    - Yasmin Yriedes
+    - Yasmin Yriedes
+    - Wali Nimatallah
+    - Heroc Eliades
+    - Heroc Eliades
+    - Jira Hamura
+    - Ares Kleon
+    - Minna Jifha
+    - Minna Jifha
+    - Yusef Kander
+    - Ioanna Kouma
+    - Ioanna Kouma
+    - Niha Salumar
+    - Abdelar Zula
+    - Abdelar Zula
+    - Jasma Palu
+    - Skalide dol-Gara
+    - Skalide dol-Gara
+    - Ghano Birbasil
+    - Cyrus Izza
+    - Cyrus Izza
+    - Ariana Quassar
+    - Chemona Arianites
+    - Chemona Arianites
+    - Hija Goua
+    - Darkes Lamann
+    - Zamira Algrides
+    - Jassar Gherdo
+    - Yesiel Marcos
+    - Yesiel Marcos
+    - Sharif Afta
+    - Sharif Afta
+    - Balthuzar Mifti
+    - Hadassah Arias
+    - Yineve Siflak
+    - Herodes Gharifa
+    career:
+    - Diplomat
+    - Diplomat
+    - Bionic
+    - Reporter
+    - Reporter
+    - Actor
+    - Prospector
+    - Colonist
+    - Colonist
+    - Astronic
+    - Engineer
+    - Engineer
+    - Stevedore akbar
+    - Free trader
+    - Free trader
+    - Mercenary
+    - Corsair hunter
+    - Corsair hunter
+    - Gang akbar
+    - Spice peddler
+    - Spice peddler
+    - Bureaucrat
+    - Ex-judicator
+    - Ex-judicator
+    - Courtesan
+    - Slum poet
+    - Archaeologist
+    - Medicurg
+    - Buletin prophet
+    - Buletin prophet
+    - Missionary
+    - Missionary
+    - Martyr prophet
+    - Diplomat
+    - Warrior
+    - Mystic
+    quirk:
+    - Hoarse voice
+    - Hoarse voice
+    - Migraines
+    - Famous relatives
+    - Famous relatives
+    - Vain
+    - Hubris
+    - Gloomy
+    - Gloomy
+    - Cautious
+    - Practical
+    - Practical
+    - Never stops talking
+    - Cross-eyed
+    - Cross-eyed
+    - Cybernetic
+    - Quick
+    - Quick
+    - Suspicious
+    - Tattooed
+    - Tattooed
+    - Whispering voice
+    - Burn marks
+    - Burn marks
+    - Bigender
+    - Tattered clothes
+    - Cybernetic eye
+    - Bites lip
+    - Loud
+    - Loud
+    - Always smiling
+    - Always smiling
+    - Misanthropic
+    - Voice like honey
+    - Proud
+    - War paint
+    goal:
+    - Improve the rep of...
+    - Improve the rep of...
+    - Secure bionics for...
+    - Get a top scoop for...
+    - Get a top scoop for...
+    - Improve the ratings of...
+    - Secure new resources for...
+    - Map a new sector for...
+    - Map a new sector for...
+    - Get more funding from...
+    - Start new engineering projects for...
+    - Start new engineering projects for...
+    - Improve working conditions for...
+    - Get better free trader contracts for...
+    - Get better free trader contracts for...
+    - Take high-risk jobs for...
+    - Get more ship kills for...
+    - Get more ship kills for...
+    - Spread the influence of...
+    - Acquire new trade partners for...
+    - Acquire new trade partners for...
+    - Undermine the enemies of...
+    - Fight corruption within...
+    - Fight corruption within...
+    - Sign treaties for...
+    - Spread poetry for...
+    - Secure dangerous artifacts for...
+    - Prevent the spread of dangerous bionics for...
+    - Stop the mystic's disease for...
+    - Stop the mystic's disease for...
+    - Spread the true faith for...
+    - Spread the true faith for...
+    - Stop the Emissary for...
+    - Hinder rival factions for...
+    - Strengthen...
+    - Reveal the powers for...
+    faction:
+    - 1-3, the Consortium
+    - 4-6, the Bulletin
+    - 7-9, the Colonial Agency
+    - 10-12, the Foundation
+    - 13-15, the Free League
+    - 16-18, the Legion
+    - 19-21, the Syndicate
+    - 22-24, the Zenithian Hegemony
+    - 25-26, Ahlam's Temple
+    - 27-28, the Draconites
+    - 29-32, the Church of the Icons
+    - 33-34, the Order of the Pariah
+    - 35-36, the Nomad Federation

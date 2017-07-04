@@ -5,4 +5,5 @@ groupedGenerators:
   asdf:
   - critical_injury
   - critical_ship_damage
+  - factionaries
   - failed_portal_jump
