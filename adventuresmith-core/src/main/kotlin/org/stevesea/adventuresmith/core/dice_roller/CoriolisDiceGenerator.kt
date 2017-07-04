@@ -25,9 +25,7 @@ import org.stevesea.adventuresmith.core.Generator
 import org.stevesea.adventuresmith.core.GeneratorInputDto
 import org.stevesea.adventuresmith.core.GeneratorMetaDto
 import org.stevesea.adventuresmith.core.InputParamDto
-import org.stevesea.adventuresmith.core.RangeMap
 import org.stevesea.adventuresmith.core.Shuffler
-import org.stevesea.adventuresmith.core.titleCase
 import java.util.Locale
 
 class CoriolisDiceGenerator(
@@ -67,7 +65,7 @@ class CoriolisDiceGenerator(
         }
 
         val rollStrings = rolls.map { it ->
-            when(it) {
+            when (it) {
                 6 -> "<strong><big>6</big></strong>"
                 else -> it.toString()
             }
