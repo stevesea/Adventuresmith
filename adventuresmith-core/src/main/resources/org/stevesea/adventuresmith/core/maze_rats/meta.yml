@@ -5,7 +5,7 @@ url: "http://questingblog.com/maze-rats/"
 groups:
   - name: grpChar
     uiName: Characters & NPCs
-    icon: ion-android-people
+    icon: cmd-account-multiple
   - name: grpCity
     uiName: The City
     icon: cmd-castle

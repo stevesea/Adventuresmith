@@ -6,6 +6,9 @@ groups:
 - name: asdf
   uiName: asdf
   icon: cmd_rocket
+- name: characters
+  uiName: Characters
+  icon: cmd-account-multiple
 attribution: |
   <p>
   <a href="http://www.drivethrurpg.com/product/204291/Coriolis--The-Third-Horizon-core-book">Coriolis: The Third Horizon core book on DrivethruRPG</a>
