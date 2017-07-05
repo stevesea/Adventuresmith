@@ -1,0 +1,72 @@
+---
+templates:
+- "{{freelance_template}}"
+
+
+definitions:
+  freelance_template: |
+    <h5>{{freelance.agency}}</h5>
+    <strong>Contact:</strong> {{freelance.contact}}
+    <br/><br/><strong>Jobs:</strong> {{freelance.jobs}}
+
+nested_tables:
+  freelance:
+    agency:
+    - Under the Lotus
+    - Kifri's Courier Bureau
+    - Ermes Courier
+    - Zark Detectives
+    - Mimosa Problem-solvers
+    - BlackLion
+    - Algol Express
+    - the Yasara Firm
+    - Parrah Security
+    - Nevos Surveillance
+    - the Archaeology Bureau
+    - Tekne
+    - Hexagon Express
+    - Quiro
+    - Farrukh Cartographics
+    - Free Astrogation
+    - Xuro Security
+    - Last Chance
+
+    contact:
+    - Hamira Jedres
+    - Masomola Kifri
+    - Irfan Yriedes
+    - Danyala Zark
+    - Mara Mimosa
+    - Aslan Ferred
+    - Marida par-Chouli
+    - Yasara Salmi
+    - Memra Parrah-Kesbouli
+    - Alexindra Illudires
+    - Sahab Bouri
+    - Fihaz Nimatallah
+    - Bel Djabir
+    - Amado Quiro
+    - Farrukh Hasra
+    - Ninive Kalistides
+    - Amra Xuro-Dhal
+    - Harra Corena
+
+    jobs:
+    - Missing persons, adultery
+    - Sensitive information
+    - Express deliveries
+    - Discreet investigations on Coriolis
+    - Industrial espionage for sale
+    - Discreet courier missions and break-ins
+    - Express passenger and animal transport
+    - All kinds of investigations
+    - Security and crime proofing
+    - Patrol missions and personal security during travel
+    - Legal aid and equipment lending
+    - Technical surveillance/espionage
+    - Fast interstellar courier missions
+    - Hacking and security
+    - Cartography and building inspections
+    - Travel planning, freelance captains and pilotage
+    - Cargo protection and planetary courier missions
+    - Courier missions to unsafe systems

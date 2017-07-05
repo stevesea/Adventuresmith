@@ -8,3 +8,9 @@ groupedGenerators:
   characters:
   - critical_injury
   - factionaries
+  - merchants
+  - freelance
+  adv_seeds:
+  - conflict
+  - expeditions
+  - leisure

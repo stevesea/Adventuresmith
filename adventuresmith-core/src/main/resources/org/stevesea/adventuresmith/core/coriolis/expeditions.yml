@@ -1,0 +1,51 @@
+---
+templates:
+- "{{expeditions_template}}"
+
+
+definitions:
+  expeditions_template: |
+    {{expeditions.exped}}
+    <br/><br/><strong>Recent Event:</strong> {{expeditions.events}}
+
+nested_tables:
+  expeditions:
+    exped:
+    - The Foundation's research expedition to Z-29, Zhau
+    - The Kheram dig, led by Reader Seccra of the Foundation's Archaeological Institute
+    - The Harballa massif expedition on Surha
+    - The Foundation's second attempt at an astro-archaeological expedition to the Menkar monolith
+    - ARRCA sponsored investigation of the Awadhi Sunfan
+    - The Quassar institute's survey of the fusion spheres in Anaspora
+    - Sensor measuring on the Net veil that surrounds Izar in the Erequ system by the research vessel Doctor Zvijamin
+    - The Darba Institute's expedition to the Amedo-B stone figures
+    - Markadus' excavations in the Merkabra ravine on Dabaran
+    - The Zenithian Hegemony's excavation of the Monolith
+    - The Foundation and the Colonial Agency's digs in the ruined city of Kah in the Kuan jungles
+    - The lava fields on Ghoasa being excavated by the Church of the Icons
+    - Spectrosensory measuring of the Wound from the Madaba research dome on Dabaran
+    - The expedition to the Kuan north pole to research the energy sphere, sponsored by the Foundation's Astronics Institute
+    - The investigation of the round temple on Ahm-Salim by  Industrial Algebra
+    - The excavation of the perfect labyrinth in the Kuan Heera crater by Fermal-Garoud's Mathematical Institute from Dabaran
+    - The excavations of the sand fields near the Mahanji oasis on Lubau
+    - Astro-archaeological investigations of the Armada of the Firstcome in the Border Space
+
+    events:
+    - Professor Gifri has found something in Area Xertes. The site has been locked down.
+    - Corsairs have raided the site. The survivors await rescue.
+    - The expedition was lost in an ice storm
+    - Native colonists sabotaged the expedition's base camp to try and stop them
+    - Freelancers with powerful sensors have breached the no-fly zone several times
+    - A sphere has just imploded, causing much distress on the nearby asteroid stations
+    - Local fanatics jam the sensors supported by the Order of the Pariah through Faysal's Veil
+    - One of the figures seems to be collapsing after an experiment on the site
+    - The local nomads have begged the nearby dar to stop the dig
+    - The project has been permanently canceled since one expedition team disappeared
+    - Dig Chief N'issa Khaba has gone missing in the jungles
+    - The camp has been sabotaged. The Church blames the Order of the Pariah.
+    - An unknown group has kidnapped Chief Surveyor Janos Mediz
+    - The expedition's funding has been suspended, rumors say on Consortium orders
+    - The Hegemonists and the Astûrban have harassed the expedition
+    - Three archaeologists have disappeared in the maze, leaving a curious artifact behind
+    - Prospectors have discovered a petroleum field right next to the dig site
+    - The Legion have set up a blockade around the entire ship  cemetery

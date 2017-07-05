@@ -1,0 +1,51 @@
+---
+templates:
+- "{{leisure_template}}"
+
+
+definitions:
+  leisure_template: |
+    <h5>{{leisure.destination}}</h5>
+    <strong>Known for:</strong> {{leisure.known_for}}
+
+nested_tables:
+  leisure:
+    destination:
+    - The Sofia Gora monastery, Border Space
+    - The Icon City on Mira
+    - The Temple City on Dabaran
+    - The Crater Dome on Algol
+    - The Dome of the Icons on Coriolis
+    - Mount Arjjat in Ordana B
+    - The Stairs of Kensa on Zanjire in the Altai system
+    - Cala Duriha in orbit above Jina
+    - Ahm-Salim on Kua
+    - The Quassars' opera house, the Monolith
+    - The Cloud City on Dabaran
+    - The white island temple on Amedo
+    - The emerald Korruvat lake on Sadaal
+    - The Alburz Icon on Sadaal
+    - The bazaar of Akhandar on Algol
+    - The Graveyards on Lubau
+    - The festival of the nomads on Djachroum
+    - The Yamra bazaar in Dar Sour
+
+    known_for:
+    - A glass mosaic that is a mathematical wonder
+    - The floating Icon dome on Huraba's Blessing
+    - The oasis garden in the holy temple of Baryla
+    - The prayer tower designed by Yassa dol-Gardi
+    - The Ghoasan mud temple under the dome
+    - The slumbering prophet at the mountaintop
+    - The bleeding preachers of Darikos
+    - Gambling den and theater asteroid
+    - Beach resort for vacationing Hegemonists
+    - Blood operas, ”Nadir” being the most famous
+    - Hovercraft racing, shah tournaments and gambling
+    - Hike and boat pilgrimage with refreshing baths
+    - Healing hot springs
+    - Masked dancers and long parades
+    - The elephant market and the fire festival
+    - Exo jumping, grav surfing and injector racing
+    - Gambling, comedy and showmanship in the Cave of Bridges
+    - Beautiful fabrics, luxuries and fantastic cuisine

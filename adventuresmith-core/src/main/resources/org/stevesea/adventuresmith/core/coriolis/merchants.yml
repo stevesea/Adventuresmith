@@ -1,0 +1,63 @@
+---
+templates:
+- "{{merchants_template}}"
+
+
+definitions:
+  merchants_template: |
+    <h5>{{merchants.name}}</h5>
+    <strong>Trading in:</strong> {{merchants.trading_in}}
+    <br/><br/><strong>Reputation:</strong> {{merchants.reputation}}
+
+nested_tables:
+  merchants:
+    name:
+    - Aldair Jubal, Jubal Exports & Imports
+    - Abdul Nasr, the Free League
+    - Lea Marhoun, Zenithian Trade Alliance
+    - Mukthar Sawalla, Hyperion Logistics
+    - Jiamina Mafout, Kuan Transports
+    - Azura Behroz, Karrmerruk Spices
+    - Darya din Kouf, Monolith Lux
+    - Bahram Karebadja, Algol Exports
+    - Hashmari Nifara, Chelebs
+    - Nikodreas Ferhad, Hazeram Trade
+    - Amarata Yelizina, Dari Yeliz Exports
+    - Heliotres din Nestera, Nestera Foods
+    - Mustafar dol-Hrama, MustafarTrade
+    - Hatima Shamaz, ShamazXport
+    - Chelona Mirou, Xpress
+
+    trading_in:
+    - Spices, drugs, weapons
+    - Technological artifacts
+    - Antiquities and archaeological findings
+    - Bulk hauling
+    - Lumber, semi-intelligences, livestock
+    - Spices, grain
+    - Luxuries, art
+    - Ore, industrial products
+    - Gravity projectors, hi-tech
+    - Noble gases, ship tech
+    - Wine, luxuries, foods
+    - Foods, luxuries, medicines
+    - Ore, chemicals, hi-tech
+    - Hi-tech
+    - Metals, minerals, art
+
+    reputation:
+    - No scruples
+    - Good smuggler contacts
+    - Good customer network
+    - Syndicate middleman
+    - Fair trader
+    - Blunt
+    - Tries to scam everybody
+    - Alleged drug runner
+    - Always looking for fac-tech
+    - Always masked
+    - Posh
+    - Contacts in the weapons industry
+    - Hegemonist intermediary
+    - Artifact smuggler
+    - Fast ships

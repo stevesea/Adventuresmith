@@ -1,0 +1,72 @@
+---
+templates:
+- "{{conflict_template}}"
+
+
+definitions:
+  conflict_template: |
+    <h5>{{conflict.conflict}}</h5>
+    <strong>Participants:</strong> {{conflict.participants}}
+    <br/><br/><strong>Location:</strong> {{conflict.location}}
+
+nested_tables:
+  conflict:
+    conflict:
+    - The Slum rebellion
+    - The Jungle war
+    - The Uharan offensive
+    - Haven
+    - The Marrab cluster
+    - The Quiet war
+    - The War on Heresy
+    - The Bahtrol revolt
+    - The Slaver hunt
+    - The Bokor plague
+    - The Hydran uprising
+    - The Water wars
+    - The Iron conflict
+    - The War of Honey
+    - The marsh conflict
+    - The Fire graves
+    - The Ordana occupation
+    - The Corsair crisis
+
+    participants:
+    - 3rd Popular Brigade and Nestera defense forces
+    - Mercenary group Azza and the Legion
+    - Mercenaries and the Legion
+    - General Yihanna, the Alkarra army and the Colonial Agency
+    - The nomad swarms and the prospector clans
+    - Djachroum and the Consortium/Legion
+    - The Order of the Pariah and the Zalos-B heretics
+    - The nomads of Lubau and the Colonial Agency
+    - The Slavers and the Consortium
+    - The Bokor corsairs and mercenaries
+    - The Hydra flotilla and the Legion
+    - Countess Evarides and the Pasha of Dar Bhouti
+    - The Tufsur emirate and the Consortium
+    - Sadaalian free skippers and Dziban the Mematurg
+    - The swamp nomads and the Iconocrate
+    - Mercenaries and the Legion
+    - The Leopards of Ayyutta and the Ayuin cartel
+    - The Altai corsairs and the Consortium
+
+    location:
+    - The Conglomerate, Kua
+    - Kua
+    - The forest moons of Uharu
+    - Algol
+    - Border Space
+    - Border Space
+    - Zalos-B
+    - Lubau
+    - Tanzim, Algol
+    - Anaspora
+    - The circle of Dabaran
+    - Dabaran
+    - Algebar
+    - Errais asteroid belt
+    - Sadaal
+    - Pyre, Uharu
+    - The Quadrant of the Pillar
+    - The Quadrant of the Pillar

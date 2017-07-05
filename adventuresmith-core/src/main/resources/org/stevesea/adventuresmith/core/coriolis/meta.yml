@@ -9,6 +9,9 @@ groups:
 - name: characters
   uiName: Characters
   icon: cmd-account-multiple
+- name: adv_seeds
+  uiName: Adventure Seeds
+  icon: cmd-run
 attribution: |
   <p>
   <a href="http://www.drivethrurpg.com/product/204291/Coriolis--The-Third-Horizon-core-book">Coriolis: The Third Horizon core book on DrivethruRPG</a>
