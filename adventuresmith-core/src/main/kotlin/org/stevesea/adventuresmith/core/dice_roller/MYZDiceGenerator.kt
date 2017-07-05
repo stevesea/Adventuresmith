@@ -92,8 +92,6 @@ class MYZDiceGenerator(
         MYZ_DIE_MAP.forEach {
             val n = inputMapForContext.getOrElse(it.key) { "0" }.toString().toInt()
             if (n > 0) {
-                val curDice = "$n "
-
                 val sb = StringBuilder()
 
                 // TODO: font doesn't work in IconicsTextView. How to have both icons and color?!?!?
