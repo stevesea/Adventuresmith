@@ -172,7 +172,7 @@ class AdventuresmithActivity : AppCompatActivity(),
                     }
                 }) as FastItemAdapter<ResultItem>
 
-        res.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
+        res.itemFilter.withFilterPredicate(object : IItemAdapter.Predicate<ResultItem> {
             override fun filter(item: ResultItem?, constraint: CharSequence?): Boolean {
                 if (item == null || constraint.isNullOrBlank())
                     return false
@@ -189,7 +189,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         FastItemAdapter<GeneratorButton>()
                 .withSelectable(false)
                 .withPositionBasedStateManagement(true)
-                .withItemEvent(object : ClickEventHook<GeneratorButton>(), EventHook<GeneratorButton> {
+                .withEventHook(object : ClickEventHook<GeneratorButton>(), EventHook<GeneratorButton> {
                     override fun onBind(viewHolder: RecyclerView.ViewHolder): View? {
                         if (viewHolder is GeneratorButton.ViewHolder) {
                             return viewHolder.btnSettings

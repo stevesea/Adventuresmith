@@ -36,7 +36,7 @@ androidGitVersion {
 }
 
 ext {
-    androidSupportVersion = '25.3.1'
+    androidSupportVersion = '25.4.0'
     ankoVersion = '0.9.1'
 }
 
@@ -147,7 +147,7 @@ dependencies {
     }
 
     compile "com.mikepenz:fastadapter:$fastadapter_version"
-    compile "com.mikepenz:fastadapter-commons:$fastadapter_version"
+    compile "com.mikepenz:fastadapter-commons:$fastadapter_commons_version"
     compile "com.mikepenz:fastadapter-extensions:$fastadapter_extensions_version"
 
     compile "com.mikepenz:materialize:$materialize_version"
