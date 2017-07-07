@@ -2,15 +2,15 @@ id: coriolis
 icon: cmd_brightness_4
 
 groupedGenerators:
-  asdf:
-  - critical_ship_damage
-  - failed_portal_jump
   characters:
-  - critical_injury
   - factionaries
   - merchants
   - freelance
+  - critical_injury
   adv_seeds:
-  - conflict
   - expeditions
   - leisure
+  - failed_portal_jump
+  - coriolis_encounters
+  - critical_ship_damage
+  - conflict

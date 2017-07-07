@@ -1,0 +1,413 @@
+templates:
+- "{{encounter_template}}"
+
+definitions:
+  encounter_template: |
+    <h5>%[[{{input.location}}.name]]% - %[[{{input.location}}.profession]]%</h5>
+    <strong>Characteristics:</strong> %[[{{input.location}}.characteristics]]%
+    <br/><br/><strong>Activity:</strong> %[[{{input.location}}.activity]]%
+    <br/><br/><strong>Motivation:</strong> %[[{{input.location}}.motivation]]%
+
+
+nested_tables:
+  Spaceport:
+    name:
+    - Rawa
+    - Dafor
+    - Ibramir
+    - Mirah
+    - Zarah
+    - Abselem
+    profession:
+    - Stevedore
+    - Guard
+    - Street peddler
+    - Traveler
+    - Street preacher
+    - Merchant
+    characteristics:
+    - Sweaty
+    - Scratches nose
+    - Rolls eyes
+    - Nervous
+    - Angry
+    - Smells of arrash
+    activity:
+    - Searching
+    - Has a job to do
+    - In a hurry
+    - Looking for a bargain
+    - Preaching loudly
+    - Looking for an opportunity
+    motivation:
+    - Love
+    - Sweet, sweet birr
+    - A secret
+    - Debt
+    - Salvation
+    - Living true
+  Spice_Plaza:
+    name:
+    - Yosoufa
+    - Melkar
+    - Simah
+    - Nastassia
+    - Hewul
+    - White Eye
+    profession:
+    - Khabara (broker)
+    - Animal trader
+    - Pastry chef
+    - Baker
+    - Servant
+    - Ekilibri
+    characteristics:
+    - Looking for a profit
+    - Wrinkled
+    - Proud
+    - Clicks tongue
+    - Chews lip
+    - Huggy
+    activity:
+    - Having a bad day
+    - Looking for a runaway animal
+    - On a delivery
+    - Is baking something
+    - Carrying an important package
+    - Looking for food
+    motivation:
+    - A contract
+    - Finding a lost protégé
+    - Renown
+    - A win
+    - Obedience
+    - The pack
+  Spring_Plaza:
+    name:
+    - Loma
+    - Samrat
+    - Koanah
+    - Almaki
+    - Hamsha
+    - Mouno
+    profession:
+    - Acrobat
+    - Historian
+    - Writer
+    - Poet
+    - Singer
+    - Archaeologist
+    characteristics:
+    - Full-body tattoos
+    - Scratches beard
+    - Smells of myrrh
+    - Intense stare
+    - Covered in bells
+    - Stressed
+    activity:
+    - Putting on a show
+    - Is in doubt
+    - Doing research
+    - Reciting poems
+    - Flirts
+    - Searching
+    motivation:
+    - Fame
+    - Academic honesty
+    - The next book
+    - Vengeance
+    - Birr
+    - An artifact
+
+  Market_Plaza:
+    name:
+    - Uwana
+    - Ithane
+    - Lippo
+    - Poharo
+    - Kam-kam
+    - Grrrah
+    profession:
+    - Peddler
+    - Waiter
+    - Waba
+    - Storyteller
+    - Tourist
+    - Skavara
+    characteristics:
+    - Wrinkled
+    - Pleasantly perfumed
+    - Twitchy
+    - Toothless grin
+    - Wide-eyed
+    - Angry
+    activity:
+    - Smiling smoothly
+    - Working
+    - Shop-lifting
+    - Smoking a hookah
+    - Shopping
+    - On the run
+    motivation:
+    - Survival
+    - Her children
+    - Thrills
+    - To entertain
+    - See the Horizon
+    - Freedom!
+  Ozone_Plaza:
+    name:
+    - Shamzad
+    - Ewanje
+    - Okane
+    - Kamriza
+    - Chikchik
+    - Yala
+    profession:
+    - Thug
+    - Tattoo artist
+    - Enforcer
+    - Legionnaire
+    - Macaque
+    - Smuggler
+    characteristics:
+    - White makeup
+    - Fluorescent tattoos
+    - Huge
+    - Cybernetic eye
+    - Chatters
+    - Baggy clothes
+    activity:
+    - Glaring
+    - Drinking
+    - On a job
+    - On guard
+    - Picking pockets
+    - Searching
+    motivation:
+    - Status
+    - Debt
+    - Pride
+    - The comrades in the Legion
+    - Loot
+    - Birr
+  Core_Plaza:
+    name:
+    - Dashani
+    - Mweki
+    - Aaryan
+    - Parishad
+    - Jahanara
+    - Markudh
+    profession:
+    - Courtesan
+    - Diplomat
+    - Bureaucrat
+    - Speculator
+    - Courier
+    - Merchant
+    characteristics:
+    - Graceful
+    - Golden
+    - Sweaty
+    - Fiddles with hair
+    - Wiry
+    - Tanned
+    activity:
+    - On a walk
+    - Going somewhere
+    - Is panicking
+    - Reading
+    - On a delivery
+    - Haggling
+    motivation:
+    - Siblings
+    - Lust
+    - Lost tag
+    - A better tomorrow
+    - Family
+    - Wealth
+
+
+  University_District:
+    name:
+    - Jiwanna
+    - Sarfan
+    - Moahala
+    - Sammi
+    - Trehore
+    - Feryaab
+    profession:
+    - Student
+    - Teacher
+    - Graduate student
+    - Day laborer
+    - Activist
+    - Professor
+    characteristics:
+    - Dances sitting down
+    - Absent-minded
+    - Sweet tooth
+    - Smokes arrash
+    - Stubborn
+    - Portly
+    activity:
+    - Studying
+    - Hurrying to class
+    - On a snack break
+    - Relaxing
+    - Chanting
+    - Reading
+    motivation:
+    - Party
+    - Knowledge
+    - To achieve
+    - Taking it easy
+    - Change
+    - Power
+  The_Spire:
+    name:
+    - Khamaani
+    - Lasamsen
+    - Oenti
+    - Qun
+    - Xerxes
+    - Devenah
+    profession:
+    - Diplomat
+    - Servant
+    - Ambassador
+    - Courtesan
+    - Rich brat
+    - Royal successor
+    characteristics:
+    - Big hair
+    - Old-fashioned uniform
+    - Masked
+    - Uses hand fan
+    - Oily hair, tanned
+    - Sequined clothes
+    activity:
+    - Walking
+    - On an errand
+    - Conspiring
+    - Watching
+    - Mocking
+    - Mingling
+    motivation:
+    - Rank
+    - Loyalty
+    - Personal gain
+    - Vengeance
+    - Become like daddy
+    - Make a difference
+
+  The_Cellar:
+    name:
+    - Fero
+    - Mako
+    - Lubub
+    - Renaveh
+    - Letui
+    - Humgurrl
+    profession:
+    - Maintenance technician
+    - Party animal
+    - Thief
+    - Revolutionary
+    - Smuggler
+    - Nekatra
+    characteristics:
+    - Hums constantly
+    - Strung out
+    - Long hair
+    - Red guttrah
+    - Fiddles with carbine
+    - Matted fur, growls
+    activity:
+    - Repairing something
+    - Trying to get home
+    - Stealing something
+    - Hiding
+    - Loading cargo
+    - Looking for food
+    motivation:
+    - Vacation
+    - A nice kabab
+    - Return home
+    - Justice
+    - Kohôl
+    - Survival
+
+  The_Net:
+    name:
+    - Fumarra
+    - Mouffat
+    - Lamsirala
+    - Yrseh
+    - Bouwoq
+    - Aeleni
+    profession:
+    - Stevedore
+    - Pilot
+    - Deckhand
+    - Pilot on a bender
+    - Smuggler
+    - Captain
+    characteristics:
+    - Mocks everyone
+    - Grumpy, mumbles
+    - Inquisitive
+    - Unwashed
+    - Mean stare
+    - Tall
+    activity:
+    - On a break
+    - Preparing for the next job
+    - Looking for work
+    - Drinking
+    - Loading cargo
+    - Making repairs
+    motivation:
+    - Having fun
+    - Getting a ship
+    - Adventure
+    - Revenge
+    - Birr
+    - The crew
+  Guards_And_Judicators:
+    name:
+    - Lefner
+    - Menjah
+    - Kander
+    - Jour
+    - Ninhe
+    - Alexis
+    profession:
+    - Guard
+    - Guard
+    - Inspector
+    - Guard
+    - Judicator
+    - Judicator
+    characteristics:
+    - Moustache, scarred
+    - Gang tattoo
+    - Hollow-eyed
+    - Medals on the uniform
+    - Tall
+    - Red cape
+    activity:
+    - Looking menacing
+    - Making friendly small talk
+    - Eating
+    - Accepting a bribe
+    - On the lookout
+    - Making an arrest
+    motivation:
+    - Power
+    - Duty
+    - Retirement
+    - Birr
+    - The law
+    - The people

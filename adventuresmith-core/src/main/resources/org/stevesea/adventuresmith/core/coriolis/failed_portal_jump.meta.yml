@@ -3,7 +3,6 @@ name: Failed Portal Jump
 input:
   displayTemplate: "Blind jump: {{isblind}}"
   params:
-  # original param 'damageDie' was single number. v2 makes that a NdM
   - name: isblind
     uiName: Is Blind?
     helpText: Was it a blind jump?

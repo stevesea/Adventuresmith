@@ -1,0 +1,22 @@
+---
+name: Encounters on Coriolis
+
+input:
+  displayTemplate: "Location: {{location}}"
+  params:
+  - name: location
+    uiName: Location
+    helpText: Location on Coriolis
+    defaultValue: Spaceport
+    values:
+    - Spaceport
+    - Spice_Plaza
+    - Spring_Plaza
+    - Market_Plaza
+    - Ozone_Plaza
+    - Core_Plaza
+    - University_District
+    - The_Spire
+    - The_Cellar
+    - The_Net
+    - Guards_And_Judicators
