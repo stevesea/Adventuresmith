@@ -78,8 +78,8 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
         } else {
             throw IllegalArgumentException("don't know how to select thing of type " + thing.javaClass)
         }
-
     }
+
     fun pickD(diceStr: String, items: RangeMap) : String {
         try {
             return items.select(roll(diceStr))
@@ -92,7 +92,7 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
     fun <T> pickD(diceStr: String, items: Collection<T>): T {
         // use mod to ensure our index is within the acceptable range for the collection
         // dice are 1-based, list indexes are 0-based so subtract 1
-        return items.elementAt(roll(diceStr) % items.size - 1)
+        return items.elementAt((roll(diceStr) - 1) % items.size)
     }
 
     fun roll(diceStr: String) : Int = diceParser.roll(diceStr)
