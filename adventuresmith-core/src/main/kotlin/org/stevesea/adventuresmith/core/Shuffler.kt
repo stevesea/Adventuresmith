@@ -90,12 +90,12 @@ class Shuffler(override val kodein: Kodein) : KodeinAware, KLoggable {
     }
 
     fun <T> pickD(diceStr: String, items: Collection<T>): T {
-        // dice are 1-based, list indexes are 0-based so subtract 1
+        // dice are 1-based, list indexes are 0-based so subtract 1.
         // then clamp the dice roll to the acceptable range
         var ind = roll(diceStr) - 1
         if (ind < 0)
             ind = 0
-        if (ind > items.size - 1)
+        else if (ind > items.size - 1)
             ind = items.size - 1
         return items.elementAt(ind)
     }
