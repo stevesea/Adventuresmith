@@ -1,0 +1,59 @@
+---
+templates:
+- "{{gg_template}}"
+
+imports:
+- sysgen_planet
+
+definitions:
+
+  # pop: use D6
+  # moons: 3D6, generate as planets. limit to 5km size
+  gg_template: |
+    <h5>Gas Giant</h5>
+    <strong>Size:</strong> {{gas_giant.size}} &nbsp;&nbsp;<strong>Color:</strong> {{gas_giant.color}}
+    <br/><br/><strong>Temperature:</strong> {{gas_giant.temp}}
+    <br/><br/><strong>Characteristics:</strong> {{gas_giant.characteristics}}
+    <br/><br/><strong>Population:</strong> {{>pick: 1d6 planet.population}}
+
+    {{>repeat: 3d6 %[[gg_moon_template]]%}}
+
+  gg_moon_template: |
+    <h6>Moon</h6>
+
+
+
+
+nested_tables:
+  gas_giant:
+    size:
+    - 2, 40,000 km
+    - 3, 60,000 km
+    - 4, 100,000 km
+    - 5-9, 150,000 km
+    - 10-11, 200,000 km
+    - 12, 250,000 km
+    color:
+    - 2, White
+    - 3, Shimmering grey
+    - 4-6, Sulphur yellow
+    - 7-9, Red orange
+    - 10, Emerald green
+    - 11, Azure blue
+    - 12, Black
+    temp:
+    - 2-6, -200 Celsius
+    - 7, 0 Celsius
+    - 8-9, 500 Celsius
+    - 10, 1,000 Celsius
+    - 11, 2,000 Celsius
+    - 12, 3,000 Celsius
+    characteristics:
+    - 2-3, Rings
+    - 4-6, Storms
+    - 7-8, Spot/super storm
+    - 9-10, Warm/cold hole
+    - 11, Gas creatures
+    - 12, Artifact in orbit
+
+

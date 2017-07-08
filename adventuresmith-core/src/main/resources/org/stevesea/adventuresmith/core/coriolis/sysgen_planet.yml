@@ -1,0 +1,18 @@
+---
+definitions:
+  pick_population:     |
+     #planet sizes 1-3, -4 to population
+
+nested_tables:
+  planet:
+    population:
+    - 2, Uninhabited
+    - 3, Abandoned outpost
+    - 4, Outpost
+    - 5, A few hundred inhabitants
+    - 6-7, A few thousand inhabitants
+    - 8-9, Tens of thousands of inhabitants
+    - 10-11, Hundreds of thousands of inhabitants
+    - 12, Millions of inhabitants
+
+

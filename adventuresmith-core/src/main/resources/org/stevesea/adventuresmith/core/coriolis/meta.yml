@@ -9,6 +9,9 @@ groups:
 - name: adv_seeds
   uiName: Adventure Seeds
   icon: cmd_rocket
+- name: sys_gen
+  uiName: System Generators
+  icon: cmd_chart_bubble
 attribution: |
   <p>
   <a href="http://www.drivethrurpg.com/product/204291/Coriolis--The-Third-Horizon-core-book">Coriolis: The Third Horizon core book on DriveThruRPG</a>

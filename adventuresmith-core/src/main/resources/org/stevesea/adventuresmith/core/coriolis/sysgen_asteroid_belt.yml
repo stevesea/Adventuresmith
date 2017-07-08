@@ -1,0 +1,39 @@
+---
+templates:
+- "{{asteroid_belt_template}}"
+
+imports:
+- sysgen_planet
+
+definitions:
+  asteroid_belt_template: |
+    <h5>Asteroid Belt</h5>
+    <strong>Size:</strong> {{asteroid_belt.size}}
+    <br/><br/><strong>Composition:</strong> {{asteroid_belt.composition}}
+    <br/><br/><strong>Characteristics:</strong> {{asteroid_belt.characteristics}}
+    <br/><br/><strong>Population:</strong> {{>pick: 2d6-4 planet.population}}
+
+
+nested_tables:
+  asteroid_belt:
+    size:
+    - 1, Small ring, smaller than the diameter of a planet (5-10,000 km)
+    - 2-4, Regular, about 1-2 AU wide
+    - 5, Massive, 10 AU wide and high. Blocks sunlight to the outer planets.
+    - 6, Scattered, 20+ AU wide.
+    composition:
+    - 1, Dust/ash
+    - 2, Ice
+    - 3-5, Gravel and ice
+    - 6, Debris, wrecks and planet remains
+    characteristics:
+    - 2, The belt is almost as black as the Dark between the Stars and difficult to maneuver through.
+    - 3, The belt is very bright and is always visible in the sky, even during the day.
+    - 4, A larger planet sits in the middle of the belt.
+    - 5-8, Nothing special.
+    - 9, The belt is at an odd angle from the rest of the planets’ courses.
+    - 10, The belt is home to vacuum beings.
+    - 11, The belt’s size fluctuates over the segments, like the tide.
+    - 12, The belt contains many Portal Builder remains.
+
+
