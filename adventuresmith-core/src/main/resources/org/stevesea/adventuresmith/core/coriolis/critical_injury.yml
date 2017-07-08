@@ -1,39 +1,201 @@
 ---
 templates:
- - Wind Knocked Out
- - Disorientated
- - Sprained Wrist
- - Sprained Ankle
- - Concussion
- - Bruised Lower Leg
- - Broken Nose
- - Broken Fingers
- - Broken Toes
- - Teeth Knocked Out
- - Groin Hit
- - Dislocated Shoulder
- - Broken Ribs
- - Broken Arm
- - Broken Leg
- - Shredded Ear
- - Gouged Eye
- - Punctured Lung
- - Lacerated Kidney
- - Crushed Foot
- - Crushed Elbow
- - Crushed Knee
- - Crushed Face
- - Pierced Intestines
- - Broken Spine
- - Broken Neck
- - Bleeding Gut
- - Internal Bleeding
- - Severed Artery (Arm)
- - Severed Artery (Leg)
- - Destroyed Arm
- - Destroyed Leg
- - Severed Jugular
- - Severed Aorta
- - Pierced Heart
- - Crushed Skull
- - Atypical Damage
+ - |
+    <h5>Wind Knocked Out</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn.
+    <br/><br/><strong>Heal Time:</strong> -
+ - |
+    <h5>Disorientated</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn.
+    <br/><br/><strong>Heal Time:</strong> -
+ - |
+    <h5>Sprained Wrist</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Drops held item, then -1 to RANGED COMBAT and MELEE COMBAT.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Sprained Ankle</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Falls down, then -1 to DEXTERITY and INFILTRATION.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Concussion</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -1 to all advanced skills.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Bruised Lower Leg</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Falls down, then -1 to DEXTERITY and INFILTRATION.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Broken Nose</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to MANIPULATION.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Broken Fingers</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Drops held item, then -2 to RANGED COMBAT and MELEE COMBAT.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Broken Toes</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to DEXTERITY and INFILTRATION.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Teeth Knocked Out</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to MANIPULATION.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Groin Hit</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong>Stunned for two turns, then 1 point of damage per FORCE,
+                                      DEXTERITY, and MELEE COMBAT test.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Dislocated Shoulder</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -3 to FORCE and MELEE COMBAT.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Broken Ribs</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to DEXTERITY and MELEE COMBAT.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Broken Arm</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -3 to RANGED COMBAT and MELEE
+                                       COMBAT.
+    <br/><br/><strong>Heal Time:</strong> 3D6
+ - |
+    <h5>Broken Leg</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Falls down, then Movement Rate halved, and -2 to DEXTERITY
+                                       and INFILTRATION.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Shredded Ear</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to OBSERVATION. Permanent ugly
+                                       scar.
+    <br/><br/><strong>Heal Time:</strong> 3D6
+ - |
+    <h5>Gouged Eye</h5>
+    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> - 
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to RANGED COMBAT and
+                                       OBSERVATION.
+    <br/><br/><strong>Heal Time:</strong> 3D6
+ - |
+    <h5>Punctured Lung</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -3 to DEXTERITY.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Lacerated Kidney</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <br/><br/><strong>Effect:</strong> Stunned for two turns, then 1 point of damage per FORCE,
+                                       DEXTERITY, or MELEE COMBAT test.
+    <br/><br/><strong>Heal Time:</strong> 3D6
+ - |
+    <h5>Crushed Foot</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <br/><br/><strong>Effect:</strong> Falls over, then Movement Rate halved, and -3 to DEXTERITY and
+                                       INFILTRATION.
+    <br/><br/><strong>Heal Time:</strong> 4D6
+ - |
+    <h5>Crushed Elbow</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then -2 to FORCE and MELEE COMBAT. No
+                                       use of two-handed weapons.
+    <br/><br/><strong>Heal Time:</strong> 4D6
+ - |
+    <h5>Crushed Knee</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, falls over, then Movement Rate halved,
+                                       and -3 to DEXTERITY and INFILTRATION.
+    <br/><br/><strong>Heal Time:</strong> 4D6
+ - |
+    <h5>Crushed Face</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -2 to MANIPULATION.
+    <br/><br/><strong>Heal Time:</strong> 4D6
+ - |
+    <h5>Pierced Intestines</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <br/><br/><strong>Effect:</strong> Stunned for one turn, then 1 point of damage per hour until first
+                                       aid is administered.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Broken Spine</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then paralyzed from the waist down.
+                                       Unless medical aid is given during the healing time, the paralysis
+                                       becomes permanent.
+    <br/><br/><strong>Heal Time:</strong> 4D6
+ - |
+    <h5>Broken Neck</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then paralyzed from the neck down.
+                                       Unless medical aid is given during the healing time, the paralysis
+                                       becomes permanent.
+    <br/><br/><strong>Heal Time:</strong> 4D6
+ - |
+    <h5>Bleeding Gut</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> 1 point of damage per turn until first aid is given.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Internal Bleeding</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then 1 point of damage per FORCE,
+                                       DEXTERITY, or MELEE COMBAT test.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Severed Artery (Arm)</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -1 to DEXTERITY.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Severed Artery (Leg)</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -2 to DEXTERITY.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Destroyed Arm</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -2 to DEXTERITY. The arm is permanently
+                                       lost. No use of two-handed weapons.
+    <br/><br/><strong>Heal Time:</strong> 3D6
+ - |
+    <h5>Destroyed Leg</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -2 to DEXTERITY. The leg is permanently
+                                       lost. Movement Rate is halved.
+    <br/><br/><strong>Heal Time:</strong> 3D6
+ - |
+    <h5>Severed Jugular</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -1 to DEXTERITY.
+    <br/><br/><strong>Heal Time:</strong> D6
+ - |
+    <h5>Severed Aorta</h5>
+    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <br/><br/><strong>Effect:</strong> Unconscious D6 hours, then -2 to DEXTERITY.
+    <br/><br/><strong>Heal Time:</strong> 2D6
+ - |
+    <h5>Pierced Heart</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <br/><br/><strong>Effect:</strong> Your heart beats one final time. Create a new PC.
+    <br/><br/><strong>Heal Time:</strong> -
+ - |
+    <h5>Crushed Skull</h5>
+    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <br/><br/><strong>Effect:</strong> You are instantly killed. Your adventure ends here. Create a
+                                       new PC.
+    <br/><br/><strong>Heal Time:</strong> -
+
