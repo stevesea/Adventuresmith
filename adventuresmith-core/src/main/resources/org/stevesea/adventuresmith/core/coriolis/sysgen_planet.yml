@@ -1,7 +1,6 @@
 ---
 templates:
-- |
-  {{planet_template}}
+- "{{planet_template}}"
 
 definitions:
   planet_template: |
@@ -12,71 +11,80 @@ definitions:
     <h6>In nearby space</h6>
     {{planet.in_orbit}}
     <h6>Hooks</h6>
-    {{>repeat: 1d3+2 %[[hooks.templates]]%<br/>}}
+    {{>pickN: 1d3+1 planet.hooks <br/>}}
+    {{factions.pick}}
   moon_template: |
     {{>add: population_mod 0}}
     {{>add: geosphere_mod 0}}
     <h5>Moon / Small Planet</h5>
     {{>pick: 1d5 planet.size}}
     <h6>Hooks</h6>
-    {{>repeat: 1d3 %[[hooks.templates]]%<br/>}}
+    {{>pickN: 1d2 planet.hooks <br/>}}
+    {{factions.pick}}
 
   geosphere_pick: "%[[>pick: 2d6-{{>get: geosphere_mod}} planet.geosphere]]%"
   population_pick: "%[[>pick: 2d6-{{>get: population_mod}} planet.population]]%"
 
 nested_tables:
-  hooks:
-    templates:
-    - "Ruins: {{hooks.ruins}}"
-    - "Weather and Natural Disasters: {{hooks.weather}}"
-    - "Inhabitants: {{hooks.inhabitants}}"
-    - "Threats: {{hooks.threats}}"
-    - "Politics: {{hooks.politics}}"
-    - "Events: {{hooks.events}}"
-    ruins:
-    - Portal Builder ruins
-    - First-come ruins
-    - Earlier colonization
-    - Abandoned city
-    - Crashed ship
-    - Unknown ruins
-    weather:
-    - Titan storms
-    - Flooding
-    - Extreme rains
-    - Firestorms and forest fires
-    - Volcanic eruptions
-    - High seismic activity
-    inhabitants:
-    - Cult
-    - Primitive First-come
-    - Colonists
-    - Rebels
-    - Soldiers
-    - Scientists
-    threats:
-    - Corsairs
-    - Rebellious mercenaries
-    - Factionary clashes
-    - Lawlessness
-    - The Dark between the Stars
-    - Dangerous creatures
-    politics:
-    - Dictatorship
-    - Emirate
-    - Police state
-    - Popular rule
-    - Iconocracy
-    - Extreme patriarchy/matriarchy
-    events:
-    - War
-    - Natural disaster
-    - Epidemic
-    - Occupation
-    - Pilgrimage
-    - Apocalypse
+  factions:
+    pick:
+    - "<h6>One dominant faction</h6> {{factions.factions}}"
+    - "<h6>Two balanced factions</h6> {{>pickN: 2 factions.factions <br/>}}"
+    - "<h6>Two competing factions</h6> {{>pickN: 2 factions.factions <br/>}}"
+    - "<h6>One dominant and one weak faction</h6> {{>pickN: 2 factions.factions <br/>}}"
+    - "<h6>Three competing factions</h6> {{>pickN: 3 factions.factions <br/>}}"
+    - "<h6>D6 Factions</h6> {{>pickN: 1d6 factions.factions (%[[>roll: 1d6]]%)<br/>}}(%[[>roll: 1d6]]%)"
+    factions:
+    - 2, The Syndicate
+    - 3, The Legion
+    - 4, The Free League
+    - 5, The Zenithian Hegemony
+    - 6-7, The Consortium
+    - 8, The Church of the Icons
+    - 9, Ahlam’s Temple
+    - 10, The Nomad Federation
+    - 11, The Order of the Pariah
+    - 12, The Draconites
 
   planet:
+    hooks:
+    - "Portal Builder ruins"
+    - "First-come ruins"
+    - "Earlier colonization"
+    - "Abandoned city"
+    - "Crashed ship"
+    - "Unknown ruins"
+    - "Titan storms"
+    - "Flooding"
+    - "Extreme rains"
+    - "Firestorms and forest fires"
+    - "Volcanic eruptions"
+    - "High seismic activity"
+    - "Cult"
+    - "Primitive First-come"
+    - "Colonists"
+    - "Rebels"
+    - "Soldiers"
+    - "Scientists"
+    - "Corsairs"
+    - "Rebellious mercenaries"
+    - "Factionary clashes"
+    - "Lawlessness"
+    - "The Dark between the Stars"
+    - "Dangerous creatures"
+    - "Dictatorship"
+    - "Emirate"
+    - "Police state"
+    - "Popular rule"
+    - "Iconocracy"
+    - "Extreme patriarchy/matriarchy"
+    - "War"
+    - "Natural disaster"
+    - "Epidemic"
+    - "Occupation"
+    - "Pilgrimage"
+    - "Apocalypse"
+
     in_orbit:
     - "2, {{>repeat: 1d6 %[[planet.in_orbit]]%<br/>}}"
     - 3, Forgotten stations
