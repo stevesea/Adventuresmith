@@ -1,2 +1,14 @@
 ---
-name: Artifact (MYZ)
+name: Artifact
+
+input:
+  displayTemplate: "Sets: {{sets}}"
+  params:
+  - name: sets
+    uiName: Sets
+    helpText: Pick artifact set
+    defaultValue: All
+    values:
+    - All
+    - MYZ
+    - GLA

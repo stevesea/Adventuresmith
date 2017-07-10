@@ -12,6 +12,10 @@ groups:
 - name: gla
   uiName: Genlab Alpha
   icon: cmd-test-tube
+- name: items
+  uiName: Items / Treasure
+  icon: cmd-briefcase
+
 attribution: |
   <p>
   <a href="http://www.drivethrurpg.com/product/139453/MUTANT-Year-Zero--Roleplaying-At-The-End-Of-Days">Mutant: Year Zero on DriveThruRPG</a>

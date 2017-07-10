@@ -1,8 +1,20 @@
 ---
 templates:
-- "{{artifact}}"
+- "{{templ}}"
+
+definitions:
+  templ: "%[[artifacts.{{input.sets}}]]%"
+  artifacts:
+    GLA: "{{gla_artifact}}"
+    MYZ: "{{artifact}}"
+    All: "{{all}}"
+
 
 tables:
+  # this gives a 50/50 to pick from either... seems like could do something else to combine data sets
+  all:
+  - "{{artifact}}"
+  - "{{gla_artifact}}"
   artifact:
   - Air Mattress
   - Antidepressants
@@ -54,3 +66,32 @@ tables:
   - Umbrella
   - Video Camera (Metaplot)
   - Wrench
+  gla_artifact:
+  - Armchair
+  - Biker Jacket
+  - Boxing Gloves
+  - Carton of Cigarettes
+  - Cigarette Lighter
+  - Coffee Maker
+  - Coffee Packets
+  - Duct Tape
+  - Electronic Tool Kit
+  - EMP Rifle
+  - Energy Grenade
+  - E-Pack
+  - First Aid Kit
+  - Hockey Mask
+  - Hockey Pads
+  - Laser Pistol
+  - Maser Pistol
+  - Megaphone
+  - MMO Cube
+  - Motorcycle Helmet
+  - Nail Gun
+  - Photo Album
+  - Polaroid Camera
+  - Riot Shield
+  - Slalom Gear
+  - Stun Baton
+  - Tactical Visor
+  - Teddy Bear

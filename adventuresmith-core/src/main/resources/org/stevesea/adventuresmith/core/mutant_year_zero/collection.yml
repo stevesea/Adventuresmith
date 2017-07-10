@@ -10,16 +10,17 @@ groupedGenerators:
   - event_ark
   - threat_ark
   zone:
-  - artifact
-  - scrap
-  - npc_zone_exped
   - event_zone
   - threat_zone
   - zone_sector_mood
   - zone_sector
+  - npc_zone_exped
   gla:
   - checkpoint_response
   - feral_effect
-  - gla_artifact
   - gla_random_encounter
+  items:
+  - scrap
+  - artifact
+
 
