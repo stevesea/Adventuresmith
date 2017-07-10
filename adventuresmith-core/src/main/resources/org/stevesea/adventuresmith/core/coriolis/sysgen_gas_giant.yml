@@ -7,7 +7,6 @@ imports:
 
 definitions:
 
-  # pop: use D6
   # moons: 3D6, generate as planets. limit to 5km size
   gg_template: |
     <h5>Gas Giant</h5>
@@ -16,12 +15,7 @@ definitions:
     <br/><br/><strong>Characteristics:</strong> {{gas_giant.characteristics}}
     <br/><br/><strong>Population:</strong> {{>pick: 1d6 planet.population}}
 
-    {{>repeat: 3d6 %[[gg_moon_template]]%}}
-
-  gg_moon_template: |
-    <h6>Moon</h6>
-
-
+    <br/><br/><strong>Moons:</strong> {{>roll: 3d6}}
 
 
 nested_tables:

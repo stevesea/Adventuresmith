@@ -17,3 +17,5 @@ groupedGenerators:
   sys_gen:
   - sysgen_asteroid_belt
   - sysgen_gas_giant
+  - sysgen_planet
+  - sysgen_moon

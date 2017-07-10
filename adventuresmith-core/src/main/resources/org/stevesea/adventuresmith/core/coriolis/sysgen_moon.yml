@@ -1,0 +1,7 @@
+---
+templates:
+- "{{moon_template}}"
+
+
+imports:
+- sysgen_planet
