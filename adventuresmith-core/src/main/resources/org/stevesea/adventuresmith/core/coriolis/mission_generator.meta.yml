@@ -1,0 +1,18 @@
+---
+name: Mission Generator
+input:
+  displayTemplate: "Group Concept: {{groupConcept}}"
+  params:
+  - name: groupConcept
+    uiName: Group Concept?
+    helpText: Group Concept
+    defaultValue: Any
+    values:
+    - Agents
+    - Mercenaries
+    - Explorers
+    - Pilgrims
+    - Entertainers
+    - Nomads
+    - Free_Traders
+
