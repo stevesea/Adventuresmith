@@ -61,7 +61,7 @@ nested_tables:
     - "Volcanic eruptions"
     - "High seismic activity"
     - "Cult"
-    - "Primitive First-come"
+    - "Primitive First-come inhabitants"
     - "Colonists"
     - "Rebels"
     - "Soldiers"
@@ -99,7 +99,7 @@ nested_tables:
     - |
       2,
       <strong>Size:</strong> &lt;1,000km &nbsp;&nbsp;<strong>Gravity:</strong> Almost 0-G
-      {{>pick: 1d2+1 planet.atmosphere}}
+      {{>pick: 3 planet.atmosphere}}
       {{>add: population_mod 4}}
     - |
       3,
@@ -139,16 +139,16 @@ nested_tables:
     - |
       2,
       <br/><br/><strong>Atmosphere:</strong> Toxic
-      {{planet.temperature}}
+      {{>pick: 2d6 planet.temperature}}
     - |
       3,
-      <br/><br/><strong>Atmosphere:</strong> Thin  (drastic night/day temperature differences)
-      {{planet.temperature}}
+      <br/><br/><strong>Atmosphere:</strong> Thin
+      {{>pick: 1 planet.temperature}}
       {{>add: geosphere_mod 4}}
     - |
       4-8,
       <br/><br/><strong>Atmosphere:</strong> Breathable
-      {{planet.temperature}}
+      {{>pick: 2d6 planet.temperature}}
     - |
       9,
       <br/><br/><strong>Atmosphere:</strong> Dense
@@ -167,13 +167,22 @@ nested_tables:
     - |
       12,
       <br/><br/><strong>Atmosphere:</strong> Special
-      {{planet.temperature}}
+      {{>pick: 2d6 planet.temperature}}
+
 
     # * Thin atmosphere: No modifier, but drastic differences in temperature between night and day.
     # * Dense atmosphere: +1
     # * Corrosive or infiltrating atmosphere: +6
     # * Special atmosphere: The GM decides.
     temperature:
+    # 1 isn't on table, but it's what'll be picked for Thin atmo.
+    #  all others should use {{>pick: 2d6 planet.temperature}} or other variations
+    - |
+      1,
+      <br/><strong>Temperature:</strong> Drastic temperature swings between night/day
+      {{>add: geosphere_mod 4}}
+      {{geosphere_pick}}
+      {{population_pick}}
     - |
       2,
       <br/><strong>Temperature:</strong> Frozen. All water is frozen and the atmosphere is very dry.
