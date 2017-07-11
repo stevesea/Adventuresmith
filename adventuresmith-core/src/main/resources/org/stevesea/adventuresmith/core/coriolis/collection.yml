@@ -14,6 +14,7 @@ groupedGenerators:
   - coriolis_encounters
   - critical_ship_damage
   - conflict
+  - mission_generator
   sys_gen:
   - sysgen_planet
   - sysgen_gas_giant

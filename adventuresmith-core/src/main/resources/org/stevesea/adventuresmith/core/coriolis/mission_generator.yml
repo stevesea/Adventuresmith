@@ -1,49 +1,72 @@
 ---
 templates:
 - |
+  %[[>set: concept {{input.groupConcept}}]]%
   %[[mission_templates.{{input.groupConcept}}]]%
 
 definitions:
   mission_templates:
+    Any: "{{pick_any}}"
     Agents: |
       {{mission_init}}
       <h4>{{mission_type}}</h4>
-      <h5>Mission></h5>
-      <strong>Employer:</strong> {{Agents.employer}}
+      <h5>Mission</h5>
+      {{Agents.mission}}
       <br/><br/><strong>Location:</strong> {{Agents.location}}
-      <br/><br/><strong>Mission:</strong> {{Agents.mission}}
+      <br/><br/><strong>Employer:</strong> {{Agents.employer}}
 
       <br/><br/>%[[mission_reward_and_complications]]%
     Mercenaries: |
       {{mission_init}}
       <h4>{{mission_type}}</h4>
-      <h5>Contract></h5>
-      <strong>Employer:</strong> {{Mercenaries.employer}}
+      <h5>Contract</h5>
+      {{Mercenaries.contract}}
       <br/><br/><strong>Location:</strong> {{Mercenaries.location}}
-      <br/><br/><strong>Mission:</strong> {{Mercenaries.mission}}
+      <br/><br/><strong>Employer:</strong> {{Mercenaries.employer}}
 
       <br/><br/>%[[mission_reward_and_complications]]%
     Explorers: |
       {{mission_init}}
       <h4>{{mission_type}}</h4>
-      <h5>Expedition></h5>
-      <strong>Employer:</strong> {{Explorers.employer}}
+      <h5>Expedition</h5>
+      {{Explorers.expedition}}
       <br/><br/><strong>Location:</strong> {{Explorers.location}}
-      <br/><br/><strong>Mission:</strong> {{Explorers.mission}}
+      <br/><br/><strong>Employer:</strong> {{Explorers.employer}}
 
       <br/><br/>%[[mission_reward_and_complications]]%
     Free_Traders: |
       {{mission_init}}
       <h4>{{mission_type}}</h4>
-      <h5>Goods></h5>
-      <strong>Employer:</strong> {{Free_Traders.employer}}
-      <br/><br/><strong>Location:</strong> {{Free_Traders.location}}
-      <br/><br/><strong>Mission:</strong> {{Free_Traders.mission}}
+      <h5>Trade Run</h5>
+      <strong>Goods:</strong> {{Free_Traders.goods}}
+      <br/><br/><strong>Destination:</strong> {{Free_Traders.location}}
+      <br/><br/><strong>Employer:</strong> {{Free_Traders.employer}}
 
       <br/><br/>%[[mission_reward_and_complications]]%
-    Pilgrims:
-    Entertainers:
-    Nomads:
+    Pilgrims: |
+      {{mission_init}}
+      <h4>{{mission_type}}</h4>
+      <h5>Pilgrimage</h5>
+      {{Pilgrims.voyage}}
+      <strong>Employer:</strong> {{Pilgrims.employer}}
+
+      <br/><br/>%[[mission_reward_and_complications]]%
+    Entertainers: |
+      {{mission_init}}
+      <h4>{{mission_type}}</h4>
+      <h5>Leisure Voyage</h5>
+      {{Entertainers.voyage}}
+      <strong>Employer:</strong> {{Entertainers.employer}}
+
+      <br/><br/>%[[mission_reward_and_complications]]%
+    Nomads: |
+      {{mission_init}}
+      <h4>{{mission_type}}</h4>
+      <h5>Work Voyage</h5>
+      {{Nomads.voyage}}
+      <strong>Employer:</strong> {{Nomads.employer}}
+
+      <br/><br/>%[[mission_reward_and_complications]]%
 
   mission_init: |
     {{>add: extra_reward 0}}
@@ -51,13 +74,21 @@ definitions:
   mission_reward_and_complications: |
     <h5>Rewards</h5>
     <strong>Base Reward:</strong> %[[>roll: {{>get: base_reward}}]]%k birr
-    <br/><br/>%[[>pickN: {{>get: extra_reward}} {{input.groupConcept}}.reward]]%
+    <br/><br/>%[[>pickN: {{>get: extra_reward}} {{>get: concept}}.reward]]%
     <h5>Complications</h5>
-    <br/><br/>%[[>pickN: {{>get: complication}} {{input.groupConcept}}.complications]]%
+    <br/><br/>%[[>pickN: {{>get: complication}} {{>get: concept}}.complication]]%
 
 
 tables:
-  # difficulty, destination, complication, base reward, extra reward
+  pick_any:
+  - "{{>set: concept Agents}} {{mission_templates.Agents}}"
+  - "{{>set: concept Mercenaries}} {{mission_templates.Mercenaries}}"
+  - "{{>set: concept Explorers}} {{mission_templates.Explorers}}"
+  - "{{>set: concept Pilgrims}} {{mission_templates.Pilgrims}}"
+  - "{{>set: concept Entertainers}} {{mission_templates.Entertainers}}"
+  - "{{>set: concept Nomads}} {{mission_templates.Nomads}}"
+  - "{{>set: concept Free_Traders}} {{mission_templates.Free_Traders}}"
+
   mission_type:
   - |
     1-2,
@@ -163,7 +194,7 @@ nested_tables:
     - 4-6, Guard
     - 7-9, Intelligence agency
     - 10-21, Patron
-    - 23-24, Factionary
+    - 22-24, Factionary
     - 25-27, Merchant
     - 28-30, Diplomat
     - 31-33, Military
@@ -225,7 +256,7 @@ nested_tables:
     - 28-30, Gear
     - 31-33, Cybernetics/Bionics
     - 34-36, Medal of honor
-    mission: # contract
+    contract:
     - 1-3,   Reconnaissance Scout out an area, a location or the surroundings of a building. Remain unnoticed and report back to the employer.
     - 4-6,   Assault Attack and hold a location. Prisoners may be taken.
     - 7-12,  Defend place or area Defend a location or patrol an area; prevent the enemy from seizing it.
@@ -276,7 +307,7 @@ nested_tables:
     - 25-30, Birr
     - 31-33, Gear
     - 34-36, Artifact
-    mission: #expedition
+    expedition:
     - 1-3,   Excavation Perform an excavation, start a dig site or help in an already started excavation.
     - 4-6,   Collection Collect smaller archaeological finds, artifacts, information, scrolls or something similar. Could be from a dig site or some other location.
     - 7-12,  Survey Map a location or an area for the employer. Report back with sensor maps and other collected data.
@@ -340,7 +371,7 @@ nested_tables:
     - 28-30, Pleasure cruise Take part in a pleasure cruise for the rich.
     - 31-33, Dignitary performance Perform for high-ranking dignitaries or factionaries.
     - 34-36, Concert Put on a concert with musical instruments and/or singing.
-    complications:
+    complication:
     - 1-6,   Restrictions A ban or high fee complicates the voyage.
     - 7-12,  Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
     - 13-18, Rival group A competing party has the same goal as the expedition and tries to get there first or stop the PCs. They have roughly the same gear as the PCs.
@@ -379,7 +410,7 @@ nested_tables:
     - 28-30, Loading Loading using exos or ground loaders in a market or spaceport.
     - 31-33, Repairs Repair something. Could be anything from a spaceship, large vehicle or building to harvest machinery, a furnace or logging equipment.
     - 34-36, Diplomatic representation Represent a group of plebeians, workers or the Free League during negotiations.
-    complications:
+    complication:
     - 1-6,   The crack of the whip The employer has thugs pushing the group to work faster. It could be stevedore aqbars, foremen or something similar.
     - 7-12,  Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
     - 13-18, Corsairs Corsairs or bandits attack the group's work site.
@@ -448,7 +479,7 @@ nested_tables:
     - 28-30, Faction contact
     - 31-33, Extra debt cancellation
     - 34-36, Artifact
-    mission: # goods
+    goods:
     - 1-2,   Ore Bauxite (aluminum), lead glance, gold-quartz, cassiterite (tin), malachite (copper), magnetite (iron), platinum-bearing sand, sphalerite (zinc)
     - 3,     Minerals Pure minerals, salt
     - 4,     Metals Bars of metal

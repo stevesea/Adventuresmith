@@ -8,6 +8,7 @@ input:
     helpText: Group Concept
     defaultValue: Any
     values:
+    - Any
     - Agents
     - Mercenaries
     - Explorers
