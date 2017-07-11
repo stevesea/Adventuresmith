@@ -7,23 +7,32 @@ definitions:
   mission_templates:
     Agents: |
       {{mission_init}}
-      {{mission_type}}
-      %[[mission_render]]%
+      <h4>{{mission_type}}</h4>
+      <h5>Mission></h5>
+      <strong>Employer:</strong> %[[{{input.groupConcept}}.employer]]%
+      <br/><br/><strong>Location:</strong> %[[{{input.groupConcept}}.location]]%
+      <br/><br/><strong>Mission:</strong> %[[{{input.groupConcept}}.mission]]%
+
+      <br/><br/>%[[mission_reward_and_complications]]%
     Mercenaries:
     Explorers:
     Pilgrims:
-    Entertainers:
     Free_Traders:
+    Entertainers:
     Nomads:
 
   mission_init: |
     {{>add: extra_reward 0}}
     {{>add: complication 0}}
-  mission_render: |
+  mission_reward_and_complications: |
+    <h5>Rewards</h5>
     <strong>Base Reward:</strong> %[[>roll: {{>get: base_reward}}*1000]]% birr
-    <br/><br/><strong>Employwer:</strong> %[[{{input.groupConcept}}.employer]]%
     <br/><br/>%[[>pickN: {{>get: extra_reward}} {{input.groupConcept}}.reward]]%
+    <h5>Complications</h5>
     <br/><br/>%[[>pickN: {{>get: complication}} {{input.groupConcept}}.complications]]%
+  
+  rewards:
+    asdf: asdf
 
 
 tables:
@@ -31,97 +40,97 @@ tables:
   mission_type:
   - |
     1-2,
-    <h4>Routine Mission - Within system</h4>
+    Routine Mission - Within system
     {{>set: base_reward 1d6}}
   - |
     3-5,
-    <h4>Routine Mission - Within system</h4>
+    Routine Mission - Within system
     {{>set: base_reward 1d6}}
   - |
     6-9,
-    <h4>Routine Mission - Within system</h4>
+    Routine Mission - Within system
     {{>add: complication 1}}
     {{>set: base_reward 1d6+2}}
   - |
     10-11,
-    <h4>Easy Mission - Within system</h4>
+    Easy Mission - Within system
     {{>set: base_reward 2d6}}
   - |
     12-13,
-    <h4>Easy Mission - Within system</h4>
+    Easy Mission - Within system
     {{>add: complication 1}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 2d6}}
   - |
     14-15,
-    <h4>Easy Mission - Within system</h4>
+    Easy Mission - Within system
     {{>add: complication 1}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 2d6+2}}
   - |
     16-18,
-    <h4>Normal Mission - Within system</h4>
+    Normal Mission - Within system
     {{>add: complication 1}}
     {{>set: base_reward 3d6}}
   - |
     19-21,
-    <h4>Normal Mission - Within system</h4>
+    Normal Mission - Within system
     {{>add: complication 1}}
     {{>set: base_reward 3d6}}
   - |
     22-23,
-    <h4>Normal Mission - Nearby system</h4>
+    Normal Mission - Nearby system
     {{>add: complication 1}}
     {{>set: base_reward 3d6}}
   - |
     24-25,
-    <h4>Normal Mission - Nearby system</h4>
+    Normal Mission - Nearby system
     {{>add: complication 1}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 3d6}}
   - |
     26-27,
-    <h4>Normal Mission - Nearby system</h4>
+    Normal Mission - Nearby system
     {{>add: complication 1}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 3d6+2}}
   - |
     28,
-    <h4>Normal Mission - Faraway system</h4>
+    Normal Mission - Faraway system
     {{>add: complication 1}}
     {{>set: base_reward 3d6+4}}
   - |
     29,
-    <h4>Normal Mission - Faraway system</h4>
+    Normal Mission - Faraway system
     {{>add: complication 1}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 3d6+4}}
   - |
     30-31,
-    <h4>Difficult Mission - Within system</h4>
+    Difficult Mission - Within system
     {{>add: complication 2}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 4d6}}
   - |
     32-33,
-    <h4>Difficult Mission - Nearby system</h4>
+    Difficult Mission - Nearby system
     {{>add: complication 2}}
     {{>set: base_reward 4d6+2}}
   - |
     34,
-    <h4>Difficult Mission - Nearby system</h4>
+    Difficult Mission - Nearby system
     {{>add: complication 2}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 4d6+2}}
   - |
     35,
-    <h4>Difficult Mission - Faraway system</h4>
+    Difficult Mission - Faraway system
     {{>add: complication 2}}
     {{>add: extra_reward 1}}
     {{>set: base_reward 5d6}}
   - |
     36,
-    <h4>Difficult Mission - Faraway system</h4>
+    Difficult Mission - Faraway system
     {{>add: complication 3}}
     {{>add: extra_reward 2}}
     {{>set: base_reward 5d6+4}}
@@ -133,155 +142,155 @@ tables:
 nested_tables:
   Agents:
     employer:
-    - 11-13 Judicator
-    - 14-16 Guard
-    - 21-23 Intelligence agency
-    - 24-43 Patron
-    - 44-46 Factionary
-    - 51-53 Merchant
-    - 54-56 Diplomat
-    - 61-63 Military
-    - 64-66 Criminal
+    - 1-3, Judicator
+    - 4-6, Guard
+    - 7-9, Intelligence agency
+    - 10-21, Patron
+    - 23-24, Factionary
+    - 25-27, Merchant
+    - 28-30, Diplomat
+    - 31-33, Military
+    - 34-36, Criminal
     reward:
-    - 11-13 New contract
-    - 14-16 Favor
-    - 21-46 Birr
-    - 51-56 Gear
-    - 61-63 Ship module
-    - 64-66 License
+    - 1-3, New contract
+    - 4-6, Favor
+    - 7-24, Birr
+    - 25-30, Gear
+    - 31-33, Ship module
+    - 34-36, License
     mission:
-    11-13 Infiltration Undercover infiltration of a base, smaller group or outpost to obtain data, identify leaders or investigate the organization.
-    14-16 Information gathering Gather information from tags, library databases, networks, old scrolls or a living person.
-    21-26 Espionage Classic espionage with secret meetings, shadowing, burglaries and undercover work.
-    31-33 Kidnapping Kidnap someone and deliver the person to the employer.
-    34-36 Couriers Make sure sensitive information, resources or goods are delivered safely from the employer to the receiver.
-    41-43 Protection Make sure a resource (information, person, object, ship) is safe from an attack or for a specified amount of time.
-    44-46 Manipulation Trick a person or organization into believing false information, or make them perform a certain action, or set a chain of events in motion.
-    51-53 Artifact collection Acquire an artifact, usually from an unknown, underground location.
-    54-56 Rescue operation Rescue a resource (usually a person or group) that is held captive or hostage. It could also be an object or a wrecked spaceship.
-    61-63 Surveillance Observe a resource (usually a person) for a specified amount of time.
-    64-66 Assassination Murder someone, sometimes so that it looks like an accident. Collateral damage is permitted.
+    - 1-3,   Infiltration Undercover infiltration of a base, smaller group or outpost to obtain data, identify leaders or investigate the organization.
+    - 4-6,   Information gathering Gather information from tags, library databases, networks, old scrolls or a living person.
+    - 7-12,  Espionage Classic espionage with secret meetings, shadowing, burglaries and undercover work.
+    - 13-15, Kidnapping Kidnap someone and deliver the person to the employer.
+    - 16-18, Couriers Make sure sensitive information, resources or goods are delivered safely from the employer to the receiver.
+    - 19-21, Protection Make sure a resource (information, person, object, ship) is safe from an attack or for a specified amount of time.
+    - 22-24, Manipulation Trick a person or organization into believing false information, or make them perform a certain action, or set a chain of events in motion.
+    - 25-27, Artifact collection Acquire an artifact, usually from an unknown, underground location.
+    - 28-30, Rescue operation Rescue a resource (usually a person or group) that is held captive or hostage. It could also be an object or a wrecked spaceship.
+    - 31-33, Surveillance Observe a resource (usually a person) for a specified amount of time.
+    - 34-36, Assassination Murder someone, sometimes so that it looks like an accident. Collateral damage is permitted.
     location:
-    11-13 Underground hideout A bunker, catacombs or caves.
-    14-16 Hostile forest/jungles/desert Inhospitable planet side wilderness. Usually far from cities or settlements.
-    21-26 Bazaar A bazaar or market in a city or settlement.
-    31-33 Spaceport Spaceport on a space station or planet.
-    34-36 Asteroid/Moon The surface of an asteroid or a smaller moon. Vacuum or dangerous atmosphere.
-    41-43 Space station On a small space station, anything from an oxygen oasis to a trade or service station.
-    44-46 Ruins Firstcome or Portal Builder ruins.
-    51-53 Colony A small colony, usually no bigger than a small, sparsely populated village. Far from other settlements.
-    54-56 Portal station A portal station next to a sun.
-    61-63 Spaceship Onboard a spaceship during voyage or docking.
-    64-66 Outpost A small outpost, usually planet side. An outpost is commonly just a single building with a specific function and only a few inhabitants. For example sensor station, dam control station, courier post or some other communications station.
+    - 1-3,   Underground hideout A bunker, catacombs or caves.
+    - 4-6,   Hostile forest/jungles/desert Inhospitable planet side wilderness. Usually far from cities or settlements.
+    - 7-12,  Bazaar A bazaar or market in a city or settlement.
+    - 13-15, Spaceport Spaceport on a space station or planet.
+    - 16-18, Asteroid/Moon The surface of an asteroid or a smaller moon. Vacuum or dangerous atmosphere.
+    - 19-21, Space station On a small space station, anything from an oxygen oasis to a trade or service station.
+    - 22-24, Ruins Firstcome or Portal Builder ruins.
+    - 25-27, Colony A small colony, usually no bigger than a small, sparsely populated village. Far from other settlements.
+    - 28-30, Portal station A portal station next to a sun.
+    - 31-33, Spaceship Onboard a spaceship during voyage or docking.
+    - 34-36, Outpost A small outpost, usually planet side. An outpost is commonly just a single building with a specific function and only a few inhabitants. For example sensor station, dam control station, courier post or some other communications station.
     complication:
-    11-13 Third party Another patron or a person with a similar background as the employer is after the same thing. Could offer the group higher payment or that they will use the information/resource for a different purpose when the mission is completed.
-    14-23 Accompanying employer The employer wants to come along for the mission, or send an observer or agent along.
-    24-33 Double agent A person the PCs encounter is a double agent for another organization with a conflicting agenda.
-    34-43 Bad intel A piece of information about the mission turns out to be false, either intentionally or by mistake.
-    44-53 Unexpected reinforcements The group's opponent receive backup in the form of reinforcements, more advanced computer systems or some other form of extra assistance.
-    54-63 Scapegoats The employer wants the mission to go badly and for the PCs to take the fall for something.
-    64-66 Intelligence agency involvement An intelligence agency, possibly factionary, with many resources has the same or opposite goals as the PCs.
+    - 1-3,   Third party Another patron or a person with a similar background as the employer is after the same thing. Could offer the group higher payment or that they will use the information/resource for a different purpose when the mission is completed.
+    - 4-9,   Accompanying employer The employer wants to come along for the mission, or send an observer or agent along.
+    - 10-15, Double agent A person the PCs encounter is a double agent for another organization with a conflicting agenda.
+    - 16-21, Bad intel A piece of information about the mission turns out to be false, either intentionally or by mistake.
+    - 22-27, Unexpected reinforcements The group's opponent receive backup in the form of reinforcements, more advanced computer systems or some other form of extra assistance.
+    - 28-33, Scapegoats The employer wants the mission to go badly and for the PCs to take the fall for something.
+    - 34-36, Intelligence agency involvement An intelligence agency, possibly factionary, with many resources has the same or opposite goals as the PCs.
   Mercenaries:
     employer:
-    - 11-13 Fleet captain
-    - 14-16 Military officer
-    - 21-23 Legion company
-    - 24-43 Patron
-    - 44-46 Factionary
-    - 51-53 Arms dealer
-    - 54-56 Mercenary
-    - 61-63 War veteran
-    - 64-66 Smuggler
+    - 1-3,   Fleet captain
+    - 4-6,   Military officer
+    - 7-9,   Legion company
+    - 10-21, Patron
+    - 22-24, Factionary
+    - 25-27, Arms dealer
+    - 28-30, Mercenary
+    - 31-33, War veteran
+    - 34-36, Smuggler
     reward:
-    - 11-16 Faction protection
-    - 21-23 Ship module
-    - 24-53 Birr
-    - 54-56 Gear
-    - 61-63 Cybernetics/Bionics
-    - 64-66 Medal of honor
+    - 1-6,   Faction protection
+    - 7-9,   Ship module
+    - 10-27, Birr
+    - 28-30, Gear
+    - 31-33, Cybernetics/Bionics
+    - 34-36, Medal of honor
     mission: # contract
-    11-13 Reconnaissance Scout out an area, a location or the surroundings of a building. Remain unnoticed and report back to the employer.
-    14-16 Assault Attack and hold a location. Prisoners may be taken.
-    21-26 Defend place or area Defend a location or patrol an area; prevent the enemy from seizing it.
-    31-33 Reinforce location Support or reinforce a position under attack, repel the enemy.
-    34-36 Seek and destroy Find a person, group or location and destroy it. Could be civilians, enemy combatants or vehicles/ spaceships.
-    41-43 Protect resource Protect a resource. It could be information, a person, an object or a ship. Protect it from an attack or guard it for a specified amount of time.
-    44-46 Locate resource Locate a person, group or object and either retrieve it or notify the employer of its location.
-    51-53 Rescue operation Rescue a group, squadron or spaceship from an attack, imprisonment, or some other peril.
-    54-56 Raid Plan and execute a raid on a person, group, convoy or vehicle. The goal is usually to destroy or delay the target.
-    61-63 Investigation Locate something important, for example nuclear warheads, antimatter bombs or bionic weapons. The PCs could be accompanied by an agent, a weapons expert or some other officer.
-    64-66 Incursion Go behind enemy lines or breach a fortress or garrison to secure a resource that could be a person, information or an object.
+    - 1-3,   Reconnaissance Scout out an area, a location or the surroundings of a building. Remain unnoticed and report back to the employer.
+    - 4-6,   Assault Attack and hold a location. Prisoners may be taken.
+    - 7-12,  Defend place or area Defend a location or patrol an area; prevent the enemy from seizing it.
+    - 13-15, Reinforce location Support or reinforce a position under attack, repel the enemy.
+    - 16-18, Seek and destroy Find a person, group or location and destroy it. Could be civilians, enemy combatants or vehicles/ spaceships.
+    - 19-21, Protect resource Protect a resource. It could be information, a person, an object or a ship. Protect it from an attack or guard it for a specified amount of time.
+    - 22-24, Locate resource Locate a person, group or object and either retrieve it or notify the employer of its location.
+    - 25-27, Rescue operation Rescue a group, squadron or spaceship from an attack, imprisonment, or some other peril.
+    - 28-30, Raid Plan and execute a raid on a person, group, convoy or vehicle. The goal is usually to destroy or delay the target.
+    - 31-33, Investigation Locate something important, for example nuclear warheads, antimatter bombs or bionic weapons. The PCs could be accompanied by an agent, a weapons expert or some other officer.
+    - 34-36, Incursion Go behind enemy lines or breach a fortress or garrison to secure a resource that could be a person, information or an object.
     location:
-    11-13 Underground bunker A bunker, new or old.
-    14-16 Hostile forest/ jungles/desert Inhospitable planet side wilderness. Usually far from cities or settlements.
-    21-26 Trenches A trench on a deadlocked frontline. Mine fields, underground tunnels and other soldiers in despair.
-    31-33 Spaceport Spaceport on a space station or planet.
-    34-36 Asteroid/Moon The surface of an asteroid or a smaller moon. Vacuum or dangerous atmosphere.
-    41-43 Combat station A fortified space station with weapon systems, or some other battle installation such as a larger garrison, hangars or docks.
-    44-46 War zone A larger area where open war is raging. Could be a burned-out city or a wilderness full of fighting combatants.
-    51-53 Fortification A fortification could be a wall, modern fort, castle, artillery position, rocket silo or mine field.
-    54-56 Space station On a small space station, anything from an oxygen oasis to a trade or service station.
-    61-63 Spaceship Onboard a spaceship during voyage or docking.
-    64-66 Outpost A small outpost, usually planet side. An outpost is commonly just a single building with a specific function and only a few inhabitants. For example sensor station, guard post, smaller garrison, smaller arsenal or warehouse.
+    - 1-3,   Underground bunker A bunker, new or old.
+    - 4-6,   Hostile forest/ jungles/desert Inhospitable planet side wilderness. Usually far from cities or settlements.
+    - 7-12,  Trenches A trench on a deadlocked frontline. Mine fields, underground tunnels and other soldiers in despair.
+    - 13-15, Spaceport Spaceport on a space station or planet.
+    - 16-18, Asteroid/Moon The surface of an asteroid or a smaller moon. Vacuum or dangerous atmosphere.
+    - 19-21, Combat station A fortified space station with weapon systems, or some other battle installation such as a larger garrison, hangars or docks.
+    - 22-24, War zone A larger area where open war is raging. Could be a burned-out city or a wilderness full of fighting combatants.
+    - 25-27, Fortification A fortification could be a wall, modern fort, castle, artillery position, rocket silo or mine field.
+    - 28-30, Space station On a small space station, anything from an oxygen oasis to a trade or service station.
+    - 31-33, Spaceship Onboard a spaceship during voyage or docking.
+    - 34-36, Outpost A small outpost, usually planet side. An outpost is commonly just a single building with a specific function and only a few inhabitants. For example sensor station, guard post, smaller garrison, smaller arsenal or warehouse.
     complication:
-    11-16 Bad intel A piece of information about the contract turns out to be false, either intentionally or by mistake.
-    21-23 Supercargo Someone they must protect during the mission accompanies the group. It could be an observer, a civilian or an agent.
-    24-33 Gear problem The group has gear problems. It could be anything from weapons to vehicles or spaceships.
-    34-43 Underestimated resistance The resistance or the attackers are stronger than expected.
-    44-53 Captured employer The group's employer is captured during the mission. Fitting if the employer is an officer in the group's company.
-    54-63 New offensive A new offensive has just been initiated when the group is about to carry out their mission, either by the enemies or by the PCs' side in the conflict.
-    64-66 Bombardments The area where the mission takes place is being bombed. It could be air raids, torpedo attacks or rebel forces detonating mines and homemade explosives.
+    - 1-6,   Bad intel A piece of information about the contract turns out to be false, either intentionally or by mistake.
+    - 7-9,   Supercargo Someone they must protect during the mission accompanies the group. It could be an observer, a civilian or an agent.
+    - 10-15, Gear problem The group has gear problems. It could be anything from weapons to vehicles or spaceships.
+    - 16-21, Underestimated resistance The resistance or the attackers are stronger than expected.
+    - 22-27, Captured employer The group's employer is captured during the mission. Fitting if the employer is an officer in the group's company.
+    - 28-33, New offensive A new offensive has just been initiated when the group is about to carry out their mission, either by the enemies or by the PCs' side in the conflict.
+    - 34-36, Bombardments The area where the mission takes place is being bombed. It could be air raids, torpedo attacks or rebel forces detonating mines and homemade explosives.
   Explorers:
     employer:
-    - 11-13 Archaeologist
-    - 14-16 Scientist
-    - 21-23 Artifact merchant
-    - 24-43 Patron
-    - 44-46 Factionary
-    - 51-53 Correspondent
-    - 54-56 Prospector
-    - 61-63 Wealthy collector
-    - 64-66 Criminal
+    - 1-3,   Archaeologist
+    - 4-6,   Scientist
+    - 7-9,   Artifact merchant
+    - 10-21, Patron
+    - 22-24, Factionary
+    - 25-27, Correspondent
+    - 28-30, Prospector
+    - 31-33, Wealthy collector
+    - 34-36, Criminal
     reward:
-    - 11-13 Expedition of their own
-    - 14-16 Ship module
-    - 21-23 Vehicle
-    - 24-46 New knowledge
-    - 51-56 Birr
-    - 61-63 Gear
-    - 64-66 Artifact
+    - 1-3, Expedition of their own
+    - 4-6, Ship module
+    - 7-9, Vehicle
+    - 10-24, New knowledge
+    - 25-30, Birr
+    - 31-33, Gear
+    - 34-36, Artifact
     mission: #expedition
-    11-13 Excavation Perform an excavation, start a dig site or help in an already started excavation.
-    14-16 Collection Collect smaller archaeological finds, artifacts, information, scrolls or something similar. Could be from a dig site or some other location.
-    21-26 Survey Map a location or an area for the employer. Report back with sensor maps and other collected data.
-    31-33 Secure outpost Protect a smaller colony such as a dig site, Bulletin station, sensor station or radio beacon from an attack or from nature's wrath for a specified amount of time.
-    34-36 Assist colony Assist a smaller colony with gear, information or expert knowledge about exo use, medicurgy, construction or something else.
-    41-43 Artifact hunt Find an artifact. The location and sometimes the function are unknown. Clues must be tracked down before departure.
-    44-46 Investigation Locate something important, for example lost ruins, a dig site or a surveyed location. The PCs could be accompanied by an external expert such as an archaeologist, correspondent or diplomat.
-    51-53 Find information Find a specific piece of information for the employer. Sometimes, the group does not know the intended use of the information.
-    54-56 Prospecting Command a prospecting expedition or secure a claim somewhere. It could be mining, asteroid harvesting, logging or gas or dust trawling.
-    61-63 Rescue expedition Rescue a group, colony, archaeological expedition or correspondents from an attack or some other peril. Sometimes, the group does not know what has happened to the victims.
-    64-66 Big game hunt Command or join in an expedition hunting a monster or some other creature.
+    - 11-13 Excavation Perform an excavation, start a dig site or help in an already started excavation.
+    - 14-16 Collection Collect smaller archaeological finds, artifacts, information, scrolls or something similar. Could be from a dig site or some other location.
+    - 21-26 Survey Map a location or an area for the employer. Report back with sensor maps and other collected data.
+    - 31-33 Secure outpost Protect a smaller colony such as a dig site, Bulletin station, sensor station or radio beacon from an attack or from nature's wrath for a specified amount of time.
+    - 34-36 Assist colony Assist a smaller colony with gear, information or expert knowledge about exo use, medicurgy, construction or something else.
+    - 41-43 Artifact hunt Find an artifact. The location and sometimes the function are unknown. Clues must be tracked down before departure.
+    - 44-46 Investigation Locate something important, for example lost ruins, a dig site or a surveyed location. The PCs could be accompanied by an external expert such as an archaeologist, correspondent or diplomat.
+    - 51-53 Find information Find a specific piece of information for the employer. Sometimes, the group does not know the intended use of the information.
+    - 54-56 Prospecting Command a prospecting expedition or secure a claim somewhere. It could be mining, asteroid harvesting, logging or gas or dust trawling.
+    - 61-63 Rescue expedition Rescue a group, colony, archaeological expedition or correspondents from an attack or some other peril. Sometimes, the group does not know what has happened to the victims.
+    - 64-66 Big game hunt Command or join in an expedition hunting a monster or some other creature.
     location:
-    11-13 Underground catacombs Catacombs, tombs or underground ruins.
-    14-16 Hostile forest/jungles/desert Inhospitable planet side wilderness. Usually far from cities or settlements.
-    21-26 Library A library or database hub. Could contain anything from scrolls to memory tags and djinn memories.
-    31-33 Moon The surface of a moon. Usually vacuum or dangerous atmosphere. Planet-like moons count as wilderness (above).
-    34-36 Asteroid belt An asteroid belt or a debris or gas cloud.
-    41-43 Ruins Ruins, either Firstcome, unknown or created by a conflict.
-    44-46 Portal Builder remains Portal Builder remains. Usually mystical but sometimes intact or functioning.
-    51-53 Lost colony A colony that lost contact with the Horizon several segments or cycles ago.
-    54-56 Space station On a small space station, anything from an oxygen oasis to a trade or service station. Could be abandoned or destroyed.
-    61-63 Spaceship Onboard a spaceship during voyage or docking.
-    63-66 One of the wonders of the Horizon A large size artifact, like artificial moons or micro suns. The GM is free to decide its exact nature.
+    - 11-13 Underground catacombs Catacombs, tombs or underground ruins.
+    - 14-16 Hostile forest/jungles/desert Inhospitable planet side wilderness. Usually far from cities or settlements.
+    - 21-26 Library A library or database hub. Could contain anything from scrolls to memory tags and djinn memories.
+    - 31-33 Moon The surface of a moon. Usually vacuum or dangerous atmosphere. Planet-like moons count as wilderness (above).
+    - 34-36 Asteroid belt An asteroid belt or a debris or gas cloud.
+    - 41-43 Ruins Ruins, either Firstcome, unknown or created by a conflict.
+    - 44-46 Portal Builder remains Portal Builder remains. Usually mystical but sometimes intact or functioning.
+    - 51-53 Lost colony A colony that lost contact with the Horizon several segments or cycles ago.
+    - 54-56 Space station On a small space station, anything from an oxygen oasis to a trade or service station. Could be abandoned or destroyed.
+    - 61-63 Spaceship Onboard a spaceship during voyage or docking.
+    - 63-66 One of the wonders of the Horizon A large size artifact, like artificial moons or micro suns. The GM is free to decide its exact nature.
     complication:
-    11-16 Bad intel A piece of information about the contract turns out to be false, either intentionally or by mistake.
-    21-26 Nature's wrath The expedition is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
-    31-33 Corsairs Corsairs attack the expedition.
-    34-43 Rival expedition A competing party has the same goal as the expedition and tries to get there first or stop the PCs. They have roughly the same gear as the PCs.
-    44-53 Blockade The destination is under blockade. It could be anything from tolls or anti-smuggling measures to factionary war.
-    54-63 Quarantine The destination is placed under quarantine. It could be because of a contagion, a mind meme, dangerous technology or something else.
-    64-66 Intelligence agency The expedition's goals interfere with the work of an intelligence agency. Intelligence agencies usually have a lot of resources and few scruples.
+    - 11-16 Bad intel A piece of information about the contract turns out to be false, either intentionally or by mistake.
+    - 21-26 Nature's wrath The expedition is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
+    - 31-33 Corsairs Corsairs attack the expedition.
+    - 34-43 Rival expedition A competing party has the same goal as the expedition and tries to get there first or stop the PCs. They have roughly the same gear as the PCs.
+    - 44-53 Blockade The destination is under blockade. It could be anything from tolls or anti-smuggling measures to factionary war.
+    - 54-63 Quarantine The destination is placed under quarantine. It could be because of a contagion, a mind meme, dangerous technology or something else.
+    - 64-66 Intelligence agency The expedition's goals interfere with the work of an intelligence agency. Intelligence agencies usually have a lot of resources and few scruples.
 
   Entertainers:
     employer:
@@ -303,26 +312,24 @@ nested_tables:
     - Fame
     - Faction reputation
     voyage:
-
-    LEISURE VOYAGE
-    11-13 Find literature Investigate and find lost literature. Could be anything from oral stories to blood operas or songs.
-    14-16 Service a set Service a set. Could be anything from make-up, lighting and camera operating to catering or relaxation.
-    21-26 Guest performance Perform somewhere by special invitation.
-    31-33 Organize a carnival Organize a carnival, coordinate with other entertainers, acrobats and circuses.
-    34-36 Bazaar performance A series of smaller performances in a bazaar or market.
-    41-43 Holo movie Work with a holo movie, acting and/or directing.
-    44-46 Play Perform a play in a theater or an opera house.
-    51-53 Circus performance Perform in a circus show. Could be acrobatics, magic or animal/monster taming
-    54-56 Pleasure cruise Take part in a pleasure cruise for the rich.
-    61-63 Dignitary performance Perform for high-ranking dignitaries or factionaries.
+    - 11-13 Find literature Investigate and find lost literature. Could be anything from oral stories to blood operas or songs.
+    - 14-16 Service a set Service a set. Could be anything from make-up, lighting and camera operating to catering or relaxation.
+    - 21-26 Guest performance Perform somewhere by special invitation.
+    - 31-33 Organize a carnival Organize a carnival, coordinate with other entertainers, acrobats and circuses.
+    - 34-36 Bazaar performance A series of smaller performances in a bazaar or market.
+    - 41-43 Holo movie Work with a holo movie, acting and/or directing.
+    - 44-46 Play Perform a play in a theater or an opera house.
+    - 51-53 Circus performance Perform in a circus show. Could be acrobatics, magic or animal/monster taming
+    - 54-56 Pleasure cruise Take part in a pleasure cruise for the rich.
+    - 61-63 Dignitary performance Perform for high-ranking dignitaries or factionaries.
     complications:
-    11-16 Restrictions A ban or high fee complicates the voyage.
-    21-26 Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
-    31-36 Rival group A competing party has the same goal as the expedition and tries to get there first or stop the PCs. They have roughly the same gear as the PCs.
-    41-46 Lack of resources Something important is missing. It could be gear, fuel, raw materials, and knowledge or simply birr.
-    51-56 Wrong equipment The group's gear is unfit for the task.
-    61-63 Diva A diva appears, in the forms of an actor, director or artist, hindering the group unless they are prepared to grovel.
-    64-66 War A violent event occurs, such as a war breaking out.
+    - 11-16 Restrictions A ban or high fee complicates the voyage.
+    - 21-26 Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
+    - 31-36 Rival group A competing party has the same goal as the expedition and tries to get there first or stop the PCs. They have roughly the same gear as the PCs.
+    - 41-46 Lack of resources Something important is missing. It could be gear, fuel, raw materials, and knowledge or simply birr.
+    - 51-56 Wrong equipment The group's gear is unfit for the task.
+    - 61-63 Diva A diva appears, in the forms of an actor, director or artist, hindering the group unless they are prepared to grovel.
+    - 64-66 War A violent event occurs, such as a war breaking out.
   Nomads:
     employer:
     - Clan leader
@@ -344,24 +351,24 @@ nested_tables:
     - Faction protection
     voyage:
     D66 WORK VOYAGE DESCRIPTION
-    11-13 Plantation construction Construct a new plantation and plant crops.
-    14-16 Supply run Bring supplies to somewhere.
-    21-26 Guest work Work in a factory or with service for a shorter period of time or one season. It could be harvesting, transportation, cleaning or servant work.
-    31-33 Start a colony Build a colony or prepare a location before the colonists arrive.
-    34-36 Collect asteroid Collect or tow an asteroid or ice block to prospectors or a refinery unit.
-    41-43 Construction work Build something big, such as a dam, a mine or a large complex like a spaceport or a station.
-    44-46 Act of revenge Exact vengeance on another group of plebeians or non-unionized workers. Could be sabotaging cargo or loading, burning stockpiled goods or destroying a ship or gear while in dock or storage.
-    51-53 Service bulk hauler Servicing a bulk hauler with loading and unloading, plus running shuttle traffic down to a planet if necessary.
-    54-56 Loading Loading using exos or ground loaders in a market or spaceport.
-    61-63 Repairs Repair something. Could be anything from a spaceship, large vehicle or building to harvest machinery, a furnace or logging equipment.
-    64-66 Diplomatic representation Represent a group of plebeians, workers or the Free League during negotiations.
+    - 11-13 Plantation construction Construct a new plantation and plant crops.
+    - 14-16 Supply run Bring supplies to somewhere.
+    - 21-26 Guest work Work in a factory or with service for a shorter period of time or one season. It could be harvesting, transportation, cleaning or servant work.
+    - 31-33 Start a colony Build a colony or prepare a location before the colonists arrive.
+    - 34-36 Collect asteroid Collect or tow an asteroid or ice block to prospectors or a refinery unit.
+    - 41-43 Construction work Build something big, such as a dam, a mine or a large complex like a spaceport or a station.
+    - 44-46 Act of revenge Exact vengeance on another group of plebeians or non-unionized workers. Could be sabotaging cargo or loading, burning stockpiled goods or destroying a ship or gear while in dock or storage.
+    - 51-53 Service bulk hauler Servicing a bulk hauler with loading and unloading, plus running shuttle traffic down to a planet if necessary.
+    - 54-56 Loading Loading using exos or ground loaders in a market or spaceport.
+    - 61-63 Repairs Repair something. Could be anything from a spaceship, large vehicle or building to harvest machinery, a furnace or logging equipment.
+    - 64-66 Diplomatic representation Represent a group of plebeians, workers or the Free League during negotiations.
     complications:
-    11-16 The crack of the whip The employer has thugs pushing the group to work faster. It could be stevedore aqbars, foremen or something similar.
-    21-26 Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
-    31-36 Corsairs Corsairs or bandits attack the group's work site.
-    41-46 Lack of resources Something important is missing. It could be gear, fuel, raw materials, and knowledge or simply birr.
-    51-56 Starvation For some reason, the food will not last.
-    61-63 Faction A faction is blocking the work the group is supposed to do.
+    - 11-16 The crack of the whip The employer has thugs pushing the group to work faster. It could be stevedore aqbars, foremen or something similar.
+    - 21-26 Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
+    - 31-36 Corsairs Corsairs or bandits attack the group's work site.
+    - 41-46 Lack of resources Something important is missing. It could be gear, fuel, raw materials, and knowledge or simply birr.
+    - 51-56 Starvation For some reason, the food will not last.
+    - 61-63 Faction A faction is blocking the work the group is supposed to do.
     64-66 Rebels Rebels violently try to stop the group's work.
   Pilgrims:
     employer:
@@ -393,27 +400,27 @@ nested_tables:
     - 64-66 Absolution/blessing Faction reputation Faction protection
     voyage:
     PILGRIMAGE
-    11-13 Pilgrimage A pilgrimage to one of the Horizon's important temples or holy sites.
-    14-16 Supply run Bring supplies to somewhere.
-    21-26 Monastery visit Travel to a monastery and remain there for some time.
-    31-33 Establish missionary colony Establish a missionary colony and spread the faith in an area.
-    34-36 Missionary trip Travel to several locations and spread the faith.
-    41-43 Construct temple Help build a temple, from construction to inauguration, perhaps staying on to run the temple.
-    44-46 Acquire relic Acquire a holy relic. It could be body part from a martyr or a hero, an object with sacred writing on it or a religious symbol.
-    51-53 Destroy relic/idol Find a dangerous or tainted relic or a heathen idol and destroy it.
-    54-56 Find prophet Find a lost prophet, seer, ascetic or preacher.
-    61-63 Fulfill prophecy Help the Icons so that a prophecy is fulfilled.
-    64-66 Represent temple Represent a temple in another location, such as during a sacred meeting, diplomatic trip or missionary voyage.
-    64-66 Concert Put on a concert with musical instruments and/or singing.
+    - 11-13 Pilgrimage A pilgrimage to one of the Horizon's important temples or holy sites.
+    - 14-16 Supply run Bring supplies to somewhere.
+    - 21-26 Monastery visit Travel to a monastery and remain there for some time.
+    - 31-33 Establish missionary colony Establish a missionary colony and spread the faith in an area.
+    - 34-36 Missionary trip Travel to several locations and spread the faith.
+    - 41-43 Construct temple Help build a temple, from construction to inauguration, perhaps staying on to run the temple.
+    - 44-46 Acquire relic Acquire a holy relic. It could be body part from a martyr or a hero, an object with sacred writing on it or a religious symbol.
+    - 51-53 Destroy relic/idol Find a dangerous or tainted relic or a heathen idol and destroy it.
+    - 54-56 Find prophet Find a lost prophet, seer, ascetic or preacher.
+    - 61-63 Fulfill prophecy Help the Icons so that a prophecy is fulfilled.
+    - 64-66 Represent temple Represent a temple in another location, such as during a sacred meeting, diplomatic trip or missionary voyage.
+    - 64-66 Concert Put on a concert with musical instruments and/or singing.
 
     complication:
-    11-13 Cult A cult stands in the PCs' way. They could be withholding relics, blocking roads or trying to stop the construction of a temple or the fulfilling of a prophecy.
-    14-16 Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
-    21-26 Doomsday prophecy The end is nigh! A doomsday prophecy has been spoken that complicates the voyage.
-    31-52 Lack of resources Something important is missing. It could be gear, fuel, raw materials, and knowledge or simply birr.
-    53-56 Starvation For some reason, the food will not last.
-    61-63 Diva A diva appears, in the form of a prophet, preacher or temple officer, hindering the group unless they are prepared to grovel.
-    64-66 Iconic intervention The Icons manifest themselves somehow. Through an avatar, an omen, a miracle or some other way of the GM's choosing.
+    - 11-13 Cult A cult stands in the PCs' way. They could be withholding relics, blocking roads or trying to stop the construction of a temple or the fulfilling of a prophecy.
+    - 14-16 Nature's wrath The party is subjected to nature's wrath. It could be anything from ion storms, bad weather and meteorite showers to landslides or flash floods.
+    - 21-26 Doomsday prophecy The end is nigh! A doomsday prophecy has been spoken that complicates the voyage.
+    - 31-52 Lack of resources Something important is missing. It could be gear, fuel, raw materials, and knowledge or simply birr.
+    - 53-56 Starvation For some reason, the food will not last.
+    - 61-63 Diva A diva appears, in the form of a prophet, preacher or temple officer, hindering the group unless they are prepared to grovel.
+    - 64-66 Iconic intervention The Icons manifest themselves somehow. Through an avatar, an omen, a miracle or some other way of the GM's choosing.
   Free_Traders:
     employer:
     - 11-13 Outpost representative
@@ -434,49 +441,49 @@ nested_tables:
     - 61-66 Extra debt cancellation
     - 64-66 Artifact
     mission: # goods
-    11-12 Ore Bauxite (aluminum), lead glance, gold-quartz, cassiterite (tin), malachite (copper), magnetite (iron), platinum-bearing sand, sphalerite (zinc)
-    13 Minerals Pure minerals, salt
-    14 Metals Bars of metal
-    15-16 Noble gasses Argon, helium, neon, krypton, radon, xenon
-    21 Timber Pine, jacaranda, mahogany, oak
-    22 Ice Water ice or rare frozen solution
-    23 Chemicals Industrial chemicals
-    24 Fertilizer Natural (droppings) or synthetic
-    25-26 Textiles Fabrics (wool, velvet, silk) or clothing
-    31-32 Foodstuffs Base foods such as chickpeas, soybeans and other legumes, grains (corn, barley, rice, wheat) or refined versions thereof (such as couscous) or vegetables such as aubergine, spinach, zuc or tomato.
-    33 Spices Jasmine, cinnamon, cloves, cumin, mint, basil, oregano, rose water, saffron
-    34 Delicacies Apricots, bananas, baklava, dates, coconut, almonds, marzipan, nuts (pecans, pistachios, walnuts), raisins, oysters, caviar, testicles, ants
-    35-36 Medicinal goods Vaccines, medicines, m- and t-doses, surgical gear for bionics or cybernetics
-    41 Religious paraphernalia Altars, prayer towers, dismantled chapels, icons, reliquaries, religious art, talismans, relics, scrolls
-    42-43 Spare parts Different makes and types, for exos, vehicles, cybernetics, medical technology, prospecting gear, drones, weapons, armor, spaceships or colony life support systems
-    44-45 Ship parts Modules, features, parts for/from dismantled ships
-    46 Exos Exo shells, loader exos, diver exos, carrier exos etc. Stacked effective use of cargo space.
-    51 Drones Parts or ready-to-use automatic systems
-    52 Vehicles Disassembled
-    53-54 Weapons Choose from the Gear chapter
-    55-56 Body armors Choose from the Gear chapter
-    61-62 Survival gear Basic gear for survival or for a specific environment
-    63 Animal feed Alfalfa, tailored animal or livestock feed, synthetic fodder
-    64-65 Livestock/animals Work animals or pets, usually alive if loaded in a primitive environment or in stasis if from ordinary or advanced environments
-    66 Semi-intelligences Ekilibri or nekatra are the most common, the former as plantation workers or pets, the latter as guards, soldiers or gladiators
+    - 11-12 Ore Bauxite (aluminum), lead glance, gold-quartz, cassiterite (tin), malachite (copper), magnetite (iron), platinum-bearing sand, sphalerite (zinc)
+    - 13 Minerals Pure minerals, salt
+    - 14 Metals Bars of metal
+    - 15-16 Noble gasses Argon, helium, neon, krypton, radon, xenon
+    - 21 Timber Pine, jacaranda, mahogany, oak
+    - 22 Ice Water ice or rare frozen solution
+    - 23 Chemicals Industrial chemicals
+    - 24 Fertilizer Natural (droppings) or synthetic
+    - 25-26 Textiles Fabrics (wool, velvet, silk) or clothing
+    - 31-32 Foodstuffs Base foods such as chickpeas, soybeans and other legumes, grains (corn, barley, rice, wheat) or refined versions thereof (such as couscous) or vegetables such as aubergine, spinach, zuc or tomato.
+    - 33 Spices Jasmine, cinnamon, cloves, cumin, mint, basil, oregano, rose water, saffron
+    - 34 Delicacies Apricots, bananas, baklava, dates, coconut, almonds, marzipan, nuts (pecans, pistachios, walnuts), raisins, oysters, caviar, testicles, ants
+    - 35-36 Medicinal goods Vaccines, medicines, m- and t-doses, surgical gear for bionics or cybernetics
+    - 41 Religious paraphernalia Altars, prayer towers, dismantled chapels, icons, reliquaries, religious art, talismans, relics, scrolls
+    - 42-43 Spare parts Different makes and types, for exos, vehicles, cybernetics, medical technology, prospecting gear, drones, weapons, armor, spaceships or colony life support systems
+    - 44-45 Ship parts Modules, features, parts for/from dismantled ships
+    - 46 Exos Exo shells, loader exos, diver exos, carrier exos etc. Stacked effective use of cargo space.
+    - 51 Drones Parts or ready-to-use automatic systems
+    - 52 Vehicles Disassembled
+    - 53-54 Weapons Choose from the Gear chapter
+    - 55-56 Body armors Choose from the Gear chapter
+    - 61-62 Survival gear Basic gear for survival or for a specific environment
+    - 63 Animal feed Alfalfa, tailored animal or livestock feed, synthetic fodder
+    - 64-65 Livestock/animals Work animals or pets, usually alive if loaded in a primitive environment or in stasis if from ordinary or advanced environments
+    - 66 Semi-intelligences Ekilibri or nekatra are the most common, the former as plantation workers or pets, the latter as guards, soldiers or gladiators
     location: # destination
-    11-13 Only coordinates Coordinates for an area or secret base.
-    14-16 Hostile forest/ jungles/desert Landing site in planet side wilderness. Usually far from cities or settlements.
-    21-26 Bazaar A bazaar or market in a city or settlement.
-    31-33 Spaceport Spaceport on a space station, asteroid or moon, or a landing strip near a larger settlement.
-    34-36 Asteroid/Moon The surface of an asteroid or a smaller moon. Vacuum or dangerous atmosphere. Planet-like moons count as wilderness (above).
-    41-43 Space station A small space station, anything from an oxygen oasis to a trade or service station.
-    44-46 Souk A larger souk where trading partners meet. Usually in a larger city or station, sometimes seasonal.
-    51-53 Colony A small colony, usually no bigger than a small, sparsely populated village. Far from other settlements.
-    54-56 Portal station A portal station next to a sun.
-    61-63 Spaceship Onboard a spaceship during voyage or docking.
-    64-66 Outpost A small outpost, usually planet side. An outpost is commonly just a single building with a specific function and only a few inhabitants see above.
+    - 11-13 Only coordinates Coordinates for an area or secret base.
+    - 14-16 Hostile forest/ jungles/desert Landing site in planet side wilderness. Usually far from cities or settlements.
+    - 21-26 Bazaar A bazaar or market in a city or settlement.
+    - 31-33 Spaceport Spaceport on a space station, asteroid or moon, or a landing strip near a larger settlement.
+    - 34-36 Asteroid/Moon The surface of an asteroid or a smaller moon. Vacuum or dangerous atmosphere. Planet-like moons count as wilderness (above).
+    - 41-43 Space station A small space station, anything from an oxygen oasis to a trade or service station.
+    - 44-46 Souk A larger souk where trading partners meet. Usually in a larger city or station, sometimes seasonal.
+    - 51-53 Colony A small colony, usually no bigger than a small, sparsely populated village. Far from other settlements.
+    - 54-56 Portal station A portal station next to a sun.
+    - 61-63 Spaceship Onboard a spaceship during voyage or docking.
+    - 64-66 Outpost A small outpost, usually planet side. An outpost is commonly just a single building with a specific function and only a few inhabitants see above.
     complication:
-    11-13 Embargo/Quarantine The destination is placed under quarantine or an embargo.
-    14-16 Customs inspection A tolling vessel or some other customs ship approaches and demands to be allowed to board.
-    21-26 Corrupt customs officer A customs officer demands to be bribed to allow the PCs through or will make sure their cargo gets tangled up in bureaucracy.
-    31-33 Corsairs Corsairs or pirates attack the group's work site or ship.
-    34-43 Break-down Some form of breakdown occurs onboard, during either loading or unloading.
-    44-53 Lost The group strays from their planned route and is lost on a planet or in space.
-    54-56 Tricky merchant The PCs encounter a merchant who hinders them from selling at a profit or tricks them in some other way.
-    61-66 Saturated market The market at the destination recently received a big shipment of goods similar to the PCs' and the prices have dropped.
+    - 11-13 Embargo/Quarantine The destination is placed under quarantine or an embargo.
+    - 14-16 Customs inspection A tolling vessel or some other customs ship approaches and demands to be allowed to board.
+    - 21-26 Corrupt customs officer A customs officer demands to be bribed to allow the PCs through or will make sure their cargo gets tangled up in bureaucracy.
+    - 31-33 Corsairs Corsairs or pirates attack the group's work site or ship.
+    - 34-43 Break-down Some form of breakdown occurs onboard, during either loading or unloading.
+    - 44-53 Lost The group strays from their planned route and is lost on a planet or in space.
+    - 54-56 Tricky merchant The PCs encounter a merchant who hinders them from selling at a profit or tricks them in some other way.
+    - 61-66 Saturated market The market at the destination recently received a big shipment of goods similar to the PCs' and the prices have dropped.
