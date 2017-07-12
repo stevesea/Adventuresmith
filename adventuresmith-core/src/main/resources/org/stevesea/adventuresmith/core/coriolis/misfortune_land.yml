@@ -1,0 +1,62 @@
+---
+templates:
+- "{{misfortune_land_template}}"
+
+definitions:
+  misfortune_land_template: "{{>pick: 2d6 misfortune_land}}"
+
+tables:
+  misfortune_land:
+  - |
+    <h5>Spoiled provisions</h5>
+    The group's food has somehow gone
+    bad. If they fail to find new food, they will suffer the effects of
+    Hunger (page 98 in the Coriolis core rulebook).
+  - |
+    <h5>Contagion</h5>
+    Nausea and disease spread through the group.
+    Everyone must test <strong>survival</strong>. A failed test results in 1 point of
+    damage/day for D6 days.
+  - |
+    <h5>Bad weather</h5>
+    Rain, snow and strong winds make the journey
+    difficult. The PCs become wet, tired and cold and they all must
+    test survival. A failed test results in 2 points of damage.
+  - |
+    <h5>Wild animals</h5>
+    The PCs encounter wild animals. They might
+    attack.
+  - |
+    <h5>Poor camp</h5>
+    The camp is either poorly made or suffers
+    an incident during the night. The PCs get little sleep and suffer
+    1 stress point from lack of sleep.
+  - |
+    <h5>Lost</h5>
+    The group get lost and must struggle to find their way
+    back. The PCs must test <strong>survival</strong>. A passed roll means that
+    they find the path within the hour; failure means that they are
+    lost for 3D6 hours.
+  - |
+    <h5>Insects/vermin</h5>
+    Insects or vermin of some sort attack The PCs.
+  - |
+    <h5>Sinkhole/Landslide</h5>
+    All PCs must test <strong>dexterity</strong>. Those
+    who pass find safe ground, but those who fail fall into a hole
+    or get stuck.
+  - |
+    <h5>Chased</h5>
+    The group are being followed by someone or something.
+    All PCs must test <strong>survival</strong>; those who fail suffer 2 stress
+    points from fear. And what if the pursuers catch up?
+  - |
+    <h5>Storm</h5>
+    Dark clouds appear and a storm comes crashing down.
+    The PCs must find shelter!
+  - |
+    <h5>Cold/Heat</h5>
+    The temperature suddenly drops or rises. Unless
+    the PCs find cover, use the rules for Cold (page 99 in the Coriolis
+    core rulebook).
+

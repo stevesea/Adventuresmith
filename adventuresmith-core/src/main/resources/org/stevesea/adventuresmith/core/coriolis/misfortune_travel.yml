@@ -1,0 +1,143 @@
+---
+templates:
+- "{{misfortune_travel.who}}"
+
+nested_tables:
+  misfortune_travel:
+    who:
+    - |
+      <h5>Captain</h5>{{misfortune_travel.Captain}}
+    - |
+      <h5>Sensor Operator</h5>{{misfortune_travel.Sensor_Operator}}
+    - |
+      <h5>Gunner</h5>{{misfortune_travel.Gunner}}
+    - |
+      <h5>Engineer</h5>{{misfortune_travel.Engineer}}
+    - |
+      <h5>Pilot</h5>{{misfortune_travel.Pilot}}
+    - |
+      <h5>Entire group</h5>{{misfortune_travel.Entire_group}}
+    Captain:
+    - |
+      <strong>Stowaways:</strong> An uninvited guest has snuck onboard and pleads
+      with the captain's conscience. Who is the stowaway? And how will
+      the captain handle the situation?
+    - |
+      <strong>Distress Call:</strong> A signal on the emergency frequency is intercepted.
+      Who or what is seeking aid?
+    - |
+      <strong>Unexpected Encounter:</strong> Roll on the Encounters table. Can the
+      captain avoid the encounter or not?
+    - |
+      <strong>Illegal Cargo:</strong> Someone is using the ship's cargo containers
+      for smuggling. Who, and for what?
+    - |
+      <strong>Haunting:</strong> The lights flicker and systems turn on and off. Who or
+      what is haunting the ship? Can the journey continue?
+    - |
+      <strong>Bad Navigation:</strong> The computer reports one set of coordinates,
+      but the navigation beacon reports another. Where is the ship and
+      what has happened?
+    Sensor_Operator:
+    - |
+      <strong>Sensor Ghosts:</strong> There is a quick flash on the screen. Is there
+      something out there?
+    - |
+      <strong>Sensor Glitch:</strong> There is something wrong with the sensors. Is
+      it because of broken internal wiring, or will the repairs require a
+      spacewalk?
+    - |
+      <strong>Transponder Malfunction:</strong> There is something wrong with
+      the ship's transponder. What is the ship claiming to be?
+    - |
+      <strong>Overload:</strong> Vital panels flicker and go dark. Something must be
+      done before the systems fry.
+    - |
+      <strong>Faulty Calibration:</strong> There is someone following the ship! Or
+      is there? The sensors give contradicting information. What has
+      gone wrong?
+    - |
+      <strong>Virus:</strong> The screens are flooded with unintelligible symbols, and
+      nothing works like it should.
+    Gunner:
+    - |
+      <strong>Disconnected Systems:</strong> One or more weapon systems stop
+      responding. What has happened?
+    - |
+      <strong>Overheating:</strong> A weapon system suddenly warns about overheating.
+      Why?
+    - |
+      <strong>Unintentional Lock-on:</strong> The lock-on signal whines loudly
+      across the bridge. A weapon system has locked onto an object or
+      another ship. What is going on?
+    - |
+      <strong>Sudden Discharge:</strong> A weapon system fires a salvo. What triggered
+      the firing?
+    - |
+      <strong>Armed Torpedo:</strong> The launch control djinn warns of an armed
+      torpedo in the torpedo room. Will you be able to disarm it?
+    - |
+      <strong>Poor Service:</strong> Dirt or vermin have gotten deep into the core of a
+      weapon system. Can it be cleaned out?
+    Engineer:
+    - |
+      <strong>Coughing Grav Projectors:</strong> The graviton flow is fluctuating.
+      What is the problem?
+    - |
+      <strong>Transformer Short Circuit:</strong> The power supply to some parts
+      of the ship shuts down. What is causing it?
+    - |
+      <strong>Malfunctioning Climate Control:</strong> The ship suddenly turns
+      very hot or very cold. How can the problem be fixed?
+    - |
+      <strong>Vent Problems:</strong> The air becomes dry and increasingly stuffy.
+      What has happened?
+    - |
+      <strong>Uninvited Guest In the Engine Room:</strong> A pest of some sort is
+      wreaking havoc in the engine room. What is it and how can it be
+      caught?
+    - |
+      <strong>Striking Trash Compactor:</strong> The trash compactor is not
+      working like it should and gives off a rotten smell. How can it be
+      repaired?
+    Pilot:
+    - |
+      <strong>Sudden Evasive Maneuver:</strong> Something comes shooting right
+      towards the ship. Will the pilot be able to evade a collision? What
+      are the consequences of the maneuver?
+    - |
+      <strong>Malfunctioning Thrusters:</strong> The thrusters are acting
+      strangely, the ship shakes and rolls. Why?
+    - |
+      <strong>Ion Storm:</strong> An ion storm hits the ship! Can the pilot navigate
+      through it without it harming the passengers?
+    - |
+      <strong>Meteorite Field:</strong> A sudden bang, and then another. The ship has
+      entered a meteorite field. Can the pilot escape the field before the
+      ship is hit by a larger rock?
+    - |
+      <strong>Space Debris:</strong> The ship enters a field of junk and debris. What
+      does it contain? And can the pilot get the ship to safety?
+    - |
+      <strong>Autonomous Autopilot:</strong> The ship suddenly changes course and
+      speed, as if the controls have been possessed. What is causing this?
+    Entire_group:
+    - |
+      <strong>Hull Breach:</strong> The breach alarm goes off! The ship is venting
+      oxygen into space and the hole is rapidly getting bigger. Can the
+      group find and repair the hole fast enough?
+    - |
+      <strong>Disabled Gravity:</strong> The artificial gravity switches off.
+      Crewmembers and loose gear float around freely onboard. What
+      is wrong?
+    - |
+      <strong>Intruders:</strong> Someone has snuck onboard. Who? And why?
+    - |
+      <strong>Contagion:</strong> One by one, the crewmembers start to feel sick.
+      What is causing it?
+    - |
+      <strong>Fire!:</strong> Smoke is pouring out of the vents – there is a fire somewhere!
+      Can the crew put it out before they lose control?
+    - |
+      <strong>Radiation Storm:</strong> A violent radiation storm hits the ship and the
+      crew must find shelter quickly. Will they make it?

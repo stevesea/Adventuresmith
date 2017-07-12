@@ -8,6 +8,8 @@ groupedGenerators:
   - freelance
   misfortunes:
   - failed_portal_jump
+  - misfortune_travel
+  - misfortune_land
   - critical_ship_damage
   - critical_injury
   adv_seeds:
