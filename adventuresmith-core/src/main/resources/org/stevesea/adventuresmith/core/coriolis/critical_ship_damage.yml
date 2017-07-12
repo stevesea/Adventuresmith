@@ -22,7 +22,7 @@ tables:
     6, <h5>Damaged Power Coupling</h5>
     The power flow from the reactor to the rest of the ship is reduced. The ship’s EP pool is decreased by 2.
   - |
-    7, h5>Destroyed Module</h5>
+    7, <h5>Destroyed Module</h5>
     A random module is destroyed – it cannot be used until the damage is repaired. Use dice to randomly determine
     which module is affected. The three required modules bridge, reactor and graviton projector cannot be hit (they have their
     own critical damage rules). If the module is populated, its occupants risk injury.
@@ -41,7 +41,7 @@ tables:
     damage, and the module suffers explosive decompression.
   - |
     11, <h4>Chain Reaction</h4>
-    {{>pickN: 2 ship_damage}}
+    {{>repeat: 2 %[[>pick: 2d6 ship_damage]]%}}
   - |
     12, <h5>Reactor Detonation</h5>
     A critical hit in the reactor is the worst possible outcome. Reactors in the Third Horizon generate enormous
