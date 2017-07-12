@@ -6,12 +6,15 @@ groups:
 - name: characters
   uiName: Characters
   icon: cmd-account-multiple
+- name: misfortunes
+  uiName: Misfortunes
+  icon: cmd-alert
 - name: adv_seeds
   uiName: Adventure Seeds
   icon: cmd_rocket
 - name: sys_gen
   uiName: System Generators
-  icon: cmd_chart_bubble
+  icon: cmd_chart_bubble #cmd_google_cirlces
 attribution: |
   <p>
   <a href="http://www.drivethrurpg.com/product/204291/Coriolis--The-Third-Horizon-core-book">Coriolis: The Third Horizon core book on DriveThruRPG</a>

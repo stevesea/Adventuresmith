@@ -1,6 +1,6 @@
 ---
 templates:
-- "{{ship_damage}}"
+- "{{>pick: 2d6 ship_damage}}"
 
 tables:
   ship_damage:

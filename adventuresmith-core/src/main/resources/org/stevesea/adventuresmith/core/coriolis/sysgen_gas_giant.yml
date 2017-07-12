@@ -10,10 +10,10 @@ definitions:
   # moons: 3D6, generate as planets. limit to 5km size
   gg_template: |
     <h5>Gas Giant</h5>
-    <strong>Size:</strong> {{gas_giant.size}} &nbsp;&nbsp;<strong>Color:</strong> {{gas_giant.color}}
-    <br/><br/><strong>Temperature:</strong> {{gas_giant.temp}}
-    <br/><br/><strong>Characteristics:</strong> {{gas_giant.characteristics}}
-    <br/><br/><strong>Population:</strong> {{>pick: 1d6 planet.population}}
+    <strong>Size:</strong> {{>pick: 2d6 gas_giant.size}} &nbsp;&nbsp;<strong>Color:</strong> {{>pick: 2d6 gas_giant.color}}
+    <br/><br/><strong>Temperature:</strong> {{>pick: 2d6 gas_giant.temp}}
+    <br/><br/><strong>Characteristics:</strong> {{>pick: 2d6 gas_giant.characteristics}}
+    {{>pick: 1d6 planet.population}}
 
     <br/><br/><strong>Moons:</strong> {{>roll: 3d6}}
 

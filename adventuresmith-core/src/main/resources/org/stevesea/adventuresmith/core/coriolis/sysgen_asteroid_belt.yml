@@ -10,7 +10,7 @@ definitions:
     <h5>Asteroid Belt</h5>
     <strong>Size:</strong> {{asteroid_belt.size}}
     <br/><br/><strong>Composition:</strong> {{asteroid_belt.composition}}
-    <br/><br/><strong>Characteristics:</strong> {{asteroid_belt.characteristics}}
+    <br/><br/><strong>Characteristics:</strong> {{>pick: 2d6 asteroid_belt.characteristics}}
     <br/><br/><strong>Population:</strong> {{>pick: 2d6-4 planet.population}}
 
 
