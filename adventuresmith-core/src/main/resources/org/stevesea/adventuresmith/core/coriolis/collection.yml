@@ -6,14 +6,14 @@ groupedGenerators:
   - factionaries
   - merchants
   - freelance
+  - failed_portal_jump
+  - critical_ship_damage
   - critical_injury
   adv_seeds:
   - expeditions
   - leisure
-  - failed_portal_jump
-  - coriolis_encounters
-  - critical_ship_damage
   - conflict
+  - coriolis_encounters
   - mission_generator
   sys_gen:
   - sysgen_planet
