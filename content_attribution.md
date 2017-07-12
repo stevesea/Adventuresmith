@@ -8,12 +8,14 @@ publishers and copyright holders. See below for full listing.
 ## Index
 - [Augmented Reality](#augmented_reality)
 - [Conjecture Games](#conjecture_games)
+- [Coriolis](#coriolis)
 - [Freebooters on the Frontier](#freebooters_on_the_frontier)
 - [GameMaster's Apprentice](#gma)
 - [Hack & Slash](#hack_and_slash)
 - [Kaigaku](#kaigaku)
 - [Macchiato Monsters](#macchiato_monsters)
 - [Maze Rats](#maze_rats)
+- [Mutant: Year Zero](#mutant_year_zero)
 - [The Perilous Wilds](#perilous_wilds)
 - [Portal Rats](#portal_rats)
 - [Roll XX](#roll_xx)
@@ -82,6 +84,30 @@ obtains deeds and legends that are overcome in unexpected ways. These deeds can 
 in to entire stories.</p>
 </blockquote>
 
+
+
+
+<a name="coriolis"></a>
+## Coriolis - Fria Ligan
+[http://frialigan.se/en/games/coriolis/](http://frialigan.se/en/games/coriolis/)
+
+<p>
+<a href="http://www.drivethrurpg.com/product/204291/Coriolis--The-Third-Horizon-core-book">Coriolis: The Third Horizon core book on DriveThruRPG</a>
+</p>
+<p>
+<a href="http://www.drivethrurpg.com/product/204292/Coriolis-Atlas-Compendium">Coriolis Atlas Compendium on DrivethruRPG </a>
+</p>
+<p>
+<a href="http://frialigan.se/en/games/coriolis/">Coriolis on Fria Ligan's Site</a>
+</p>
+<p>
+<a href="http://freeleaguepublishing.com/">Free League Publishing</a>
+</p>
+<p>
+CORIOLIS © - 2017 Paradox Interactive AB. CORIOLIS is a trademark of Paradox Interactive AB. Used with permission from Paradox Interactive AB.
+All rights reserved. <a href="http://www.paradoxplaza.com">www.paradoxplaza.com</a>
+</p>
+<p>The content in Adventuresmith is from the <cite>Coriolis: The Third Horizon</cite> corebook and <cite>Coriolis Atlas Compendium</cite></p>
 
 
 
@@ -264,6 +290,32 @@ Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
 <p>The text of <em>Maze Rats 4.1</em> is released under a CC BY 4.0 license
 https://creativecommons.org/licenses/by/4.0/</p>
 <p>Spanish translation by: <strong>Séregras</strong>. Available here <a href="http://questingblog.com/downloads/">http://questingblog.com/downloads/</a></p>
+
+
+
+
+<a name="mutant_year_zero"></a>
+## Mutant: Year Zero - Fria Ligan
+[http://frialigan.se/en/games/mutant-year-zero/](http://frialigan.se/en/games/mutant-year-zero/)
+
+<p>
+<a href="http://www.drivethrurpg.com/product/139453/MUTANT-Year-Zero--Roleplaying-At-The-End-Of-Days">Mutant: Year Zero on DriveThruRPG</a>
+</p>
+<p>
+<a href="http://www.drivethrurpg.com/product/186192/Mutant-Genlab-Alpha-core-book">Mutant: Genlab Alpha on DriveThruRPG</a>
+</p>
+<p>
+<a href="http://frialigan.se/en/games/mutant-year-zero/">Mutant: Year Zero on Fria Ligan's Site</a>
+</p>
+<p>
+<a href="http://freeleaguepublishing.com/">Free League Publishing</a>
+</p>
+<p>
+© 2017 Game Ark Limited, part of the Cabinet Group. MUTANT and related logos, characters, names,
+and distinctive likenesses thereof are trademarks or registered trademarks of Game Ark Limited.
+Used with permission. All rights reserved.
+</p>
+<p>The content in Adventuresmith is from the <cite>Mutant: Year Zero</cite> and <cite>Mutant: Genlab Alpha</cite> corebooks</p>
 
 
 
