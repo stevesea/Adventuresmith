@@ -13,7 +13,7 @@ groups:
   uiName: Genlab Alpha
   icon: cmd-test-tube
 - name: items
-  uiName: Items / Treasure
+  uiName: Scrap & Artifacts
   icon: cmd-briefcase
 
 attribution: |
