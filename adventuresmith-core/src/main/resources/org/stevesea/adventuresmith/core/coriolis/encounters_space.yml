@@ -3,7 +3,6 @@ templates:
 - "%[[pick.{{input.region}}]]%"
 
 definitions:
-  reaction_pick: "{{>pick: 2d6 encounters.reaction}}"
   pick:
     Faction: |
       <h5>{{encounters.Faction}}</h5>

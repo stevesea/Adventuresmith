@@ -1,0 +1,137 @@
+---
+templates:
+- "%[[encounters_planet_templ.{{input.region}}]]%"
+
+imports:
+- encounters_space # for reaction
+
+definitions:
+  encounters_planet_templ:
+    City: |
+      <h5>{{encounters_planet.City}}</h5>
+      {{>pick: 2d6+2 encounters.reaction}}
+      <br/><br/><small><em>[City Encounter]</small></em>
+    Countryside: |
+      <h5>{{encounters_planet.Countryside}}</h5>
+      {{>pick: 2d6 encounters.reaction}}
+      <br/><br/><small><em>[Countryside Encounter]</small></em>
+    Wilderness: |
+      <h5>{{encounters_planet.Wilderness}}</h5>
+      {{>pick: 2d6-2 encounters.reaction}}
+      <br/><br/><small><em>[Wilderness Encounter]</small></em>
+
+nested_tables:
+  encounters_planet:
+    City:
+    - Drunk teenagers
+    - Annoying drunk
+    - Intrusive peddler
+    - Light-fingered pickpocket
+    - Angry guards
+    - Wild skavara
+    - Chanting preacher
+    - Charming courtesan
+    - Cocky ship crew
+    - Aggressive Legionnaires
+    - Reciting poet
+    - Loud singer
+    - Theater group performing
+    - Dancing courtesans
+    - Training acrobats
+    - Devout pilgrims
+    - Begging street urchin
+    - Beaten city dweller
+    - Guards on patrol
+    - Escaped convict
+    - Stoned robber
+    - High gang member
+    - Cocky street gang
+    - Curious researcher
+    - Agitated mob
+    - Radical students
+    - Distinguished noble
+    - Lost traveler
+    - Enthusiastic storyteller
+    - Mercenaries on a mission
+    - Spying scout
+    - Funeral procession
+    - Couple in love
+    - Pompous dignitaries
+    - Merciful Samaritans
+    - Mystic
+    Countryside:
+    - Poor workers
+    - Laconic nomad
+    - Colorful nomad caravan
+    - Curious wild animal
+    - Domestic animals blocking the road
+    - Temporary road market
+    - Quarrelling travelers
+    - Resting traveler
+    - Torrential rains
+    - Worsening storm
+    - Traveling mercenaries
+    - Guards on patrol
+    - Working archaeologists
+    - Suspicious villagers
+    - Inquisitive scientist
+    - Wandering pilgrim
+    - Abandoned village
+    - Cantina
+    - Scouting guerilla fighters
+    - Fugitive on the run
+    - Traveling merchant
+    - Dignitary procession
+    - Greedy bandits
+    - Oasis/meeting place
+    - Inhabited village
+    - Baker with trolley
+    - Wild skavara
+    - Praying preacher
+    - Inhabited farm
+    - Smugglers loading cargo
+    - Traveling courtesans
+    - Traveling circus
+    - Scouting Legionnaires
+    - Burned-down settlement
+    - Vehicle wreckage
+    - Darkmorph
+    Wilderness:
+    - Thick undergrowth
+    - Marsh
+    - Hungry wild animal
+    - Pack of wild animals
+    - Scouting hunter
+    - Patrolling guerilla fighters
+    - Wandering nomad
+    - Mercenaries on a mission
+    - Archaeologists' camp
+    - Lonely hermit
+    - Suspicious trailblazer
+    - Lost wanderer
+    - Abandoned pet
+    - Ruins
+    - Secret hideout
+    - Old mausoleum
+    - Slaver
+    - Abandoned temple
+    - Oasis/wellspring
+    - Colonial expedition
+    - Worsening storm
+    - Dead travelers
+    - Deserted outpost
+    - Deep ravine
+    - First-come scout
+    - Lonely settlement
+    - Wreckage of vehicle/ship
+    - Inhabited ruins
+    - Underground First-come base
+    - Inhabited outpost
+    - Weather station
+    - Caravan
+    - Wild pack of skavara
+    - Smuggler den
+    - Hidden artifact
+    - Darkmorph
+
+

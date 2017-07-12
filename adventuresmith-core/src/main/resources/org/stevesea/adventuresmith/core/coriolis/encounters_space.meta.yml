@@ -1,5 +1,5 @@
 ---
-name: Encounters in Space
+name: Encounter in Space
 input:
   displayTemplate: "Region: {{region}}"
   params:

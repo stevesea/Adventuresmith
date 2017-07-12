@@ -1,5 +1,5 @@
 ---
-name: Encounters on Coriolis
+name: Encounter on Coriolis
 
 input:
   displayTemplate: "Location: {{location}}"

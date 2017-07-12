@@ -1,0 +1,13 @@
+---
+name: Encounter on Planet
+input:
+  displayTemplate: "Region: {{region}}"
+  params:
+  - name: region
+    uiName: Region
+    helpText: What region of the planet?
+    defaultValue: City
+    values:
+    - City
+    - Countryside
+    - Wilderness

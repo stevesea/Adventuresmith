@@ -8,6 +8,7 @@ groupedGenerators:
   - freelance
   encounters:
   - coriolis_encounters
+  - encounters_planet
   - encounters_space
 
   misfortunes:
