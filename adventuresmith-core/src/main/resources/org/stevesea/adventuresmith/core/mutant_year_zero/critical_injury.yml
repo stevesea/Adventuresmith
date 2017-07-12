@@ -2,189 +2,189 @@
 templates:
   - |
     <h5>Lost Breath</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> None
     <br/><br/><strong>Heal Time:</strong> -
   - |
     <h5>Stunned</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> None
     <br/><br/><strong>Heal Time:</strong> -
   - |
     <h5>Sprained Wrist</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Shoot and Fight.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Sprained Ankle</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Concussion</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Scout and Comprehend.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Damaged Shin</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Broken Nose</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Manipulate, +1 Intimidate, Tracker mutation
                                        disabled.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Broken Fingers</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Shoot and Fight.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Broken Toes</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Teeth Knocked Out</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Manipulate, +1 Intimidate.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Groin Hit</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> You suffer one point of damage for every roll you make
                                        to Force, Move or Fight.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Thigh Wound</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −2 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Biceps Wound</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −2 to Shoot and Fight.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Severed Achilles Tendon</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −2 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Dislocated Shoulder</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −3 to Force and Fight, can not use two-handed weapons.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Broken Ribs</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −2 to Move and Fight.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Broken Forearm</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> Can not use two-handed weapons.
     <br/><br/><strong>Heal Time:</strong> 3D6
   - |
     <h5>Broken Leg</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −2 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 3D6
   - |
     <h5>Ear Torn Off</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −1 to Scout, Sonar mutation disabled.
     <br/><br/><strong>Heal Time:</strong> 3D6
   - |
     <h5>Gouged Eye</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> −2 to Shoot and Scout.
     <br/><br/><strong>Heal Time:</strong> 3D6
   - |
     <h5>Punctured Lung</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 days
     <br/><br/><strong>Effect:</strong> −2 to Endure and Move.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Damaged Kidney</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 days
     <br/><br/><strong>Effect:</strong> You suffer one point of damage for every roll you make
                                        to Force, Move or Fight
     <br/><br/><strong>Heal Time:</strong> 3D6
   - |
     <h5>Crushed Knee</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 days
     <br/><br/><strong>Effect:</strong> −2 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 4D6
   - |
     <h5>Crushed Elbow</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 days
     <br/><br/><strong>Effect:</strong> −2 to Force and Fight, can not use two-handed weapons
     <br/><br/><strong>Heal Time:</strong> 4D6
   - |
     <h5>Crushed Foot</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 days
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 days
     <br/><br/><strong>Effect:</strong> −3 to Move and Sneak.
     <br/><br/><strong>Heal Time:</strong> 4D6
   - |
     <h5>Bleeding Gut</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 hours
     <br/><br/><strong>Effect:</strong> You suffer one point of damage for every roll you make
                                        to Force, Move or Fight.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Crushed Face</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 hours
     <br/><br/><strong>Effect:</strong> −2 to Manipulate.
     <br/><br/><strong>Heal Time:</strong> 4D6
   - |
     <h5>Busted Intestine</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> D6 hours
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> D6 hours
     <br/><br/><strong>Effect:</strong> You suffer one Rot Point per hour until Healed.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Damaged Spine</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> Paralyzed from the waist down. Effect is permanent unless
                                        Healed during healing time.
     <br/><br/><strong>Heal Time:</strong> 4D6
   - |
     <h5>Neck Injury</h5>
-    <strong>Fatal:</strong> No &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> No <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> Paralyzed from the neck down. Effect is permanent unless
                                        Healed during healing time.
     <br/><br/><strong>Heal Time:</strong> 4D6
   - |
     <h5>Internal Bleeding</h5>
-    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <strong>Fatal:</strong> Yes, -1 <br/><strong>Time Limit:</strong> D6 minutes
     <br/><br/><strong>Effect:</strong> You suffer one point of damage for every roll you make
                                        to Force, Move or Fight.
     <br/><br/><strong>Heal Time:</strong> 2D6
   - |
     <h5>Severed Arm Artery</h5>
-    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <strong>Fatal:</strong> Yes, -1 <br/><strong>Time Limit:</strong> D6 minutes
     <br/><br/><strong>Effect:</strong> −1 to Endure and Move.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Severed Leg Artery</h5>
-    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 minutes
+    <strong>Fatal:</strong> Yes, -1 <br/><strong>Time Limit:</strong> D6 minutes
     <br/><br/><strong>Effect:</strong> −1 to Endure and Move.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Severed Jugular</h5>
-    <strong>Fatal:</strong> Yes, -1 &nbsp;&nbsp;<strong>Time Limit:</strong> D6 turns
+    <strong>Fatal:</strong> Yes, -1 <br/><strong>Time Limit:</strong> D6 turns
     <br/><br/><strong>Effect:</strong> −1 to Endure and Move.
     <br/><br/><strong>Heal Time:</strong> D6
   - |
     <h5>Pierced Heart</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> Your heart beats one last time, then you die. Time to
                                        make a new PC.
     <br/><br/><strong>Heal Time:</strong> -
   - |
     <h5>Crushed Skull</h5>
-    <strong>Fatal:</strong> Yes &nbsp;&nbsp;<strong>Time Limit:</strong> -
+    <strong>Fatal:</strong> Yes <br/><strong>Time Limit:</strong> -
     <br/><br/><strong>Effect:</strong> You die instantly, and will never see Eden.
     <br/><br/><strong>Heal Time:</strong> -
