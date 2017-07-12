@@ -5,45 +5,45 @@ templates:
 tables:
   ship_damage:
   - |
-    <h5>Limited Decompression</h5>
+    2, <h5>Limited Decompression</h5>
     The integrity of the bridge or some other populated module is breached, venting oxygen into space. Roll
     a die at the beginning of each following turn – on a six, the module suffers complete explosive decompression (page 99). The engineer
     can repair the breach in the engineer phase.
   - |
-    <h5>Structural Damage</h5>
+    3, <h5>Structural Damage</h5>
     The Armor Rating of the ship is reduced by 2, and Signature is increased by 2 until the damage is repaired.
   - |
-    <h5>Damaged Sensors</h5>
+    4, <h5>Damaged Sensors</h5>
     The sensor operator gets a -2 to all her rolls until the damage is repaired.
   - |
-    <h5>Damaged Thrusters</h5>
+    5, <h5>Damaged Thrusters</h5>
     The ship becomes harder to control. Maneuverability is decreased by 2.
   - |
-    <h5>Damaged Power Coupling</h5>
+    6, <h5>Damaged Power Coupling</h5>
     The power flow from the reactor to the rest of the ship is reduced. The ship’s EP pool is decreased by 2.
   - |
-    <h5>Destroyed Module</h5>
+    7, h5>Destroyed Module</h5>
     A random module is destroyed – it cannot be used until the damage is repaired. Use dice to randomly determine
     which module is affected. The three required modules bridge, reactor and graviton projector cannot be hit (they have their
     own critical damage rules). If the module is populated, its occupants risk injury.
   - |
-    <h5>Disabled Weapon System</h5>
+    8, <h5>Disabled Weapon System</h5>
     One of the weapon systems on the ship is hit and stops working. If you have more than one weapon
     system, determine which is hit randomly. If the ship has no weapons at all, reroll this result.
   - |
-    <h5>Disabled Graviton Projector</h5>
+    9, <h5>Disabled Graviton Projector</h5>
     The ship loses its propulsion. It continues forward at a constant speed. The pilot can no longer
     perform any actions.
   - |
-    <h5>Destroyed Bridge</h5>
+    10, <h5>Destroyed Bridge</h5>
     The ship can no longer be maneuvered. The captain, pilot and sensor operator can no longer perform their
     actions. The engineer and gunner stations are normally not on the bridge, so they can act normally. Everyone on the bridge risks
     damage, and the module suffers explosive decompression.
   - |
-    <h4>Chain Reaction</h4>
+    11, <h4>Chain Reaction</h4>
     {{>pickN: 2 ship_damage}}
   - |
-    <h5>Reactor Detonation</h5>
+    12, <h5>Reactor Detonation</h5>
     A critical hit in the reactor is the worst possible outcome. Reactors in the Third Horizon generate enormous
     amounts of energy, and a critical hit in the reactor releases all this energy at once. The effect is disastrous – the ship is broken
     apart and lost forever. Everyone onboard risks serious damage (see the boxed text), and are of course subjected to immediate

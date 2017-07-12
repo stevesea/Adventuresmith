@@ -219,10 +219,10 @@ nested_tables:
       {{geosphere_pick}}
       {{population_pick}}
 
-    # ◆◆ Thin, dense, corrosive or infiltrating atmosphere: -4
-    # ◆◆ Special atmosphere: The GM decides.
-    # ◆◆ Hot temperature: -2
-    # ◆◆ Burning temperature: -4
+    # * Thin, dense, corrosive or infiltrating atmosphere: -4
+    # * Special atmosphere: The GM decides.
+    # * Hot temperature: -2
+    # * Burning temperature: -4
     geosphere:
     - |
       2,
@@ -281,12 +281,12 @@ nested_tables:
       <br/><br/><strong>Population:</strong> Millions of inhabitants
       {{>pick: 2d6+4 planet.spaceport}}
 
-    #  ◆◆ Population 2-3: -8
-    #  ◆◆ Population 4-5: -6
-    #  ◆◆ Population 6-7: -4
-    #  ◆◆ Population 8-9: 0
-    #  ◆◆ Population 10-11: +1
-    #  ◆◆ Population 12: +4
+    #  * Population 2-3: -8
+    #  * Population 4-5: -6
+    #  * Population 6-7: -4
+    #  * Population 8-9: 0
+    #  * Population 10-11: +1
+    #  * Population 12: +4
     spaceport:
     - |
       3,
