@@ -6,6 +6,10 @@ groupedGenerators:
   - factionaries
   - merchants
   - freelance
+  encounters:
+  - coriolis_encounters
+  - encounters_space
+
   misfortunes:
   - failed_portal_jump
   - misfortune_travel
@@ -15,7 +19,6 @@ groupedGenerators:
   adv_seeds:
   - expeditions
   - leisure
-  - coriolis_encounters
   - mission_generator
   - conflict
   sys_gen:

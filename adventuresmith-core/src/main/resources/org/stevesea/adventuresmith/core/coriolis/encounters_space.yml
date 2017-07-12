@@ -1,0 +1,190 @@
+---
+templates:
+- "%[[pick.{{input.region}}]]%"
+
+definitions:
+  reaction_pick: "{{>pick: 2d6 encounters.reaction}}"
+  pick:
+    Faction: |
+      <h5>{{encounters.Faction}}</h5>
+      {{>pick: 2d6+2 encounters.reaction}}
+      <br/><br/><small><em>[Faction Space Encounter]</small></em>
+    Civilized: |
+      <h5>{{encounters.Civilized}}</h5>
+      {{>pick: 2d6 encounters.reaction}}
+      <br/><br/><small><em>[Civilized Space Encounter]</small></em>
+    Fringe: |
+      <h5>{{encounters.Fringe}}</h5>
+      {{>pick: 2d6-1 encounters.reaction}}
+      <br/><br/><small><em>[Fringe Space Encounter]</small></em>
+    Uncharted: |
+      <h5>{{encounters.Uncharted}}</h5>
+      {{>pick: 2d6-2 encounters.reaction}}
+      <br/><br/><small><em>[Uncharted Space Encounter]</small></em>
+
+nested_tables:
+  encounters:
+    reaction: #2d6
+    - 2, Openly hostile. Attacks if stronger than the PCs.
+    - 3-4, Hostile. Considers attacking.
+    - 5-7, Radio silence. Ignores the PCs.
+    - 8-10, Somewhat friendly. Exchanges information/wares.
+    - 11, Friendly. Helps or assists the PCs.
+    - 12, Very friendly. Offers alliance or mission.
+
+    dark_between_stars:
+    - Muzhadjar
+    - Djinn
+    - Byara
+    - Darkbound (one position affected)
+    - Mania (one position affected)
+    - Bah-jin
+
+    Faction:
+    - Ice hauler
+    - Water tanker
+    - Bulk hauler
+    - Freighter convoy
+    - Passenger ferry
+    - Pilgrim vessel
+    - Large freighter
+    - Private yacht
+    - Diplomat vessel
+    - Mercenary ship
+    - Legion destroyer
+    - Military convoy
+    - Military convoy
+    - Temple ship
+    - Small freighter
+    - Courier ship
+    - Navigation beacon (staffed)
+    - Patrol ship
+    - Passenger ferry
+    - Research vessel
+    - Prospector ship
+    - Torpedo ship
+    - Small passenger freighter
+    - Private yacht
+    - Gas cloud
+    - Beacon ship
+    - Abandoned cargo
+    - Scavenger ship
+    - Corsairs
+    - Refugee ship
+    - Flying circus
+    - Outpost
+    - Black birr
+    - Super flare
+    - Smuggler
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"
+    Civilized:
+    - Ice hauler
+    - Water tanker
+    - Bulk hauler
+    - Freighter convoy
+    - Passenger ferry
+    - Pilgrim vessel
+    - Large freighter
+    - Private yacht
+    - Prison ship
+    - Mercenary ship
+    - Legion destroyer
+    - Military convoy
+    - Courier ship
+    - Temple ship
+    - Abandoned cargo
+    - Tow ship
+    - Navigation beacon (staffed)
+    - Debris
+    - Freighter convoy
+    - Smuggler
+    - Prospector ship
+    - Small freighter
+    - Small passenger freighter
+    - Torpedo ship
+    - Courier ship
+    - Research vessel
+    - Abandoned cargo
+    - Beacon ship
+    - Corsairs
+    - Nomad swarm
+    - Flying circus
+    - Outpost
+    - Black birr
+    - Super flare
+    - Scavenger ship
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"
+    Fringe:
+    - Ice hauler
+    - Ship in distress
+    - Corsairs
+    - Freighter convoy
+    - Derelict ship
+    - Pilgrim vessel
+    - Abandoned cargo
+    - Nomad ship
+    - Mine field
+    - Mercenary ship
+    - Mercenary ship
+    - Prospector ship
+    - Scavenger ship
+    - Gas cloud
+    - Small freighter
+    - Prospector ship
+    - Smuggler
+    - Smuggler convoy
+    - Syndicate ship
+    - Outpost
+    - Research vessel
+    - Stasis module
+    - Nomad swarm
+    - Refugee ship
+    - Flying circus
+    - Corsair group
+    - Blockade runner
+    - Small freighter
+    - Corsairs
+    - Corsairs
+    - Scavenger ship
+    - Ship cemetery
+    - Black birr
+    - Super flare
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"
+    Uncharted:
+    - Slaver ship
+    - Ship in distress
+    - Corsairs
+    - Asteroid base
+    - Derelict ship
+    - Abandoned cargo
+    - Escape pod
+    - Nomad ship
+    - Ion storm
+    - Small freighter
+    - Wreckage
+    - Mine field
+    - Scavenger ship
+    - Gas cloud
+    - Freighter convoy
+    - Navigation beacon
+    - Smuggler
+    - Mercenary ship
+    - Colony ship
+    - Outpost
+    - Research vessel
+    - Stasis module
+    - Nomad swarm
+    - Super flare
+    - Prospector ship
+    - Corsair group
+    - Abandoned station
+    - Black birr
+    - Corsairs
+    - Corsairs
+    - Warship wreckage
+    - Ship cemetery
+    - Portal Builder remains
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"
+    - "The Dark between the Stars: <br/>{{encounters.dark_between_stars}}"

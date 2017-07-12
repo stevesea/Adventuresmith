@@ -6,6 +6,9 @@ groups:
 - name: characters
   uiName: Characters
   icon: cmd-account-multiple
+- name: encounters
+  uiName: Encounters
+  icon: cmd_account_alert
 - name: misfortunes
   uiName: Misfortunes
   icon: cmd-alert

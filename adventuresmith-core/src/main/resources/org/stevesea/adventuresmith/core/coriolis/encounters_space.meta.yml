@@ -1,0 +1,14 @@
+---
+name: Encounters in Space
+input:
+  displayTemplate: "Region: {{region}}"
+  params:
+  - name: region
+    uiName: Region
+    helpText: What region of space?
+    defaultValue: Civilized
+    values:
+    - Faction
+    - Civilized
+    - Fringe
+    - Uncharted
