@@ -465,7 +465,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
                 d.tables.entries.forEach {
                     if (result.containsKey(it.key)) {
                         if (result[it.key] != it.value) {
-                            throw IOException("conflicting context key: ${it.key}")
+                            throw IOException("conflicting context key: tables.${it.key}")
                         }
                     }
                     result.put(it.key, it.value)
@@ -475,7 +475,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
                 d.nested_tables.entries.forEach {
                     if (result.containsKey(it.key)) {
                         if (result[it.key] != it.value) {
-                            throw IOException("conflicting context key: ${it.key}")
+                            throw IOException("conflicting context key: nested_tables.${it.key}")
                         }
                     }
                     result.put(it.key, it.value)
@@ -485,7 +485,7 @@ class DtoMerger(override val kodein: Kodein) : KodeinAware {
                 d.definitions.entries.forEach {
                     if (result.containsKey(it.key)) {
                         if (result[it.key] != it.value) {
-                            throw IOException("conflicting context key: ${it.key}")
+                            throw IOException("conflicting context key: definitions.${it.key}")
                         }
                     }
                     result.put(it.key, it.value)
