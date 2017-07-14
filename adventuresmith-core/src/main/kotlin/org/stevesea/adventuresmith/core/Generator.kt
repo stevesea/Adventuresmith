@@ -32,7 +32,8 @@ import java.io.File
 import java.io.IOException
 import java.io.Reader
 import java.io.StringReader
-import java.util.*
+import java.util.Locale
+import java.util.Stack
 
 interface Generator {
     fun getId() : String

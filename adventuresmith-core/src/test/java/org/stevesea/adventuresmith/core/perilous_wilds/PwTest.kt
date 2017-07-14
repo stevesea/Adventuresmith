@@ -207,7 +207,7 @@ class PwTest {
         <br/>
         <br/><strong><small>Ruination:</small></strong> arcane disaster
         <h5>Themes [2 or 1d4]</h5>
-        rot/decay<br/>rot/decay
+        &#9744;&#9744;&nbsp;rot/decay<br/>&#9744;&#9744;&nbsp;rot/decay
         """.trimIndent(),
                 getGenerator(PwConstants.DUNGEON, 0).generate(Locale.US))
     }

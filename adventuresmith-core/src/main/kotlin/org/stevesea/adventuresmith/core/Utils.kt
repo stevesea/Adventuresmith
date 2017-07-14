@@ -36,7 +36,8 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.URL
 import java.nio.charset.Charset
-import java.util.*
+import java.util.LinkedHashMap
+import java.util.Locale
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.TimeUnit
