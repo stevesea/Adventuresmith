@@ -17,6 +17,11 @@ definitions:
       medium: 3 or 1d6
       large: 4 or 1d6+1
       huge: 5 or 1d6+2
+    countdowns_num_only:
+      small: 2
+      medium: 3
+      large: 4
+      huge: 5
     labels:
       small: Small
       medium: Medium
@@ -119,7 +124,7 @@ nested_tables:
       <br/>
       <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
       <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.small}}]</h5>
-      {{>pickN: 2 dungeon.theme <br/>}}
+      %[[>repeat: {{dungeon_config.countdowns_num_only.small}} &#9744;]]%&nbsp;{{>pickN: 2 dungeon.theme <br/>%[[>repeat: {{dungeon_config.countdowns_num_only.small}} &#9744;]]%&nbsp; }}
     - |
       4..9,
       <h4>{{dungeon_config.labels.dungeon}}</h4>
@@ -129,7 +134,7 @@ nested_tables:
       <br/>
       <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
       <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.medium}}]</h5>
-      {{>pickN: 3 dungeon.theme <br/>}}
+      %[[>repeat: {{dungeon_config.countdowns_num_only.medium}} &#9744;]]%&nbsp;{{>pickN: 3 dungeon.theme <br/>%[[>repeat: {{dungeon_config.countdowns_num_only.medium}} &#9744;]]%&nbsp; }}
     - |
       10..11,
       <h4>{{dungeon_config.labels.dungeon}}</h4>
@@ -139,7 +144,7 @@ nested_tables:
       <br/>
       <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
       <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.large}}]</h5>
-      {{>pickN: 4 dungeon.theme <br/>}}
+      %[[>repeat: {{dungeon_config.countdowns_num_only.large}} &#9744;]]%&nbsp;{{>pickN: 4 dungeon.theme <br/>%[[>repeat: {{dungeon_config.countdowns_num_only.large}} &#9744;]]%&nbsp; }}
     - |
       12,
       <h4>{{dungeon_config.labels.dungeon}}</h4>
@@ -149,5 +154,5 @@ nested_tables:
       <br/>
       <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
       <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.huge}}]</h5>
-      {{>pickN: 5 dungeon.theme <br/>}}
+      %[[>repeat: {{dungeon_config.countdowns_num_only.huge}} &#9744;]]%&nbsp;{{>pickN: 5 dungeon.theme <br/>%[[>repeat: {{dungeon_config.countdowns_num_only.huge}} &#9744;]]%&nbsp; }}
 
