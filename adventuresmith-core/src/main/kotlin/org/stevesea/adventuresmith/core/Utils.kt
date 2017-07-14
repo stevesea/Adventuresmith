@@ -79,7 +79,7 @@ fun <K, V> Map<K, V>.mergeCombine(other: Map<K, V>, combine: (K, V, V) -> V = { 
     return result
 }
 
-fun <K,V> MutableMap<K,V>.mergeCombineInPlace(other: Map<K,V>, combine: (K, V, V) -> V = { k, a, b -> b }): Map<K, V> {
+fun <K, V> MutableMap<K, V>.mergeCombineInPlace(other: Map<K, V>, combine: (K, V, V) -> V = { k, a, b -> b }): Map<K, V> {
     other.forEach { e ->
         val existing = this[e.key]
 

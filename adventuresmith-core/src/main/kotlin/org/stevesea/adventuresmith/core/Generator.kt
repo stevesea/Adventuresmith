@@ -333,7 +333,7 @@ class DataDrivenGeneratorForFiles(
     }
 }
 
-abstract class AbstractContextImporter: ContextImporter {
+abstract class AbstractContextImporter : ContextImporter {
 
     abstract fun load(name: String, locale: Locale) : DataDrivenGenDto
     override fun loadContext(name: String, locale: Locale) : MutableMap<String, Any> {
@@ -349,7 +349,7 @@ abstract class AbstractContextImporter: ContextImporter {
         result.mergeCombineInPlace(initialDto.nested_tables ?: mapOf(), { k, a, b -> throw IOException("key conflict: $name.nested_tables.$k")})
         result.mergeCombineInPlace(initialDto.definitions ?: mapOf(), { k, a, b -> throw IOException("key conflict: $name.definitions.$k")})
 
-        while(importStack.isNotEmpty()) {
+        while (importStack.isNotEmpty()) {
             val imports = importStack.pop()
 
             imports.filterNot { alreadyLoaded.contains(it) }
