@@ -32,61 +32,21 @@ import java.io.File
 import java.io.IOException
 import java.io.Reader
 import java.io.StringReader
-import java.util.Locale
+import java.util.*
 
 interface Generator {
     fun getId() : String
     fun generate(locale: Locale = Locale.ENGLISH, input: Map<String, String>? = null) : String
     fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
 }
-interface ModelGenerator<T> {
-    fun generate(locale: Locale = Locale.ENGLISH, input: Map<String, String>? = null) : T
-    fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
+
+interface ContextImporter {
+    fun loadContext(name: String, locale: Locale) : Map<String, Any>
 }
 
 interface DtoLoadingStrategy<out TDto> {
     fun load(locale: Locale) : TDto
     fun getMetadata(locale: Locale = Locale.ENGLISH): GeneratorMetaDto
-}
-
-interface ModelGeneratorStrategy<in TDto, out TModel> {
-    fun transform(dto: TDto, input: Map<String, String>? = null) : TModel
-}
-
-interface ViewStrategy<in TModel, out TView> {
-    fun transform(model: TModel) : TView
-}
-
-open class BaseGenerator<
-        TDto,
-        TModel>(
-        val loadingStrat : DtoLoadingStrategy<TDto>,
-        val modelGeneratorStrat: ModelGeneratorStrategy<TDto, TModel>) : ModelGenerator<TModel> {
-    override fun generate(locale: Locale, input: Map<String, String>?): TModel {
-        val inputData = loadingStrat.load(locale)
-        val output = modelGeneratorStrat.transform(inputData, input)
-        return output
-    }
-
-    override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        return loadingStrat.getMetadata(locale)
-    }
-}
-
-open class BaseGeneratorWithView<TModel, out TView>(
-        val genId: String,
-        val modelGen: ModelGenerator<TModel>,
-        val viewTransform: ViewStrategy<TModel, TView>) : Generator {
-    override fun getId(): String {
-        return genId
-    }
-    override fun generate(locale: Locale, input: Map<String, String>?): String {
-        return viewTransform.transform(modelGen.generate(locale, input)).toString().trim()
-    }
-
-    override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        return modelGen.getMetadata(locale)
-    }
 }
 
 data class InputParamDto(val name: String,
@@ -350,26 +310,19 @@ class DataDrivenGeneratorForFiles(
         val inputFile: File,
         override val kodein: Kodein) : Generator, KodeinAware {
 
+    val contextLoader : ContextImporterForFiles = instance()
     val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
-    val shuffler: Shuffler = instance()
-    val dtoMerger: DtoMerger = instance()
     val loaderFactory: (File) -> DataDrivenGenDtoFileDeserializer = factory()
     override fun getId(): String {
         return inputFile.absolutePath
     }
     override fun generate(locale: Locale, input: Map<String, String>?): String {
         try {
-            val dto = loaderFactory.invoke(inputFile).load(locale)
+            val context = contextLoader.loadContext(getId(), locale)
 
-            // load the map with the defaults first
-            val inputMapForContext = getMetadata(locale).mergeInputWithDefaults(input)
+            context.put("input", getMetadata(locale).mergeInputWithDefaults(input))
 
-            val context = dtoMerger.mergeDtos(
-                    gatherDtoResources(dto, locale),
-                    inputMapForContext)
-            val template = if (dto.templates != null) shuffler.pick(dto.templates) else throw IllegalArgumentException("missing templates key from merged context")
-
-            return templateProcessor.processTemplate(template, context)
+            return templateProcessor.processTemplate(context)
         } catch (ex: Exception) {
             throw IOException("problem running generator ${inputFile.name}: ${ex.message}", ex)
         }
@@ -378,51 +331,88 @@ class DataDrivenGeneratorForFiles(
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return loaderFactory.invoke(inputFile).getMetadata(locale)
     }
+}
 
-    fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale): List<DataDrivenGenDto> {
-        val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
+abstract class AbstractContextImporter: ContextImporter {
 
-        dto.imports?.let {
-            for (sibling in dto.imports) {
+    abstract fun load(name: String, locale: Locale) : DataDrivenGenDto
+    override fun loadContext(name: String, locale: Locale) : MutableMap<String, Any> {
 
-                val inDir = inputFile.absoluteFile.parentFile
-                val sibling_file = File(inDir, sibling + ".yml")
-                val d = loaderFactory.invoke(sibling_file).load(locale)
-                results.addAll(gatherDtoResources(d, locale))
-            }
+        val result: MutableMap<String, Any> = mutableMapOf()
+        val initialDto = load(name, locale)
+        val alreadyLoaded = mutableSetOf(name)
+
+        val importStack = Stack<List<String>>()
+        importStack.add(initialDto.imports ?: listOf())
+
+        result.mergeCombineInPlace(initialDto.tables ?: mapOf(), { k, a, b -> throw IOException("key conflict: $name.tables.$k")})
+        result.mergeCombineInPlace(initialDto.nested_tables ?: mapOf(), { k, a, b -> throw IOException("key conflict: $name.nested_tables.$k")})
+        result.mergeCombineInPlace(initialDto.definitions ?: mapOf(), { k, a, b -> throw IOException("key conflict: $name.definitions.$k")})
+
+        while(importStack.isNotEmpty()) {
+            val imports = importStack.pop()
+
+            imports.filterNot { alreadyLoaded.contains(it) }
+                    .forEach { imp ->
+                        val sibling = getImportLoadName(name, imp)
+
+                        val dto = load(sibling, locale)
+
+                        result.mergeCombineInPlace(dto.tables ?: mapOf(), { k, a, b -> throw IOException("key conflict: $imp.tables.$k")})
+                        result.mergeCombineInPlace(dto.nested_tables ?: mapOf(), { k, a, b -> throw IOException("key conflict: $imp.nested_tables.$k")})
+                        result.mergeCombineInPlace(dto.definitions ?: mapOf(), { k, a, b -> throw IOException("key conflict: $imp.definitions.$k")})
+
+                        alreadyLoaded.add(imp)
+
+                        importStack.add(dto.imports ?: listOf())
+                    }
         }
-        return results
+        if (initialDto.templates == null) {
+            throw IOException("$name must have 'templates' key")
+        } else {
+            result.put("templates", initialDto.templates)
+        }
+
+        return result
     }
+
+    private fun getImportLoadName(initialName: String, imp: String): String {
+        return if (initialName.contains("/"))
+            initialName.replaceAfterLast("/", imp)
+        else
+            imp
+    }
+}
+
+class ContextImporterForResources(
+        override val kodein: Kodein) : AbstractContextImporter(), KodeinAware {
+    val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
+    override fun load(name: String, locale: Locale) = loaderFactory.invoke(name).load(locale)
+}
+
+class ContextImporterForFiles(
+        override val kodein: Kodein) : AbstractContextImporter(), KodeinAware {
+    val loaderFactory : (File) -> DataDrivenGenDtoFileDeserializer = factory()
+    override fun load(name: String, locale: Locale) = loaderFactory.invoke(File(name)).load(locale)
 }
 
 class DataDrivenGeneratorForResources(
         val resource_prefix: String,
         override val kodein: Kodein) : Generator, KodeinAware {
 
+    val contextLoader : ContextImporterForResources = instance()
     val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
-    val shuffler : Shuffler = instance()
-    val dtoMerger : DtoMerger = instance()
     val loaderFactory : (String) -> DataDrivenGenDtoCachingResourceLoader = factory()
     override fun getId(): String {
         return resource_prefix
     }
     override fun generate(locale: Locale, input: Map<String, String>?): String {
         try {
-            val dto = loaderFactory.invoke(resource_prefix).load(locale)
+            val context = contextLoader.loadContext(resource_prefix, locale)
 
-            // load the map with the defaults first
-            val inputMap = getMetadata(locale).mergeInputWithDefaults(input)
+            context.put("input", getMetadata(locale).mergeInputWithDefaults(input))
 
-            val context = dtoMerger.mergeDtos(
-                    gatherDtoResources(dto, locale),
-                    inputMap
-            )
-            val template = if (dto.templates != null)
-                shuffler.pick(dto.templates)
-            else
-                throw IllegalArgumentException("missing templates key from merged context")
-
-            return templateProcessor.processTemplate(template, context)
+            return templateProcessor.processTemplate(context)
         } catch (ex: Exception) {
             throw IOException("problem running generator $resource_prefix: ${ex.message}", ex)
         }
@@ -430,77 +420,6 @@ class DataDrivenGeneratorForResources(
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
         return loaderFactory.invoke(resource_prefix).getMetadata(locale)
-    }
-
-    fun gatherDtoResources(dto: DataDrivenGenDto, locale: Locale) : List<DataDrivenGenDto> {
-        val results: MutableList<DataDrivenGenDto> = mutableListOf(dto)
-
-        dto.imports?.let {
-            for (sibling in dto.imports) {
-                val sibling_resource = if (resource_prefix.contains("/"))
-                    resource_prefix.replaceAfterLast("/", sibling)
-                else
-                    sibling
-                val d = loaderFactory.invoke(sibling_resource).load(locale)
-                results.addAll(gatherDtoResources(d, locale))
-            }
-        }
-        return results
-    }
-}
-
-// TODO: if we merge as we read resources, we can give better error messages
-class DtoMerger(override val kodein: Kodein) : KodeinAware {
-    val shuffler : Shuffler = instance()
-
-    // at first, i just wanted to silently overwrite. but, ran into too many issues during
-    // generator creation where silent name overwrites resulted subtle bugs that took getting
-    // into the debugger to figure out
-
-    fun mergeDtos(dtos: List<DataDrivenGenDto>, input: Map<String, Any?>): Map<String, Any> {
-        // process the DTOs in reverse order, merging them together
-        val result: MutableMap<String, Any> = mutableMapOf()
-        for (d in dtos.reversed()) {
-            d.tables?.let {
-                d.tables.entries.forEach {
-                    if (result.containsKey(it.key)) {
-                        if (result[it.key] != it.value) {
-                            throw IOException("conflicting context key: tables.${it.key}")
-                        }
-                    }
-                    result.put(it.key, it.value)
-                }
-            }
-            d.nested_tables?.let {
-                d.nested_tables.entries.forEach {
-                    if (result.containsKey(it.key)) {
-                        if (result[it.key] != it.value) {
-                            throw IOException("conflicting context key: nested_tables.${it.key}")
-                        }
-                    }
-                    result.put(it.key, it.value)
-                }
-            }
-            d.definitions?.let {
-                d.definitions.entries.forEach {
-                    if (result.containsKey(it.key)) {
-                        if (result[it.key] != it.value) {
-                            throw IOException("conflicting context key: definitions.${it.key}")
-                        }
-                    }
-                    result.put(it.key, it.value)
-                }
-            }
-        }
-        // templates are only read from the first DTO
-        if (dtos[0].templates == null) {
-            throw IOException("missing 'templates' table")
-        } else {
-            result.put("template", shuffler.pick(dtos[0].templates ?: RangeMap()))
-        }
-        result.put("input", input)
-
-        return result
     }
 }
 
@@ -510,8 +429,13 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
 
     val shuffler : Shuffler = instance()
 
-    fun processTemplate(template: String, context: Map<String, Any>) : String {
+    fun processTemplate(context: Map<String, Any>) : String {
         val state : MutableMap<String, Any> = mutableMapOf()
+        val templates = context["templates"]
+        val template = if (templates is RangeMap)
+            shuffler.pick(templates)
+        else
+            throw IOException("Context missing 'templates' element")
 
         val compiler = Mustache.compiler()
                 .escapeHTML(false)
@@ -611,7 +535,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 return StringReader(shuffler.pickD(params[0], ctxtVal))
                             } else if (cmd_and_params[0] == "titleCase:") {
                                 // {{>titleCase: <val>}}
-                                return StringReader(titleCase(cmd_and_params[1]))
+                                return StringReader(cmd_and_params[1].titleCase())
                             } else if (cmd_and_params[0] == "roll:") {
                                 // {{>roll: <dicestr>}}
                                 return StringReader(shuffler.roll(cmd_and_params[1]).toString())

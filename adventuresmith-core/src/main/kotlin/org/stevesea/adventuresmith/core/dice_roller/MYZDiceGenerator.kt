@@ -96,7 +96,7 @@ class MYZDiceGenerator(
 
                 // TODO: font doesn't work in IconicsTextView. How to have both icons and color?!?!?
                 sb.append("<font color=\"#${MYZ_DIE_COLOR[it.key]}\">")
-                sb.append("${titleCase(it.key)}: ")
+                sb.append("${it.key.titleCase()}: ")
 
                 for (i in 1..n) {
                     val roll = shuffler.pick(it.value)

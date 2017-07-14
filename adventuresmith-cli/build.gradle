@@ -69,7 +69,9 @@ run {
     args += ["run",
              "--i", "${findProperty('genIter') ?: 1}",
              "--locale", "${findProperty('genLocale') ?: 'en_US'}",
-             "${findProperty('genFile') ?: 'src/dist/examples/items.yml'}"]
+             "${findProperty('genFile') ?: 'src/dist/examples/items.yml'}"
+    ]
+    //jvmArgs = ["-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"]
 }
 
 // could also do:

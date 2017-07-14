@@ -36,7 +36,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.URL
 import java.nio.charset.Charset
-import java.util.Locale
+import java.util.*
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.TimeUnit
@@ -46,14 +46,13 @@ fun getFinalPackageName(clz : Class<Any> ) : String {
     return words[words.size - 1 ]
 }
 
-fun titleCase(input: String) : String {
-
+fun String.titleCase() : String {
     val DELIMITERS = setOf(' ', '\'', '-', '(', ')')
 
     val sb = StringBuilder()
     var capNext = true
 
-    for (inc in input.toCharArray()) {
+    for (inc in this.toCharArray()) {
         val c = if (capNext)
             Character.toUpperCase(inc)
         else
@@ -62,6 +61,36 @@ fun titleCase(input: String) : String {
         capNext = DELIMITERS.contains(c)
     }
     return sb.toString()
+}
+
+fun <K, V> Map<K, V>.mergeCombine(other: Map<K, V>, combine: (K, V, V) -> V = { k, a, b -> b }): Map<K, V> {
+    val result = LinkedHashMap<K, V>(this.size + other.size)
+    result.putAll(this)
+    other.forEach { e ->
+        val existing = result[e.key]
+
+        if (existing == null) {
+            result[e.key] = e.value
+        }
+        else {
+            result[e.key] = combine(e.key, e.value, existing)
+        }
+    }
+    return result
+}
+
+fun <K,V> MutableMap<K,V>.mergeCombineInPlace(other: Map<K,V>, combine: (K, V, V) -> V = { k, a, b -> b }): Map<K, V> {
+    other.forEach { e ->
+        val existing = this[e.key]
+
+        if (existing == null) {
+            this[e.key] = e.value
+        }
+        else {
+            this[e.key] = combine(e.key, e.value, existing)
+        }
+    }
+    return this
 }
 
 /**

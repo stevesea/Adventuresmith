@@ -198,12 +198,15 @@ val generatorModule = Kodein.Module {
     bind<DataDrivenDtoTemplateProcessor>() with provider {
         DataDrivenDtoTemplateProcessor(kodein)
     }
-    bind<DtoMerger>() with provider {
-        DtoMerger(kodein)
-    }
 
     bind<CollectionMetaLoader>() with singleton {
         CollectionMetaLoader(kodein)
+    }
+    bind<ContextImporterForResources>() with singleton {
+        ContextImporterForResources(kodein)
+    }
+    bind<ContextImporterForFiles>() with singleton {
+        ContextImporterForFiles(kodein)
     }
 
     val collectionsFile = "collections.yml"
