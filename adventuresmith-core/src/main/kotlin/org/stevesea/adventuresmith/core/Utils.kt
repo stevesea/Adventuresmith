@@ -36,6 +36,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.URL
 import java.nio.charset.Charset
+import java.util.Comparator
 import java.util.LinkedHashMap
 import java.util.Locale
 import java.util.concurrent.Callable
@@ -93,6 +94,27 @@ fun <K, V> MutableMap<K, V>.mergeCombineInPlace(other: Map<K, V>, combine: (K, V
     }
     return this
 }
+
+fun <K> List<K>.sortMixedList() : List<K> {
+    return this.sortedWith( object: Comparator<K> {
+        override fun compare(lhs: K, rhs: K): Int {
+            if (lhs is Int && rhs is Int) {
+                return lhs.compareTo(rhs)
+            } else if (lhs is String && rhs is String) {
+                try {
+                    val lhsInt = lhs.toInt()
+                    val rhsInt = rhs.toInt()
+                    return lhsInt.compareTo(rhsInt)
+                } catch (e: NumberFormatException) {
+                    return lhs.compareTo(rhs) // if either are not Ints, just compare as strings
+                }
+            } else {
+                return lhs.toString().compareTo(rhs.toString())
+            }
+        }
+    })
+}
+
 
 /**
  * attempts to find things similar to a ResourceBundle
