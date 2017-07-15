@@ -162,6 +162,11 @@ class GeneratorTest {
 
          # keep first three string-list entries
         apple,apricot,mango
+
+
+
+
+        1,1 # accumrolls
         """.trimIndent(), g.generate(Locale.US))
     }
 }

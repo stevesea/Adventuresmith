@@ -72,6 +72,11 @@ templates:
   {{>get: listB ,}}
 
 
+  {{>accumRoll: listC 1d10}}
+  {{>accumRoll: listC 1d20}}
+  {{>get: listC ,}} # accumrolls
+
+
 definitions:
   a_list:
   - asdfasdf

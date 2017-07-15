@@ -610,6 +610,17 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                     state.put(key, curVal + listOf(params[1]))
                                 }
                                 return StringReader("")
+                            } else if (cmd_and_params[0] == "accumRoll:") {
+                                // {{>accumRoll: <list-variable> <diceStr>}}
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                val key = params[0]
+                                val curVal = state[key]
+                                if (curVal == null) {
+                                    state.put(key, listOf(shuffler.roll(params[1])))
+                                } else if (curVal is List<*>) {
+                                    state.put(key, curVal + listOf(shuffler.roll(params[1])))
+                                }
+                                return StringReader("")
                             } else if (cmd_and_params[0] == "remove:") {
                                 // remove given item from list-var
                                 // {{>remove: <list-variable> <val>}}
@@ -646,13 +657,17 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 // {{>keepLast: <list-variable> <N>}} // keep only last N elements in list
                                 val params = cmd_and_params[1].split(" ", limit = 2)
                                 val key = params[0]
-                                val n = params[1].toInt()
-                                val curVal = state[key]
-                                if (curVal != null && curVal is List<*>) {
-                                    state.put(key, curVal.takeLast(n))
-                                    return StringReader("")
+                                try {
+                                    val n = params[1].toInt()
+                                    val curVal = state[key]
+                                    if (curVal != null && curVal is List<*>) {
+                                        state.put(key, curVal.takeLast(n))
+                                        return StringReader("")
+                                    }
+                                    throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                                } catch (e: NumberFormatException) {
+                                    throw IllegalArgumentException("not an integer: '${params[1]}' in '>$name'", e)
                                 }
-                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
                             } else if (cmd_and_params[0] == "sort:") {
                                 // {{>sort: <list-variable>}} // sorts list according to natural sort and always ascending.
                                 val key = cmd_and_params[1]
