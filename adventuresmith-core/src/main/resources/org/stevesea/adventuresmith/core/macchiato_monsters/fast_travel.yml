@@ -7,9 +7,9 @@ templates:
 
 tables:
   fast_travel:
-  - <strong>Step down dR</strong><br/><br/>Got captured. Escaped with your lives and one item of your choice.
-  - <strong>Step down dR</strong><br/><br/>Pushed back an ambush. Roll your HD again for current HP.
-  - "<strong>Step down dR</strong><br/><br/>Long chase. Check CON or lose {{>roll: 1d6}} items."
+  - <h6>Step down dR</h6>Got captured. Escaped with your lives and one item of your choice.
+  - <h6>Step down dR</h6>Pushed back an ambush. Roll your HD again for current HP.
+  - "<h6>Step down dR</h6>Long chase. Check CON or lose {{>roll: 1d6}} items."
   - "Got lost. Journey took {{>roll: 1d4}} extra days, no rations left."
   - "Got lost. Journey took {{>roll: 1d4}} extra days, no rations left. But you made a discovery: a place, a resource, a danger…"
   - Non violent encounter with monsters or locals.

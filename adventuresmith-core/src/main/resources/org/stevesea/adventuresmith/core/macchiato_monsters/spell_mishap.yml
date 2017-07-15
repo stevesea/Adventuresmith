@@ -7,9 +7,9 @@ templates:
 
 tables:
   spell_mishap:
-  - 1, <strong>Step down dR</strong><br/><br/><strong>Power surge.</strong> No magic happens, but you regain the HP lost from the spell.
-  - 2, <strong>Step down dR</strong><br/><br/><strong>Mistake.</strong> The effect is reversed or dramatically altered.
-  - 3, <strong>Step down dR</strong><br/><br/><strong>Mutation.</strong> Your magic works, but leaves you with a scar, deformity, or oddity.
+  - 1, <h6>Step down dR</h6><strong>Power surge.</strong> No magic happens, but you regain the HP lost from the spell.
+  - 2, <h6>Step down dR</h6><strong>Mistake.</strong> The effect is reversed or dramatically altered.
+  - 3, <h6>Step down dR</h6><strong>Mutation.</strong> Your magic works, but leaves you with a scar, deformity, or oddity.
   - 4, <strong>Erasure.</strong> The magic works but you forget the spell until you have a full night's sleep.
   - 5, <strong>Drain.</strong> Lose points in a random stat equal to the initial HP cost. Recover 1 point per day.
   - 6, <strong>Pyrotechnics.</strong> Loud, flashy and mostly harmless. Unless something catches fire...

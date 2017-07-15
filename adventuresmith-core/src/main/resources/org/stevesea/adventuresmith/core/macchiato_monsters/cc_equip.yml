@@ -7,11 +7,11 @@ nested_tables:
     template:
     - |
       %[[>pick: 1d20 cc_equip.{{input.d20}}]]%
-      <br/>%[[>pick: 1d12 cc_equip.{{input.d12}}]]%
-      <br/>%[[>pick: 1d10 cc_equip.{{input.d10}}]]%
-      <br/>%[[>pick: 1d8 cc_equip.{{input.d8}}]]%
-      <br/>%[[>pick: 1d6 cc_equip.{{input.d6}}]]%
-      <br/>%[[>pick: 1d4 cc_equip.{{input.d4}}]]%
+      <br/><br/>%[[>pick: 1d12 cc_equip.{{input.d12}}]]%
+      <br/><br/>%[[>pick: 1d10 cc_equip.{{input.d10}}]]%
+      <br/><br/>%[[>pick: 1d8 cc_equip.{{input.d8}}]]%
+      <br/><br/>%[[>pick: 1d6 cc_equip.{{input.d6}}]]%
+      <br/><br/>%[[>pick: 1d4 cc_equip.{{input.d4}}]]%
     Equipment:
     - Old black bread d4, cigarillos d6, shovel and backpack
     - Some dead squirrels d6, empty bottles d6, lime and blanket

@@ -7,11 +7,11 @@ nested_tables:
     template:
     - |
       %[[>pick: 1d20 aa_equip.{{input.d20}}]]%
-      <br/>%[[>pick: 1d12 aa_equip.{{input.d12}}]]%
-      <br/>%[[>pick: 1d10 aa_equip.{{input.d10}}]]%
-      <br/>%[[>pick: 1d8 aa_equip.{{input.d8}}]]%
-      <br/>%[[>pick: 1d6 aa_equip.{{input.d6}}]]%
-      <br/>%[[>pick: 1d4 aa_equip.{{input.d4}}]]%
+      <br/><br/>%[[>pick: 1d12 aa_equip.{{input.d12}}]]%
+      <br/><br/>%[[>pick: 1d10 aa_equip.{{input.d10}}]]%
+      <br/><br/>%[[>pick: 1d8 aa_equip.{{input.d8}}]]%
+      <br/><br/>%[[>pick: 1d6 aa_equip.{{input.d6}}]]%
+      <br/><br/>%[[>pick: 1d4 aa_equip.{{input.d4}}]]%
     Equipment:
     - Wonderbread and boloney sandwiches (D6), old burner phone (D8), bicycle
     - Deli potato salad (D4), pager (D6), weed (D6), bicycle

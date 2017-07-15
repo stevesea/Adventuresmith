@@ -7,9 +7,9 @@ templates:
 
 tables:
   morale:
-  - <strong>Step down dR</strong><br/><br/>Thunderstorm or blizzard
-  - <strong>Step down dR</strong><br/><br/>Same as yesterday but colder
-  - <strong>Step down dR</strong><br/><br/>Rain or snow
+  - <h6>Step down dR</h6>Thunderstorm or blizzard
+  - <h6>Step down dR</h6>Same as yesterday but colder
+  - <h6>Step down dR</h6>Rain or snow
   - Windy, colder than normally
   - Showers, windy
   - Showers, no wind

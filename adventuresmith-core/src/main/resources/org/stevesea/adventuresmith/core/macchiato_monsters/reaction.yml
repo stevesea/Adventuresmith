@@ -7,9 +7,9 @@ templates:
 
 tables:
   reaction:
-  - "<strong>Step down dR</strong><br/><br/>{{>pickN: 2 reaction <br/>}}"
-  - <strong>Step down dR</strong><br/><br/>Looking for allies or help
-  - <strong>Step down dR</strong><br/><br/>Moving out or escaping
+  - "<h6>Step down dR</h6>{{>pickN: 2 reaction <br/>}}"
+  - <h6>Step down dR</h6>Looking for allies or help
+  - <h6>Step down dR</h6>Moving out or escaping
   - Raiding settlement or ambushing travellers
   - Running away from other monsters
   - Driving intruders away

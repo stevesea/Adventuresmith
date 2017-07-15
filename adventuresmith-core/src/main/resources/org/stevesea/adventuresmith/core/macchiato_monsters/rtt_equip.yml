@@ -7,11 +7,11 @@ nested_tables:
     template:
     - |
       %[[>pick: 1d20 rtt_equip.{{input.d20}}]]%
-      <br/>%[[>pick: 1d12 rtt_equip.{{input.d12}}]]%
-      <br/>%[[>pick: 1d10 rtt_equip.{{input.d10}}]]%
-      <br/>%[[>pick: 1d8 rtt_equip.{{input.d8}}]]%
-      <br/>%[[>pick: 1d6 rtt_equip.{{input.d6}}]]%
-      <br/>%[[>pick: 1d4 rtt_equip.{{input.d4}}]]%
+      <br/><br/>%[[>pick: 1d12 rtt_equip.{{input.d12}}]]%
+      <br/><br/>%[[>pick: 1d10 rtt_equip.{{input.d10}}]]%
+      <br/><br/>%[[>pick: 1d8 rtt_equip.{{input.d8}}]]%
+      <br/><br/>%[[>pick: 1d6 rtt_equip.{{input.d6}}]]%
+      <br/><br/>%[[>pick: 1d4 rtt_equip.{{input.d4}}]]%
     Food:
     - Cup of Tom Yum Goong (Spicy Shrimp Soup)
     - Bowl of Som Tum (Spicy Green Papaya Salad)

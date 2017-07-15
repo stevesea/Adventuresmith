@@ -7,9 +7,9 @@ templates:
 
 tables:
   just_joined:
-  - <strong>Step down dR</strong><br/><br/>Lost all your weapons and gear, save for one item of your choice.
-  - <strong>Step down dR</strong><br/><br/>Scarcely escaped monsters. They are right behind you.
-  - "<strong>Step down dR</strong><br/><br/>Killed a monster and lost {{>roll: 1d6}} HP."
+  - <h6>Step down dR</h6>Lost all your weapons and gear, save for one item of your choice.
+  - <h6>Step down dR</h6>Scarcely escaped monsters. They are right behind you.
+  - "<h6>Step down dR</h6>Killed a monster and lost {{>roll: 1d6}} HP."
   - Friendly NPC taken alive by monsters. You saw where they went.
   - Non violent contact with a monster or faction.
   - Encountered a monster and turned it into an ally.

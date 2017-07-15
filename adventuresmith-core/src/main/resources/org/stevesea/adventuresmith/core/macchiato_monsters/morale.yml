@@ -7,9 +7,9 @@ templates:
 
 tables:
   morale:
-  - "<strong>Step down dR</strong><br/><br/>Desperate: double damage all around"
-  - "<strong>Step down dR</strong><br/><br/>Flee: leaving stuff behind, doors open..."
-  - "<strong>Step down dR</strong><br/><br/>Surrender: if not accepted, step up dR"
+  - "<h6>Step down dR</h6>Desperate: double damage all around"
+  - "<h6>Step down dR</h6>Flee: leaving stuff behind, doors open..."
+  - "<h6>Step down dR</h6>Surrender: if not accepted, step up dR"
   - "Retreat in an orderly manner to regroup"
   - "Panic: do something against their interest"
   - "Fight defensively, look for cover, etc."

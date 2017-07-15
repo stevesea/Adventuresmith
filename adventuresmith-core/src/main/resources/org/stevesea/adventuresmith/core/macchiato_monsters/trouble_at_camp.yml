@@ -7,9 +7,9 @@ templates:
 
 tables:
   trouble_at_camp:
-  - <h5>Attack</h5> Local monsters are raiding the town or camp site. What do they want? <br/><br/><strong>Step down dR</strong>
-  - <h5>Scouts</h5> Monsters or enemy troops are spotted in the area. Just passing through? <br/><br/><strong>Step down dR</strong>
-  - <h5>Spy</h5> An outsider is caught spying on the town. Who do they work for? <br/><br/><strong>Step down dR</strong>
+  - <h6>Step down dR</h6><h5>Attack</h5> Local monsters are raiding the town or camp site. What do they want?
+  - <h6>Step down dR</h6><h5>Scouts</h5> Monsters or enemy troops are spotted in the area. Just passing through?
+  - <h6>Step down dR</h6><h5>Spy</h5> An outsider is caught spying on the town. Who do they work for?
   - <h5>Shortage</h5> Food, water, or another vital resource is getting scarce.
   - <h5>Newcomers</h5> On their way to somewhere else or intending to stay?
   - <h5>Sickness</h5> Probably benign, but zombie plague and lycanthropy are always a risk.
