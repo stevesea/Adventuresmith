@@ -611,14 +611,57 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 }
                                 return StringReader("")
                             } else if (cmd_and_params[0] == "remove:") {
+                                // remove given item from list-var
                                 // {{>remove: <list-variable> <val>}}
                                 val params = cmd_and_params[1].split(" ", limit = 2)
                                 val key = params[0]
                                 val curVal = state[key]
                                 if (curVal != null && curVal is List<*>) {
                                     state.put(key, curVal.filter { it != params[1] })
+                                    return StringReader("")
                                 }
-                                return StringReader("")
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                            } else if (cmd_and_params[0] == "sum:") {
+                                // {{>sum: <list-variable>}} // sum list
+                                val key = cmd_and_params[1]
+                                val curVal = findCtxtVal(key) // allow on all context vars, not just state vars
+                                if (curVal != null && curVal is List<*>) {
+                                    return StringReader(curVal.map { it -> it.toString().toInt() }.sum().toString())
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+
+                            } else if (cmd_and_params[0] == "keepFirst:") {
+                                // {{>keepFirst: <list-variable> <N>}} // keep only first N elements in list
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                val key = params[0]
+                                val n = params[1].toInt()
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.take(n))
+                                    return StringReader("")
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+
+                            } else if (cmd_and_params[0] == "keepLast:") {
+                                // {{>keepLast: <list-variable> <N>}} // keep only last N elements in list
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                val key = params[0]
+                                val n = params[1].toInt()
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.takeLast(n))
+                                    return StringReader("")
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                            } else if (cmd_and_params[0] == "sort:") {
+                                // {{>sort: <list-variable>}} // sorts list according to natural sort and always ascending.
+                                val key = cmd_and_params[1]
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.sortMixedList())
+                                    return StringReader("")
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
                             } else if (cmd_and_params[0] == "get:") {
                                 // {{>get: <variable> [<delim>]}}
                                 val params = cmd_and_params[1].split(" ", limit = 2)

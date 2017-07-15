@@ -45,6 +45,32 @@ templates:
   {{>rollKeepHigh: 2 1 1d8}}
   {{>rollKeepLow: 2 1 1d8}}
 
+  {{>accum: listA 5}}
+  {{>accum: listA 3}}
+  {{>accum: listA 10}}
+  {{>accum: listA 7}}
+  {{>accum: listA 2}}
+
+  {{>accum: listB apple}}
+  {{>accum: listB peach}}
+  {{>accum: listB apricot}}
+  {{>accum: listB plum}}
+  {{>accum: listB mango}}
+
+  {{>get: listA ,}} # show list
+  {{>sort: listA}} # sort int list
+  {{>get: listA ,}} # show list again
+
+  {{>sort: listB}} # sort string list
+  {{>get: listB , }} # display string list
+
+  {{>keepLast: listA 2}}  # keep last two entries of int list
+  {{>get: listA ,}} # show list again (should be highest two)
+  {{>sum: listA}} # summed truncated int-list (17)
+
+  {{>keepFirst: listB 3}} # keep first three string-list entries
+  {{>get: listB ,}}
+
 
 definitions:
   a_list:

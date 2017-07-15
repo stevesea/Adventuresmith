@@ -96,7 +96,7 @@ fun <K, V> MutableMap<K, V>.mergeCombineInPlace(other: Map<K, V>, combine: (K, V
 }
 
 fun <K> List<K>.sortMixedList() : List<K> {
-    return this.sortedWith( object: Comparator<K> {
+    return this.sortedWith( object : Comparator<K> {
         override fun compare(lhs: K, rhs: K): Int {
             if (lhs is Int && rhs is Int) {
                 return lhs.compareTo(rhs)
@@ -114,7 +114,6 @@ fun <K> List<K>.sortMixedList() : List<K> {
         }
     })
 }
-
 
 /**
  * attempts to find things similar to a ResourceBundle

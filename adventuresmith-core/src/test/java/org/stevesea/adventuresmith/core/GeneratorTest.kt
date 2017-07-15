@@ -136,6 +136,32 @@ class GeneratorTest {
         1
         1
         1
+
+
+
+
+
+
+
+
+
+
+
+
+
+        5,3,10,7,2 # show list
+         # sort int list
+        2,3,5,7,10 # show list again
+
+         # sort string list
+        apple,apricot,mango,peach,plum # display string list
+
+          # keep last two entries of int list
+        7,10 # show list again (should be highest two)
+        17 # summed truncated int-list (17)
+
+         # keep first three string-list entries
+        apple,apricot,mango
         """.trimIndent(), g.generate(Locale.US))
     }
 }
