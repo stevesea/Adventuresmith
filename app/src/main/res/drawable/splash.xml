@@ -30,7 +30,7 @@
         -->
     <item>
         <bitmap
-            android:src="@drawable/advsmth_splashb"
+            android:src="@drawable/advsmth_splasha"
             android:gravity="center|clip_horizontal"
             />
     </item>
