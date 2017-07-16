@@ -1,7 +1,47 @@
 ---
 templates:
 - |
-  %[[loc_2_encounter.{{input.location}}]]%
+  %[[init_threat_level.{{input.location}}]]%
+
+
+definitions:
+  init_threat_level:
+    Forest: |
+      {{>set: threat_level 3}}
+      {{roll_encounter}}
+    Moors: |
+      {{>set: threat_level 4}}
+      {{roll_encounter}}
+    Mountain: |
+      {{>set: threat_level 5}}
+      {{roll_encounter}}
+    River_or_Lake: |
+      {{>set: threat_level 6}}
+      {{roll_encounter}}
+    Road_or_Trail: |
+      {{>set: threat_level 7}}
+      {{roll_encounter}}
+    Near_Inner_Fence: |
+      {{>set: threat_level 8}}
+      {{roll_encounter}}
+    Near_Forbidden_Zone_or_Outer_Fence: |
+      {{>set: threat_level 9}}
+      {{roll_encounter}}
+
+  roll_encounter: |
+    {{>repeat: threat_level %[[>accumRoll: enc_rolls 1d6]]%}}
+
+    %[[roll_encounter_phase_2]]%
+
+  # only care about rolls >=6
+  roll_encounter_phase_2: |
+    {{>copy: enc_rolls enc_rolls_just_sixes}}
+    {{>keepGTE: enc_rolls_just_sixes 6}}
+    %[[>set: num_sixes {{>size: enc_rolls_just_sixes}}]]%
+    %[[roll_encounter_phase_3]]%
+  roll_encounter_phase_3: |
+    %[[>pick: {{>get: num_sixes}} have_encounter]]%
+
 
 nested_tables:
   loc_2_encounter:
@@ -124,7 +164,18 @@ nested_tables:
     - "35-36, {{>pick: 31 encounters}}" #65–66
 
 
+
 tables:
+  have_encounter:
+  - |
+    0,
+    Threat Roll: [{{>get: enc_rolls}}]
+    <br/><br/>No Encounter
+  - |
+    1-10,
+    Threat Roll: [{{>get: enc_rolls}}]
+    <br/>Total {cmd_radioactive}: {{>get: num_sixes}}
+    <br/><br/>%[[loc_2_encounter.{{input.location}}]]%
   encounters:
   - |
     The ground shakes and suddenly a ravenous landshark

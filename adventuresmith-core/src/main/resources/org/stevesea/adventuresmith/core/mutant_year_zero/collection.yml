@@ -16,9 +16,9 @@ groupedGenerators:
   - zone_sector
   - npc_zone_exped
   gla:
+  - gla_random_encounter
   - checkpoint_response
   - feral_effect
-  - gla_random_encounter
   items:
   - scrap
   - artifact
