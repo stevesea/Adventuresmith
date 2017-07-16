@@ -541,6 +541,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 // {{>roll: <dicestr>}}
                                 return StringReader(shuffler.roll(cmd_and_params[1]).toString())
                             } else if (cmd_and_params[0] == "rollN:") {
+                                // rolls dicestr N times, returns results as string separated by delim
                                 // {{>rollN: <n> <dicestr> <delim>}}
                                 val params = cmd_and_params[1].split(" ", limit = 3)
                                 if (!(2..3).contains(params.size)) {
@@ -695,7 +696,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                     return StringReader(curVal.toString())
                                 }
                             } else if (cmd_and_params[0] == "repeat:") {
-                                // {{>repeat: <#> <val>}}
+                                // {{>repeat: <#/dicestr> <val>}}
 
                                 val params = cmd_and_params[1].split(" ", limit = 2)
                                 // could be entry in state or context, if neither of those try to roll it
