@@ -530,9 +530,10 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 if (!(2..3).contains(params.size)) {
                                     throw IllegalArgumentException("pick syntax must be: <dice/#> <key>. input: ${cmd_and_params[1]}")
                                 }
-                                // 1st param must be dice
+                                //  params[0] must dice
                                 val ctxtKey = params[1]
                                 val ctxtVal = findCtxtVal(ctxtKey)
+
                                 return StringReader(shuffler.pickD(params[0], ctxtVal))
                             } else if (cmd_and_params[0] == "titleCase:") {
                                 // {{>titleCase: <val>}}
@@ -639,6 +640,49 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 val curVal = findCtxtVal(key) // allow on all context vars, not just state vars
                                 if (curVal != null && curVal is List<*>) {
                                     return StringReader(curVal.map { it -> it.toString().toInt() }.sum().toString())
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                            } else if (cmd_and_params[0] == "copy:") {
+                                // {{>copy: <stateVarOrig> <stateVarDest>}} // create a copy of state variable orig as dest
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                val key = params[0]
+                                val destKey = params[1]
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(destKey, curVal.map { it -> it })
+                                } else if (curVal != null) {
+                                    state.put(destKey, curVal)
+                                }
+                                return StringReader("")
+                            } else if (cmd_and_params[0] == "keepLTE:") {
+                                // {{>keepLTE: <list-variable> <N>}} // keep elements in list that are <= N
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                val key = params[0]
+                                val n = params[1].toInt()
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.filter { it -> it.toString().toInt() <= n })
+                                    return StringReader("")
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                            } else if (cmd_and_params[0] == "keepGTE:") {
+                                // {{>keepGTE: <list-variable> <N>}} // keep elements in list that are >= N
+                                val params = cmd_and_params[1].split(" ", limit = 2)
+                                val key = params[0]
+                                val n = params[1].toInt()
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.filter { it -> it.toString().toInt() >= n })
+                                    return StringReader("")
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+
+                            } else if (cmd_and_params[0] == "size:") {
+                                // {{>size: <list-variable>}} // return the size of the list
+                                val key = cmd_and_params[1]
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    return StringReader(curVal.size.toString())
                                 }
                                 throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
 

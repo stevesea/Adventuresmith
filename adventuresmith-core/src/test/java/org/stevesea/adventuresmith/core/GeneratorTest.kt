@@ -150,8 +150,16 @@ class GeneratorTest {
 
 
         5,3,10,7,2 # show list
+        5 # size of list (should be 5)
+
          # sort int list
+        5, 3, 10, 7, 2 # copied list should be original
         2,3,5,7,10 # show list again
+
+
+
+        2, 3 # should be 2,3
+        7, 10 # should be 7, 10
 
          # sort string list
         apple,apricot,mango,peach,plum # display string list

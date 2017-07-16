@@ -58,8 +58,16 @@ templates:
   {{>accum: listB mango}}
 
   {{>get: listA ,}} # show list
+  {{>size: listA}} # size of list (should be 5)
+  {{>copy: listA listA-copy}}
   {{>sort: listA}} # sort int list
+  {{>get: listA-copy}} # copied list should be original
   {{>get: listA ,}} # show list again
+
+  {{>copy: listA listA-copy2}}{{>keepLTE: listA-copy2 3}}
+  {{>copy: listA listA-copy3}}{{>keepGTE: listA-copy3 7}}
+  {{>get: listA-copy2}} # should be 2,3
+  {{>get: listA-copy3}} # should be 7, 10
 
   {{>sort: listB}} # sort string list
   {{>get: listB , }} # display string list
