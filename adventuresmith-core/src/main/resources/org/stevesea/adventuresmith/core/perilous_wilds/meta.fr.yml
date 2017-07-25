@@ -1,0 +1,27 @@
+name: En Terres Sauvages
+credit: Jason Lutes,Bastien Wauthoz
+url: "http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds"
+
+groups:
+- name: dang_disc
+  uiName: Découvertes et Dangers
+  icon: cmd-magnify
+- name: create_name
+  uiName: Création et Nom
+  icon: cmd-book-open-page-variant
+- name: creatures
+  uiName: Créatures
+  icon: ion-ios-paw
+- name: npcs
+  uiName: PNJs
+  icon: cmd-account-multiple
+- name: treasure
+  uiName: Tresors
+  icon: cmd-treasure-chest
+attribution: |
+  <p><a href="http://lampblackandbrimstone.blogspot.com/">Lampblack &amp; Brimstone</a></p>
+  <p>Écrit par <strong>Jason Lutes</strong>avec l'assistance de <strong>Jeremy Strandberg</strong></p>
+  <p>Traduit par <strong>Bastien Wauthoz</strong></p>
+  <p>Le contenu de ce supplément s’appuie sur les règles de Dungeon World par Adam Koebel et Sage LaTorra, sous licence Creative commons – Attribution-3.0 non transposée.<p>
+  <p>Le texte d’origine de The Perilous Wilds par Jason Lutes et Jeremy Strandberg est sous Creative commons – Attribution – Partage à l’identique – 3.0 non transposée.</p>
+  <p>Cette traduction par Bastien ‘Acritarche’ Wauthoz est sous licence Creative commons – Attribution – 4.0 non transposée.</p>

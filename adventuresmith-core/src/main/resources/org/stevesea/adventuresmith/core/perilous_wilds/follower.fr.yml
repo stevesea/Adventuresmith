@@ -1,0 +1,85 @@
+---
+templates:
+- |
+  <h4>Follower</h4>{{>accum: calcTags ?-Wise}}{{>add: qual 0}}{{>add: tag_count 0}}
+  <strong><small>Competence:</small></strong> {{competence}}
+  <br/><strong><small>Background:</small></strong> {{background}}
+  <br/>
+  <br/><strong><small>Quality:</small></strong> %[[>get: qual]]%&nbsp;&nbsp;<strong><small>Loyalty:</small></strong> {{loyalty}}&nbsp;&nbsp;<strong><small>Cost:</small></strong> {{cost}}
+  <br/>
+  <br/><strong><small>Instinct:</small></strong> {{instinct}}
+  <br/>
+  <br/><strong><small>Hit Points:</small></strong> {{hit_points}}
+  <br/><strong><small>Damage Die:</small></strong> {{damage_die}}
+  <br/>
+  <br/>{{npc_templates.traits}}
+  <h5>Tags</h5>
+  %[[>get: calcTags <br/>]]%<br/>
+  %[[>pickN: tag_count tags <br/>]]%
+
+imports:
+- npc
+
+tables:
+  competence:
+  - "1..3, A liability{{> add: qual -1}}"
+  - "4..9, Competent{{>add: tag_count 1}}"
+  - "10..11, Fully capable{{>add: tag_count 2}}{{>add: qual 1}}"
+  - "12, Exceptional{{>add: tag_count 4}}{{>add: qual 2}}"
+  background:
+  - "1..2, Life of servitude/oppression{{>accum: calcTags Meek}}"
+  - "3, Past their prime{{> add: qual -1}}{{>accum: calcTags ?-Wise+}}"
+  - "4..5, Has lived a life of danger{{>add: tag_count 2}}"
+  - 6..9, Unremarkable
+  - "10, Has lived a life of privilege{{>add: tag_count 1}}"
+  - "11, Specialist ({{npc_occupation.specialist}}){{>add: tag_count -2}}{{>add: qual 1}}"
+  - "12, {{>pickN: 2 background}}"
+  instinct:
+  - 1, Loot, pillage, and burn
+  - 2, Hold a grudge and seek payback
+  - 3, Question leadership or authority
+  - 4..5, Lord over others
+  - 6..7, Act impulsively
+  - 8..9, Give in to temptation
+  - 10..11, Slack off
+  - 12, Avoid danger or punishment
+  loyalty:
+  - 1..2, 0
+  - 3..10, +1
+  - 11..12, +2
+  cost:
+  - 1, Debauchery
+  - 2, Vengeance
+  - 3..5, Lucre
+  - 6..7, Renown
+  - 8..9, Glory
+  - 10, Affection
+  - 11, Knowledge
+  - 12, Good
+  hit_points:
+  - 1..3, 3HP (weak/frail/soft)
+  - 4..9, 6HP (able-bodied)
+  - 10..12, 9HP (tough/strong/hard)
+  damage_die:
+  - 1..4, d4 (Not very dangerous)
+  - 5..10, d6 (Can defend themselves)
+  - 11..12, d8 (Veteren fighter)
+
+  tags:
+  - Archer
+  - Athlétique
+  - Belle
+  - Prudente
+  - Contact (?pick 1 steading/group)
+  - Perspicace
+  - Sournoise
+  - Groupe
+  - Guide (?pick 1 steading/region)
+  - Robuste
+  - Soigneur
+  - Soumise
+  - Magique
+  - Organisée
+  - Autosuffisante
+  - Furtive
+  - Guerrière

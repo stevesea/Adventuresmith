@@ -1,0 +1,153 @@
+---
+templates:
+- "{{dungeon.templates}}"
+imports:
+- creature
+
+# TODO: seems like these could be externalized to make translation more modular
+definitions:
+  dungeon_config:
+    area_limits:
+      small: 6 ou 1d6+2
+      medium: 12 ou 2d6+4
+      large: 16 ou 3d6+6
+      huge: 24 ou 4d6+10
+    countdowns:
+      small: 2 ou 1d4
+      medium: 3 ou 1d6
+      large: 4 ou 1d6+1
+      huge: 5 ou 1d6+2
+    labels:
+      small: Petit
+      medium: Moyen
+      large: Grand
+      huge: Énorme
+
+      dungeon: Donjon
+      size: Taille
+      area_limit: Limite des Secteurs
+      builder: Bâtisseur
+      function: Fonction
+      ruination: Dévastation
+      themes: Thèmes
+
+nested_tables:
+  theme:
+    mundane:
+    - 1, pourrissement/décadence
+    - 2, torture/agonie
+    - 3, folie
+    - 4, tout est perdu
+    - 5, noble sacrifice
+    - 6, furie sauvage
+    - 7, survie
+    - 8, activité criminelle
+    - 9, pièges et tromperies
+    - 10, secrets/traîtrise
+    - 11, invasion/infestation
+    - 12, factions en guerre
+    unusual:
+    - 1, création/invention
+    - "2, {{details.elements}}"
+    - 3, connaissance/apprentissage
+    - 4, croissance/expansion
+    - 5, mystère s’approfondissant
+    - 6, transformation/changement
+    - 7, chaos et destruction
+    - 8, forces de l’ombre
+    - 9, connaissance interdite
+    - 10, poison/maladie
+    - 11, corruption/fléau
+    - 12, désastre imminent
+    extraordinary:
+    - 1, intrigues maléfiques
+    - 2, divination/prophétie
+    - 3, blasphème
+    - 4, recherche magique
+    - 5, forces occultes
+    - 6, ancienne malédiction
+    - 7, mutation
+    - 8, la mort troublée
+    - 9, faim inextinguible
+    - 10, pouvoir incommensurable
+    - 11, horreurs indicibles
+    - 12, guerre sainte
+  foundation:
+    builder:
+    - 1, étrangers/précurseurs
+    - 2, semi-dieu/démon
+    - 3..4, naturel (grotte, etc.)
+    - 5, ordre religieux/culte
+    - "6..7, {{creature.humanoid}}"
+    - 8..9, Nains/Gnomes
+    - 10, Elfes
+    - 11, sorcier/excentrique
+    - 12, monarque/seigneur de guerre
+    function:
+    - 1, source/portail
+    - 2, mine
+    - 3..4, tombe/crypte
+    - 5, prison
+    - 6..7, antre/refuge/cachette
+    - 8..9, place forte/sanctuaire
+    - 10, chapelle/temple/oracle
+    - 11, archive/bibliothèque
+    - 12, inconnu/mystère
+  dungeon:
+    theme:
+    - "1..5, {{theme.mundane}}"
+    - "6..9, {{theme.unusual}}"
+    - "10..12, {{theme.extraordinary}}"
+
+    ruination:
+    - 1, désastre magique
+    - 2, malédiction/damnation
+    - 3..4, séisme/feu/inondation
+    - 5..6, fléau/famine/sécheresse
+    - 7..8, envahi par des monstres
+    - 9..10, guerre/invasion
+    - 11, ressources épuisées
+    - 12, l’herbe était plus verte ailleurs
+
+    templates:
+    - |
+      1..3,
+      <h4>{{dungeon_config.labels.dungeon}}</h4>
+      <strong><small>{{dungeon_config.labels.size}}:</small></strong> {{dungeon_config.labels.small}}&nbsp;&nbsp;<strong><small>{{dungeon_config.labels.area_limit}}:</small></strong> {{dungeon_config.area_limits.small}}
+      <br/><strong><small>{{dungeon_config.labels.builder}}:</small></strong> {{foundation.builder}}
+      <br/><strong><small>{{dungeon_config.labels.function}}:</small></strong> {{foundation.function}}
+      <br/>
+      <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
+      <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.small}}]</h5>
+      {{>pickN: 2 dungeon.theme <br/>}}
+    - |
+      4..9,
+      <h4>{{dungeon_config.labels.dungeon}}</h4>
+      <strong><small>{{dungeon_config.labels.size}}:</small></strong> {{dungeon_config.labels.medium}}&nbsp;&nbsp;<strong><small>{{dungeon_config.labels.area_limit}}:</small></strong> {{dungeon_config.area_limits.medium}}
+      <br/><strong><small>{{dungeon_config.labels.builder}}:</small></strong> {{foundation.builder}}
+      <br/><strong><small>{{dungeon_config.labels.function}}:</small></strong> {{foundation.function}}
+      <br/>
+      <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
+      <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.medium}}]</h5>
+      {{>pickN: 3 dungeon.theme <br/>}}
+    - |
+      10..11,
+      <h4>{{dungeon_config.labels.dungeon}}</h4>
+      <strong><small>{{dungeon_config.labels.size}}:</small></strong> {{dungeon_config.labels.large}}&nbsp;&nbsp;<strong><small>{{dungeon_config.labels.area_limit}}:</small></strong> {{dungeon_config.area_limits.large}}
+      <br/><strong><small>{{dungeon_config.labels.builder}}:</small></strong> {{foundation.builder}}
+      <br/><strong><small>{{dungeon_config.labels.function}}:</small></strong> {{foundation.function}}
+      <br/>
+      <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
+      <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.large}}]</h5>
+      {{>pickN: 4 dungeon.theme <br/>}}
+    - |
+      12,
+      <h4>{{dungeon_config.labels.dungeon}}</h4>
+      <strong><small>{{dungeon_config.labels.size}}:</small></strong> {{dungeon_config.labels.huge}}&nbsp;&nbsp;<strong><small>{{dungeon_config.labels.area_limit}}:</small></strong> {{dungeon_config.area_limits.huge}}
+      <br/><strong><small>{{dungeon_config.labels.builder}}:</small></strong> {{foundation.builder}}
+      <br/><strong><small>{{dungeon_config.labels.function}}:</small></strong> {{foundation.function}}
+      <br/>
+      <br/><strong><small>{{dungeon_config.labels.ruination}}:</small></strong> {{dungeon.ruination}}
+      <h5>{{dungeon_config.labels.themes}} [{{dungeon_config.countdowns.huge}}]</h5>
+      {{>pickN: 5 dungeon.theme <br/>}}
+

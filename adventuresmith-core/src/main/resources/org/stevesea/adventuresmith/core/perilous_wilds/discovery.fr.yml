@@ -1,0 +1,252 @@
+---
+templates:
+- "{{discovery}}"
+
+imports:
+- steading # brings in creature & details
+- treasure_unguarded
+- dungeon
+
+tables:
+  discovery:
+  - "1, {{unnatural.templates}}"
+  - "2..4, {{natural.templates}}"
+  - "5..6, {{evidence.templates}}"
+  - "7..8, {{discovery_creature.templates}}"
+  - "9..12, {{structure.templates}}"
+
+
+nested_tables:
+  discovery_creature:
+    templates:
+    - |
+      <h3>Créature</h3>
+      {{creature.creature}}
+
+  unnatural:
+    arcane:
+    - 1..2, résidu
+    - 3..5, calamité
+    - 6..7, altération/mutation
+    - 8..10, enchantement
+    - 11..12, source/réserve
+    # NOTE: planar/divine are part of details
+    templates:
+    - |
+      1..9,
+      <h3>Élément surnaturel - Arcanique</h3>
+      {{unnatural.arcane}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.magic_types}}
+    - |
+      10..11,
+      <h3>Élément surnaturel - Planaire</h3>
+      {{details.planar}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.elements}}
+    - |
+      12,
+      <h3>Élément surnaturel - Divin</h3>
+      {{details.divine}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.aspects}}
+
+  natural:
+    templates:
+    - |
+      1..2,
+      <h3>Élément Naturel - Antre</h3>
+      <strong><small>Créature responsable:</small></strong> {{creature.creature_no_tags}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      <br/>{{natural.lair}}
+    - |
+      3..4,
+      <h3>Élément Naturel - Obstacle</h3>
+      {{natural.obstacle}}
+    - |
+      5..7,
+      <h3>Élément Naturel - Altération du terrain</h3>
+      {{natural.terrain_change}}
+    - |
+      8..9,
+      <h3>Élément Naturel - Corps aqueux</h3>
+      {{natural.water_feature}}
+    - |
+      10..11,
+      <h3>Élément Naturel - Repère</h3>
+      {{natural.landmark}}
+    - |
+      12,
+      <h3>Élément Naturel - Resource</h3>
+      {{detail_config.select_and_label.sizes}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      <br/>{{details.resources}}
+
+    lair:
+    - "1..3, terrier"
+    - "4..7, grotte/tunnel"
+    - "8..9, nid/aire (rapace)"
+    - "10, ruche"
+    - |
+      11..12,
+      <h4>Ruine</h4>
+      {{structure.ruin}}
+    obstacle:
+    - "1..5, terrain impraticable (spécifique au terrain)"
+    - "6..8, paroi/falaise/gouffre"
+    - "9..10, ravin/gorge"
+    - "11..12, {{details.oddities}}"
+    terrain_change:
+    - "1..4, étendue limitée d’un autre type de Terrain ({{>pick: 1d8+4 natural.terrain_change}})"
+    - "5..6, crevasse/trou/dépression/grotte"
+    - "7..8, changement d’altitude"
+    - "9..10, canyon/vallée"
+    - "11..12, hauteur/pic au loin"
+    water_feature:
+    - "1, source/source chaude"
+    - "2, chute d’eau/geyser"
+    - "3..6, ru/ruisseau/rivière"
+    - "7..8, mare/lac"
+    - "9..10, fleuve"
+    - "11..12, mer/océan"
+    landmark:
+    - "1..3, aqueux (chute d’eau, geyser, etc.)"
+    - "4..6, végétal (arbre ancien, fleurs géantes, etc.)"
+    - "7..10, minéral (pic, formation rocheuse, cratère, etc.)"
+    - "11..12, {{details.oddities}}"
+
+  evidence:
+    templates:
+    - |
+      1..6,
+      <h3>Signe - Trace /Piste</h3>
+      {{detail_config.select_and_label.ages}}
+      <br/><strong><small>Créature responsable:</small></strong> {{creature.creature_no_tags}}
+      <br/>
+      <br/>{{evidence.tracks_spoor}}
+    - |
+      7..10,
+      <h3>Signe - Vestiges /Débris</h3>
+      {{detail_config.select_and_label.ages}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      <br/>{{evidence.remains_debris}}
+    -  |
+      11..12,
+      <h3>Signe - Planque /Cachette</h3>
+      {{evidence.stash_cache}}
+
+    tracks_spoor:
+    - 1..3, faible/peu claire
+    - 4..6, visible/claire
+    - 7..8, multiples
+    - 9..10, signes de violence
+    - 11..12, ensanglantée/autre
+    remains_debris:
+    - 1..4, ossements
+    - 5..7, cadavre(s)/carcasse(s)
+    - 8..9, scène violente
+    - 10, ordures/détritus
+    - 11, réserve(s)/cargaison(s) abandonnée(s)
+    - 12, outil(s)/arme(s)/armure(s)
+    stash_cache:
+    - 1..3, babioles/piécettes
+    - 4..5, outils/armes/armures
+    - 6..7, carte
+    - 8..9, nourriture/réserves
+    - |
+      10..12,
+      <h4>Trésor</h4>
+      {{>pick: 2d6 unguarded_treasure}}
+
+  structure:
+    templates:
+    - |
+      1,
+      <h3>Construction - Énigmatique</h3>
+      <strong><small>{{detail_config.labels.age}}:</small></strong> {{>pick: 1d8+4 details.ages}}
+      <br/><strong><small>{{detail_config.labels.size}}:</small></strong> {{>pick: 1d8+4 details.sizes}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      <br/>{{structure.enigmatic}}
+    - |
+      2..3,
+      <h3>Construction - Infrastructure</h3>
+      <strong><small>Construite par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>
+      <br/>{{structure.infrastructure}}
+    - |
+      4,
+      <h3>Construction - Habitat</h3>
+      <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>
+      <br/>{{structure.dwelling}}
+    - |
+      5..6,
+      <h3>Construction - Funéraire /Religieux</h3>
+      <strong><small>Construite par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.aspects}}
+      <br/>
+      <br/>{{structure.burial_religious}}
+    - |
+      7..8,
+      <h3>Construction - Localité</h3>
+      {{steadings}}
+    - |
+      9..12,
+      <h3>Construction - Ruine</h3>
+      <strong><small>Construite par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/><strong><small>{{detail_config.labels.age}}:</small></strong> {{>pick: 1d8+4 details.ages}}
+      <br/>{{detail_config.select_and_label.ruinations}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      {{structure.ruin}}
+
+    ruin:
+    - "1..2, <br/>{{>pick: 1d6+6 structure.infrastructure}}"
+    - "3..4, <br/>{{>pick: 1d8+4 structure.dwelling}}"
+    - "5..6, <br/>{{>pick: 1d8+4 structure.burial_religious}}"
+    - |
+      7..8,
+      {{structure.steading_ruin}}
+    - |
+      9..12,
+      {{dungeon.templates}}
+
+    steading_ruin: # PW shows this as 1d10+2 , doing it this way makes template much simpler
+    - "{{steading_templates.keep}}"
+    - "{{steading_templates.keep}}"
+    - "{{steading_templates.city}}"
+
+    enigmatic:
+    - "1..4, terrassement"
+    - "5..8, mégalithe"
+    - "9..11, statue/idole/totem"
+    - "12, {{details.oddities}}"
+    infrastructure:
+    - "1..4, piste/chemin"
+    - "5..8, route"
+    - "9..10, pont/gué"
+    - "11, mine/carrière"
+    - "12, aqueduc/canal/portail"
+    dwelling:
+    - "1..3, campement"
+    - "4..6, masure/hutte"
+    - "7..8, ferme"
+    - "9..10, taverne/relais"
+    - "11..12, our/fort/domaine"
+    burial_religious:
+    - "1..2, stèle/tumulus"
+    - "3..4, cimetière/nécropole"
+    - "5..6, mausolée/crypte"
+    - "7..9, chapelle"
+    - "10..11, temple/retraite"
+    - "12, grand temple"
+
+
