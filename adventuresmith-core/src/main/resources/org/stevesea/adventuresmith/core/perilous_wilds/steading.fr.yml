@@ -95,7 +95,7 @@ nested_tables:
     - "12, Construit sur un important site religieux{{>accum: tags Divin: %[[details.divine]]%}}{{>accum: tags Historique: au choix}}"
 
     problem:
-    - "1..2, itué dans des terres arides ou non cultivables{{>accum: tags Need: food}}"
+    - "1..2, Situé dans des terres arides ou non cultivables{{>accum: tags Need: food}}"
     - "3..4, Dédié à une divinité{{>accum: tags Culte (cette divinité)}}{{>accum: tags Inimitié (localité d’une divinité adverse)}}"
     - "5..6, Guerre récente: -Prosperity (s’ils se sont battus jusqu’au bout), -Defenses (s’ils ont perdu){{>add: population -1}}"
     - "7..8, Problème avec un/des monstre(s){{>accum: tags Plaie (ces monstres)}}{{>accum: tags Besoin: adventurier}}"
@@ -107,7 +107,7 @@ nested_tables:
     - "1, En plein essor{{>accum: tags En plein essor}}{{>accum: tags Crime}}"
     - "2..3, À un carrefour{{>accum: tags Marché}}{{>add: prosperity 1}}"
     - "4..5, Protégé par une autre localité{{>accum: tags Serment: cette localité}}{{>add: defenses 1}}"
-    - "6..7, Construit autour d’une église{{>accum: tags Power: divine}}"
+    - "6..7, Construit autour d’une église{{>accum: tags Puissance: divine}}"
     - "8..10, Centré sur un métier{{>add: resource_count 1}}{{>accum: tags Ressource (nécessaire à l’artisanat)}}"
     - "11..12, Construit autour d’un poste militaire{{>add: defenses 1}}"
     problem:
@@ -115,7 +115,7 @@ nested_tables:
     - "3..4, Offre une défense à d’autres{{>add: defenses -1}}{{>accum: tags Serment (localité(s) au choix)}}"
     - "5..6, Abriterait un célèbre hors-la-loi{{>accum: tags Personnage (ce bandit)}}{{>accum: tags Inimitié (localité où il a sévi}}"
     - "7..8, Contrôle un bien/service{{>accum: tags Exotique (ce bien/service)}}{{>accum: tags Inimitié (localité ambitieuse)}}"
-    - "9..10, rappé par une maladie{{>add: population -1}}"
+    - "9..10, Frappé par une maladie{{>add: population -1}}"
     - "11..12, Lieu de rassemblement populaire{{>add: population 1}}{{>accum: tags Crime}}"
 
   keep:
@@ -124,7 +124,7 @@ nested_tables:
     - "3..4, Dirigé par un commandant habile{{>add: defenses 1}}{{>accum: tags Personnage (le commandant)}}"
     - "5..6, Surveille un axe commercial{{>add: prosperity 1}}{{>accum: tags Guilde (commerce)}}"
     - "7..8, orme des troupes spéciales{{>add: population -1}}{{>accum: tags Magie}}"
-    - "9..10, Entourée de terres fertiles{{>remove: tags -Need: Besoin}}"
+    - "9..10, Entourée de terres fertiles{{>remove: tags -Besoin: Besoin (fournitures) }}"
     - "11..12, Sur une frontière :{{>add: defenses 1}}{{>accum: tags Inimitié (localité de l’autre côté de la frontière)}}"
     problem:
     - "1..3, Construite sur une position naturellement défendable{{>add: population -1}}{{>accum: tags Sûr}}"
@@ -139,7 +139,7 @@ nested_tables:
     info:
     - "1..3, Défenses permanentes (enceinte, etc.){{>add: defenses 1}}{{>accum: tags Serment (localité au choix)}}"
     - "4..6, Dirigée par une seule personne{{>accum: tags Personnage (dirigeant)}}{{>accum: tags Puissance (politique)}}"
-    - "7, Multiculturelle{{>accum: tags Nains, Elfes ou les deux}}"
+    - "7, Multiculturelle{{>accum: tags Nains, Elfes ou autres non-humains; un ou plusieurs peuples}}"
     - "8..10, Plaque tournante du commerce{{>add: prosperity 1}}{{>accum: tags Commerce (localités proches)}}"
     - "11, Ancienne, construite sur ses ruines{{>accum: tags Historique (au choix)}}{{>accum: tags Religion}}"
     - "12, Centre de connaissance{{>accum: tags Puissance (magique)}}{{>accum: tags Magie}}{{>accum: tags Artisanat (au choix)}}"
@@ -149,5 +149,4 @@ nested_tables:
     - "7..8, Dirigée par une théocratie{{>add: defenses -1}}{{>accum: tags Puissance (religieuse)}}"
     - "9..10, Dirigée par le peuple{{>add: defenses -1}}{{>add: population 1}}"
     - "11, Défenses surnaturelles{{>add: defenses 1}}{{>accum: tags Plaie (créatures surnaturelles liées)}}"
-    - "12, Sur un lieu de pouvoir{{>accum: tags Plaie (créatures
-arcaniques)}}{{>accum: tags Magie}}{{>accum: tags Personnage (veille sur le lieu de pouvoir)}}"
+    - "12, Sur un lieu de pouvoir{{>accum: tags Plaie (créatures arcaniques)}}{{>accum: tags Magie}}{{>accum: tags Personnage (veille sur le lieu de pouvoir)}}"

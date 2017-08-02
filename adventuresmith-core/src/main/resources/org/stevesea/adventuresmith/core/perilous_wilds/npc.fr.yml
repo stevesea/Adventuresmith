@@ -181,7 +181,7 @@ nested_tables:
     - 11, milicien/garde/soldat
     - "12, {{npc_occupation.official}}"
     urban:
-    - 1..2, soldat/mercenaire
+    - 1..2, mendiant/garnement
     - "3, Criminel: {{npc_occupation.criminal}}"
     - "4..7, {{npc_occupation.commoner}}"
     - "8, {{npc_occupation.tradesperson}}"

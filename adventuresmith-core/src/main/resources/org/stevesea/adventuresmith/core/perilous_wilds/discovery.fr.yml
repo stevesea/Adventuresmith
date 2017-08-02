@@ -124,21 +124,21 @@ nested_tables:
     templates:
     - |
       1..6,
-      <h3>Signe - Trace /Piste</h3>
+      <h3>Signe - Trace/Piste</h3>
       {{detail_config.select_and_label.ages}}
       <br/><strong><small>Créature responsable:</small></strong> {{creature.creature_no_tags}}
       <br/>
       <br/>{{evidence.tracks_spoor}}
     - |
       7..10,
-      <h3>Signe - Vestiges /Débris</h3>
+      <h3>Signe - Vestiges/Débris</h3>
       {{detail_config.select_and_label.ages}}
       <br/>{{detail_config.select_and_label.visibilities}}
       <br/>
       <br/>{{evidence.remains_debris}}
     -  |
       11..12,
-      <h3>Signe - Planque /Cachette</h3>
+      <h3>Signe - Planque/Cachette</h3>
       {{evidence.stash_cache}}
 
     tracks_spoor:
@@ -188,7 +188,7 @@ nested_tables:
       <br/>{{structure.dwelling}}
     - |
       5..6,
-      <h3>Construction - Funéraire /Religieux</h3>
+      <h3>Construction - Funéraire/Religieux</h3>
       <strong><small>Construite par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{detail_config.select_and_label.alignments}}
       <br/>{{detail_config.select_and_label.aspects}}

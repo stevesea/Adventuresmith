@@ -11,7 +11,7 @@ definitions:
       condition: État
       disposition: Tempérament
       element: Élément
-      feature: Caractéristique
+      feature: Particularités
       magic_type: Type magique
       number_appearing: Nombre rencontré
       oddity: Bizarrerie
