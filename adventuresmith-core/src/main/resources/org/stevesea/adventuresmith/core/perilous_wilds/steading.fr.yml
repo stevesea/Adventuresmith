@@ -18,7 +18,7 @@ tables:
 definitions:
   steading_templates:
     village: |
-      <h4>Village</h4>{{>add: prosperity 2}}{{>add: population 3}}{{>add: defenses 2}}{{>add: resource_count 1}}{{>accum: tags Oath: other steading}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <h4>Village</h4>{{>add: prosperity 2}}{{>add: population 3}}{{>add: defenses 2}}{{>add: resource_count 1}}{{>accum: tags Serment ( localité au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{village.info}}
       <br/>{{village.problem}}
@@ -29,7 +29,7 @@ definitions:
       <br/>
       <br/>%[[>get: tags <br/>]]%
     town: |
-      <h4>Bourg</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 3}}{{>add: resource_count 1}}{{>accum: tags Trade: 2 other steadings}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <h4>Bourg</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 3}}{{>add: resource_count 1}}{{>accum: tags Commerce (deux localités au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{town.info}}
       <br/>{{town.problem}}
@@ -40,7 +40,7 @@ definitions:
       <br/>
       <br/>%[[>get: tags <br/>]]%
     keep: |
-      <h4>Forteresse</h4>{{>add: prosperity 2}}{{>add: population 2}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags Trade: someplace with supplies}}{{>accum: tags Need: supplies}}{{>accum: tags Oath: GM's choice}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <h4>Forteresse</h4>{{>add: prosperity 2}}{{>add: population 2}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags Commerce ( localité avec des consommables)}}{{>accum: tags Besoin (fournitures)}}{{>accum: tags Serment ( localité au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
       <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{keep.info}}
       <br/>{{keep.problem}}
@@ -51,8 +51,8 @@ definitions:
       <br/>
       <br/>%[[>get: tags <br/>]]%
     city: |
-      <h4>Ville</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags Oath: 2+ steadings of GM's choice}}{{>accum: tags Guild: GM's choice}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
-      <strong><small>Built by:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <h4>Ville</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags 2+ Serments ( localités aux choix)}}{{>accum: tags Guilde (au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
       <br/>{{city.info}}
       <br/>{{city.problem}}
       <br/>
