@@ -1,11 +1,11 @@
 ---
 templates:
 - |
-  <h4>Recrues</h4>{{>accum: calcTags ?-Wise}}{{>add: qual 0}}{{>add: tag_count 0}}
+  <h4>Recrues</h4>{{>accum: calcTags Connaissance-spécifique?}}{{>add: qual 0}}{{>add: tag_count 0}}
   <strong><small>Compétence:</small></strong> {{competence}}
   <br/><strong><small>Antécédents:</small></strong> {{background}}
   <br/>
-  <br/><strong><small>Qualité:</small></strong> %[[>get: qual]]%&nbsp;&nbsp;<strong><small>Loyalty:</small></strong> {{loyalty}}&nbsp;&nbsp;<strong><small>Cost:</small></strong> {{cost}}
+  <br/><strong><small>Qualité:</small></strong> %[[>get: qual]]%&nbsp;&nbsp;<strong><small>Loyauté:</small></strong> {{loyalty}}&nbsp;&nbsp;<strong><small>Coût:</small></strong> {{cost}}
   <br/>
   <br/><strong><small>Penchant:</small></strong> {{instinct}}
   <br/>
@@ -27,8 +27,8 @@ tables:
   - "10..11, Capable{{>add: tag_count 2}}{{>add: qual 1}}"
   - "12, Exceptionnel{{>add: tag_count 4}}{{>add: qual 2}}"
   background:
-  - "1..2, Une vie de servitude et d'oppression{{>accum: calcTags Meek}}"
-  - "3, D'un âge avancé{{> add: qual -1}}{{>accum: calcTags ?-Wise+}}"
+  - "1..2, Une vie de servitude et d'oppression{{>accum: calcTags Soumise}}"
+  - "3, D'un âge avancé{{> add: qual -1}}{{>accum: calcTags Connaissance-spécifique?+}}"
   - "4..5, Une vie de dangers{{>add: tag_count 2}}"
   - 6..9, Quelconque
   - "10, Une vie de privilèges{{>add: tag_count 1}}"

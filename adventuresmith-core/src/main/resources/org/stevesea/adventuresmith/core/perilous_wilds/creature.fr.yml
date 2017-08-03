@@ -63,7 +63,7 @@ nested_tables:
   creature:
     creature_no_tags:
     - "1..4, {{creature.beast}}"
-    - "5..6, human"
+    - "5..6, humain"
     - "7..8, {{creature.humanoid}}"
     - "9..12, {{creature.monster}}"
 
