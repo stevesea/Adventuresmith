@@ -1,10 +1,10 @@
 ---
 definitions:
   locations:
-    Arpad: The Kingdom of Arpad
-    Oloru: Oloru, Sky-God's Home
-    Valkoina: Valkoina, Land of White Lion
-    Tamanarugan: The Tamanarugan Empire
+    Arpad: Le Royaume d ’Arpad
+    Oloru: Oloru , Demeure du Dieu du Ciel
+    Valkoina: Valkoina , Terre du Fer Blanc
+    Tamanarugan: L’Empire Tamanarugain
 nested_tables:
   Arpad:
     male:

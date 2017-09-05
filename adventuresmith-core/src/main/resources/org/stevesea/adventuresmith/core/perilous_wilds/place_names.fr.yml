@@ -1,11 +1,11 @@
 ---
 templates:
-- "The {{feature}}"
-- "The {{adjective}} {{feature}}"
-- "The {{feature}} of (the) {{noun}}"
-- "The {{noun}}'s {{feature}}"
-- "{{feature}} of the {{adjective}} {{noun}}"
-- "The {{adjective}} {{noun}}"
+- "Le {{feature}}"
+- "Le {{adjective}} {{feature}}"
+- "Le {{feature}} de {{noun}}"
+- "{{feature}} de {{noun}}"
+- "Le {{feature}} de {{noun}} {{adjective}}"
+- "Le {{adjective}} {{noun}}"
 
 tables:
   adjective:
