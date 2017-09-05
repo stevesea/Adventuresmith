@@ -7,8 +7,9 @@ To start a discussion, visit our [G+ Community](https://plus.google.com/communit
 ## Content Licensing
 
 Before contributing content from an RPG supplement or system, you _must_ get explicit permission 
-from the creators of that content. That statement is applicable for content released under Creative 
-Commons and OGL licenses. 
+from the creators of that content. 
+
+Yes, even for Creative Commons or OGL licensed content, you must get permission. 
 
 ## Community and Behavioral Expectations
 
