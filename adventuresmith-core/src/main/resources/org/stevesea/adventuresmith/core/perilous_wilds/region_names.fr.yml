@@ -61,7 +61,7 @@ tables:
   - Terrassé
   - Vert
   noun:
-  - [Nom]*
+  - [Nom]
   - Argent
   - Brume
   - Cendre
@@ -111,7 +111,7 @@ tables:
   - Troll
   - Victoire
   - Vie
-    terrain:
+  terrain:
   - Archipel/Île
   - Baie
   - Bocages
