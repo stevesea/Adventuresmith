@@ -18,6 +18,7 @@ publishers and copyright holders. See below for full listing.
 - [Mutant: Year Zero](#mutant_year_zero)
 - [The Perilous Wilds](#perilous_wilds)
 - [Portal Rats](#portal_rats)
+- [The Queen's Cavaliers](#the_queens_cavaliers)
 - [Roll XX](#roll_xx)
 - [Sharp Swords & Sinister Spells](#ss_and_ss)
 - [Stars Without Number](#stars_without_number)
@@ -447,6 +448,17 @@ reformed only to the extent necessary to make it enforceable.
 <br/>15 COPYRIGHT NOTICE
 Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 </blockquote>
+
+
+
+
+<a name="the_queens_cavaliers"></a>
+## The Queen's Cavaliers - Caoimhe Ora Snow
+[http://www.boldpueblo.com/tqc](http://www.boldpueblo.com/tqc)
+
+<p><a href="http://boldpueblo.com/tqc">The Queen's Cavaliers</p>
+<p>Written by <b>Caoimhe Ora Snow</b></p>
+<p>Rule mechanics are released under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License (CC BY 4.0)</a>, and the setting under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike License (CC BY-NC-SA 4.0)</a>.</p>
 
 
 
