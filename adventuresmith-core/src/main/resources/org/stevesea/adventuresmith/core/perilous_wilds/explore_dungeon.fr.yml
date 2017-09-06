@@ -1,0 +1,188 @@
+---
+templates:
+- |
+  <h3>Exploration</h3>
+  {{dungeon_explore}}
+  <h5>Optionel</h5>
+  <em>
+  &nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.orientations}}
+  </em>
+
+imports:
+- creature
+
+definitions:
+  dungeon_explore_config:
+    labels:
+      area_type: Area Type
+      common: Common
+      unique: Unique
+      themed: Themed
+      unthemed: Unthemed
+      contents: Contents
+
+tables:
+  dungeon_explore:
+  - |
+    1,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.unthemed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    empty
+  - |
+    2,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.unthemed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_danger.danger}}
+  - |
+    3..4,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.unthemed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_discovery.discovery}}
+    <br/>
+    {{dungeon_danger.danger}}
+  - |
+    5..6,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.unthemed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_discovery.discovery}}
+  - |
+    7,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.themed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_danger.danger}}
+  - |
+    8,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.themed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_discovery.discovery}}
+    <br/>
+    {{dungeon_danger.danger}}
+  - |
+    9,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.common}} [{{dungeon_explore_config.labels.themed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_discovery.discovery}}
+  - |
+    10,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.unique}} [{{dungeon_explore_config.labels.themed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_danger.danger}}
+  - |
+    11,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.unique}} [{{dungeon_explore_config.labels.themed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_discovery.discovery}}
+    <br/>
+    {{dungeon_danger.danger}}
+  - |
+    12,
+    <h4>{{dungeon_explore_config.labels.area_type}}: {{dungeon_explore_config.labels.unique}} [{{dungeon_explore_config.labels.themed}}]</h4>
+    <h5>{{dungeon_explore_config.labels.contents}}:</h5>
+    {{dungeon_discovery.discovery}}
+nested_tables:
+  dungeon_discovery:
+    dressing:
+    - 1, ordures/débris
+    - 2, traces/marques
+    - 3, signes de bataille
+    - 4, écritures/gravures
+    - 5, mise en garde
+    - "6, Créature morte {{creature.creature_no_tags}}"
+    - 7, ossements/vestiges
+    - 8, livre/parchemin/carte
+    - 9, porte/mur défoncé
+    - 10, bise/vent/odeur
+    - 11, lichen/mousse/champignon
+    - "12,  {{details.oddities}}"
+    feature:
+    - 1, effondrement/affaissement
+    - 2, trou/puits/gouffre
+    - 3, piliers/colonnes
+    - 4, porte/grille fermée
+    - 5, alcôves/niches
+    - 6, pont/escalier/rampe
+    - 7, fontaine/puits/bassin
+    - 8, énigme
+    - 9, autel/estrade/plate-forme
+    - 10, statue/idole
+    - 11, bassin/statue/idole magique
+    - 12, connexion vers un autre donjon    
+    find:
+    - 1, babioles
+    - 2, outils
+    - 3, armes/armures
+    - 4, réserves/produits commerciaux
+    - 5, pièces/gemmes/joyaux
+    - 6, poisons/potions
+    - 7, aventurier/captif
+    - 8, objet magique
+    - 9, parchemin/livre
+    - 10, arme/armure magique
+    - 11, relique
+    - "12, {{>pickN: 2 dungeon_discovery.find}}"
+
+    discovery:
+    - "1..3, Habillage: {{dungeon_discovery.dressing}}"
+    - "4..9, Particularité: {{dungeon_discovery.feature}}"
+    - "10..12, Trouvaille: {{dungeon_discovery.find}}"
+
+  dungeon_danger:
+    trap:
+    - 1, alarme
+    - 2, ligoter/paralyser
+    - 3, trou
+    - 4, écraser
+    - 5, percer/crever
+    - 6, trancher/couper
+    - 7, embrouiller (labyrinthe, etc.)
+    - 8, gaz (poison, etc.)
+    - "9, {{details.elements}}"
+    - 10, embuscade
+    - 11, magique
+    - "12, {{>pickN: 2 dungeon_danger.trap}}"
+    creature:
+    - 1, en embuscade
+    - 2, combattant/se chamaillant
+    - 3, rôdant/en patrouille
+    - 4, cherchant de la nourriture
+    - 5, mangeant/au repos
+    - 6, surveillant
+    - 7, en mouvement
+    - 8, cherchant/récupérant
+    - 9, retournant à son antre
+    - 10, planifiant quelque chose
+    - 11, endormie
+    - 12, à l’agonie
+    entity:
+    - 1,  usurpateur étranger
+    - 2,  reine d’insectes nuisibles
+    - 3,  roi du crime
+    - 4,  seigneur de guerre
+    - 5,  haut prêtre
+    - 6,  oracle
+    - 7,  sorcier/sorcière/alchimiste
+    - "8 seigneur de {{creature.monster}}"
+    - 9,  esprit/fantôme maléfique
+    - 10,  seigneur mort-vivant
+    - 11,  démon majeur
+    - 12,  dieu sombre
+
+    danger:
+    - "1..4, Piège: {{dungeon_danger.trap}}"
+    - |
+      5..11,
+      creature: {{creature.creature_no_tags}} + {{dungeon_danger.creature}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.number_appearing}}
+
+    - |
+      12,
+      entity: {{dungeon_danger.entity}}
+      <br/>
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}

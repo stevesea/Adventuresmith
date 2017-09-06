@@ -1,0 +1,144 @@
+---
+
+imports:
+- details
+
+tables:
+  utility_item:
+  - 1,clé/passe-partout
+  - 2,potion/nourriture
+  - 3,habit/manteau
+  - 4,carafe/vase/coupe
+  - 5,cage/boîte/coffre
+  - 6,instrument/outil
+  - 7,livre/parchemin
+  - 8,arme/bâton/badine
+  - 9,armure/bouclier/casque
+  - 10,miroir/sablier
+  - 11,familier/monture
+  - 12,invention/construction
+  art_item:
+  - 1,babiole/gri-gri
+  - 2,peinture/poterie
+  - 3,anneau/gants
+  - 4,tapis/tapisserie
+  - 5,statuette/idole
+  - 6,drapeau/bannière
+  - 7,bracelet/brassard
+  - 8,collier/amulette
+  - 9,ceinture/harnais
+  - 10,chapeau/masque
+  - 11,orbe/sceau/baguette
+  - 12,couronne/sceptre
+  item:
+  - "1..8, {{utility_item}}"
+  - "9..12, {{art_item}}"
+
+  treasure:
+  - |
+    Quelques pièces d’or, 2d8 ou à peu près.<small>({{>roll: 2d8}})</small>
+  - |
+    Un objet utile - {{utility_item}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Plusieurs pièces d’or, autour de 4d10 <small>({{>roll: 4d10}})</small>
+  - |
+    Un petit objet (bijou, objet d’art - {{art_item}}) d’une valeur considérable, valant 2d10 x 10 po<small>({{>roll: 2d10*10}})</small> , 0 poids.<small>({{>roll: 2d10*10}})</small>
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Un objet magique mineur - {{item}}
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.abilities}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.magic_types}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Informations pratiques (carte, notes, etc.)
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Un sac de pièces d’or<small>({{>roll: 1d4*100}})</small>. 1 poids par tranche de 100 pièces. 
+  - |
+    Un petit objet de très grande valeur (bijou, objet d’art - [{{art_item}}]) valant 2d6 × 100 po <small>({{>roll: 2d6*100}})</small>, 0 poids .
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Un coffre de pièces de monnaie et autres petits objets de valeur. 1 poids , mais vaut 3d6 × 100 po .  <small>({{>roll: 3d6*100}})</small>
+  - |
+    Un objet magique ou un effet magique - {{item}}
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.abilities}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.magic_types}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Plusieurs sacs de pièces pour un total de 2d4 × 100 po ou plus. <small>({{>roll: 2d4*100}})</small>
+  - |
+    Le symbole d’une charge (couronne, bannière) valant au moins 3d4 × 100 po .<small>({{>roll: 3d4*100}})</small>
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Un gros objet d’art - {{art_item}} - valant 4d4 × 100 po , 1 poids .<small>({{>roll: 4d4*100}})</small>
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Un objet unique ({{item}}) valant au moins 5d4 × 100 po <small>({{>roll: 5d4*100}})</small>
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.adjectives}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+  - |
+    Toutes les informations nécessaires pour apprendre un nouveau sort.
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.abilities}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.magic_types}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+    <br/>
+    <br/>{{>pick: 1d12 treasure}}
+  - |
+    Un portail ou un chemin secret (ou le moyen d’y accéder)
+    <br/>
+    <br/>{{>pick: 1d12 treasure}}
+  - |
+    Quelque chose en rapport avec l’un des personnages
+    <br/>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.ages}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.aspects}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.elements}}
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;{{detail_config.select_and_label.oddities}}
+    <br/>
+    <br/>{{>pick: 1d12 treasure}}
+  - |
+    Une véritable fortune : 1d10 × 1000 po et 1d10 × 10 gemmes pour une valeur de 2d6 × 100 po chacune.
+    <br/>
+    <br/>&nbsp;&nbsp; pièces: {{>roll: 1d10*1000}}
+    <br/>&nbsp;&nbsp; gemmes: {{>roll: 1d10*10}} d'une valeur de {{>roll: 2d6*100}} chacune

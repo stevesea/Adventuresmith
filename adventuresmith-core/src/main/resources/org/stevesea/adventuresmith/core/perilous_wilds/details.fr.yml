@@ -1,0 +1,257 @@
+---
+definitions:
+  detail_config:
+    labels:
+      ability: Capacité
+      activity: Activité
+      adjective: Adjectif
+      age: Âge
+      alignment: Alignement
+      aspect: Aspect
+      condition: État
+      disposition: Tempérament
+      element: Élément
+      feature: Particularités
+      magic_type: Type magique
+      number_appearing: Nombre rencontré
+      oddity: Bizarrerie
+      orientation: Orientation
+      ruination: Dévastation
+      size: Taille
+      tag: Marqueur
+      terrain: Terrain
+      visibility: Visibilité
+
+    select_and_label:
+      abilities: <strong><small>{{detail_config.labels.ability}}:</small></strong> {{details.abilities}}
+      activities: <strong><small>{{detail_config.labels.activity}}:</small></strong> {{details.activities}}
+      adjectives: <strong><small>{{detail_config.labels.adjective}}:</small></strong> {{details.adjectives}}
+      ages: <strong><small>{{detail_config.labels.age}}:</small></strong> {{details.ages}}
+      alignments: <strong><small>{{detail_config.labels.alignment}}:</small></strong> {{details.alignments}}
+      aspects: <strong><small>{{detail_config.labels.aspect}}:</small></strong> {{details.aspects}}
+      conditions: <strong><small>{{detail_config.labels.condition}}:</small></strong> {{details.conditions}}
+      dispositions: <strong><small>{{detail_config.labels.disposition}}:</small></strong> {{details.dispositions}}
+      elements: <strong><small>{{detail_config.labels.element}}:</small></strong> {{details.elements}}
+      features: <strong><small>{{detail_config.labels.feature}}:</small></strong> {{details.features}}
+      magic_types: <strong><small>{{detail_config.labels.magic_type}}:</small></strong> {{details.magic_types}}
+      number_appearing: <strong><small>{{detail_config.labels.number_appearing}}:</small></strong> {{details.number_appearing}}
+      oddities: <strong><small>{{detail_config.labels.oddity}}:</small></strong> {{details.oddities}}
+      orientations: <strong><small>{{detail_config.labels.orientation}}:</small></strong> {{details.orientations}}
+      ruinations: <strong><small>{{detail_config.labels.ruination}}:</small></strong> {{details.ruinations}}
+      sizes: <strong><small>{{detail_config.labels.size}}:</small></strong> {{details.sizes}}
+      tags: <strong><small>{{detail_config.labels.tag}}:</small></strong> {{details.tags}}
+      terrains: <strong><small>{{detail_config.labels.terrain}}:</small></strong> {{details.terrains}}
+      visibilities: <strong><small>{{detail_config.labels.visibility}}:</small></strong> {{details.visibilities}}
+
+      undead: <strong><small>Mort-vivant:</small></strong> {{details.undead}}
+      planar: <strong><small>Planaire:</small></strong> {{details.planar}}
+      divine: <strong><small>Divin:</small></strong> {{details.divine}}
+
+nested_tables:
+  details:
+    abilities:
+    - 1, bénir/maudire
+    - 2, enchaîner/piéger/lier
+    - 3, empoisonner/contaminer
+    - 4, paralyser/pétrifier
+    - 5, imiter/se camoufler
+    - 6, séduire/hypnotiser
+    - 7, dissoudre/désintégrer
+    - "8, {{details.magic_types}}"
+    - 9, absorber la vie/magie
+    - "10, immunité: {{details.elements}}"
+    - 11, lire/contrôler les esprits
+    - "12, {{>pickN: 2 details.abilities}}"
+
+    activities:
+    - 1, posant un piège/tennant une embuscade
+    - 2, combattant/en guerre
+    - 3, en maraude/patrouille
+    - 4, chassant/cueillant
+    - 5, mangeant/se reposant
+    - 6, fabricant/priant
+    - 7, voyageant/déménageant
+    - 8, explorant/perdu
+    - 9, rentrant chez lui
+    - 10, construisant/excavant
+    - 11, dormant
+    - 12, mourant
+
+    adjectives:
+    - 1, luisant/gluant
+    - 2, rugueux/dur/tranchant
+    - 3, lisse/mou/terne
+    - 4, corrodé/rouillé
+    - 5, pourri/pourrissant
+    - 6, cassé/cassant
+    - 7, puant/malodorant
+    - 8, faible/fin/vidé
+    - 9, fort/gras/plein
+    - 10, pâle/pauvre/peu profond
+    - 11, sombre/riche/profond
+    - 12, coloré
+    ages:
+    - 1, nouveau né/tout juste construit
+    - 2..4, jeune/récent
+    - 5..7, d’âge moyen
+    - 8..9, vieux
+    - 10..11, ancien
+    - 12, antédiluvien
+    alignments:
+    - 1..2, Chaotique
+    - 3..4, Mauvais
+    - 5..8, Neutre
+    - 9..10, Bon
+    - 11..12, Loyal
+    aspects:
+    - 1, pouvoir/force
+    - 2, tricherie/dextérité
+    - 3, temps/constitution
+    - 4, connaissance/intelligence
+    - 5, nature/sagesse
+    - 6, culture/charisme
+    - 7, guerre/mensonge/discorde
+    - 8, paix/vérité/équilibre
+    - 9, haine/envie
+    - 10, vie/admiration
+    - "11, {{details.elements}}"
+    - "12, {{>pickN: 2 details.aspects}}"
+
+    conditions:
+    - 1, nouveau né/tout juste construit
+    - 2..4, intact/sain/stable
+    - 5..7, occupé/actif/alerte
+    - 8..9, usé/fatigué/faible
+    - 10, inoccupé/perdu
+    - 11, ruiné/souillé/mourant
+    - 12,  disparu/mort
+
+    dispositions:
+    - 1, attaquant
+    - 2..4, hostile/agressif
+    - 5..6, prudent/indécis
+    - 7, craintif/fuyant
+    - 8..10, neutre
+    - 11, curieux/confiant
+    - 12, amical
+    elements:
+    - 1..2, air
+    - 3..4, terre
+    - 5..6, feu
+    - 7..8, eau
+    - 9..10, vie
+    - 11..12, mort
+    features:
+    - 1, armure lourde
+    - 2..3, ailé/volant
+    - 4, têtes multiples/sans tête
+    - 5, nombreux yeux/un œil
+    - 6, nombreux membres/queues
+    - 7, tentacules/vrille
+    - "8, {{details.aspects}}"
+    - "9, {{details.elements}}"
+    - "10, {{details.magic_types}}"
+    - "11, {{details.oddities}}"
+    - "12, {{>pickN: 2 details.features}}"
+    magic_types:
+    - 1..2, divination
+    - 3..4, enchantement
+    - 5..6, évocation
+    - 7..8, illusion
+    - 9..10, nécromancie
+    - 11..12, invocation
+    number_appearing:
+    - 1..4, Solitaire (1)
+    - "5..9, Groupe (1d6+2) [{{>roll: 1d6+2}}]"
+    - "10..12, Horde (4d6 par vague) [{{>roll: 4d6}}]"
+    oddities:
+    - 1, couleur/odeur/son étrange
+    - 2, géométrique
+    - 3, toile/réseau/système
+    - 4, cristallin/comme du verre
+    - 5, fongueux
+    - 6, gazeux/fumeux
+    - 7, mirage/illusion
+    - 8, volcanique/explosif
+    - 9, magnétique/repoussant
+    - 10, dépourvu de vie
+    - 11, étonnamment vivant
+    - "12, {{>pickN: 2 details.oddities}}"
+    orientations:
+    - 1..2, vers le bas/terre/nadir
+    - 3, nord
+    - 4, nord-est
+    - 5, est
+    - 6, sud-est
+    - 7, sud
+    - 8, sud-ouest
+    - 9, ouest
+    - 10, nord-ouest
+    - 11..12, vers le haut/ciel/zénith
+
+    ruinations:
+    - 1, désastre magique
+    - 2, malédiction/damnation
+    - 3..4, tremblement de terre/feu/inondation
+    - 5..6, fléau/famine/sécheresse
+    - 7..8, envahi par des monstres
+    - 9..10, guerre/invasion
+    - 11, ressources épuisées
+    - 12, l’herbe était plus verte ailleurs
+    sizes:
+    - 1, Minuscule
+    - 2..3, Petit
+    - 4..9, Taille moyenne
+    - 10..11, Grand
+    - 12, Énorme
+    tags:
+    - 1, Amorphe
+    - 2, Prudent
+    - 3, Construction
+    - 4, Fourbe
+    - 5, Intelligent
+    - 6, Magique
+    - 7..8, Organisé
+    - 9, Planaire
+    - 10, Furtif
+    - 11, Terrifiant
+    - "12, {{>pickN: 2 details.tags}}"
+    terrains:
+    - 1, désolation/désert
+    - 2..3, terrain plat/plaine
+    - 4, marais/marécage/tourbière
+    - 5..7, bois/forêt/jungle
+    - 8..9, colline/hauteur
+    - 10..11, montagne
+    - "12, {{details.oddities}}"
+    visibilities:
+    - 1..2, enterré/camouflé/presque invisible
+    - 3..6, partiellement couvert/couvert de végétation/caché
+    - 7..9, évident/à la vue de tous
+    - 10..11, visible de près
+    - 12, visible de loin/point central
+
+    undead:
+    - 1..4, lieu hanté/feu follet
+    - 5..8, fantôme/spectre
+    - 9, esprit-hurleur
+    - 10..11, incarnation/apparition
+    - 12, esprit maître/seigneur
+    planar:
+    - 1..3, diablotin (Petit)
+    - 4..6, élémentaire inférieur
+    - 7..9, démon/horreur inférieur
+    - 10, grand élémentaire
+    - 11, démon/horreur majeur
+    - 12, diable/seigneur élémentaire
+    divine:
+    - 1..5, agent
+    - 6..9, champion
+    - 10..11, armée ( Horde )
+    - 12, avatar
+    resources:
+    - 1..4, gibier/fruit/légume
+    - 5..6, herbe/épice/base de teinture
+    - 7..9, bois/pierre
+    - 10..11, minerai (cuivre, fer, etc.)
+    - 12, métal précieux/gemmes

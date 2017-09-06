@@ -1,0 +1,428 @@
+---
+definitions:
+  locations:
+    Arpad: Le Royaume d ’Arpad
+    Oloru: Oloru , Demeure du Dieu du Ciel
+    Valkoina: Valkoina , Terre du Fer Blanc
+    Tamanarugan: L’Empire Tamanarugain
+nested_tables:
+  Arpad:
+    male:
+    - Agoston
+    - Arpad
+    - Attila
+    - Bognar
+    - Denes
+    - Edmond
+    - Erno
+    - Etele
+    - Ferdinand
+    - Florian
+    - Geza
+    - Gyula
+    - Hugo
+    - Karcsi
+    - Konrad
+    - Lazlo
+    - Lukas
+    - Marko
+    - Miklos
+    - Peti
+    - Robi
+    - Tamas
+    - Ronold
+    - Viktor
+    - Zoltan
+    female:
+    - Abigel
+    - Aliz
+    - Amalia
+    - Andrea
+    - Aranka
+    - Csilla
+    - Edit
+    - Erzebet
+    - Gertrud
+    - Greta
+    - Iren
+    - Kamilla
+    - Lara
+    - Lia
+    - Lujza
+    - Matild
+    - Olga
+    - Otilia
+    - Panna
+    - Roza
+    - Terez
+    - Tunda
+    - Valeria
+    - Vilma
+    - Viola
+    steading:
+    - Aldott (Béni)
+    - Almahid (Pont de pomme)
+    - Elesett (Déchu)
+    - Feketz (Rochenoire)
+    - Godor (Trou)
+    - Kelegaz (Gué de l’Est)
+    - Kigyov (Serpent des Marais)
+    - Kiralokas (Château de la Reine)
+    - Kiralsir (Tombe du Roi)
+    - Magziklar (Hautefalaise)
+    - Mocsar (Marais)
+    - Nagyvros (Hauteville)
+    - Okorm (Champ aux bœufs)
+    - Orkfal (Mur des Orcs)
+    - Perov (Eau rouge)
+    - Soterdo (Boissombre)
+    - Tehenvar (Veauville)
+    - Toron (Tour)
+    - Torott (Fort-acier)
+    - Utolszer (Dernier combat)
+    - Valavolg (Vertvallon)
+    - Vastar (Nainegarde)
+    - Viz (Champ aux boeuf)
+    - Volgyom (Vallée)
+    - Zoldom (Vertecolline)
+    mount:
+    - Barat (Ami)
+    - Barsony (Velours)
+    - Edesem (Chéri)
+    - Egatz (Feu céleste)
+    - Eso (Pluie)
+    - Fakyla (Torche)
+    - Feketsor (Noirecrinière)
+    - Felho (Nuage)
+    - Flotta (Flotte)
+    - Gazda (Maître)
+    - Hold (Lune)
+    - Igaslo (Canasson)
+    - Ijeda (Espiègle)
+    - Koszalo (Balade)
+    - Megmento (Sauveur)
+    - Napfen (Radieux)
+    - Rozsa (Rose)
+    - Szamla (Bill)
+    - Szellem (Fougueux)
+    - Szeplok (Taches de son)
+    - Szerence (Chanceux)
+    - Tusko (Guiboles)
+    - Vad (Sauvage)
+    - Vihar (Orage)
+    - Villam (Éclair)
+  Oloru:
+    male:
+    - Adibemi
+    - Aboye
+    - Adegoke
+    - Ayokunle
+    - Babajide
+    - Babatunde
+    - Enitan
+    - Femi
+    - Kayin
+    - Kayode
+    - Lanre
+    - Lekan
+    - Mongo
+    - Nwachukwu
+    - Oban
+    - Ogun
+    - Olukayode
+    - Oluwalanni
+    - Oluwatoke
+    - Onipede
+    - Sijuade
+    - Toben
+    - Utiba
+    - Zaki
+    - Zoputan
+    female:
+    - Abeni
+    - Ade
+    - Alaba
+    - Bolanle
+    - Bosade
+    - Daraja
+    - Fari
+    - Gbemisola
+    - Ife
+    - Ige
+    - Lewa
+    - Mojisola
+    - Monifa
+    - Olufemi
+    - Omolara
+    - Oni
+    - Orisa
+    - Osa
+    - Ronke
+    - Shanum
+    - Simisola
+    - Titlayo
+    - Yejide
+    - Yewande
+    - Zauna
+    steading:
+    - Asala Ilu (Bourg-au-désert)
+    - Atijo Ina (Vieuxfeu)
+    - Bajesia (Fanion brisé)
+    - Dudu Olomi (Noirmarais)
+    - Ebutte Meta (Trois Ports)
+    - Ejodo (fleuve aux serpents)
+    - Esukale (Repas du Diable)
+    - Fadormi (Source argentée)
+    - Funfumi (Blancheseaux)
+    - Gooluna (Routedorée)
+    - Ijisofo (Creux des orages)
+    - Ikukenu (Porte de la disette)
+    - Iwin Ago (Garde des fées)
+    - Jinibi (Lieu du Fond)
+    - Oba Ile (Demeure du roi)
+    - Oduroke (Colline de prière)
+    - Ogbinibi (Fermage)
+    - Ogunibi (Champ de bataille)
+    - Okanigi (Seularbre)
+    - Okutasibo (Graveur de pierre)
+    - Olorusura (Trésor divin)
+    - Olusajeki (Tour de magie)
+    - Oluwakaji (Tombe du seigneur)
+    - Opolokuta (Les Pierres)
+    - Opoligi (Les Arbres)
+    mount:
+    - Adiitu (Mystère)
+    - Alayo (Gai)
+    - Atale (Rouquin)
+    - Bilu (Bill)
+    - Dudupatak (Noirsabot)
+    - Egun (Ronce)
+    - Eniyan (Braise)
+    - Esirun (Longuejambes)
+    - Fenuko (Bisou)
+    - Funfungo (Blancpoil)
+    - Gunirun (Longpoil)
+    - Imole (Vif)
+    - Imole Uju (Vifoeil)
+    - Ira (Promeneur)
+    - Itan (Histoire)
+    - Iyebiye (Précieux)
+    - Lulu (Poudre)
+    - Nilera (Robuste)
+    - Ogbo (Moucheté)
+    - Ogboju (Coeur Brave)
+    - Ojiji (Ombre)
+    - Olooto (Loyal)
+    - Orisa (Printemps)
+    - Orun (Éden)
+    - Sare (Éclair)
+  Valkoina:
+    male:
+    - Aatami
+    - Armas
+    - Arsi
+    - Arvi
+    - Eetu
+    - Hannu
+    - Heimo
+    - Ilkka
+    - Jorma
+    - Kaapo
+    - Kain
+    - Kauko
+    - Lari
+    - Manu
+    - Nuutti
+    - Petri
+    - Raimo
+    - Reima
+    - Risto
+    - Sakari
+    - Sampsa
+    - Seppo
+    - Taito
+    - Terho
+    - Vilppu
+    female:
+    - Aija
+    - Aina
+    - Ainikki
+    - Heini
+    - Ilona
+    - Irja
+    - Jaana
+    - Kirsi
+    - Maija
+    - Marita
+    - Miina
+    - Mimmi
+    - Minja
+    - Mira
+    - Naemi
+    - Outi
+    - Pirjo
+    - Päivikki
+    - Riikka
+    - Saimi
+    - Suoma
+    - Suvi
+    - Tuula
+    - Vellamo
+    - Virpi
+    steading:
+    - Etuvartio (Poste de garde)
+    - Hopea Kaivos (Mine d'argent)
+    - Kalapunki (Poissonville)
+    - Kivimurri (Mur de pierre)
+    - Maaginen (Magie)
+    - Maki Linna (Château de la colline)
+    - Merenranta (Bord de mer)
+    - Metsästysmaat (Terrain de chasse)
+    - Mustakota (Noiremasure)
+    - Mäenrinne (Coteau)
+    - Paja (Forge)
+    - Pienni Paikka (Baslieu)
+    - Pyhä Paikka (Lie sacré)
+    - Rantakallio (Falaise)
+    - Rikki (Brisé)
+    - Suo (Marais)
+    - Suosi (Favorisé)
+    - Torni (Tour)
+    - Turvapaikka (Refuge)
+    - Uusipunki (Nouvelleville)
+    - Valkoinen Kivi (Pierreblanche)
+    - Valtaistuin (Trône)
+    - Vapaanki (Libreville)
+    - Vihreä Paikka (Vertlieu)
+    - Viimeinen Koti (La dernière maison)
+    mount:
+    - Aave (Fantôme)
+    - Enkeli (Ange)
+    - Haiva (Ombre)
+    - Hopea (Argent)
+    - Ilmavirta (Courant)
+    - Kesi (Docile)
+    - Kestaba (Endurant)
+    - Kiukuinnen (Furieux)
+    - Lansiviima (Vent d'ouest)
+    - Luotettava (Fidèle)
+    - Myrskyisa (Orageux)
+    - Nokka (Tom)
+    - Noyra (Humble)
+    - Pitkanena (Long nez)
+    - Saikki (Nerveux)
+    - Salama (Éclair)
+    - Sankari (Héros)
+    - Sisko (Sœur)
+    - Upea (Splendide)
+    - Vahva (Fort)
+    - Valkoinen (Blanc)
+    - Varmaotteinen (Piedsûr)
+    - Vesuri (Serpe)
+    - Vinha (Rapide)
+    - Ystava (Ami)
+  Tamanarugan:
+    male:
+    - Ade
+    - Adi
+    - Amaziah
+    - Ayokunle
+    - Ary
+    - Bambang
+    - Bima
+    - Budi
+    - Darma
+    - Dian
+    - Eli
+    - Gunardi
+    - Hartono
+    - Irwan
+    - Lauwita
+    - Manusama
+    - Okan
+    - Onesimus
+    - Sammin
+    - Tameem
+    - Tanaya
+    - Tirto
+    - Wiryono
+    - Yandi
+    - Zebulun
+    female:
+    - Adah
+    - Bulan
+    - Candrakusuma
+    - Devi
+    - Hanjojo
+    - Iman
+    - Intan
+    - Laksmini
+    - Lestari
+    - Limijanto
+    - Marah
+    - Megawati
+    - Melati
+    - Nadiyya
+    - Ophrah
+    - Ramza
+    - Sapphiral
+    - Selah
+    - Suminten
+    - Tamar
+    - Tanjaya
+    - Tjokro
+    - Tri
+    - Wangi
+    - Zenze
+    steading:
+    - Airdib (Eaux bénies)
+    - Airjinh (Claireseaux)
+    - Akhir Jalan (Au bout de la route)
+    - Berdarah (Sanglant)
+    - Bidang Bera (Jachère)
+    - Candibula (Temple de la lune)
+    - Ditingga (Oublié)
+    - Emasungai (Crique dorée)
+    - Gunung (Montagne)
+    - Kayu (Boisé)
+    - Kuil (Temple)
+    - Ladang Hijau (Vertchamp)
+    - Lembah (Vallée)
+    - Menjau (Lointain)
+    - Ngarai (Canyon)
+    - Persimpangan (Croisements)
+    - Puncakit (Sommet)
+    - Sungairac (Rivière des poissons)
+    - Teibing (Flanc de falaise)
+    - Tempat Aman (Havre)
+    - Tempat Istir (Hospice)
+    - Terkutuk (Maudit)
+    - Tersentu (Grâce divine)
+    - Wahah (Oasis)
+    - Yangtinggi (Haute tour)
+    mount:
+    - Anginu (Vent du nord)
+    - Api (Flammes)
+    - Bakat (Félicité)
+    - Bakti (Loyal)
+    - Beruntung (Chanceux)
+    - Bilah (Lame)
+    - Biru (Bleu)
+    - Gemetar (Frisson)
+    - Guntur (Tonnerre)
+    - Hidungi (Nez noir)
+    - Janda (Veuve)
+    - Kakicerah (Pieds blancs)
+    - Kakiring (Pieds légers)
+    - Keriangan (Rayonnant)
+    - Kunang (Luciole)
+    - Lapar (Affamé)
+    - Murni (Pur)
+    - Paruh (Tom)
+    - Penebus (Vengeur)
+    - Penyelemat (Sauveur)
+    - Prajurit (Guerrier)
+    - Rusak (Brisé)
+    - Satucep (Le Rapide)
+    - Setia (Coeur sincère)
+    - Tahanla (Endurant)

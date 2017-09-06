@@ -1,0 +1,111 @@
+---
+templates:
+- "{{danger.danger}}"
+
+imports:
+- creature   # also imports in npc & details
+
+definitions:
+  danger_templates:
+    unnatural_entity: |
+      <h3>Danger - Entité artificielle</h3>
+      {{danger.unnatural_entities}}
+    hazard: |
+      <h3>Danger - Péril</h3>
+      {{danger.hazards}}
+    creature: |
+      <h3>Danger - Créature</h3>
+      {{creature.creature}}
+
+nested_tables:
+  # note: PW tables have undead/planar/divine as 'dangers', but
+  #    they're actually used in many places. in these config files,
+  #    those tables have been added to details.yml
+  hazard:
+    unnatural:
+    - 1..3, souillure/fléau/malédiction
+    - 4..8, effet/piège arcanique
+    - 9..11, effet/piège planaire
+    - 12, divin
+    natural:
+    - 1..2, brume/brouillard aveuglant
+    - 3..4, marais/marécage/sables mouvants
+    - 5..7, fosse/gouffre/abîme
+    - 8..9, poison/maladie
+    - 10..11, inondation/feu/tornade
+    - "12, {{details.oddities}}"
+
+    trap:
+    - 1..2, alarme
+    - 3..5, ligoter/paralyser
+    - 6..8, nuisible (trou, etc.)
+    - 9, gaz/feu/poison
+    - 10..12, embuscade
+
+  danger:
+    danger:
+    - "1, {{danger_templates.unnatural_entity}}"
+    - "2..6, {{danger_templates.hazard}}"
+    - "7..12, {{danger_templates.creature}}"
+
+    unnatural_entities:
+    - |
+      1..8,
+      <h5>Entité Mort-vivante</h5>
+      {{details.undead}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+    - |
+      9..11,
+      <h5>Entité Planaire</h5>
+      {{details.planar}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.elements}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.tags}}
+    - |
+      12,
+      <h5>Entité Divine</h5>
+      {{details.divine}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.aspects}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.elements}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.tags}}
+
+
+    hazards:
+    - |
+      1..2,
+      <h5>Péril Artificiel</h5>
+      {{hazard.unnatural}}
+      <br/>
+      <br/>{{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+    - |
+      3..10,
+      <h5>Péril Naturel</h5>
+      {{hazard.natural}}
+      <br/>
+      <br/>{{detail_config.select_and_label.visibilities}}
+    - |
+      11..12,
+      <h5>Piège</h5>
+      {{hazard.trap}}
+      <br/>
+      <br/>{{detail_config.select_and_label.aspects}}
+      <br/>{{detail_config.select_and_label.visibilities}}
+      <br/>
+      <br/><small><strong>Créature responsable:</strong></small> {{creature.creature_no_tags}}
+

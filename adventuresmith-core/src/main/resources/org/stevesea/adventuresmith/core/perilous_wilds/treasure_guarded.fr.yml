@@ -1,0 +1,9 @@
+---
+templates:
+- |
+  <h5>Trésor Gardé - {{input.damageDieV2}} + {{input.modifier}}d4</h5>
+  %[[>pick: {{input.damageDieV2}}+{{input.modifier}}d4 treasure]]%
+
+imports:
+- treasure
+

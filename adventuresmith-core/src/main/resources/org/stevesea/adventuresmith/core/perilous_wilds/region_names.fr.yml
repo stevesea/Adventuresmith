@@ -1,0 +1,167 @@
+---
+templates:
+- "1..4, {{terrain}} {{adjective}}"
+- "5..6, {{terrain}} de {{noun}}"
+- "7..8, Le {{terrain}} {{adjective}}"
+- "9..10, Le {{terrain}} de {{noun}}"
+- "11, {{terrain}} {{adjective}} de {{noun}}"
+- "12, {{adjective}} {{terrain}}"
+
+
+tables:
+  adjective:
+  - Abandonné
+  - Anéanti
+  - Argent
+  - Béni
+  - Blanc
+  - Bleu
+  - Brillant
+  - Brisé
+  - Brûlant
+  - Brumeuse
+  - Cendré
+  - Déchiqueté
+  - Déchu
+  - Désolé
+  - Diamant
+  - Doré
+  - Éclatant
+  - Flambant
+  - Froid
+  - Glacé
+  - Grisâtre
+  - Hanté
+  - Infranchissable
+  - Interminable
+  - Jaune
+  - Léger
+  - Lointain
+  - Long
+  - Lugubre
+  - Malfaisant
+  - Malsain
+  - Maudit
+  - Mort
+  - Mortel
+  - Mouvant
+  - Noir
+  - Ombrageux
+  - Oublié
+  - Pâle
+  - Périlleux
+  - Pourpre
+  - Profond
+  - Rouge
+  - Saint
+  - Sans âge
+  - Sauvage
+  - Sinistre
+  - Sombre
+  - Terrassé
+  - Vert
+  noun:
+  - [Nom]*
+  - Argent
+  - Brume
+  - Cendre
+  - Ciel
+  - Crâne
+  - Défunt
+  - Démon
+  - Désespoir
+  - Désolation
+  - Destin
+  - Dieu
+  - Dragon
+  - Enfer
+  - Épine
+  - Espoir
+  - Fantôme
+  - Faucheuse
+  - Feu
+  - Fumée
+  - Furie
+  - Géant
+  - Honneur
+  - Horreur
+  - Lumière
+  - Ombre
+  - Or
+  - Orage
+  - Os
+  - Paradis
+  - Péril
+  - Perte
+  - Peur
+  - Pluie
+  - Refuge
+  - Regret
+  - Reine
+  - Roi
+  - Sauveur
+  - Seigneur
+  - Serpent
+  - Soleil
+  - Sorcière
+  - Ténèbres
+  - Tonnerre
+  - Traître
+  - Tristesse
+  - Troll
+  - Victoire
+  - Vie
+    terrain:
+  - Archipel/Île
+  - Baie
+  - Bocages
+  - Bois/Bosquet
+  - Bourbier
+  - Buttes
+  - Champs
+  - Collines
+  - Contreforts
+  - Cordillère
+  - Défilé
+  - Delta
+  - Dépressions
+  - Désert, Reg
+  - Désolation
+  - Détroit
+  - Domaine
+  - Enclave
+  - Escarpements
+  - Falaises
+  - Fondrière
+  - Forêt
+  - Friches
+  - Futaie
+  - Haut(eur)s
+  - Hautes Terres
+  - Lac/Étang
+  - Lande/Brande
+  - Mangrove
+  - Maquis
+  - Marais
+  - Marche
+  - Marécage
+  - Marigot
+  - Mer/Océan
+  - Montagnes
+  - Monts
+  - Mur/Barrière
+  - Péninsule
+  - Pics
+  - Plaine
+  - Plateures
+  - Prairie
+  - Promontoire
+  - Sables/Erg
+  - Taillis
+  - Terrasses
+  - Tertre
+  - Tourbière
+  - Vallée/Val
+
+
+

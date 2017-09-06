@@ -1,0 +1,152 @@
+---
+templates:
+- "{{steadings}}"
+
+
+imports:
+- creature
+
+
+tables:
+  steadings:
+  - "1..5, {{steading_templates.village}}"
+  - "6..8, {{steading_templates.town}}"
+  - "9..11, {{steading_templates.keep}}"
+  - "12, {{steading_templates.city}}"
+
+
+definitions:
+  steading_templates:
+    village: |
+      <h4>Village</h4>{{>add: prosperity 2}}{{>add: population 3}}{{>add: defenses 2}}{{>add: resource_count 1}}{{>accum: tags Serment ( localité au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{village.info}}
+      <br/>{{village.problem}}
+      <br/>
+      <br/><strong><small>Prosperité:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Défenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+    town: |
+      <h4>Bourg</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 3}}{{>add: resource_count 1}}{{>accum: tags Commerce (deux localités au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{town.info}}
+      <br/>{{town.problem}}
+      <br/>
+      <br/><strong><small>Prosperité:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Défenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+    keep: |
+      <h4>Forteresse</h4>{{>add: prosperity 2}}{{>add: population 2}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags Commerce ( localité avec des consommables)}}{{>accum: tags Besoin (fournitures)}}{{>accum: tags Serment ( localité au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{keep.info}}
+      <br/>{{keep.problem}}
+      <br/>
+      <br/><strong><small>Prosperité:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Défenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+    city: |
+      <h4>Ville</h4>{{>add: prosperity 3}}{{>add: population 3}}{{>add: defenses 4}}{{>add: resource_count 0}}{{>accum: tags 2+ Serments ( localités aux choix)}}{{>accum: tags Guilde (au choix)}}{{>accum: tags Resource: %[[>pickN: resource_count details.resources]]%}}
+      <strong><small>Construit par:</small></strong> {{>pick: 1d4+4 creature.creature_no_tags}}
+      <br/>{{city.info}}
+      <br/>{{city.problem}}
+      <br/>
+      <br/><strong><small>Prosperité:</small></strong> %[[>pick: {{>get: prosperity}} steading.prosperity]]%
+      <br/><strong><small>Population:</small></strong> %[[>pick: {{>get: population}} steading.population]]%
+      <br/><strong><small>Défenses:</small></strong> %[[>pick: {{>get: defenses}} steading.defenses]]%
+      <br/>
+      <br/>%[[>get: tags <br/>]]%
+
+nested_tables:
+  steading:
+    prosperity:
+    - Crasseuse
+    - Pauvre
+    - Moyenne
+    - Aisée
+    - Riche
+    population:
+    - Exode
+    - En déclin
+    - Stable
+    - Croissante
+    - en plein Essor
+    defenses:
+    - Aucune
+    - Milice
+    - Guet
+    - Gardes
+    - Garnison
+    - Bataillon
+    - Légion
+
+  village:
+    info:
+    - "1..3, Défenses naturelles{{>accum: tags Safe}}{{>add: defenses -1}}"
+    - "4..6, Ressources abondantes{{>accum: tags Innimitié: au choix}}{{>add: resource_count 1}}{{>add: prosperity 1}}"
+    - "7..8, Protégé par une autre localité{{>accum: tags Serment (cette localité)}}{{>add: defenses 1}}"
+    - "9..10, Sur une route principale.{{>accum: tags Commerce: %[[details.resources]]%}}{{>add: prosperity 1}}"
+    - "11, Construit autour d’une tour de mage{{>accum: tags Personage: Le Mage}}{{>accum: tags Plaie (créatures arcaniques)}}"
+    - "12, Construit sur un important site religieux{{>accum: tags Divin: %[[details.divine]]%}}{{>accum: tags Historique: au choix}}"
+
+    problem:
+    - "1..2, Situé dans des terres arides ou non cultivables{{>accum: tags Need: food}}"
+    - "3..4, Dédié à une divinité{{>accum: tags Culte (cette divinité)}}{{>accum: tags Inimitié (localité d’une divinité adverse)}}"
+    - "5..6, Guerre récente: -Prosperity (s’ils se sont battus jusqu’au bout), -Defenses (s’ils ont perdu){{>add: population -1}}"
+    - "7..8, Problème avec un/des monstre(s){{>accum: tags Plaie (ces monstres)}}{{>accum: tags Besoin: adventurier}}"
+    - "9..10, A absorbé un autre village{{>accum: tags Crime}}{{>add: population 1}}"
+    - "11..12, Paumé ou peu accueillant{{>accum: tags Nains, Elfes ou autre non-humain}}{{>add: prosperity -1}}"
+
+  town:
+    info:
+    - "1, En plein essor{{>accum: tags En plein essor}}{{>accum: tags Crime}}"
+    - "2..3, À un carrefour{{>accum: tags Marché}}{{>add: prosperity 1}}"
+    - "4..5, Protégé par une autre localité{{>accum: tags Serment: cette localité}}{{>add: defenses 1}}"
+    - "6..7, Construit autour d’une église{{>accum: tags Puissance: divine}}"
+    - "8..10, Centré sur un métier{{>add: resource_count 1}}{{>accum: tags Ressource (nécessaire à l’artisanat)}}"
+    - "11..12, Construit autour d’un poste militaire{{>add: defenses 1}}"
+    problem:
+    - "1..2, Devenu trop grand pour une denrée importante{{>accum: tags Besoin (cette denrée)}}{{>accum: tags Commerce (une localité avec cette denrée)}}"
+    - "3..4, Offre une défense à d’autres{{>add: defenses -1}}{{>accum: tags Serment (localité(s) au choix)}}"
+    - "5..6, Abriterait un célèbre hors-la-loi{{>accum: tags Personnage (ce bandit)}}{{>accum: tags Inimitié (localité où il a sévi}}"
+    - "7..8, Contrôle un bien/service{{>accum: tags Exotique (ce bien/service)}}{{>accum: tags Inimitié (localité ambitieuse)}}"
+    - "9..10, Frappé par une maladie{{>add: population -1}}"
+    - "11..12, Lieu de rassemblement populaire{{>add: population 1}}{{>accum: tags Crime}}"
+
+  keep:
+    info:
+    - "1..2, Appartient à une famille noble{{>add: prosperity 1}}{{>accum: tags Puissance (politique)}}"
+    - "3..4, Dirigé par un commandant habile{{>add: defenses 1}}{{>accum: tags Personnage (le commandant)}}"
+    - "5..6, Surveille un axe commercial{{>add: prosperity 1}}{{>accum: tags Guilde (commerce)}}"
+    - "7..8, orme des troupes spéciales{{>add: population -1}}{{>accum: tags Magie}}"
+    - "9..10, Entourée de terres fertiles{{>remove: tags -Besoin: Besoin (fournitures) }}"
+    - "11..12, Sur une frontière :{{>add: defenses 1}}{{>accum: tags Inimitié (localité de l’autre côté de la frontière)}}"
+    problem:
+    - "1..3, Construite sur une position naturellement défendable{{>add: population -1}}{{>accum: tags Sûr}}"
+    - "4, Appartenait autrefois à une autre puissance{{>accum: tags Inimitié (localités de cette puissance)}}"
+    - "5, Refuge de brigands{{>accum: tags Crime}}"
+    - "6, Construite contre une menace spécifique{{>accum: tags Plaie (cette menace)}}"
+    - "7, A connu une terrible guerre sanglante{{>accum: tags Plaie (esprits tourmentés)}}{{>accum: tags Historique (bataille)}}"
+    - "8, Ne reçoit que les pires recrues{{>accum: tags Besoin (recrues qualifiées)}}"
+    - "9..10, Frappé par une maladie{{>add: population -1}}"
+    - "11..12, Lieu de rassemblement populaire{{>add: population 1}}{{>accum: tags Crime}}"
+  city:
+    info:
+    - "1..3, Défenses permanentes (enceinte, etc.){{>add: defenses 1}}{{>accum: tags Serment (localité au choix)}}"
+    - "4..6, Dirigée par une seule personne{{>accum: tags Personnage (dirigeant)}}{{>accum: tags Puissance (politique)}}"
+    - "7, Multiculturelle{{>accum: tags Nains, Elfes ou autres non-humains; un ou plusieurs peuples}}"
+    - "8..10, Plaque tournante du commerce{{>add: prosperity 1}}{{>accum: tags Commerce (localités proches)}}"
+    - "11, Ancienne, construite sur ses ruines{{>accum: tags Historique (au choix)}}{{>accum: tags Religion}}"
+    - "12, Centre de connaissance{{>accum: tags Puissance (magique)}}{{>accum: tags Magie}}{{>accum: tags Artisanat (au choix)}}"
+    problem:
+    - "1..3, Trop grande pour ses ressources{{>add: population 1}}{{>accum: tags Besoin (nourriture)}}"
+    - "4..6, A des visées sur les territoires voisins{{>add: defenses 1}}{{>accum: tags Inimitié (localités alentours)}}"
+    - "7..8, Dirigée par une théocratie{{>add: defenses -1}}{{>accum: tags Puissance (religieuse)}}"
+    - "9..10, Dirigée par le peuple{{>add: defenses -1}}{{>add: population 1}}"
+    - "11, Défenses surnaturelles{{>add: defenses 1}}{{>accum: tags Plaie (créatures surnaturelles liées)}}"
+    - "12, Sur un lieu de pouvoir{{>accum: tags Plaie (créatures arcaniques)}}{{>accum: tags Magie}}{{>accum: tags Personnage (veille sur le lieu de pouvoir)}}"

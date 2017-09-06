@@ -1,0 +1,85 @@
+---
+templates:
+- |
+  <h4>Recrues</h4>{{>accum: calcTags Connaissance-spécifique?}}{{>add: qual 0}}{{>add: tag_count 0}}
+  <strong><small>Compétence:</small></strong> {{competence}}
+  <br/><strong><small>Antécédents:</small></strong> {{background}}
+  <br/>
+  <br/><strong><small>Qualité:</small></strong> %[[>get: qual]]%&nbsp;&nbsp;<strong><small>Loyauté:</small></strong> {{loyalty}}&nbsp;&nbsp;<strong><small>Coût:</small></strong> {{cost}}
+  <br/>
+  <br/><strong><small>Penchant:</small></strong> {{instinct}}
+  <br/>
+  <br/><strong><small>Points de vie:</small></strong> {{hit_points}}
+  <br/><strong><small>Dé de Dégats:</small></strong> {{damage_die}}
+  <br/>
+  <br/>{{npc_templates.traits}}
+  <h5>Marqueurs</h5>
+  %[[>get: calcTags <br/>]]%<br/>
+  %[[>pickN: tag_count tags <br/>]]%
+
+imports:
+- npc
+
+tables:
+  competence:
+  - "1..3, Un poids mort{{> add: qual -1}}"
+  - "4..9, Assez compétent{{>add: tag_count 1}}"
+  - "10..11, Capable{{>add: tag_count 2}}{{>add: qual 1}}"
+  - "12, Exceptionnel{{>add: tag_count 4}}{{>add: qual 2}}"
+  background:
+  - "1..2, Une vie de servitude et d'oppression{{>accum: calcTags Soumise}}"
+  - "3, D'un âge avancé{{> add: qual -1}}{{>accum: calcTags Connaissance-spécifique?+}}"
+  - "4..5, Une vie de dangers{{>add: tag_count 2}}"
+  - 6..9, Quelconque
+  - "10, Une vie de privilèges{{>add: tag_count 1}}"
+  - "11, Expert ({{npc_occupation.specialist}}){{>add: tag_count -2}}{{>add: qual 1}}"
+  - "12, {{>pickN: 2 background}}"
+  instinct:
+  - 1, Piller, saccager, brûler
+  - 2, Garder rancune et chercher vengeance 
+  - 3, Remettre l’autorité et les ordres en question
+  - 4..5, Prendre les gens de haut 
+  - 6..7, Agir sur un coup de tête 
+  - 8..9, Céder aux tentations 
+  - 10..11, Flemmarder 
+  - 12, éviter le danger ou les punitions
+  loyalty:
+  - 1..2, 0
+  - 3..10, +1
+  - 11..12, +2
+  cost:
+  - 1, Débauche
+  - 2, Vengeance
+  - 3..5, Lucre
+  - 6..7, Renommée
+  - 8..9, Gloire
+  - 10, Affection
+  - 11, Savoirs
+  - 12, Bienveillance
+  hit_points:
+  - 1..3, 3PV (Faible/fragile/délicat)
+  - 4..9, 6PV (Solide)
+  - 10..12, 9PV (Endurcie/vigoureuse/dure)
+  damage_die:
+  - 1..4, d4 (Pas beaucoup)
+  - 5..10, d6 (Peut se défendre)
+  - 11..12, d8 (Dangereux vétéran)
+
+  tags:
+  - Archer
+  - Athlétique
+  - Belle
+  - Prudente
+  - Contact (?pick 1 steading/group)
+  - Perspicace
+  - Sournoise
+  - Groupe
+  - Guide (?pick 1 steading/region)
+  - Robuste
+  - Soigneur
+  - Soumise
+  - Magique
+  - Organisée
+  - Autosuffisante
+  - Furtive
+  - Guerrière

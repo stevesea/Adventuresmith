@@ -1,0 +1,26 @@
+---
+name: Trésor Gardé
+input:
+  displayTemplate: "{{damageDieV2}} + {{modifier}}d4"
+  params:
+  # original param 'damageDie' was single number. v2 makes that a NdM
+  - name: damageDieV2
+    uiName: Dé de dégâts
+    helpText: Le Dé de dégâts de votre adversaire
+    defaultValue: 1d6
+    values:
+    - 1d12
+    - 1d10
+    - 1d8
+    - 1d6
+    - 1d4
+  - name: modifier
+    uiName: Modificateur
+    helpText: Combien de d4 sont à appliquer à ce jet
+    defaultValue: 0
+    values:
+    - 0
+    - 1
+    - 2
+    - 3
+

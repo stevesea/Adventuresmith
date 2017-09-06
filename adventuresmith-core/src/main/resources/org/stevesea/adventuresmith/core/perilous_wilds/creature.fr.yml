@@ -1,0 +1,189 @@
+---
+templates:
+- "{{creature.creature}}"
+
+imports:
+- npc # also imports details
+
+definitions:
+  creature_templates:
+    beast: |
+      <h4>Bête</h4>
+      {{creature.beast}}
+      <br/>
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.number_appearing}}
+      <br/>{{detail_config.select_and_label.sizes}}
+
+    human: |
+      <h4>Humain</h4>
+      {{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.number_appearing}}
+      <br/>
+      <br/>{{npc_config.select_and_label.occupation}}
+      <br/>{{npc.single_trait}}
+
+    humanoid: |
+      <h4>Humanoïde</h4>
+      {{creature.humanoid}}
+      <br/>
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.number_appearing}}
+      <br/>
+      <br/>{{npc_config.select_and_label.occupation}}
+      <br/>{{npc.single_trait}}
+
+    monster: |
+      <h4>Monstre</h4>
+      {{creature.monster}}
+      <br/>
+      <br/>{{detail_config.select_and_label.activities}}
+      <br/>{{detail_config.select_and_label.alignments}}&nbsp;&nbsp;{{detail_config.select_and_label.sizes}}
+      <br/>{{detail_config.select_and_label.dispositions}}
+      <br/>{{detail_config.select_and_label.number_appearing}}
+      <br/>
+      <h5>Options</h5>
+      <em>
+      {{detail_config.select_and_label.abilities}}
+      <br/>{{detail_config.select_and_label.adjectives}}
+      <br/>{{detail_config.select_and_label.ages}}
+      <br/>{{detail_config.select_and_label.aspects}}
+      <br/>{{detail_config.select_and_label.conditions}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.oddities}}
+      <br/>{{detail_config.select_and_label.tags}}
+      </em>
+
+nested_tables:
+  creature:
+    creature_no_tags:
+    - "1..4, {{creature.beast}}"
+    - "5..6, humain"
+    - "7..8, {{creature.humanoid}}"
+    - "9..12, {{creature.monster}}"
+
+    creature:
+    - "1..4, {{creature_templates.beast}}"
+    - "5..6, {{creature_templates.human}}"
+    - "7..8, {{creature_templates.humanoid}}"
+    - "9..12, {{creature_templates.monster}}"
+
+    earthbound:
+    - 1, puce/tique/pou
+    - 2, escargot/limace/ver
+    - 3, fourmi/centipède/scorpion
+    - 4, serpent/lézard
+    - 5, campagnol/rat/belette
+    - 6, sanglier/cochon
+    - 7, chien/renard/loup
+    - 8, chat/panthère/lion
+    - 9, cerf/cheval/chameau
+    - 10, taureau/rhinocéros
+    - 11, ours/singe/gorille
+    - 12, mammouth/dinosaure 
+    airborne:
+    - 1, moustique/luciole
+    - 2, sauterelle/libellule/phalène
+    - 3, abeille/guêpe/frelon
+    - 4, poulet/canard/oie
+    - 5, perruche/perroquet
+    - 6, mouette/goéland/albatros
+    - 7, héron/grue/cigogne
+    - 8, corbeau/corneille
+    - 9, aigle/faucon/condor
+    - 10, chouette/hibou
+    - 11, vautour/condor
+    - 12, ptérodactyle/ptéranodon
+    water_going:
+    - 1, hémiptère/notonecte
+    - 2, méduse/anémone
+    - 3, palourde/huître/bigorneau
+    - 4, anguille/serpent
+    - 5, grenouille/crapaud
+    - 6, poisson
+    - 7, crabe/homard
+    - 8, tortue de mer
+    - 9, alligator/crocodile
+    - 10, dauphin/requin
+    - 11, calmar/pieuvre
+    - 12, baleine
+    beast:
+    - "1..7, {{creature.earthbound}}"
+    - "8..10, {{creature.airborne}}"
+    - "11..12, {{creature.water_going}}"
+
+    humanoid_common:
+    - 1..3, Halfelin (Petit)
+    - 4..5, Gobelin/Kobold (Petit) 
+    - 6..7, Nain/Gnome (Petit)
+    - 8..9, Orc/Hobgobelin/Gnoll
+    - 10..11, semi-Elfe/semi-Orc/etc.
+    - 12, Elfe
+    humanoid_uncommon:
+    - 1, Fée (Minuscule) 
+    - 2..3, Homme-chat/chien
+    - 4..6, Homme-lézard/triton
+    - 7, Homme-oiseau
+    - 8..10, Ogre/Troll (Grand) 
+    - 11..12, Cyclope/Géant (Grand ou Énorme)
+    humanoid_hybrid:
+    - 1..2, Centaure
+    - 3..5, Loup/Ours-garou
+    - "6, Garou <br/><small>Humain + {{creature.beast}}</small>"
+    - "7..10, Humain + {{creature.beast}}"
+    - "11..12, Humain + {{>pickN: 2 creature.beast &nbsp;+&nbsp;}}"
+
+    humanoid:
+    - "1..7, {{creature.humanoid_common}}"
+    - "8..10, {{creature.humanoid_uncommon}}"
+    - "11..12, {{creature.humanoid_hybrid}}"
+
+    monster_unusual:
+    - 1..3, plante/champignon
+    - "4..5, Humain mort-vivant <small>[{{details.undead}}]</small>"
+    - "6, humanoïde mort-vivant  <small>[{{details.undead}} + {{creature.humanoid}}]</small>"
+    - "7..8, {{>pickN: 2 creature.beast &nbsp;+&nbsp;}}"
+    - "9..10, {{creature.beast}} + {{details.abilities}}"
+    - "11..12, {{creature.beast}} + {{details.features}}"
+    monster_rare:
+    - 1..3, pudding/limon (Amorphe) 
+    - 4..6, création (Construction) 
+    - "7..9, {{creature.beast}} + {{details.oddities}}"
+    - "10..12, {{creature.unnatural_entity}}"
+    monster_legendary:
+    - 1..3, Dragon/Colosse (Énorme)
+    - "4..6, {{creature.monster_unusual}} (Énorme)"
+    - "7..9, {{creature.monster_rare}} (Énorme)"
+    - "10, {{creature.beast}} + Dragon"
+    - "11, {{creature.monster_unusual}} + Dragon"
+    - "12, {{creature.monster_rare}} + Dragon"
+    monster:
+    - "1..7, {{creature.monster_unusual}}"
+    - "8..10, {{creature.monster_rare}} <em>(rare)</em>"
+    - "11..12, {{creature.monster_legendary}} <em>(legendaire)</em>"
+
+    unnatural_entity:
+    - |
+      1..8,
+      {{detail_config.select_and_label.undead}}
+    - |
+      9..11,
+      {{detail_config.select_and_label.planar}}
+      <br/>
+      <br/>{{detail_config.select_and_label.elements}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.tags}}
+    - |
+      12,
+      {{detail_config.select_and_label.divine}}
+      <br/>
+      <br/>{{detail_config.select_and_label.aspects}}
+      <br/>{{detail_config.select_and_label.elements}}
+      <br/>{{detail_config.select_and_label.features}}
+      <br/>{{detail_config.select_and_label.tags}}
+
