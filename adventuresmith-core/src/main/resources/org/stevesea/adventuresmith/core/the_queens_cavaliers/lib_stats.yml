@@ -1,0 +1,1702 @@
+---
+
+imports:
+- str_stats
+- str_style
+- str_class
+- str_culture
+- str_tqc
+- dat_stats
+
+definitions:
+
+  api_charsheet:
+    init: |
+          <!-- initializing character sheet
+          social rank: {{api_social_rank.init}}
+          wealth: {{api_wealth.init}}
+          compdie: {{api_compdie.init}}
+          skill: {{api_skill.init}}
+          prow: {{api_prow.init}}
+          lang: {{api_lang.init}}
+          attr: {{api_attr.init}}
+          spec: {{api_spec.init}}
+          person: {{api_person.init}}
+          style: {{api_style.init}}
+          pass: {{api_pass.init}}
+          gear: {{api_gear.init}} 
+          custom: {{api_custom.init}}
+          story: {{api_story.init}}
+          -->
+
+    print:
+
+      heading: | 
+               <h2>{{str_charsheet.charsheet}}</h2>
+               <p><b>{{ui_class.classes}}:</b> {{>get: var_class_string}}</p>
+      basic: |
+             {{api_charsheet.print.heading}}
+             {{api_compdie.print.basic}}
+             {{api_attr.print.basic.all}}
+             {{api_wealth.print.basic.all}}
+             {{api_social_rank.print.basic.all}}
+             {{api_person.print.basic}}
+             {{api_skill.print.known.all}}
+             {{api_spec.print.known.all}}
+             {{api_prow.print.known.all}}
+             {{api_gear.print.basic.all}}
+             {{api_pass.print.basic.all}}
+             {{api_lang.print.known.all}}
+             {{api_style.print.basic.all}}
+             {{api_custom.print.basic.all}}
+             {{api_story.print.basic.all}}
+
+  # ################################################### api_story ######################################3
+
+  api_story:
+    init: "{{>set: var_story_i false}}"
+    print:
+      basic:
+        all: "{{api_story.print.story_{{>get: var_story_i}}}}"
+      story_false: "<!-- no story here -->"
+      story_true: |
+                  %[[>get: list_story &#32;]]%
+
+  # ######################################## api_social_rank ###########################################
+
+  api_social_rank:
+
+    init: |
+          {{>set: var_social_rank_i 0}}
+          {{>set: var_social_rank_1 commoner}}
+          {{>set: var_social_rank_2 commoner}}
+    set:
+      1:
+        commoner: "{{>set: var_social_rank_1 commoner}}{{>add: var_social_rank_i 1}}"
+        soldier: "{{>set: var_social_rank_1 soldier}}{{>add: var_social_rank_i 1}}"
+        artisan: "{{>set: var_social_rank_1 artisan}}{{>add: var_social_rank_i 1}}"
+        noble: "{{>set: var_social_rank_1 noble}}{{>add: var_social_rank_i 1}}"
+        royalty: "{{>set: var_social_rank_1 royalty}}{{>add: var_social_rank_i 1}}"
+      2:
+        commoner: "{{>set: var_social_rank_2 commoner}}{{>add: var_social_rank_i 1}}"
+        soldier: "{{>set: var_social_rank_2 soldier}}{{>add: var_social_rank_i 1}}"
+        artisan: "{{>set: var_social_rank_2 artisan}}{{>add: var_social_rank_i 1}}"
+        noble: "{{>set: var_social_rank_2 noble}}{{>add: var_social_rank_i 1}}"
+        royalty: "{{>set: var_social_rank_2 royalty}}{{>add: var_social_rank_i 1}}"
+
+    get: 
+      i: "{{>get: var_social_rank_i}}"
+      1: "{{>get: var_social_rank_1}}"
+      2: "{{>get: var_social_rank_2}}"
+    print: 
+      basic:
+        all: |
+             <p><b>{{str_social_rank.rank}}:</b> {{api_social_rank.print.with_dice.{{>get: var_social_rank_1}}}}/{{api_social_rank.print.with_dice.{{>get: var_social_rank_2}}}}</p>
+           
+      with_dice:
+        nop: "{{nop}}"
+        commoner: "{{str_social_rank.commoner}} ({{d{{dat_social.commoner}}}})"
+        soldier: "{{str_social_rank.soldier}} ({{d{{dat_social.soldier}}}})"
+        artisan: "{{str_social_rank.artisan}} ({{d{{dat_social.artisan}}}})"
+        noble: "{{str_social_rank.noble}} ({{d{{dat_social.noble}}}})"
+        royalty: "{{str_social_rank.royalty}} ({{d{{dat_social.royalty}}}})"
+
+  # ############################################### api_custom #####################################
+  api_custom:
+    init: "{{>add: var_custom 0}}"
+    print:
+      basic: 
+        all: "{{api_custom.print.basic.show_{{bool.{{>get: var_custom}}}}}}"
+        show_false: "{{nop}}"
+        show_true: |
+                   <h3>{{str_custom.custom}}</h3>
+                   {{str_custom.custom_explanation.before}} {{>get: var_custom}} {{str_custom.custom_explanation.after}}
+
+  # ############################################### api_wealth #####################################
+
+  api_wealth:
+    init: "{{>set: var_reward_i 0}}{{>set: var_barter_i 0}}"
+    add:
+      reward:
+        0: "{{>add: var_reward_0 1}}"
+        6: "{{>add: var_reward_6 1}}"
+        8: "{{>add: var_reward_8 1}}"
+        10: "{{>add: var_reward_10 1}}"
+        12: "{{>add: var_reward_12 1}}"
+      barter:
+        0: "{{>add: var_barter_0 1}}"
+        6: "{{>add: var_barter_6 1}}"
+        8: "{{>add: var_barter_8 1}}"
+        10: "{{>add: var_barter_10 1}}"
+        12: "{{>add: var_barter_12 1}}"
+    get:
+      reward:
+        i: "{{>add: var_reward_i {{api_wealth.get.reward.0}}}}{{>add: var_reward_i {{api_wealth.get.reward.6}}}}{{>add: var_reward_i {{api_wealth.get.reward.8}}}}{{>add: var_reward_i {{api_wealth.get.reward.10}}}}{{>add: var_reward_i {{api_wealth.get.reward.12}}}}%[[>get: var_reward_i]]%"
+        0: "{{>get: var_reward_0}}"
+        6: "{{>get: var_reward_6}}"
+        8: "{{>get: var_reward_8}}"
+        10: "{{>get: var_reward_10}}"
+        12: "{{>get: var_reward_12}}"
+      barter:
+        0: "{{>get: var_barter_0}}"
+        6: "{{>get: var_barter_6}}"
+        8: "{{>get: var_barter_8}}"
+        10: "{{>get: var_barter_10}}"
+        12: "{{>get: var_barter_12}}"
+    print:
+      basic:
+        all: "{{nop}}"
+      reward:
+        all: "{{api_wealth.print.reward.i_{{api_wealth.get.reward.i}}}}"
+        0: "{{api_wealth.print.reward.0_{{bool.{{api_wealth.get.reward.0}}}}"
+        0_true: "{{>accum: var_reward_list {{api_wealth.get.reward.0}}{{d0}}}}"
+        0_false: "{{nop}}"
+        6: "{{api_wealth.print.reward.6_{{bool.{{api_wealth.get.reward.6}}}}"
+        6_true: "{{>accum: var_reward_list {{api_wealth.get.reward.6}}{{d6}}}}"
+        6_false: "{{nop}}"
+        8: "{{api_wealth.print.reward.8_{{bool.{{api_wealth.get.reward.8}}}}"
+        8_true: "{{>accum: var_reward_list {{api_wealth.get.reward.8}}{{d8}}}}"
+        8_false: "{{nop}}"
+        10: "{{api_wealth.print.reward.10_{{bool.{{api_wealth.get.reward.10}}}}"
+        10_true: "{{>accum: var_reward_list {{api_wealth.get.reward.10}}{{d10}}}}"
+        10_false: "{{nop}}"
+        12: "{{api_wealth.print.reward.12_{{bool.{{api_wealth.get.reward.12}}}}"
+        12_true: "{{>accum: var_reward_list {{api_wealth.get.reward.12}}{{d12}}}}"
+        12_false: "{{nop}}"
+        i_true: "<br /><b>{{str_wealth.rewards}}:</b> {{api_wealth.print.reward.0}}{{api_wealth.print.reward.6}}{{api_wealth.print.reward.8}}{{api_wealth.print.reward.10}}{{api_wealth.print.reward.12}}%[[>get: var_reward_list ,]]%"
+        i_false: "{{nop}}"
+
+      barter:
+        all: "{{api_wealth.print.barter.i_{{api_wealth.get.barter.i}}}}"
+        0: "{{api_wealth.print.barter.0_{{bool.{{api_wealth.get.barter.0}}}}"
+        0_true: "{{>accum: var_barter_list {{api_wealth.get.barter.0}}{{d0}}}}"
+        0_false: "{{nop}}"
+        6: "{{api_wealth.print.barter.6_{{bool.{{api_wealth.get.barter.6}}}}"
+        6_true: "{{>accum: var_barter_list {{api_wealth.get.barter.6}}{{d6}}}}"
+        6_false: "{{nop}}"
+        8: "{{api_wealth.print.barter.8_{{bool.{{api_wealth.get.barter.8}}}}"
+        8_true: "{{>accum: var_barter_list {{api_wealth.get.barter.8}}{{d8}}}}"
+        8_false: "{{nop}}"
+        10: "{{api_wealth.print.barter.10_{{bool.{{api_wealth.get.barter.10}}}}"
+        10_true: "{{>accum: var_barter_list {{api_wealth.get.barter.10}}{{d10}}}}"
+        10_false: "{{nop}}"
+        12: "{{api_wealth.print.barter.12_{{bool.{{api_wealth.get.barter.12}}}}"
+        12_true: "{{>accum: var_barter_list {{api_wealth.get.barter.12}}{{d12}}}}"
+        12_false: "{{nop}}"
+        i_true: "<br /><b>{{str_wealth.barter_dice}}:</b> {{api_wealth.print.barter.0}}{{api_wealth.print.barter.6}}{{api_wealth.print.barter.8}}{{api_wealth.print.barter.10}}{{api_wealth.print.barter.12}}%[[>get: var_barter_list ,]]%"
+        i_false: "{{nop}}"
+
+      wealth_pool:
+        all: "{{api_wealth.print.wealth_pool.{{api_social_rank.get.i}}}}"
+        0: "{{nop}}"
+        1: "<br >/<b>{{str_wealth.wealth_pool}}:</b> {{d{{dat_social.{{api_social_rank.get.1}}}}}}/{{d{{api_compdie.get}}}}"
+        1: "<br >/<b>{{str_wealth.wealth_pool}}:</b> {{d{{dat_social.{{api_social_rank.get.1}}}}}}/{{d{{dat_social.{{api_social_rank.get.2}}}}}}/{{d{{api_compdie.get}}}}"
+          
+  # ######################################################## compdie ################################################
+
+  api_compdie:
+    init: "{{>set: var_compdie 6}}"
+
+    set:
+      0: "{{>set: var_compdie 0}}"
+      6: "{{>set: var_compdie 6}}"
+      8: "{{>set: var_compdie 8}}"
+      10: "{{>set: var_compdie 10}}"
+      12: "{{>set: var_compdie 12}}"
+    get: "{{>get: var_compdie}}"
+    print:
+      basic: "<p><b>{{str_compdie.compdie}}: {{d{{>get: var_compdie}}}}</b></p>"
+
+  # ###################################################### skill #################################################
+
+  api_skill:
+    init: |
+          {{>set: var_skill_culture false}}
+          {{>set: var_skill_defense true}}
+          {{>set: var_skill_dueling false}}
+          {{>set: var_skill_initiative true}}
+          {{>set: var_skill_interaction true}}
+          {{>set: var_skill_magicks false}}
+          {{>set: var_skill_medicine false}}
+          {{>set: var_skill_military false}}
+          {{>set: var_skill_nature false}}
+          {{>set: var_skill_observation true}}
+          {{>set: var_skill_science false}}
+          {{>set: var_skill_streetwise false}} 
+
+    add:
+      culture: "adding skill culture{{>set: var_skill_culture true}}"
+      defense: "adding skill defense{{>set: var_skill_defense true}}"
+      dueling: "adding skill dueling{{>set: var_skill_dueling true}}"
+      initiative: "adding skill initiative{{>set: var_skill_initiative true}}"
+      interaction: "adding skill interaction{{>set: var_skill_interaction true}}"
+      magicks: "adding skill magicks{{>set: var_skill_magicks true}}"
+      medicine: "adding skill medicine{{>set: var_skill_medicine true}}"
+      military: "adding skill military{{>set: var_skill_military true}}"
+      nature: "adding skill nature{{>set: var_skill_nature true}}"
+      observation: "adding skill observation{{>set: var_skill_observation true}}"
+      science: "adding skill science{{>set: var_skill_science true}}"
+      streetwise: "adding skill streetwise{{>set: var_skill_streetwise true}}"
+
+    get:
+      culture: '{{>get: var_skill_culture}}'
+      defense: "{{>get: var_skill_defense}}"
+      dueling: '{{>get: var_skill_dueling}}'
+      initiative: '{{>get: var_skill_initiative}}'
+      interaction: '{{>get: var_skill_interaction}}'
+      magicks: '{{>get: var_skill_magicks}}'
+      medicine: '{{>get: var_skill_medicine}}'
+      military: '{{>get: var_skill_military}}'
+      nature: '{{>get: var_skill_nature}}'
+      observation: '{{>get: var_skill_observation}}'
+      science: '{{>get: var_skill_science}}'
+      streetwise: '{{>get: var_skill_streetwise}}'
+
+    print:
+      known:
+        all: |
+             <!-- {{>accum: list_skills .}}{{api_skill.print.known.filter}}%[[>remove: list_skills .]]% -->
+             <p><b>{{str_skill.skills}}</b>: %[[>get: list_skills ,&#32;]]%</p>
+        filter: |
+                %[[>accum: list_skills {{api_skill.print.known.culture_{{>get: var_skill_culture}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.defense_{{>get: var_skill_defense}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.dueling_{{>get: var_skill_dueling}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.initiative_{{>get: var_skill_initiative}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.interaction_{{>get: var_skill_interaction}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.magicks_{{>get: var_skill_magicks}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.medicine_{{>get: var_skill_medicine}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.military_{{>get: var_skill_military}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.observation_{{>get: var_skill_observation}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.science_{{>get: var_skill_science}}}}]]%
+                %[[>accum: list_skills {{api_skill.print.known.streetwise_{{>get: var_skill_streetwise}}}}]]%
+
+        culture_true: "{{str_skill.culture}}"
+        culture_false: "."
+        defense_true: "{{str_skill.defense}}"
+        defense_false: "."
+        dueling_true: "{{str_skill.dueling}}"
+        dueling_false: "."
+        initiative_true: "{{str_skill.initiative}}"
+        initiative_false: "."
+        interaction_true: "{{str_skill.interaction}}"
+        interaction_false: "."
+        magicks_true: "{{str_skill.magicks}}"
+        magicks_false: "."
+        medicine_true: "{{str_skill.medicine}}"
+        medicine_false: "."
+        military_true: "{{str_skill.military}}"
+        military_false: "."
+        nature_true: "{{str_skill.nature}}"
+        nature_false: "."
+        observation_true: "{{str_skill.observation}}"
+        observation_false: "."
+        science_true: "{{str_skill.science}}"
+        science_false: "."
+        streetwise_true: "{{str_skill.streetwise}}"
+        streetwise_false: "."
+
+      basic:
+        all: |
+             <h3>{{str_skill.skills}}</h3>
+             <p>{{api_skill.print.basic.culture}}
+             <br />{{api_skill.print.basic.defense}}
+             <br />{{api_skill.print.basic.dueling}}
+             <br />{{api_skill.print.basic.initiative}}
+             <br />{{api_skill.print.basic.interaction}}
+             <br />{{api_skill.print.basic.magicks}}
+             <br />{{api_skill.print.basic.medicine}}
+             <br />{{api_skill.print.basic.military}}
+             <br />{{api_skill.print.basic.nature}}
+             <br />{{api_skill.print.basic.observation}}
+             <br />{{api_skill.print.basic.science}}
+             <br />{{api_skill.print.basic.streetwise}}
+             </p>
+        culture: "{{str_skill.culture}}: {{>get: var_skill_culture}}"
+        defense: "{{str_skill.defense}}: {{>get: var_skill_defense}}"
+        dueling: "{{str_skill.dueling}}: {{>get: var_skill_dueling}}"
+        initiative: "{{str_skill.initiative}}: {{>get: var_skill_initiative}}"
+        interaction: "{{str_skill.interaction}}: {{>get: var_skill_interaction}}"
+        magicks: "{{str_skill.magicks}}: {{>get: var_skill_magicks}}"
+        medicine: "{{str_skill.medicine}}: {{>get: var_skill_medicine}}"
+        military: "{{str_skill.military}}: {{>get: var_skill_military}}"
+        nature: "{{str_skill.nature}}: {{>get: var_skill_nature}}"
+        observation: "{{str_skill.observation}}: {{>get: var_skill_observation}}"
+        science: "{{str_skill.science}}: {{>get: var_skill_science}}"
+        streetwise: "{{str_skill.streetwise}}: {{>get: var_skill_streetwise}}"
+
+  # ################################################## prow ##################################################
+
+  api_prow:
+    init: |
+          {{>set: var_prow_armor_none true}} 
+          {{>set: var_prow_bow false}}
+          {{>set: var_prow_cannon false}}
+          {{>set: var_prow_cudgel false}}
+          {{>set: var_prow_grenade false}}
+          {{>set: var_prow_heavy_armor false}}
+          {{>set: var_prow_knife true}}
+          {{>set: var_prow_light_armor false}}
+          {{>set: var_prow_musket false}}
+          {{>set: var_prow_pike false}}
+          {{>set: var_prow_pistol false}}
+          {{>set: var_prow_shield false}}
+          {{>set: var_prow_sword false}}
+          {{>set: var_prow_whip false}}
+           
+    get:
+      armor_none: "{{>get: var_prow_armor_none}}"
+      bow: "{{>get: var_prow_bow}}"
+      cannon: "{{>get: var_prow_cannon}}"
+      cudgel: "{{>get: var_prow_cudgel}}"
+      grenade: "{{>get: var_prow_grenade}}"
+
+      heavy_armor: "{{>get: var_prow_heavy_armor}}"
+      knife: "{{>get: var_prow_knife}}"
+      light_armor: "{{>get: var_prow_light_armor}}"
+      musket: "{{>get: var_prow_musket}}"
+      pike: "{{>get: var_prow_pike}}"
+
+      pistol: "{{>get: var_prow_pistol}}"
+      shield: "{{>get: var_prow_shield}}"
+      sword: "{{>get: var_prow_sword}}"
+      whip: "{{>get: var_prow_whip}}"
+
+      nop: "{{nop}}"
+
+
+    add:
+      armor_none: "{{nop}}"
+      bow: "{{>set: var_prow_bow true}}"
+      cannon: "{{>set: var_prow_cannon true}}"
+      cudgel: "{{>set: var_prow_cudgel true}}"
+      grenade: "{{>set: var_prow_grenade true}}"
+
+      heavy_armor: "{{>set: var_prow_heavy_armor true}}{{>set: var_prow_armor_none false}}"
+      knife: "{{>set: var_prow_knife true}}"
+      light_armor: "{{>set: var_prow_light_armor true}}{{>set: var_prow_armor_none false}}"
+      musket: "{{>set: var_prow_musket true}}"
+      pike: "{{>set: var_prow_pike true}}"
+
+      pistol: "{{>set: var_prow_pistol true}}"
+      shield: "{{>set: var_prow_shield true}}{{>set: var_prow_armor_none false}}"
+      sword: "{{>set: var_prow_sword true}}"
+      whip: "{{>set: var_prow_whip true}}"
+      nop: "{{nop}}"
+
+    print:
+      known:
+        all: |
+             <!-- {{>accum: list_weapons .}}{{api_prow.print.known.filter_weap}}%[[>remove: list_weapons .]]% -->
+             <p><b>{{str_prow.weapon_prowess}}</b>: %[[>get: list_weapons ,&#32;]]%</p>
+             <!-- {{>accum: list_armor .}}{{api_prow.print.known.filter_armor}}%[[>remove: list_armor .]]% -->
+             <p><b>{{str_prow.armor_prowess}}</b>: %[[>get: list_armor ,&#32;]]%</p>
+        filter_weap: |
+                     %[[>accum: list_weapons {{api_prow.print.known.bow_{{>get: var_prow_bow}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.cannon_{{>get: var_prow_cannon}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.cudgel_{{>get: var_prow_cudgel}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.grenade_{{>get: var_prow_grenade}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.knife_{{>get: var_prow_knife}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.musket_{{>get: var_prow_musket}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.pike_{{>get: var_prow_pike}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.pistol_{{>get: var_prow_pistol}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.sword_{{>get: var_prow_sword}}}}]]%
+                     %[[>accum: list_weapons {{api_prow.print.known.whip_{{>get: var_prow_whip}}}}]]%
+        filter_armor: |
+                      %[[>accum: list_armor {{api_prow.print.known.armor_none_{{>get: var_prow_armor_none}}}}]]%
+                      %[[>accum: list_armor {{api_prow.print.known.heavy_armor_{{>get: var_prow_heavy_armor}}}}]]%
+                      %[[>accum: list_armor {{api_prow.print.known.light_armor_{{>get: var_prow_light_armor}}}}]]%
+                      %[[>accum: list_armor {{api_prow.print.known.shield_{{>get: var_prow_shield}}}}]]%
+        armor_none_true: "{{str_prow.armor_none}}"
+        armor_none_false: "."
+        bow_true: "{{str_prow.bow}}"
+        bow_false: "."
+        cannon_true: "{{str_prow.cannon}}"
+        cannon_false: "."
+        cudgel_true: "{{str_prow.cudgel}}"
+        cudgel_false: "."
+        grenade_true: "{{str_prow.grenade}}"
+        grenade_false: "."
+        heavy_armor_true: "{{str_prow.heavy_armor}}"
+        heavy_armor_false: "."
+        knife_true: "{{str_prow.knife}}"
+        knife_false: "."
+        light_armor_true: "{{str_prow.light_armor}}"
+        light_armor_false: "."
+        musket_true: "{{str_prow.musket}}"
+        musket_false: "."
+        pike_true: "{{str_prow.pike}}"
+        pike_false: "."
+        pistol_true: "{{str_prow.pistol}}"
+        pistol_false: "."
+        shield_true: "{{str_prow.shield}}"
+        shield_false: "."
+        sword_true: "{{str_prow.sword}}"
+        sword_false: "."
+        whip_true: "{{str_prow.whip}}"
+        whip_false: "."
+
+      basic:
+
+        all: |
+             <h3>{{str_prow.weapon_prowess}}</h3>
+             <p>{{api_prow.print.basic.bow}} 
+             <br />{{api_prow.print.basic.cannon}}
+             <br />{{api_prow.print.basic.cudgel}}
+             <br />{{api_prow.print.basic.grenade}}
+             <br />{{api_prow.print.basic.knife}}
+             <br />{{api_prow.print.basic.musket}}
+             <br />{{api_prow.print.basic.pike}}
+             <br />{{api_prow.print.basic.pistol}}
+             <br />{{api_prow.print.basic.sword}}
+             <br />{{api_prow.print.basic.whip}}
+             </p>
+             <h3>{{str_prow.armor_prowess}}</h3>
+             <p>{{api_prow.print.basic.light_armor}}
+             <p>{{api_prow.print.basic.heavy_armor}}
+             <p>{{api_prow.print.basic.shield}}
+
+        armor_none: "<br>{{str_prow.armor_none}}: {{>get: var_prow_armor_none}}"
+        bow: "<br>{{str_prow.bow}}: {{>get: var_prow_bow}}"
+        cannon: "<br>{{str_prow.cannon}}: {{>get: var_prow_cannon}}"
+        cudgel: "<br>{{str_prow.cudgel}}: {{>get: var_prow_cudgel}}"
+        grenade: "<br>{{str_prow.grenade}}: {{>get: var_prow_grenade}}"
+
+        heavy_armor: "<br>{{str_prow.heavy_armor}}: {{>get: var_prow_heavy_armor}}"
+        knife: "<br>{{str_prow.knife}}: {{>get: var_prow_knife}}"
+        light_armor: "<br>{{str_prow.light_armor}}: {{>get: var_prow_light_armor}}"
+        musket: "<br>{{str_prow.musket}}: {{>get: var_prow_musket}}"
+        pike: "<br>{{str_prow.pike}}: {{>get: var_prow_pike}}"
+
+        pistol: "<br>{{str_prow.pistol}}: {{>get: var_prow_pistol}}"
+        shield: "<br>{{str_prow.shield}}: {{>get: var_prow_shield}}"
+        sword: "<br>{{str_prow.sword}}: {{>get: var_prow_sword}}"
+        whip: "<br>{{str_prow.whip}}: {{>get: var_prow_whip}}"
+        nop: "{{nop}}"
+
+  # ####################################################### lang ##################################################
+
+  api_lang:
+    init: |
+          {{>set: var_lang_albian false}} 
+          {{>set: var_lang_ancient_ekalian false}} 
+          {{>set: var_lang_ancient_varendish false}} 
+          {{>set: var_lang_brigue false}} 
+          {{>set: var_lang_ekalian false}} 
+          {{>set: var_lang_gallinean false}} 
+          {{>set: var_lang_ifrani false}} 
+          {{>set: var_lang_karangan false}} 
+          {{>set: var_lang_khefikkan false}} 
+          {{>set: var_lang_mathain false}} 
+          {{>set: var_lang_old_qartan false}} 
+          {{>set: var_lang_ondalese false}} 
+          {{>set: var_lang_serican false}} 
+          {{>set: var_lang_talanian false}} 
+          {{>set: var_lang_varendish false}} 
+
+    add:
+      albian: "{{>set: var_lang_albian true}}"
+      ancient_ekalian: "{{>set: var_lang_ancient_ekalian true}}"
+      ancient_varendish: "{{>set: var_lang_ancient_varendish true}}"
+      brigue: "{{>set: var_lang_brigue true}}"
+      ekalian: "{{>set: var_lang_ekalian true}}"
+      gallinean: "{{>set: var_lang_gallinean true}}"
+      ifrani: "{{>set: var_lang_ifrani true}}"
+      karangan: "{{>set: var_lang_karangan true}}"
+      khefikkan: "{{>set: var_lang_khefikkan true}}"
+      mathain: "{{>set: var_lang_mathain true}}"
+      old_qartan: "{{>set: var_lang_old_qartan true}}"
+      ondalese: "{{>set: var_lang_ondalese true}}"
+      serican: "{{>set: var_lang_serican true}}"
+      talanian: "{{>set: var_lang_talanian true}}"
+      varendish: "{{>set: var_lang_varendish true}}"
+
+    get:
+      albian: "{{>get: var_lang_albian}}"
+      ancient_ekalian: "{{>get: var_lang_ancient_ekalian}}"
+      ancient_varendish: "{{>get: var_lang_ancient_varendish}}"
+      brigue: "{{>get: var_lang_brigue}}"
+      ekalian: "{{>get: var_lang_ekalian}}"
+      gallinean: "{{>get: var_lang_gallinean}}"
+      ifrani: "{{>get: var_lang_ifrani}}"
+      karangan: "{{>get: var_lang_karangan}}"
+      khefikkan: "{{>get: var_lang_khefikkan}}"
+      mathain: "{{>get: var_lang_mathain}}"
+      old_qartan: "{{>get: var_lang_old_qartan}}"
+      ondalese: "{{>get: var_lang_ondalese}}"
+      serican: "{{>get: var_lang_serican}}"
+      talanian: "{{>get: var_lang_talanian}}"
+      varendish: "{{>get: var_lang_varendish}}"
+
+    print:
+      known: 
+        all: |
+             <!-- {{>accum: list_languages .}}{{api_lang.print.known.filter}}%[[>remove: list_languages .]]% -->
+             <p><b>{{str_lang.languages}}</b>: %[[>get: list_languages ,&#32;]]%</p>
+        filter: |
+                %[[>accum: list_languages {{api_lang.print.known.albian_{{>get: var_lang_albian}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.ancient_ekalian_{{>get: var_lang_ancient_ekalian}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.ancient_varendish_{{>get: var_lang_ancient_varendish}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.brigue_{{>get: var_lang_brigue}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.ekalian_{{>get: var_lang_ekalian}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.gallinean_{{>get: var_lang_gallinean}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.ifrani_{{>get: var_lang_ifrani}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.karangan_{{>get: var_lang_karangan}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.khefikkan_{{>get: var_lang_khefikkan}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.mathain_{{>get: var_lang_mathain}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.old_qartan_{{>get: var_lang_old_qartan}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.ondalese_{{>get: var_lang_ondalese}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.serican_{{>get: var_lang_serican}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.talanian_{{>get: var_lang_talanian}}}}]]%
+                %[[>accum: list_languages {{api_lang.print.known.varendish_{{>get: var_lang_varendish}}}}]]%
+
+        albian_true: "{{str_language.albian}}"
+        ancient_ekalian_true: "{{str_language.ancient_ekalian}}"
+        ancient_varendish_true: "{{str_language.ancient_varendish}}"
+        brigue_true: "{{str_language.brigue}}"
+        ekalian_true: "{{str_language.ekalian}}"
+        gallinean_true: "{{str_language.gallinean}}"
+        ifrani_true: "{{str_language.ifrani}}"
+        karangan_true: "{{str_language.karangan}}"
+        khefikkan_true: "{{str_language.khefikkan}}"
+        mathain_true: "{{str_language.mathain}}"
+        old_qartan_true: "{{str_language.old_qartan}}"
+        ondalese_true: "{{str_language.ondalese}}"
+        serican_true: "{{str_language.serican}}"
+        talanian_true: "{{str_language.talanian}}"
+        varendish_true: "{{str_language.varendish}}"
+
+        albian_false: "."
+        ancient_ekalian_false: "."
+        ancient_varendish_false: "."
+        brigue_false: "."
+        ekalian_false: "."
+        gallinean_false: "."
+        ifrani_false: "."
+        karangan_false: "."
+        khefikkan_false: "."
+        mathain_false: "."
+        old_qartan_false: "."
+        ondalese_false: "."
+        serican_false: "."
+        talanian_false: "."
+        varendish_false: "."
+
+      basic:
+        all: |
+             <h3>{{str_lang.languages}}</h3>
+             <p>{{api_lang.print.basic.albian}}
+             <br />{{api_lang.print.basic.ancient_ekalian}}
+             <br />{{api_lang.print.basic.ancient_varendish}}
+             <br />{{api_lang.print.basic.brigue}}
+             <br />{{api_lang.print.basic.ekalian}}
+             <br />{{api_lang.print.basic.gallinean}}
+             <br />{{api_lang.print.basic.ifrani}}
+             <br />{{api_lang.print.basic.karangan}}
+             <br />{{api_lang.print.basic.khefikkan}}
+             <br />{{api_lang.print.basic.mathain}}
+             <br />{{api_lang.print.basic.old_qartan}}
+             <br />{{api_lang.print.basic.ondalese}}
+             <br />{{api_lang.print.basic.serican}}
+             <br />{{api_lang.print.basic.talanian}}
+             <br />{{api_lang.print.basic.varendish}}
+        albian: "{{str_lang.albian}}: {{>get: var_lang_albian}}"
+        ancient_ekalian: "{{str_lang.ancient_ekalian}}: {{>get: var_lang_ancient_ekalian}}"
+        ancient_varendish: "{{str_lang.ancient_varendish}}: {{>get: var_lang_ancient_varendish}}"
+        brigue: "{{str_lang.brigue}}: {{>get: var_lang_brigue}}"
+        ekalian: "{{str_lang.ekalian}}: {{>get: var_lang_ekalian}}"
+        gallinean: "{{str_lang.gallinean}}: {{>get: var_lang_gallinean}}"
+        ifrani: "{{str_lang.ifrani}}: {{>get: var_lang_ifrani}}"
+        karangan: "{{str_lang.karangan}}: {{>get: var_lang_karangan}}"
+        khefikkan: "{{str_lang.khefikkan}}: {{>get: var_lang_khefikkan}}"
+        mathain: "{{str_lang.mathain}}: {{>get: var_lang_mathain}}"
+        old_qartan: "{{str_lang.old_qartan}}: {{>get: var_lang_old_qartan}}"
+        ondalese: "{{str_lang.ondalese}}: {{>get: var_lang_ondalese}}"
+        serican: "{{str_lang.serican}}: {{>get: var_lang_serican}}"
+        talanian: "{{str_lang.talanian}}: {{>get: var_lang_talanian}}"
+        varendish: "{{str_lang.varendish}}: {{>get: var_lang_varendish}}"
+
+
+  # ############################################# attr ############################################################
+
+  api_attr:
+    init: |
+          {{>set: var_attr_verve 6}} 
+          {{>set: var_attr_affinity 6}}
+          {{>set: var_attr_guile 6}}
+    set:
+      verve:
+        0: "{{>set: var_attr_verve 0}}"
+        6: "{{>set: var_attr_verve 6}}"
+        8: "{{>set: var_attr_verve 8}}"
+        10: "{{>set: var_attr_verve 10}}"
+        12: "{{>set: var_attr_verve 12}}"
+      affinity:
+        0: "{{>set: var_attr_affinity 0}}"
+        6: "{{>set: var_attr_affinity 6}}"
+        8: "{{>set: var_attr_affinity 8}}"
+        10: "{{>set: var_attr_affinity 10}}"
+        12: "{{>set: var_attr_affinity 12}}"
+      guile:
+        0: "{{>set: var_attr_guile d0}}"
+        6: "{{>set: var_attr_guile d6}}"
+        8: "{{>set: var_attr_guile d8}}"
+        10: "{{>set: var_attr_guile d10}}"
+        12: "{{>set: var_attr_guile d12}}"
+    get:
+      verve: "{{>get: var_attr_verve}}"
+      affinity: "{{>get: var_attr_affinity}}"
+      guile: "{{>get: var_attr_guile}}"
+
+    print:
+      basic:
+        all: |
+             <p><b>{{str_attr.attributes}}: {{api_attr.print.basic.verve}}, {{api_attr.print.basic.affinity}}, {{api_attr.print.basic.guile}}</b></p>
+        verve: "{{str_attr.verve}} {{d{{>get: var_attr_verve}}}}"
+        affinity: "{{str_attr.affinity}} {{d{{>get: var_attr_affinity}}}}"
+        guile: "{{str_attr.guile}} {{d{{>get: var_attr_guile}}}}"
+
+  # ################################################# spec #################################################
+  api_spec:
+    init: | 
+          {{>add: var_spec_aim 0}}
+          {{>add: var_spec_arts 0}}
+          {{>add: var_spec_banter 0}}
+          {{>add: var_spec_blackpowder 0}}
+          {{>add: var_spec_block 0}}
+          {{>add: var_spec_brawl 0}}
+          {{>add: var_spec_brew 0}}
+          {{>add: var_spec_calculus 0}}
+          {{>add: var_spec_carouse 0}}
+          {{>add: var_spec_clockworks 0}}
+          {{>add: var_spec_deceive 0}}
+          {{>add: var_spec_deduce 0}}
+          {{>add: var_spec_dodge 0}}
+          {{>add: var_spec_etiquette 0}}
+          {{>add: var_spec_explore 0}}
+          {{>add: var_spec_feint 0}}
+          {{>add: var_spec_husbandry 0}}
+          {{>add: var_spec_impulse 0}}
+          {{>add: var_spec_inspire 0}}
+          {{>add: var_spec_intuition 0}}
+          {{>add: var_spec_larceny 0}}
+          {{>add: var_spec_lunge 0}}
+          {{>add: var_spec_negotiate 0}}
+          {{>add: var_spec_parry 0}}
+          {{>add: var_spec_perceive 0}}
+          {{>add: var_spec_poison 0}}
+          {{>add: var_spec_portents 0}}
+          {{>add: var_spec_prowl 0}}
+          {{>add: var_spec_riposte 0}}
+          {{>add: var_spec_scholarship 0}}
+          {{>add: var_spec_strategy 0}}
+          {{>add: var_spec_surgery 0}}
+          {{>add: var_spec_timing 0}}
+          {{>add: var_spec_treat 0}}
+          {{>add: var_spec_vigilance 0}}
+          {{>add: var_spec_weave 0}}
+
+    not_more_than_two:
+      0: 1
+      1: 1
+      2: 0
+      3: 0
+
+    get:
+      aim: "{{>get: var_spec_aim}}"
+      arts: "{{>get: var_spec_arts}}"
+      banter: "{{>get: var_spec_banter}}"
+      blackpowder: "{{>get: var_spec_blackpowder}}"
+      block: "{{>get: var_spec_block}}"
+      brawl: "{{>get: var_spec_brawl}}"
+      brew: "{{>get: var_spec_brew}}"
+      calculus: "{{>get: var_spec_calculus}}"
+      carouse: "{{>get: var_spec_carouse}}"
+      clockworks: "{{>get: var_spec_clockworks}}"
+      deceive: "{{>get: var_spec_deceive}}"
+      deduce: "{{>get: var_spec_deduce}}"
+      dodge: "{{>get: var_spec_dodge}}"
+      etiquette: "{{>get: var_spec_etiquette}}"
+      explore: "{{>get: var_spec_explore}}"
+      feint: "{{>get: var_spec_feint}}"
+      husbandry: "{{>get: var_spec_husbandry}}"
+      impulse: "{{>get: var_spec_impulse}}"
+      inspire: "{{>get: var_spec_inspire}}"
+      intuition: "{{>get: var_spec_intuition}}"
+      larceny: "{{>get: var_spec_larceny}}"
+      lunge: "{{>get: var_spec_lunge}}"
+      negotiate: "{{>get: var_spec_negotiate}}"
+      parry: "{{>get: var_spec_parry}}"
+      perceive: "{{>get: var_spec_perceive}}"
+      poison: "{{>get: var_spec_poison}}"
+      portents: "{{>get: var_spec_portents}}"
+      prowl: "{{>get: var_spec_prowl}}"
+      riposte: "{{>get: var_spec_riposte}}"
+      scholarship: "{{>get: var_spec_scholarship}}"
+      strategy: "{{>get: var_spec_strategy}}"
+      surgery: "{{>get: var_spec_surgery}}"
+      timing: "{{>get: var_spec_timing}}"
+      treat: "{{>get: var_spec_treat}}"
+      vigilance: "{{>get: var_spec_vigilance}}"
+      weave: "{{>get: var_spec_weave}}"
+
+    add:
+      aim: "{{>set: var_skill_military true}}{{>add: var_spec_aim 1}}"
+      arts: "{{>set: var_skill_culture true}}{{>add: var_spec_arts 1}}"
+      banter: "{{>set: var_skill_streetwise true}}{{>add: var_spec_banter 1}}"
+      blackpowder: "{{>set: var_skill_science true}}{{>add: var_spec_blackpowder 1}}"
+      block: "{{>set: var_skill_defense true}}{{>add: var_spec_block 1}}"
+      brawl: "{{>set: var_skill_military true}}{{>add: var_spec_brawl 1}}"
+      brew: "{{>set: var_skill_magicks true}}{{>add: var_spec_brew 1}}"
+      calculus: "{{>set: var_skill_science true}}{{>add: var_spec_calculus 1}}"
+      carouse: "{{>set: var_skill_streetwise true}}{{>add: var_spec_carouse 1}}"
+      clockworks: "{{>set: var_skill_science true}}{{>add: var_spec_clockworks 1}}"
+      deceive: "{{>set: var_skill_interaction true}}{{>add: var_spec_deceive 1}}"
+      deduce: "{{>set: var_skill_observation true}}{{>add: var_spec_deduce 1}}"
+      dodge: "{{>set: var_skill_defense true}}{{>add: var_spec_dodge 1}}"
+      etiquette: "{{>set: var_skill_culture true}}{{>add: var_spec_etiquette 1}}"
+      explore: "{{>set: var_skill_nature true}}{{>add: var_spec_explore 1}}"
+      feint: "{{>set: var_skill_dueling true}}{{>add: var_spec_feint 1}}"
+      husbandry: "{{>set: var_skill_nature true}}{{>add: var_spec_husbandry 1}}"
+      impulse: "{{>set: var_skill_initiative true}}{{>add: var_spec_impulse 1}}"
+      inspire: "{{>set: var_skill_interaction true}}{{>add: var_spec_inspire 1}}"
+      intuition: "{{>set: var_skill_observation true}}{{>add: var_spec_intuition 1}}"
+      larceny: "{{>set: var_skill_streetwise true}}{{>add: var_spec_larceny 1}}"
+      lunge: "{{>set: var_skill_dueling true}}{{>add: var_spec_lunge 1}}"
+      negotiate: "{{>set: var_skill_interaction true}}{{>add: var_spec_negotiate 1}}"
+      parry: "{{>set: var_skill_defense true}}{{>add: var_spec_parry 1}}"
+      perceive: "{{>set: var_skill_observation true}}{{>add: var_spec_perceive 1}}"
+      poison: "{{>set: var_skill_medicine true}}{{>add: var_spec_poison 1}}"
+      portents: "{{>set: var_skill_magicks true}}{{>add: var_spec_portents 1}}"
+      prowl: "{{>set: var_skill_nature true}}{{>add: var_spec_prowl 1}}"
+      riposte: "{{>set: var_skill_dueling true}}{{>add: var_spec_riposte 1}}"
+      scholarship: "{{>set: var_skill_culture true}}{{>add: var_spec_scholarship 1}}"
+      strategy: "{{>set: var_skill_military true}}{{>add: var_spec_strategy 1}}"
+      surgery: "{{>set: var_skill_medicine true}}{{>add: var_spec_surgery 1}}"
+      timing: "{{>set: var_skill_initiative true}}{{>add: var_spec_timing 1}}"
+      treat: "{{>set: var_skill_medicine true}}{{>add: var_spec_treat 1}}"
+      vigilance: "{{>set: var_skill_initiative true}}{{>add: var_spec_vigilance 1}}"
+      weave: "{{>set: var_skill_magicks true}}{{>add: var_spec_weave 1}}"
+
+
+    add_not_more_than_two:
+      arts: "{{>add: var_spec_arts {{api_spec.not_more_than_two.{{>get: var_spec_arts}}}}}}"
+      aim: "{{>add: var_spec_aim {{api_spec.not_more_than_two.{{>get: var_spec_aim}}}}}}"
+      banter: "{{>add: var_spec_banter {{api_spec.not_more_than_two.{{>get: var_spec_banter}}}}}}"
+      blackpowder: "{{>add: var_spec_blackpowder {{api_spec.not_more_than_two.{{>get: var_spec_blackpowder}}}}}}"
+      block: "{{>add: var_spec_block {{api_spec.not_more_than_two.{{>get: var_spec_block}}}}}}"
+      brawl: "{{>add: var_spec_brawl {{api_spec.not_more_than_two.{{>get: var_spec_brawl}}}}}}"
+      brew: "{{>add: var_spec_brew {{api_spec.not_more_than_two.{{>get: var_spec_brew}}}}}}"
+      calculus: "{{>add: var_spec_calculus {{api_spec.not_more_than_two.{{>get: var_spec_calculus}}}}}}"
+      carouse: "{{>add: var_spec_carouse {{api_spec.not_more_than_two.{{>get: var_spec_carouse}}}}}}"
+      clockworks: "{{>add: var_spec_clockworks {{api_spec.not_more_than_two.{{>get: var_spec_clockworks}}}}}}"
+      deceive: "{{>add: var_spec_deceive {{api_spec.not_more_than_two.{{>get: var_spec_deceive}}}}}}"
+      deduce: "{{>add: var_spec_deduce {{api_spec.not_more_than_two.{{>get: var_spec_deduce}}}}}}"
+      dodge: "{{>add: var_spec_dodge {{api_spec.not_more_than_two.{{>get: var_spec_dodge}}}}}}"
+      etiquette: "{{>add: var_spec_etiquette {{api_spec.not_more_than_two.{{>get: var_spec_etiquette}}}}}}"
+      explore: "{{>add: var_spec_explore {{api_spec.not_more_than_two.{{>get: var_spec_explore}}}}}}"
+      feint: "{{>add: var_spec_feint {{api_spec.not_more_than_two.{{>get: var_spec_feint}}}}}}"
+      husbandry: "{{>add: var_spec_husbandry {{api_spec.not_more_than_two.{{>get: var_spec_husbandry}}}}}}"
+      impulse: "{{>add: var_spec_impulse {{api_spec.not_more_than_two.{{>get: var_spec_impulse}}}}}}"
+      inspire: "{{>add: var_spec_inspire {{api_spec.not_more_than_two.{{>get: var_spec_inspire}}}}}}"
+      intuition: "{{>add: var_spec_intuition {{api_spec.not_more_than_two.{{>get: var_spec_intuition}}}}}}"
+      larceny: "{{>add: var_spec_larceny {{api_spec.not_more_than_two.{{>get: var_spec_larceny}}}}}}"
+      lunge: "{{>add: var_spec_lunge {{api_spec.not_more_than_two.{{>get: var_spec_lunge}}}}}}"
+      negotiate: "{{>add: var_spec_negotiate {{api_spec.not_more_than_two.{{>get: var_spec_negotiate}}}}}}"
+      parry: "{{>add: var_spec_parry {{api_spec.not_more_than_two.{{>get: var_spec_parry}}}}}}"
+      perceive: "{{>add: var_spec_perceive {{api_spec.not_more_than_two.{{>get: var_spec_perceive}}}}}}"
+      poison: "{{>add: var_spec_poison {{api_spec.not_more_than_two.{{>get: var_spec_poison}}}}}}"
+      portents: "{{>add: var_spec_portents {{api_spec.not_more_than_two.{{>get: var_spec_portents}}}}}}"
+      prowl: "{{>add: var_spec_prowl {{api_spec.not_more_than_two.{{>get: var_spec_prowl}}}}}}"
+      riposte: "{{>add: var_spec_riposte {{api_spec.not_more_than_two.{{>get: var_spec_riposte}}}}}}"
+      scholarship: "{{>add: var_spec_scholarship {{api_spec.not_more_than_two.{{>get: var_spec_scholarship}}}}}}"
+      strategy: "{{>add: var_spec_strategy {{api_spec.not_more_than_two.{{>get: var_spec_strategy}}}}}}"
+      surgery: "{{>add: var_spec_surgery {{api_spec.not_more_than_two.{{>get: var_spec_surgery}}}}}}"
+      timing: "{{>add: var_spec_timing {{api_spec.not_more_than_two.{{>get: var_spec_timing}}}}}}"
+      treat: "{{>add: var_spec_treat {{api_spec.not_more_than_two.{{>get: var_spec_treat}}}}}}"
+      vigilance: "{{>add: var_spec_vigilance {{api_spec.not_more_than_two.{{>get: var_spec_vigilance}}}}}}"
+      weave: "{{>add: var_spec_weave {{api_spec.not_more_than_two.{{>get: var_spec_weave}}}}}}"
+
+    print:
+      known: 
+        all: |
+             <!-- {{>accum: list_specs .}}{{api_spec.print.known.filter}} %[[>remove: list_specs .]]% -->
+             <p><b>{{str_spec.specialties}}</b>: %[[>get: list_specs ,&#32;]]%</p>
+        filter: |
+                %[[>accum: list_specs {{api_spec.print.known.aim_{{>get: var_spec_aim}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.arts_{{>get: var_spec_arts}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.banter_{{>get: var_spec_banter}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.blackpowder_{{>get: var_spec_blackpowder}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.block_{{>get: var_spec_block}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.brawl_{{>get: var_spec_brawl}}}}]]%
+
+                %[[>accum: list_specs {{api_spec.print.known.brew_{{>get: var_spec_brew}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.calculus_{{>get: var_spec_calculus}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.carouse_{{>get: var_spec_carouse}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.clockworks_{{>get: var_spec_clockworks}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.deceive_{{>get: var_spec_deceive}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.deduce_{{>get: var_spec_deduce}}}}]]%
+
+                %[[>accum: list_specs {{api_spec.print.known.dodge_{{>get: var_spec_dodge}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.etiquette_{{>get: var_spec_etiquette}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.explore_{{>get: var_spec_explore}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.feint_{{>get: var_spec_feint}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.husbandry_{{>get: var_spec_husbandry}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.impulse_{{>get: var_spec_impulse}}}}]]%
+
+                %[[>accum: list_specs {{api_spec.print.known.inspire_{{>get: var_spec_inspire}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.intuition_{{>get: var_spec_intuition}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.larceny_{{>get: var_spec_larceny}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.lunge_{{>get: var_spec_lunge}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.negotiate_{{>get: var_spec_negotiate}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.parry_{{>get: var_spec_parry}}}}]]%
+
+                %[[>accum: list_specs {{api_spec.print.known.perceive_{{>get: var_spec_perceive}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.poison_{{>get: var_spec_poison}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.portents_{{>get: var_spec_portents}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.prowl_{{>get: var_spec_prowl}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.riposte_{{>get: var_spec_riposte}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.scholarship_{{>get: var_spec_scholarship}}}}]]%
+
+                %[[>accum: list_specs {{api_spec.print.known.strategy_{{>get: var_spec_strategy}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.surgery_{{>get: var_spec_surgery}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.timing_{{>get: var_spec_timing}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.treat_{{>get: var_spec_treat}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.vigilance_{{>get: var_spec_vigilance}}}}]]%
+                %[[>accum: list_specs {{api_spec.print.known.weave_{{>get: var_spec_weave}}}}]]%
+
+        aim_5: "{{str_spec.aim}} +5"
+        aim_4: "{{str_spec.aim}} +4"
+        aim_3: "{{str_spec.aim}} +3"
+        aim_2: "{{str_spec.aim}} +2"
+        aim_1: "{{str_spec.aim}} +1"
+        aim_0: "."
+        arts_5: "{{str_spec.arts}} +5"
+        arts_4: "{{str_spec.arts}} +4"
+        arts_3: "{{str_spec.arts}} +3"
+        arts_2: "{{str_spec.arts}} +2"
+        arts_1: "{{str_spec.arts}} +1"
+        arts_0: "."
+        banter_5: "{{str_spec.banter}} +5"
+        banter_4: "{{str_spec.banter}} +4"
+        banter_3: "{{str_spec.banter}} +3"
+        banter_2: "{{str_spec.banter}} +2"
+        banter_1: "{{str_spec.banter}} +1"
+        banter_0: "."
+        blackpowder_5: "{{str_spec.blackpowder}} +5"
+        blackpowder_4: "{{str_spec.blackpowder}} +4"
+        blackpowder_3: "{{str_spec.blackpowder}} +3"
+        blackpowder_2: "{{str_spec.blackpowder}} +2"
+        blackpowder_1: "{{str_spec.blackpowder}} +1"
+        blackpowder_0: "."
+        block_5: "{{str_spec.block}} +5"
+        block_4: "{{str_spec.block}} +4"
+        block_3: "{{str_spec.block}} +3"
+        block_2: "{{str_spec.block}} +2"
+        block_1: "{{str_spec.block}} +1"
+        block_0: "."
+        brawl_5: "{{str_spec.brawl}} +5"
+        brawl_4: "{{str_spec.brawl}} +4"
+        brawl_3: "{{str_spec.brawl}} +3"
+        brawl_2: "{{str_spec.brawl}} +2"
+        brawl_1: "{{str_spec.brawl}} +1"
+        brawl_0: "."
+
+        brew_5: "{{str_spec.brew}} +5"
+        brew_4: "{{str_spec.brew}} +4"
+        brew_3: "{{str_spec.brew}} +3"
+        brew_2: "{{str_spec.brew}} +2"
+        brew_1: "{{str_spec.brew}} +1"
+        brew_0: "."
+        calculus_5: "{{str_spec.calculus}} +5"
+        calculus_4: "{{str_spec.calculus}} +4"
+        calculus_3: "{{str_spec.calculus}} +3"
+        calculus_2: "{{str_spec.calculus}} +2"
+        calculus_1: "{{str_spec.calculus}} +1"
+        calculus_0: "."
+        carouse_5: "{{str_spec.carouse}} +5"
+        carouse_4: "{{str_spec.carouse}} +4"
+        carouse_3: "{{str_spec.carouse}} +3"
+        carouse_2: "{{str_spec.carouse}} +2"
+        carouse_1: "{{str_spec.carouse}} +1"
+        carouse_0: "."
+        clockworks_5: "{{str_spec.clockworks}} +5"
+        clockworks_4: "{{str_spec.clockworks}} +4"
+        clockworks_3: "{{str_spec.clockworks}} +3"
+        clockworks_2: "{{str_spec.clockworks}} +2"
+        clockworks_1: "{{str_spec.clockworks}} +1"
+        clockworks_0: "."
+        deceive_5: "{{str_spec.deceive}} +5"
+        deceive_4: "{{str_spec.deceive}} +4"
+        deceive_3: "{{str_spec.deceive}} +3"
+        deceive_2: "{{str_spec.deceive}} +2"
+        deceive_1: "{{str_spec.deceive}} +1"
+        deceive_0: "."
+        deduce_5: "{{str_spec.deduce}} +5"
+        deduce_4: "{{str_spec.deduce}} +4"
+        deduce_3: "{{str_spec.deduce}} +3"
+        deduce_2: "{{str_spec.deduce}} +2"
+        deduce_1: "{{str_spec.deduce}} +1"
+        deduce_0: "."
+
+        dodge_5: "{{str_spec.dodge}} +5"
+        dodge_4: "{{str_spec.dodge}} +4"
+        dodge_3: "{{str_spec.dodge}} +3"
+        dodge_2: "{{str_spec.dodge}} +2"
+        dodge_1: "{{str_spec.dodge}} +1"
+        dodge_0: "."
+        etiquette_5: "{{str_spec.etiquette}} +5"
+        etiquette_4: "{{str_spec.etiquette}} +4"
+        etiquette_3: "{{str_spec.etiquette}} +3"
+        etiquette_2: "{{str_spec.etiquette}} +2"
+        etiquette_1: "{{str_spec.etiquette}} +1"
+        etiquette_0: "."
+        explore_5: "{{str_spec.explore}} +5"
+        explore_4: "{{str_spec.explore}} +4"
+        explore_3: "{{str_spec.explore}} +3"
+        explore_2: "{{str_spec.explore}} +2"
+        explore_1: "{{str_spec.explore}} +1"
+        explore_0: "."
+        feint_5: "{{str_spec.feint}} +5"
+        feint_4: "{{str_spec.feint}} +4"
+        feint_3: "{{str_spec.feint}} +3"
+        feint_2: "{{str_spec.feint}} +2"
+        feint_1: "{{str_spec.feint}} +1"
+        feint_0: "."
+        husbandry_5: "{{str_spec.husbandry}} +5"
+        husbandry_4: "{{str_spec.husbandry}} +4"
+        husbandry_3: "{{str_spec.husbandry}} +3"
+        husbandry_2: "{{str_spec.husbandry}} +2"
+        husbandry_1: "{{str_spec.husbandry}} +1"
+        husbandry_0: "."
+        impulse_5: "{{str_spec.impulse}} +5"
+        impulse_4: "{{str_spec.impulse}} +4"
+        impulse_3: "{{str_spec.impulse}} +3"
+        impulse_2: "{{str_spec.impulse}} +2"
+        impulse_1: "{{str_spec.impulse}} +1"
+        impulse_0: "."
+
+        inspire_5: "{{str_spec.inspire}} +5"
+        inspire_4: "{{str_spec.inspire}} +4"
+        inspire_3: "{{str_spec.inspire}} +3"
+        inspire_2: "{{str_spec.inspire}} +2"
+        inspire_1: "{{str_spec.inspire}} +1"
+        inspire_0: "."
+        intuition_5: "{{str_spec.intuition}} +5"
+        intuition_4: "{{str_spec.intuition}} +4"
+        intuition_3: "{{str_spec.intuition}} +3"
+        intuition_2: "{{str_spec.intuition}} +2"
+        intuition_1: "{{str_spec.intuition}} +1"
+        intuition_0: "."
+        larceny_5: "{{str_spec.larceny}} +5"
+        larceny_4: "{{str_spec.larceny}} +4"
+        larceny_3: "{{str_spec.larceny}} +3"
+        larceny_2: "{{str_spec.larceny}} +2"
+        larceny_1: "{{str_spec.larceny}} +1"
+        larceny_0: "."
+        lunge_5: "{{str_spec.lunge}} +5"
+        lunge_4: "{{str_spec.lunge}} +4"
+        lunge_3: "{{str_spec.lunge}} +3"
+        lunge_2: "{{str_spec.lunge}} +2"
+        lunge_1: "{{str_spec.lunge}} +1"
+        lunge_0: "."
+        negotiate_5: "{{str_spec.negotiate}} +5"
+        negotiate_4: "{{str_spec.negotiate}} +4"
+        negotiate_3: "{{str_spec.negotiate}} +3"
+        negotiate_2: "{{str_spec.negotiate}} +2"
+        negotiate_1: "{{str_spec.negotiate}} +1"
+        negotiate_0: "."
+        parry_5: "{{str_spec.parry}} +5"
+        parry_4: "{{str_spec.parry}} +4"
+        parry_3: "{{str_spec.parry}} +3"
+        parry_2: "{{str_spec.parry}} +2"
+        parry_1: "{{str_spec.parry}} +1"
+        parry_0: "."
+
+        perceive_5: "{{str_spec.perceive}} +5"
+        perceive_4: "{{str_spec.perceive}} +4"
+        perceive_3: "{{str_spec.perceive}} +3"
+        perceive_2: "{{str_spec.perceive}} +2"
+        perceive_1: "{{str_spec.perceive}} +1"
+        perceive_0: "."
+        poison_5: "{{str_spec.poison}} +5"
+        poison_4: "{{str_spec.poison}} +4"
+        poison_3: "{{str_spec.poison}} +3"
+        poison_2: "{{str_spec.poison}} +2"
+        poison_1: "{{str_spec.poison}} +1"
+        poison_0: "."
+        portents_5: "{{str_spec.portents}} +5"
+        portents_4: "{{str_spec.portents}} +4"
+        portents_3: "{{str_spec.portents}} +3"
+        portents_2: "{{str_spec.portents}} +2"
+        portents_1: "{{str_spec.portents}} +1"
+        portents_0: "."
+        prowl_5: "{{str_spec.prowl}} +5"
+        prowl_4: "{{str_spec.prowl}} +4"
+        prowl_3: "{{str_spec.prowl}} +3"
+        prowl_2: "{{str_spec.prowl}} +2"
+        prowl_1: "{{str_spec.prowl}} +1"
+        prowl_0: "."
+        riposte_5: "{{str_spec.riposte}} +5"
+        riposte_4: "{{str_spec.riposte}} +4"
+        riposte_3: "{{str_spec.riposte}} +3"
+        riposte_2: "{{str_spec.riposte}} +2"
+        riposte_1: "{{str_spec.riposte}} +1"
+        riposte_0: "."
+        scholarship_5: "{{str_spec.scholarship}} +5"
+        scholarship_4: "{{str_spec.scholarship}} +4"
+        scholarship_3: "{{str_spec.scholarship}} +3"
+        scholarship_2: "{{str_spec.scholarship}} +2"
+        scholarship_1: "{{str_spec.scholarship}} +1"
+        scholarship_0: "."
+
+        strategy_5: "{{str_spec.strategy}} +5"
+        strategy_4: "{{str_spec.strategy}} +4"
+        strategy_3: "{{str_spec.strategy}} +3"
+        strategy_2: "{{str_spec.strategy}} +2"
+        strategy_1: "{{str_spec.strategy}} +1"
+        strategy_0: "."
+        surgery_5: "{{str_spec.surgery}} +5"
+        surgery_4: "{{str_spec.surgery}} +4"
+        surgery_3: "{{str_spec.surgery}} +3"
+        surgery_2: "{{str_spec.surgery}} +2"
+        surgery_1: "{{str_spec.surgery}} +1"
+        surgery_0: "."
+        timing_5: "{{str_spec.timing}} +5"
+        timing_4: "{{str_spec.timing}} +4"
+        timing_3: "{{str_spec.timing}} +3"
+        timing_2: "{{str_spec.timing}} +2"
+        timing_1: "{{str_spec.timing}} +1"
+        timing_0: "."
+        treat_5: "{{str_spec.treat}} +5"
+        treat_4: "{{str_spec.treat}} +4"
+        treat_3: "{{str_spec.treat}} +3"
+        treat_2: "{{str_spec.treat}} +2"
+        treat_1: "{{str_spec.treat}} +1"
+        treat_0: "."
+        vigilance_5: "{{str_spec.vigilance}} +5"
+        vigilance_4: "{{str_spec.vigilance}} +4"
+        vigilance_3: "{{str_spec.vigilance}} +3"
+        vigilance_2: "{{str_spec.vigilance}} +2"
+        vigilance_1: "{{str_spec.vigilance}} +1"
+        vigilance_0: "."
+        weave_5: "{{str_spec.weave}} +5"
+        weave_4: "{{str_spec.weave}} +4"
+        weave_3: "{{str_spec.weave}} +3"
+        weave_2: "{{str_spec.weave}} +2"
+        weave_1: "{{str_spec.weave}} +1"
+        weave_0: "."
+
+      basic:
+
+        all: |
+             <h3>{{str_spec.specialties}}</h3>
+             <p>{{api_spec.print.basic.aim}}
+             <br />{{api_spec.print.basic.arts}}
+             <br />{{api_spec.print.basic.banter}}
+             <br />{{api_spec.print.basic.blackpowder}}
+             <br />{{api_spec.print.basic.block}}
+             <br />{{api_spec.print.basic.brawl}}
+             <br />{{api_spec.print.basic.brew}}
+             <br />{{api_spec.print.basic.calculus}}
+             <br />{{api_spec.print.basic.carouse}}
+             <br />{{api_spec.print.basic.clockworks}}
+             <br />{{api_spec.print.basic.deceive}}
+             <br />{{api_spec.print.basic.deduce}}
+             <br />{{api_spec.print.basic.dodge}}
+             <br />{{api_spec.print.basic.etiquette}}
+             <br />{{api_spec.print.basic.explore}}
+             <br />{{api_spec.print.basic.feint}}
+             <br />{{api_spec.print.basic.husbandry}}
+             <br />{{api_spec.print.basic.impulse}}
+             <br />{{api_spec.print.basic.inspire}}
+             <br />{{api_spec.print.basic.intuition}}
+             <br />{{api_spec.print.basic.larceny}}
+             <br />{{api_spec.print.basic.lunge}}
+             <br />{{api_spec.print.basic.negotiate}}
+             <br />{{api_spec.print.basic.parry}}
+             <br />{{api_spec.print.basic.perceive}}
+             <br />{{api_spec.print.basic.poison}}
+             <br />{{api_spec.print.basic.portents}}
+             <br />{{api_spec.print.basic.prowl}}
+             <br />{{api_spec.print.basic.riposte}}
+             <br />{{api_spec.print.basic.scholarship}}
+             <br />{{api_spec.print.basic.strategy}}
+             <br />{{api_spec.print.basic.surgery}}
+             <br />{{api_spec.print.basic.timing}}
+             <br />{{api_spec.print.basic.treat}}
+             <br />{{api_spec.print.basic.vigilance}}
+             <br />{{api_spec.print.basic.weave}}
+             </p>
+
+        aim: "{{str_spec.aim}}: +{{>get: var_spec_aim}}"
+        arts: "{{str_spec.arts}}: +{{>get: var_spec_arts}}"
+        banter: "{{str_spec.banter}}: +{{>get: var_spec_banter}}"
+        blackpowder: "{{str_spec.blackpowder}}: +{{>get: var_spec_blackpowder}}"
+        block: "{{str_spec.block}}: +{{>get: var_spec_block}}"
+        brawl: "{{str_spec.brawl}}: +{{>get: var_spec_brawl}}"
+        brew: "{{str_spec.brew}}: +{{>get: var_spec_brew}}"
+        calculus: "{{str_spec.calculus}}: +{{>get: var_spec_calculus}}"
+        carouse: "{{str_spec.carouse}}: +{{>get: var_spec_carouse}}"
+        clockworks: "{{str_spec.clockworks}}: +{{>get: var_spec_clockworks}}"
+        deceive: "{{str_spec.deceive}}: +{{>get: var_spec_deceive}}"
+        deduce: "{{str_spec.deduce}}: +{{>get: var_spec_deduce}}"
+        dodge: "{{str_spec.dodge}}: +{{>get: var_spec_dodge}}"
+        etiquette: "{{str_spec.etiquette}}: +{{>get: var_spec_etiquette}}"
+        explore: "{{str_spec.explore}}: +{{>get: var_spec_explore}}"
+        feint: "{{str_spec.feint}} +{{>get: var_spec_feint}}"
+        husbandry: "{{str_spec.husbandry}}: +{{>get: var_spec_husbandry}}"
+        impulse: "{{str_spec.impulse}}: +{{>get: var_spec_impulse}}"
+        inspire: "{{str_spec.inspire}}: +{{>get: var_spec_inspire}}"
+        intuition: "{{str_spec.intuition}}: +{{>get: var_spec_intuition}}"
+        larceny: "{{str_spec.larceny}}: +{{>get: var_spec_larceny}}"
+        lunge: "{{str_spec.lunge}}: +{{>get: var_spec_lunge}}"
+        negotiate: "{{str_spec.negotiate}}: +{{>get: var_spec_negotiate}}"
+        parry: "{{str_spec.parry}}: +{{>get: var_spec_parry}}"
+        perceive: "{{str_spec.perceive}}: +{{>get: var_spec_perceive}}"
+        poison: "{{str_spec.poison}}: +{{>get: var_spec_poison}}"
+        portents: "{{str_spec.portents}}: +{{>get: var_spec_portents}}"
+        prowl: "{{str_spec.prowl}}: +{{>get: var_spec_prowl}}"
+        riposte: "{{str_spec.riposte}}: +{{>get: var_spec_riposte}}"
+        scholarship: "{{str_spec.scholarship}}: +{{>get: var_spec_scholarship}}"
+        strategy: "{{str_spec.strategy}}: +{{>get: var_spec_strategy}}"
+        surgery: "{{str_spec.surgery}}: +{{>get: var_spec_surgery}}"
+        timing: "{{str_spec.timing}}: +{{>get: var_spec_timing}}"
+        treat: "{{str_spec.treat}}: +{{>get: var_spec_treat}}"
+        vigilance: "{{str_spec.vigilance}}: +{{>get: var_spec_vigilance}}"
+        weave: "{{str_spec.weave}}: +{{>get: var_spec_weave}}"
+      
+      with_skill:
+        aim: "{{str_skill.{{dat_spec.skill.aim}}}} ({{str_spec.aim}})"
+        arts: "{{str_skill.{{dat_spec.skill.arts}}}} ({{str_spec.arts}})"
+        banter: "{{str_skill.{{dat_spec.skill.banter}}}} ({{str_spec.banter}})"
+        blackpowder: "{{str_skill.{{dat_spec.skill.blackpowder}}}} ({{str_spec.blackpowder}})"
+        block: "{{str_skill.{{dat_spec.skill.block}}}} ({{str_spec.block}})"
+        
+        brawl: "{{str_skill.{{dat_spec.skill.brawl}}}} ({{str_spec.brawl}})"
+        brew: "{{str_skill.{{dat_spec.skill.brew}}}} ({{str_spec.brew}})"
+        calculus: "{{str_skill.{{dat_spec.skill.calculus}}}} ({{str_spec.calculus}})"
+        carouse: "{{str_skill.{{dat_spec.skill.carouse}}}} ({{str_spec.carouse}})"
+        clockworks: "{{str_skill.{{dat_spec.skill.clockworks}}}} ({{str_spec.clockworks}})"
+
+        deceive: "{{str_skill.{{dat_spec.skill.deceive}}}} ({{str_spec.deceive}})"
+        deduce: "{{str_skill.{{dat_spec.skill.deduce}}}} ({{str_spec.deduce}})"
+        dodge: "{{str_skill.{{dat_spec.skill.dodge}}}} ({{str_spec.dodge}})"
+        etiquette: "{{str_skill.{{dat_spec.skill.etiquette}}}} ({{str_spec.etiquette}})"
+        explore: "{{str_skill.{{dat_spec.skill.explore}}}} ({{str_spec.explore}})"
+
+        feint: "{{str_skill.{{dat_spec.skill.feint}}}} ({{str_spec.feint}})"
+        husbandry: "{{str_skill.{{dat_spec.skill.husbandry}}}} ({{str_spec.husbandry}})"
+        impulse: "{{str_skill.{{dat_spec.skill.impulse}}}} ({{str_spec.impulse}})"
+        inspire: "{{str_skill.{{dat_spec.skill.inspire}}}} ({{str_spec.inspire}})"
+        intuition: "{{str_skill.{{dat_spec.skill.intuition}}}} ({{str_spec.intuition}})"
+
+        larceny: "{{str_skill.{{dat_spec.skill.larceny}}}} ({{str_spec.larceny}})"
+        lunge: "{{str_skill.{{dat_spec.skill.lunge}}}} ({{str_spec.lunge}})"
+        negotiate: "{{str_skill.{{dat_spec.skill.negotiate}}}} ({{str_spec.negotiate}})"
+        parry: "{{str_skill.{{dat_spec.skill.parry}}}} ({{str_spec.parry}})"
+        perceive: "{{str_skill.{{dat_spec.skill.perceive}}}} ({{str_spec.perceive}})"
+        
+        poison: "{{str_skill.{{dat_spec.skill.poison}}}} ({{str_spec.poison}})"
+        portents: "{{str_skill.{{dat_spec.skill.portents}}}} ({{str_spec.portents}})"
+        prowl: "{{str_skill.{{dat_spec.skill.prowl}}}} ({{str_spec.prowl}})"
+        riposte: "{{str_skill.{{dat_spec.skill.riposte}}}} ({{str_spec.riposte}})"
+        scholarship: "{{str_skill.{{dat_spec.skill.scholarship}}}} ({{str_spec.scholarship}})"
+
+        strategy: "{{str_skill.{{dat_spec.skill.strategy}}}} ({{str_spec.strategy}})"
+        surgery: "{{str_skill.{{dat_spec.skill.surgery}}}} ({{str_spec.surgery}})"
+        timing: "{{str_skill.{{dat_spec.skill.timing}}}} ({{str_spec.timing}})"
+        treat: "{{str_skill.{{dat_spec.skill.treat}}}} ({{str_spec.treat}})"
+        vigilance: "{{str_skill.{{dat_spec.skill.vigilance}}}} ({{str_spec.vigilance}})"
+      
+        weave: "{{str_skill.{{dat_spec.skill.weave}}}} ({{str_spec.weave}})"
+      
+  # ############################################# person ####################################################
+
+  api_person:
+    init: |
+          {{>set: var_person_type player}}
+          {{>set: var_person_name {{str_person.default_player_name}}}}
+    set:
+      type:
+        player: "{{>set: var_person_type player}}"
+        rabble: "{{>set: var_person_type rabble}}"
+        stock: "{{>set: var_person_type stock}}"
+        minor: "{{>set: var_person_type minor}}"
+        major: "{{>set: var_person_type major}}"
+
+    get:
+      type: "{{>get: var_person_type}}"
+      name: "{{>get: var_person_name}}"
+
+    print:
+      basic: |
+             <p><b>{{str_person.wound_limit}}:</b> {{str_person.wounds.{{dat_person.{{>get: var_person_type}}.wounds}}}}
+             <br /><b>{{str_person.yield_limit}}:</b> %[[dat_person.{{>get: var_person_type}}.yield.d{{>get: var_compdie}}]]%
+             </p>
+      xasic: |
+
+      wounds:
+        
+  # ############################################################ style ###########################################
+  api_style:
+
+    init: "{{>add: array_style_i 0}}"
+    add:
+      xx: "{{nop}}"
+    print: 
+      basic:
+        all: |
+             <b>{{str_style.style_points}}</b>: %[[dat_person.{{>get: var_person_type}}.style.start]]% ({{str_style.maximum}} %[[dat_person.{{>get: var_person_type}}.style.max]]%)</p>
+             <p><b>{{str_style.style_manus}}</b>: %[[>get: list_style_manu ;&#32;]]%</p>
+
+
+  # ############################################################ pass ############################################
+
+  api_pass: 
+    init: |
+          {{>add: var_pass_i 0}}
+          {{>set: var_pass_6 lust}}
+          {{>set: var_pass_8 lust}}
+          {{>set: var_pass_10 lust}}
+          {{>set: var_pass_12 lust}}
+    load:
+      list: |
+            <-- loading tmp_list_passions
+            {{>accum: tmp_list_passions artistry}}
+            {{>accum: tmp_list_passions church}}
+            {{>accum: tmp_list_passions country}}
+            {{>accum: tmp_list_passions faith}}
+            {{>accum: tmp_list_passions family}}
+            {{>accum: tmp_list_passions friends}}
+            {{>accum: tmp_list_passions justice}}
+            {{>accum: tmp_list_passions knowledge}}
+            {{>accum: tmp_list_passions love}}
+            {{>accum: tmp_list_passions loyalty}}
+            {{>accum: tmp_list_passions lust}}
+            {{>accum: tmp_list_passions pride}}
+            {{>accum: tmp_list_passions wealth}}
+            tmp_list_passions loaded -->
+
+
+    get:
+      6: "{{>get: var_pass_6}}"
+      8: "{{>get: var_pass_8}}"
+      10: "{{>get: var_pass_10}}"
+      12: "{{>get: var_pass_12}}"
+      list: "{{>get: list_passions}}"
+
+    set:
+         
+      6:
+        artistry: "{{>set: var_pass_6 artistry}}{{>add: var_pass_i 1}}"
+        church: "{{>set: var_pass_6 church}}{{>add: var_pass_i 1}}"
+        country: "{{>set: var_pass_6 country}}{{>add: var_pass_i 1}}"
+        faith: "{{>set: var_pass_6 faith}}{{>add: var_pass_i 1}}"
+        family: "{{>set: var_pass_6 family}}{{>add: var_pass_i 1}}"
+        friends: "{{>set: var_pass_6 friends}}{{>add: var_pass_i 1}}"
+        justice: "{{>set: var_pass_6 justice}}{{>add: var_pass_i 1}}"
+        knowledge: "{{>set: var_pass_6 knowledge}}{{>add: var_pass_i 1}}"
+        love: "{{>set: var_pass_6 love}}{{>add: var_pass_i 1}}"
+        loyalty: "{{>set: var_pass_6 loyalty}}{{>add: var_pass_i 1}}"
+        lust: "{{>set: var_pass_6 lust}}{{>add: var_pass_i 1}}"
+        pride: "{{>set: var_pass_6 pride}}{{>add: var_pass_i 1}}"
+        wealth: "{{>set: var_pass_6 wealth}}{{>add: var_pass_i 1}}"
+      8:
+        artistry: "{{>set: var_pass_8 artistry}}{{>add: var_pass_i 1}}"
+        church: "{{>set: var_pass_8 church}}{{>add: var_pass_i 1}}"
+        country: "{{>set: var_pass_8 country}}{{>add: var_pass_i 1}}"
+        faith: "{{>set: var_pass_8 faith}}{{>add: var_pass_i 1}}"
+        family: "{{>set: var_pass_8 family}}{{>add: var_pass_i 1}}"
+        friends: "{{>set: var_pass_8 friends}}{{>add: var_pass_i 1}}"
+        justice: "{{>set: var_pass_8 justice}}{{>add: var_pass_i 1}}"
+        knowledge: "{{>set: var_pass_8 knowledge}}{{>add: var_pass_i 1}}"
+        love: "{{>set: var_pass_8 love}}{{>add: var_pass_i 1}}"
+        loyalty: "{{>set: var_pass_8 loyalty}}{{>add: var_pass_i 1}}"
+        lust: "{{>set: var_pass_8 lust}}{{>add: var_pass_i 1}}"
+        pride: "{{>set: var_pass_8 pride}}{{>add: var_pass_i 1}}"
+        wealth: "{{>set: var_pass_8 wealth}}{{>add: var_pass_i 1}}"
+      10:
+        artistry: "{{>set: var_pass_10 artistry}}{{>add: var_pass_i 1}}"
+        church: "{{>set: var_pass_10 church}}{{>add: var_pass_i 1}}"
+        country: "{{>set: var_pass_10 country}}{{>add: var_pass_i 1}}"
+        faith: "{{>set: var_pass_10 faith}}{{>add: var_pass_i 1}}"
+        family: "{{>set: var_pass_10 family}}{{>add: var_pass_i 1}}"
+        friends: "{{>set: var_pass_10 friends}}{{>add: var_pass_i 1}}"
+        justice: "{{>set: var_pass_10 justice}}{{>add: var_pass_i 1}}"
+        knowledge: "{{>set: var_pass_10 knowledge}}{{>add: var_pass_i 1}}"
+        love: "{{>set: var_pass_10 love}}{{>add: var_pass_i 1}}"
+        loyalty: "{{>set: var_pass_10 loyalty}}{{>add: var_pass_i 1}}"
+        lust: "{{>set: var_pass_10 lust}}{{>add: var_pass_i 1}}"
+        pride: "{{>set: var_pass_10 pride}}{{>add: var_pass_i 1}}"
+        wealth: "{{>set: var_pass_10 wealth}}{{>add: var_pass_i 1}}"
+      12:
+        artistry: "{{>set: var_pass_12 artistry}}{{>add: var_pass_i 1}}"
+        church: "{{>set: var_pass_12 church}}{{>add: var_pass_i 1}}"
+        country: "{{>set: var_pass_12 country}}{{>add: var_pass_i 1}}"
+        faith: "{{>set: var_pass_12 faith}}{{>add: var_pass_i 1}}"
+        family: "{{>set: var_pass_12 family}}{{>add: var_pass_i 1}}"
+        friends: "{{>set: var_pass_12 friends}}{{>add: var_pass_i 1}}"
+        justice: "{{>set: var_pass_12 justice}}{{>add: var_pass_i 1}}"
+        knowledge: "{{>set: var_pass_12 knowledge}}{{>add: var_pass_i 1}}"
+        love: "{{>set: var_pass_12 love}}{{>add: var_pass_i 1}}"
+        loyalty: "{{>set: var_pass_12 loyalty}}{{>add: var_pass_i 1}}"
+        lust: "{{>set: var_pass_12 lust}}{{>add: var_pass_i 1}}"
+        pride: "{{>set: var_pass_12 pride}}{{>add: var_pass_i 1}}"
+        wealth: "{{>set: var_pass_12 wealth}}{{>add: var_pass_i 1}}"
+
+      random:
+        all: |
+             <!-- choosing random passions
+             {{api_pass.set.random.12.{{>pickN: 1 tmp_list_passions}}}}
+
+        12: 
+          artistry: |
+                    {{>add: var_pass_i 1}}
+                    {{>set: var_pass_12 artistry}}
+                    {{>remove: tmp_list_passions artistry}}
+                    %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          church: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_12 church}}
+                  {{>remove: tmp_list_passions church}}
+                  %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          country: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_12 country}}
+                   {{>remove: tmp_list_passions country}}
+                   %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          faith: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_12 faith}}
+                 {{>remove: tmp_list_passions faith}}
+                 %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          family: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_12 family}}
+                  {{>remove: tmp_list_passions family}}
+                  %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          friends: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_12 friends}}
+                   {{>remove: tmp_list_passions friends}}
+                   %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          justice: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_12 justice}}
+                   {{>remove: tmp_list_passions justice}}
+                   %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          knowledge: |
+                     {{>add: var_pass_i 1}}
+                     {{>set: var_pass_12 knowledge}}
+                     {{>remove: tmp_list_passions knowledge}}
+                     %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          love: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_12 love}}
+                {{>remove: tmp_list_passions love}}
+                %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          loyalty: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_12 loyalty}}
+                   {{>remove: tmp_list_passions loyalty}}
+                   %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          lust: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_12 lust}}
+                {{>remove: tmp_list_passions lust}}
+                %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          pride: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_12 pride}}
+                 {{>remove: tmp_list_passions pride}}
+                 %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+          wealth: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_12 wealth}}
+                  {{>remove: tmp_list_passions wealth}}
+                  %[[api_pass.set.random.10.{{>pickN: 1 tmp_list_passions}}]]%
+        10: 
+          artistry: |
+                    {{>add: var_pass_i 1}}
+                    {{>set: var_pass_10 artistry}}
+                    {{>remove: tmp_list_passions artistry}}
+                    %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          church: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_10 church}}
+                  {{>remove: tmp_list_passions church}}
+                  %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          country: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_10 country}}
+                   {{>remove: tmp_list_passions country}}
+                   %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          faith: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_10 faith}}
+                 {{>remove: tmp_list_passions faith}}
+                 %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          family: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_10 family}}
+                  {{>remove: tmp_list_passions family}}
+                  %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          friends: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_10 friends}}
+                   {{>remove: tmp_list_passions friends}}
+                   %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          justice: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_10 justice}}
+                   {{>remove: tmp_list_passions justice}}
+                   %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          knowledge: |
+                     {{>add: var_pass_i 1}}
+                     {{>set: var_pass_10 knowledge}}
+                     {{>remove: tmp_list_passions knowledge}}
+                     %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          love: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_10 love}}
+                {{>remove: tmp_list_passions love}}
+                %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          loyalty: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_10 loyalty}}
+                   {{>remove: tmp_list_passions loyalty}}
+                   %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          lust: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_10 lust}}
+                {{>remove: tmp_list_passions lust}}
+                %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          pride: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_10 pride}}
+                 {{>remove: tmp_list_passions pride}}
+                 %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+          wealth: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_10 wealth}}
+                  {{>remove: tmp_list_passions wealth}}
+                  %[[api_pass.set.random.8.{{>pickN: 1 tmp_list_passions}}]]%
+        8:
+          artistry: |
+                    {{>add: var_pass_i 1}}
+                    {{>set: var_pass_8 artistry}}
+                    {{>remove: tmp_list_passions artistry}}
+                    %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          church: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_8 church}}
+                  {{>remove: tmp_list_passions church}}
+                  %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          country: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_8 country}}
+                   {{>remove: tmp_list_passions country}}
+                   %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          faith: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_8 faith}}
+                 {{>remove: tmp_list_passions faith}}
+                 %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          family: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_8 family}}
+                  {{>remove: tmp_list_passions family}}
+                  %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          friends: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_8 friends}}
+                   {{>remove: tmp_list_passions friends}}
+                   %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          justice: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_8 justice}}
+                   {{>remove: tmp_list_passions justice}}
+                   %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          knowledge: |
+                     {{>add: var_pass_i 1}}
+                     {{>set: var_pass_8 knowledge}}
+                     {{>remove: tmp_list_passions knowledge}}
+                     %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          love: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_8 love}}
+                {{>remove: tmp_list_passions love}}
+                %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          loyalty: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_8 loyalty}}
+                   {{>remove: tmp_list_passions loyalty}}
+                   %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          lust: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_8 lust}}
+                {{>remove: tmp_list_passions lust}}
+                %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          pride: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_8 pride}}
+                 {{>remove: tmp_list_passions pride}}
+                 %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+          wealth: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_8 wealth}}
+                  {{>remove: tmp_list_passions wealth}}
+                  %[[api_pass.set.random.6.{{>pickN: 1 tmp_list_passions}}]]%
+        6:
+          artistry: |
+                    {{>add: var_pass_i 1}}
+                    {{>set: var_pass_6 artistry}}
+                    {{>remove: tmp_list_passions artistry}}
+                    passions not chosen: %[[>get: tmp_list_passions]]% -->
+                    %[[{{>get: var_print_format}}]]%
+          church: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_6 church}}
+                  {{>remove: tmp_list_passions church}}
+                  passions not chosen: %[[>get: tmp_list_passions]]% -->
+                  %[[{{>get: var_print_format}}]]%
+          country: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_6 country}}
+                   {{>remove: tmp_list_passions country}}
+                   passions not chosen: %[[>get: tmp_list_passions]]% -->
+                   %[[{{>get: var_print_format}}]]%
+          faith: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_6 faith}}
+                 {{>remove: tmp_list_passions faith}}
+                 passions not chosen: %[[>get: tmp_list_passions]]% -->
+                 %[[{{>get: var_print_format}}]]%
+          family: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_6 family}}
+                  {{>remove: tmp_list_passions family}}
+                  passions not chosen: %[[>get: tmp_list_passions]]% -->
+                  %[[{{>get: var_print_format}}]]%
+          friends: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_6 friends}}
+                   {{>remove: tmp_list_passions friends}}
+                   passions not chosen: %[[>get: tmp_list_passions]]% -->
+                   %[[{{>get: var_print_format}}]]%
+          justice: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_6 justice}}
+                   {{>remove: tmp_list_passions justice}}
+                   passions not chosen: %[[>get: tmp_list_passions]]% -->
+                   %[[{{>get: var_print_format}}]]%
+          knowledge: |
+                     {{>add: var_pass_i 1}}
+                     {{>set: var_pass_6 knowledge}}
+                     {{>remove: tmp_list_passions knowledge}}
+                     passions not chosen: %[[>get: tmp_list_passions]]% -->
+                     %[[{{>get: var_print_format}}]]%
+          love: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_6 love}}
+                {{>remove: tmp_list_passions love}}
+                passions not chosen: %[[>get: tmp_list_passions]]% -->
+                %[[{{>get: var_print_format}}]]%
+          loyalty: |
+                   {{>add: var_pass_i 1}}
+                   {{>set: var_pass_6 loyalty}}
+                   {{>remove: tmp_list_passions loyalty}}
+                   passions not chosen: %[[>get: tmp_list_passions]]% -->
+                   %[[{{>get: var_print_format}}]]%
+          lust: |
+                {{>add: var_pass_i 1}}
+                {{>set: var_pass_6 lust}}
+                {{>remove: tmp_list_passions lust}}
+                passions not chosen: %[[>get: tmp_list_passions]]% -->
+                %[[{{>get: var_print_format}}]]%
+          pride: |
+                 {{>add: var_pass_i 1}}
+                 {{>set: var_pass_6 pride}}
+                 {{>remove: tmp_list_passions pride}}
+                 passions not chosen: %[[>get: tmp_list_passions]]% -->
+                 %[[{{>get: var_print_format}}]]%
+          wealth: |
+                  {{>add: var_pass_i 1}}
+                  {{>set: var_pass_6 wealth}}
+                  {{>remove: tmp_list_passions wealth}}
+                  passions not chosen: %[[>get: tmp_list_passions]]% -->
+                  %[[{{>get: var_print_format}}]]%
+
+        one_from_list: |
+                       %[[>set: tmp_picked_pass {{>pickN: 1 tmp_list_passions}}]]%
+                       %[[>accum: list_passions %[[>get: tmp_picked_pass]]%]]%
+                       %[[>remove: tmp_list_passions %[[>get: tmp_picked_pass]]%]]%
+                       %[[>get: tmp_picked_pass]]%
+
+    print:
+      verbose: 
+        all: |
+             {{str_pass.yourrandompassions}}...
+             <h1>{{str_pass.passions}}</h1>
+             {{api_pass.print.verbose.{{>get: var_pass_i}}}}
+        0: "{{nop}}"
+        1: |
+           {{api_pass.print.verbose.d6}}
+        2: |
+           {{api_pass.print.verbose.d8}}
+           <hr />
+           {{api_pass.print.verbose.d6}}
+        3: |
+           {{api_pass.print.verbose.d10}}
+           <hr />
+           {{api_pass.print.verbose.d8}}
+           <hr />
+           {{api_pass.print.verbose.d6}}
+        4: |
+           {{api_pass.print.verbose.d12}}
+           <hr />
+           {{api_pass.print.verbose.d10}}
+           <hr />
+           {{api_pass.print.verbose.d8}}
+           <hr />
+           {{api_pass.print.verbose.d6}}
+        d12: |
+             <h2><font color='{{str_color.celeste.display_color}}'>{{str_pass.{{>get: var_pass_12}}}} {{d12}}</font></h2>
+             {{str_pass.desc.{{>get: var_pass_12}}}}
+        d10: |
+             <h2><font color='{{str_color.vert.display_color}}'>{{str_pass.{{>get: var_pass_10}}}} {{d10}}</font></h2>
+             {{str_pass.desc.{{>get: var_pass_10}}}}
+        d8: |
+             <h2><font color='{{str_color.or.display_color}}'>{{str_pass.{{>get: var_pass_8}}}} {{d8}}</font></h2>
+             {{str_pass.desc.{{>get: var_pass_8}}}}
+        d6: |
+             <h2><font color='{{str_color.cendree.display_color}}'>{{str_pass.{{>get: var_pass_6}}}} {{d6}}</font></h2>
+             {{str_pass.desc.{{>get: var_pass_6}}}}
+
+      basic:
+
+        all: |
+             {{str_pass.yourrandompassions}}...
+             <p><b>{{str_pass.passions}}:</b> {{api_pass.print.basic.{{>get: var_pass_i}}}}</p>
+
+        0: "{{nop}}"
+        1: "{{str_pass.{{>get: var_pass_6}}}} {{d6}}"
+        2: "{{str_pass.{{>get: var_pass_8}}}} {{d8}}, {{str_pass.{{>get: var_pass_6}}}} {{d6}}"
+        3: "{{str_pass.{{>get: var_pass_10}}}} {{d10}}, {{str_pass.{{>get: var_pass_8}}}} {{d8}}, {{str_pass.{{>get: var_pass_6}}}} {{d6}}"
+        4: "{{str_pass.{{>get: var_pass_12}}}} {{d12}}, {{str_pass.{{>get: var_pass_10}}}} {{d10}}, {{str_pass.{{>get: var_pass_8}}}} {{d8}}, {{str_pass.{{>get: var_pass_6}}}} {{d6}}"
+                        
+  # ########################################################## gear ############################################
+           
+  api_gear:
+    init: "{{>accum: list_gear .}}"
+    add: "{{nop}}"
+    get: "{{nop}}"
+    print: 
+      basic:
+        xll: |
+             <p><b>{{str_gear.equipment}}:</b> {{>get: list_gear ,&#32;}}</p>
+        all: |
+             {{>remove: list_gear .}}
+             <p><b>{{str_gear.equipment}}:</b> %[[>get: list_gear ,&#32;]]%</p>
+      
+

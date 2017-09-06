@@ -1,0 +1,7 @@
+---
+templates:
+  - "{{>set: var_equiv {{input.equiv}}}}{{api_day.of_year.initialize}}{{api_month.random}}{{api_day.of_month.random}}%[[api_date.print.random]]%"
+
+imports:
+  - lib_calendar
+

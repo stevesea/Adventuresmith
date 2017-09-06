@@ -1,0 +1,2958 @@
+---
+
+definitions:
+
+  unstr_cal:
+    Month: month
+    Day: day
+    Week: week
+    Year: year
+    History: history
+
+    Child: child
+    Teenager: teen
+    Adult: adult
+    Elder: elder
+    Twentysomething: 20s
+    Thirtysomething: 30s
+    Fortysomething: 40s
+    Fiftysomething: 50s
+    Sexagenarian: 60s
+    Septugenarian: 70s
+    Octogenarian: 80s
+    Nonagenarian: 90s
+    Centenarian: 100s
+    Human: human
+    Horse: horse
+    Large_Dog: large_dog
+    Small_Dog: small_dog
+    Cat: cat
+    Anyone: anyone
+
+
+  ui_cal:
+    error:
+      bad_inputs: |
+                  <p><font color='red'><b>ERROR:</b></font> Check your
+                  configuration; you can't randomly choose a 
+                  <b>{{ui_cal.{{unstr_cal.{{input.select}}}}}}</b> within a 
+                  <b>{{ui_cal.{{unstr_cal.{{input.set}}}}}}</b>.
+
+    yourrandom:
+      day:
+        in:
+          week: Your random day of the week is
+          month: Your random day of the month is
+          year: Your random day of the year is
+          history: Your random day in history is
+      week:
+        in:
+          month: Your random week in a month is
+          year: Your random week in a year is
+          history: Your random week in history is
+      month:
+        in:
+          year: Your random month of the year is
+          history: Your random month in history is
+      year:
+        in:
+          history: Your random year in history is
+      date: Your random date is
+      birthstone: Your birthstone is
+      birthday:
+        before: Your random birthday for
+        after: is
+        for: 
+          child: a Child
+          teen: a Teenager
+          adult: an Adult
+          elder: an Elder Adult
+          20s: a person in their 20s
+          30s: a person in their 30s
+          40s: a person in their 40s
+          50s: a person in their 50s
+          60s: a Sexagenarian
+          70s: a Septugenarian
+          80s: an Octogenarian
+          90s: an Nonagenarian
+          100s: Centenarian
+          horse: a Horse
+          large_dog: a Large Dog
+          small_dog: a small Dog
+          cat: a Cat
+          anyone: anyone (no specific year)
+          human: a Human
+
+    child: Child
+    teen: Teenager
+    adult: Adult
+    elder: Elder
+    20s: Twentysomething
+    30s: Thirtysomething
+    40s: Fortysomething
+    50s: Fiftysomething
+    60s: Sexagenarian
+    70s: Septugenarian
+    80s: Octogenarian
+    90s: Nonagenarian
+    100s: Centenarian
+    human: Human
+    horse: Horse
+    large_dog: Dog, Large
+    small_dog: Dog, Small
+    cat: Cat
+    anyone: Anyone
+      
+    Itfallson: It falls on
+    Itfellon: It fell on
+    Thisis: This is
+    Thiswas: This was
+    Thiswasapprox: This was approximately
+    age: Exact Age
+    age_category: Age Category
+    and: and
+    andfallson: and falls on
+    asof: as of
+    births: Births
+    day: day
+    days: days
+    dayin: day in
+    deaths: Deaths
+    dob: Date of Birth
+    events: Events
+    holidays: Holidays
+    in: in
+    is: is
+    itisthe: it is the
+    month: month
+    months: months
+    of: of
+    onthisday: On This Date
+    or: or
+    thereare: there are
+    theyear: the year
+    thisis: This is
+    to: to
+    was: was
+    week: week
+    year: year
+    years: years
+
+    phase:
+      phase: phase
+      moon: moon
+      themoon: the moon
+      with: with
+      moonlight: moonlight
+
+    equiv:
+      realworld: Real World Equivalent
+
+    soyouwereborn:
+      month: so you were born in
+      date: so you were born on
+
+    ofthemonth:
+      before: "the "
+      middle: " day of "
+      after: ""
+
+    oftheyear:
+      before: "the "
+      after: " month of the year"
+
+    oftheweek:
+      before: ""
+      middle: " in the "
+      after: " of the month"
+
+    oftheseason:
+      before: "the "
+      middle: " month of "
+      after: ""
+
+    dayoftheyear:
+      before: "the "
+      after: " day of the year"
+
+    daysremaining:
+      before: ""
+      after: " days remaining"
+
+    numdayofweek:
+      before: "the "
+      after: " day of the week"
+
+    numdayofmonth:
+      before: "the "
+      after: " day of the month"
+
+    weekofmonth:
+      before: "the "
+      middle: " week starts on the "
+      middle2: " day of the month and ends on the "
+      after: " day of the month"
+
+  str_cal:
+  
+    season:
+      winter: Winter
+      spring: Spring
+      summer: Summer
+      autumn: Autumn
+      a_an:
+        winter: a
+        spring: a
+        summer: a
+        autumn: an
+
+        month_adj:
+          1: "an early-"
+          2: "a mid-"
+          3: "a late-"
+
+    era:
+      bq: BQ
+      pq: PQ
+      qy: QY
+      expand:
+        bq: 
+          before: ""
+          after: " years before the fall of Qarta"
+        pq: 
+          before: ""
+          after: " years after the fall of Qarta"
+        qy: 
+          before: "the year "
+          after: " QY according to the Old Qartan calendar"
+
+    day: 
+      moon: Moon Day
+      second: Second Day
+      third: Third Day
+      fourth: Fourth Day
+      stars: Stars Day
+      sun: Sun Day
+      desc:
+        moon: ""
+        second: ""
+        third: ""
+        fourth: ""
+        stars: ""
+        sun: Asrian religious services are held on Sun Day.
+
+
+    day_of_month:
+      events:
+        1: ""
+        2: ""
+        3: ""
+        4: ""
+        5: ""
+        6: Also known as High Sun Day, this is an important day of worship in the Asrian faith.
+        7: ""
+        8: ""
+        9: ""
+        10: ""
+        11: ""
+        12: Each Sun Day is a day of worship in the Asrian faith.
+        13: The 13th of each month is a Devran holy day known as Last Crescent, the start of the Devran Week of Fasting.
+        14: The 14th of each month is part of the Devran Week of Fasting.
+        15: The 15th of each month is part of the Devran Week of Fasting.
+        16: The 16th of each month is a New Moon folk holiday in Gallinea, and part of the Devran Week of Fasting.
+        17: The 17th of each month is part of the Devran Week of Fasting.
+        18: Each Sun Day is a day of worship in the Asrian faith. In addition, the 18th of each month is part of the Devran Week of Fasting.
+        19: The 19th of each month is a Devran holy day known as First Crescent, the end of the Devran Week of Fasting.
+        20: ""
+        21: ""
+        22: ""
+        23: ""
+        24: Each Sun Day is a day of worship in the Asrian faith.
+        25: ""
+        26: ""
+        27: ""
+        28: ""
+        29: ""
+        30: Each Sun Day is a day of worship in the Asrian faith.
+
+    birthstone:
+      garnet: Garnet 
+      amethyst: Amethyst
+      bloodstone: Bloodstone
+      sapphire: Sapphire
+      agate: Agate
+      emerald: Emerald
+      onyx: Onyx
+      carnelian: Carnelian
+      peridot: Peridot
+      beryl: Beryl
+      topaz: Topaz
+      ruby: Ruby
+
+    week:
+      1: first week
+      2: second week
+      3: third week
+      4: fourth week
+      5: fifth week
+      desc:
+        1: The full moon occurs on Moon Day during the First Week.
+        2: The last crescent moon occurs on Second Day during the Second Week.
+        3: The new moon occurs on Fourth Day during Third Week.
+        4: The first crescent moon occurs on Stars Day during Fourth Week.
+        5: This is the last week in the month.
+
+    month:
+      pluviose: Pluvi&ocirc;se
+      ventose: Vent&ocirc;se
+      germinal: Germinal
+      floreal: Flor&eacute;al
+      prairial: Prairial
+      messidor: Messidor
+      fervidor: Fervidor
+      fructidor: Fructidor
+      vendemiaire: Vend&eacute;miaire
+      brumaire: Brumaire
+      frimaire: Frimaire
+      nivose: Niv&ocirc;se
+
+    ordinal_month:
+      pluviose: first
+      ventose: second
+      germinal: third
+      floreal: fourth
+      prairial: fifth
+      messidor: sixth
+      fervidor: seventh
+      fructidor: eighth
+      vendemiaire: ninth
+      brumaire: tenth
+      frimaire: eleventh
+      nivose: twelfth
+
+    phase:
+      full: full
+      waninggibbous: waning gibbous
+      last: last
+      waningcrescent: waning crescent
+      new: new
+      waxingcrescent: waxing crescent
+      first: first
+      waxinggibbous: waxing gibbous
+      moonlight:
+        full: plentiful
+        waninggibbous: ample
+        last: dim
+        waningcrescent: almost no
+        new: "no"
+        waxingcrescent: almost no
+        first: dim
+        waxinggibbous: ample
+      desc:
+        full: bright and shining in the night sky
+        waninggibbous: mostly full
+        last: about half full
+        waningcrescent: a sliver of light in the sky
+        new: completely dark
+        waxingcrescent: a sliver of light in the sky
+        first: about half dark
+        waxinggibbous: almost full
+
+    birthstone:
+      pluviose: Garnet 
+      ventose: Amethyst
+      germinal: Bloodstone
+      floreal: Sapphire
+      prairial: Agate
+      messidor: Emerald
+      fervidor: Onyx
+      fructidor: Carnelian
+      vendemiaire: Peridot
+      brumaire: Beryl
+      frimaire: Topaz
+      nivose: Ruby
+
+    equiv:
+      us_en:
+        month:
+
+          pluviose: January
+          ventose: February
+          germinal: March 
+          floreal: April
+          prairial: May
+          messidor: June
+          fervidor: July
+          fructidor: August
+          vendemiaire: September
+          brumaire: October
+          frimaire: November
+          nivose: December
+
+        dayofyear:
+
+          1: January 1
+          2: January 2
+          3: January 3
+          4: January 4
+          5: January 5
+          6: January 6
+          7: January 7
+          8: January 8
+          9: January 9
+          10: January 10
+          11: January 11
+          12: January 12
+          13: January 13
+          14: January 14
+          15: January 15
+          16: January 16
+          17: January 17
+          18: January 18
+          19: January 19
+          20: January 20
+          21: January 21
+          22: January 22
+          23: January 23
+          24: January 24
+          25: January 25
+          26: January 26
+          27: January 27
+          28: January 28
+          29: January 29
+          30: January 30
+          31b: January 31
+
+          31: February 1
+          32: February 2
+          33: February 3
+          34: February 4
+          35: February 5
+          36: February 6
+          37: February 7
+          38: February 8
+          39: February 9
+          40: February 10
+          41: February 11
+          42: February 12
+          43: February 13
+          44: February 14
+          45: February 15
+          46: February 16
+          47: February 17
+          48: February 18
+          49: February 19
+          50: February 20
+          51: February 21
+          52: February 22
+          53: February 23
+          54: February 24
+          55: February 25
+          56: February 26
+          57: February 27
+          58: February 28
+          58b: February 29
+          59: March 1
+          60: March 2
+
+          61: March 3
+          62: March 4
+          63: March 5
+          64: March 6
+          65: March 7
+          66: March 8
+          67: March 9
+          68: March 10
+          69: March 11
+          70: March 12
+          71: March 13
+          72: March 14
+          73: March 15
+          74: March 16
+          75: March 17
+          76: March 18
+          77: March 19
+          78: March 20
+          79: March 21
+          80: March 22
+          81: March 23
+          82: March 24
+          83: March 25
+          84: March 26
+          85: March 27
+          86: March 28
+          87: March 29
+          88: March 30
+          88b: March 31
+          89: April 1
+          90: April 2
+
+          91: April 3
+          92: April 4
+          93: April 5
+          94: April 6
+          95: April 7
+          96: April 8
+          97: April 9
+          98: April 10
+          99: April 11
+          100: April 12
+          101: April 13
+          102: April 14
+          103: April 15
+          104: April 16
+          105: April 17
+          106: April 18
+          107: April 19
+          108: April 20
+          109: April 21
+          110: April 22
+          111: April 23
+          112: April 24
+          113: April 25
+          114: April 26
+          115: April 27
+          116: April 28
+          117: April 29
+          118: April 30
+          119: May 1
+          120: May 2
+
+          121: May 3
+          122: May 4
+          123: May 5
+          124: May 6
+          125: May 7
+          126: May 8
+          127: May 9
+          128: May 10
+          129: May 11
+          130: May 12
+          131: May 13
+          132: May 14
+          133: May 15
+          134: May 16
+          135: May 17
+          136: May 18
+          137: May 19
+          138: May 20
+          139: May 21
+          140: May 22
+          141: May 23
+          142: May 24
+          143: May 25
+          144: May 26
+          145: May 27
+          146: May 28
+          147: May 29
+          148: May 30
+          148b: May 31
+          149: June 1
+          150: June 2
+
+          151: June 3
+          152: June 4
+          153: June 5
+          154: June 6
+          155: June 7
+          156: June 8
+          157: June 9
+          158: June 10
+          159: June 11
+          160: June 12
+          161: June 13
+          162: June 14
+          163: June 15
+          164: June 16
+          165: June 17
+          166: June 18
+          167: June 19
+          168: June 20
+          169: June 21
+          170: June 22
+          171: June 23
+          172: June 24
+          173: June 25
+          174: June 26
+          175: June 27
+          176: June 28
+          177: June 29
+          178: June 30
+          179: July 1
+          180: July 2
+          
+          181: July 3
+          182: July 4
+          183: July 5
+          184: July 6
+          185: July 7
+          186: July 8
+          187: July 9
+          188: July 10
+          189: July 11
+          190: July 12
+          191: July 13
+          192: July 14
+          193: July 15
+          194: July 16
+          195: July 17
+          196: July 18
+          197: July 19
+          198: July 20
+          199: July 21
+          200: July 22
+          201: July 23
+          202: July 24
+          203: July 25
+          204: July 26
+          205: July 27
+          206: July 28
+          207: July 29
+          208: July 30
+          208b: July 31
+          209: August 1
+          210: August 2
+
+          211: August 3
+          212: August 4
+          213: August 5
+          214: August 6
+          215: August 7
+          216: August 8
+          217: August 9
+          218: August 10
+          219: August 11
+          220: August 12
+          221: August 13
+          222: August 14
+          223: August 15
+          224: August 16
+          225: August 17
+          226: August 18
+          227: August 19
+          228: August 20
+          229: August 21
+          230: August 22
+          231: August 23
+          232: August 24
+          233: August 25
+          234: August 26
+          235: August 27
+          236: August 28
+          237: August 29
+          238: August 30
+          238b: August 31
+          239: September 1
+          240: September 2
+
+          241: September 3
+          242: September 4
+          243: September 5
+          244: September 6
+          245: September 7
+          246: September 8
+          247: September 9
+          248: September 10
+          249: September 11
+          250: September 12
+          251: September 13
+          252: September 14
+          253: September 15
+          254: September 16
+          255: September 17
+          256: September 18
+          257: September 19
+          258: September 20
+          259: September 21
+          260: September 22
+          261: September 23
+          262: September 24
+          263: September 25
+          264: September 26
+          265: September 27
+          266: September 28
+          267: September 29
+          268: September 30
+          269: October 1
+          270: October 2
+
+          271: October 3
+          272: October 4
+          273: October 5
+          274: October 6
+          275: October 7
+          276: October 8
+          277: October 9
+          278: October 10
+          279: October 11
+          280: October 12
+          281: October 13
+          282: October 14
+          283: October 15
+          284: October 16
+          285: October 17
+          286: October 18
+          287: October 19
+          288: October 20
+          289: October 21
+          290: October 22
+          291: October 23
+          292: October 24
+          293: October 25
+          294: October 26
+          295: October 27
+          296: October 28
+          297: October 29
+          298: October 30
+          299: October 31
+          300: November 1
+
+          301: November 2
+          302: November 3
+          303: November 4
+          304: November 5
+          305: November 6
+          306: November 7
+          307: November 8
+          308: November 9
+          309: November 10
+          310: November 11
+          311: November 12
+          312: November 13
+          313: November 14
+          314: November 15
+          315: November 16
+          316: November 17
+          317: November 18
+          318: November 19
+          319: November 20
+          320: November 21
+          321: November 22
+          322: November 23
+          323: November 24
+          324: November 25
+          325: November 26
+          326: November 27
+          327: November 28
+          328: November 29
+          329: November 30
+          330: December 1
+
+          331: December 2
+          332: December 3
+          333: December 4
+          334: December 5
+          335: December 6
+          336: December 7
+          337: December 8
+          338: December 9
+          339: December 10
+          340: December 11
+          341: December 12
+          342: December 13
+          343: December 14
+          344: December 15
+          345: December 16
+          346: December 17
+          347: December 18
+          348: December 19
+          349: December 20
+          350: December 21
+          351: December 22
+          352: December 23
+          353: December 24
+          354: December 25
+          355: December 26
+          356: December 27
+          357: December 28
+          358: December 29
+          359: December 30
+          360: December 31
+
+      tqc_alb:
+        pluviose: Rainous
+        ventose: Windous
+        germinal: Buddal
+        floreal: Floweral
+        prairial: Meadowal
+        messidor: Reapidor
+        fervidor: Heatidor
+        fructidor: Fruitidor
+        vendemiaire: Vintagearious
+        brumaire: Fogarious
+        frimaire: Frostarious
+        nivose: Snowous
+
+    dates:
+      pluviose_1: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Year's Dawn (first day of the year)
+      pluviose_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_5: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Winter's Noon festival begins (Asrian holy day)
+      pluviose_6: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: Winter Solstice
+        holidays: Winter's Noon (Asrian holy day)
+      pluviose_7: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Winter's Noon festival ends (Asrian holy day)
+      pluviose_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_13: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      pluviose_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_15: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: Gallinea annexes Scanbria (989)
+        holidays: Scanbrian Unification Day (Gallinean national holiday)
+      pluviose_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Wolf Moon (Old Faith folk holiday)
+      pluviose_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      pluviose_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      pluviose_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      ventose_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Winter's Dusk (Asrian holy day); Sun Jay day
+      ventose_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      ventose_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Snow Moon (Old Faith folk holiday)
+      ventose_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      ventose_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_23: 
+        index: b
+        deaths: ""
+        births: Genevieve de Longpre (year unknown)
+        events: ""
+        holidays: ""
+      ventose_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_27: 
+        index: b
+        deaths: ""
+        births: Queen Ximena VI of Ondala (1183)
+        events: ""
+        holidays: ""
+      ventose_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      ventose_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      germinal_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Spring's Dawn (Asrian holy day)
+      germinal_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      germinal_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Sap Moon (Old Faith folk holiday)
+      germinal_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      germinal_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      germinal_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      floreal_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_6: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: Vernal equinox
+        holidays: Spring's Noon (Asrian holy day)
+      floreal_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      floreal_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_16: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: Marriage of Queen Mariana II and Prince Carolus of Albia (1242)
+        holidays: New Rain Moon (Old Faith folk holiday); Betrothal Day (Gallinean national holiday)
+      floreal_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      floreal_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_21: 
+        index: bh
+        deaths: ""
+        births: Queen Elisse III (1194)
+        events: ""
+        holidays: The (Late) Queen's Birthday (unofficial Gallinean holiday)
+      floreal_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      floreal_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      prairial_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Spring's Dusk (Asrian holy day)
+      prairial_7: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: Victory! (1123)
+        holidays: Victory Day (Gallinean national holiday)
+      prairial_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      prairial_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Wishing Moon (Old Faith folk holiday) 
+      prairial_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_18: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Confirmation Day (Asrian holy day)
+      prairial_19: 
+        index: bh
+        deaths: ""
+        births: Morgan Bosevell (1219)
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      prairial_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_24: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: The Festival of Masques (Lutetian civic holiday)
+      prairial_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      prairial_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      messidor_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_6: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: Start of Asrian high holy months
+        holidays: Summer's Dawn (Asrian holy day); First Feast of Qarta
+      messidor_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_12: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Second Feast of Qarta (Asrian holy day)
+      messidor_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      messidor_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Berry Moon (Old Faith folk holiday) 
+      messidor_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_18: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Third Feast of Qarta (Asrian holy day)
+      messidor_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      messidor_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_24: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Fourth Feast of Qarta (Asrian holy day)
+      messidor_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      messidor_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Fifth Feast Day of Qarta (Asrian holy day)
+
+      fervidor_1: 
+        index: b
+        deaths: ""
+        births: Crown Princess Jehanne (1222)
+        events: ""
+        holidays: ""
+      fervidor_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_5: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Summer's Noon festival begins
+      fervidor_6: 
+        index: eh
+        deaths: ""
+        births: ""
+        events: summer solstice
+        holidays: Summer's Noon (Asrian holy day)
+      fervidor_7: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Summer's Noon festival ends
+      fervidor_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_12: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Sixth Feast of Qarta (Asrian holy day)
+      fervidor_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      fervidor_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Kissing Moon (Old Faith folk holiday) 
+      fervidor_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_18: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Seventh Feast of Qarta (Asrian holy day)
+      fervidor_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      fervidor_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_24: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Eighth Feast of Qarta (Asrian holy day)
+      fervidor_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fervidor_30: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Ninth Feast of Qarta (Asrian holy day)
+
+      fructidor_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Summer's Dusk (Asrian holy day); Tenth Feast of Qarta (Asrian holy day)
+      fructidor_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      fructidor_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Peddler's Moon (Old Faith folk holiday) 
+      fructidor_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_19: 
+        index: bh
+        deaths: ""
+        births: Queen Mariana II (1225)
+        events: ""
+        holidays: First Crescent (Devran holy day); The Queen's Birthday (Gallinean national holiday)
+      fructidor_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      fructidor_30: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Scanbrian Independence Day (986, only celebrated in Scanbria)
+
+      vendemiaire_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Autumn's Dawn (Asrian holy day)
+      vendemiaire_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      vendemiaire_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Harvest Moon (Old Faith folk holiday) 
+      vendemiaire_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      vendemiaire_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      vendemiaire_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      brumaire_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Autumn's Noon (Asrian holy day); autumnal equinox
+      brumaire_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      brumaire_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Huntress Moon (Old Faith folk holiday) 
+      brumaire_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      brumaire_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      brumaire_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      frimaire_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Autumn's Dusk (Asrian holy day)
+      frimaire_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      frimaire_14: 
+        index: b
+        deaths: ""
+        births: Prince-Consort Carolus (1219)
+        events: ""
+        holidays: ""
+      frimaire_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Mourning Moon (Old Faith folk holiday) 
+      frimaire_17: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      frimaire_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_21: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_22: 
+        index: deh
+        deaths: Queen Elisse III (1243); Crown Princess Jehanne (1243)
+        births: ""
+        events: Assassin bombs the royal family (1243)
+        holidays: Day of Mourning (Gallinean national holiday)
+      frimaire_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      frimaire_30: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+
+      nivose_1: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_2: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_3: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_4: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_5: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_6: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Winter's Dawn (Asrian holy day)
+      nivose_7: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_8: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_9: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_10: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_11: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_12: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_13: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Last Crescent (Devran holy day) 
+      nivose_14: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_15: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_16: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: New Hunger Moon (Old Faith folk holiday)
+      nivose_17: 
+        index: b
+        deaths: ""
+        births: Matriarch Isabene de la Justicia (1202)
+        events: ""
+        holidays: ""
+      nivose_18: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_19: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: First Crescent (Devran holy day) 
+      nivose_20: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_21: 
+        index: eh 
+        deaths: ""
+        births: ""
+        events: Treaty of Scanbreille signed, end of Twenty Years' War (1241)
+        holidays: Treaty Day/Betrothal Day (1241, Gallinean national holiday)
+      nivose_22: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_23: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_24: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_25: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_26: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_27: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_28: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_29: 
+        index: none
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: ""
+      nivose_30: 
+        index: h
+        deaths: ""
+        births: ""
+        events: ""
+        holidays: Year's Dusk (last day of the year)
+

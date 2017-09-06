@@ -1,0 +1,25 @@
+---
+id: the_queens_cavaliers
+icon: cmd-crown
+
+groupedGenerators:
+  tqcCalendar:
+  - gen_birthday
+  - gen_cal_func
+  tqcChargen:
+  - gen_backstory
+  - gen_classes
+  - gen_passions
+  tqcSetting:
+  - gen_country
+  - gen_language
+  - gen_name
+  tqcDiceRoller:
+  - gen_tqcdice
+  - gen_customdice_1
+  - gen_customdice_6
+  - gen_customdice_7
+  - gen_customdice_4
+  - gen_customdice_5
+  - gen_customdice_2
+  - gen_customdice_3

@@ -1,0 +1,21 @@
+---
+name: Random Country
+input:
+  displayTemplate: "{{select}} Countries"
+  params:
+  - name: select
+    uiName: Country Type
+    helpText: What countries do you want to pick from?
+    defaultValue: Weighted
+    values:
+    - Any
+    - Bordering_Gallinea
+    - Distant
+    - Elaran
+    - Elaran_and_Ifrani
+    - Foreign
+    - Middle_Sea
+    - North_Sea
+    - Northern_Ifran
+    - Weighted
+

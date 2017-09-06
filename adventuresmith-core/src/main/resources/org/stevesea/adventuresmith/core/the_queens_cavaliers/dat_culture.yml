@@ -1,0 +1,2067 @@
+---
+tables:
+
+  language_list:
+  - 1, gallinean
+  - 2, albian
+  - 3, ekalian
+  - 4, ondalese
+  - 5, talanian
+  - 6, varendish
+  - 7, ifrani
+  - 8, karangan
+  - 9, serican
+  - 10, khefikkan
+  - 11, old_qartan
+  - 12, mathain
+  - 13, brigue
+  - 14, ancient_varendish
+  - 15, ancient_ekalian
+
+  country_list:
+  - 1, gallinea
+  - 2, albia
+  - 3, dragosa
+  - 4, ekalia
+  - 5, ondala
+  - 6, talania
+  - 7, varendia
+  - "8, {{random_country.pitdah_and_ubar}}"
+  - 9, mwene_karanga
+  - 10, coffee_coast
+  - 11, serica
+  - 12, qartan_empire
+
+  colony_list:
+  - 1, elissia
+  - 2, new_cordera
+  - 3, new_dunon
+
+  gallinea_region_list:
+  - 1, coeur_de_gallinea
+  - 2, jeweled_coast
+  - 3, lowlands
+  - 4, scanbria
+  - 5. elissia
+
+  city_list:
+  - 1, lutetia
+  - 2, berylle
+  - 3, montambre
+  - 4, persolei
+  - 5, rhodope
+  - 6, scanbreille
+  - 7, valerienne
+  - 8, affutaine
+  - 9, boussole
+  - 10, canard_noir
+  - 11, castenia
+  - 12, gueve
+  - 13, sudelune
+  - 14, touriel
+  - 15, cordera
+  - 16, diega
+  - 17, dunon
+  - 18, thedis
+  - 19, zamorov
+  - 20, volstok
+  - 21, medtken
+  - 22, pitdah
+  - 23, ubar
+  - 24, lost_city_of_aad
+  - 25, qarta
+
+  continent_list:
+  - elara
+  - ifran
+  - serica
+
+definitions:
+
+  dat_nation:
+    gallinea:
+      capital: lutetia
+      lang: 
+        i: 4
+        1: gallinean
+        2: brigue
+        3: varendish
+        4: talanian
+      religion:
+        i: 3
+        1: asrian
+        2: the_old_faith
+        3: devran
+      color:
+        i: 2
+        1: gules
+        2: argent
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/6/61/Gallinea.png
+        dir: 6/61
+        filename: Gallinea.png
+      classes:
+        i: 0
+      style_manu:
+        i: 3
+        1: maximize.arts
+        2: reroll.culture
+        3: custom.gallinean_fencing
+
+    elissia:
+      capital: lutetia
+      lang: 
+        i: 4
+        1: gallinean
+        2: brigue
+        3: varendish
+        4: talanian
+      religion:
+        i: 3
+        1: asrian
+        2: the_old_faith
+        3: devran
+      color:
+        i: 2
+        1: gules
+        2: argent
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/6/61/Gallinea.png
+        dir: 6/61
+        filename: Gallinea.png
+      classes:
+        i: 2
+        1: moon_curser
+        2: collier
+      style_manu:
+        i: 0
+
+    albia:
+      capital: dunon
+      lang: 
+        i: 2
+        1: albian
+        2: mathain
+      religion:
+        i: 1
+        1: dualitarian
+      color:
+        i: 2
+        1: azure
+        2: or
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/3/38/Albia_flag.png
+        dir: 3/38
+        filename: Albia_flag.png
+      classes:
+        i: 2
+        1: huntsman
+        2: pilgrim
+      style_manu:
+        i: 3
+        1: maximize.strategy
+        2: reroll.medicine
+        3: custom.albian_cavalry
+
+    dragosa:
+      capital: volstok
+      lang: 
+        i: 3
+        1: ekalian
+        2: talanian
+        3: varendish
+      religion:
+        i: 2
+        1: asrian
+        2: the_five_fathers
+      color:
+        i: 3
+        1: gules
+        2: vert
+        3: azure
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/0/0e/Dragosa.png
+        dir: 0/0e
+        filename: Dragosa.png
+      classes:
+        i: 2
+        1: lexicographer
+        2: hanaster
+      style_manu:
+        i: 0
+
+    ekalia:
+      capital: thedis
+      lang: 
+        i: 1
+        1: ekalian
+      religion:
+        i: 1
+        1: dodekarian
+      color:
+        i: 2
+        1: vert
+        2: celeste
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/2/2f/Ekalia.png
+        dir: 2/2f
+        filename: Ekalia.png
+      classes:
+        i: 2
+        1: parroteer
+        2: sibyl
+      style_manu:
+        i: 3
+        1: maximize.explore
+        2: reroll.streetwise
+        3: custom.ekalian_fencing
+
+    ondala:
+      capital: diega
+      lang: 
+        i: 2
+        1: ondalese
+        2: old_qartan
+      religion:
+        i: 1
+        1: asrian
+      color:
+        i: 2
+        1: sanguine
+        2: or
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/a/af/Ondala.png
+        dir: a/af
+        filename: Ondala.png
+      classes:
+        i: 2
+        1: cocinera
+        2: theologian
+      style_manu:
+        i: 3
+        1: maximize.scholarship
+        2: reroll.interaction
+        3: custom.ondalan_fencing
+
+    talania:
+      capital: zamorov
+      lang: 
+        i: 1
+        1: talanian
+      religion:
+        i: 2
+        1: asrian
+        2: the_five_fathers
+      color:
+        i: 2
+        1: sable
+        2: gules
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/a/a3/Talania.png
+        dir: a/a3
+        filename: Talania.png
+      classes:
+        i: 2
+        1: skomorokh
+        2: toymaker
+      style_manu:
+        i: 3
+        1: maximize.clockworks
+        2: reroll.nature
+        3: custom.talanian_fencing
+
+
+    varendia:
+      capital: medtken
+      lang: 
+        i: 1
+        1: varendish
+      religion:
+        i: 2
+        1: asrian
+        2: the_five_fathers
+      color:
+        i: 2
+        1: tenne
+        2: vert
+      flag_url: 
+        i: 1
+        full: http:/boldpueblo.com/w/images/9/9e/Varendia.png
+        dir: 9/9e
+        filename: Varendia.png
+      classes:
+        i: 2
+        1: engineer
+        2: mountaineer
+      style_manu:
+        i: 3
+        1: maximize.carouse
+        2: reroll.military
+        3: custom.varendish_pikefighting
+
+    pitdah:
+      capital: pitdah
+      lang: 
+        i: 1
+        1: ifrani
+      religion:
+        i: 1
+        1: devran
+      color:
+        i: 0
+      flag_url: 
+        i: 0
+      classes:
+        i: 1
+        1: faris
+      style_manu:
+        i: 3
+        1: maximize.perceive
+        2: reroll.nature
+        3: custom.ifrani_swordplay
+
+    ubar:
+      capital: ubar
+      lang: 
+        i: 1
+        1: ifrani
+      religion:
+        i: 1
+        1: devran
+      color:
+        i: 0
+      flag_url: 
+        i: 0
+      classes:
+        i: 1
+        1: stargazer
+      style_manu:
+        i: 3
+        1: maximize.perceive
+        2: reroll.nature
+        3: custom.ifrani_swordplay
+
+    mwene_karanga:
+      capital: unknown
+      lang: 
+        i: 1
+        1: karangan
+      religion:
+        i: 0
+      color:
+        i: 1
+        1: or
+      flag_url: 
+        i: 0
+      classes:
+        i: 0
+      style_manu:
+        i: 0
+
+    coffee_coast:
+      capital: unknown
+      lang: 
+        i: 1
+        1: khefikkan
+      religion:
+        i: 0
+      color:
+        i: 2
+        1: tenne
+        2: murrey
+      flag_url: 
+        i: 0
+      classes:
+        i: 0
+      style_manu:
+        i: 0
+
+    serica:
+      capital: unknown
+      lang: 
+        i: 1
+        1: serican
+      religion:
+        i: 0
+      color:
+        i: 2
+        1: purpure
+        2: argent
+      flag_url: 
+        i: 0
+      classes:
+        i: 0
+      style_manu: 
+        i: 0
+
+    qartan_empire:
+      capital: qarta
+      lang: 
+        i: 1
+        1: old_qartan
+      religion:
+        i: 1
+        1: asrian
+      color:
+        i: 2
+        1: or
+        2: sanguine
+      flag_url: 
+        i: 0
+      classes:
+        i: 0
+      style_manu:
+        i: 0
+
+  dat_language:
+
+    gallinean: 
+      countries:
+        i: 2
+        1: gallinea
+        2: elissia
+      roots:
+        i: 2
+        1: old_qartan
+        2: brigue
+      alphabet: qartan
+      equiv: french
+
+    albian:
+      countries:
+        i: 4
+        1: albia
+        2: new_dunon
+        3: storm_islands
+        4: albingia
+      roots:
+        i: 3
+        1: ancient_varendish
+        2: old_qartan
+        3: mathain
+      alphabet: qartan
+      equiv: english
+
+    ondalese:
+      countries:
+        i: 2
+        1: ondala
+        2: new_cordera
+      roots:
+        i: 1
+        1: old_qartan
+      alphabet: qartan
+      equiv: spanish
+
+    ekalian:
+      countries:
+        i: 2
+        1: ekalia
+        2: dragosa
+      roots:
+        i: 3
+        1: ancient_ekalian
+        2: old_qartan
+        3: khefikkan
+      alphabet: ekalian
+      equiv: greek
+
+    varendish:
+      countries:
+        i: 3
+        1: varendia
+        2: dragosa
+        3: scanbria
+      roots:
+        i: 1
+        1: ancient_varendish
+      alphabet: varendish
+      equiv: german
+
+    talanian:
+      countries:
+        i: 3
+        1: talania
+        2: dragosa
+        3: valerienne
+      roots:
+        i: 1
+        1: ancient_varendish
+      alphabet: varendish
+      equiv: russian
+
+    ifrani:
+      countries:
+        i: 3
+        1: pitdah
+        2: ubar
+        3: lost_city_of_aad
+      roots:
+        i: 2
+        1: old_qartan
+        2: karangan
+      alphabet: aad
+      equiv: arabic
+
+    old_qartan:
+      countries:
+        i: 2
+        1: qartan_empire
+        2: ondala 
+      roots:
+        i: 3
+        1: khefikkan
+        2: karangan
+        3: ancient_ekalian
+      alphabet: qartan
+      equiv: latin
+
+    karangan:
+      countries:
+        i: 1
+        1: mwene_karanga
+      roots:
+        i: 0
+      alphabet: karangan
+      equiv: yoruba
+
+    serican:
+      countries:
+        i: 1
+        1: serica
+      roots:
+        i: 0
+      alphabet: serican
+      equiv: chinese
+
+    khefikkan:
+      countries:
+        i: 1
+        1: coffee_coast 
+      roots:
+        i: 0
+      alphabet: khefikkan
+      equiv: turkish
+
+    mathain:
+      countries:
+        i: 3
+        1: bear_island
+        2: storm_islands 
+        3: albia
+      roots:
+        i: 0
+      alphabet: mathac
+      equiv: gaelic
+
+    brigue:
+      countries:
+        i: 1
+        1: gallinea
+      roots:
+        i: 1
+        1: khefikkan
+      alphabet: khefikkan
+      equiv: romani
+
+    ancient_varendish:
+      countries:
+        i: 4
+        1: varendia
+        2: talania
+        3: dragosa
+        4: albia
+      roots:
+        i: 0
+      alphabet: varendish
+      equiv: ancient_germanic
+
+    ancient_ekalian: 
+      countries:
+        i: 1
+        1: ekalia
+      roots:
+        i: 2
+        1: old_qartan
+        2: khefikkan
+      alphabet: ekalian
+      equiv: ancient_greek
+
+  dat_alpha:
+    aad:
+      equiv: arabic
+      lang:
+        i: 1
+        1: ifrani
+    ekalian:
+      equiv: greek_and_coptic
+      lang:
+        i: 2
+        1: ekalian
+        2: ancient_ekalian
+    karangan:
+      equiv: vai
+      lang:
+        i: 1
+        1: karangan
+    khefikkan:
+      equiv: ethiopic
+      lang:
+        i: 2
+        1: khefikkan
+        2: brigue
+    mathac:
+      equiv: ogham
+      lang:
+        i: 1
+        1: mathain
+    qartan:
+      equiv: latin
+      lang:
+        i: 4
+        1: gallinean
+        2: albian
+        3: ondalese
+        4: old_qartan
+    serican:
+      equiv: kangxi_radicals
+      lang:
+        i: 1
+        1: serican
+    varendish:
+      equiv: runic
+      lang:
+        i: 3
+        1: varendish
+        2: talanian
+        3: ancient_varendish
+
+
+nested_tables:
+  random_name:
+    dragosa_male:
+      - "<b>{{random_name.ekalia_male}}</b> (<i>{{ui_name.male}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_male}}</b> (<i>{{ui_name.male}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_male}}</b> (<i>{{ui_name.male}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+    dragosa_female:
+      - "<b>{{random_name.ekalia_female}}</b> (<i>{{ui_name.female}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_female}}</b> (<i>{{ui_name.female}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_female}}</b> (<i>{{ui_name.female}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+    dragosa_either:
+      - "{{random_name.dragosa_male}}"
+      - "{{random_name.dragosa_female}}"
+
+    any_country_male:
+      - "<b>{{random_name.gallinea_male}}</b> (<i>{{ui_name.male}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_male}}</b> (<i>{{ui_name.male}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_male}}</b> (<i>{{ui_name.male}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.albia_male}}</b> (<i>{{ui_name.male}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.albia_male}}</b> (<i>{{ui_name.male}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ekalia_male}}</b> (<i>{{ui_name.male}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ekalia_male}}</b> (<i>{{ui_name.male}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ifran_male}}</b> (<i>{{ui_name.male}} {{ui_name.ifran}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_male}}</b> (<i>{{ui_name.male}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_male}}</b> (<i>{{ui_name.male}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_male}}</b> (<i>{{ui_name.male}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_male}}</b> (<i>{{ui_name.male}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_male}}</b> (<i>{{ui_name.male}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_male}}</b> (<i>{{ui_name.male}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_male}}</b> (<i>{{ui_name.male}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_male}}</b> (<i>{{ui_name.male}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+
+    any_country_female:
+      - "<b>{{random_name.gallinea_female}}</b> (<i>{{ui_name.female}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}}</b> (<i>{{ui_name.female}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}}</b> (<i>{{ui_name.female}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.albia_female}}</b> (<i>{{ui_name.female}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.albia_female}}</b> (<i>{{ui_name.female}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ekalia_female}}</b> (<i>{{ui_name.female}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ekalia_female}}</b> (<i>{{ui_name.female}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ifran_female}}</b> (<i>{{ui_name.female}} {{ui_name.ifran}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_female}}</b> (<i>{{ui_name.female}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_female}}</b> (<i>{{ui_name.female}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_female}}</b> (<i>{{ui_name.female}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_female}}</b> (<i>{{ui_name.female}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_female}}</b> (<i>{{ui_name.female}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_female}}</b> (<i>{{ui_name.female}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_female}}</b> (<i>{{ui_name.female}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_female}}</b> (<i>{{ui_name.female}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+
+    any_country_either:
+      - "{{random_name.any_country_female}}"
+      - "{{random_name.any_country_male}}"
+
+    gallinea_either:
+      - "<b>{{random_name.gallinea_female}}</b> (<i>{{ui_name.female}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_male}}</b> (<i>{{ui_name.male}} {{ui_name.gallinea}} {{ui_name.name}}</i>)"
+
+    gallinea_any_region_male:
+      - "<b>{{random_name.gallinea_male}} {{random_name.coeur_de_gallinea}}</b> (<i>{{ui_name.male}} {{ui_name.coeur_de_gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_male}} {{random_name.jeweled_coast}}</b> (<i>{{ui_name.male}} {{ui_name.jeweled_coast}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_male}} {{random_name.lowlands}}</b> (<i>{{ui_name.male}} {{ui_name.lowlands}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.scanbria_male}} {{random_name.scanbria}}</b> (<i>{{ui_name.male}} {{ui_name.scanbria}} {{ui_name.name}}</i>)"
+
+
+    gallinea_any_region_female:
+      - "<b>{{random_name.gallinea_female}} {{random_name.coeur_de_gallinea}}</b> (<i>{{ui_name.female}} {{ui_name.coeur_de_gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}} {{random_name.jeweled_coast}}</b> (<i>{{ui_name.female}} {{ui_name.jeweled_coast}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}} {{random_name.lowlands}}</b> (<i>{{ui_name.female}} {{ui_name.lowlands}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.scanbria_female}} {{random_name.scanbria}}</b> (<i>{{ui_name.female}} {{ui_name.scanbria}} {{ui_name.name}}</i>)"
+
+
+    gallinea_any_region_either:
+      - "{{random_name.gallinea_any_region_female}}"
+      - "{{random_name.gallinea_any_region_male}}"
+
+    gallinea_female:
+      - "Adeline"
+      - "Alays"
+      - "Aldegonde"
+      - "Aldeta"
+      - "Aliecte"
+      - "Allis"
+      - "Allune"
+      - "Ameline"
+      - "Andrena"
+      - "Andrienne"
+      - "Angelique"
+      - "Armelle"
+      - "Astrugue"
+      - "Aubree"
+      - "Audegonne"
+      - "Avisse"
+      - "Barbe"
+      - "Bartonne"
+      - "Basile"
+      - "Baudynne"
+      - "Betris"
+      - "Biciere"
+      - "Bietrix"
+      - "Blaisette"
+      - "Bonne"
+      - "Cahotte"
+      - "Caize"
+      - "Callotte"
+      - "Cezille"
+      - "Clare"
+      - "Clareta"
+      - "Clementia"
+      - "Collaye"
+      - "Cornille"
+      - "Crespine"
+      - "Dargy"
+      - "Denyse"
+      - "Druette"
+      - "Emmeline"
+      - "Emone"
+      - "Erme"
+      - "Esdeline"
+      - "Estevene"
+      - "Eustasse"
+      - "Extasse"
+      - "Fleurie"
+      - "Florymonde"
+      - "Flourie"
+      - "Garina"
+      - "Genevieve"
+      - "Gervaise"
+      - "Gilette"
+      - "Gradine"
+      - "Hanain"
+      - "Haulduine"
+      - "Havis"
+      - "Helene"
+      - "Helicent"
+      - "Hennete"
+      - "Hersent"
+      - "Jacqueline"
+      - "Jacquelle"
+      - "Jacqueste"
+      - "Jacquine"
+      - "Janseranda"
+      - "Jehanne"
+      - "Jehannevieufve"
+      - "Jherosme"
+      - "Jois"
+      - "Jossete"
+      - "Justine"
+      - "Laurente"
+      - "Leurenche"
+      - "Lionne"
+      - "Lore"
+      - "Loyse"
+      - "Lucque"
+      - "Lusette"
+      - "Mahault"
+      - "Mahelot"
+      - "Marcile"
+      - "Marguine"
+      - "Marque"
+      - "Masselia"
+      - "Mateline"
+      - "Melciotte"
+      - "Meline"
+      - "Mezot"
+      - "Micquiele"
+      - "Mondette"
+      - "Nicaise"
+      - "Nicolette"
+      - "Nonela"
+      - "Nonne"
+      - "Odeline"
+      - "Olyna"
+      - "Ottelette"
+      - "Pacquette"
+      - "Pasque"
+      - "Perine"
+      - "Peronne"
+      - "Peyrinne"
+      - "Plourette"
+      - "Poisne"
+      - "Poncelette"
+      - "Quateline"
+      - "Quentine"
+      - "Rectrude"
+      - "Renee"
+      - "Restitue"
+      - "Roisne"
+      - "Rose"
+      - "Royne"
+      - "Sacrée"
+      - "Sandrine"
+      - "Saura"
+      - "Sebille"
+      - "Sezillons"
+      - "Simonne"
+      - "Sylvie"
+      - "Teffaine"
+      - "Thieffaine"
+      - "Tiessa"
+      - "Tonyna"
+      - "Toussaine"
+      - "Vandalene"
+      - "Victoire"
+      - "Vingtremette"
+      - "Weceline"
+      - "Ydee"
+      - "Yolente"
+      - "Yoline"
+      - "Yzabeau"
+
+    gallinea_male:
+      - "Aimery"
+      - "Alain"
+      - "Allard"
+      - "Amelin"
+      - "Ancel"
+      - "Andrieu"
+      - "Antoine"
+      - "Archille"
+      - "Aribert"
+      - "Arnault"
+      - "Artus"
+      - "Astort"
+      - "Aubert"
+      - "Audrien"
+      - "Auguinare"
+      - "Aulbin"
+      - "Azor"
+      - "Bastien"
+      - "Baudart"
+      - "Benabic"
+      - "Berard"
+      - "Bettremeiux"
+      - "Biciere"
+      - "Blaise"
+      - "Blaze"
+      - "Brisse"
+      - "Buesart"
+      - "Burieau"
+      - "Clarembaut"
+      - "Colart"
+      - "Collart"
+      - "Constant"
+      - "Cornil"
+      - "Crespin"
+      - "Denis"
+      - "Dreux"
+      - "Dydier"
+      - "Edme"
+      - "Eliot"
+      - "Eloy"
+      - "Eralh"
+      - "Esdrée"
+      - "Estiene"
+      - "Felix"
+      - "Fermin"
+      - "Ferry"
+      - "Finas"
+      - "Firmin"
+      - "Floris"
+      - "Flourent"
+      - "Foubert"
+      - "Framboust"
+      - "Fyacre"
+      - "Galleran"
+      - "Garrin"
+      - "Gaston"
+      - "Genry"
+      - "Gentian"
+      - "Gervais"
+      - "Gilles"
+      - "Guerin"
+      - "Hacquin"
+      - "Hazart"
+      - "Helis"
+      - "Hemet"
+      - "Hevelin"
+      - "Honorre"
+      - "Hoste"
+      - "Hue"
+      - "Isembart"
+      - "Jallemart"
+      - "Jaspart"
+      - "Jherosme"
+      - "Joffroy"
+      - "Jorram"
+      - "Jossequin"
+      - "Lambert"
+      - "Lanvin"
+      - "Legier"
+      - "Lorens"
+      - "Loth"
+      - "Loup"
+      - "Macé"
+      - "Maillin"
+      - "Margain"
+      - "Marin"
+      - "Marque"
+      - "Matelin"
+      - "Melchior"
+      - "Morant"
+      - "Nevelet"
+      - "Nicaise"
+      - "Noullet"
+      - "Odyon"
+      - "Oudart"
+      - "Percevale"
+      - "Philippe"
+      - "Piat"
+      - "Pomponne"
+      - "Quentin"
+      - "Rasse"
+      - "Regnault"
+      - "Remi"
+      - "Reo"
+      - "Robecler"
+      - "Roch"
+      - "Rolland"
+      - "Sacrain"
+      - "Savain"
+      - "Sinforien"
+      - "Surien"
+      - "Tassart"
+      - "Thierry"
+      - "Thiery"
+      - "Torgeu"
+      - "Urbain"
+      - "Vaast"
+      - "Valentin"
+      - "Venant"
+      - "Vinchant"
+      - "Wautier"
+      - "Wes"
+      - "Yollin"
+      - "Yter"
+      - "Yves"
+
+    coeur_de_gallinea_either:
+      - "<b>{{random_name.gallinea_male}} {{random_name.coeur_de_gallinea}}</b> (<i>{{ui_name.male}} {{ui_name.coeur_de_gallinea}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}} {{random_name.coeur_de_gallinea}}</b> (<i>{{ui_name.female}} {{ui_name.coeur_de_gallinea}} {{ui_name.name}}</i>)"
+
+    coeur_de_gallinea:
+      - "Amiraude"
+      - "Avocate"
+      - "Barbiere"
+      - "Castenia"
+      - "Chamberiere"
+      - "Championne"
+      - "Chauciere"
+      - "Chevaliere"
+      - "Coeur"
+      - "Cornette"
+      - "Decastenia"
+      - "Degueve"
+      - "Delalente"
+      - "Delaluisante"
+      - "Delutetia"
+      - "Detouriel"
+      - "Ducoeur"
+      - "Especiere"
+      - "Floriere"
+      - "Garcon"
+      - "Gueve"
+      - "Hostelliere"
+      - "Labarbiere"
+      - "Lachamberiere"
+      - "Lachampionne"
+      - "Lachauciere"
+      - "Lachevaliere"
+      - "Lacornette"
+      - "Lafloriere"
+      - "Lagarcon"
+      - "Lahostelliere"
+      - "Lalombarde"
+      - "Lamarcheande"
+      - "Lamiraude"
+      - "Lamirgesse"
+      - "Lanorrice"
+      - "Laportiere"
+      - "Lasarjente"
+      - "Lasavonniere"
+      - "Lavocate"
+      - "Laymagiere"
+      - "Lente"
+      - "Lespeciere"
+      - "Lombarde"
+      - "Loubliere"
+      - "Luisante"
+      - "Lutetia"
+      - "Marcheande"
+      - "Mirgesse"
+      - "Norrice"
+      - "Oubliere"
+      - "Portiere"
+      - "Sarjente"
+      - "Savonniere"
+      - "Touriel"
+      - "Ymagiere"
+      - "de Castenia"
+      - "de Gueve"
+      - "de Lutetia"
+      - "de Touriel"
+      - "de la Lente"
+      - "de la Luisante"
+      - "du Coeur"
+      - "l'Amiraude"
+      - "l'Avocate"
+      - "l'Especiere"
+      - "l'Oubliere"
+      - "la Barbiere"
+      - "la Chamberiere"
+      - "la Championne"
+      - "la Chauciere"
+      - "la Chevaliere"
+      - "la Cornette"
+      - "la Floriere"
+      - "la Garcon"
+      - "la Hostelliere"
+      - "la Lombarde"
+      - "la Marcheande"
+      - "la Mirgesse"
+      - "la Norrice"
+      - "la Portiere"
+      - "la Sarjente"
+      - "la Savonniere"
+      - "la Ymagiere"
+
+    jeweled_coast_either:
+      - "<b>{{random_name.gallinea_male}} {{random_name.jeweled_coast}}</b> (<i>{{ui_name.male}} {{ui_name.jeweled_coast}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}} {{random_name.jeweled_coast}}</b> (<i>{{ui_name.female}} {{ui_name.jeweled_coast}} {{ui_name.name}}</i>)"
+
+    jeweled_coast:
+      - "Aneliere"
+      - "Armeuriere"
+      - "Barquaresse"
+      - "Berylle"
+      - "Boucliere"
+      - "Canard"
+      - "Canard"
+      - "Chandeliere"
+      - "Deberylle"
+      - "Decanard"
+      - "Deiciere"
+      - "Delacanard"
+      - "Delamar"
+      - "Demontambre"
+      - "Depersolei"
+      - "Derhodope"
+      - "Favre"
+      - "Glaisyere"
+      - "Joaliere"
+      - "Jugleresse"
+      - "Labarquaresse"
+      - "Laboucliere"
+      - "Lachandeliere"
+      - "Ladeiciere"
+      - "Lafavre"
+      - "Laglaisyere"
+      - "Lajoaliere"
+      - "Lajugleresse"
+      - "Lamariniere"
+      - "Laneliere"
+      - "Laperriere"
+      - "Larmeuriere"
+      - "Laserruriere"
+      - "Laverriere"
+      - "Mar"
+      - "Mariniere"
+      - "Montambre"
+      - "Perriere"
+      - "Persolei"
+      - "Rhodope"
+      - "Serruriere"
+      - "Valerienne"
+      - "Verriere"
+      - "de Berylle"
+      - "de Canard"
+      - "de Montambre"
+      - "de Persolei"
+      - "de Rhodope"
+      - "de Valerienne"
+      - "de la Canard"
+      - "de la Mar"
+      - "devalerienne"
+      - "l'Aneliere"
+      - "l'Armeuriere"
+      - "la Barquaresse"
+      - "la Boucliere"
+      - "la Chandeliere"
+      - "la Deiciere"
+      - "la Favre"
+      - "la Glaisyere"
+      - "la Joaliere"
+      - "la Jugleresse"
+      - "la Mariniere"
+      - "la Perriere"
+      - "la Serruriere"
+      - "la Verriere"
+
+    lowlands_either:
+      - "<b>{{random_name.gallinea_male}} {{random_name.lowlands}}</b> (<i>{{ui_name.male}} {{ui_name.lowlands}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.gallinea_female}} {{random_name.lowlands}}</b> (<i>{{ui_name.female}} {{ui_name.lowlands}} {{ui_name.name}}</i>)"
+
+    lowlands:
+      - "Berger"
+      - "Bouchiere"
+      - "Boueuse"
+      - "Boussole"
+      - "Bouviere"
+      - "Charpentiere"
+      - "Charretiere"
+      - "Charrone"
+      - "Deboussole"
+      - "Delaboueuse"
+      - "Delariviere"
+      - "Delaverte"
+      - "Desudelune"
+      - "Deverterre"
+      - "Dusud"
+      - "Erbiere"
+      - "Fauchere"
+      - "Fourniere"
+      - "Gagniere"
+      - "Granchiere"
+      - "Laberger"
+      - "Labouchiere"
+      - "Labouviere"
+      - "Lacharpentiere"
+      - "Lacharretiere"
+      - "Lacharrone"
+      - "Lafauchere"
+      - "Lafourniere"
+      - "Lagagniere"
+      - "Lagranchiere"
+      - "Lamaçonne"
+      - "Lamessiere"
+      - "Lamuniere"
+      - "Lapaintre"
+      - "Latalemeliere"
+      - "Laventriere"
+      - "Lerbiere"
+      - "Maçonne"
+      - "Messiere"
+      - "Muniere"
+      - "Paintre"
+      - "Riviere"
+      - "Sud"
+      - "Sudelune"
+      - "Talemeliere"
+      - "Ventriere"
+      - "Verte"
+      - "Verterre"
+      - "de Boussole"
+      - "de Sudelune"
+      - "de Verterre"
+      - "de la Boueuse"
+      - "de la Riviere"
+      - "de la Verte"
+      - "du Sud"
+      - "l'Erbiere"
+      - "la Berger"
+      - "la Bouchiere"
+      - "la Bouviere"
+      - "la Charpentiere"
+      - "la Charretiere"
+      - "la Charrone"
+      - "la Fauchere"
+      - "la Fourniere"
+      - "la Gagniere"
+      - "la Granchiere"
+      - "la Maçonne"
+      - "la Messiere"
+      - "la Muniere"
+      - "la Paintre"
+      - "la Talemeliere"
+      - "la Ventriere"
+
+    scanbria_female:
+      - "{{random_name.gallinea_female}}"
+      - "{{random_name.gallinea_female}}"
+      - "{{random_name.varendia_female}}"
+
+    scanbria_male:
+      - "{{random_name.gallinea_male}}"
+      - "{{random_name.gallinea_male}}"
+      - "{{random_name.varendia_male}}"
+
+    scanbria_either:
+      - "<b>{{random_name.scanbria_male}} {{random_name.scanbria}}</b> (<i>{{ui_name.male}} {{ui_name.scanbria}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.scanbria_female}} {{random_name.scanbria}}</b> (<i>{{ui_name.female}} {{ui_name.scanbria}} {{ui_name.name}}</i>)"
+
+    scanbria:
+      - "Affutaine"
+      - "Aguilliere"
+      - "Archiere"
+      - "Bissette"
+      - "Blazenniere"
+      - "Bois"
+      - "Bousiere"
+      - "Brisbois"
+      - "Brodeur"
+      - "Cervoisiere"
+      - "Chaput"
+      - "Cousturiere"
+      - "Cuiriere"
+      - "Daffutaine"
+      - "Desbois"
+      - "Descanbreille"
+      - "Dunord"
+      - "Forestiere"
+      - "Labissette"
+      - "Lablazenniere"
+      - "Labousiere"
+      - "Labrisbois"
+      - "Labrodeur"
+      - "Lacervoisiere"
+      - "Lachaput"
+      - "Lacousturiere"
+      - "Lacuiriere"
+      - "Laforestiere"
+      - "Laguilliere"
+      - "Lalane"
+      - "Lane"
+      - "Lapeletiere"
+      - "Larchiere"
+      - "Latapiciere"
+      - "Latesserande"
+      - "Nord"
+      - "Peletiere"
+      - "Scanbreille"
+      - "Tapiciere"
+      - "Tesserande"
+      - "d'Affutaine"
+      - "de Scanbreille"
+      - "des Bois"
+      - "du Nord"
+      - "l'Aguilliere"
+      - "la Archiere"
+      - "la Bissette"
+      - "la Blazenniere"
+      - "la Bousiere"
+      - "la Brisbois"
+      - "la Brodeur"
+      - "la Cervoisiere"
+      - "la Chaput"
+      - "la Cousturiere"
+      - "la Cuiriere"
+      - "la Forestiere"
+      - "la Lane"
+      - "la Peletiere"
+      - "la Tapiciere"
+      - "la Tesserande"
+
+    albia_female:
+
+
+      - "Achelyna"
+      - "Adinell"
+      - "Aelina"
+      - "Alesone"
+      - "Alianore"
+      - "Alyne"
+      - "Alyson"
+      - "Ameis"
+      - "Ancarata"
+      - "Angharad"
+      - "Audrey"
+      - "Avis"
+      - "Baterich"
+      - "Beak"
+      - "Beigis"
+      - "Benet"
+      - "Besseta"
+      - "Bryget"
+      - "Canny"
+      - "Charity"
+      - "Clemence"
+      - "Collys"
+      - "Deuea"
+      - "Dorathia"
+      - "Ede"
+      - "Effym"
+      - "Elinor"
+      - "Elspeth"
+      - "Elyn"
+      - "Enhinti"
+      - "Eurydil"
+      - "Fillys"
+      - "Florie"
+      - "Frideswide"
+      - "Gelis"
+      - "Gelyan"
+      - "Grisel"
+      - "Gwallaten"
+      - "Gylda"
+      - "Hawyse"
+      - "Henfyn"
+      - "Hextilda"
+      - "Honor"
+      - "Imyne"
+      - "Iwe"
+      - "Jain"
+      - "Jennet"
+      - "Jonet"
+      - "Josian"
+      - "Kateryn"
+      - "Kemma"
+      - "Kirchine"
+      - "Kynborow"
+      - "Lettice"
+      - "Leueua"
+      - "Livid"
+      - "Lleiki"
+      - "Maisenta"
+      - "Margry"
+      - "Maud"
+      - "Meriall"
+      - "Merwenna"
+      - "Morwyd"
+      - "Nevyn"
+      - "Orabilia"
+      - "Osanna"
+      - "Parnell"
+      - "Quenilda"
+      - "Rigantmelta"
+      - "Rinalda"
+      - "Rosamund"
+      - "Rose"
+      - "Sely"
+      - "Sence"
+      - "Sibilla"
+      - "Swanekilda"
+      - "Swannoc"
+      - "Swethyna"
+      - "Sydok"
+      - "Syffy"
+      - "Sysley"
+      - "Tibbe"
+      - "Violet"
+      - "Wilmot"
+      - "Wimar"
+      - "Winifred"
+      - "Yedythe"
+      - "Ysenda"
+
+    albia_male:
+
+      - "Andro"
+      - "Atto"
+      - "Barnard"
+      - "Bartram"
+      - "Beorn"
+      - "Burgstan"
+      - "Cuthbert"
+      - "Dackin"
+      - "Dawy"
+      - "Dovny"
+      - "Dunstane"
+      - "Elfric"
+      - "Esmour"
+      - "Folke"
+      - "Gavand"
+      - "Griffin"
+      - "Guy"
+      - "Hay"
+      - "Hendrie"
+      - "Herry"
+      - "Hew"
+      - "Hopkin"
+      - "Ingram"
+      - "Jakys"
+      - "Jenkin"
+      - "Jenlyns"
+      - "Jollyn"
+      - "Kenelm"
+      - "Kinvrig"
+      - "Leyson"
+      - "Lulling"
+      - "Malys"
+      - "Morgan"
+      - "Morys"
+      - "Neyll"
+      - "Niniane"
+      - "Olever"
+      - "Ordric"
+      - "Oswald"
+      - "Powle"
+      - "Quinton"
+      - "Rafe"
+      - "Roben"
+      - "Rowland"
+      - "Sewel"
+      - "Thames"
+      - "Tulk"
+      - "Tunstall"
+      - "Vyncent"
+      - "Warin"
+      - "Wulfryd"
+      - "Wyllin"
+
+
+
+    albia_either:
+      - "<b>{{random_name.albia_male}}</b> (<i>{{ui_name.male}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.albia_female}}</b> (<i>{{ui_name.female}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+
+    ekalia_female:
+
+      - "Adalina"
+      - "Agnola"
+      - "Alamanna"
+      - "Alessandra"
+      - "Alzeiza"
+      - "Andreola"
+      - "Anzola"
+      - "Audisia"
+      - "Aulina"
+      - "Aymoneta"
+      - "Baldanca"
+      - "Betta"
+      - "Bettina"
+      - "Cara"
+      - "Cecilia"
+      - "Certa"
+      - "Collela"
+      - "Corsa"
+      - "Dierna"
+      - "Domenega"
+      - "Doviga"
+      - "Ducle"
+      - "Eufomia"
+      - "Flordiana"
+      - "Fomia"
+      - "Galiana"
+      - "Gherarda"
+      - "Gnesetta"
+      - "Gniese"
+      - "Imeldina"
+      - "Imperaise"
+      - "Ixabeta"
+      - "Jema"
+      - "Leni"
+      - "Lise"
+      - "Losaneta"
+      - "Lutia"
+      - "Manetta"
+      - "Mirabillis"
+      - "Momina"
+      - "Nencia"
+      - "Oliva"
+      - "Orsina"
+      - "Pellegrina"
+      - "Perretta"
+      - "Piera"
+      - "Presidia"
+      - "Sassa"
+      - "Sena"
+      - "Taddea"
+      - "Ventura"
+      - "Verdiana"
+      - "Viga"
+      - "Vinca"
+      - "Ymeldina"
+      - "Zanobia"
+
+    ekalia_male:
+      - "Adan"
+      - "Agnolo"
+      - "Agostino"
+      - "Agustin"
+      - "Albrigo"
+      - "Allessandro"
+      - "Ambroxo"
+      - "Antuogno"
+      - "Averardo"
+      - "Baldassare"
+      - "Barixono"
+      - "Bastian"
+      - "Cadere"
+      - "Carlo"
+      - "Cassano"
+      - "Cecco"
+      - "Cenzon"
+      - "Ceseron"
+      - "Checo"
+      - "Chimento"
+      - "Cosimo"
+      - "Dagnano"
+      - "Domenego"
+      - "Fanucio"
+      - "Ferigo"
+      - "Florino"
+      - "Fostin"
+      - "Freo"
+      - "Galiazzo"
+      - "Gherardo"
+      - "Giachemo"
+      - "Giovanni"
+      - "Gostin"
+      - "Grigolo"
+      - "Guio"
+      - "Hetor"
+      - "Ixepo"
+      - "Justasada"
+      - "Lazzaro"
+      - "Lionzo"
+      - "Lodovigo"
+      - "Lunardo"
+      - "Marcuro"
+      - "Marino"
+      - "Menego"
+      - "Olivio"
+      - "Onesto"
+      - "Orazio"
+      - "Pagolo"
+      - "Pantaleo"
+      - "Perin"
+      - "Piaton"
+      - "Piero"
+      - "Rigo"
+      - "Rudi"
+      - "Salvestro"
+      - "Sandro"
+      - "Slazaro"
+      - "Strozza"
+      - "Svetrulio"
+      - "Tozzo"
+      - "Tuogno"
+      - "Umberto"
+      - "Verzilio"
+      - "Viatti"
+      - "Zanetto"
+      - "Zanobi"
+      - "Zazeron"
+      - "Zilio"
+      - "Zuane"
+
+    ekalia_either:
+      - "<b>{{random_name.ekalia_male}}</b> (<i>{{ui_name.male}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ekalia_female}}</b> (<i>{{ui_name.female}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+
+
+    ifran_female:
+      - "Alime"
+      - "Bakht"
+      - "Banjuu"
+      - "Benefse"
+      - "Bidili"
+      - "Dedesmit"
+      - "Fakhire"
+      - "Firuze"
+      - "Gülruh"
+      - "Huma"
+      - "Jamali"
+      - "Khadija"
+      - "Khanzada"
+      - "Kumru"
+      - "Mahisti"
+      - "Marula"
+      - "Melek"
+      - "Melike"
+      - "Mihri"
+      - "Nar"
+      - "Nergis"
+      - "Nihani"
+      - "Periaconcona"
+      - "Pertevi"
+      - "Piruz"
+      - "Qaasaa"
+      - "Sabûr"
+      - "Shahzada"
+      - "Shirin"
+      - "Sitti"
+      - "Tajlu"
+      - "Terevvi"
+      - "Tomyris"
+
+
+    ifran_male:
+      - "Aidere"
+      - "Amet"
+      - "Armagan"
+      - "Dervis"
+      - "Elvan"
+      - "Emanguli"
+      - "Idris"
+      - "Ixis"
+      - "Karaca"
+      - "Mirize"
+      - "Receb"
+      - "Salmas"
+      - "Saruca"
+      - "Solimano"
+      - "Sundiata"
+      - "Tahmuras"
+      - "Tarhan"
+      - "Zalchan"
+
+    ifran_either:
+      - "<b>{{random_name.ifran_male}}</b> (<i>{{ui_name.male}} {{ui_name.ifran}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ifran_female}}</b> (<i>{{ui_name.female}} {{ui_name.ifran}} {{ui_name.name}}</i>)"
+
+    ondala_male:
+    - "Almeyque"
+    - "Alonso"
+    - "Altar"
+    - "Alvaro"
+    - "Antón"
+    - "Arias"
+    - "Beneyto"
+    - "Blasco"
+    - "Blay"
+    - "Brahen"
+    - "Celdoni"
+    - "Coli"
+    - "Cosme"
+    - "Diego"
+    - "Dimas"
+    - "Domingo"
+    - "Donis"
+    - "Ettor"
+    - "Felip"
+    - "Ferrand"
+    - "Galceran"
+    - "Gaspar"
+    - "Gauriel"
+    - "Genis"
+    - "Gil"
+    - "Gonçalo"
+    - "Gregorio"
+    - "Hortun"
+    - "Jeroni"
+    - "Larnaz"
+    - "Lono"
+    - "Melchior"
+    - "Millan"
+    - "Nadal"
+    - "Narcis"
+    - "Nicasi"
+    - "Onofre"
+    - "Ontañon"
+    - "Pasqual"
+    - "Pequi"
+    - "Perico"
+    - "Pero"
+    - "Ramon"
+    - "Remero"
+    - "Rodrigo"
+    - "Ruy"
+    - "Suero"
+    - "Tenorio"
+    - "Valero"
+    - "Vicencio"
+    - "Ximen"
+    - "Ydalla"
+    - "Yñigo"
+    - "Zezaro"
+
+
+    ondala_female:
+
+    - "Ageda"
+    - "Aicelina"
+    - "Alatara"
+    - "Alayda"
+    - "Aldinicia"
+    - "Alvira"
+    - "Andreva"
+    - "Angelina"
+    - "Aularia"
+    - "Beatris"
+    - "Belascuza"
+    - "Blanca"
+    - "Camilia"
+    - "Castellana"
+    - "Catalana"
+    - "Cetina"
+    - "Chiteria"
+    - "Constancza"
+    - "Cosma"
+    - "Damiata"
+    - "Domeca"
+    - "Elena"
+    - "Emazteona"
+    - "Engraçia"
+    - "Eulalia"
+    - "Eyria"
+    - "Felipa"
+    - "Florinda"
+    - "Galharda"
+    - "Genisa"
+    - "Gila"
+    - "Gracia"
+    - "Gyomar"
+    - "Inez"
+    - "Justa"
+    - "Loreta"
+    - "Lyanor"
+    - "Marquesa"
+    - "Mayor"
+    - "Mencia"
+    - "Miata"
+    - "Olalla"
+    - "Oneca"
+    - "Ortissa"
+    - "Palacesa"
+    - "Pascuala"
+    - "Pelejana"
+    - "Quiteria"
+    - "Ramira"
+    - "Ricla"
+    - "Rixenda"
+    - "Sancia"
+    - "Scolana"
+    - "Tanzeda"
+    - "Tareza"
+    - "Tecla"
+    - "Tereysa"
+    - "Tonixqua"
+    - "Ursola"
+    - "Viana"
+    - "Vicenta"
+    - "Violante"
+    - "Yenega"
+    - "Ysabet"
+    - "Zianna"
+
+    ondala_either:
+      - "<b>{{random_name.ondala_male}}</b> (<i>{{ui_name.male}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.ondala_female}}</b> (<i>{{ui_name.female}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+
+
+    talania_female:
+      - "Adaliunda"
+      - "Adla"
+      - "Afaila"
+      - "Agna"
+      - "Anizka"
+      - "Anka"
+      - "Arina"
+      - "Betce"
+      - "Birut"
+      - "Caltuna"
+      - "Chava"
+      - "Cneajna"
+      - "Doina"
+      - "Fedora"
+      - "Hicela"
+      - "Iadviga"
+      - "Irina"
+      - "Jadwiga"
+      - "Kenna"
+      - "Khata"
+      - "Klára"
+      - "Krina"
+      - "Ksenia"
+      - "Lenuta"
+      - "Musatei"
+      - "Neaga"
+      - "Ografena"
+      - "Olena"
+      - "Oria"
+      - "Paladia"
+      - "Paramona"
+      - "Petsa"
+      - "Radosta"
+      - "Raluka"
+      - "Rayna"
+      - "Ruxandra"
+      - "Ryska"
+      - "Smaranda"
+      - "Stanizza"
+      - "Vasica"
+      - "Viorika"
+      - "Voica"
+      - "Zabela"
+      - "Zdislava"
+      - "Zelva"
+      - "Znata"
+      - "Zoia"
+
+    talania_male:
+      - "Abla"
+      - "Abykan"
+      - "Adash"
+      - "Aetii"
+      - "Afon"
+      - "Anagast"
+      - "Arkhar"
+      - "Aron"
+      - "Baatyr"
+      - "Bakula"
+      - "Balc"
+      - "Baran"
+      - "Basarab"
+      - "Bekhin"
+      - "Bel"
+      - "Bogdan"
+      - "Borys"
+      - "Ciubar"
+      - "Dragos"
+      - "Ilias"
+      - "Ioan"
+      - "Iuga"
+      - "Jaromir"
+      - "Kaspar"
+      - "Kulin"
+      - "Ladislas"
+      - "Latcu"
+      - "Litovoi"
+      - "Mihnea"
+      - "Milos"
+      - "Mircea"
+      - "Ogaf"
+      - "Pirvu"
+      - "Pjvo"
+      - "Radik"
+      - "Radu"
+      - "Rulav"
+      - "Rurik"
+      - "Ryk"
+      - "Sas"
+      - "Seneslav"
+      - "Stemid"
+      - "Tihomir"
+      - "Ulas"
+      - "Velmud"
+      - "Vintila"
+      - "Vladislav"
+      - "Zabor"
+      - "Zando"
+      - "Zherebilo"
+      - "Zyk"
+
+    talania_either:
+      - "<b>{{random_name.talania_male}}</b> (<i>{{ui_name.male}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.talania_female}}</b> (<i>{{ui_name.female}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+
+    varendia_female:
+      - "Abeleken"
+      - "Adelhayt"
+      - "Aennlin"
+      - "Affra"
+      - "Agda"
+      - "Aldis"
+      - "Alheyden"
+      - "Alladt"
+      - "Arnkatla"
+      - "Asny"
+      - "Asta"
+      - "Aythe"
+      - "Beken"
+      - "Berbelin"
+      - "Bereta"
+      - "Berthildis"
+      - "Birna"
+      - "Birtika"
+      - "Breide"
+      - "Bridlin"
+      - "Bytzel"
+      - "Carstine"
+      - "Claur"
+      - "Dalla"
+      - "Demuth"
+      - "Duretta"
+      - "Ells"
+      - "Engell"
+      - "Ewa"
+      - "Eydis"
+      - "Fela"
+      - "Finna"
+      - "Fronica"
+      - "Genefe"
+      - "Geras"
+      - "Gersche"
+      - "Geseke"
+      - "Ghunwar"
+      - "Greth"
+      - "Hebelle"
+      - "Hedel"
+      - "Hille"
+      - "Ilsebeen"
+      - "Ingunn"
+      - "Irmeltrud"
+      - "Irmla"
+      - "Jonata"
+      - "Junta"
+      - "Keterlin"
+      - "Keth"
+      - "Kungunt"
+      - "Kunlen"
+      - "Libeste"
+      - "Liepmayt"
+      - "Lisle"
+      - "Madlen"
+      - "Maeva"
+      - "Mareta"
+      - "Marlein"
+      - "Mecht"
+      - "Meckil"
+      - "Melkorka"
+      - "Mergel"
+      - "Merlyn"
+      - "Metke"
+      - "Neleke"
+      - "Nyess"
+      - "Othilia"
+      - "Ottilig"
+      - "Pel"
+      - "Petternel"
+      - "Phye"
+      - "Prista"
+      - "Reynse"
+      - "Ro"
+      - "Rÿchels"
+      - "Susann"
+      - "Svana"
+      - "Thale"
+      - "Thorlein"
+      - "Ursula"
+      - "Verena"
+      - "Walpurg"
+      - "Warb"
+      - "Yrmell"
+      - "Yrr"
+
+    varendia_male:
+      - "Alban"
+      - "Albrecht"
+      - "Arndt"
+      - "Arnis"
+      - "Arnsteinn"
+      - "Augsten"
+      - "Bantlin"
+      - "Bastian"
+      - "Bestlin"
+      - "Betz"
+      - "Brocuff"
+      - "Clewin"
+      - "Conlin"
+      - "Crafft"
+      - "Curt"
+      - "Detleff"
+      - "Diether"
+      - "Dirck"
+      - "Eberlein"
+      - "Enders"
+      - "Ewalt"
+      - "Gangloff"
+      - "Gelfrid"
+      - "Gerold"
+      - "Gotthart"
+      - "Greger"
+      - "Griss"
+      - "Gunnarr"
+      - "Haldorr"
+      - "Halfdan"
+      - "Hamall"
+      - "Henrich"
+      - "Herbil"
+      - "Herlein"
+      - "Hermann"
+      - "Jecklin"
+      - "Jorgen"
+      - "Jost"
+      - "Jylge"
+      - "Kalman"
+      - "Karl"
+      - "Kels"
+      - "Ketill"
+      - "Kloss"
+      - "Knorr"
+      - "Kurt"
+      - "Kylion"
+      - "Lauxe"
+      - "Leonhart"
+      - "Linhardt"
+      - "Lorentz"
+      - "Manns"
+      - "Mendel"
+      - "Merboth"
+      - "Mertlin"
+      - "Morlyn"
+      - "Nestler"
+      - "Oli"
+      - "Ormika"
+      - "Osprant"
+      - "Ott"
+      - "Radke"
+      - "Reichert"
+      - "Rein"
+      - "Roleff"
+      - "Ruger"
+      - "Sebolt"
+      - "Seferin"
+      - "Seytz"
+      - "Steinbjorn"
+      - "Stenar"
+      - "Sveinn"
+      - "Syxt"
+      - "Tilmann"
+      - "Tyle"
+      - "Ullrych"
+      - "Valten"
+      - "Vestarr"
+      - "Veytt"
+      - "Vlein"
+      - "Voltz"
+      - "Vridel"
+      - "Vtz"
+      - "Walther"
+      - "Wolffhart"
+      - "Wulff"
+      - "Zeydl"
+      - "Zyppolt"
+
+    varendia_either:
+      - "<b>{{random_name.varendia_male}}</b> (<i>{{ui_name.male}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+      - "<b>{{random_name.varendia_female}}</b> (<i>{{ui_name.female}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+

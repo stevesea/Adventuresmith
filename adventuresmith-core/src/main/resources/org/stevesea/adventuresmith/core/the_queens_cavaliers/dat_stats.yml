@@ -1,0 +1,271 @@
+---
+tables:
+  skill_list:
+    - culture
+    - defense
+    - dueling
+    - initiative
+    - interaction
+    - magicks
+    - medicine
+    - military
+    - nature
+    - observation
+    - science
+    - streetwise
+
+  spec_list:
+    - aim
+    - arts
+    - banter
+    - blackpowder
+    - block
+    - brawl
+    - brew
+    - calculus
+    - carouse
+    - clockworks
+    - deceive
+    - deduce
+    - dodge
+    - etiquette
+    - explore
+    - feint
+    - husbandry
+    - impulse
+    - inspire
+    - intuition
+    - larceny
+    - lunge
+    - negotiate
+    - parry
+    - perceive
+    - poison
+    - portents
+    - prowl
+    - riposte
+    - scholarship
+    - strategy
+    - surgery
+    - timing
+    - treat
+    - vigilance
+    - weave
+
+  pass_list:
+    - artistry
+    - church
+    - country
+    - faith
+    - family
+    - friends
+    - justice
+    - knowledge
+    - love
+    - loyalty
+    - lust
+    - pride
+    - wealth
+
+definitions:
+
+  dat_skill:
+    culture:
+      verve: arts
+      affinity: etiquette
+      guile: scholarship
+    defense:
+      verve: parry
+      affinity: block
+      guile: dodge
+    dueling:
+      verve: lunge
+      affinity: riposte
+      guile: feint
+    initiative:
+      verve: impulse
+      affinity: vigilance
+      guile: timing
+    interaction:
+      verve: inspire
+      affinity: negotiate
+      guile: deceive
+    magicks:
+      verve: weave
+      affinity: brew
+      guile: portents
+    medicine:
+      verve: surgery
+      affinity: treat
+      guile: poison
+    military:
+      verve: brawl
+      affinity: aim
+      guile: strategy
+    nature:
+      verve: explore
+      affinity: husbandry
+      guile: prowl
+    observation:
+      verve: perceive
+      affinity: intuition
+      guile: deduce
+    science:
+      verve: blackpowder
+      affinity: clockworks
+      guile: calculus
+    streetwise:
+      verve: banter
+      affinity: carouse
+      guile: larceny
+    
+  dat_spec:
+    skill:
+      aim: military
+      arts: culture
+      banter: streetwise
+      blackpowder: science
+      block: defense
+      brawl: military
+
+      brew: magicks
+      calculus: science
+      carouse: streetwise
+      clockworks: science
+      deceive: interaction
+      deduce: observation
+
+      dodge: defense
+      etiquette: culture
+      explore: nature
+      feint: dueling
+      husbandry: nature
+      impulse: initiative
+
+      inspire: interaction
+      intuition: observation
+      larceny: streetwise
+      lunge: dueling
+      negotiate: interaction
+      parry: defense
+
+      perceive: observation
+      poison: medicine
+      portents: magicks
+      prowl: nature
+      riposte: dueling
+      scholarship: culture
+
+      strategy: military
+      surgery: medicine
+      timing: initiative
+      treat: medicine
+      vigilance: initiative
+      weave: magicks
+
+    attr:
+      aim: affinity
+      arts: verve
+      banter: verve
+      blackpowder: verve
+      block: affinity
+      brawl: verve
+      brew: affinity
+      calculus: guile
+      carouse: affinity
+      clockworks: affinity
+      deceive: guile
+      deduce: guile
+      dodge: guile
+      etiquette: affinity
+      explore: verve
+      feint: guile
+      husbandry: affinity
+      impulse: verve
+      inspire: verve
+      intuition: affinity
+      larceny: guile
+      lunge: verve
+      negotiate: affinity
+      parry: verve
+      perceive: verve
+      poison: guile
+      portents: guile
+      prowl: guile
+      riposte: affinity
+      scholarship: guile
+      strategy: guile
+      surgery: verve
+      timing: guile
+      treat: affinity
+      vigilance: affinity
+      weave: verve
+
+  dat_person:
+    player:
+      wounds: 4
+      yield:
+        d0: 3
+        d6: 9
+        d8: 11
+        d10: 13
+        d12: 15
+      style:
+        start: 1
+        max: 3
+
+    rabble: 
+      wounds: 1
+      yield:
+        d0: 3
+        d6: 3
+        d8: 3
+        d10: 3
+        d12: 3
+      style:
+        start: 0
+        max: 1
+  
+    stock:
+      wounds: 2
+      yield:
+        d0: 3
+        d6: 6
+        d8: 7
+        d10: 8
+        d12: 9
+      style:
+        start: 0
+        max: 1
+  
+    minor:
+      wounds: 4
+      yield:
+        d0: 3
+        d6: 9
+        d8: 11
+        d10: 13
+        d12: 15
+      style:
+        start: 1
+        max: 3
+  
+    major: 
+      wounds: 5
+      yield:
+        d0: 6
+        d6: 12
+        d8: 14
+        d10: 16
+        d12: 18
+      style: 
+        start: 3
+        max: 6
+  
+  dat_social:
+    commoner: 0
+    soldier: 6
+    artisan: 8
+    noble: 10
+    royalty: 12
+

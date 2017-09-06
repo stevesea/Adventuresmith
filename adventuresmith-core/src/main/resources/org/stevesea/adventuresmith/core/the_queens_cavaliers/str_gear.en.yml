@@ -1,0 +1,594 @@
+---
+
+definitions:
+
+  str_nop: "{{nop}}"
+
+  str_weapon:
+
+    bow: bow (D6)
+    shortbow: shortbow (bow D6)
+    longbow: longbow (bow D8)
+    horsebow: horsebow (bow D6)
+
+    cannon: cannon (D12)
+    bombard: bombard (cannon D12)
+
+    cudgel: cudgel (D6)
+    club: club (cudgel D6)
+    mace: mace (cudgel D6)
+    truncheon: truncheon (cudgel D6)
+
+    grenade: grenade (D6)
+
+    crossbow: crossbow (bow D8)
+    arbalest: arbalest (bow D8)
+
+    knife: knife (D6)
+    bayonet: bayonet (knife D6)
+    cinquedea: cinquedea (knife D6)
+    dagger: dagger (knife D6)
+    dirk: dirk (knife D6)
+    jambiya: jambiya (knife D6)
+      
+    musket: musket (D10)
+    arquebus: arquebus (musket D10)
+    blunderbuss: blunderbuss (musket D10)
+    caliver: caliver (musket D10)
+    hackbut: hackbut (musket D10)
+
+    pike: pike (D10)
+    glaive: glaive (pike D10)
+    halberd: halberd (pike D10)
+    lance: lance (pike D10)
+    spear: spear (pike D10)
+
+    pistol: pistol (D6)
+
+    quarterstaff: quarterstaff (cudgel D6)
+
+    sword: sword (D8)
+    backsword: backsword (sword D8)
+    bilbo: bilbo (sword D8)
+    colichemarde: colichemarde (sword D8)
+    cutlass: cutlass (sword D8)
+    estoc: estoc (sword D8)
+    feder: feder (sword D8)
+    flamberge: flamberge (sword D8)
+    katzbalger: katzbalger (sword D8)
+    koncerz: koncerz (sword D8)
+    longsword: longsword (sword D8)
+    sabre: sabre (sword D8)
+    cavalry_sabre: cavalry sabre (sword D8)
+    scimitar: scimitar (sword D8)
+    shamshir: shamshir (sword D8)
+    smallsword: smallsword (sword D8)
+    szabla: szabla (sword D8)
+
+    whip: whip (D6)
+    cat_o_nine_tails: cat-o-nine-tails (whip D6)
+    scourge: scourge (whip D6)
+
+    zweihander: zweihander (sword D10)
+    claymore: claymore (sword D10)
+    executioner_sword: executioner's sword (sword D10)
+    flambard: flambard (sword D10)
+    greatsword: greatsword (sword D10)
+    montante: montante (sword D10)
+    two_handed_sword: two-handed sword (sword D10)
+
+    net: net (D6)
+    weighted_net: net (D8)
+
+  str_armor:
+    leather_jerkin: leather jerkin (D6)
+    steel_breastplate: steel breastplate (D10)
+    buckler: buckler (D8)
+
+  str_supplies:
+    alchemical_supplies: alchemical supplies
+    alchemical_supplies2: alchemical supplies (x2)
+    alchemical_supplies3: alchemical supplies (x3)
+    alchemical_supplies4: alchemical supplies (x4)
+    alchemical_supplies5: alchemical supplies (x5)
+    alchemical_supplies6: alchemical supplies (x6)
+    alchemical_supplies7: alchemical supplies (x7)
+    alchemical_supplies8: alchemical supplies (x8)
+    alchemical_supplies9: alchemical supplies (x9)
+    alchemical_supplies10: alchemical supplies (x10)
+    
+    art_supplies: art supplies
+    art_supplies2: art supplies (x2)
+    art_supplies3: art supplies (x3)
+    art_supplies4: art supplies (x4)
+    art_supplies5: art supplies (x5)
+    art_supplies6: art supplies (x6)
+    art_supplies7: art supplies (x7)
+    art_supplies8: art supplies (x8)
+    art_supplies9: art supplies (x9)
+    art_supplies10: art supplies (x10)
+
+    blackpowder_supplies: blackpowder supplies
+    blackpowder_supplies2: blackpowder supplies (x2)
+    blackpowder_supplies3: blackpowder supplies (x3)
+    blackpowder_supplies4: blackpowder supplies (x4)
+    blackpowder_supplies5: blackpowder supplies (x5)
+    blackpowder_supplies6: blackpowder supplies (x6)
+    blackpowder_supplies7: blackpowder supplies (x7)
+    blackpowder_supplies8: blackpowder supplies (x8)
+    blackpowder_supplies9: blackpowder supplies (x9)
+    blackpowder_supplies10: blackpowder supplies (x10)
+    
+    clockwork_gears: clockwork gears
+    clockwork_gears2: clockwork gears (x2)
+    clockwork_gears3: clockwork gears (x3)
+    clockwork_gears4: clockwork gears (x4)
+    clockwork_gears5: clockwork gears (x5)
+    clockwork_gears6: clockwork gears (x6)
+    clockwork_gears7: clockwork gears (x7)
+    clockwork_gears8: clockwork gears (x8)
+    clockwork_gears9: clockwork gears (x9)
+    clockwork_gears10: clockwork gears (x10)
+
+    fabric: fabric
+    fabric2: fabric (x2)
+    fabric3: fabric (x3)
+    fabric4: fabric (x4)
+    fabric5: fabric (x5)
+    fabric6: fabric (x6)
+    fabric7: fabric (x7)
+    fabric8: fabric (x8)
+    fabric9: fabric (x9)
+    fabric10: fabric (x10)
+
+    foodstuffs: foodstuffs
+    foodstuffs2: foodstuffs (x2)
+    foodstuffs3: foodstuffs (x3)
+    foodstuffs4: foodstuffs (x4)
+    foodstuffs5: foodstuffs (x5)
+    foodstuffs6: foodstuffs (x6)
+    foodstuffs7: foodstuffs (x7)
+    foodstuffs8: foodstuffs (x8)
+    foodstuffs9: foodstuffs (x9)
+    foodstuffs10: foodstuffs (x10)
+
+    medicine: medicine
+    medicine2: medicine (x2)
+    medicine3: medicine (x3)
+    medicine4: medicine (x4)
+    medicine5: medicine (x5)
+    medicine6: medicine (x6)
+    medicine7: medicine (x7)
+    medicine8: medicine (x8)
+    medicine9: medicine (x9)
+    medicine10: medicine (x10)
+
+    any: any supplies of your choice
+    any2: any supplies of your choice (x2)
+    any3: any supplies of your choice (x3)
+    any4: any supplies of your choice (x4)
+    any2: any supplies of your choice (x2)
+    any5: any supplies of your choice (x5)
+    any6: any supplies of your choice (x6)
+    any7: any supplies of your choice (x7)
+    any8: any supplies of your choice (x8)
+    any9: any supplies of your choice (x9)
+    any10: any supplies of your choice (x10)
+
+  str_book:
+    book: book (one subject D6)
+    book2: "2 books (one subject each D6)"
+    book3: "3 books (one subject each D6)"
+    book4: "4 books (one subject each D6)"
+    book5: "5 books (one subject each D6)"
+    book6: "6 books (one subject each D6)"
+
+    law: law book (one type of law D6)
+    law2: "2 law books (one type of law each D6)"
+    law3: "3 law books (one type of law each D6)"
+    law4: "4 law books (one type of law each D6)"
+    law5: "5 law books (one type of law each D6)"
+    law6: "6 law books (one type of law each D6)"
+
+    religious: religious book (one religious topic D6)
+    religious2: "2 religious books (one religious topic each D6)"
+    religious3: "3 religious books (one religious topic each D6)"
+    religious4: "4 religious books (one religious topic each D6)"
+    religious5: "5 religious books (one religious topic each D6)"
+    religious6: "6 religious books (one religious topic each D6)"
+
+    books_of_the_sun: Books of the Sun
+    songs_of_the_desert_mother: Songs of the Desert Mother
+    orwand_revelation: Orwand's Revelation
+
+    dualitarian: "3 religious books (<i>Orwand's Revelation</i> D6, <i>Books of the Sun</i> D6, <i>Songs of the Desert Mother</i> D6)"
+    lexicographer: "4 books (two dictionaries D6, one atlas D6, one journal D6)"
+
+    theology: "6 books (two copies of <i>Books of the Sun</i> D6, two psalters D6, one liturgical almanac D6, one atlas D6)"
+
+    code: code book (calculus D6)
+    cookbook: cook book (arts D6)
+
+  str_tool:
+
+    abacus: abacus (calculus D6)
+    artisan_tools: artisan's tools (arts, brew, weave D6)
+    chirurgeon_knives: chirurgeon knives (medicine, surgery, treat, knife D6)
+    divination_cards: divination cards (portents D6)
+    laboratory: laboratory (brew, poison, blackpowder D10)
+    library: library (scholarship D10)
+    magnifying_glass: magnifying glass (perceive, deduce D6)
+    mariner_astrolabe: mariner's astrolabe (explore, calculus D6)
+    medical_theatre: medical theatre (surgery, treat D10)
+    musical_instrument: musical instrument (arts, inspire D6)
+    printing_press: printing press
+    repair_tools: repair tools (clockworks D6)
+    spyglass: spyglass (observation D6)
+    workshop: workshop (weave, blackpowder, clockworks D10)
+
+    kitchen_cutlery: kitchen cutlery (arts, knife D6)
+    rolling_pin: rolling pin (arts, cudgel D6)
+    mining_tools: mining tools (explore, blackpowder D6)
+    divination_leaves: divination leaves (portents D6)
+    kitchen: kitchen (arts D10)
+    firefly_lantern: firefly lantern
+
+    high_quality:
+
+      abacus: abacus (calculus D8)
+      artisan_tools: artisan's tools (arts, brew, weave D8)
+      chirurgeon_knives: chirurgeon knives (medicine, surgery, treat D8, knife D6)
+      divination_cards: divination cards (portents D8)
+      laboratory: laboratory (brew, poison, blackpowder D12)
+      library: library (scholarship D12)
+      magnifying_glass: magnifying glass (perceive, deduce D8)
+      mariner_astrolabe: mariner's astrolabe (explore, calculus D8)
+      medical_theatre: medical theatre (surgery, treat D12)
+      musical_instrument: musical instrument (arts, inspire D8)
+      repair_tools: repair tools (clockworks D8)
+      spyglass: spyglass (observation D8)
+      workshop: workshop (weave, blackpowder, clockworks D12)
+
+      kitchen_cutlery: kitchen cutlery (arts D8, knife D6)
+      rolling_pin: rolling pin (arts D8, cudgel D6)
+      mining_tools: mining tools (explore, blackpowder D8)
+      divination_leaves: divination leaves (portents D8)
+      kitchen: kitchen (arts D12)
+
+  str_transport:
+    airship: airship
+    carriage: carriage
+    draft_horse: draft horse (husbandry D8)
+    riding_horse: riding horse (explore D8)
+    sailing_ship: sailing ship
+    wagon: wagon
+    warhorse: warhorse (lunge, explore D8)
+
+    camel: camel (explore D8)
+    skis: skis (explore D6)
+    faris: camel (explore D8) or riding horse (explore D8)
+
+  str_animal:
+    purebred: purebred
+
+    beast_of_burden: beast of burden
+    beast_of_burden_ox: ox
+    bird_common: common bird
+    bird_messenger: messenger bird
+    bird_messenger_parrot: messenger parrot
+    bird_song: songbird (arts D6)
+    cat_common: common cat
+    cat_purebred: purebred cat
+    dog_companion: companion dog (inspire D8)
+    dog_companion_purebred: purebred companion dog (inspire D8)
+    dog_guard: guard dog (perceive D6)
+    dog_guard_purebred: purebred guard dog (perceive D8)
+    dog_hunting: hunting dog (explore D6)
+    dog_hunting_purebred: purebred hunting dog (explore D8)
+    dog_herding: herding dog (husbandry D6)
+    dog_herding_purebred: purebred herding dog (husbandry D8)
+    dog_mongrel: mongrel dog (intuition D6)
+    dog_ship: ship's dog (explore D6)
+    dog_ship_purebred: purebred ship's dog (explore D8)
+    dog_war: war dog (lunge D6)
+    dog_war_purebred: purebred war dog (lunge D8)
+    dog_varendian: Varendian mountain dog (explore, carouse D8)
+    fowl: barnyard fowl
+    fowl_chicken: chicken
+    fowl_rooster: rooster
+    fowl_duck: duck
+    fowl_goose: goose
+    livestock: livestock animal
+    livestock_calf: calf
+    livestock_cow: cow
+    livestock_bull: bull
+    livestock_piglet: piglet
+    livestock_pig: pig
+    livestock_kid: kid
+    livestock_goat: goat
+    livestock_lamb: lamb
+    livestock_sheep: sheep
+    livestock_ram: ram
+    dairy: dairy animal
+    dairy_cow: cow
+    dairy_goat: goat
+    raptor_trained: trained raptor (explore D6)
+    raptor_untrained: untrained raptor
+    reptile: reptile
+    rodent: rodent
+    rabbit: rabbit
+
+    cocinera: "your choice of 6 barnyard fowl, 1 dairy animal, or 1 livestock animal"
+
+  str_clothes:
+    arm:
+      gloves_courtier: courtier's gloves
+      gloves_craftsman: craftsman's gloves
+      gloves_soldier: soldier's gloves
+    chest:
+      bodice: bodice
+      casaque: casaque
+      doublet: doublet
+      gown_courtly: courtly gown
+      gown_surgeon: surgeon's gown
+      robes: robes
+      shift: shift
+      smock: smock
+      vestments: vestments
+
+      toga: toga
+
+    foot:
+      boots: boots
+      chopines: chopines
+      pantofles: pantofles
+      poulaines: poulaines
+      sandals: sandals
+      shoes_buckled: buckled shoes
+    head:
+      beret_artisan: artisan's beret
+      capotain: capotain
+      cavalier_hat: cavalier hat
+      goggles_gearspring: gearspring goggles
+      hair_ribbons: hair ribbons
+      masque: masque
+      plague_mask: plague mask
+      skullcap_clerical: clerical skullcap
+      tricorne: tricorne
+      
+      schlappe: schlappe
+      shemagh: shemagh
+
+    leg:
+      breeches: breeches
+      hose: hose
+      pantaloons: pantaloons
+      petticoat: petticoat
+      skirt: skirt
+      stockings: stockings
+
+      lederhosen: lederhosen
+    shoulder:
+      cape: cape
+      cloak: cloak
+      stole_liturgical: liturgical stole
+      stole_ornate: ornate stole
+      tabard: tabard
+
+  str_outfit:
+    clockworker: Clockworker outfit
+    corsair: Corsair outfit
+    courtly: Courtly outfit
+    crafter: Crafter outfit
+    guard: Guard uniform
+    peasant: Peasant outfit
+    physician: Physician outfit
+    priest: Priest outfit
+    scholar: Scholar outfit
+    swashbuckler: Swashbuckler outfit
+    any: Any outfit
+
+    albian_hunting: Albian hunting outfit
+    ekalian_patrician: Patrician outfit
+    varendian_climbing: Varendian climbing outfit
+    ifran_nomad: Nomad's outfit
+    talanian_mummer: Mummer's outfit
+
+    contents:
+      clockworker: "{{str_clothes.head.goggles_gearspring}}, {{str_clothes.chest.smock}}, {{str_clothes.arm.gloves_craftsman}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.pantofles}}"
+      corsair: "{{str_clothes.head.tricorne}}, {{str_clothes.chest.doublet}}, {{str_clothes.arm.gloves_craftsman}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.boots}}"
+      courtly: "{{str_clothes.head.hair_ribbons}}, {{str_clothes.chest.bodice}}, {{str_clothes.arm.gloves_courtier}}, {{str_clothes.leg.skirt}}, {{str_clothes.foot.chopines}}"
+      crafter: "{{str_clothes.head.beret_artisan}}, {{str_clothes.chest.smock}}, {{str_clothes.arm.gloves_craftsman}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.shoes_buckled}}"
+      guard: "{{str_clothes.head.capotain}}, {{str_clothes.arm.gloves_soldier}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.boots}}, {{str_clothes.shoulder.tabard}}"
+      peasant: "{{str_clothes.chest.shift}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.shoes_buckled}}"
+      physician: "{{str_clothes.head.plague_mask}}, {{str_clothes.chest.gown_surgeon}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.pantofles}}"
+      priest: "{{str_clothes.head.skullcap_clerical}}, {{str_clothes.chest.vestments}}, {{str_clothes.arm.gloves_courtier}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.pantofles}}"
+      scholar: "clothes for scholars TBD"
+      swashbuckler: "{{str_clothes.head.cavalier_hat}}, {{str_clothes.chest.doublet}}, {{str_clothes.arm.gloves_soldier}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.boots}}, {{str_clothes.shoulder.cape}}"
+      any: your choice
+
+      albian_hunting: "{{str_clothes.head.tricorne}}, {{str_clothes.chest.casaque}}, {{str_clothes.arm.gloves_craftsman}}, {{str_clothes.leg.breeches}}, {{str_clothes.foot.boots}}, {{str_clothes.shoulder.cloak}}"
+
+      ekalian_patrician: "{{str_clothes.head.hair_ribbons}}, {{str_clothes.chest.toga}}, {{str_clothes.foot.sandals}}"
+
+      varendian_climbing: "{{str_clothes.head.schlappe}}, {{str_clothes.arm.gloves_soldier}}, {{str_clothes.leg.lederhosen}}, {{str_clothes.foot.boots}}, {{str_clothes.shoulder.cloak}}"
+
+      ifran_nomad: "{{str_clothes.head.shemagh}}, {{str_clothes.chest.robes}}, {{str_clothes.arm.gloves_soldier}}, {{str_clothes.foot.sandals}}"
+
+      talanian_mummer: "{{str_clothes.head.masque}}, {{str_clothes.chest.smock}}, {{str_clothes.leg.hose}}, {{str_clothes.foot.pantofles}}, {{str_clothes.shoulder.cape}}"
+
+  str_alchemy:
+
+    accuracy: accuracy draught (aim D6)
+    aggression: aggression draught (lunge D6)
+    courage: courage draught (remove D6 yield)
+    detective: detective's vice (deduce D6)
+    eagle_eyes: eagle eyes draught (perceive D6)
+    elusiveness: elusiveness draught (dodge D6)
+    mathematical: mathematical draught (calculus D6)
+    memory: memory draught (all knowledge rolls D6)
+    serpent_tongue: serpent's tongue draught (deceive D6)
+    soothing_words: soothing words draught (negotiate D6)
+    tactics: tactics draught (strategy D6)
+    teetotaler: teetotaler's tea (carouse D6)
+    kykeon: Kykeon (portents D8)
+    kykeon2: 2 doses of Kykeon (portents D8)
+    kykeon3: 3 doses of Kykeon (portents D8)
+    kykeon4: 4 doses of Kykeon (portents D8)
+    kykeon5: 5 doses of Kykeon (portents D8)
+    kykeon6: 6 doses of Kykeon (portents D8)
+
+    brawler: brawler's balm (brawl D6)
+    farmer: farmer's salve (husbandry D6)
+    fireproofing: fireproofing oil (blackpowder D6)
+    healing: healing unguent (surgery, treat D6)
+    nimblefingers: nimblefingers unction (larceny D6)
+    silence: silence oil (prowl D6)
+    weaver: weaver's lotion (weave D6)
+
+    glow: firefly glow
+    smell: nauseating smell
+    neutralize: neutralizing agent
+    oil: oil slick
+    flash: photoreactive flash
+    smoke: smoke cloud
+
+  str_clock:
+    autoloader_cannon: autoloader (cannon)
+    autoloader_musket: autoloader (musket)
+    autoloader_pistol: autoloader (pistol)
+    climbing_gears: climbing gears
+    clockbow: clockbow (bow D8)
+    carriage: clockwork carriage
+    limb_arm: clockwork limb (arm)
+    pistol: clockwork pistol (pistol D6)
+    musket: clockwork musket (musket D10)
+    gearsword: gearsword (sword D6)
+    pocketwatch: pocketwatch
+    spring_sheath: spring-sheath (knife)
+    wing_glider: folding wing-glider
+    wrist_holster: wrist holster (pistol)
+
+  str_poison:
+    antidote: poison antidote
+    antidote2: poison antidote (x2)
+    antidote3: poison antidote (x3)
+    antidote4: poison antidote (x4)
+    antidote5: poison antidote (x5)
+    antidote6: poison antidote (x6)
+    antidote7: poison antidote (x7)
+    antidote8: poison antidote (x8)
+    antidote9: poison antidote (x9)
+    antidote10: poison antidote (x10)
+
+    poison_any: any poison of your choice
+    poison_any2: any poison of your choice (x2)
+    poison_any3: any poison of your choice (x3)
+    poison_any4: any poison of your choice (x4)
+    poison_any5: any poison of your choice (x5)
+    poison_any6: any poison of your choice (x6)
+    poison_any7: any poison of your choice (x7)
+    poison_any8: any poison of your choice (x8)
+    poison_any9: any poison of your choice (x9)
+    poison_any10: any poison of your choice (x10)
+
+    poison_deadly: deadly poison
+    poison_deadly2: deadly poison (x2)
+    poison_deadly3: deadly poison (x3)
+    poison_deadly4: deadly poison (x4)
+    poison_deadly5: deadly poison (x5)
+    poison_deadly6: deadly poison (x6)
+    poison_deadly7: deadly poison (x7)
+    poison_deadly8: deadly poison (x8)
+    poison_deadly9: deadly poison (x9)
+    poison_deadly10: deadly poison (x10)
+
+    poison_impairing: impairing poison
+    poison_impairing2: impairing poison (x2)
+    poison_impairing3: impairing poison (x3)
+    poison_impairing4: impairing poison (x4)
+    poison_impairing5: impairing poison (x5)
+    poison_impairing6: impairing poison (x6)
+    poison_impairing7: impairing poison (x7)
+    poison_impairing8: impairing poison (x8)
+    poison_impairing9: impairing poison (x9)
+    poison_impairing10: impairing poison (x10)
+
+    poison_sleep: sleep poison
+    poison_sleep2: sleep poison (x2)
+    poison_sleep3: sleep poison (x3)
+    poison_sleep4: sleep poison (x4)
+    poison_sleep5: sleep poison (x5)
+    poison_sleep6: sleep poison (x6)
+    poison_sleep7: sleep poison (x7)
+    poison_sleep8: sleep poison (x8)
+    poison_sleep9: sleep poison (x9)
+    poison_sleep10: sleep poison (x10)
+
+  str_money:
+    rw: reward
+    rws: rewards
+    bd: barter die
+    bds: barter dice
+    reward:
+      d0: "D0 reward"
+      2d0: "D0 rewards (x2)"
+      3d0: "D0 rewards (x3)"
+      4d0: "D0 rewards (x4)"
+      5d0: "D0 rewards (x5)"
+      6d0: "D0 rewards (x6)"
+      d6: "D6 reward"
+      2d6: "D6 rewards (x2)"
+      3d6: "D6 rewards (x3)"
+      4d6: "D6 rewards (x4)"
+      5d6: "D6 rewards (x5)"
+      6d6: "D6 rewards (x6)"
+      d8: "D8 reward"
+      2d8: "D8 rewards (x2)"
+      3d8: "D8 rewards (x3)"
+      4d8: "D8 rewards (x4)"
+      5d8: "D8 rewards (x5)"
+      6d8: "D8 rewards (x6)"
+      d0: "D0 reward"
+      2d0: "D0 rewards (x2)"
+      3d0: "D0 rewards (x3)"
+      4d0: "D0 rewards (x4)"
+      5d0: "D0 rewards (x5)"
+      6d0: "D0 rewards (x6)"
+      d12: "D12 reward"
+      2d12: "D12 rewards (x2)"
+      3d12: "D12 rewards (x3)"
+      4d12: "D12 rewards (x4)"
+      5d12: "D12 rewards (x5)"
+      6d12: "D12 rewards (x6)"
+    barter_dice:
+      d0: "D0 barter die"
+      2d0: "D0 barter dice (x2)"
+      3d0: "D0 barter dice (x3)"
+      4d0: "D0 barter dice (x4)"
+      5d0: "D0 barter dice (x5)"
+      6d0: "D0 barter dice (x6)"
+      d6: "D6 barter die"
+      2d6: "D6 barter dice (x2)"
+      3d6: "D6 barter dice (x3)"
+      4d6: "D6 barter dice (x4)"
+      5d6: "D6 barter dice (x5)"
+      6d6: "D6 barter dice (x6)"
+      d8: "D8 barter die"
+      2d8: "D8 barter dice (x2)"
+      3d8: "D8 barter dice (x3)"
+      4d8: "D8 barter dice (x4)"
+      5d8: "D8 barter dice (x5)"
+      6d8: "D8 barter dice (x6)"
+      d0: "D0 barter die"
+      2d0: "D0 barter dice (x2)"
+      3d0: "D0 barter dice (x3)"
+      4d0: "D0 barter dice (x4)"
+      5d0: "D0 barter dice (x5)"
+      6d0: "D0 barter dice (x6)"
+      d12: "D12 barter die"
+      2d12: "D12 barter dice (x2)"
+      3d12: "D12 barter dice (x3)"
+      4d12: "D12 barter dice (x4)"
+      5d12: "D12 barter dice (x5)"
+      6d12: "D12 barter dice (x6)"

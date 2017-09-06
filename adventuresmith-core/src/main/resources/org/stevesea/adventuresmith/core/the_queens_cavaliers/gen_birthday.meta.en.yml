@@ -1,0 +1,29 @@
+---
+name: Random Birthday
+input:
+  displayTemplate: "Age Category: {{for}}"
+  params:
+  - name: for
+    uiName: Whose Birthday
+    helpText: Who are you generating a birthday for?
+    defaultValue: Adult
+    values:
+    - Child
+    - Teenager
+    - Adult
+    - Elder
+    - Twentysomething
+    - Thirtysomething
+    - Fortysomething
+    - Fiftysomething
+    - Sexagenarian
+    - Septugenarian
+    - Octogenarian
+    - Nonagenarian
+    - Centenarian
+    - Human
+    - Horse
+    - Large_Dog
+    - Small_Dog
+    - Cat
+    - Anyone

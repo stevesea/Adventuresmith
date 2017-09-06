@@ -1,0 +1,68 @@
+---
+
+tables:
+  npc_list:
+    - "1, angry_mob_member"
+  xpc_list:
+    - "2, bedraggled_urchin"
+    - "3, bloodthirsty_buccaneer"
+    - "4, desperate_convict"
+    - "5, drunken_brawler"
+    - "6, elissian_colonist"
+    - "7, gossping_courtier"
+    - "8, greedy_bandit"
+    - "9, infantry_recruit"
+    - "10, laconic_farmer"
+    - "11, lutetian_watch_grunt"
+    - "12, street_thug"
+    - "13, unemployed_thespian"
+    - "14, boorish_fop"
+    - "15, brash_fencer"
+    - "16, cavalry_officer"
+    - "17, dangerous_revolutionary"
+    - "18, devious_smuggler"
+    - "19, fastidious_physicker"
+    - "20, gregarious_barkeep"
+    - "21, grizzled_veteran"
+    - "22, long_suffering_tutor"
+    - "23, lutetian_watch_officer"
+    - "24, wary_shopkeeper"
+    - "25, asrian_priestess"
+    - "26, beleaguered_speaker"
+    - "27, dishonest_mechanician"
+    - "28, modern_smg"
+    - "29, petty_noble"
+    - "30, privateer_captain"
+    - "31, rogue_highwayman"
+    - "32, secretive_soothsayer"
+
+
+definitions:
+  dat_npc:
+
+  # RABBLE
+  # 
+    angry_mob_member:
+      type: rabble
+      generic_name: Angry Mob Member
+      personal_name: na
+      gender: Any
+      nation: Any
+      desc: "From time to time, even the tolerant and accepting people of Gallinea can get roused into an angry horde looking for blood, especially if the right balance of rhetoric and wine is maintained. These rabble can represent any mob that gathers for some specific purpose."
+      stats: |
+             {{api_compdie.set.0}}
+             {{api_attr.set.verve.6}}
+             {{api_attr.set.affinity.6}}
+             {{api_attr.set.guile.6}}
+             {{api_social_rank.set.1.commoner}}
+             {{api_skill.add.initative}}
+             {{api_spec.add.parry}}
+             {{api_spec.add.lunge}}
+             {{api_spec.add.brawl}}
+             {{api_spec.add.carouse}}
+             {{api_pass.set.6.justice}}
+             {{api_pass.set.8.country}}
+             {{>accum: list_gear {{str_outfit.peasant}}}}
+             {{>accum: list_gear {{str_weapon.club}}}}
+             {{>accum: list_gear {{str_weapon.knife}}}}
+  

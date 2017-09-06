@@ -1,0 +1,582 @@
+---
+
+definitions:
+
+  str_geo:
+    gallinea: Gallinea
+    albia: Albia
+    dragosa: Dragosa
+    ekalia: Ekalia
+    ondala: Ondala
+    talania: Talania
+    varendia: Varendia
+    pitdah: Pitdah
+    ubar: Ubar
+    mwene_karanga: Mwene Karanga
+    coffee_coast: Coffee Coast
+    serica: Serica
+    qarta: Qarta
+    elissia: Elissia
+    new_cordera: New Cordera
+    new_dunon: New Dunon
+    coeur_de_gallinea: Coeur de Gallinea
+    jeweled_coast: Jeweled Coast
+    lowlands: Lowlands
+    scanbria: Scanbria
+    lutetia: Lutetia
+    berylle: Berylle
+    montambre: Montambre
+    persolei: Persolei
+    rhodope: Rhodope
+    verterre: Verterre
+    scanbreille: Scanbreille
+    valerienne: Valerienne
+    affutaine: Affutaine
+    boussole: Boussole
+    canard_noir: Canard-Noir
+    castenia: Castenia
+    gueve: Gueve
+    sudelune: Sudelune
+    touriel: Touriel
+    cordera: Cordera
+    diega: Diega
+    dunon: Dunon
+    thedis: Thedis
+    zamorov: Zamorov
+    volstok: Volstok
+    medtken: Medtken
+    pitdah: Pitdah
+    ubar: Ubar
+    lost_city_of_aad: Lost City of Aad
+    qartan_empire: Qartan Empire
+    elara: Elara
+    ifran: Ifran
+    serica: Serica
+    bear_island: Bear Island
+    storm_islands: Storm Islands
+    albingia: Albingia
+    unknown: "<i>unknown</i>"
+    nop: "{{nop}}"
+
+    unnamed:
+      viscounty: "Unnamed Viscounty #{{>roll: 1d12}}"
+      barony: "Unnamed Viscounty #{{>roll: 1d19}}"
+
+  ui_geo:
+
+    yourrandomcountry: Your random country is ...
+    formal_name: Formal Name
+    flag_of: Flag of
+    leader_title: Leader Title
+    leader_name: Current Leader
+    capital: Capital
+    official_language: Official Language
+    official_languages: Official Languages
+    major_religion: Major Religion
+    major_religions: Major Religions
+    government: Government
+    color: National Color
+    colors: National Colors
+    class: Additional Class
+    classes: Additional Classes
+    symbol: Symbol
+    symbols: Symbols
+    currency: Currency
+    singular: (singular)
+    plural: (plural)
+    style_manu: Style Maneuver
+    style_manus: Style Maneuvers
+
+
+  str_nation:
+    gallinea:
+      name: "{{str_geo.gallinea}}"
+      formal_name: Queendom of Gallinea
+      government: Matriarchal Monarchy
+      leader_title: Queen
+      leader_name: Mariana II
+      adjective: Gallinean
+      demonym: Gallinean
+      flag_desc: 
+        i: 1
+        1: quarterly gules & argent, four soleils-de-essere counterchanged
+      symbol: 
+        i: 1
+        1: Pegasus
+      currency:
+        i: 1
+        sing: sol
+        plur: sols
+        abbr: s.
+      
+    albia:
+      name: "{{str_geo.albia}}"
+      formal_name: Kingdom of Albia
+      government: Patriarchal Monarchy
+      leader_title: King
+      leader_name: Edgar II
+      adjective: Albian
+      demonym: Albian
+      flag_desc: 
+        i: 1
+        1: azure, a cross or
+      symbol:
+        i: 0
+      currency:
+        i: 1
+        sing: arto 
+        plur: artos
+        abbr: a.
+      
+    dragosa:
+      name: "{{str_geo.dragosa}}"
+      formal_name: Principality of Dragosa
+      government: Hereditary Principality
+      leader_title: Prince
+      leader_name: Aron Dragosa
+      adjective: Dragosan
+      demonym: Dragosan
+      flag_desc: 
+        i: 1
+        1: tierced per pale, gules, vert, &amp; azure
+      symbol: 
+        i: 1
+        1: dragon's eye triangle
+      currency:
+        i: 1
+        sing: draga
+        plur: dragas
+        abrr: dr.
+      
+    ekalia:
+      name: "{{str_geo.ekalia}}"
+      formal_name: The Ekalian Republic
+      government: Democratic Republic
+      leader_title: High Elector
+      leader_name: Andreos Grimani
+      adjective: Ekalian
+      demonym: Ekalian
+      flag_desc: 
+        i: 1
+        1: celeste, a dodekahedron argent
+      symbol:
+        i: 1
+        1: dodecahedron
+      currency:
+        i: 1
+        sing: stater
+        plur: staters
+        abbr: st.
+      
+    ondala:
+      name: "{{str_geo.ondala}}"
+      formal_name: Holy Monarchy of Ondala
+      government: Matriarchal Monarchy
+      leader_title: Queen
+      leader_name: Ximena IV
+      adjective: Ondalan
+      demonym: Ondalan
+      flag_desc: 
+        i: 1
+        1: sanguine, on a pale or a soleil-de-essere sanguine
+      symbol: 
+        i: 1
+        1: soleil-de-essere
+      currency:
+        i: 1
+        sing: sol
+        plur: sols
+        abbr: os.
+      
+    talania:
+      name: "{{str_geo.talania}}"
+      formal_name: The Talanian Empire
+      government: Monarchy (in exile)
+      leader_title: Empress
+      leader_name: <i>various claimants to the throne</i>
+      adjective: Talanian
+      demonym: Talanian
+      flag_desc: 
+        i: 1
+        1: sable, a saltire gules
+      symbol: 
+        i: 0
+      currency:
+        i: 1
+        sing: grivna
+        plur: grivni
+        abbr: gr.
+      
+    varendia:
+      name: "{{str_geo.varendia}}"
+      formal_name: Varendia
+      government: Disunited Feudal States
+      leader_title: Hochk&ouml;nigin or Hochk&ouml;nig
+      leader_name: <i>none at present</i>
+      adjective: Varendish
+      demonym: Varend
+      flag_desc: 
+        i: 1
+        1: chequy tenne &amp; vert
+      symbol:
+        i: 0
+      currency:
+        i: 1
+        sing: marcke
+        plur: marcken
+        abbr: mk.
+      
+    pitdah:
+      name: "{{str_geo.pitdah}}"
+      formal_name: City-State of Pitdah
+      government: Meritocratic Oligarchy
+      leader_title: Khedive
+      leader_name: Tannous al Ghibr
+      adjective: Pitdar
+      demonym: Pitdan
+      flag_desc: 
+        i: 0
+      symbol: 
+        i: 0
+      currency:
+        i: 1
+        sing: fals
+        plur: fulus
+        abbr: fs.
+
+    ubar:
+      name: "{{str_geo.ubar}}"
+      formal_name: Caliphate of Ubar
+      government: Theocratic Monarchy
+      leader_title: Calipha
+      leader_name: Aswani bint Nura
+      adjective: Ubaran
+      demonym: Ubaran
+      flag_desc: 
+        i: 0
+      symbol: 
+        i: 0
+      currency:
+        i: 1
+        sing: ubar
+        plur: ubars
+        abbr: ub.
+
+    mwene_karanga:
+      name: "{{str_geo.mwene_karanga}}"
+      formal_name: Empire of Great Karanga
+      government: Hereditary Monarchy
+      leader_title: Emperor
+      leader_name: <i>unknown</i>
+      adjective: Karangan
+      demonym: Karangan
+      flag_desc: 
+        i: 0
+      symbol: 
+        i: 1
+        1: golden lion
+      currency:
+        i: 1
+        sing: kiniun
+        plur: kiniuns
+        abbr: k.
+
+
+    coffee_coast:
+      name: "{{str_geo.coffee_coast}}"
+      formal_name: The Republic of Kheffika
+      government: Democratic Republic
+      leader_title: High Minister
+      leader_name: <i>unknown</i>
+      adjective: Kheffikan
+      demonym: Kheffite
+      flag_desc: 
+        i: 0
+      symbol: 
+        i: 0
+      currency:
+        i: 1
+        sing: tohm
+        plur: tohmlar
+        abbr: to.
+
+    serica:
+      name: "{{str_geo.serica}}"
+      formal_name: Heavenly Principalities of Serica and Shan
+      government: Confederation
+      leader_title: Princess of Heaven
+      leader_name: <i>unknown</i>
+      adjective: Serican
+      demonyn: Serican
+      flag_desc: 
+        i: 0
+      symbol: 
+        i: 0
+      currency:
+        i: 1
+        sing: fang
+        plur: fangs
+        abbr: fa.
+
+    qartan_empire:
+      name: "{{str_geo.qartan_empire}}"
+      formal_name: The Holy Qartan Empire
+      government: Theocracy
+      leader_title: Empress-Goddess
+      leader_name: Asria
+      adjective: Qartan
+      demonym: Qartan
+      flag_desc: 
+        i: 0
+      symbol: 
+        i: 0
+      currency:
+        i: 1
+        sing: sol
+        plur: sols
+        abbr: qs.
+
+  unstr_nation:
+    Any: all
+    Distant: distant
+    Elaran: elara
+    Elaran_and_Ifrani: elara_and_ifran
+    Foreign: foreign_all
+    Middle_Sea: middle_sea
+    Bordering_Gallinea: neighbors
+    Northern_Ifran: pitdah_and_ubar
+    North_Sea: north_sea
+    Weighted: weighted
+
+  str_language:
+    albian: Albian
+    ancient_ekalian: Ancient Ekalian
+    ancient_varendish: Ancient Varendish
+    brigue: Brigue
+    ekalian: Ekalian
+    gallinean: Gallinean
+    ifrani: Ifrani
+    karangan: Karangan
+    khefikkan: Khefikkan
+    mathain: Mathain
+    old_qartan: Old Qartan
+    ondalese: Ondalese
+    serican: Serican
+    talanian: Talanian
+    varendish: Varendish
+    nop: "{{nop}}"
+
+    any: any of your choice
+    any2: any two of your choice
+    any3: any three of your choice
+    any4: any four of your choice
+
+    ancient_germanic: Germanic
+    ancient_greek: Ancient Greek
+    arabic: Arabic
+    chinese: Chinese
+    english: English
+    french: French
+    gaelic: Gaelic
+    german: German
+    latin: Latin
+    romani: Romani
+    russian: Russian
+    spanish: Spanish
+    turkish: Turkish
+    yoruba: Yoruba
+
+  ui_lang:
+
+    language: Language
+    languages: Languages
+    realworldanalogue: Real-World Analogue
+    root_language: Root Language
+    root_languages: Root Languages
+    spoken_in: Spoken In
+    yourrandomlanguage: Your random language is ...
+
+  unstr_lang:
+    Any: any
+    Elaran: elaran
+    Modern: modern
+    Minor: minor
+    Historical: historical
+    with: with
+    without: without
+
+  str_alpha:
+
+    alphabet: Alphabet
+    alphabet_analogue: Alphabet/Script
+    ethiopic: Ethiopic
+    greek_and_coptic: Greek and Coptic
+    kangxi_radicals: Kangxi Radicals
+    latin: Latin
+    ogham: Ogham
+    runic: Runic
+    unicode: Unicode
+    vai: Vai
+
+    aad:
+      name: Aadish Alphabet
+      unicode: U+0600 to U+06FF
+      example: "... ,&#1583; ,&#1580; ,&#1576; ,&#1575;"
+    ekalian:
+      name: Ekalian Alphabet
+      unicode: U+0370 to U+03FF
+      example: "&#913;, &#914;, &#915;, &#945;, &#946;, &#947;, &#921;, &#928;, &#916;, &#919;, &#935; ..."
+    karangan:
+      name: Karangan Script
+      unicode: U+A500 to U+A63F
+      example: "&#42320;&#42509; &#42321;&#42509; &#42322;&#42509; &#42323;&#42509; &#42324;&#42509; &#42325;&#42509; &#42326;&#42509; &#42327;&#42509; &#42328;&#42509; &#42528;&#42509; &#42529;&#42509; &#42530;&#42509; ..."
+    khefikkan:
+      name: Khefikkan Alphabet
+      unicode: U+1200 to U+137F
+      example: "&#4608;&#4963; &#4616;&#4963; &#4624;&#4963; &#4632;&#4963; &#4640;&#4963; &#4648;&#4963; &#4654;&#4963; &#4969;&#4963; &#4970;&#4963; &#4971;&#4963; ..."
+    mathac:
+      name: Mathac Script
+      unicode: U+1680 to U+169F
+      example: "<font face='Noto Sans Ogham'>&#5771;, &#5776;, &#5768;, &#5766;, &#5780;, &#5765;, ...</font>"
+    qartan:
+      name: Qartan Alphabet
+      unicode: U+0020 to U+007F
+      example: "A, B, C, a, b, c, 1, 2, 3, ..."
+    serican:
+      name: Serican Radicals
+      unicode: U+2F00 to U+2FDF
+      example: "...&#12289;&#12040; &#12289;&#12039; &#12289;&#12038; &#12289;&#12037; &#12289;&#12036; &#12289;&#12035; &#12289;&#12034; &#12289;&#12033; &#12289;&#12032;"
+    varendish:
+      name: Varendish Runes
+      unicode: U+16A0 to U+16FF
+      example: "<font face='Noto Sans Runic'>&#5830;, &#5842;, &#5837;, &#5841;, &#5821;, &#5792;, &#5813;, &#5820;, ...</font>"
+
+  str_religion:
+    asrian: Asrianism
+    dodekarian: Dodekarianism
+    dualitarian: Dualitarianism
+    devran: Devranism
+    the_old_faith: The Old Faith
+    the_five_fathers: The Five Fathers
+    nop: "{{nop}}"
+
+  str_color:
+    argent:
+      rbg_text: 000000
+      name: Argent
+      rgb: ffffff
+      color: white
+      display_color: "#808080"
+    azure:
+      rgb: 000080
+      name: Azure
+      color: blue
+      rgb_text: ffffff
+      display_color: "#000080"
+    carnation:
+      rgb_text: 000000
+      name: Carnation
+      rgb: ff00ff
+      color: pink
+      display_color: "#FF1493"
+    celeste:
+      rgb_text: 000000
+      rgb: 00b8ff
+      name: Celeste
+      color: light blue
+      display_color: "#1E90FF"
+    cendree:
+      rgb: 999999
+      name: Cendree
+      rgb_text: ffffff
+      color: grey
+      display_color: "#696969"
+    gules:
+      name: Gules
+      rgb: ff0000
+      rgb_text: ffffff
+      color: red
+      display_color: "#FF0000"
+    murrey:
+      rgb: 99284c
+      name: Murrey
+      color: burgundy
+      rgb_text: ffffff
+      display_color: "#99284C"
+    nop:
+      name: nop
+      color: nop
+      rgb: 000000
+      rgb_text: 000000
+      display_color: White
+    or:
+      rgb_text: 000000
+      name: Or
+      rgb: ffff00
+      color: yellow
+      display_color: "#DAA520"
+    purpure:
+      rgb: 800080
+      name: Purpure
+      rgb_text: ffffff
+      color: purple
+      display_color: "#800080"
+    sable:
+      rgb: 000000
+      name: Sable
+      color: black
+      rgb_text: ffffff
+      display_color: "#000000"
+    sanguine:
+      rgb: 990011
+      name: Sanguine
+      color: dark red
+      rgb_text: ffffff
+      display_color: "#8B0000"
+    tenne:
+      rgb: 996633
+      name: Tenne
+      rgb_text: ffffff
+      color: tan
+      display_color: "#8B4513"
+    vert:
+      rgb: 008000
+      name: Vert
+      rgb_text: ffffff
+      color: green
+      display_color: "#006400"
+
+  ui_name:
+    yourrandomname: Your random name is...
+    name: name
+
+    gallinea: Gallinean
+    coeur_de_gallinea: Coeur-de-Gallinean
+    jeweled_coast: Jeweled Coaster
+    lowlands: Lowlander
+    scanbria: Scanbrian
+    albia: Albian
+    ekalia: Ekalian
+    ifran: Ifrani
+    ondala: Ondalese
+    talania: Talanian
+    varendia: Varendish
+
+    female: traditionally female
+    male: traditionally male
+
+  unstr_name:
+    Gallinean: gallinea
+    Gallinean_CoeurDeGallinea: coeur_de_gallinea
+    Gallinean_JeweledCoast: jeweled_coast
+    Gallinean_Lowlands: lowlands
+    Gallinean_Scanbria: scanbria
+    Albian: albia
+    Dragosan: dragosa
+    Ekalian: ekalia
+    Ifran: ifran
+    Ondalan: ondala
+    Talanian: talania
+    Varendish: varendia
+    Random: random
+

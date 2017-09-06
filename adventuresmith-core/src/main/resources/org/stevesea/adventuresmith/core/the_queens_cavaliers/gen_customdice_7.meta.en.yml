@@ -1,0 +1,156 @@
+---
+name: "Celeste Dice Pool"
+input:
+  displayTemplate: "{{custom}}"
+  params:
+  - name: d12
+    uiName: D12 Dice
+    helpText: How many D12s? (Don't include a maximized die until later.)
+    defaultValue: 0
+    values:
+    - 0
+    - 1D12
+    - 2D12
+    - 3D12
+    - 4D12
+    - 5D12
+    - 6D12
+  - name: d10
+    uiName: D10 Dice
+    helpText: How many D10s?
+    defaultValue: 0
+    values:
+    - 0
+    - 1D10
+    - 2D10
+    - 3D10
+    - 4D10
+    - 5D10
+    - 6D10
+    - 7D10
+    - 8D10
+  - name: d8
+    uiName: D8 Dice
+    helpText: How many D8s?
+    defaultValue: 0
+    values:
+    - 0
+    - 1D8
+    - 2D8
+    - 3D8
+    - 4D8
+    - 5D8
+    - 6D8
+    - 7D8
+    - 8D8
+  - name: d6
+    uiName: D6 Dice
+    helpText: How many D6s?
+    defaultValue: 0
+    values:
+    - 0
+    - 1D6
+    - 2D6
+    - 3D6
+    - 4D6
+    - 5D6
+    - 6D6
+    - 7D6
+    - 8D6
+    - 9D6
+    - 10D6
+  - name: max
+    uiName: Maximized Die
+    helpText: You can add a maximized die to this roll. Do you want to?
+    defaultValue: no
+    values:
+    - no
+    - D12
+    - D10
+    - D8
+    - D6
+  - name: custom
+    uiName: Custom Dice Title
+    helpText: What do you want to call this dice pool?
+    defaultValue: "[configure this dice pool]"
+    values:
+    - Wealth Roll
+    - ------------
+    - Sword (Lunge)
+    - Sword (Parry)
+    - Sword (Riposte)
+    - Sword (Feint)
+    - ------------
+    - Knife (Lunge)
+    - Knife (Parry)
+    - Knife (Riposte)
+    - Knife (Aim)
+    - Knife (Feint)
+    - ------------
+    - Shield (Parry)
+    - ------------
+    - Pistol (Aim)
+    - Musket (Aim)
+    - Crossbow (Aim)
+    - ------------
+    - Other Weapon (Lunge)
+    - Other Weapon (Parry)
+    - Other Weapon (Riposte)
+    - Other Weapon (Feint)
+    - Other Weapon (Aim)
+    - ------------
+    - Initiative
+    - Dodge
+    - Brawl
+    - Block
+    - ------------
+    - Culture (Arts)
+    - Culture (Etiquette)
+    - Culture (Scholarship)
+    - ------------
+    - Defense (Parry)
+    - Defense (Block)
+    - Defense (Dodge)
+    - ------------
+    - Dueling (Lunge)
+    - Dueling (Riposte)
+    - Dueling (Feint)
+    - ------------
+    - Initiative (Impulse)
+    - Initiative (Vigilance)
+    - Initiative (Timing)
+    - ------------
+    - Interaction (Inspire
+    - Interaction (Negotiate)
+    - Interaction (Deceive)
+    - ------------
+    - Magicks (Weave)
+    - Magicks (Brew)
+    - Magicks (Portents)
+    - ------------
+    - Medicine (Surgery)
+    - Medicine (Treat)
+    - Medicine (Poison)
+    - ------------
+    - Military (Brawl)
+    - Military (Aim)
+    - Military (Strategy)
+    - ------------
+    - Nature (Explore)
+    - Nature (Husbandry)
+    - Nature (Prowl)
+    - ------------
+    - Observation (Perceive)
+    - Observation (Intuition)
+    - Observation (Deduce)
+    - ------------
+    - Science (Blackpowder)
+    - Science (Clockworks)
+    - Science (Calculus)
+    - ------------
+    - Streetwise (Banter)
+    - Streetwise (Carouse)
+    - Streetwise (Larceny)
+    - ------------
+    - "[configure this dice pool]"
+    - ------------

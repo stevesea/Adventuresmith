@@ -1,0 +1,11 @@
+---
+
+templates:
+- "{{api_bg.pick.all}}%[[api_bg.print.{{unstr_bg.{{input.format}}}}]]%"
+
+imports:
+- lib_bg
+- lib_stats
+- lib_class
+
+

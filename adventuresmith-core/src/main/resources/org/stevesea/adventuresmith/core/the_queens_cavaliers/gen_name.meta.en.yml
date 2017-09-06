@@ -1,0 +1,32 @@
+---
+name: Random Name
+input:
+  displayTemplate: "{{nationality}} {{gender}} Name"
+  params:
+  - name: nationality
+    uiName: Chosen Nationality
+    helpText: What nationality or region do you want the name from?
+    defaultValue: Gallinean
+    values:
+    - Gallinean
+    - Gallinean_CoeurDeGallinea
+    - Gallinean_JeweledCoast
+    - Gallinean_Lowlands
+    - Gallinean_Scanbria
+    - Albian
+    - Dragosan
+    - Ekalian
+    - Ifran
+    - Ondalan
+    - Talanian
+    - Varendish
+    - Random
+  - name: gender
+    uiName: Chosen Gender
+    helpText: What gender do you want for the name?
+    defaultValue: female
+    values:
+    - female
+    - male
+    - either
+

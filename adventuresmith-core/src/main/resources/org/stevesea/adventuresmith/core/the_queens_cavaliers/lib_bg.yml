@@ -1,0 +1,772 @@
+---
+
+imports:
+- dat_bg
+- str_bg
+- str_tqc
+- str_gear
+- str_culture
+- str_style
+- str_stats
+
+nested_tables:
+  random_bg:
+    nation:
+    - "{{>pick: 1d12 bg_list}}"
+    parents:
+    - "{{>pick: 1d12+12 bg_list}}"
+    childhood:
+    - "{{>pick: 1d8+24 bg_list}}"
+    education:
+    - "{{>pick: 1d12+32 bg_list}}"
+    adulthood:
+    - "{{>pick: 1d12+44 bg_list}}"
+
+definitions:
+  api_bg:
+
+    pick:
+      xll: |
+           {{>set: var_bg_nation gallinea_lutetia}}
+           {{>set: var_bg_parents midwife}}
+           {{>set: var_bg_childhood death_in_family}}
+           {{>set: var_bg_education alchemist_apprentice}}
+           {{>set: var_bg_adulthood revolutionary_invention}}
+      all: |
+           <!-- choosing random bg 
+           {{api_bg.pick.nation}}
+           {{api_bg.pick.parents}}
+           {{api_bg.pick.childhood}}
+           {{api_bg.pick.education}}
+           {{api_bg.pick.adulthood}}
+           -->
+
+      nation: "{{>set: var_bg_nation {{random_bg.nation}}}}"
+      parents: "{{>set: var_bg_parents {{random_bg.parents}}}}"
+      childhood: "{{>set: var_bg_childhood {{random_bg.childhood}}}}"
+      education: "{{>set: var_bg_education {{random_bg.education}}}}"
+      adulthood: "{{>set: var_bg_adulthood {{random_bg.adulthood}}}}"
+
+    get:
+
+      nation:
+        desc: "{{str_bg.{{>get: var_bg_nation}}.desc}}"
+        desc_addl: "{{str_bg.{{>get: var_bg_nation}}.desc_addl}}"
+        title: "{{str_bg.{{>get: var_bg_nation}}.title}}"
+        prince: "{{str_bg.{{>get: var_bg_nation}}.prince}}"
+
+        lang: 
+          i: "{{dat_bg.{{>get: var_bg_nation}}.lang.i}}"
+          1: "{{dat_bg.{{>get: var_bg_nation}}.lang.1}}"
+          2: "{{dat_bg.{{>get: var_bg_nation}}.lang.2}}"
+          3: "{{dat_bg.{{>get: var_bg_nation}}.lang.3}}"
+
+        skill:
+          i: "{{dat_bg.{{>get: var_bg_nation}}.skill.i}}"
+          1: "{{dat_bg.{{>get: var_bg_nation}}.skill.1}}"
+          2: "{{dat_bg.{{>get: var_bg_nation}}.skill.2}}"
+
+      parents:
+        desc: "{{str_bg.{{>get: var_bg_parents}}.desc}}"
+        desc_addl: "{{str_bg.{{>get: var_bg_parents}}.desc_addl}}"
+        question: "{{str_bg.{{>get: var_bg_parents}}.question}}"
+        title: "{{str_bg.{{>get: var_bg_parents}}.title}}"
+        prince: "{{str_bg.{{>get: var_bg_parents}}.prince}}"
+        prince2: "{{str_bg.{{>get: var_bg_parents}}.prince2}}"
+        lang: 
+          i: "{{dat_bg.{{>get: var_bg_parents}}.lang.i}}"
+          1: "{{dat_bg.{{>get: var_bg_parents}}.lang.1}}"
+        social_rank: "{{dat_bg.{{>get: var_bg_parents}}.social_rank}}"
+        spec: 
+          i: "{{dat_bg.{{>get: var_bg_parents}}.spec.i}}"
+          1: "{{dat_bg.{{>get: var_bg_parents}}.spec.1}}"
+          2: "{{dat_bg.{{>get: var_bg_parents}}.spec.2}}"
+          double:
+            i: "{{dat_bg.{{>get: var_bg_parents}}.spec.double.i}}"
+            1: "{{dat_bg.{{>get: var_bg_parents}}.spec.double.1}}"
+        weapon_prowess:
+          i: "{{dat_bg.{{>get: var_bg_parents}}.weapon_prowess.i}}"
+          1: "{{dat_bg.{{>get: var_bg_parents}}.weapon_prowess.1}}"
+        gear: 
+          i: "{{dat_bg.{{>get: var_bg_parents}}.gear.i}}"
+          1: "{{dat_bg.{{>get: var_bg_parents}}.gear.1}}"
+          2: "{{dat_bg.{{>get: var_bg_parents}}.gear.2}}"
+        outfit: "{{dat_bg.{{>get: var_bg_parents}}.outfit}}"
+        passion:
+          d6: "{{dat_bg.{{>get: var_bg_parents}}.passion.d6}}"
+        style_manu: "{{dat_bg.{{>get: var_bg_parents}}.style_manu}}"
+
+      childhood:
+        desc: "{{str_bg.{{>get: var_bg_childhood}}.desc}}"
+        desc_addl: "{{str_bg.{{>get: var_bg_childhood}}.desc_addl}}"
+        question: "{{str_bg.{{>get: var_bg_childhood}}.question}}"
+        title: "{{str_bg.{{>get: var_bg_childhood}}.title}}"
+        prince: "{{str_bg.{{>get: var_bg_childhood}}.prince}}"
+        prince2: "{{str_bg.{{>get: var_bg_childhood}}.prince2}}"
+        prince3: "{{str_bg.{{>get: var_bg_childhood}}.prince3}}"
+        spec: 
+          i: "{{dat_bg.{{>get: var_bg_childhood}}.spec.i}}"
+          1: "{{dat_bg.{{>get: var_bg_childhood}}.spec.1}}"
+          double:
+            i: "{{dat_bg.{{>get: var_bg_childhood}}.spec.double.i}}"
+            1: "{{dat_bg.{{>get: var_bg_childhood}}.spec.double.1}}"
+        passion:
+          d8: "{{dat_bg.{{>get: var_bg_childhood}}.passion.d8}}"
+
+      education:
+
+        desc: "{{str_bg.{{>get: var_bg_education}}.desc}}"
+        desc_addl: "{{str_bg.{{>get: var_bg_education}}.desc_addl}}"
+
+        question: "{{str_bg.{{>get: var_bg_education}}.question}}"
+        title: "{{str_bg.{{>get: var_bg_education}}.title}}"
+
+        prince: "{{str_bg.{{>get: var_bg_education}}.prince}}"
+        social_rank: "{{dat_bg.{{>get: var_bg_education}}.social_rank}}"
+
+        lang: 
+          i: "{{dat_bg.{{>get: var_bg_education}}.lang.i}}"
+          1: "{{dat_bg.{{>get: var_bg_education}}.lang.1}}"
+          2: "{{dat_bg.{{>get: var_bg_education}}.lang.2}}"
+        spec: 
+          i: "{{dat_bg.{{>get: var_bg_education}}.spec.i}}"
+          1: "{{dat_bg.{{>get: var_bg_education}}.spec.1}}"
+          2: "{{dat_bg.{{>get: var_bg_education}}.spec.2}}"
+          3: "{{dat_bg.{{>get: var_bg_education}}.spec.3}}"
+          4: "{{dat_bg.{{>get: var_bg_education}}.spec.4}}"
+          double:
+            i: "{{dat_bg.{{>get: var_bg_education}}.spec.double.i}}"
+            1: "{{dat_bg.{{>get: var_bg_education}}.spec.double.1}}"
+        gear:
+          i: "{{dat_bg.{{>get: var_bg_education}}.gear.i}}"
+          1: "{{dat_bg.{{>get: var_bg_education}}.gear.1}}"
+          2: "{{dat_bg.{{>get: var_bg_education}}.gear.2}}"
+          3: "{{dat_bg.{{>get: var_bg_education}}.gear.3}}"
+          4: "{{dat_bg.{{>get: var_bg_education}}.gear.4}}"
+          5: "{{dat_bg.{{>get: var_bg_education}}.gear.5}}"
+        outfit: "{{dat_bg.{{>get: var_bg_education}}.outfit}}"
+
+        passion:
+          d10: "{{dat_bg.{{>get: var_bg_education}}.passion.d10}}"
+
+        style_manu: "{{dat_bg.{{>get: var_bg_education}}.style_manu}}"
+        weapon_prowess:
+
+          i: "{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.i}}"
+          1: "{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.1}}"
+          2: "{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.2}}"
+          3: "{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.3}}"
+          4: "{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.4}}"
+        armor_prowess:
+          i: "{{dat_bg.{{>get: var_bg_education}}.armor_prowess.i}}"
+          1: "{{dat_bg.{{>get: var_bg_education}}.armor_prowess.1}}"
+          2: "{{dat_bg.{{>get: var_bg_education}}.armor_prowess.2}}"
+
+      adulthood:
+        desc: "{{str_bg.{{>get: var_bg_adulthood}}.desc}}"
+        desc_addl: "{{str_bg.{{>get: var_bg_adulthood}}.desc_addl}}"
+        question: "{{str_bg.{{>get: var_bg_adulthood}}.question}}"
+        title: "{{str_bg.{{>get: var_bg_adulthood}}.title}}"
+        prince: "{{str_bg.{{>get: var_bg_adulthood}}.prince}}"
+        spec: 
+          i: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.i}}"
+          1: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.1}}"
+          2: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.2}}"
+          3: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.3}}"
+          4: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.4}}"
+          double:
+            i: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.double.i}}"
+            1: "{{dat_bg.{{>get: var_bg_adulthood}}.spec.double.1}}"
+             
+        passion:
+          d12: "{{dat_bg.{{>get: var_bg_adulthood}}.passion.d12}}"
+        weapon_prowess:
+          i: "{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.i}}"
+          1: "{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.1}}"
+          2: "{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.2}}"
+        armor_prowess:
+          i: "{{dat_bg.{{>get: var_bg_adulthood}}.armor_prowess.i}}"
+          1: "{{dat_bg.{{>get: var_bg_adulthood}}.armor_prowess.1}}"
+        style_manu: "{{dat_bg.{{>get: var_bg_adulthood}}.style_manu}}"
+
+    # ################################################# set ########################################
+
+    set:
+      all: |
+           <!-- processing random bg 
+           {{>accum: list_story <h3>{{ui_bg.yourbackstory}}</h3>}}
+           {{ui_bg.nation}}: {{api_bg.set.nation.all}} 
+           {{ui_bg.parents}}: {{api_bg.set.parents.all}} 
+           {{ui_bg.childhood}}: {{api_bg.set.childhood.all}} 
+           {{ui_bg.education}}: {{api_bg.set.education.all}} 
+           {{ui_bg.adulthood}}: {{api_bg.set.adulthood.all}}
+
+           {{>set: var_class_string {{ui_bg.class_random}} ({{str_bg.{{>get: var_bg_nation}}.title}}; {{str_bg.{{>get: var_bg_parents}}.title}}; {{str_bg.{{>get: var_bg_childhood}}.title}}; {{str_bg.{{>get: var_bg_education}}.title}}; {{str_bg.{{>get: var_bg_adulthood}}.title}}}}
+
+           -->
+
+      # # # # # # # # # # # # # # # # # # # # # #  nation # # # # # # # # # # # # # # # # # # # # #
+
+      nation:
+        all: |
+             {{>set: var_story_i true}}
+             %[[api_bg.set.nation.lang.{{dat_bg.{{>get: var_bg_nation}}.lang.i}}]]%
+             %[[api_bg.set.nation.skill.{{dat_bg.{{>get: var_bg_nation}}.skill.i}}]]%
+             %[[>accum: list_story <p>{{str_bg.{{>get: var_bg_nation}}.desc_addl}} (<i>{{ui_bg.nation}}: {{str_bg.{{>get: var_bg_nation}}.title}}</i>)</p>]]%
+
+        lang:
+          0: beep
+          1: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_nation}}.lang.1}} true}}
+          2: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_nation}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_nation}}.lang.2}} true}}
+          3: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_nation}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_nation}}.lang.2}} true}}
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_nation}}.lang.3}} true}}
+
+        skill:
+          0: beep
+          1: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_nation}}.skill.1}} true}}
+          2: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_nation}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_nation}}.skill.2}} true}}
+
+      # # # # # # # # # # # # # # # # # # #  parents # # # # # # # # # # # # # # # # # # # # 
+
+      parents:      
+        all: |
+             %[[>set: var_social_rank_1 {{dat_bg.{{>get: var_bg_parents}}.social_rank}}]]%
+             %[[>set: var_pass_d6 {{dat_bg.{{>get: var_bg_parents}}.passion.d6}}]]%
+             %[[>add: var_pass_i 1]]%
+             %[[>set: array_style_1 {{dat_bg.{{>get: var_bg_parents}}.style_manu}}]]%
+             %[[>add: array_style_i 1]]%
+             %[[api_bg.set.parents.lang.{{dat_bg.{{>get: var_bg_parents}}.lang.i}}]]%
+             %[[api_bg.set.parents.weapon_prowess.{{dat_bg.{{>get: var_bg_parents}}.weapon_prowess.i}}]]%
+             %[[api_bg.set.parents.spec.{{dat_bg.{{>get: var_bg_parents}}.spec.i}}]]%
+             %[[api_bg.set.parents.skill.{{dat_bg.{{>get: var_bg_parents}}.skill.i}}]]%
+             %[[>accum: list_story <p>{{str_bg.{{>get: var_bg_parents}}.desc}} {{str_bg.{{>get: var_bg_parents}}.question}} (<i>{{ui_bg.parents}}: {{str_bg.{{>get: var_bg_parents}}.title}}</i>)</p>]]%
+             %[[api_bg.set.parents.gear.{{dat_bg.{{>get: var_bg_parents}}.gear.i}}]]%
+             %[[api_bg.set.parents.style_manu]]%
+        xll: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_parents}}.outfit}}}}}}
+
+        style_manu: |
+                    {{>accum: list_style_manu {{str_style_manu.{{dat_bg.{{>get: var_bg_parents}}.style_manu}}.title}} (<i>{{str_style_manu.{{dat_bg.{{>get: var_bg_parents}}.style_manu}}.text}}</i>)}}
+
+        lang:
+          0: beep
+          1: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_parents}}.lang.1}} true}}
+
+        skill:
+          0: beep
+          1: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_parents}}.skill.1}} true}}
+          2: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_parents}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_parents}}.skill.2}} true}}
+
+        spec:
+          0: beep
+          1: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_parents}}.spec.1}} 1}}
+          2: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_parents}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_parents}}.spec.2}} 1}}
+
+        weapon_prowess:
+          0: beep
+          1: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_parents}}.weapon_prowess.1}} true}}
+
+        gear:
+          0: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_parents}}.outfit}}}}}}
+          1: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_parents}}.outfit}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_parents}}.gear.1}}}}}}
+
+      # # # # # # # # # # # # # # # # # # # # #  childhood # # # # # # # # # # # # # # # # # # # #  
+
+      childhood: 
+        all: |
+             %[[>set: var_pass_d8 {{dat_bg.{{>get: var_bg_childhood}}.passion.d8}}]]%
+             %[[>add: var_pass_i 1]]%
+             %[[api_bg.set.childhood.spec.{{dat_bg.{{>get: var_bg_childhood}}.spec.i}}]]%
+             %[[api_bg.set.childhood.skill.{{dat_bg.{{>get: var_bg_childhood}}.skill.i}}]]%
+             %[[>accum: list_story <p>{{str_bg.{{>get: var_bg_childhood}}.desc}} {{str_bg.{{>get: var_bg_childhood}}.question}} (<i>{{ui_bg.childhood}}: {{str_bg.{{>get: var_bg_childhood}}.title}}</i>)</p>]]%
+
+        skill:
+          0: beep
+          1: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_childhood}}.skill.1}} true}}
+
+        spec:
+          0: beep
+          1: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_childhood}}.spec.1}} 1}}
+
+      # # # # # # # # # # # # # # # # # # # # #  education # # # # # # # # # # # # # # # # # # # # 
+
+      education: 
+        all: |
+             %[[>set: var_social_rank_2 {{dat_bg.{{>get: var_bg_education}}.social_rank}}]]%
+             %[[>set: var_pass_d10 {{dat_bg.{{>get: var_bg_education}}.passion.d10}}]]%
+             {{>add: var_pass_i 1}}
+             %[[>set: array_style_2 {{dat_bg.{{>get: var_bg_education}}.style_manu}}]]%
+             %[[>add: array_style_i 1]]%
+             %[[api_bg.set.education.lang.{{dat_bg.{{>get: var_bg_education}}.lang.i}}]]%
+             %[[api_bg.set.education.spec.{{dat_bg.{{>get: var_bg_education}}.spec.i}}]]%
+             %[[api_bg.set.education.spec.double.{{dat_bg.{{>get: var_bg_education}}.spec.double.i}}]]%
+             %[[api_bg.set.education.skill.{{dat_bg.{{>get: var_bg_education}}.skill.i}}]]%
+             %[[api_bg.set.education.weapon_prowess.{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.i}}]]%
+             %[[api_bg.set.education.armor_prowess.{{dat_bg.{{>get: var_bg_education}}.armor_prowess.i}}]]%
+             %[[>accum: list_story <p>{{str_bg.{{>get: var_bg_education}}.desc}} {{str_bg.{{>get: var_bg_education}}.question}} (<i>{{ui_bg.education}}: {{str_bg.{{>get: var_bg_education}}.title}}</i>)</p>]]%
+             %[[api_bg.set.education.gear.{{dat_bg.{{>get: var_bg_education}}.gear.i}}]]%
+             %[[api_bg.set.education.style_manu]]%
+        xll: |
+
+        style_manu: |
+                    {{>accum: list_style_manu {{str_style_manu.{{dat_bg.{{>get: var_bg_education}}.style_manu}}.title}} (<i>{{str_style_manu.{{dat_bg.{{>get: var_bg_education}}.style_manu}}.text}}</i>)}}
+
+        lang:
+          0: beep
+          1: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_education}}.lang.1}} true}}
+          2: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_education}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_education}}.lang.2}} true}}
+          3: |
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_education}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_education}}.lang.2}} true}}
+             {{>set: var_lang_{{dat_bg.{{>get: var_bg_education}}.lang.3}} true}}
+
+        skill:
+          0: beep
+          1: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.1}} true}}
+          2: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.2}} true}}
+          3: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.3}} true}}
+          4: |
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_education}}.skill.4}} true}}
+
+        spec:
+          0: beep
+          1: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.1}} 1}}
+          2: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.2}} 1}}
+          3: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.3}} 1}}
+          4: |
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.4}} 1}}
+
+          double:
+
+            0: beep
+            1: |
+               {{>add: var_spec_{{dat_bg.{{>get: var_bg_education}}.spec.double.1}} 2}}
+
+        gear:
+          0: | 
+             beep
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_education}}.outfit}}}}}}
+          1: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_education}}.outfit}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.1}}}}}}
+          2: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_education}}.outfit}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.2}}}}}}
+          3: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_education}}.outfit}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.3}}}}}}
+          4: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_education}}.outfit}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.4}}}}}}
+          5: |
+             {{>accum: list_gear {{str_outfit.{{dat_bg.{{>get: var_bg_education}}.outfit}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.4}}}}}}
+             {{>accum: list_gear {{str_{{dat_bg.{{>get: var_bg_education}}.gear.5}}}}}}
+
+        weapon_prowess:
+          0: beep
+          1: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.1}} true}}
+          2: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.1}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.2}} true}}
+          3: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.1}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.2}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.3}} true}}
+          4: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.1}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.2}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.3}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.weapon_prowess.4}} true}}
+
+        armor_prowess:
+          0: beep
+          1: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.armor_prowess.1}} true}}
+          2: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.armor_prowess.1}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_education}}.armor_prowess.2}} true}}
+
+      # # # # # # # # # # # # # # # # # # # # #  adulthood  # # # # # # # # # # # # # # # # # # # # # 
+
+      adulthood:
+        all: |     
+             %[[>set: var_pass_d12 {{dat_bg.{{>get: var_bg_adulthood}}.passion.d12}}]]%
+             %[[>add: var_pass_i 1]]%
+             %[[>set: array_style_3 {{dat_bg.{{>get: var_bg_adulthood}}.style_manu}}]]%
+             %[[>add: array_style_i 1]]%
+             %[[api_bg.set.adulthood.spec.{{dat_bg.{{>get: var_bg_adulthood}}.spec.i}}]]%
+             %[[api_bg.set.adulthood.spec.double.{{dat_bg.{{>get: var_bg_adulthood}}.spec.double.i}}]]%
+             %[[api_bg.set.adulthood.skill.{{dat_bg.{{>get: var_bg_adulthood}}.skill.i}}]]%
+             %[[api_bg.set.adulthood.weapon_prowess.{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.i}}]]%
+             %[[api_bg.set.adulthood.armor_prowess.{{dat_bg.{{>get: var_bg_adulthood}}.armor_prowess.i}}]]%
+             %[[>accum: list_story <p>{{str_bg.{{>get: var_bg_adulthood}}.desc}} {{str_bg.{{>get: var_bg_adulthood}}.question}} (<i>{{ui_bg.adulthood}}: {{str_bg.{{>get: var_bg_adulthood}}.title}}</i>)</p>]]%
+             %[[api_bg.set.adulthood.style_manu]]%
+
+        style_manu: |
+                    {{>accum: list_style_manu {{str_style_manu.{{dat_bg.{{>get: var_bg_adulthood}}.style_manu}}.title}} (<i>{{str_style_manu.{{dat_bg.{{>get: var_bg_adulthood}}.style_manu}}.text}}</i>)}}
+
+        skill:
+          0: beep
+          1: | 
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.1}} true}}
+          2: | 
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.2}} true}}
+          3: | 
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.3}} true}}
+          4: | 
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_bg.{{>get: var_bg_adulthood}}.skill.4}} true}}
+
+        spec:
+          0: beep
+          1: | 
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.1}} 1}}
+          2: | 
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.2}} 1}}
+          3: | 
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.3}} 1}}
+          4: | 
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.4}} 1}}
+
+          double:
+            0: beep
+            1: |
+               {{>add: var_spec_{{dat_bg.{{>get: var_bg_adulthood}}.spec.double.1}} 2}}
+
+        weapon_prowess:
+          0: beep
+          1: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.1}} true}}
+          2: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.1}} true}}
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_adulthood}}.weapon_prowess.2}} true}}
+
+        armor_prowess:
+          0: beep
+          1: |
+             {{>set: var_prow_{{dat_bg.{{>get: var_bg_adulthood}}.armor_prowess.1}} true}}
+
+      # # # # # # # # # # # # # # # # # # # # #  adulthood  # # # # # # # # # # # # # # # # # # # # # 
+
+    sanitize:
+      all: |
+           %[[%[[api_bg.sanitize.brew.{{>get: var_spec_brew}}]]%]]%
+      brew: 
+        0: ">add: var_spec_brew 0"
+        1: ">add: var_spec_brew 0"
+        2: ">add: var_spec_brew 0"
+        3: ">add: var_spec_brew -1"
+        4: ">add: var_spec_brew -2"
+      custom:
+        0: "{{>add: var_custom 0}}"
+        1: "{{>add: var_custom 0}}"
+        2: "{{>add: var_custom 0}}"
+        3: "{{>add: var_custom 1}}"
+        4: "{{>add: var_custom 2}}"
+
+    print:
+      # ##################################### story begins here ####################################
+
+      story: |
+             <h3>{{ui_bg.yourrandombg}}</h3>
+             <p>
+             {{api_bg.get.nation.desc_addl}}
+             {{api_bg.get.parents.desc}}<sup><small>[1]</small></sup>
+             {{api_bg.get.childhood.desc}}<sup><small>[2]</small></sup>
+             {{api_bg.get.education.desc}}<sup><small>[3]</small></sup>
+             {{api_bg.get.adulthood.desc}}<sup><small>[4]</small></sup>
+             </p>
+
+             <p><b>{{ui_bg.questions}}:</b>
+             <br /> 1. {{api_bg.get.parents.title}}: {{api_bg.get.parents.question}}
+             <br /> 2. {{api_bg.get.childhood.title}}: {{api_bg.get.childhood.question}}
+             <br /> 3. {{api_bg.get.education.title}}: {{api_bg.get.education.question}}
+             <br /> 4. {{api_bg.get.adulthood.title}}: {{api_bg.get.adulthood.question}}
+             </p>
+      # ####################################  summ begins here  ####################################
+
+      summ: |
+            <h3>{{ui_bg.summaryof}} {{ui_bg.yourrandombg}}:</h3>
+            <p><b>{{ui_bg.nation}}: {{api_bg.get.nation.title}}.</b> {{api_bg.get.nation.desc}}</p>
+            <p><b>{{ui_bg.parents}}: {{api_bg.get.parents.title}}.</b> {{api_bg.get.parents.desc}} {{api_bg.get.parents.question}}</p>
+            <p><b>{{ui_bg.childhood}}: {{api_bg.get.childhood.title}}.</b> {{api_bg.get.childhood.desc}} {{api_bg.get.childhood.question}}</p>
+            <p><b>{{ui_bg.education}}: {{api_bg.get.education.title}}.</b> {{api_bg.get.education.desc}} {{api_bg.get.education.question}}</p>
+            <p><b>{{ui_bg.adulthood}}: {{api_bg.get.adulthood.title}}.</b> {{api_bg.get.adulthood.desc}} {{api_bg.get.adulthood.question}}</p>
+
+      # ###################################### seq begins here ####################################
+
+      seq: |
+           <h3>{{ui_bg.yourrandombg}}</h3>
+           <h4>{{ui_bg.nation}}: {{api_bg.get.nation.title}}</h4>
+           {{api_bg.print.nation.all}}
+           <h4>{{ui_bg.parents}}: {{api_bg.get.parents.title}}</h4>
+           {{api_bg.print.parents.all}}
+           <h4>{{ui_bg.childhood}}: {{api_bg.get.childhood.title}}</h4>
+           {{api_bg.print.childhood.all}}
+           <h4>{{ui_bg.education}}: {{api_bg.get.education.title}}</h4>
+           {{api_bg.print.education.all}}
+           <h4>{{ui_bg.adulthood}}: {{api_bg.get.adulthood.title}}</h4>
+           {{api_bg.print.adulthood.all}}
+
+
+      # # # # # # # # # # # # # # # # # # # # # #  nation # # # # # # # # # # # # # # # # # # # # #
+
+      nation:
+        all: |     
+             <p>{{api_bg.get.nation.desc}}</p>
+             <p>
+             %[[api_bg.print.nation.lang.{{api_bg.get.nation.lang.i}}]]%
+             %[[api_bg.print.nation.skill.{{api_bg.get.nation.skill.i}}]]%
+             </p>
+
+        lang:
+          0: "{{nop}}"
+          1: "<b>{{str_lang.language}}:</b> %[[str_lang.{{api_bg.get.nation.lang.1}}]]%<br />"
+          2: "<b>{{str_lang.languages}}:</b> %[[str_lang.{{api_bg.get.nation.lang.1}}]]%, %[[str_lang.{{api_bg.get.nation.lang.2}}]]%<br />"
+          3: "<b>{{str_lang.languages}}:</b> %[[str_lang.{{api_bg.get.nation.lang.1}}]]%, %[[str_lang.{{api_bg.get.nation.lang.2}}]]%, %[[str_lang.{{api_bg.get.nation.lang.3}}]]%<br />"
+
+        skill:
+          0: "{{nop}}"
+          1: "<b>{{str_skill.skill}}:</b> %[[str_skill.{{api_bg.get.nation.skill.1}}]]%<br />"
+          2: "<b>{{str_skill.skills}}:</b> %[[str_skill.{{api_bg.get.nation.skill.1}}]]%, %[[str_skill.{{api_bg.get.nation.skill.2}}]]%<br />"
+
+      # # # # # # # # # # # # # # # # # # #  parents # # # # # # # # # # # # # # # # # # # # 
+
+      parents:      
+        all: |
+             <p>{{api_bg.get.parents.desc}}</p>
+             <p><i>{{api_bg.get.parents.question}}</i></p>
+             <p>
+             %[[api_bg.print.parents.lang.{{api_bg.get.parents.lang.i}}]]%
+             <b>{{str_social_rank.rank}}:</b> %[[api_social_rank.print.with_dice.{{api_bg.get.parents.social_rank}}]]%<br />
+             %[[api_bg.print.parents.spec.{{api_bg.get.parents.spec.i}}]]%
+             %[[api_bg.print.parents.weapon_prowess.{{api_bg.get.parents.weapon_prowess.i}}]]%
+             %[[api_bg.print.parents.gear.{{api_bg.get.parents.gear.i}}]]%
+             <b>{{str_pass.passion}}:</b> %[[str_pass.{{api_bg.get.parents.passion.d6}}]]% ({{d6}})<br />
+             <b>{{str_style.style_manu}}:</b> %[[str_style_manu.{{api_bg.get.parents.style_manu}}.title]]% (<i>%[[str_style_manu.{{api_bg.get.parents.style_manu}}.text]]%</i>)<br />
+             </p>
+
+        lang:
+          0: "{{nop}}"
+          1: "<b>{{str_lang.language}}:</b> %[[str_lang.{{api_bg.get.parents.lang.1}}]]%<br />"
+
+        spec:
+          0: "{{nop}}"
+          1: "<b>{{str_spec.specialty}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.parents.spec.1}}]]% +1<br />"
+          2: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.parents.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.parents.spec.2}}]]% +1<br />"
+
+        weapon_prowess:
+          0: "{{nop}}"
+          1: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.parents.weapon_prowess.1}}]]%<br />"
+
+        gear:
+          0: "{{nop}}"
+          1: "<b>{{str_gear.gear}}:</b> %[[str_{{api_bg.get.parents.gear.1}}]]%<br />"
+
+      # # # # # # # # # # # # # # # # # # # # #  childhood # # # # # # # # # # # # # # # # # # # #  
+
+      childhood: 
+        all: |
+             <p>{{api_bg.get.childhood.desc}}</p>
+             <p><i>{{api_bg.get.childhood.question}}</i></p>
+             %[[api_bg.print.childhood.spec.{{api_bg.get.childhood.spec.i}}]]%
+             <b>{{str_pass.passion}}:</b> %[[str_pass.{{api_bg.get.childhood.passion.d8}}]]% ({{d8}})
+             </p>
+        spec:
+          0: "{{nop}}"
+          1: "<b>{{str_spec.specialty}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.childhood.spec.1}}]]% +1<br />"
+
+
+      # # # # # # # # # # # # # # # # # # # # #  education # # # # # # # # # # # # # # # # # # # # 
+
+      education: 
+        all: |
+             <p>{{api_bg.get.education.desc}}</p>
+             <p><i>{{api_bg.get.education.question}}</i></p>
+             <p>
+             %[[api_bg.print.education.lang.{{api_bg.get.education.lang.i}}]]%
+             <b>{{str_social_rank.rank}}:</b> %[[api_social_rank.print.with_dice.{{api_bg.get.education.social_rank}}]]%<br />
+             %[[api_bg.print.education.spec.{{api_bg.get.education.spec.i}}]]%%[[api_bg.print.education.spec.double.{{api_bg.get.education.spec.double.i}}]]%
+             <b>{{str_pass.passion}}:</b> %[[str_pass.{{api_bg.get.education.passion.d10}}]]% ({{d10}})<br />
+             %[[api_bg.print.education.gear.{{api_bg.get.education.gear.i}}]]%
+             <b>{{str_style.style_manu}}:</b> %[[str_style_manu.{{api_bg.get.education.style_manu}}.title]]% (<i>%[[str_style_manu.{{api_bg.get.education.style_manu}}.text]]%</i>)<br />
+             %[[api_bg.print.education.weapon_prowess.{{api_bg.get.education.weapon_prowess.i}}]]%
+             %[[api_bg.print.education.armor_prowess.{{api_bg.get.education.armor_prowess.i}}]]%
+             </p>
+
+            
+        lang:
+          0: "{{nop}}"
+          1: "<b>{{str_lang.language}}:</b> %[[str_lang.{{api_bg.get.education.lang.1}}]]%<br />"
+          2: "<b>{{str_lang.languages}}:</b> %[[str_lang.{{api_bg.get.education.lang.1}}]]%, %[[str_lang.{{api_bg.get.education.lang.2}}]]%<br />"
+        spec:
+          0: "{{nop}}"
+          1: "<b>{{str_spec.specialty}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.education.spec.1}}]]% +1"
+          2: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.education.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.education.spec.2}}]]% +1"
+          3: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.education.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.education.spec.2}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.education.spec.3}}]]% +1%"
+          4: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.education.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.education.spec.2}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.education.spec.3}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.education.spec.4}}]]% +1"
+          double:
+            0: "<br />"
+            1: ", %[[api_spec.print.with_skill.{{api_bg.get.education.spec.double.1}}]]% +2<br />"
+        gear:
+          0: "{{nop}}"
+          1: "<b>{{str_gear.gear}}:</b> %[[str_{{api_bg.get.education.gear.1}}]]%<br />"
+          2: "<b>{{str_gear.gear}}:</b> %[[str_{{api_bg.get.education.gear.1}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.2}}]]%<br />"
+          3: "<b>{{str_gear.gear}}:</b> %[[str_{{api_bg.get.education.gear.1}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.2}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.3}}]]%<br />"
+          4: "<b>{{str_gear.gear}}:</b> %[[str_{{api_bg.get.education.gear.1}}]]%,
+                                        %[[str_{{api_bg.get.education.gear.2}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.3}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.4}}]]%<br />"
+          5: "<b>{{str_gear.gear}}:</b> %[[str_{{api_bg.get.education.gear.1}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.2}}]]%,
+                                        %[[str_{{api_bg.get.education.gear.3}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.4}}]]%, 
+                                        %[[str_{{api_bg.get.education.gear.5}}]]%<br />"
+
+        weapon_prowess:
+          0: "{{nop}}"
+          1: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.education.weapon_prowess.1}}]]%<br />"
+          2: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.education.weapon_prowess.1}}]]%, %[[str_prow.{{api_bg.get.education.weapon_prowess.2}}]]%<br />"
+          3: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.education.weapon_prowess.1}}]]%, %[[str_prow.{{api_bg.get.education.weapon_prowess.2}}]]%, %[[str_prow.{{api_bg.get.education.weapon_prowess.3}}]]%<br />"
+          4: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.education.weapon_prowess.1}}]]%, %[[str_prow.{{api_bg.get.education.weapon_prowess.2}}]]%, %[[str_prow.{{api_bg.get.education.weapon_prowess.3}}]]%, %[[str_prow.{{api_bg.get.education.weapon_prowess.4}}]]%<br />"
+        armor_prowess:
+          0: "{{nop}}"
+          1: "<b>{{str_prow.armor_prowess}}:</b> %[[str_prow.{{api_bg.get.education.armor_prowess.1}}]]%<br />"
+          2: "<b>{{str_prow.armor_prowess}}:</b> %[[str_prow.{{api_bg.get.education.armor_prowess.1}}]]%, %[[str_prow.{{api_bg.get.education.armor_prowess.2}}]]%<br />"
+
+
+      # # # # # # # # # # # # # # # # # # # # #  adulthood  # # # # # # # # # # # # # # # # # # # # # 
+
+      adulthood:
+        all: |     
+             <p>{{api_bg.get.adulthood.desc}}</p>
+             <p><i>{{api_bg.get.adulthood.question}}</i></p>
+             <p>
+             %[[api_bg.print.adulthood.spec.{{api_bg.get.adulthood.spec.i}}]]%%[[api_bg.print.adulthood.spec.double.{{api_bg.get.adulthood.spec.double.i}}]]%
+             <b>{{str_pass.passion}}:</b> %[[str_pass.{{api_bg.get.adulthood.passion.d12}}]]% ({{d12}})<br />
+             <b>{{str_style.style_manu}}:</b> %[[str_style_manu.{{api_bg.get.adulthood.style_manu}}.title]]% (<i>%[[str_style_manu.{{api_bg.get.adulthood.style_manu}}.text]]%</i>)<br />
+             %[[api_bg.print.adulthood.weapon_prowess.{{api_bg.get.adulthood.weapon_prowess.i}}]]%
+             %[[api_bg.print.adulthood.armor_prowess.{{api_bg.get.adulthood.armor_prowess.i}}]]%
+             </p>
+
+        spec:
+          0: "{{nop}}"
+          1: "<b>{{str_spec.specialty}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.1}}]]%"
+          2: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.2}}]]% +1"
+          3: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.2}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.3}}]]%"
+          4: "<b>{{str_spec.specialties}}:</b> %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.1}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.2}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.3}}]]% +1, %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.4}}]]% +1"
+          double:
+            0: "<br />"
+            1: ", %[[api_spec.print.with_skill.{{api_bg.get.adulthood.spec.double.1}}]]% +2<br />"
+
+        weapon_prowess:
+          0: "{{nop}}"
+          1: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.adulthood.weapon_prowess.1}}]]%<br />"
+          2: "<b>{{str_prow.weapon_prowess}}:</b> %[[str_prow.{{api_bg.get.adulthood.weapon_prowess.1}}]]%, %[[str_prow.{{api_bg.get.adulthood.weapon_prowess.2}}]]%<br />"
+
+        armor_prowess:
+          0: "{{nop}}"
+          1: "<b>{{str_prow.armor_prowess}}:</b> %[[str_prow.{{api_bg.get.adulthood.armor_prowess.1}}]]%<br />"
+
+
+      # ###################################### end seq ##########################################
+
+      fresh: |
+             <h3>The Fresh Queen's Cavalier</h3>
+
+             <p>
+             Now this is the story all about how your life got flipped, turned upside down.
+             <br />And I'd like to take a minute, just sit right there,
+             <br />I'll tell you how you were named as a Queen's Cavalier.</p>
+
+             <p>In {{api_bg.get.nation.prince}} born and raised,
+             <br />{{api_bg.get.childhood.prince}} how you spent most of your days.</p>
+
+             <p>{{api_bg.get.childhood.prince2}}
+             <br />{{api_bg.get.childhood.prince3}}</p>
+             
+             <p>When a couple of guys who were up to no good 
+             <br />Started waving swords in your neighborhood.</p>
+
+             <p>You got in one little duel, {{api_bg.get.parents.prince}} got scared, 
+             <br />{{api_bg.get.parents.prince2}} said "You're {{api_bg.get.education.prince}} in Lutetia."</p>
+
+             <p>You pulled up to the palace in seven or eight years,
+             <br />And yelled to the Prince-Consort, "Yo Chuck, {{api_bg.get.adulthood.prince}}!"</p>
+
+             <p>You looked at the queendom; you were finally here.
+             <br />To serve Mariana as a Queen's Cavalier.</p>
+
+      sheet: |
+             {{api_charsheet.init}}
+             {{api_bg.set.all}}
+             %[[api_charsheet.print.basic]]%
+
+

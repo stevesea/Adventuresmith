@@ -1,0 +1,7 @@
+---
+templates:
+  - "{{api_cal.random.{{unstr_cal.{{input.select}}}}_in_{{unstr_cal.{{input.set}}}}}}"
+
+imports:
+  - lib_calendar
+
