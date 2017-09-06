@@ -329,6 +329,7 @@ Used with permission. All rights reserved.
 <p>The contents of this supplement rely upon the rules contained in <em>Dungeon World</em>, by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>,
 licensed under a Creative Commons Attribution 3.0 Unported license</p>
 <p>The text of The <em>Perilous Wilds</em> is released under a Creative Commons Attribution - ShareAlike 3.0 Unported license.</p>
+<p>Français traduction par Bastien ‘Acritarche’ Wauthoz est sous licence Creative commons – Attribution – 4.0 non transposée.</p>
 
 
 
