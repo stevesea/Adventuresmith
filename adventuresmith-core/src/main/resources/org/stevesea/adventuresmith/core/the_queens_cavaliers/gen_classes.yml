@@ -1,0 +1,8 @@
+---
+
+templates:
+- "{{api_class.set.{{input.method}}.{{input.group}}}}%[[api_class.print.{{input.format}}]]%"
+
+imports:
+- lib_class
+- lib_stats

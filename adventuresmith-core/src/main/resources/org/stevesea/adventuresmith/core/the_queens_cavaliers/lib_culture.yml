@@ -1,0 +1,388 @@
+---
+imports:
+- str_culture
+- str_tqc
+- str_class
+- str_style
+- dat_culture
+
+nested_tables:
+
+  random_country:
+    all:
+    - "{{>pick: 1d12 country_list}}"
+    elara:
+    - "{{>pick: 1d7 country_list}}"
+    elara_and_ifran:
+    - "{{>pick: 1d8 country_list}}"
+    middle_sea:
+    - gallinea
+    - dragosa
+    - ekalia
+    - ondala
+    - "{{random_country.pitdah_and_ubar}}"
+    - coffee_coast
+    northern_sea:
+    - albia
+    - varendia
+    - talania
+    pitdah_and_ubar:
+    - pitdah
+    - ubar
+    distant:
+    - mwene_karanga
+    - serica
+    - coffee_coast
+    ifran:
+    - "{{random_country.pitdah_and_ubar}}"
+    - mwene_karanga
+    - "{{random_colony}}"
+
+    foreign_all:
+    - "{{>pick: 1d10+1 country_list}}"
+    foreign_elara:
+    - "{{>pick: 1d6+1 country_list}}"
+    foreign_elara_and_ifran:
+    - "{{>pick: 1d9+1 country_list}}"
+    neighbors:
+    - albia
+    - varendia
+    - ekalia
+    - ondala
+    weighted:
+    - 1..3, gallinea
+    - "4..5, {{random_country.neighbors}}"
+    - "6..7, {{random_country.middle_sea}}"
+    - "8..9, {{random_country.northern_sea}}"
+    - "{{random_country.distant}}"
+      
+  random_city:
+
+    all:
+    - "{{>pick: 1d25 city_list}}"
+
+    gallinea_all:
+    - "{{>pick: 1d13+1 city_list}}"
+
+    gallinea_not_lutetia: 
+    - "{{>pick: 1d12+2 city_list}}"
+
+    coeur_de_gallinea:
+    - castenia
+    - gueve
+    - lutetia
+    - touriel
+
+    jeweled_coast:
+    - berylle
+    - canard_noir
+    - montambre
+    - persolei
+    - rhodope
+    - valerienne
+          
+    lowlands:
+    - boussole
+    - sudelune
+    - verterre
+      
+    scanbria:
+    - scanbreille
+    - affutaine
+
+    capital_elara:
+    - 1, lutetia
+    - "2..6, {{>pick: 1d6+15 city_list}}"
+
+    capital_elara_and_ifran:
+    - "{{>pick: 1d8+14 city_list}}"
+
+    capital_ondala:
+    - cordera
+    - diega
+
+  random_province:
+    all:
+    - "{{>pick: 1d13+1 city_list}}"
+
+    duchy:
+    - berylle
+    - rhodope
+    - scanbreille
+    - valerienne
+
+    marquessate:
+    - montambre
+    - persolei
+    - verterre
+
+    county:
+    - affutaine
+    - boussole
+    - canard_noir
+    - castenia
+    - gueve
+    - sudelune
+    - touriel
+
+    colony:
+    - elissia
+
+    viscounty:
+    - unnamed.viscounty
+
+    barony:
+    - unnamed.barony
+
+    coeur_de_gallinea:
+    - castenia
+    - gueve
+    - lutetia
+    - touriel
+
+    jeweled_coast:
+    - berylle
+    - canard_noir
+    - montambre
+    - persolei
+    - rhodope
+    - valerienne
+          
+    lowlands:
+    - boussole
+    - sudelune
+    - verterre
+      
+    scanbria:
+    - scanbreille
+    - affutaine
+
+  random_language:
+    all:
+    - "{{>pick: 1d15 language_list}}"
+    elara:
+    - "{{>pick: 1d6 language_list}}"
+    elara_and_ifran:
+    - "{{>pick: 1d7 language_list}}"
+    historical:
+    - "{{>pick: 1d5+11 language_list}}"
+    modern:
+    - "{{>pick: 1d10 language_list}}"
+    minor:
+    - "{{>pick: 1d2+11 language_list}}"
+
+definitions:
+  api_country:
+    set:
+      all: "{{>set: var_country {{random_country.all}}}}"
+      distant: "{{>set: var_country {{random_country.distant}}}}"
+      elara: "{{>set: var_country {{random_country.elara}}}}"
+      elara_and_ifran: "{{>set: var_country {{random_country.elara_and_ifran}}}}"
+      foreign_all: "{{>set: var_country {{random_country.foreign_all}}}}"
+      middle_sea: "{{>set: var_country {{random_country.middle_sea}}}}"
+      pitdah_and_ubar: "{{>set: var_country {{random_country.pitdah_and_ubar}}}}"
+      north_sea: "{{>set: var_country {{random_country.northern_sea}}}}"
+      weighted: "{{>set: var_country {{random_country.weighted}}}}"
+      neighbors: "{{>set: var_country {{random_country.neighbors}}}}"
+        
+    print:
+
+      all: |
+           <p>{{ui_geo.yourrandomcountry}}</p>
+           <h1>{{str_nation.{{>get: var_country}}.name}}</h1>
+           <p><b>{{ui_geo.formal_name}}:</b> {{str_nation.{{>get: var_country}}.formal_name}}
+           <br /><b>{{ui_geo.capital}}:</b> {{str_geo.{{dat_nation.{{>get: var_country}}.capital}}}}
+           <br /><b>{{ui_geo.government}}:</b> {{str_nation.{{>get: var_country}}.government}}
+           <br /><b>{{ui_geo.leader_title}}:</b> {{str_nation.{{>get: var_country}}.leader_title}}
+           <br /><b>{{ui_geo.leader_name}}:</b> {{str_nation.{{>get: var_country}}.leader_name}}
+           {{api_country.print.symbol.{{str_nation.{{>get: var_country}}.symbol.i}}}}
+           {{api_country.print.color.{{dat_nation.{{>get: var_country}}.color.i}}}}
+           {{api_country.print.lang.{{dat_nation.{{>get: var_country}}.lang.i}}}}
+           {{api_country.print.religion.{{dat_nation.{{>get: var_country}}.religion.i}}}}
+           {{api_country.print.classes.{{dat_nation.{{>get: var_country}}.classes.i}}}}
+           {{api_country.print.currency.{{str_nation.{{>get: var_country}}.currency.i}}}}
+           {{api_country.print.style_manu.{{dat_nation.{{>get: var_country}}.style_manu.i}}}}
+           
+      nop: |
+
+      style_manu:
+        0: "{{nop}}"
+        1: |
+           <h4>{{str_nation.{{>get: var_country}}.adjective}} {{ui_geo.style_manu}}:</h4> 
+           <ul> <li> {{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.text}}</i>)</li> </ul>
+        2: |
+           <h4> {{str_nation.{{>get: var_country}}.adjective}} {{ui_geo.style_manus}}:</h4> 
+           <ul>
+           <li> {{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.text}}</i>)</li>
+           </li> {{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.2}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.2}}.text}}</i>)</li>
+           </ul>
+        3: |
+           <h4>{{str_nation.{{>get: var_country}}.adjective}} {{ui_geo.style_manus}}:</h4> <ul> <li> {{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.text}}</i>)</li> <li> {{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.2}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.2}}.text}}</i>)</li> <li> {{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.3}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.3}}.text}}</i>)</li>
+           </ul>
+        4: |
+           <h4>{{str_nation.{{>get: var_country}}.adjective}} {{ui_geo.style_manus}}:</h4>
+           <ul>
+           <li>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.1}}.text}}</i>)</li>
+           <li>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.2}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.2}}.text}}</i>)</li>
+           <li>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.3}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.3}}.text}}</i>)</li>
+           <li>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.4}}.title}} (<i>{{str_style_manu.{{dat_nation.{{>get: var_country}}.style_manu.4}}.text}}</i>)</li>
+           </ul>
+
+      currency:
+        0: "{{nop}}"
+        1: "<br /><b>{{ui_geo.currency}}:</b> {{str_nation.{{>get: var_country}}.currency.sing}} {{ui_geo.singular}}, {{str_nation.{{>get: var_country}}.currency.plur}} {{ui_geo.plural}}"
+
+      symbol:
+        0: "{{nop}}"
+        1: "<br /><b>{{ui_geo.symbol}}:</b> {{str_nation.{{>get: var_country}}.symbol.1}}"
+        2: "<br /><b>{{ui_geo.symbols}}:</b> {{str_nation.{{>get: var_country}}.symbol.1}}, {{str_nation.{{>get: var_country}}.symbol.2}}"
+        3: "<br /><b>{{ui_geo.symbols}}:</b> {{str_nation.{{>get: var_country}}.symbol.1}}, {{str_nation.{{>get: var_country}}.symbol.2}}, {{str_nation.{{>get: var_country}}.symbol.3}}"
+        4: "<br /><b>{{ui_geo.symbols}}:</b> {{str_nation.{{>get: var_country}}.symbol.1}}, {{str_nation.{{>get: var_country}}.symbol.2}}, {{str_nation.{{>get: var_country}}.symbol.3}}, {{str_nation.{{>get: var_country}}.symbol.4}}"
+        5: "<br /><b>{{ui_geo.symbols}}:</b> {{str_nation.{{>get: var_country}}.symbol.1}}, {{str_nation.{{>get: var_country}}.symbol.2}}, {{str_nation.{{>get: var_country}}.symbol.3}}, {{str_nation.{{>get: var_country}}.symbol.4}}, {{str_nation.{{>get: var_country}}.symbol.5}}"
+
+      
+      lang:
+        0: "{{nop}}"
+        1: "<br /><b>{{ui_geo.official_language}}:</b> {{str_language.{{dat_nation.{{>get: var_country}}.lang.1}}}}"
+        2: "<br /><b>{{ui_geo.official_languages}}:</b> {{str_language.{{dat_nation.{{>get: var_country}}.lang.1}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.2}}}}"
+        3: "<br /><b>{{ui_geo.official_languages}}:</b> {{str_language.{{dat_nation.{{>get: var_country}}.lang.1}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.2}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.3}}}}"
+        4: "<br /><b>{{ui_geo.official_languages}}:</b> {{str_language.{{dat_nation.{{>get: var_country}}.lang.1}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.2}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.3}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.4}}}}"
+        5: "<br /><b>{{ui_geo.official_languages}}:</b> {{str_language.{{dat_nation.{{>get: var_country}}.lang.1}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.2}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.3}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.4}}}}, {{str_language.{{dat_nation.{{>get: var_country}}.lang.5}}}}"
+
+      religion:
+        0: "{{nop}}"
+        1: "<br /><b>{{ui_geo.major_religion}}:</b> {{str_religion.{{dat_nation.{{>get: var_country}}.religion.1}}}}"
+        2: "<br /><b>{{ui_geo.major_religions}}:</b> {{str_religion.{{dat_nation.{{>get: var_country}}.religion.1}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.2}}}}"
+        3: "<br /><b>{{ui_geo.major_religions}}:</b> {{str_religion.{{dat_nation.{{>get: var_country}}.religion.1}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.2}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.3}}}}"
+        4: "<br /><b>{{ui_geo.major_religions}}:</b> {{str_religion.{{dat_nation.{{>get: var_country}}.religion.1}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.2}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.3}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.4}}}}"
+        5: "<br /><b>{{ui_geo.major_religions}}:</b> {{str_religion.{{dat_nation.{{>get: var_country}}.religion.1}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.2}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.3}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.4}}}}, {{str_religion.{{dat_nation.{{>get: var_country}}.religion.5}}}}"
+
+
+      color:
+        0: "{{nop}}"
+        1: |
+           <br /><b>{{ui_geo.color}}:</b>
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.name}}</font>
+        2: |
+           <br /><b>{{ui_geo.colors}}:</b>
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.name}}</font> {{and}}
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.name}}</font>
+        3: |
+           <br /><b>{{ui_geo.colors}}:</b>
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.name}}</font>,
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.name}}</font>, {{and}}
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.3}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.3}}.name}}</font>
+        4: |
+           <br /><b>{{ui_geo.colors}}:</b>
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.name}}</font>,
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.name}}</font>,
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.3}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.3}}.name}}</font>, {{and}}
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.4}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.4}}.name}}</font>
+        5: |
+           <br /><b>{{ui_geo.colors}}:</b>
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.1}}.name}}</font>,
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.2}}.name}}</font>,
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.3}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.3}}.name}}</font>,
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.4}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.4}}.name}}</font>, {{and}}
+           <font color={{str_color.{{dat_nation.{{>get: var_country}}.color.5}}.display_color}}>{{str_color.{{dat_nation.{{>get: var_country}}.color.5}}.name}}</font>
+
+      classes:
+        0: "{{nop}}"
+        1: "<br /><b>{{ui_geo.class}}</b>: {{str_class.{{dat_nation.{{>get: var_country}}.classes.1}}.title}}"
+        2: "<br /><b>{{ui_geo.classes}}</b>: {{str_class.{{dat_nation.{{>get: var_country}}.classes.1}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.2}}.title}}"
+        3: "<br /><b>{{ui_geo.classes}}</b>: {{str_class.{{dat_nation.{{>get: var_country}}.classes.1}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.2}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.3}}.title}}"
+        4: "<br /><b>{{ui_geo.classes}}</b>: {{str_class.{{dat_nation.{{>get: var_country}}.classes.1}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.2}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.3}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.4}}.title}}"
+        5: "<br /><b>{{ui_geo.classes}}</b>: {{str_class.{{dat_nation.{{>get: var_country}}.classes.1}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.2}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.3}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.4}}.title}}, {{str_class.{{dat_nation.{{>get: var_country}}.classes.5}}.title}}"
+
+
+  api_language:
+    set:
+      any: "{{>set: var_language {{random_language.any}}}}"
+      elaran: "{{>set: var_language {{random_language.elara}}}}"
+      modern: "{{>set: var_language {{random_language.modern}}}}"
+      historical: "{{>set: var_language {{random_language.historical}}}}"
+      minor: "{{>set: var_language {{random_langauge.minor}}}}"
+
+    print:
+
+      without: |
+               <p>{{ui_lang.yourrandomlanguage}}</p>
+               <h3>{{str_language.{{>get: var_language}}}}</h3>
+               <p><b>{{str_alpha.alphabet}}:</b> {{str_alpha.{{dat_language.{{>get: var_language}}.alphabet}}.name}} ({{str_alpha.{{dat_language.{{>get: var_language}}.alphabet}}.example}})
+               <br /><b>{{ui_lang.spoken_in}}:</b> {{api_language.print.countries.{{dat_language.{{>get: var_language}}.countries.i}}}}
+               {{api_language.print.roots.{{dat_language.{{>get: var_language}}.roots.i}}}}</p>
+
+      with: |
+            {{api_language.print.without}}
+            <p><b>{{ui_lang.realworldanalogue}}:</b> {{str_language.{{dat_language.{{>get: var_language}}.equiv}}}}<br />
+            <b>{{str_alpha.alpha_analogue}}:</b> {{str_alpha.{{dat_language.{{>get: var_language}}.alphabet}}.name}}
+            ({{str_alpha.unicode}} {{str_alpha.{{dat_language.{{>get: var_language}}.alphabet}}.unicode}})
+
+      countries:
+        0: <i>none</i>
+        1: "{{str_geo.{{dat_language.{{>get: var_language}}.countries.1}}}}"
+        2: "{{str_geo.{{dat_language.{{>get: var_language}}.countries.1}}}}, {{str_geo.{{dat_language.{{>get: var_language}}.countries.2}}}}"
+        3: "{{str_geo.{{dat_language.{{>get: var_language}}.countries.1}}}}, {{str_geo.{{dat_language.{{>get: var_language}}.countries.2}}}}, {{str_geo.{{dat_language.{{>get: var_language}}.countries.3}}}}"
+        4: "{{str_geo.{{dat_language.{{>get: var_language}}.countries.1}}}}, {{str_geo.{{dat_language.{{>get: var_language}}.countries.2}}}}, {{str_geo.{{dat_language.{{>get: var_language}}.countries.3}}}}, {{str_geo.{{dat_language.{{>get: var_language}}.countries.4}}}}"
+      roots:
+        0: "{{nop}}"
+        1: "<br /><b>{{ui_lang.root_language}}:</b> {{str_language.{{dat_language.{{>get: var_language}}.roots.1}}}}"
+        2: "<br /><b>{{ui_lang.root_languages}}:</b> {{str_language.{{dat_language.{{>get: var_language}}.roots.1}}}}, {{str_language.{{dat_language.{{>get: var_language}}.roots.2}}}}"
+        3: "<br /><b>{{ui_lang.root_languages}}:</b> {{str_language.{{dat_language.{{>get: var_language}}.roots.1}}}}, {{str_language.{{dat_language.{{>get: var_language}}.roots.2}}}}, {{str_language.{{dat_language.{{>get: var_language}}.roots.3}}}}"
+                         
+  api_name:
+    random:
+      gallinea:
+        male: "{{random_name.gallinea_any_region_male}}"
+        female: "{{random_name.gallinea_any_region_female}}"
+        either: "{{random_name.gallinea_any_region_either}}"
+      coeur_de_gallinea:
+        male: "<b>{{random_name.gallinea_male}} {{random_name.coeur_de_gallinea}}</b> (<i>{{ui_name.male}} {{ui_name.coeur_de_gallinea}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.gallinea_female}} {{random_name.coeur_de_gallinea}}</b> (<i>{{ui_name.female}} {{ui_name.coeur_de_gallinea}} {{ui_name.name}}</i>)"
+        either: "{{random_name.coeur_de_gallinea_either}}"
+      jeweled_coast:
+        male: "<b>{{random_name.gallinea_male}} {{random_name.jeweled_coast}}</b> (<i>{{ui_name.male}} {{ui_name.jeweled_coast}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.gallinea_female}} {{random_name.jeweled_coast}}</b> (<i>{{ui_name.female}} {{ui_name.jeweled_coast}} {{ui_name.name}}</i>)"
+        either: "{{random_name.jeweled_coast_either}}"
+      lowlands:
+        male: "<b>{{random_name.gallinea_male}} {{random_name.lowlands}}</b> (<i>{{ui_name.male}} {{ui_name.lowlands}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.gallinea_female}} {{random_name.lowlands}}</b> (<i>{{ui_name.female}} {{ui_name.lowlands}} {{ui_name.name}}</i>)"
+        either: "{{random_name.lowlands_either}}"
+      scanbria:
+        male: "<b>{{random_name.scanbria_male}} {{random_name.scanbria}}</b> (<i>{{ui_name.male}} {{ui_name.scanbria}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.scanbria_female}} {{random_name.scanbria}}</b> (<i>{{ui_name.female}} {{ui_name.scanbria}} {{ui_name.name}}</i>)"
+        either: "{{random_name.scanbria_either}}"
+      albia:
+        male: "<b>{{random_name.albia_male}}</b> (<i>{{ui_name.male}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.albia_female}}</b> (<i>{{ui_name.female}} {{ui_name.albia}} {{ui_name.name}}</i>)"
+        either: "{{random_name.albia_either}}"
+      dragosa:
+        male: "{{random_name.dragosa_male}}"
+        female: "{{random_name.dragosa_female}}"
+        either: "{{random_name.dragosa_either}}"
+      ekalia:
+        male: "<b>{{random_name.ekalia_male}}</b> (<i>{{ui_name.male}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.ekalia_female}}</b> (<i>{{ui_name.female}} {{ui_name.ekalia}} {{ui_name.name}}</i>)"
+        either: "{{random_name.ekalia_either}}"
+      ifran:
+        male: "<b>{{random_name.ifran_male}}</b> (<i>{{ui_name.male}} {{ui_name.ifran}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.ifran_female}}</b> (<i>{{ui_name.female}} {{ui_name.ifran}} {{ui_name.name}}</i>)"
+        either: "{{random_name.ifran_either}}"
+      ondala:
+        male: "<b>{{random_name.ondala_male}}</b> (<i>{{ui_name.male}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.ondala_female}}</b> (<i>{{ui_name.female}} {{ui_name.ondala}} {{ui_name.name}}</i>)"
+        either: "{{random_name.ondala_either}}"
+      talania:
+        male: "<b>{{random_name.talania_male}}</b> (<i>{{ui_name.male}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.talania_female}}</b> (<i>{{ui_name.female}} {{ui_name.talania}} {{ui_name.name}}</i>)"
+        either: "{{random_name.talania_either}}"
+      varendia:
+        male: "<b>{{random_name.varendia_male}}</b> (<i>{{ui_name.male}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+        female: "<b>{{random_name.varendia_female}}</b> (<i>{{ui_name.female}} {{ui_name.varendia}} {{ui_name.name}}</i>)"
+        either: "{{random_name.varendia_either}}"
+      random:
+        male: "{{random_name.any_country_male}}"
+        female: "{{random_name.any_country_female}}"
+        either: "{{random_name.any_country_either}}"
+      
+

@@ -1,0 +1,6 @@
+---
+templates:
+- "{{>set: var_color celeste}}{{api_dice_roller.roll.from_input.all}}%[[api_dice_roller.process.custom]]%"
+
+imports:
+- lib_dice_roller

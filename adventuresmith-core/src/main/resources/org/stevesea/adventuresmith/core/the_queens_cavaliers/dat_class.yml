@@ -1,0 +1,2178 @@
+---
+
+tables:
+
+  class_list:
+  - 1, duelist
+  - 2, brigand
+  - 3, constable
+  - 4, dragoon
+  - 5, fusilier
+  - 6, privateer
+  - 7, veteran
+  - 8, alchemist
+  - 9, barrister
+  - 10, chaplain
+  - 11, charlatan
+  - 12, charmweaver
+  - 13, chirurgeon
+  - 14, courtier
+  - 15, dogsbody
+  - 16, envoy
+  - 17, explorer
+  - 18, mechanician
+  - 19, provincial
+  - 20, provocateur
+  - 21, speaker
+  - 22, virtuosa
+  - 23, visionary
+  - 24, witch
+  - 25, huntsman
+  - 26, pilgrim
+  - 27, lexicographer
+  - 28, hanaster
+  - 29, parroteer
+  - 30, sibyl
+  - 31, cocinera
+  - 32, theologian
+  - 33, skomorokh
+  - 34, toymaker
+  - 35, engineer
+  - 36, mountaineer
+  - 37, stargazer
+  - 38, faris
+  - 39, moon_curser
+  - 40, collier
+
+definitions:
+
+  dat_class:
+    alchemist:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: charlatan
+        2: chirurgeon
+        3: mechanician
+        4: visionary
+        5: witch
+      skill: 
+        i: 4
+        1: culture
+        2: magicks
+        3: medicine
+        4: science
+      spec: 
+        i: 6
+        1: scholarship
+        2: negotiate
+        3: brew
+        4: treat
+        5: poison
+        6: calculus
+      weapon_prowess:
+        i: 1
+        1: knife
+      lang:
+        i: 0
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: crafter
+      bonus_weapon: knife
+      gear:
+        i: 3
+        1: supplies.alchemical_supplies8
+        2: poison.antidote2
+        3: tool.artisan_tools
+      special: 
+        i: 1
+        1: create_draughts
+      style_manu:
+        i: 6
+        1: maximize.scholarship
+        2: maximize.poison
+        3: reroll.magicks
+        4: reroll.interaction
+        5: custom.chemical_calculations
+        6: custom.toxin_purge
+
+    barrister:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: chaplain
+        2: constable
+        3: courtier
+        4: visionary
+        5: envoy
+      skill: 
+        i: 2
+        1: culture
+        2: streetwise
+      spec: 
+        i: 6
+        1: etiquette
+        2: scholarship
+        3: negotiate
+        4: deceive
+        5: deduce
+        6: banter
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      lang:
+        i: 0
+      social_rank: artisan
+      outfit: courtly
+      bonus_weapon: knife
+      gear:
+        i: 1
+        1: book.law6
+      special: 
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.negotiate
+        2: maximize.scholarship
+        3: reroll.interaction
+        4: reroll.streetwise
+        5: custom.legal_precedents
+        6: custom.for_the_defense
+
+    brigand:
+      nation: 
+        i: 0
+      co_class: 
+        i: 8
+        1: chaplain
+        2: dogsbody
+        3: dragoon
+        4: explorer
+        5: fusilier
+        6: privateer
+        7: provincial
+        8: veteran
+      skill: 
+        i: 4
+        1: dueling
+        2: military
+        3: nature
+        4: streetwise
+      spec: 
+        i: 6
+        1: dodge
+        2: lunge
+        3: feint
+        4: aim
+        5: prowl
+        6: larceny
+      weapon_prowess:
+        i: 4
+        1: knife
+        2: sword
+        3: cudgel
+        4: bow
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      lang:
+        i: 0
+      social_rank: commoner
+      outfit: peasant
+      bonus_weapon: sword
+      gear:
+        i: 2
+        1: armor.leather_jerkin
+        2: weapon.bow
+      special: 
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.prowl
+        2: maximize.item_die.cudgel
+        3: reroll.defense
+        4: reroll.military
+        5: custom.natural_cover
+        6: custom.sneak_shot
+
+    chaplain:
+      nation: 
+        i: 0
+      co_class: 
+        i: 10
+        1: barrister
+        2: chirurgeon
+        3: courtier
+        4: envoy
+        5: explorer
+        6: provincial
+        7: speaker
+        8: veteran
+        9: virtuosa
+        10: visionary
+      skill: 
+        i: 4
+        1: culture
+        2: magicks
+        3: medicine
+        4: streetwise
+      spec: 
+        i: 6
+        1: arts
+        2: scholarship
+        3: inspire
+        4: negotiate
+        5: perceive
+        6: intuition
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: cudgel
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: priest
+      bonus_weapon: knife
+      gear:
+        i: 3
+        1: book.books_of_the_sun
+        2: book.religious2
+        3: weapon.quarterstaff
+      special: 
+        i: 0
+      lang:
+        i: 1
+        1: old_qartan
+      style_manu:
+        i: 6
+        1: maximize.intuition
+        2: maximize.inspire
+        3: reroll.interaction
+        4: reroll.culture
+        5: custom.books_of_the_sun
+        6: custom.apologetics
+
+    charlatan:
+      nation: 
+        i: 0
+      co_class: 
+        i: 6
+        1: alchemist
+        2: dogsbody
+        3: chirurgeon
+        4: mechanician
+        5: provocateur
+        6: witch
+      skill: 
+        i: 4
+        1: culture
+        2: magicks
+        3: medicine
+        4: streetwise
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: negotiate
+        4: deceive
+        5: banter
+        6: larceny
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: commoner
+      outfit: crafter
+      bonus_weapon: knife
+      gear:
+        i: 3
+        1: tool.artisan_tools
+        2: transport.wagon
+        3: transport.draft_horse
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.deceive
+        2: maximize.banter
+        3: reroll.interaction
+        4: reroll.streetwise
+        5: custom.confidence_game
+        6: custom.fast_talking
+
+    charmweaver:
+      nation: 
+        i: 0
+      co_class: 
+        i: 4
+        1: courtier
+        2: dogsbody
+        3: virtuosa
+        4: witch
+      skill: 
+        i: 2
+        1: culture
+        2: magicks
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: inspire
+        4: negotiate
+        5: weave
+        6: perceive
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: crafter
+      bonus_weapon: knife
+      gear:
+        i: 2
+        1: tool.artisan_tools
+        2: supplies.fabric8
+      special: 
+        i: 1
+        1: create_charmwoven
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.item_die.charm
+        2: maximize.weave
+        3: reroll.interaction
+        4: reroll.culture
+        5: custom.dress_to_impress
+        6: custom.mistress_of_fashion
+        7: custom.fashion_dodge_to_the_left
+
+    chirurgeon:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: alchemist
+        2: charlatan
+        3: courtier
+        4: mechanician
+        5: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: medicine
+        3: science
+      spec: 
+        i: 6
+        1: scholarship
+        2: surgery
+        3: treat
+        4: poison
+        5: intuition
+        6: deduce
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: physician
+      bonus_weapon: knife
+      gear:
+        i: 2
+        1: tool.chirurgeon_knives
+        2: supplies.medicine8
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.treat
+        2: maximize.scholarship
+        3: reroll.medicine
+        4: reroll.culture
+        5: custom.anatomical_studies
+        6: custom.scalpels_cut
+        7: custom.its_never_lupus
+
+    constable:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: barrister
+        2: dragoon
+        3: duelist
+        4: provincial
+        5: veteran
+      skill: 
+        i: 4
+        1: dueling
+        2: culture
+        3: military
+        4: streetwise
+      spec: 
+        i: 6
+        1: etiquette
+        2: riposte
+        3: parry
+        4: brawl
+        5: aim
+        6: deduce
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: sword
+        3: musket
+      armor_prowess: 
+        i: 0
+        1: light_armor
+        2: heavy_armor
+      social_rank: soldier
+      outfit: guard
+      bonus_weapon: sword
+      gear:
+        i: 2
+        1: armor.steel_breastplate
+        2: weapon.musket
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.aim
+        2: maximize.deduce
+        3: reroll.defense
+        4: reroll.streetwise
+        5: custom.criminology
+        6: custom.down_n_dirty_fighting
+
+    courtier:
+      nation: 
+        i: 0
+      co_class: 
+        i: 11
+        1: alchemist
+        2: barrister
+        3: chaplain
+        4: charmweaver
+        5: chirurgeon
+        6: duelist
+        7: envoy
+        8: provocateur
+        9: veteran
+        10: virtuosa
+        11: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: dueling
+        3: military
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: parry
+        4: negotiate
+        5: deceive
+        6: intuition
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: sword
+        3: pistol
+      armor_prowess: 
+        i: 0
+      social_rank: noble
+      outfit: courtly
+      bonus_weapon: sword
+      gear:
+        i: 1
+        1: transport.riding_horse
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.etiquette
+        2: maximize.item_die.social_rank
+        3: reroll.interaction
+        4: reroll.observation
+        5: custom.polite_fictions
+        6: custom.dont_you_know_who_i_am
+        7: custom.theres_no_need_for_violence
+
+    dogsbody:
+      nation: 
+        i: 0
+      co_class: 
+        i: 8
+        1: brigand
+        2: chaplain
+        3: charlatan
+        4: courtier
+        5: dragoon
+        6: privateer
+        7: provincial
+        8: veteran
+      skill: 
+        i: 3
+        1: culture
+        2: nature
+        3: streetwise
+      spec: 
+        i: 6
+        1: etiquette
+        2: negotiate
+        3: intuition
+        4: husbandry
+        5: carouse
+        6: larceny
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: cudgel
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      social_rank: commoner
+      outfit: peasant
+      bonus_weapon: knife
+      gear:
+        i: 0
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.perceive
+        2: maximize.carouse
+        3: reroll.streetwise
+        4: reroll.interaction
+        5: custom.the_underground_economy
+        6: custom.lost_in_the_crowd
+
+    dragoon:
+      nation: 
+        i: 0
+      co_class: 
+        i: 7
+        1: brigand
+        2: chaplain
+        3: constable
+        4: duelist
+        5: dogsbody
+        6: provincial
+        7: veteran
+      skill: 
+        i: 4
+        1: dueling
+        2: military
+        3: nature
+        4: streetwise
+      spec: 
+        i: 6
+        1: block
+        2: parry
+        3: brawl
+        4: lunge
+        5: riposte
+        6: husbandry
+      weapon_prowess:
+        i: 4
+        1: knife
+        2: sword
+        3: pike
+        4: pistol
+      armor_prowess: 
+        i: 2
+        1: light_armor
+        2: heavy_armor
+      social_rank: soldier
+      outfit: guard
+      bonus_weapon: sword
+      gear:
+        i: 2
+        1: armor.steel_breastplate
+        2: weapon.lance
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.lunge
+        2: maximize.item_die.breastplate
+        3: reroll.defense
+        4: reroll.streetwise
+        5: custom.mounted_combatant
+        6: custom.deflecting_shield
+
+    duelist:
+      nation: 
+        i: 0
+      co_class: 
+        i: 0
+      skill: 
+        i: 3
+        1: dueling
+        2: military
+        3: streetwise
+      spec: 
+        i: 6
+        1: parry
+        2: dodge
+        3: lunge
+        4: riposte
+        5: feint
+        6: banter
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: sword
+      armor_prowess: 
+        i: 2
+        1: light_armor
+        2: shield
+      social_rank: soldier
+      outfit: swashbuckler
+      bonus_weapon: knife
+      gear:
+        i: 2
+        1: armor.buckler
+        2: weapon.sword
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 5
+        1: maximize.item_die.sword
+        2: maximize.riposte
+        3: reroll.defense
+        4: reroll.dueling
+        5: custom.deflecting_shield
+
+    envoy:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: barrister
+        2: chaplain
+        3: courtier
+        4: provocateur
+        5: speaker
+      skill: 
+        i: 2
+        1: culture
+        2: nature
+      spec: 
+        i: 6
+        1: etiquette
+        2: inspire
+        3: negotiate
+        4: explore
+        5: perceive
+        6: intuition
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: noble
+      outfit: courtly
+      bonus_weapon: knife
+      gear:
+        i: 0
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.negotiate
+        2: maximize.etiquette
+        3: reroll.interaction
+        4: reroll.observation
+        5: custom.well_traveled
+        6: custom.diplomatic_immunity
+
+    explorer:
+      nation: 
+        i: 0
+      co_class: 
+        i: 7
+        1: brigand
+        2: chaplain
+        3: privateer
+        4: provincial
+        5: speaker
+        6: veteran
+        7: visionary
+      skill: 
+        i: 4
+        1: culture
+        2: military
+        3: nature
+        4: science
+      spec: 
+        i: 6
+        1: etiquette
+        2: aim
+        3: explore
+        4: prowl
+        5: perceive
+        6: calculus
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: bow
+        3: musket
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      social_rank: soldier
+      outfit: corsair
+      bonus_weapon: sword
+      gear:
+        i: 1
+        1: weapon.musket
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.explore
+        2: maximize.perceive
+        3: reroll.nature
+        4: reroll.military
+        5: custom.camouflage_mastery
+        6: custom.cartography
+
+    fusilier:
+      nation: 
+        i: 0
+      co_class: 
+        i: 6
+        1: brigand
+        2: duelist
+        3: mechanician
+        4: provincial
+        5: privateer
+        6: veteran
+      skill: 
+        i: 4
+        1: science
+        2: military
+        3: nature
+        4: streetwise
+      spec: 
+        i: 6
+        1: dodge
+        2: aim
+        3: prowl
+        4: perceive
+        5: blackpowder
+        6: calculus
+      weapon_prowess:
+        i: 5
+        1: knife
+        2: pistol
+        3: grenade
+        4: musket
+        5: cannon
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      social_rank: soldier
+      bonus_weapon: pistol
+      outfit: guard
+      gear:
+        i: 2
+        1: armor.leather_jerkin
+        2: weapon.musket
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.aim
+        2: maximize.perceive
+        3: reroll.defense
+        4: reroll.military
+        5: custom.sniper
+        6: custom.incoming_fire
+        7: custom.ballistics
+
+    mechanician:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: alchemist
+        2: charlatan
+        3: fusilier
+        4: privateer
+        5: visionary
+      skill: 
+        i: 2
+        1: culture
+        2: science
+      spec: 
+        i: 6
+        1: scholarship
+        2: negotiate
+        3: deduce
+        4: clockworks
+        5: calculus
+        6: blackpowder
+      weapon_prowess:
+        i: 4
+        1: knife
+        2: pistol
+        3: musket
+        4: bow
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      social_rank: artisan
+      outfit: clockworker
+      bonus_weapon: knife
+      gear:
+        i: 2
+        1: tool.artisan_tools
+        2: supplies.clockwork_gears8
+      special: 
+        i: 1
+        1: create_clockwork
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.item_die.clockwork
+        2: maximize.clockworks
+        3: reroll.science
+        4: reroll.interaction
+        5: custom.automatic_fire
+        6: custom.shoulders_of_giants
+
+    privateer:
+      nation: 
+        i: 0
+      co_class: 
+        i: 10
+        1: brigand
+        2: chirurgeon
+        3: dogsbody
+        4: duelist
+        5: explorer
+        6: fusilier
+        7: mechanician
+        8: provincial
+        9: veteran
+        10: virtuosa
+      skill: 
+        i: 4
+        1: dueling
+        2: military
+        3: nature
+        4: streetwise
+      spec: 
+        i: 6
+        1: dodge
+        2: lunge
+        3: feint
+        4: aim
+        5: explore
+        6: carouse
+      weapon_prowess:
+        i: 4
+        1: knife
+        2: sword
+        3: pistol
+        4: cannon
+      armor_prowess: 
+        i: 0
+      social_rank: soldier
+      outfit: corsair
+      bonus_weapon: pistol
+      gear:
+        i: 1
+        1: weapon.cutlass
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.dodge
+        2: maximize.feint
+        3: reroll.defense
+        4: reroll.dueling
+        5: custom.broadsides
+        6: custom.into_the_rigging
+        7: custom.naval_hilt
+
+    provincial:
+      nation: 
+        i: 0
+      co_class: 
+        i: 11
+        1: brigand
+        2: chaplain
+        3: constable
+        4: dogsbody
+        5: dragoon
+        6: duelist
+        7: explorer
+        8: fusilier
+        9: privateer
+        10: veteran
+        11: witch
+      skill: 
+        i: 3
+        1: military
+        2: nature
+        3: streetwise
+      spec: 
+        i: 6
+        1: brawl
+        2: aim
+        3: husbandry
+        4: prowl
+        5: perceive
+        6: carouse
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: cudgel
+        3: bow
+      armor_prowess: 
+        i: 0
+      social_rank: commoner
+      outfit: peasant
+      bonus_weapon: sword
+      gear:
+        i: 1
+        1: transport.draft_horse
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.brawl
+        2: maximize.husbandry
+        3: reroll.military
+        4: reroll.streetwise
+        5: custom.equestrienne
+        6: custom.knife_fighting
+
+    provocateur:
+      nation: 
+        i: 0
+      co_class: 
+        i: 6
+        1: charlatan
+        2: courtier
+        3: duelist
+        4: envoy
+        5: speaker
+        6: visionary
+      skill: 
+        i: 4
+        1: culture
+        2: medicine
+        3: military
+        4: streetwise
+      spec: 
+        i: 6
+        1: etiquette
+        2: negotiate
+        3: deceive
+        4: poison
+        5: carouse
+        6: larceny
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: pistol
+      armor_prowess: 
+        i: 0
+      social_rank: soldier
+      outfit: any
+      bonus_weapon: pistol
+      gear:
+        i: 2
+        1: weapon.knife
+        2: poison.poison_any6
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.larceny
+        2: maximize.poison
+        3: reroll.interaction
+        4: reroll.streetwise
+        5: custom.envenomed_blade
+        6: custom.shady_negotiations
+        7: custom.mostly_harmless
+
+    speaker:
+      nation: 
+        i: 0
+      co_class: 
+        i: 9
+        1: brigand
+        2: chaplain
+        3: chirurgeon
+        4: envoy
+        5: explorer
+        6: privateer
+        7: provocateur
+        8: virtuosa
+        9: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: nature
+        3: magicks
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: inspire
+        4: portents
+        5: explore
+        6: intuition
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: cudgel
+        3: bow
+      armor_prowess: 
+        i: 0
+      social_rank: commoner
+      outfit: peasant
+      bonus_weapon: knife
+      gear:
+        i: 2
+        1: weapon.horsebow
+        2: book.songs_of_the_desert_mother
+      special: 
+        i: 0
+      lang:
+        i: 1
+        1: ifrani
+      style_manu:
+        i: 5
+        1: maximize.inspire
+        2: maximize.etiquette
+        3: reroll.culture
+        4: reroll.observation
+        5: custom.rites_of_the_moon
+
+    veteran:
+      nation: 
+        i: 0
+      co_class: 
+        i: 10
+        1: brigand
+        2: chaplain
+        3: constable
+        4: dogsbody
+        5: dragoon
+        6: duelist
+        7: explorer
+        8: fusilier
+        9: privateer
+        10: provincial
+      skill: 
+        i: 4
+        1: dueling
+        2: military
+        3: nature
+        4: streetwise
+      spec: 
+        i: 6
+        1: block
+        2: lunge
+        3: aim
+        4: strategy
+        5: explore
+        6: carouse
+      weapon_prowess:
+        i: 5
+        1: knife
+        2: sword
+        3: pike
+        4: pistol
+        5: musket
+      armor_prowess: 
+        i: 2
+        1: heavy_armor
+        2: shield
+      social_rank: soldier
+      outfit: guard
+      bonus_weapon: sword
+      gear:
+        i: 2
+        1: armor.steel_breastplate
+        2: weapon.musket
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.block
+        2: maximize.aim
+        3: reroll.military
+        4: reroll.defense
+        5: custom.strategic_maneuvers
+        6: custom.reconnaissance
+
+    virtuosa:
+      nation: 
+        i: 0
+      co_class: 
+        i: 6
+        1: chaplain
+        2: charmweaver
+        3: courtier
+        4: envoy
+        5: privateer
+        6: visionary
+      skill: 
+        i: 2
+        1: culture
+        2: streetwise
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: inspire
+        4: negotiate
+        5: banter
+        6: carouse
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: sword
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: courtly
+      bonus_weapon: sword
+      gear:
+        i: 1
+        1: tool.musical_instrument
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 7
+        1: maximize.arts
+        2: maximize.inspire
+        3: reroll.streetwise
+        4: reroll.culture
+        5: custom.from_the_heart
+        6: custom.in_costume
+        7: custom.not_in_the_face
+
+    visionary:
+      nation: 
+        i: 0
+      co_class: 
+        i: 6
+        1: barrister
+        2: chaplain
+        3: courtier
+        4: explorer
+        5: mechanician
+        6: virtuosa
+      skill: 
+        i: 4
+        1: culture
+        2: military
+        3: nature
+        4: science
+      spec: 
+        i: 6
+        1: scholarship
+        2: strategy
+        3: explore
+        4: deduce
+        5: clockworks
+        6: calculus
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: crafter
+      bonus_weapon: knife
+      gear:
+        i: 2
+        1: book.book6
+        2: tool.artisan_tools
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.deduce
+        2: maximize.calculus
+        3: reroll.culture
+        4: reroll.science
+        5: custom.forensic_analysis
+        6: custom.strategic_withdrawal
+
+    witch:
+      nation: 
+        i: 0
+      co_class: 
+        i: 5
+        1: alchemist
+        2: charlatan
+        3: charmweaver
+        4: provincial
+        5: virtuosa
+      skill: 
+        i: 4
+        1: magicks
+        2: medicine
+        3: nature
+        4: streetwise
+      spec: 
+        i: 6
+        1: brew
+        2: portents
+        3: treat
+        4: poison
+        5: husbandry
+        6: carouse
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: commoner
+      outfit: peasant
+      bonus_weapon: knife
+      gear:
+        i: 3
+        1: supplies.alchemical_supplies4
+        2: tool.artisan_tools
+        3: tool.divination_cards
+      special: 
+        i: 1
+        1: create_salves
+      lang:
+        i: 1
+        1: brigue
+      style_manu:
+        i: 6
+        1: maximize.portents
+        2: maximize.treat
+        3: reroll.magicks
+        4: reroll.medicine
+        5: custom.folk_remedies
+        6: custom.toxin_purge
+
+  # ##################################### heroes of elara classes ##############
+
+    huntsman:
+      nation: 
+        i: 1
+        1: albia
+      co_class: 
+        i: 11
+        1: charlatan
+        2: chirurgeon
+        3: constable
+        4: courtier
+        5: dogsbody
+        6: dragoon
+        7: envoy
+        8: fusilier
+        9: provincial
+        10: veteran
+        11: virtuosa
+      skill: 
+        i: 3
+        1: dueling
+        2: military
+        3: nature
+      spec: 
+        i: 6
+        1: lunge
+        2: aim
+        3: explore
+        4: husbandry
+        5: prowl
+        6: perceive
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: bow
+        3: musket
+      armor_prowess: 
+        i: 0
+      social_rank: soldier
+      outfit: albian_hunting
+      gear:
+        i: 3
+        1: weapon.musket
+        2: transport.riding_horse
+        3: animal.dog_hunting
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.aim
+        2: maximize.perceive
+        3: reroll.nature
+        4: reroll.observation
+        5: custom.huntsman_1
+        6: custom.huntsman_2
+
+    pilgrim:
+      nation: 
+        i: 1
+        1: albia
+      co_class: 
+        i: 8
+        1: barrister
+        2: chirurgeon
+        3: envoy
+        4: explorer
+        5: provincial
+        6: provocateur
+        7: veteran
+        8: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: medicine
+        3: nature
+      spec: 
+        i: 6
+        1: etiquette
+        2: scholarship
+        3: inspire
+        4: negotiate
+        5: treat
+        6: explore
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: priest
+      gear:
+        i: 3
+        1: supplies.medicine4
+        2: tool.chirurgeon_knives
+        3: book.dualitarian
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.scholarship
+        2: maximize.treat
+        3: reroll.culture
+        4: reroll.interaction
+        5: custom.pilgrim_1
+        6: custom.pilgrim_2
+
+    lexicographer:
+      nation: 
+        i: 1
+        1: dragosa
+      co_class: 
+        i: 9
+        1: barrister
+        2: chaplain
+        3: charlatan
+        4: courtier
+        5: envoy
+        6: explorer
+        7: provocateur
+        8: virtuosa
+        9: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: nature
+        3: science
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: scholarship
+        4: explore
+        5: perceive
+        6: calculus
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: crafter
+      gear:
+        i: 2
+        1: tool.printing_press
+        2: book.lexicographer
+      special: 
+        i: 0
+      lang:
+        i: 1
+        1: any2
+      style_manu:
+        i: 6
+        1: maximize.scholarship
+        2: maximize.perceive
+        3: reroll.culture
+        4: reroll.observation
+        5: custom.lexicographer_1
+        6: custom.lexicographer_2
+
+    hanaster:
+      nation: 
+        i: 1
+        1: dragosa
+      co_class: 
+        i: 10
+        1: barrister
+        2: charlatan
+        3: constable
+        4: courtier
+        5: envoy
+        6: explorer
+        7: provincial
+        8: provocateur
+        9: privateer
+        10: visionary
+      skill: 
+        i: 4
+        1: culture
+        2: nature
+        3: science
+        4: streetwise
+        5: dueling
+      spec: 
+        i: 6
+        1: etiquette
+        2: scholarship
+        3: negotiate
+        4: explore
+        5: calculus
+        6: larceny
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: sword
+      armor_prowess: 
+        i: 0
+      social_rank: noble
+      outfit: courtly
+      gear:
+        i: 3
+        1: tool.abacus
+        2: weapon.smallsword
+        3: supplies.any4
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.negotiate
+        2: maximize.larceny
+        3: reroll.interaction
+        4: reroll.culture
+        5: custom.hanaster_1
+        6: custom.hanaster_2
+
+    parroteer:
+      nation: 
+        i: 1
+        1: ekalia
+      co_class: 
+        i: 6
+        1: dogsbody
+        2: explorer
+        3: fusilier
+        4: mechanician
+        5: privateer
+        6: provocateur
+      skill: 
+        i: 4
+        1: culture
+        2: military
+        3: nature
+        4: science
+      spec: 
+        i: 6
+        1: arts
+        2: aim
+        3: explore
+        4: husbandry
+        5: perceive
+        6: calculus
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: pistol
+        3: net
+      armor_prowess: 
+        i: 0
+      social_rank: soldier
+      outfit: corsair
+      gear:
+        i: 5
+        1: weapon.pistol
+        2: weapon.weighted_net
+        3: tool.spyglass
+        4: book.code
+        5: animal.bird_messenger_parrot
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.husbandry
+        2: maximize.calculus
+        3: reroll.nature
+        4: reroll.military
+        5: custom.parroteer_1
+        6: custom.parroteer_2
+
+    sibyl:
+      nation: 
+        i: 1
+        1: ekalia
+      co_class: 
+        i: 9
+        1: alchemist
+        2: charlatan
+        3: charmweaver
+        4: chirurgeon
+        5: envoy
+        6: explorer
+        7: provincial
+        8: virtuosa
+        9: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: magicks
+        3: nature
+      spec: 
+        i: 5
+        1: etiquette
+        2: inspire
+        3: brew
+        4: portents
+        5: intuition
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: ekalian_patrician
+      gear:
+        i: 2
+        1: tool.divination_leaves
+        2: alchemy.kykeon6
+      special: 
+        i: 2
+        1: know_kykeon
+        2: patron_deity
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.portents
+        2: maximize.intuition
+        3: reroll.magicks
+        4: reroll.observation
+        5: custom.sibyl_1
+        6: custom.sibyl_2
+
+    cocinera:
+      nation: 
+        i: 1
+        1: ondala
+      co_class: 
+        i: 7
+        1: alchemist
+        2: charlatan
+        3: courtier
+        4: provocateur
+        5: virtuosa
+        6: visionary
+        7: witch
+      skill: 
+        i: 4
+        1: culture
+        2: medicine
+        3: nature
+        4: science
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: negotiate
+        4: poison
+        5: husbandry
+        6: calculus
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: cudgel
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: crafter
+      gear:
+        i: 5
+        1: tool.kitchen_cutlery
+        2: tool.rolling_pin
+        3: supplies.foodstuffs8
+        4: book.cookbook
+        5: animal.cocinera
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.poison
+        2: maximize.arts
+        3: reroll.culture
+        4: reroll.interaction
+        5: custom.cocinera_1
+        6: custom.cocinera_2
+
+    theologian:
+      nation: 
+        i: 1
+        1: ondala
+      co_class: 
+        i: 7
+        1: barrister
+        2: chaplain
+        3: chirurgeon
+        4: constable
+        5: courtier
+        6: provocateur
+        7: visionary
+      skill: 
+        i: 4
+        1: culture
+        2: dueling
+        3: military
+        4: streetwise
+      spec: 
+        i: 6
+        1: arts
+        2: scholarship
+        3: parry
+        4: lunge
+        5: brawl
+        6: banter
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: priest
+      gear:
+        i: 3
+        1: weapon.knife
+        2: clock.spring_sheath
+        3: book.theology
+        4:
+        5: 
+        6:
+      special: 
+        i: 0
+      lang:
+        i: 1
+        1: old_qartan
+      style_manu:
+        i: 6
+        1: maximize.scholarship
+        2: maximize.brawl
+        3: reroll.knowledge
+        4: reroll.dueling
+        5: custom.theologian_1
+        6: custom.theologian_2
+
+    skomorokh:
+      nation: 
+        i: 1
+        1: talania
+      co_class: 
+        i: 8
+        1: charlatan
+        2: charmweaver
+        3: courtier
+        4: dogsbody
+        5: provincial
+        6: provocateur
+        7: virtuosa
+        8: witch
+      skill: 
+        i: 2
+        1: culture
+        2: streetwise
+      spec: 
+        i: 6
+        1: arts
+        2: etiquette
+        3: dodge
+        4: inspire
+        5: banter
+        6: carouse
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: cudgel
+      armor_prowess: 
+        i: 0
+      social_rank: commoner
+      outfit: talanian_mummer
+      gear:
+        i: 1
+        1: tool.musical_instrument
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.banter
+        2: maximize.arts
+        3: reroll.culture
+        4: reroll.streetwise
+        5: custom.skomorokh_1
+        6: custom.skomorokh_2
+
+    toymaker:
+      nation: 
+        i: 1
+        1: talania
+      co_class: 
+        i: 7
+        1: alchemist
+        2: charlatan
+        3: charmweaver
+        4: envoy
+        5: mechanician
+        6: provincial
+        7: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: magicks
+        3: science
+      spec: 
+        i: 6
+        1: arts
+        2: scholarship
+        3: negotiate
+        4: weave
+        5: intuition
+        6: clockworks
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: clockworker
+      gear:
+        i: 5
+        1: tool.artisan_tools
+        2: tool.repair_tools
+        3: supplies.fabric2
+        4: supplies.clockwork_gears2
+        5: tool.magnifying_glass
+      special: 
+        i: 2
+        1: create_charmwoven
+        2: create_clockwork
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.clockworks
+        2: maximize.weave
+        3: reroll.culture
+        4: reroll.observation
+        5: custom.toymaker_1
+        6: custom.toymaker_2
+
+    engineer:
+      nation: 
+        i: 1
+        1: varendia
+      co_class: 
+        i: 10
+        1: alchemist
+        2: brigand
+        3: constable
+        4: explorer
+        5: fusilier
+        6: mechanician
+        7: privateer
+        8: provocateur
+        9: veteran
+        10: visionary
+      skill: 
+        i: 2
+        1: military
+        2: science
+      spec: 
+        i: 6
+        1: aim
+        2: strategy
+        3: perceive
+        4: blackpowder
+        5: clockworks
+        6: calculus
+      weapon_prowess:
+        i: 4
+        1: knife
+        2: pistol
+        3: grenade
+        4: cannon
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      social_rank: soldier
+      outfit: guard
+      gear:
+        i: 4
+        1: armor.leather_jerkin
+        2: supplies.blackpowder_supplies4
+        3: supplies.clockwork_gears2
+        4: tool.repair_tools
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.blackpowder
+        2: maximize.strategy
+        3: reroll.science
+        4: reroll.military
+        5: custom.engineer_1
+        6: custom.engineer_2
+
+    mountaineer:
+      nation: 
+        i: 1
+        1: varendia
+      co_class: 
+        i: 7
+        1: brigand
+        2: chaplain
+        3: constable
+        4: dogsbody
+        5: fusilier
+        6: provincial
+        7: veteran
+      skill: 
+        i: 5
+        1: culture
+        2: medicine
+        3: military
+        4: nature
+        5: streetwise
+      spec: 
+        i: 6
+        1: arts
+        2: treat
+        3: aim
+        4: explore
+        5: husbandry
+        6: carouse
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: cudgel
+        3: musket
+      armor_prowess: 
+        i: 1
+        1: light_armor
+      social_rank: soldier
+      outfit: varendian_climbing
+      gear:
+        i: 5
+        1: weapon.musket
+        2: transport.skis
+        3: supplies.foodstuffs3
+        4: supplies.medicine3
+        5: animal.dog_varendian
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.carouse
+        2: maximize.treat
+        3: reroll.military
+        4: reroll.nature
+        5: custom.mountaineer_1
+        6: custom.mountaineer_2
+
+    stargazer:
+      nation: 
+        i: 1
+        1: ubar
+      co_class: 
+        i: 6
+        1: alchemist
+        2: chirurgeon
+        3: explorer
+        4: mechanician
+        5: speaker
+        6: visionary
+      skill: 
+        i: 3
+        1: culture
+        2: magicks
+        3: science
+      spec: 
+        i: 6
+        1: scholarship
+        2: portents
+        3: perceive
+        4: deduce
+        5: clockworks
+        6: calculus
+      weapon_prowess:
+        i: 1
+        1: knife
+      armor_prowess: 
+        i: 0
+      social_rank: artisan
+      outfit: crafter
+      gear:
+        i: 3
+        1: tool.abacus
+        2: tool.mariner_astrolabe
+        3: tool.spyglass
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.perceive
+        2: maximize.calculus
+        3: reroll.observation
+        4: reroll.science
+        5: custom.stargazer_1
+        6: custom.stargazer_2
+
+    faris:
+      nation: 
+        i: 1
+        1: pitdah
+      co_class: 
+        i: 9
+        1: brigand
+        2: courtier
+        3: dragoon
+        4: duelist
+        5: explorer
+        6: fusilier
+        7: provincial
+        8: speaker
+        9: veteran
+      skill: 
+        i: 4
+        1: culture
+        2: military
+        3: nature
+        4: dueling
+      spec: 
+        i: 6
+        1: etiquette
+        2: lunge
+        3: parry
+        4: aim
+        5: explore
+        6: husbandry
+      weapon_prowess:
+        i: 3
+        1: knife
+        2: sword
+        3: bow
+      armor_prowess: 
+        i: 1
+        1: shield
+      social_rank: soldier
+      outfit: ifran_nomad
+      gear:
+        i: 3
+        1: weapon.scimitar
+        2: weapon.horsebow
+        3: transport.faris
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.item_die.sword
+        2: maximize.riposte
+        3: reroll.nature
+        4: reroll.military
+        5: custom.faris_1
+        6: custom.faris_2
+
+    moon_curser:
+      nation: 
+        i: 1
+        1: elissia
+      co_class: 
+        i: 8
+        1: alchemist
+        2: brigand
+        3: charlatan
+        4: explorer
+        5: privateer
+        6: provincial
+        7: provocateur
+        8: veteran
+      skill: 
+        i: 3
+        1: military
+        2: nature
+        3: streetwise
+      spec: 
+        i: 6
+        1: negotiate
+        2: deceive
+        3: aim
+        4: explore
+        5: prowl
+        6: larceny
+      weapon_prowess:
+        i: 4
+        1: knife
+        2: cudgel
+        3: bow
+        4: pistol
+      armor_prowess: 
+        i: 0
+      social_rank: commoner
+      outfit: peasant
+      gear:
+        i: 2
+        1: weapon.crossbow
+        2: weapon.club
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.deceive
+        2: maximize.prowl
+        3: reroll.interaction
+        4: reroll.nature
+        5: custom.moon_curser_1
+        6: custom.moon_curser_2
+
+
+    collier:
+      nation: 
+        i: 1
+        1: elissia
+      co_class: 
+        i: 7
+        1: dogsbody
+        2: dragoon
+        3: explorer
+        4: fusilier
+        5: mechanician
+        6: provincial
+        7: veteran
+      skill: 
+        i: 4
+        1: military
+        2: nature
+        3: science
+        4: streetwise
+      spec: 
+        i: 6
+        1: block
+        2: brawl
+        3: explore
+        4: blackpowder
+        5: carouse
+        6: larceny
+      weapon_prowess:
+        i: 2
+        1: knife
+        2: cudgel
+      armor_prowess: 
+        i: 0
+      social_rank: soldier
+      outfit: peasant
+      gear:
+        i: 2
+        1: tool.mining_tools
+        2: tool.firefly_lantern
+      special: 
+        i: 0
+      lang:
+        i: 0
+      style_manu:
+        i: 6
+        1: maximize.blackpowder
+        2: maximize.brawl
+        3: reroll.nature
+        4: reroll.streetwise
+        5: custom.collier_1
+        6: custom.collier_2
+

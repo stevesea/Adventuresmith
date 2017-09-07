@@ -1,0 +1,425 @@
+---
+
+imports:
+  - str_tqc
+  - str_calendar
+  - dat_calendar
+
+tables:
+
+  random_day_of_month:
+  - "{{>roll: 1d30}}"
+
+  random_day_of_week:
+  - "{{>pick: 1d6 day_of_week_list}}"
+
+  random_month:
+  - "{{>pick: 1d12 month_list}}"
+
+
+definitions:
+
+  api_date:
+    print:
+      random: |
+              <p>{{ui_cal.yourrandom.date}}...</p>
+              {{api_date.print.all}}
+              
+      date: "{{>get: var_day_of_month}} {{api_month.print.str}}"
+
+      dayofthemonth: "{{ui_cal.ofthemonth.before}}{{api_day.of_month.print.ordinal}}{{ui_cal.ofthemonth.middle}}{{api_month.print.str}}{{ui_cal.ofthemonth.after}}"
+      dayoftheweek: "{{ui_cal.oftheweek.before}}{{api_day.of_week.print.str}}{{ui_cal.oftheweek.middle}}{{api_day.of_week.print.week}}{{ui_cal.oftheweek.after}}"
+
+      monthoftheyear: "{{ui_cal.oftheyear.before}}{{api_month.print.ordinal}}{{ui_cal.oftheyear.after}}"
+
+      monthoftheseason: "{{ui_cal.oftheseason.before}}{{api_month.print.in_season}}{{ui_cal.oftheseason.middle}}{{api_month.print.season}}{{ui_cal.oftheseason.after}}"
+
+      dayoftheyear: "{{ui_cal.dayoftheyear.before}}{{api_day.of_year.print.ordinal}}{{ui_cal.dayoftheyear.after}}"
+
+      daysremaining: "{{ui_cal.daysremaining.before}}{{api_day.of_year.days_remaining}}{{ui_cal.daysremaining.after}}"
+
+      onthisday:
+        all: "%[[api_date.print.onthisday.{{str_cal.dates.{{api_day.of_year.month_dd}}.index}}]]%"
+
+        none: "{{nop}}"
+
+        b: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}</p>"
+        bd: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}<br />{{api_date.print.onthisday.deaths}}</p>"
+        bde: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}<br />{{api_date.print.onthisday.deaths}}<br />{{api_date.print.onthisday.events}}</p>"
+        bdeh: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}<br />{{api_date.print.onthisday.deaths}}<br />{{api_date.print.onthisday.events}}<br />{{api_date.print.onthisday.holidays}}</p>"
+        bdh: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}<br />{{api_date.print.onthisday.deaths}}<br />{{api_date.print.onthisday.holidays}}</p>"
+        be: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}<br />{{api_date.print.onthisday.events}}</p>"
+        bh: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.births}}<br />{{api_date.print.onthisday.holidays}}</p>"
+        d: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.deaths}}</p>"
+        de: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.deaths}}<br />{{api_date.print.onthisday.events}}</p>"
+        deh: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.deaths}}<br />{{api_date.print.onthisday.events}}<br />{{api_date.print.onthisday.holidays}}</p>"
+        dh: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.deaths}}<br />{{api_date.print.onthisday.holidays}}</p>"
+        e: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.events}}</p>"
+        eh: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.events}}<br />{{api_date.print.onthisday.holidays}}</p>"
+        h: "<h4>{{ui_cal.onthisday}}</h4> <p>{{api_date.print.onthisday.holidays}}</p>"
+
+        births: "<b>{{ui_cal.births}}:</b> {{api_day.of_year.print.births}}"
+        deaths: "<b>{{ui_cal.deaths}}:</b> {{api_day.of_year.print.deaths}}"
+        events: "<b>{{ui_cal.events}}:</b> {{api_day.of_year.print.events}}"
+        holidays: "<b>{{ui_cal.holidays}}:</b> {{api_day.of_year.print.holidays}}"
+
+      equiv:
+        no: "{{nop}}"
+        yes: "<p><b>{{ui_cal.equiv.realworld}}:</b> {{str_cal.equiv.us_en.dayofyear.{{api_day.of_year.value}}}}</p>"
+
+      all: |
+           {{api_day.of_year.calculate}}
+           <h3>{{api_date.print.date}}</h3>
+
+           <p>{{ui_cal.thisis}} {{api_date.print.dayofthemonth}}, {{ui_cal.andfallson}} {{api_date.print.dayoftheweek}}.
+
+           <p><b>{{api_month.print.str}}</b> {{ui_cal.is}} {{api_date.print.monthoftheyear}}, {{ui_cal.and}} {{api_date.print.monthoftheseason}}.
+
+           <p>{{ui_cal.thisis}} %[[api_date.print.dayoftheyear]]%; {{ui_cal.thereare}} %[[api_date.print.daysremaining]]%.</p>
+           {{api_date.print.onthisday.all}}
+           %[[api_date.print.equiv.{{>get: var_equiv}}]]%
+
+  api_cal:
+
+    print:
+      moon_phase: |
+                  <p><b>{{>titleCase: {{str_cal.phase.{{dat_day.phase.{{>get: var_day_of_month}}}}}} {{ui_cal.phase.moon}}}}:</b>
+                  {{>titleCase: {{ui_cal.phase.themoon}}}} {{ui_cal.is}}
+                  {{str_cal.phase.desc.{{dat_day.phase.{{>get: var_day_of_month}}}}}},
+                  {{ui_cal.phase.with}} 
+                  {{str_cal.phase.moonlight.{{dat_day.phase.{{>get: var_day_of_month}}}}}}
+                  {{ui_cal.phase.moonlight}}. 
+                  </p>
+
+      day_in_week: |
+                   <p>{{ui_cal.yourrandom.day.in.week}}...</p>
+                   <h3>{{str_cal.day.{{>get: var_day}}}}</h3>
+                   <p>{{ui_cal.thisis}} 
+                   {{ui_cal.numdayofweek.before}}{{ordinal.{{dat_day.of_week.num.{{>get: var_day}}}}}}{{ui_cal.numdayofweek.after}}.
+                   {{str_cal.day.desc.{{>get: var_day}}}}</p>
+      day_in_month: |
+                    <p>{{ui_cal.yourrandom.day.in.month}}...</p>
+                    <h3>{{>titleCase: {{ui_cal.numdayofmonth.before}}{{ordinal.{{>get: var_day_of_month}}}}{{ui_cal.numdayofmonth.after}}}}</h3>
+                    <p>
+                    {{>titleCase: {{ui_cal.ofthemonth.before}}}} {{>get: var_day_of_month}}{{ord.{{>get: var_day_of_month}}}} {{ui_cal.is}}
+                    {{ui_cal.oftheweek.before}}{{str_cal.day.{{dat_day.of_week.{{>get: var_day_of_month}}}}}}{{ui_cal.oftheweek.middle}}{{str_cal.week.{{dat_day.weeknum.{{>get: var_day_of_month}}}}}}{{ui_cal.oftheweek.after}}.
+
+                    {{str_cal.day_of_month.events.{{>get: var_day_of_month}}}}
+                    </p>
+                    {{api_cal.print.moon_phase}}
+      day_in_year: |
+                   {{api_day.of_year.calculate}}
+                   <p>{{ui_cal.yourrandom.day.in.year}}...</p>
+                   <h3>{{api_date.print.date}}</h3>
+                   <p>{{ui_cal.thisis}} {{api_date.print.dayofthemonth}}, {{ui_cal.andfallson}} 
+                   {{api_date.print.dayoftheweek}}; {{ui_cal.itisthe}} 
+                   %[[api_date.print.dayoftheyear]]% {{ui_cal.and}}
+                   {{ui_cal.thereare}} %[[api_date.print.daysremaining]]%.
+                   {{str_cal.day_of_month.events.{{>get: var_day_of_month}}}}</p>
+                   <p><b>{{api_month.print.str}}</b> {{ui_cal.is}} {{api_date.print.monthoftheyear}}, 
+                   {{ui_cal.and}} {{api_date.print.monthoftheseason}}.</p>
+                   {{api_cal.print.moon_phase}}
+                   {{api_date.print.onthisday.all}}
+
+      day_in_history: |
+                      <p>{{ui_cal.yourrandom.day.in.history}}...</p>
+                      <h3>{{>get: var_day_of_month}} {{str_cal.month.{{>get: var_month}}}}
+                      {{>get: var_year}} {{str_cal.era.{{>get: var_era}}}}</h3>
+                      <p>
+                      {{ui_cal.Thiswas}}
+                      {{str_cal.season.a_an.month_adj.{{dat_month.num_in_season.{{>get: var_month}}}}}}{{str_cal.season.{{dat_month.season.{{>get: var_month}}}}}}
+                      {{ui_cal.dayin}}
+                      {{str_cal.month.{{>get: var_month}}}},
+                      {{ui_cal.oftheyear.before}}{{ordinal.{{dat_month.num_in_year.{{>get: var_month}}}}}}{{ui_cal.oftheyear.after}}.</p>
+                      <p>
+                      {{ui_cal.Itfellon}}
+                      {{ui_cal.oftheweek.before}}{{str_cal.day.{{dat_day.of_week.{{>get: var_day_of_month}}}}}}{{ui_cal.oftheweek.middle}}{{str_cal.week.{{dat_day.weeknum.{{>get: var_day_of_month}}}}}}{{ui_cal.oftheweek.after}}.
+                      {{str_cal.day_of_month.events.{{>get: var_day_of_month}}}}</p>
+                      <p>
+                      {{>titleCase: {{ui_cal.phase.themoon}}}} {{ui_cal.was}}
+                      {{str_cal.phase.desc.{{dat_day.phase.{{>get: var_day_of_month}}}}}},
+                      {{ui_cal.phase.with}} 
+                      {{str_cal.phase.moonlight.{{dat_day.phase.{{>get: var_day_of_month}}}}}}
+                      {{ui_cal.phase.moonlight}}. 
+                      </p>
+
+      week_in_month: |
+                      <p>{{ui_cal.yourrandom.week.in.month}}...</p>
+                      <h3>{{>titleCase: {{str_cal.week.{{>get: var_week_in_month}}}}}}</h3>
+                      <p>{{>titleCase: {{ui_cal.weekofmonth.before}}}} {{ordinal.{{>get: var_week_in_month}}}}{{ui_cal.weekofmonth.middle}}{{dat_week.start_day.{{>get: var_week_in_month}}}}{{ord.{{dat_week.start_day.{{>get: var_week_in_month}}}}}}{{ui_cal.weekofmonth.middle2}}{{dat_week.end_day.{{>get: var_week_in_month}}}}{{ord.{{dat_week.end_day.{{>get: var_week_in_month}}}}}}{{ui_cal.weekofmonth.after}}.
+                      {{str_cal.week.desc.{{>get: var_week_in_month}}}}</p>
+
+      week_in_year: |
+                    <p>{{ui_cal.yourrandom.week.in.year}}...</p>
+                    <h3>{{>titleCase: {{str_cal.week.{{>get: var_week_in_month}}}}}} {{ui_cal.of}} {{str_cal.month.{{>get: var_month}}}}/h3>
+                    <p><b>{{api_month.print.str}}</b> {{ui_cal.is}} {{api_date.print.monthoftheyear}}, 
+                    {{ui_cal.and}} {{api_date.print.monthoftheseason}}.</p>
+                    <p>{{>titleCase: {{ui_cal.weekofmonth.before}}}} {{ordinal.{{>get: var_week_in_month}}}}{{ui_cal.weekofmonth.middle}}{{dat_week.start_day.{{>get: var_week_in_month}}}}{{ord.{{dat_week.start_day.{{>get: var_week_in_month}}}}}}{{ui_cal.weekofmonth.middle2}}{{dat_week.end_day.{{>get: var_week_in_month}}}}{{ord.{{dat_week.end_day.{{>get: var_week_in_month}}}}}}{{ui_cal.weekofmonth.after}}.
+                    {{str_cal.week.desc.{{>get: var_week_in_month}}}}</p>
+
+      week_in_history: |
+                       <p>{{ui_cal.yourrandom.week.in.history}}...</p>
+                       <h3>{{>titleCase: {{str_cal.week.{{>get: var_week_in_month}}}}}} {{ui_cal.of}} {{str_cal.month.{{>get: var_month}}}}, {{>get: var_year}} {{str_cal.era.{{>get: var_era}}}}</h3>
+                        <p>{{ui_cal.Thiswasapprox}} {{str_cal.era.expand.{{>get: var_era}}.before}}{{>get: var_year}}{{str_cal.era.expand.{{>get: var_era}}.after}},
+                        {{ui_cal.or}} {{str_cal.era.expand.qy.before}}{{api_cal.print.qarta_year.{{>get: var_era}}}}{{str_cal.era.expand.qy.after}}.
+                        </p>
+                        <p>{{>titleCase: {{ui_cal.weekofmonth.before}}}} {{ordinal.{{>get: var_week_in_month}}}}{{ui_cal.weekofmonth.middle}}{{dat_week.start_day.{{>get: var_week_in_month}}}}{{ord.{{dat_week.start_day.{{>get: var_week_in_month}}}}}}{{ui_cal.weekofmonth.middle2}}{{dat_week.end_day.{{>get: var_week_in_month}}}}{{ord.{{dat_week.end_day.{{>get: var_week_in_month}}}}}}{{ui_cal.weekofmonth.after}}.
+                        <p><b>{{api_month.print.str}}</b> {{ui_cal.is}} {{api_date.print.monthoftheyear}}, 
+                        {{ui_cal.and}} {{api_date.print.monthoftheseason}}.</p>
+                        {{str_cal.week.desc.{{>get: var_week_in_month}}}}</p>
+
+      month_in_year: |
+                     <p>{{ui_cal.yourrandom.month.in.year}}...</p>
+                     <h3>{{str_cal.month.{{>get: var_month}}}}</h3>
+                     <p><b>{{api_month.print.str}}</b> {{ui_cal.is}} {{api_date.print.monthoftheyear}}, 
+                     {{ui_cal.and}} {{api_date.print.monthoftheseason}}.</p>
+
+      month_in_history: |
+                        <p>{{ui_cal.yourrandom.month.in.history}}...</p>
+                        <h3>{{str_cal.month.{{>get: var_month}}}} {{>get: var_year}} {{str_cal.era.{{>get: var_era}}}}</h3>
+                        <p>{{ui_cal.Thiswasapprox}} {{str_cal.era.expand.{{>get: var_era}}.before}}{{>get: var_year}}{{str_cal.era.expand.{{>get: var_era}}.after}},
+                        {{ui_cal.or}} {{str_cal.era.expand.qy.before}}{{api_cal.print.qarta_year.{{>get: var_era}}}}{{str_cal.era.expand.qy.after}}.
+                        </p>
+                        <p><b>{{api_month.print.str}}</b> {{ui_cal.is}} {{api_date.print.monthoftheyear}}, 
+                        {{ui_cal.and}} {{api_date.print.monthoftheseason}}.</p>
+
+      year_in_history: |
+                       <p>{{ui_cal.yourrandom.year.in.history}}...</p>
+                       <h3>{{>titleCase: {{ui_cal.theyear}}}} {{>get: var_year}} {{str_cal.era.{{>get: var_era}}}}</h3>
+                       <p>{{ui_cal.Thiswas}} {{str_cal.era.expand.{{>get: var_era}}.before}}{{>get: var_year}}{{str_cal.era.expand.{{>get: var_era}}.after}},
+                       {{ui_cal.or}} {{str_cal.era.expand.qy.before}}{{api_cal.print.qarta_year.{{>get: var_era}}}}{{str_cal.era.expand.qy.after}}.
+                       </p>
+
+      qarta_year:
+        bq: "{{>add: var_qarta_year 968}}{{>add: var_qarta_year -{{>get: var_year}}}}%[[>get: var_qarta_year]]%"
+        pq: "{{>add: var_qarta_year {{>get: var_year}}}}{{>add: var_qarta_year 968}}%[[>get: var_qarta_year]]%"
+
+      birthday:
+
+        year_false: |
+                    <p>{{ui_cal.yourrandom.birthday.before}}
+                    {{ui_cal.yourrandom.birthday.for.{{>get: var_for}}}}
+                    {{ui_cal.yourrandom.birthday.after}}...</p>
+                    <h3>{{>get: var_dob_day}} {{str_cal.month.{{>get: var_dob_month}}}}
+                    <p>{{ui_cal.Thisis}} {{str_cal.season.a_an.month_adj.{{>get: var_month_in_season}}}}{{str_cal.season.{{>get: var_season}}}} {{ui_cal.dayin}} {{str_cal.month.{{>get: var_dob_month}}}}, {{ui_cal.oftheyear.before}}{{ordinal.{{>get: var_month_in_year}}}}{{ui_cal.oftheyear.after}}.  {{ui_cal.Itfallson}} {{ui_cal.oftheweek.before}}{{str_cal.day.{{>get: var_day_of_week}}}}{{ui_cal.oftheweek.middle}}{{str_cal.week.{{>get: var_week}}}}. {{str_cal.day_of_month.events.{{>get: var_dob_day}}}}</p>
+                    <p>{{>titleCase: {{ui_cal.phase.themoon}}}} {{ui_cal.is}} {{str_cal.phase.desc.{{>get: var_phase}}}}, {{ui_cal.phase.with}} {{str_cal.phase.moonlight.{{>get: var_phase}}}} {{ui_cal.phase.moonlight}}. </p>
+                    <p>{{>get: list_onthisday &#32;}}</p>
+                    </h3>
+
+        year_true: |
+                   <p>{{ui_cal.yourrandom.birthday.before}} {{ui_cal.yourrandom.birthday.for.{{>get: var_for}}}} {{ui_cal.yourrandom.birthday.after}}...</p>
+                   <h3>{{>get: var_dob_day}} {{str_cal.month.{{>get: var_dob_month}}}} {{>get: var_dob_year}}</h3>
+                   <p> <b>{{ui_cal.age_category}}:</b> {{ui_cal.{{>get: var_for}}}} <i>({{dat_age.{{>get: var_for}}.min}} {{ui_cal.to}} {{dat_age.{{>get: var_for}}.max}} {{ui_cal.years}})</i>
+                   <br />
+                   <b>{{ui_cal.age}}:</b> {{>get: var_age_years}} {{ui_cal.year}}{{plural_s.{{>get: var_age_years}}}}, {{>get: var_age_months}} {{ui_cal.month}}{{plural_s.{{>get: var_age_months}}}}, {{ui_cal.and}} {{>get: var_age_days}} {{ui_cal.day}}{{plural_s.{{>get: var_age_days}}}} <i>({{ui_cal.asof}} {{dat_today.day}} {{str_cal.month.{{dat_today.month}}}} {{dat_today.year}} {{str_cal.era.pq}})</i></p>
+                   <p>{{ui_cal.Thiswas}} {{str_cal.season.a_an.month_adj.{{>get: var_month_in_season}}}}{{str_cal.season.{{>get: var_season}}}} {{ui_cal.dayin}} {{str_cal.month.{{>get: var_dob_month}}}}, {{ui_cal.oftheyear.before}}{{ordinal.{{>get: var_month_in_year}}}}{{ui_cal.oftheyear.after}}.  {{ui_cal.Itfellon}} {{ui_cal.oftheweek.before}}{{str_cal.day.{{>get: var_day_of_week}}}}{{ui_cal.oftheweek.middle}}{{str_cal.week.{{>get: var_week}}}}. {{str_cal.day_of_month.events.{{>get: var_dob_day}}}}</p>
+                   <p>{{>titleCase: {{ui_cal.phase.themoon}}}} {{ui_cal.was}} {{str_cal.phase.desc.{{>get: var_phase}}}}, {{ui_cal.phase.with}} {{str_cal.phase.moonlight.{{>get: var_phase}}}} {{ui_cal.phase.moonlight}}. </p>
+                   <p>{{>get: list_onthisday &#32;}}</p>
+
+
+    random:
+      day_in_week: |
+                   {{>set: var_day {{day_of_week_list}}}}
+                   %[[api_cal.print.day_in_week]]%
+
+      day_in_month: |
+                    {{>set: var_day_of_month {{>roll: 1d30}}}}
+                    %[[api_cal.print.day_in_month]]%
+
+      day_in_year: |
+                   {{api_day.of_year.initialize}}
+                   {{api_month.random}}
+                   {{api_day.of_month.random}}
+                   %[[api_cal.print.day_in_year]]%
+
+      day_in_history: |
+                      {{>set: var_day_of_month {{>roll: 1d30}}}}
+                      {{>set: var_month {{month_list}}}}
+                      {{>set: var_year {{>roll: 1d1249}}}}
+                      {{>set: var_era {{era_list}}}}
+                      %[[api_cal.print.day_in_history]]%
+
+      week_in_month: |
+                     {{>set: var_week_in_month {{>roll: 1d5}}}}
+                     %[[api_cal.print.week_in_month]]%
+
+      week_in_year: |
+                    {{>set: var_month {{month_list}}}}
+                    {{>set: var_week_in_month {{>roll: 1d5}}}}
+                    %[[api_cal.print.week_in_year]]%
+
+      week_in_history: |
+                       {{>set: var_year {{>roll: 1d1249}}}}
+                       {{>set: var_era {{era_list}}}}
+                       {{>set: var_month {{month_list}}}}
+                       {{>set: var_week_in_month {{>roll: 1d5}}}}
+                       %[[api_cal.print.week_in_history]]%
+
+      month_in_year: |
+                     {{>set: var_month {{month_list}}}}
+                     %[[api_cal.print.month_in_year]]%
+
+      month_in_history: |
+                        {{>set: var_year {{>roll: 1d1249}}}}
+                        {{>set: var_era {{era_list}}}}
+                        {{>set: var_month {{month_list}}}}
+                        %[[api_cal.print.month_in_history]]%
+
+      year_in_history: |
+                       {{>set: var_year {{>roll: 1d1249}}}}
+                       {{>set: var_era {{era_list}}}}
+                       %[[api_cal.print.year_in_history]]%
+
+      birthday: 
+        all: |
+             <!-- rolling random birthday and age 
+             {{>set: var_for {{unstr_cal.{{input.for}}}}}}
+             {{>set: var_dob_month {{month_list}}}}
+             {{>add: var_dob_day {{>roll: 1d30}}}}
+             {{>add: var_age {{>roll: {{dat_age.{{unstr_cal.{{input.for}}}}.roll}}}}}}
+             -->
+             %[[api_cal.random.birthday.dob]]%
+        dob: |
+             <!-- calculating birth year
+             age is {{>get: var_age}} years
+             {{>add: var_dob_year {{dat_today.year}}}}
+             {{>add: var_dob_year -{{>get: var_age}}}}
+             {{>add: tmp_dob_month {{dat_month.num_in_year.{{dat_today.month}}}}}}
+             {{>add: tmp_dob_month -{{dat_month.num_in_year.{{>get: var_dob_month}}}}}}
+             %[[api_cal.random.birthday.fix]]%
+        fix: |
+             {{>add: var_dob_year {{dat_month.fix_dob.years.{{>get: tmp_dob_month}}}}}}
+             {{>set: var_exit api_cal.print.birthday.year_{{dat_age.{{>get: var_for}}.year}}}}
+             -->
+             {{api_age.calc.all}}
+                 
+
+      # error conditions
+      #
+      #
+      week_in_week: |
+                    {{ui_cal.error.bad_inputs}}
+
+      month_in_week: |
+                     {{ui_cal.error.bad_inputs}}
+
+      month_in_month: |
+                      {{ui_cal.error.bad_inputs}}
+
+      year_in_week: |
+                    {{ui_cal.error.bad_inputs}}
+
+      year_in_month: |
+                     {{ui_cal.error.bad_inputs}}
+
+      year_in_year: |
+                    {{ui_cal.error.bad_inputs}}
+
+
+  api_age:
+    calc:
+
+      all: |
+           <!-- setting up some variables for quick access later
+           {{>set: var_season {{dat_month.season.{{>get: var_dob_month}}}}}}
+           {{>set: var_month_in_season {{dat_month.num_in_season.{{>get: var_dob_month}}}}}}
+           {{>set: var_month_in_year {{dat_month.num_in_year.{{>get: var_dob_month}}}}}}
+           {{>set: var_phase {{dat_day.phase.{{>get: var_dob_day}}}}}}
+           {{>set: var_day_of_week {{dat_day.of_week.{{>get: var_dob_day}}}}}}
+           {{>set: var_week {{dat_day.weeknum.{{>get: var_dob_day}}}}}}
+           {{>set: var_day_of_month {{>get: var_dob_day}}}}
+           {{>set: var_month {{>get: var_dob_day}}}}
+           {{>accum: list_onthisday <h4>{{ui_cal.onthisday}}</h4><!-- {{str_cal.dates.{{>get: var_dob_month}}_{{>get: var_dob_day}}.index}} -->}}
+           {{>accum: list_onthisday <br /><b>{{ui_cal.births}}:</b> {{str_cal.dates.{{>get: var_dob_month}}_{{>get: var_dob_day}}.births}}}}
+           {{>accum: list_onthisday <br /><b>{{ui_cal.deaths}}:</b> {{str_cal.dates.{{>get: var_dob_month}}_{{>get: var_dob_day}}.deaths}}}}
+           {{>accum: list_onthisday <br /><b>{{ui_cal.events}}:</b> {{str_cal.dates.{{>get: var_dob_month}}_{{>get: var_dob_day}}.events}}}}
+           {{>accum: list_onthisday <br /><b>{{ui_cal.holidays}}:</b> {{str_cal.dates.{{>get: var_dob_month}}_{{>get: var_dob_day}}.holidays}}}}
+           -->
+           <!-- calculating exact age 
+           dob: {{>get: var_dob_day}} {{>get: var_dob_month}} {{>get: var_dob_year}}
+           {{>add: var_age_years {{dat_today.year}}}}
+           {{>add: var_age_years -{{>get: var_dob_year}}}}
+           {{>add: var_age_months {{dat_month.num_in_year.{{dat_today.month}}}}}}
+           {{>add: var_age_months -{{dat_month.num_in_year.{{>get: var_dob_month}}}}}}
+           {{>add: var_age_days {{dat_today.day}}}}
+           {{>add: var_age_days -{{>get: var_dob_day}}}}
+
+           %[[api_age.calc.fix]]%
+      fix: |
+           age: {{>get: var_age_years}} years, {{>get: var_age_months}} months, {{>get: var_age_days}} days
+           fix years based on days: add {{dat_day.fix_age.years.{{>get: var_age_days}}}}
+           {{>add: var_age_years {{dat_day.fix_age.years.{{>get: var_age_days}}}}}}
+           fix months based on days: add {{dat_day.fix_age.months.{{>get: var_age_days}}}}
+           {{>add: var_age_months {{dat_day.fix_age.months.{{>get: var_age_days}}}}}}
+           fix days based on days: add {{dat_day.fix_age.days.{{>get: var_age_days}}}}
+           {{>add: var_age_days {{dat_day.fix_age.days.{{>get: var_age_days}}}}}}
+           fix years based on months: add {{dat_month.fix_age.years.{{>get: var_age_months}}}}
+           {{>add: var_age_years {{dat_month.fix_age.years.{{>get: var_age_months}}}}}}
+           fix months based on months: add: {{dat_month.fix_age.months.{{>get: var_age_months}}}}
+           {{>add: var_age_months {{dat_month.fix_age.months.{{>get: var_age_months}}}}}}
+           {{>remove: list_onthisday <br /><b>{{ui_cal.births}}:</b> }}
+           {{>remove: list_onthisday <br /><b>{{ui_cal.deaths}}:</b> }}
+           {{>remove: list_onthisday <br /><b>{{ui_cal.events}}:</b> }}
+           {{>remove: list_onthisday <br /><b>{{ui_cal.holidays}}:</b> }}
+           {{>remove: list_onthisday <h4>{{ui_cal.onthisday}}</h4><!-- none -->}}
+           -->
+           %[[{{>get: var_exit}}]]%
+
+
+  api_month: 
+    random: "%[[>set: var_month {{random_month}}]]%"
+
+    value: "{{>get: var_month}}"
+
+    season: "%[[dat_month.season.{{>get: var_month}}]]%"
+    num: "%[[dat_month.num_in_year.{{>get: var_month}}]]%"
+    num_in_season: "%[[dat_month.num_in_season.{{>get: var_month}}]]%"
+    days_so_far: "%[[dat_month.days_so_far.{{>get: var_month}}]]%"
+    birthstone: "%[[dat_month.birthstone.{{>get: var_month}}]]%"
+    birthstone_pic: "%[[api_month.birthstone.url.{{api_month.birthstone}}]]%"
+
+    print:
+      str: "%[[str_cal.month.{{>get: var_month}}]]%"
+      season: "%[[str_cal.season.{{api_month.season}}]]%"
+      in_season: "%[[ordinal.{{api_month.num_in_season}}]]%"
+      ordinal: "%[[dat_month.ordinal.{{>get: var_month}}]]%"
+      birthstone_str: "%[[str_cal.month.birthstone.{{api_month.birthstone}}]]%"
+
+
+  api_day:
+    of_month:
+      random: "%[[>set: var_day_of_month {{random_day_of_month}}]]%"
+
+      value: "{{>get: var_day_of_month}}"
+
+
+      print:
+        ordinal: "{{>get: var_day_of_month}}%[[ord.{{>get: var_day_of_month}}]]%"
+
+
+    of_year:
+      value: "{{>get: var_day_of_year}}"
+      month_dd: "{{>get: var_month}}_{{>get: var_day_of_month}}"
+      days_remaining: "{{>get: var_days_remaining}}"
+
+      print:
+        births: "%[[str_cal.dates.{{api_day.of_year.month_dd}}.births]]%"
+        deaths: "%[[str_cal.dates.{{api_day.of_year.month_dd}}.deaths]]%"
+        events: "%[[str_cal.dates.{{api_day.of_year.month_dd}}.events]]%"
+        holidays: "%[[str_cal.dates.{{api_day.of_year.month_dd}}.holidays]]%"
+        ordinal: "{{api_day.of_year.value}}%[[ord.{{api_day.of_year.value}}]]%"
+
+      initialize: "<!-- Initializing variables {{>add: var_day_of_year 0}} {{>add: var_days_remaining 360}} -->"
+
+      calculate: "<!-- Calculating day of the year %[[>add: var_day_of_year {{>get: var_day_of_month}}]]% %[[>add: var_day_of_year {{api_month.days_so_far}}]]% %[[>add: var_days_remaining -{{>get: var_day_of_month}}]]% %[[>add: var_days_remaining -{{api_month.days_so_far}}]]% -->"
+
+    of_week:
+
+      value: "%[[dat_day.of_week.{{>get: var_day_of_month}}]]%"
+      weeknum: "%[[dat_day.weeknum.{{>get: var_day_of_month}}]]%"
+      print:
+        str: "%[[str_cal.day.{{api_day.of_week.value}}]]%"
+        week: "%[[str_cal.week.{{api_day.of_week.weeknum}}]]%"
+
+
+

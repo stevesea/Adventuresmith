@@ -1,0 +1,339 @@
+---
+
+definitions:
+
+  ui_bg:
+    nation: Regional/National Origin
+    parents: Parentage
+    childhood: Pivotal Event of Childhood
+    education: Education
+    adulthood: Pivotal Event of Adulthood
+    yourrandombg: Your Random Backstory
+    yourbackstory: Your Backstory
+    questions: Questions to Answer
+    summaryof: Summary of
+    class_random: Random Backstory
+
+  str_bg:
+
+    gallinea_lutetia: 
+      desc: You were born in or near the capital of Gallinea. You know your way around the city streets, and you also received a decent education.
+      desc_addl: You were born in or near Lutetia, the capital of Gallinea. You know your way around the city streets, and you also received a decent education.
+      prince: Western Lutetia
+      title: Lutetia, Gallinea
+    gallinea_lowlands: 
+      desc: You come from the farming provinces of western Gallinea, which is also known for its folk magicks.
+      desc_addl: You come from the farming provinces of the Lowlands in western Gallinea, which are also known for their folk magicks.
+      prince: Western Gallinea
+      title: The Lowlands, Gallinea
+    gallinea_scanbria: 
+      desc: You were born in Scanbria, near the border with Varendia. Scanbria is renowned for its skill at charmweaving.
+      desc_addl: You were born in Scanbria, near Gallinea's border with Varendia. Scanbria is renowned for its skill at charmweaving.
+      prince: Western Scanbria
+      title: Scanbria, Gallinea
+    gallinea_jeweled_coast: 
+      desc: The Jeweled Cities along the coast of the Middle Sea are famous for their clockwork skills.
+      desc_addl: You were born in Gallinea, on the Jeweled Coast. The Jeweled Cities along the shore of the Middle Sea are famous for their clockwork skills.
+      prince: Eastern Gallinea
+      title: The Jeweled Coast, Gallinea
+    gallinea_elissia: 
+      desc: Not everyone in the West Ifran colony of Elissia is a convicted criminal or descendant of such. You might be, though.
+      desc_addl: Not everyone in your birthplace, the West Ifran colony of Elissia, is a convicted criminal or descendant of such. You might be, though.
+      prince: West Elissia
+      title: Elissia
+    albia: 
+      desc: You were born in Albia, one of Gallinea's closest rivals and now closest ally.
+      desc_addl: You were born in Albia, one of Gallinea's closest rivals and now closest ally.
+      prince: Western Albia
+      title: Albia
+    ondala: 
+      desc: You hail from Ondala, the spiritual center of the Asrian religion.
+      desc_addl: You hail from Ondala, the spiritual center of the Asrian religion.
+      prince: Western Ondala
+      title: Ondala
+    varendia: 
+      desc: The forests of Varendia, your homeland, are divided between warring feudal ladies and lords who sometimes engage in open warfare with each other.
+      desc_addl: The forests of Varendia, your homeland, are divided between warring feudal ladies and lords who sometimes engage in open warfare with each other.
+      prince: West Varendia
+      title: Varendia
+    northern_ifran: 
+      desc: You come from the deserts of Ifran, most probably from the city of Pitdah or Ubar.
+      desc_addl: You come from the deserts of Ifran, most probably from the city of Pitdah or Ubar.
+      prince: Pitdah or Ubar
+      title: Northern Ifran
+    dragosa: 
+      desc: You hail from the multilingual, multicultural land of Dragosa.
+      desc_addl: You hail from the multilingual, multicultural land of Dragosa.
+      prince: Western Dragosa
+      title: Dragosa
+    ekalia: 
+      desc: You come from the country of Ekalia, famous for its swashbuckling corsairs.
+      desc_addl: You come from the country of Ekalia, famous for its swashbuckling corsairs.
+      prince: Western Ekalia
+      title: Ekalia
+    talania: 
+      desc: You were born in Talania, but probably don't live there now thanks to the encroachment of the Shattering Frost.
+      desc_addl: You were born in Talania, but probably don't live there now thanks to the encroachment of the Shattering Frost.
+      prince: Western Talania
+      title: Talania
+
+    unknown_parentage: 
+      desc: You don't know who your parents were; you are an orphan or foundling, raised by the church of Asria.
+      title: Unknown Parentage
+      question: Who refuses to tell you about your parents?
+      prince: "the orphanage matron"
+      prince2: She
+    tenant_farmer: 
+      desc: Your parents were poor farmers, earning a living from the soil.
+      title: Tenant Farmer
+      question: What did your family do to survive the year that the crops failed?
+      prince: "your farmin' mom"
+      prince2: She
+    midwife: 
+      desc: Your mother or father was a midwife, providing medical care for the poor, especially women.
+      title: Midwife
+      question: Whose birth did you witness while assisting your parent?
+      prince: "your midwife dad"
+      prince2: He
+    criminal: 
+      desc: Your parents worked outside the law, perhaps as smugglers, thieves, or bandits.
+      title: Criminal
+      question: Who were the primary victims of your parents' crimes?
+      prince: "your crime-lovin' folks"
+      prince2: They
+    veteran: 
+      desc: One or both of your parents are retired soldiers who saw battle during a war -- and taught you the basics of how to shoot.
+      title: Veteran
+      prince: "your parent of indeterminate gender who was a veteran soldier"
+      prince2: They
+      question: What happened to your parent in the war that turned them against violence?
+    explorer: 
+      desc: You didn't see one of your parents all that often because they were out exploring the world. From their stories you gained a desire to see the rest of the world as well.
+      title: Explorer
+      question: What parts of the world do you long to see?
+      prince: "your explorer mom"
+      prince2: She
+    retired_cavalier: 
+      desc: Your parent was a member in good standing of the Queen's Cavaliers. They're retired now, possibly due to an injury (or just old age), but they still were able to teach you how to use a sword.
+      title: Retired Cavalier
+      question: What notable deed did your parent perform in the name of the Queen?
+      prince: "your cavalier pop"
+      prince2: He
+    merchant: 
+      desc: Your family sold trade goods or specialty goods, and made a decent living doing so.
+      title: Merchant
+      question: What kind of goods did your family sell?
+      prince: "your merchant mom"
+      prince2: She
+    scholar: 
+      desc: One of your parents was an academician, or possibly a teacher. From that parent you inherited a lifelong love of reading.
+      title: Scholar'
+      question: What were the topics of your favorite books as a child?
+      prince: "your teacher"
+      prince2: He
+    artist: 
+      desc: Your parent had an artistic streak a league wide; you may or may not have inherited that same artistic talent.
+      title: Artist
+      question: Which important personage was a patron for your parent?
+      prince: "your artsy dad"
+      prince2: He
+    clergy: 
+      desc: One of your parents is a priest in the Asrian church, and you were brought up in strict accordance with religious teachings.
+      title: Clergy
+      question: Which religious teaching was hardest for you to accept?
+      prince: "you priest"
+      prince2: She
+    nobility: 
+      desc: You are a scion of a noble family. It's good to be rich.
+      title: Nobility
+      question: What does your family think about Queen Mariana's attempts to make society more egalitarian?
+      prince: "your liege"
+      prince2: She
+
+    death_in_family: 
+      desc: One of your close relatives died unexpectedly, and you had to grow up in a hurry.
+      title: A Death in the Family
+      question: What did your relative tell you before they died?
+      prince: In the graveyard
+      prince2: Mourin', cryin', actin' all sad,
+      prince3: And all sobbin' for your relative, who suddenly was dead.
+    accidental_discovery: 
+      desc: You found something valuable while out exploring by yourself, and this brought you fame and wealth.
+      title: Accidental Discovery
+      question: Why were you out alone by yourself?
+      prince: Out and exploring
+      prince2: Searchin', seekin', finding some cool stuff,
+      prince3: Not returnin' to its owner, they lost it, life's rough.
+    bullied: 
+      desc: You were picked on by your peers, and you had to learn to survive their cruelty.
+      title: Bullied by Other Children
+      question: What's the worst thing that the local children did to torment you?
+      prince: Runnin' from bullies
+      prince2: Dodgin', weavin', taking hits in the face.
+      prince3: And all draggin' your sorry self home in disgrace.
+    child_prodigy: 
+      desc: As a child you were recognized as a genius. You had far from a normal childhood as a result.
+      title: Child Prodigy
+      question: Which important person was impressed by your skills?
+      prince: Bein' the smart kid
+      prince2: Readin', plannin', being so bright,
+      prince3: And yet not thinkin' your way out of fights.
+    kidnapped: 
+      desc: Someone stole you away from your home when you were quite small.
+      title: Kidnapped
+      question: Why didn't your family pay a ransom for your release?
+      prince: Kidnapped by brigands
+      prince2: Escapin', recapture, got to get home,
+      prince3: And all wonderin' why no one paid your ransom.
+    leader_among_peers: 
+      desc: The other children looked to you as their guide, even if you weren't the oldest, the strongest, or the smartest.
+      title: Leader Among Your Peers
+      question: Why did you end up losing the friendship of your best friend?
+      prince: Leadin' your peers
+      prince2: Directin', orderin', guidin' your friends,
+      prince3: And not really knowin' how this story will end.
+
+    tall_tales: 
+      desc: Even as a child you were known to stretch the truth in order to tell the right story that others wanted to hear.
+      title: Teller of Tall Tales
+      question: What's the one thing you'd never lie about?
+      prince: Tellin' tall tales
+      prince2: Lyin', fakin', tellin' no truths,
+      prince3: And all makin' up bullshit, oh my, so uncouth!
+    first_love: 
+      desc: Young love can be beautiful, and you'll never get that perfect person out of your thoughts -- even if they maybe weren't so perfect after all.
+      title: You Never Forget Your First Love
+      question: Why can you never be with your childhood sweetheart?
+      prince: In and out of love
+      prince2: Crushin', flirtin', fallin' so bad.
+      prince3: And all romancin' a cutie, not tellin' their dad.
+
+    alchemist_apprentice: 
+      desc: You developed draughts and other alchemical formulations under the watchful eye of a master alchemist.
+      title: Alchemist's Apprentice
+      question: How did you stop your master from making a terrible mistake?
+      prince: "'prenticing with an alchemist"
+    asrian_seminary: 
+      desc: You attended the Holy College in Ondala, training to be a member of the clergy.
+      title: Asrian Seminary
+      question: How did you first start to dabble in heresy?
+      prince: gonna study religion
+    cabingirl: 
+      desc: You came of age at sea, as a junior part of the crew of a sailing ship.
+      title: Cabingirl (or cabinboy...)
+      question: Why did you agree to support and cover up a mutiny against your captain?
+      prince: gonna join a sailin' ship
+    charmweaver_apprentice: 
+      desc: The draw of cloth and magick led you to study under a master charmweaver.
+      title: Charmweaver's Apprentice
+      question: Which noble was impressed by your budding talent at fashion?
+      prince: "'prenticin' with a charmweaver"
+    chirurgeon_apprentice: 
+      desc: You served as a physician's assistant to a prominent chirurgeon.
+      title: Chirurgeon's Apprentice
+      question: Why did your mentor blame you for one of their own mistakes?
+      prince: "'prenticin' with a chirurgeon"
+    coven_initiate: 
+      desc: You were trained in the ancient mysteries of witchcraft that predate even the Qartan Empire.
+      title: Coven Initiate
+      question: Why did you have a falling out with another member of your coven?
+      prince: "witchin' with a coven"
+    fencing_school: 
+      desc: Swordplay comes second-nature to you now, thanks to your training in a fencing school.
+      title: Fencing School
+      question:  Why did your instructor agree to fight an ill-fated duel that led to their death?
+      prince: "learnin' from a swordmaster"
+    mechanician_apprentice: 
+      desc: You were apprenticed to a master mechanician, creating complex clockwork devices.
+      title: Mechanician's Apprentice
+      question: Which invention always eluded your master's ability to create?
+      prince: "'prenticin' with a mechanician"
+    military_recruit: 
+      desc: You may have joined voluntarily, or perhaps you were drafted during a war. In either case, you were taught how to fight and send out on the front lines.
+      title: Military Recruit
+      question: What promise did you make to your buddy who never made it back home?
+      prince: joinin' the Queen's army
+    officer_academy: 
+      desc: You were trained as an officer the military, learning to give orders and fight in a war.
+      title: Officer's Academy
+      question: What order did you give that led to the death of someone under your command?
+      prince: off to military school
+    royal_universities: 
+      desc: You attended the royal universities in Lutetia, and received the finest formal education in the world.
+      title: Royal Universities
+      question: Why did a stranger pay for your expensive education?
+      prince: going to university
+    no_formal_training: 
+      desc: You learned your lessons in the school of hard knocks. Nobody ever sat you down and trained you; you had to learn everything yourself.
+      title: No Formal Training
+      question: What's the one thing you wish you'd learned before it was too late?
+      prince: gonna hit the streets
+
+    clandestine: 
+      desc: You were approached to join a secretive organization that doesn't officially exist, to engage in unofficially sanctioned missions.
+      title: Clandestinely Recruited
+      question: What have you learned that makes you mistrust your superiors?
+      prince: I'm Not a Spy, Swear!
+    crisis_of_faith: 
+      desc: Your faith was tested and was found wanting, leading to a change in your moral outlook.
+      title: Crisis of Faith
+      question: Why was it a mistake to confide in someone else about your doubts?
+      prince: That's Me in the Spotlight Losin' My Religion
+    exiled: 
+      desc: You aren't welcome where you came from, be it a province or an entire country.
+      title: Exiled
+      question: Why do you refuse to undertake the actions that could get your banishment lifted?
+      prince: The Exile's Here
+    falsely_accused: 
+      desc: You know you are innocent, but proving it is somewhat difficult.
+      title: Falsely Accused of a Crime
+      question: Why is one of your friends concealing the evidence that can prove your innocence?
+      prince: I Demand a Trial of my Peers
+    honor_besmirched: 
+      desc: An affront to your honor will not stand, and you will prove yourself by your exemplary attitude -- and hairtrigger temper when insulted.
+      title: Honor Besmirched
+      question: Which dishonorable deed did you commit that nobody knows about?
+      prince: ##
+    looking_for_love: 
+      desc: You're great at finding new lovers, but not so great at keeping them.
+      title: Looking For Love in All the Wrong Places
+      question: Why does your ex-lover want to see you dead?
+      prince: Hello There, My Dear
+    lost_love: 
+      desc: Poets say that your one true love comes along once in a lifetime. You've found that joy -- and had it taken away from you. Now you drown your sorrows in cheap wine.
+      title: Lost Love
+      question: What would it take for you to try to love again?
+      prince: My Love Disappeared
+    murder_most_foul: 
+      desc: Someone close to you was brutally murdered and the killer was never caught. You're haunted by the thought that you could have prevented it.
+      title: Murder Most Foul
+      question: Why do you feel partially responsible for your friend's death?
+      prince: My Friend Died And I Really Wish I Could Have Stopped It
+    revolutionary_invention: 
+      desc: You've invented something amazing that will revolutionize the world. In theory. Mostly it blows up but that can be fixed.
+      title: Revolutionary Invention
+      question: Why does someone want to see you dead before you can perfect your invention?
+      prince: I'm an Inventor sans Peer
+    shipwrecked: 
+      desc: Travel by ship is not without its perils, and you found yourself washed up on a deserted island.
+      title: Shipwrecked
+      question: What did you have to sacrifice in order to survive until you were rescued?
+      prince: I'm a Failed Buccaneer
+    sudden_but_inevitable: 
+      desc: Someone you trusted stabbed you in the back the moment you turned your back on them. You can still feel the metaphorical (or literal) dagger between your shoulderblades.
+      title: Sudden But Inevitable Betrayal
+      question: Why do you still find yourself willing to trust people, despite your experiences?
+      prince: Curse Your Sudden But Inevitable Betrayal
+    war_is_hell: 
+      desc: You are the survivor of a bloody war and countless battles.
+      title: War is Hell
+      question: Why does one battle still haunt your dreams?
+      prince: War Is Hell
+
+  unstr_bg:
+    Fresh: fresh
+    Story: story
+    Summary: summ
+    Sequential: seq
+    Charsheet: sheet
+

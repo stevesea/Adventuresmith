@@ -1,0 +1,1062 @@
+---
+
+imports:
+- dat_class
+- dat_culture
+- str_class
+- str_gear
+- str_tqc
+- str_style
+- str_stats
+
+nested_tables:
+  random_class:
+    any:
+    - "{{class_list}}"
+    combat:
+    - "{{>pick: 1d7 class_list}}"
+    noncombat:
+    - "{{>pick: 1d17+7 class_list}}"
+    basic:
+    - "{{>pick: 1d24 class_list}}"
+    no_duelist:
+    - "{{>pick: 1d23+1 class_list}}"
+    no_duelist_expanded:
+    - "{{>pick: 1d39+1 class_list}}"
+    no_chaplain:
+    - "1..14, {{>pick: 1d14+10 class_list}}"
+    - "alchemist"
+    - "barrister"
+    no_standard_clergy:
+    - "1..10, {{>pick: 1d10+10 class_list}}"
+    - "alchemist"
+    - "barrister"
+    - "virtuosa"
+    - "visionary"
+    - "witch"
+    national:
+    - "{{>pick: 1d16+24 class_list}}"
+    gallinea:
+    - "1..24, {{>pick: 1d24 class_list}}"
+    - "duelist"
+    - "duelist"
+    - "duelist"
+    gallinea_combat:
+    - "1..7, {{random_class.combat}}"
+    - "duelist"
+    - "duelist"
+    - "duelist"
+    gallinea_noncombat:
+    - "{{>pick: 1d17+7 class_list}}"
+    albia:
+    - "1..7, {{random_class.combat}}"
+    - "8..22, {{random_class.no_standard_clergy}}"
+    - "huntsman"
+    - "pilgrim"
+    albia_combat:
+    - "1..7, {{random_class.combat}}"
+    - "huntsman"
+    albia_noncombat:
+    - "1..15, {{random_class.no_standard_clergy}}"
+    - "pilgrim"
+    dragosa:
+    - "1..24, {{>pick: 1d24 class_list}}"
+    - "hanaster"
+    - "lexicographer"
+    dragosa_combat:
+    - "1..7, {{random_class.combat}}"
+    dragosa_noncombat:
+    - "1..17, {{random_class.noncombat}}"
+    - "lexicographer"
+    - "hanaster"
+    ekalia:
+    - "1..7, {{random_class.combat}}"
+    - "8..22, {{random_class.no_standard_clergy}}"
+    - "privateer"
+    - "privateer"
+    - "privateer"
+    - "privateer"
+    - "parroteer"
+    - "sibyl"
+    ekalia_combat:
+    - "1..7, {{random_class.combat}}"
+    - "privateer"
+    - "privateer"
+    - "parroteer"
+    ekalia_noncombat:
+    - "1..15, {{random_class.no_standard_clergy}}"
+    - "sibyl"
+    ondala:
+    - "1..24, {{random_class.basic}}"
+    - "chaplain"
+    - "theologian"
+    - "cocinera"
+    ondala_combat:
+    - "1..7, {{random_class.combat}}"
+    ondala_noncombat:
+    - "1..17, {{random_class.noncombat}}"
+    - "chaplain"
+    - "theologian"
+    - "cocinera"
+    talania:
+    - "1..24, {{random_class.basic}}"
+    - "skomorokh"
+    - "toymaker"
+    talania_combat:
+    - "1..7, {{random_class.combat}}"
+    talania_noncombat:
+    - "1..17, {{random_class.noncombat}}"
+    - "skomorokh"
+    - "toymaker"
+    varendia:
+    - "1..24, {{random_class.basic}}"
+    - "engineer"
+    - "mountaineer"
+    - "veteran"
+    - "veteran"
+    varendia_combat:
+    - "1..7, {{random_class.combat}}"
+    - "engineer"
+    - "mountaineer"
+    - "veteran"
+    - "veteran"
+    varendia_noncombat:
+    - "1..17, {{random_class.noncombat}}"
+    ubar:
+    - "1..7, {{random_class.combat}}"
+    - "8..23, {{random_class.no_chaplain}}"
+    - "stargazer"
+    ubar_combat:
+    - "1..7, {{random_class.combat}}"
+    ubar_noncombat:
+    - "1..16, {{random_class.no_chaplain}}"
+    - "stargazer"
+    - "speaker"
+    - "speaker"
+    pitdah:
+    - "1..7, {{random_class.combat}}"
+    - "8..23, {{random_class.no_chaplain}}"
+    - "faris"
+    - "faris"
+    - "faris"
+    pitdah_combat:
+    - "1..7, {{random_class.combat}}"
+    - "faris"
+    - "faris"
+    - "faris"
+    pitdah_noncombat:
+    - "1..16, {{random_class.no_chaplain}}"
+    - "speaker"
+    - "speaker"
+    elissia:
+    - "1..24, {{random_class.basic}}"
+    - "moon_curser"
+    - "collier"
+    - "brigand"
+    - "brigand"
+    elissia_combat:
+    - "1..7, {{random_class.combat}}"
+    - "collier"
+    - "moon_curser"
+    - "brigand"
+    - "brigand"
+    elissia_noncombat:
+    - "1..17, {{random_class.noncombat}}"
+    country:
+    - "{{>set: var_class_first {{random_class.gallinea}}}}{{>set: var_class_second {{random_class.gallinea}}}}"
+    - "{{>set: var_class_first {{random_class.albia}}}}{{>set: var_class_second {{random_class.albia}}}}"
+    - "{{>set: var_class_first {{random_class.dragosa}}}}{{>set: var_class_second {{random_class.dragosa}}}}"
+    - "{{>set: var_class_first {{random_class.ekalia}}}}{{>set: var_class_second {{random_class.ekalia}}}}"
+    - "{{>set: var_class_first {{random_class.ondala}}}}{{>set: var_class_second {{random_class.ondala}}}}"
+    - "{{>set: var_class_first {{random_class.talania}}}}{{>set: var_class_second {{random_class.talania}}}}"
+    - "{{>set: var_class_first {{random_class.varendia}}}}{{>set: var_class_second {{random_class.varendia}}}}"
+    - "{{>set: var_class_first {{random_class.pitdah}}}}{{>set: var_class_second {{random_class.pitdah}}}}"
+    - "{{>set: var_class_first {{random_class.ubar}}}}{{>set: var_class_second {{random_class.ubar}}}}"
+    - "{{>set: var_class_first {{random_class.elissia}}}}{{>set: var_class_second {{random_class.elissia}}}}"
+    country_balanced:
+    - "{{>set: var_class_first {{random_class.gallinea_combat}}}}{{>set: var_class_second {{random_class.gallinea_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.albia_combat}}}}{{>set: var_class_second {{random_class.albia_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.dragosa_combat}}}}{{>set: var_class_second {{random_class.dragosa_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.ekalia_combat}}}}{{>set: var_class_second {{random_class.ekalia_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.ondala_combat}}}}{{>set: var_class_second {{random_class.ondala_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.talania_combat}}}}{{>set: var_class_second {{random_class.talania_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.varendia_combat}}}}{{>set: var_class_second {{random_class.varendia_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.pitdah_combat}}}}{{>set: var_class_second {{random_class.pitdah_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.ubar_combat}}}}{{>set: var_class_second {{random_class.ubar_noncombat}}}}"
+    - "{{>set: var_class_first {{random_class.elissia_combat}}}}{{>set: var_class_second {{random_class.elissia_noncombat}}}}"
+  
+  random_class_and_co_class:
+    pick:
+    - "{{>set: var_class_first duelist}}{{>set: var_class_second {{random_class.no_duelist}}}}"
+    - "{{>set: var_class_first brigand}}{{>set: var_class_second {{dat_class.brigand.co_class.{{>roll: 1d{{dat_class.brigand.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first constable}}{{>set: var_class_second {{dat_class.constable.co_class.{{>roll: 1d{{dat_class.constable.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first dragoon}}{{>set: var_class_second {{dat_class.dragoon.co_class.{{>roll: 1d{{dat_class.dragoon.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first fusilier}}{{>set: var_class_second {{dat_class.fusilier.co_class.{{>roll: 1d{{dat_class.fusilier.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first privateer}}{{>set: var_class_second {{dat_class.privateer.co_class.{{>roll: 1d{{dat_class.privateer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first veteran}}{{>set: var_class_second {{dat_class.veteran.co_class.{{>roll: 1d{{dat_class.veteran.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first alchemist}}{{>set: var_class_second {{dat_class.alchemist.co_class.{{>roll: 1d{{dat_class.alchemist.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first barrister}}{{>set: var_class_second {{dat_class.barrister.co_class.{{>roll: 1d{{dat_class.barrister.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first chaplain}}{{>set: var_class_second {{dat_class.chaplain.co_class.{{>roll: 1d{{dat_class.chaplain.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first charlatan}}{{>set: var_class_second {{dat_class.charlatan.co_class.{{>roll: 1d{{dat_class.charlatan.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first charmweaver}}{{>set: var_class_second {{dat_class.charmweaver.co_class.{{>roll: 1d{{dat_class.charmweaver.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first chirurgeon}}{{>set: var_class_second {{dat_class.chirurgeon.co_class.{{>roll: 1d{{dat_class.chirurgeon.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first courtier}}{{>set: var_class_second {{dat_class.courtier.co_class.{{>roll: 1d{{dat_class.courtier.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first dogsbody}}{{>set: var_class_second {{dat_class.dogsbody.co_class.{{>roll: 1d{{dat_class.dogsbody.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first envoy}}{{>set: var_class_second {{dat_class.envoy.co_class.{{>roll: 1d{{dat_class.envoy.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first explorer}}{{>set: var_class_second {{dat_class.explorer.co_class.{{>roll: 1d{{dat_class.explorer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first mechanician}}{{>set: var_class_second {{dat_class.mechanician.co_class.{{>roll: 1d{{dat_class.mechanician.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first provincial}}{{>set: var_class_second {{dat_class.provincial.co_class.{{>roll: 1d{{dat_class.provincial.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first provocateur}}{{>set: var_class_second {{dat_class.provocateur.co_class.{{>roll: 1d{{dat_class.provocateur.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first speaker}}{{>set: var_class_second {{dat_class.speaker.co_class.{{>roll: 1d{{dat_class.speaker.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first virtuosa}}{{>set: var_class_second {{dat_class.virtuosa.co_class.{{>roll: 1d{{dat_class.virtuosa.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first visionary}}{{>set: var_class_second {{dat_class.visionary.co_class.{{>roll: 1d{{dat_class.visionary.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first witch}}{{>set: var_class_second {{dat_class.witch.co_class.{{>roll: 1d{{dat_class.witch.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first huntsman}}{{>set: var_class_second {{dat_class.huntsman.co_class.{{>roll: 1d{{dat_class.huntsman.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first pilgrim}}{{>set: var_class_second {{dat_class.pilgrim.co_class.{{>roll: 1d{{dat_class.pilgrim.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first lexicographer}}{{>set: var_class_second {{dat_class.lexicographer.co_class.{{>roll: 1d{{dat_class.lexicographer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first hanaster}}{{>set: var_class_second {{dat_class.hanaster.co_class.{{>roll: 1d{{dat_class.hanaster.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first parroteer}}{{>set: var_class_second {{dat_class.parroteer.co_class.{{>roll: 1d{{dat_class.parroteer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first sibyl}}{{>set: var_class_second {{dat_class.sibyl.co_class.{{>roll: 1d{{dat_class.sibyl.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first cocinera}}{{>set: var_class_second {{dat_class.cocinera.co_class.{{>roll: 1d{{dat_class.cocinera.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first theologian}}{{>set: var_class_second {{dat_class.theologian.co_class.{{>roll: 1d{{dat_class.theologian.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first skomorokh}}{{>set: var_class_second {{dat_class.skomorokh.co_class.{{>roll: 1d{{dat_class.skomorokh.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first toymaker}}{{>set: var_class_second {{dat_class.toymaker.co_class.{{>roll: 1d{{dat_class.toymaker.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first engineer}}{{>set: var_class_second {{dat_class.engineer.co_class.{{>roll: 1d{{dat_class.engineer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first mountaineer}}{{>set: var_class_second {{dat_class.mountaineer.co_class.{{>roll: 1d{{dat_class.mountaineer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first stargazer}}{{>set: var_class_second {{dat_class.stargazer.co_class.{{>roll: 1d{{dat_class.stargazer.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first faris}}{{>set: var_class_second {{dat_class.faris.co_class.{{>roll: 1d{{dat_class.faris.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first moon_curser}}{{>set: var_class_second {{dat_class.moon_curser.co_class.{{>roll: 1d{{dat_class.moon_curser.co_class.i}}}}}}}}"
+    - "{{>set: var_class_first collier}}{{>set: var_class_second {{dat_class.collier.co_class.{{>roll: 1d{{dat_class.collier.co_class.i}}}}}}}}"
+definitions:
+  api_class:
+
+    set:
+
+      Simple:
+        Basic: |
+               {{>set: var_class_first {{random_class.basic}}}}
+               {{>set: var_class_second {{random_class.basic}}}}
+               {{api_charsheet.init}}
+               %[[api_class.parse.all]]%
+        Expanded: |
+                  {{random_class.country}}
+                  {{api_charsheet.init}}
+                  %[[api_class.parse.all]]%
+
+      DuelistPlus:
+        Basic: |
+               {{>set: var_class_first {{random_class.no_duelist}}}}
+               {{>set: var_class_second duelist}}
+               {{api_charsheet.init}}
+               %[[api_class.parse.all]]%
+        Expanded: |
+                  {{>set: var_class_first {{random_class.no_duelist_expanded}}}}
+                  {{>set: var_class_second duelist}}
+                  {{api_charsheet.init}}
+                  %[[api_class.parse.all]]%
+
+      Balanced:
+        Basic: |
+               {{>set: var_class_first {{random_class.combat}}}}
+               {{>set: var_class_second {{random_class.noncombat}}}}
+               {{api_charsheet.init}}
+               %[[api_class.parse.all]]%
+        Expanded: |
+                  {{random_class.country_balanced}}
+                  {{api_charsheet.init}}
+                  %[[api_class.parse.all]]%
+
+      Thematic:
+        Basic: |
+               {{>pick: 1d24 random_class_and_co_class.pick}}
+               {{api_charsheet.init}}
+               %[[api_class.parse.all]]%
+        Expanded: |
+                  {{>pick: 1d40 random_class_and_co_class.pick}}
+                  {{api_charsheet.init}}
+                  %[[api_class.parse.all]]%
+
+    parse:
+      print: api_charsheet.print.basic
+      all: |
+
+           <!-- parsing class info
+           {{>set: var_class_string {{str_class.{{>get: var_class_first}}.title}} / {{str_class.{{>get: var_class_second}}.title}}}}
+           social rank
+           {{>set: var_social_rank_1 {{dat_class.{{>get: var_class_first}}.social_rank}}}}
+           {{>set: var_social_rank_2 {{dat_class.{{>get: var_class_second}}.social_rank}}}}
+           {{>set: var_social_rank_i 2}}
+
+           skills
+           %[[api_class.parse.first.skill.{{dat_class.{{>get: var_class_first}}.skill.i}}]]%
+           %[[api_class.parse.second.skill.{{dat_class.{{>get: var_class_second}}.skill.i}}]]%
+           lang
+           %[[api_class.parse.native_lang.{{dat_class.{{>get: var_class_first}}.nation.i}}.{{dat_class.{{>get: var_class_second}}.nation.i}}]]%
+           %[[api_class.parse.first.lang.{{dat_class.{{>get: var_class_first}}.lang.i}}]]%
+           %[[api_class.parse.second.lang.{{dat_class.{{>get: var_class_second}}.lang.i}}]]%
+           prow.weap
+           %[[api_class.parse.first.prow.weapon.{{dat_class.{{>get: var_class_first}}.weapon_prowess.i}}]]%
+           %[[api_class.parse.second.prow.weapon.{{dat_class.{{>get: var_class_second}}.weapon_prowess.i}}]]%
+           prow.armor
+           %[[api_class.parse.first.prow.armor.{{dat_class.{{>get: var_class_first}}.armor_prowess.i}}]]%
+           %[[api_class.parse.second.prow.armor.{{dat_class.{{>get: var_class_second}}.armor_prowess.i}}]]%
+           spec
+           %[[api_class.parse.first.spec.{{dat_class.{{>get: var_class_first}}.spec.i}}]]%
+           %[[api_class.parse.second.spec.{{dat_class.{{>get: var_class_second}}.spec.i}}]]%
+           gear
+           %[[api_class.parse.first.gear.{{dat_class.{{>get: var_class_first}}.gear.i}}]]%
+           %[[api_class.parse.second.gear.{{dat_class.{{>get: var_class_second}}.gear.i}}]]%
+           %[[>accum: list_gear {{str_outfit.{{dat_class.{{>get: var_class_first}}.outfit}}}}]]%
+           %[[>accum: list_gear {{str_outfit.{{dat_class.{{>get: var_class_second}}.outfit}}}}]]%
+           %[[api_class.parse.first.style_manu.{{>roll: 1d{{dat_class.{{>get: var_class_first}}.style_manu.i}}}}]]%
+           %[[api_class.parse.second.style_manu.{{>roll: 1d{{dat_class.{{>get: var_class_second}}.style_manu.i}}}}]]%
+
+           %[[api_class.parse.first.desc.{{dat_class.{{>get: var_class_first}}.special.i}}]]%
+           %[[api_class.parse.second.desc.{{dat_class.{{>get: var_class_second}}.special.i}}]]%
+           {{>set: var_story_i true}}
+           {{>set: var_custom 6}}
+           -->
+
+      native_lang:
+        0:
+          0: |
+             {{>set: var_lang_gallinean true}}
+          1: |
+             {{>set: var_lang_{{dat_nation.{{dat_class.{{>get: var_class_second}}.nation.1}}.lang.1}} true}}
+        1:
+          0: |
+             {{>set: var_lang_{{dat_nation.{{dat_class.{{>get: var_class_first}}.nation.1}}.lang.1}} true}}
+          1: |
+             {{>set: var_lang_{{dat_nation.{{dat_class.{{>get: var_class_second}}.nation.1}}.lang.1}} true}}
+
+      first:
+
+        desc:
+          0: | 
+              {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_first}}.title}}</h3> {{str_class.{{>get: var_class_first}}.desc}} }}
+          1: |
+             {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_first}}.title}}</h3> {{str_class.{{>get: var_class_first}}.desc}} <p><b>{{ui_class.special}}: {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.1}}}} }}
+          2: |
+             {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_first}}.title}}</h3> {{str_class.{{>get: var_class_first}}.desc}} <p><b>{{ui_class.special}}: {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.1}}}} {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.2}}}} </p> }}
+          3: |
+             {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_first}}.title}}</h3> {{str_class.{{>get: var_class_first}}.desc}} <p><b>{{ui_class.special}}: {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.1}}}} {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.2}}}} {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.3}}}} </p>}}
+
+        style_manu:
+          0: nop
+          1: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}</i>)}}"
+          2: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}</i>)}}"
+          3: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.text}}</i>)}}"
+          4: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.text}}</i>)}}"
+          5: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.text}}</i>)}}"
+          6: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.6}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.6}}.text}}</i>)}}"
+          7: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.7}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.7}}.text}}</i>)}}"
+          8: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.8}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.8}}.text}}</i>)}}"
+
+        skill: 
+          0: nop
+          1: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.1}} true}}
+          2: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.2}} true}}
+          3: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.3}} true}}
+          4: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.4}} true}}
+          5: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.4}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.5}} true}}
+          6: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.4}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.5}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_first}}.skill.6}} true}}
+
+        lang:
+          0: nop
+          1: |
+             {{>set: var_lang_{{dat_class.{{>get: var_class_first}}.lang.1}} true}}
+          2: |
+             {{>set: var_lang_{{dat_class.{{>get: var_class_first}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_class.{{>get: var_class_first}}.lang.2}} true}}
+          3: |
+             {{>set: var_lang_{{dat_class.{{>get: var_class_first}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_class.{{>get: var_class_first}}.lang.2}} true}}
+             {{>set: var_lang_{{dat_class.{{>get: var_class_first}}.lang.3}} true}}
+      
+        gear:
+          0: nop
+          1: |
+             gear first-1 
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}}}
+          2: |
+             gear first-2 
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}}}
+          3: |
+             gear first-3 
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}}}
+          4: |
+             gear first-4 
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.4}}}}}}
+          5: |
+             gear first-5
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.4}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.5}}}}}}
+          6: |
+             gear first-6
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.4}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.5}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_first}}.gear.6}}}}}}
+
+        prow:
+          weapon:
+            0: nop
+            1: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}} true}}
+            2: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}} true}}
+            3: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}} true}}
+            4: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.4}} true}}
+            5: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.4}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.5}} true}}
+            6: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.4}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.5}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.weapon_prowess.6}} true}}
+          armor:
+            0: nop
+            1: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.1}} true}}
+            2: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.2}} true}}
+            3: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.3}} true}}
+            4: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_first}}.armor_prowess.4}} true}}
+
+        spec:
+          0: nop
+          1: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.1}} 1}}
+          2: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.2}} 1}}
+          3: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.3}} 1}}
+          4: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.4}} 1}}
+          5: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.4}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.5}} 1}}
+          6: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.4}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.5}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_first}}.spec.6}} 1}}
+
+      second:
+
+        desc:
+          0: | 
+              {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_second}}.title}}</h3> {{str_class.{{>get: var_class_second}}.desc}} }}
+          1: |
+             {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_second}}.title}}</h3> {{str_class.{{>get: var_class_second}}.desc}} <p><b>{{ui_class.special}}: {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.1}}}} }}
+          2: |
+             {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_second}}.title}}</h3> {{str_class.{{>get: var_class_second}}.desc}} <p><b>{{ui_class.special}}: {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.1}}}} {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.2}}}} </p> }}
+          3: |
+             {{>accum: list_story <h3>{{ui_class.the}} {{str_class.{{>get: var_class_second}}.title}}</h3> {{str_class.{{>get: var_class_second}}.desc}} <p><b>{{ui_class.special}}: {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.1}}}} {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.2}}}} {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.3}}}} </p>}}
+
+        style_manu:
+          0: nop
+          1: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}</i>)}}"
+          2: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}</i>)}}"
+          3: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.text}}</i>)}}"
+          4: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.text}}</i>)}}"
+          5: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.text}}</i>)}}"
+          6: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.6}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.6}}.text}}</i>)}}"
+          7: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.7}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.7}}.text}}</i>)}}"
+          8: "{{>accum: list_style_manu {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.8}}.title}} (<i>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.8}}.text}}</i>)}}"
+
+        skill: 
+          0: nop
+          1: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.1}} true}}
+          2: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.2}} true}}
+          3: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.3}} true}}
+          4: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.4}} true}}
+          5: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.4}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.5}} true}}
+          6: |
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.1}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.2}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.3}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.4}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.5}} true}}
+             {{>set: var_skill_{{dat_class.{{>get: var_class_second}}.skill.6}} true}}
+
+        lang:
+          0: nop
+          1: |
+             {{>set: var_lang_{{dat_class.{{>get: var_class_second}}.lang.1}} true}}
+          2: |
+             {{>set: var_lang_{{dat_class.{{>get: var_class_second}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_class.{{>get: var_class_second}}.lang.2}} true}}
+          3: |
+             {{>set: var_lang_{{dat_class.{{>get: var_class_second}}.lang.1}} true}}
+             {{>set: var_lang_{{dat_class.{{>get: var_class_second}}.lang.2}} true}}
+             {{>set: var_lang_{{dat_class.{{>get: var_class_second}}.lang.3}} true}}
+      
+        gear:
+          0: nop
+          1: |
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}}}
+          2: |
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}}}
+          3: |
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}}}
+          4: |
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.4}}}}}}
+          5: |
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.4}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.5}}}}}}
+          6: |
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.4}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.5}}}}}}
+             {{>accum: list_gear {{str_{{dat_class.{{>get: var_class_second}}.gear.6}}}}}}
+
+        prow:
+          weapon:
+            0: nop
+            1: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}} true}}
+            2: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}} true}}
+            3: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}} true}}
+            4: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.4}} true}}
+            5: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.4}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.5}} true}}
+            6: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.4}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.5}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.weapon_prowess.6}} true}}
+          armor:
+            0: nop
+            1: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.1}} true}}
+            2: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.2}} true}}
+            3: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.3}} true}}
+            4: |
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.1}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.2}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.3}} true}}
+               {{>set: var_prow_{{dat_class.{{>get: var_class_second}}.armor_prowess.4}} true}}
+
+        spec:
+          0: nop
+          1: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.1}} 1}}
+          2: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.2}} 1}}
+          3: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.3}} 1}}
+          4: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.4}} 1}}
+          5: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.4}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.5}} 1}}
+          6: |
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.1}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.2}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.3}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.4}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.5}} 1}}
+             {{>add: var_spec_{{dat_class.{{>get: var_class_second}}.spec.6}} 1}}
+
+    print:
+
+      Summary: |
+               <p>{{ui_class.yourrandomclasses}}</p>
+               {{api_class.print.first.all}}
+               {{api_class.print.second.all}}
+      Single: |
+              <p>{{ui_class.yourrandomclass}}</p>
+              {{api_class.print.first.all}}
+
+      Charsheet: |
+                 %[[{{api_class.parse.print}}]]%
+
+      NameOnly: |
+                <p>{{ui_class.yourrandomclasses}}</p><h1>{{str_class.{{>get: var_class_first}}.title}} / {{str_class.{{>get: var_class_second}}.title}}</h1>
+
+      first:
+        all: |
+             <h1>{{ui_class.the}} {{str_class.{{>get: var_class_first}}.title}}</h1>
+             {{str_class.{{>get: var_class_first}}.desc}}
+             <p>
+             %[[api_class.print.first.nation.{{dat_class.{{>get: var_class_first}}.nation.i}}]]%
+             <b>{{ui_class.common_co_classes}}:</b> %[[api_class.print.first.co_classes.{{dat_class.{{>get: var_class_first}}.co_class.i}}]]%</p>
+             <h4>{{str_class.{{>get: var_class_first}}.title}} {{ui_class.class_traits}}</h4>
+             <p>
+             <b>{{str_skill.competency}}:</b> %[[api_class.print.first.skill.{{dat_class.{{>get: var_class_first}}.skill.i}}]]%<br />
+             <b>{{str_spec.specialties}}:</b> %[[api_class.print.first.spec.{{dat_class.{{>get: var_class_first}}.spec.i}}]]%<br />
+             <b>{{str_prow.weapon_prowess}}:</b> %[[api_class.print.first.prow.weapon.{{dat_class.{{>get: var_class_first}}.weapon_prowess.i}}]]%<br />
+             <b>{{str_prow.armor_prowess}}:</b> %[[api_class.print.first.prow.armor.{{dat_class.{{>get: var_class_first}}.armor_prowess.i}}]]%<br />
+             <b>{{str_social_rank.rank}}:</b> %[[str_social_rank.{{dat_class.{{>get: var_class_first}}.social_rank}}]]%<br />
+             <b>{{str_gear.bonus}}:</b> %[[str_outfit.{{dat_class.{{>get: var_class_first}}.outfit}}]]% (<i>%[[str_outfit.contents.{{dat_class.{{>get: var_class_first}}.outfit}}]]%</i>)%[[api_class.print.first.gear.{{dat_class.{{>get: var_class_first}}.gear.i}}]]%<br />
+             %[[api_class.print.first.special.{{dat_class.{{>get: var_class_first}}.special.i}}]]%
+             %[[api_class.print.first.lang.{{dat_class.{{>get: var_class_first}}.lang.i}}]]%
+             </p>
+             <h4>{{str_class.{{>get: var_class_first}}.title}} {{ui_class.maneuvers}}</h4>
+             {{ui_class.style_manu_explanation}}
+             %[[api_class.print.first.style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.i}}]]%
+
+        nation:
+          0: "{{nop}}"
+          1: "<b>{{ui_class.national_origin}}:</b> {{str_geo.{{dat_class.{{>get: var_class_first}}.nation.1}}}}<br />"
+          
+        style_manu:
+          0: "{{nop}}"
+          1: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+          2: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}<br />
+          3: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.text}}<br />
+          4: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.text}}<br />
+          5: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.text}}<br />
+          6: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.6}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.6}}.text}}<br />
+          7: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.4}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.5}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.6}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.6}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.7}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_first}}.style_manu.7}}.text}}<br />
+
+        lang:
+          0: "{{nop}}"
+          1: |
+             <b>{{str_lang.bonus}}:</b>: {{str_language.{{dat_class.{{>get: var_class_first}}.lang.1}}}} <br />
+          2: |
+             <b>{{str_lang.bonus}}:</b>: {{str_language.{{dat_class.{{>get: var_class_first}}.lang.1}}}}, {{str_language.{{dat_class.{{>get: var_class_first}}.lang.2}}}}<br />
+          3: |
+             <b>{{str_lang.bonus}}:</b>: {{str_language.{{dat_class.{{>get: var_class_first}}.lang.1}}}}, {{str_language.{{dat_class.{{>get: var_class_first}}.lang.2}}}}, {{str_language.{{dat_class.{{>get: var_class_first}}.lang.3}}}}<br />
+
+        special:
+          0: "{{nop}}"
+          1: |
+             <br>{{ui_class.special}}:</b>{{str_class.special.{{dat_class.{{>get: var_class_first}}.special.1}}}}<br />
+          2: |
+             <br>{{ui_class.special}}:</b>{{str_class.special.{{dat_class.{{>get: var_class_first}}.special.1}}}} {{str_class.special.{{dat_class.{{>get: var_class_first}}.special.2}}}}<br />
+
+        gear:
+          0: "{{nop}}"
+          1: |
+             , {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}
+          2: |
+             , {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}
+          3: |
+             , {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}
+          4: |
+             , {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.4}}}}
+          5: |
+             , {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.4}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.5}}}}
+          6: |
+             , {{str_{{dat_class.{{>get: var_class_first}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.3}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.4}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.5}}}}, {{str_{{dat_class.{{>get: var_class_first}}.gear.6}}}}
+
+        prow:
+          weapon:
+            0: "{{str_prow.with_default_dice.weapon_none}}"
+            1: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}}}}
+            2: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}}}}
+            3: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}}}}
+            4: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.4}}}}
+            5: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.4}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.5}}}}
+            6: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.4}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.5}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.weapon_prowess.6}}}}
+          armor:
+            0: "{{str_prow.with_default_dice.armor_none}}"
+            1: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.1}}}}
+            2: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.2}}}}
+            3: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.3}}}}
+            4: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_first}}.armor_prowess.4}}}}
+
+        skill:
+          0: "{{nop}}"
+          1: |
+             {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.1}}}}
+          2: |
+             {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.2}}}}
+          3: |
+             {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.3}}}}
+          4: |
+             {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.3}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.4}}}}
+          5: |
+             {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.3}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.4}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.5}}}}
+          6: |
+             {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.3}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.4}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.5}}}}, {{str_skill.{{dat_class.{{>get: var_class_first}}.skill.6}}}}
+
+        spec:
+          0: "none?!"
+          1: |
+             {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.1}}}}
+          2: |
+             {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.2}}}}
+          3: |
+             {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.3}}}}
+          4: |
+             {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.3}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.4}}}}
+          5: |
+             {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.3}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.4}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.5}}}}
+          6: |
+             {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.3}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.4}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.5}}}}, {{str_spec.{{dat_class.{{>get: var_class_first}}.spec.6}}}}
+
+        co_classes:
+          0: "{{ui_class.any}}"
+          1: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}
+          2: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, 
+          3: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}
+          4: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}
+          5: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}
+          6: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.6}}.title}}
+          7: |
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.7}}.title}}
+          8: | 
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.8}}.title}}
+          9: | 
+             {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.8}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.9}}.title}}
+          10: |
+              {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.8}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.9}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.10}}.title}}
+          11: |
+              {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.8}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.9}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.10}}.title}}, {{str_class.{{dat_class.{{>get: var_class_first}}.co_class.11}}.title}}
+
+      second:
+        all: |
+             <h1>{{ui_class.the}} {{str_class.{{>get: var_class_second}}.title}}</h1>
+             {{str_class.{{>get: var_class_second}}.desc}}
+             <p>
+             %[[api_class.print.second.nation.{{dat_class.{{>get: var_class_second}}.nation.i}}]]%
+             <b>{{ui_class.common_co_classes}}:</b> %[[api_class.print.second.co_classes.{{dat_class.{{>get: var_class_second}}.co_class.i}}]]%</p>
+             <h4>{{str_class.{{>get: var_class_second}}.title}} {{ui_class.class_traits}}</h4>
+             <p>
+             <b>{{str_skill.competency}}:</b> %[[api_class.print.second.skill.{{dat_class.{{>get: var_class_second}}.skill.i}}]]%<br />
+             <b>{{str_spec.specialties}}:</b> %[[api_class.print.second.spec.{{dat_class.{{>get: var_class_second}}.spec.i}}]]%<br />
+             <b>{{str_prow.weapon_prowess}}:</b> %[[api_class.print.second.prow.weapon.{{dat_class.{{>get: var_class_second}}.weapon_prowess.i}}]]%<br />
+             <b>{{str_prow.armor_prowess}}:</b> %[[api_class.print.second.prow.armor.{{dat_class.{{>get: var_class_second}}.armor_prowess.i}}]]%<br />
+             <b>{{str_social_rank.rank}}:</b> %[[str_social_rank.{{dat_class.{{>get: var_class_second}}.social_rank}}]]%<br />
+             <b>{{str_gear.bonus}}:</b> %[[str_outfit.{{dat_class.{{>get: var_class_second}}.outfit}}]]% (<i>%[[str_outfit.contents.{{dat_class.{{>get: var_class_second}}.outfit}}]]%</i>)%[[api_class.print.second.gear.{{dat_class.{{>get: var_class_second}}.gear.i}}]]%<br />
+             %[[api_class.print.second.special.{{dat_class.{{>get: var_class_second}}.special.i}}]]%
+             %[[api_class.print.second.lang.{{dat_class.{{>get: var_class_second}}.lang.i}}]]%
+             </p>
+             <h4>{{str_class.{{>get: var_class_second}}.title}} {{ui_class.maneuvers}}</h4>
+             {{ui_class.style_manu_explanation}}
+             %[[api_class.print.second.style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.i}}]]%
+
+        nation:
+          0: "{{nop}}"
+          1: "<b>{{ui_class.national_origin}}:</b> {{str_geo.{{dat_class.{{>get: var_class_second}}.nation.1}}}}<br />"
+          
+        style_manu:
+          0: "{{nop}}"
+          1: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+          2: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}<br />
+          3: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.text}}<br />
+          4: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.text}}<br />
+          5: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.text}}<br />
+          6: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.6}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.6}}.text}}<br />
+          7: |
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.1}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.2}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.3}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.4}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.5}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.6}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.6}}.text}}<br />
+             <b>{{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.7}}.title}}:</b> {{str_style_manu.{{dat_class.{{>get: var_class_second}}.style_manu.7}}.text}}<br />
+
+        lang:
+          0: "{{nop}}"
+          1: |
+             <b>{{str_lang.bonus}}:</b>: {{str_language.{{dat_class.{{>get: var_class_second}}.lang.1}}}} <br />
+          2: |
+             <b>{{str_lang.bonus}}:</b>: {{str_language.{{dat_class.{{>get: var_class_second}}.lang.1}}}}, {{str_language.{{dat_class.{{>get: var_class_second}}.lang.2}}}}<br />
+          3: |
+             <b>{{str_lang.bonus}}:</b>: {{str_language.{{dat_class.{{>get: var_class_second}}.lang.1}}}}, {{str_language.{{dat_class.{{>get: var_class_second}}.lang.2}}}}, {{str_language.{{dat_class.{{>get: var_class_second}}.lang.3}}}}<br />
+
+        special:
+          0: "{{nop}}"
+          1: |
+             <br>{{ui_class.special}}:</b>{{str_class.special.{{dat_class.{{>get: var_class_second}}.special.1}}}}<br />
+          2: |
+             <br>{{ui_class.special}}:</b>{{str_class.special.{{dat_class.{{>get: var_class_second}}.special.1}}}} {{str_class.special.{{dat_class.{{>get: var_class_second}}.special.2}}}}<br />
+
+        gear:
+          0: "{{nop}}"
+          1: |
+             , {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}
+          2: |
+             , {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}
+          3: |
+             , {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}
+          4: |
+             , {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.4}}}}
+          5: |
+             , {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.4}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.5}}}}
+          6: |
+             , {{str_{{dat_class.{{>get: var_class_second}}.gear.1}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.2}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.3}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.4}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.5}}}}, {{str_{{dat_class.{{>get: var_class_second}}.gear.6}}}}
+
+        prow:
+          weapon:
+            0: "{{str_prow.with_default_dice.weapon_none}}"
+            1: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}}}}
+            2: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}}}}
+            3: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}}}}
+            4: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.4}}}}
+            5: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.4}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.5}}}}
+            6: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.4}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.5}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.weapon_prowess.6}}}}
+          armor:
+            0: "{{str_prow.with_default_dice.armor_none}}"
+            1: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.1}}}}
+            2: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.2}}}}
+            3: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.3}}}}
+            4: |
+               {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.1}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.2}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.3}}}}, {{str_prow.with_default_dice.{{dat_class.{{>get: var_class_second}}.armor_prowess.4}}}}
+
+        skill:
+          0: "{{nop}}"
+          1: |
+             {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.1}}}}
+          2: |
+             {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.2}}}}
+          3: |
+             {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.3}}}}
+          4: |
+             {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.3}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.4}}}}
+          5: |
+             {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.3}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.4}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.5}}}}
+          6: |
+             {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.1}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.2}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.3}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.4}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.5}}}}, {{str_skill.{{dat_class.{{>get: var_class_second}}.skill.6}}}}
+
+        spec:
+          0: "none?!"
+          1: |
+             {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.1}}}}
+          2: |
+             {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.2}}}}
+          3: |
+             {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.3}}}}
+          4: |
+             {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.3}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.4}}}}
+          5: |
+             {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.3}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.4}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.5}}}}
+          6: |
+             {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.1}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.2}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.3}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.4}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.5}}}}, {{str_spec.{{dat_class.{{>get: var_class_second}}.spec.6}}}}
+
+        co_classes:
+          0: "{{ui_class.any}}"
+          1: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}
+          2: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, 
+          3: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}
+          4: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}
+          5: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}
+          6: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.6}}.title}}
+          7: |
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.7}}.title}}
+          8: | 
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.8}}.title}}
+          9: | 
+             {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.8}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.9}}.title}}
+          10: |
+              {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.8}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.9}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.10}}.title}}
+          11: |
+              {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.1}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.2}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.3}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.4}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.5}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.6}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.7}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.8}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.9}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.10}}.title}}, {{str_class.{{dat_class.{{>get: var_class_second}}.co_class.11}}.title}}
+
+
+  function:
+    bonus_weapon:
+      knife_knife: knife
+      knife_sword: sword
+      knife_pistol: pistol
+      sword_sword: sword
+      sword_knife: sword
+      sword_pistol: pistol
+      pistol_pistol: pistol
+      pistol_knife: pistol
+      pistol_sword: pistol
+

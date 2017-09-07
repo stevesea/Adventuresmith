@@ -1,0 +1,271 @@
+---
+
+definitions:
+
+  ui_class:
+    classes: Classes
+    the: The
+    common_co_classes: Common Co-Classes
+    class_traits: Class Traits
+    maneuvers: Maneuvers
+    yourrandomclass: Your random class is...
+    yourrandomclasses: Your random classes are...
+    special: Special
+    national_origin: National Origin
+    any: Any
+    style_manu_explanation: |
+                            <p>You automatically get one style of your choice from the following list. You can spend 1 customization at character creation time to gain an additional style maneuver from your class, or you can spend XP after gaining some experience.</p>
+
+  str_class: 
+    alchemist:
+      title: Alchemist
+      desc: |
+            <p>Using techniques perfected in the old Qartan Empire, Alchemists brew potions, poisons, and antidotes based on scientific principles. They can produce a variety of effects, ranging from healing to magical abilities.</p>
+            <p>Most Alchemists are successful merchants, many running small apothecaries to vend their wares.</p>
+
+    barrister:
+      title: Barrister
+      desc: |
+            <p>When someone is accused of a crime anywhere in Elara or wishes to sue another person, she will usually be represented in court by a Barrister. Barristers have special training in the law and court procedures, and are skilled at speaking before a magistrate.</p>
+            <p>Some Barristers work for the Crown and prosecute lawbreakers, while others can be hired by those with enough money -- usually only the rich. A recent and controversial policy in Gallinea allows for the indigent poor to be represented by public defenders, paid for by the Crown. </p>
+
+    brigand:
+      title: Brigand
+      desc: |
+            <p>While Gallinea and most of the Elaran continent are long-settled, that doesn't always stop opportunists from engaging in banditry. The typical Brigand in Gallinea is a peasant or even a minor noble whose fortunes fell and they resorted to force of arms to make their living.</p>
+            <p>Not all Brigands are necessarily cruel; there's a long history of folk heroes who rob from the corrupt rich and distribute their loot among the poor.</p>
+
+    chaplain:
+      title: Chaplain
+      desc: |
+            <p>A Chaplain is a clergy member of an organized religion, usually Asrian. The duties can vary but many times a Chaplain is found serving among military members or as a member of the court. Chaplains have minimal training in combat but are skilled at interacting with people.</p>
+            <p>Most Chaplains in Gallinea follow the Asrian faith, devoted to the goddess-empress Eserre. Dodekarian priests from Ekalia are sometimes found as Chaplains, although rarely outside of the Ekalian Islands. Devraist priests are known as Speakers, and it's rare to meet a Devraist Chaplain. Dualitarian Chaplains are sometimes co-classed as Speakers, however.</p>
+
+    charlatan:
+      title: Charlatan
+      desc: |
+            <p>Charlatans are swindlers, confidence men, mountebanks, and other tricksters who rely on their wits to defraud others. Many will hawk medicinal cure-alls or sell fraudulent nostrums, only to vanish when an angry crowd returns wanting their money back.</p>
+
+    charmweaver:
+      title: Charmweaver
+      desc: |
+            <p>A Charmweaver is a magickally proficient artisan who weaves charms and enchantments into fabrics. Most are skilled fashion designers and can combine their artistic and magickal talents together into impressive displays.</p>
+            <p>Charmweaving began in Gallinea and has spread throughout Elara in the last century, as popular fashions with practical charms became affordable for many common people.</p>
+
+    chirurgeon:
+      title: Chirurgeon
+      desc: |
+            <p>The science of medicine is the domain of the Chirurgeon, who both treats diseases and injuries, and performs major surgeries. They are often called upon to heal battlefield injuries, such as musket wounds or arrows to the knee.</p>
+
+            <p>Chirurgeons often wear black bird-headed Plague Masks when treating their patients; many of these are charmwoven to improve their surgical skills. Chirurgeons are not adverse to using magicks when appropriate, including alchemical remedies.  </p>
+
+    cocinera:
+      title: Cocinera
+      desc: |
+            <p>Intrigue and betrayal are a national pastime in Ondala, particularly in the capital city of Diega. As such, most wary nobles, wealthy merchants, and high-ranking clergy employ their own private chefs to prepare their meals. These Cocineras are held in high esteem not only for their excellent cuisine -- renowned throughout Elara and beyond -- but also for their loyalty to the people they serve. Who is better suited to keep poisons away from an important person's plate, after all? A Cocinera lives or dies on the trustworthiness of her reputation, and she'd really rather live than die.  </p>
+            
+    collier:
+      title: Collier
+      desc: |
+            <p>The western coast of Ifran was long thought to be a dismal, sweaty, swamp-infested strip of land devoid of any economic or military value, good only for dumping undesirables who were no longer welcome in Gallinea but who weren't quite wicked enough to execute.</p>
+            <p>At least, that was true until the discovery of phlogistone, a relative of blackpowder that, when burned, produces fumes with extreme buoyancy properties. While all nations of Elara contain scattered deposits of phlogistone, large quantities of the substance was found in the foothills all along West Ifran.</p>
+            <p>This has led to a large influx of prospectors, miners, traders, and others, flocking to Elissia in hopes of making it rich. Most return penniless after a few months in the humid hills, but some manage to cope with the sweltering heat and become professional Colliers. It may be dangerous work, but unlike most professions in Elissia, it does pay well.  </p>
+
+    constable:
+      title: Constable
+      desc: |
+            <p>In the Gallinean justice system, the Crown is represented by two separate yet equally important groups: the Constabulary, who investigate crime, and the Crown Barristers who prosecute the offenders. The Constables, and their counterparts in neighboring countries, enforce the laws and protect the people from wrongdoers as well as capturing those who commit criminal acts.</p>
+            <p>Most Constables are employed by the Crown or a local province, while a few have retired and ply their trade as investigators for private hire.</p>
+
+    courtier:
+      title: Courtier
+      desc: |
+            <p>
+            Members of the Gallinean royal court, and other noble courts, are Courtiers. They are well-educated, trained in etiquette and social graces, and have preternatural skill for plotting and intrigue.</p>
+            <p>Courtiers revel in their lives of luxury, but all know that they only continue to have such glamorous lives at the forbearance of their matrons and patrons. A Courtier who is outcast from polite society may return to take revenge upon a noblewoman or nobleman.</p>
+            <p>Magicks and the sciences are a draw to the Courtier, as well as some martial pursuits; nobles often have time to develop such skills at their leisure. </p>
+
+    dogsbody:
+      title: Dogsbody
+      desc: |
+            <p>A Dogsbody is a common manservant or henchperson, one who assists another in their escapades and only rarely comes up with a cunning plan. A Dogsbody is often overlooked by those of higher social rank, and other servants and lower-class commoners are more likely to talk to a Dogsbody openly than to the manservant's master.  </p>
+
+    dragoon:
+      title: Dragoon
+      desc: |
+            <p>A Dragoon is a professional soldier, usually a member of the cavalry. Dragoons are found throughout Elara and beyond; they are more somber and less flashy than the swashbuckling Duelists. Dragoons usually wear heavier armor in the field.</p>
+
+    duelist:
+      title: Duelist
+      desc: |
+            <p>A Duelist is a swashbuckling swordfighter who lives by her wits and her skill at her blade. She may be a member of the Queen's Cavaliers, or a rival organization, or may be a freelance fencer who runs her own dueling school. Quite a few actors have been known to take up dueling as well.</p>
+
+            <p>Duelist is a common co-class for any other class in <i>The Queen's Cavaliers</i>; as swordfighting is so prevalent in the game, the Duelist class is a natural choice for most appropriate character concepts. If you can't decide on a second class, choose Duelist.</p>
+
+    engineer:
+      title: Engineer
+      desc: |
+            <p>Varendia has perfected the art of siegecraft: if your neighboring duchy, queendom, or grafschaft is being uncooperative and holes up in their keep, refusing to fight, well, you can just blow the walls down and walk right in.</p>
+            <p>Engineers are experts at handling blackpowder and converting into military use, as well as constructing and repairing other types of siege engines. They can usually find regular employ in Varendia or beyond, with such skills being in higher demand during a state of open warfare.  </p>
+
+    envoy:
+      title: Envoy
+      desc: |
+            <p>An Envoy is a diplomatic representative, usually of a country, province, or other political group, although some represent religious groups or trade unions. An Envoy character should identify who she works for at the start of the game (although her allegiance may change during play).</p>
+            <p>Envoys are usually well-traveled and skilled at reading people and reaching compromises.  </p>
+
+    explorer:
+      title: Explorer
+      desc: |
+            <p>The current century is an age of exploration, and the Explorer is one who is caught up in that zeitgeist, pushing back the frontiers on the known world. Explorers are alternately courageous or foolhardy depending on who you talk to, ready to leave their lives behind and seek out the unknown.</p>
+            <p>Many explorers are Privateers, although some who move to colonize exotic lands such as Elissia can be Provincials.  </p>
+
+    faris:
+      title: Faris
+      desc: |
+            <p>The nomadic riders of the Ifrani desert travel between Ubar, Pitdah, Aad, and other settlements and oases, in tribal groups. A mounted warrior from one of these tribes is known as a faris, whether they ride a horse or a camel. The nearest equivalent in Elara would be a knight or chevalier, as another type of mounted combatant.</p>
+            <p>Far from being desert savages, a Faris is a well-mannered, educated equestrian or cameleer, trained in matters of etiquette and peace as well as war. A number of Faris have settled in or nearby Pitdah where they serve as light cavalry for the khedive -- himself a former Faris -- and guards for caravans though the desert wastes.  </p>
+
+    fusilier:
+      title: Fusilier
+      desc: |
+            <p>The Fusilier is a soldier specializing in the use of the flintlock musket and other ranged firearms, including clockwork muskets and pistols. A Fusilier can usually load, disassemble, and reassemble her weapon while blindfolded.  </p>
+
+    hanaster:
+      title: Hanaster
+      desc: |
+            <p>Dragosan merchants do a lot of trade both within and outside of Dragosa, with many willing to travel quite far in order to earn gold dragas. Serica, the Coffee Coast, Mwene Karanga, the Storm Islands -- nowhere is too far to go if a profit can still be turned by the journey. The highest ranking merchants are part of the Hanaster guilds, and are effectively nobility within Dragosan cities.</p>
+            <p>Hanasters are skilled at turning a profit, knowing what is most valuable at any given location and where it can be acquired for the cheapest. Most train in the basics of self defense, if just to protect themselves from thievery.</p>
+
+    huntsman:
+      title: Huntsman
+      desc: |
+            <p>The hunters of Albia are known for their mounted hunting parties, usually with the aid of hunting dogs such as the Albian spaniel. Bows are the traditional weapons of choice for the hunt, but many in recent centuries have shifted over to using firearms.  </p>
+            <p>Many huntsmen of the lower social ranks hunt for food or for a profession, while those from the nobility hunt for sport and for bragging ranks.  </p>
+
+    lexicographer:
+      title: Lexicographer
+      desc: |
+            <p>With a diverse, multilingual nation, the people of Dragosa are often themselves amateur linguists. Some of the most respected scholars in Volstok are found in the Institute of Translation, where they catalogue words, rephrase idioms, transliterate classic works in other tongues, and decipher fragmentary texts.</p>
+            <p>Field researchers from the Institute range far and wide throughout Elara, Ifran, and beyond -- seeking to capture language in the wild and bind it into book form, for storage in their guild's libraries.</p>
+
+    mechanician:
+      title: Mechanician
+      desc: |
+            <p>Fantastic clockwork devices are fashioned by Mechanicians, well-trained artisans who can engineer complex machinery to accomplish repetitive tasks. Their gadgets are in great demand throughout society, although usually only the wealthy can afford the most advanced items.  </p>
+
+    moon_curser:
+      title: Moon-Curser
+      desc: |
+            <p>Contrary to popular Gallinean belief, not all inhabitants of the West Ifran colony of Elissia are banished criminals ... just most of them. Some are actually daughters and sons of criminals rather than exiles themselves!</p>
+            <p>Despite that fallacy about their origins, it remains true that Elissians are known for their lack of respect for the law. Many of these become Moon-Cursers -- smugglers who bring contraband in and out of the colonies by dark of night. While most travel by sea, dodging the fleets of Gallinea, Ondala, and Albia, a few take overland routes into or out of Elissia. Their name derives from the fact that a full moon is a smuggler's worst enemy to remaining hidden from the authorities.  </p> 
+
+    mountaineer:
+      title: Mountaineer
+      desc: |
+            <p>Surrounded by mountains on all sides save one, the nation of Varendia has an understandable affinity for the peaks and valleys of the Lendine and Tramalvane mountains. Mountaineers are found on both ranges, engaging in lumbering or the raising of hardy goats. </p>
+            <p>Most mountaineers consider themselves to above the fray of the patchwork states that comprise the Varendian valley, not holding any particular loyalty to "Flachlanders" and their petty squabbles -- although it's not uncommon for them to hire themselves out as mercenaries when the heated politics boil over into warfare.  </p> 
+    parroteer:
+      title: Parroteer
+      desc: |
+            <p>Parrots play an important in role in Ekalian sailing life -- they're not just pets, but are trained to deliver messages between ships and even cities. A Parroteer learns not only the ability to train these intelligent, colorful birds, but also to decode the cryptography used to protect the messages from being intercepted.  </p> 
+
+    pilgrim:
+      title: Pilgrim
+      desc: |
+            <p>Clergy from the Asrian church are known as Chaplains, and clergy from the Devran church are speakers. Dualitarianist clergy combine beliefs from both faith traditions, and are known as "Pilgrims" to honor Dackin Orwand's pilgrimage to the Lost City of Aad -- although none are presumed to actually want to repeat that journey.</p>
+            <p>Pilgrims are expected to give succor to the sick and dying, and are found in Dualitarian hospitals as well as churches.  
+            </p>
+
+    privateer:
+      title: Privateer
+      desc: |
+            <p>Not all Privateers are pirates; most these days are licensed by one of the national governments or may in fact be part of a Royal Navy. Privateers are skilled at sailing both sea-ships and air-ships, although the latter are still quite rare.  </p>
+
+    provincial:
+      title: Provincial
+      desc: |
+            <p>Outside of the cosmopolitan sprawl of Lutetia are the provinces of Gallinea, home to commoners and petty noblefolk, many of whom lack education and refinement. These Provincials -- and the Provincials of other nations -- are looked down on by the city folk.</p>
+            <p>Provincials who come to Lutetia often feel they have something to prove when dealing with residents of the capital city; it's not uncommon for brawls to break out in bars because someone's clothes or horse was insulted.</p>
+            <p>A few Provincials are minor nobles and choose the Courtier co-class, although they rarely are afforded the respect given to their urban cousins.  </p>
+
+    provocateur:
+      title: Provocateur
+      desc: |
+            <p>A revolutionary, a spy, an assassin, a traitor, a conspirator -- these are terms used to speak of the Provocateur, a shadowy figure enmeshed in plots within plots. Provocateurs are used by all nations of Elara, although they are rarely trusted even among those who employ them.</p>
+            <p>A typical Provocateur does not advertise her profession, so she will usually rely on her co-class for her public persona.  </p>
+
+    sibyl:
+      title: Sibyl
+      desc: |
+            <p>The High Twelve of the Dodekarian faith speak to their mortal worshipers through signs and dreams, as they have for centuries. The priestesses (and sometimes priests) of these very human-like deities are known as Sibyls -- oracles who speak the words of the gods while in the grip of the powerful Kykeon brew.  </p>
+            <p>While highly respected by all within Ekalian society, Sibyls are prevented from participating in the Ekalian representational government structure -- a Sibyl is expected to remain apart from the secular politics of the land, although they may advise on matters of faith.  </p>
+
+    skomorokh:
+      title: Skomorokh
+      desc: |
+            <p>Talania, before the Shattering Frost, had a long tradition of folk dance in elaborate, colorful costumes. These "skomorokh" were more than just harlequins, more than mere performers; their parodies and satires served to represent the common people in the face of oppression by the bojarynias and tsarinas of the court. By passing themselves off as mere "clowns" or "jesters," the skomorokhs were able to tell truths that the ruling families would not want to be spoken of.</p>
+            <p>With the fall of Zamorov, the skomorokhs migrated with the rest of the Talanian populace to warmer climes, settling in Dragosa, Gallinea, and other lands of the Middle Sea. Unfortunately, the nobility outside of Talania lack a cultural tradition of tolerating the dancers' antics, leading to many troubles for skomorokhs outside of their homeland.  </p>
+
+    speaker:
+      title: Speaker
+      desc: |
+            <p>A Speaker is an adherent of the Desert Mother, Devra, whose purpose in Gallinea is to convert the masses. Devraism is legal within Gallinea but is in conflict with the majority Asrian religion. For this reason, Speakers usually keep a low profile while spreading their messages of stoic living and opposition to secular authorities.</p>
+            <p>Few, if any, Speakers are loyal to the Gallinean crown; Speakers are usually opponents for the Queen's Cavaliers rather than allies. </p>
+            <p>A few Dualitarian Speakers from Albia are also Chaplains.  </p>
+
+    stargazer:
+      title: Stargazer
+      desc: |
+            <p>Worship of Devra, the Desert Mother, centers on her role as queen of the night. The goddess is represented as the moon, while the stars are said to represent the spirits of departed ancestors who have gone before into the dark. This emphasis on the night skies has led Devrans to develop skills at astronomy far surpassing those of the sun-focused Asrians. </p>
+            <p>Most of these Stargazers are found in the northern Ifran city of Ubar, whose skylines is dominated by tall observatory towers that reach into the night. Within these towers can be found Stargazers focused on astronomical science, on reading the omens in the movements of the stars, on the development of optics and lenses, on navigation in land, sea, and sky, and other heavenly pursuits.  </p>
+
+    theologian:
+      title: Theologian
+      desc: |
+            <p>The theologians of Cordera, center of the Asrian faith, all agree on one thing: the other theologians are wrong. Cloistered in their numerous seminaries around the holy city, the students, teachers, and scholars all believe very strongly in their faith, but argue incessantly over the finest of details, incomprehensible to even well-educated laity.</p>
+            <p>These arguments often spill over into brawling fights, but as swords and guns are not allowed on the seminary grounds, the religious scholars instead conduct ritualized duels with knives hidden within their robes. Such knife-fights are, by tradition, rarely fatal; most theologians bear numerous scars on their hands and arms.  </p>
+
+    toymaker:
+      title: Toymaker
+      desc: |
+            <p>The craftsmen of Talania were renowned for their skill at creating lifelike dolls and other toys for children; eventually they began to incorporate both charmweaving and clockworks into their most advanced toys. Mostly unknown outside of Talania, they were curiosities only for the richest of foreigners until the Shattering Frost. Now, as the Talanian diaspora spreads throughout the Middle Sea, children of all social ranks have greater access to these entertainments.</p>
+            <p>Toymakers are some of the few Talanian refugees allowed to ply their own trade in Dragosa and in Valerienne without fear of reprisal from their neighbors, as they rarely compete with any local industries. Toymakers are usually among the richest within a given Talanian enclave, and often become leaders within their communities.  </p>
+
+    veteran:
+      title: Veteran
+      desc: |
+            <p>Gallinea and its neighbors maintain standing armies, composed of professional soldiers who fight in their wars at home and abroad. The most recent war between Gallinea and Albia lasted for a total of 20 years, ending 6 years ago with the marriage of then-princess Mariana (now Queen Mariana) to prince Carolus of Albia.</p>
+            <p>Veterans of that and other wars are well-trained in the art of battle, and if not currently part of a military unit, often join mercenary companies or guard regiments rather than settle down into a civilian lifestyle.</p>
+
+    virtuosa:
+      title: Virtuosa
+      desc: |
+            <p>A Virtuosa is a master performer or artist, creating beautiful works of art, music, or drama. Virtuosas can be singers, actors, painters, playwrights, sculptors, musicians, composers, poets, and other artists.</p>
+            <p>Being an effective Virtuosa requires training in the arts and history, plus a great degree of innate talent. Virtuosas are well-respected throughout society, especially among the upper classes.  </p>
+
+    visionary:
+      title: Visionary
+      desc: |
+            <p>A Visionary is someone whose genius far exceeds that of the average person. True Renaissance women and men, they are able to apply logic and science ways that seem almost supernatural to many.</p>
+            <p>A Visionary may be a leader, or she may be a quiet follower who only seeks to pursue her life's work. Visionaries are usually well-educated and can speak confidently on a variety of topics.  </p>
+
+    witch:
+      title: Witch
+      desc: |
+            <p>An ancient tradition that predates the Qartan Empire, the Witches of Gallinea are experts at folk remedies, herbal lore, midwifery, and reading omens. Witchcraft is officially tolerated in Gallinea, although most devoutly religious people eschew contact with Witches unless absolutely necessary.</p>
+            <p>Some Witches are publicly known as such, but most keep their rituals secret from the authorities, remembering past periods of persecution.  </p>
+
+    nop:
+      title: Nop nop
+      desc: |
+            <p>Nop nop nop nop </p>
+
+    special:
+      create_charmwoven: During character creation, you can spend your starting fabric to create standard apparel or charmwoven apparel.
+      create_clockwork: During character creation, you can spend your starting clockwork gears to create standard clockwork devices.
+      create_draughts: During character creation, you can spend your starting alchemical supplies to create standard draughts.
+      create_salves: During character creation, you can spend your starting alchemical supplies to create standard salves.
+      know_kykeon: You know how to brew Kykeon in addition to the standard alchemical draughts.
+      patron_deity: Choose or randomly select a member of the High Twelve as a personal patron, and gain the associated specialty or prowess.
+

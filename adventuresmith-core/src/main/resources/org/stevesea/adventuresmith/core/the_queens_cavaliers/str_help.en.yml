@@ -1,0 +1,53 @@
+---
+
+definitions:
+  unstr_help:
+    Dice: dice
+    Languages: languages
+    License: license
+    Credits: credits
+  ui_help:
+    see_also: See Also
+    wikilink: Wiki Link
+  str_help:
+    credits:
+      title: Credits
+      longhelp: |
+                <p>
+                ...
+                </p>
+      see_also: License
+      wikilink:
+        url: "http://boldpueblo.com/wiki/The_Queen%27s_Cavaliers"
+        text: TQC Home Page
+    dice:
+      title: Dice System
+      longhelp: |
+                <p>
+                ...
+                </p>
+      see_also: Attributes, Stats
+      wikilink:
+        url: "http://boldpueblo.com/wiki/The_Queen%27s_Cavaliers"
+        text: TQC Home Page
+    languages:
+      title: Languages
+      longhelp: |
+                <p>
+                ...
+                </p>
+      see_also: Countries 
+      wikilink:
+        url: "http://boldpueblo.com/wiki/The_Queen%27s_Cavaliers"
+        text: TQC Home Page
+    license:
+      title: License
+      longhelp: |
+                <p>
+                ...
+                </p>
+      see_also: Credits
+      wikilink:
+        url: "http://boldpueblo.com/wiki/The_Queen%27s_Cavaliers"
+        text: TQC Home Page
+

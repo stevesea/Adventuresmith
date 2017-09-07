@@ -1,0 +1,6 @@
+---
+templates:
+- "{{>set: var_print_format {{unstr_pass.{{input.format}}}}}}{{api_pass.load.list}}{{api_pass.set.random.all}}"
+
+imports:
+- lib_stats

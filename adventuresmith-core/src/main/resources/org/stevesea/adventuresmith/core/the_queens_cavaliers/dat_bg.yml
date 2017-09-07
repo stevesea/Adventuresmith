@@ -1,0 +1,1127 @@
+---
+
+tables:
+
+  bg_list:
+  - "1, gallinea_lutetia"
+  - "2, gallinea_lowlands"
+  - "3, gallinea_scanbria"
+  - "4, gallinea_jeweled_coast"
+  - "5, gallinea_elissia"
+  - "6, albia"
+  - "7, ondala"
+  - "8, varendia"
+  - "9, northern_ifran"
+  - "10, dragosa"
+  - "11, ekalia"
+  - "12, talania"
+  - "13, unknown_parentage"
+  - "14, tenant_farmer"
+  - "15, midwife"
+  - "16, criminal"
+  - "17, veteran"
+  - "18, explorer"
+  - "19, retired_cavalier"
+  - "20, merchant"
+  - "21, scholar"
+  - "22, artist"
+  - "23, clergy"
+  - "24, nobility"
+  - "25, death_in_family"
+  - "26, accidental_discovery"
+  - "27, bullied"
+  - "28, child_prodigy"
+  - "29, kidnapped"
+  - "30, leader_among_peers"
+  - "31, tall_tales"
+  - "32, first_love"
+  - "33, alchemist_apprentice"
+  - "34, asrian_seminary"
+  - "35, cabingirl"
+  - "36, charmweaver_apprentice"
+  - "37, chirurgeon_apprentice"
+  - "38, coven_initiate"
+  - "39, fencing_school"
+  - "40, mechanician_apprentice"
+  - "41, military_recruit"
+  - "42, officer_academy"
+  - "43, royal_universities"
+  - "44, no_formal_training"
+  - "45, clandestine"
+  - "46, crisis_of_faith"
+  - "47, exiled"
+  - "48, falsely_accused"
+  - "49, honor_besmirched"
+  - "50, looking_for_love"
+  - "51, lost_love"
+  - "52, murder_most_foul"
+  - "53, revolutionary_invention"
+  - "54, shipwrecked"
+  - "55, sudden_but_inevitable"
+  - "56, war_is_hell"
+
+definitions:
+  dat_bg:
+
+# nation (8 lines)
+
+    gallinea_lutetia:
+      lang:
+        i: 1
+        1: gallinean
+      skill:
+        i: 2
+        1: culture
+        2: streetwise
+    gallinea_lowlands:
+      lang:
+        i: 1
+        1: gallinean
+      skill:
+        i: 2
+        1: magicks
+        2: nature
+    gallinea_scanbria:
+      lang:
+        i: 2
+        1: gallinean
+        2: varendish
+      skill:
+        i: 1
+        1: magicks
+    gallinea_jeweled_coast:
+      lang:
+        i: 1
+        1: gallinean
+      skill:
+        i: 2
+        1: science
+        2: culture
+    gallinea_elissia:
+      lang:
+        i: 1
+        1: gallinean
+      skill:
+        i: 2
+        1: nature
+        2: streetwise
+    albia:
+      lang:
+        i: 1
+        1: albian
+      skill:
+        i: 2
+        1: culture
+        2: military
+    ondala:
+      lang:
+        i: 1
+        1: ondalese
+      skill:
+        i: 2
+        1: dueling
+        2: culture
+    varendia:
+      lang:
+        i: 1
+        1: varendish
+      skill:
+        i: 2
+        1: military
+        2: nature
+    northern_ifran:
+      lang:
+        i: 1
+        1: ifrani
+      skill:
+        i: 2
+        1: nature
+        2: streetwise
+    dragosa:
+      lang:
+        i: 3
+        1: ekalian
+        2: talanian
+        3: varendish
+      skill:
+        i: 0
+    ekalia:
+      lang:
+        i: 1
+        1: ekalian
+      skill:
+        i: 2
+        1: dueling
+        2: nature
+    talania:
+      lang:
+        i: 1
+        1: talanian
+      skill:
+        i: 2
+        1: science
+        2: nature
+
+# parents
+
+    unknown_parentage:
+      lang:
+        i: 0
+      social_rank: commoner
+      skill:
+        i: 2
+        1: culture
+        2: streetwise
+      spec: 
+        i: 2
+        1: scholarship
+        2: carouse
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 0
+      outfit: peasant
+      passion:
+        d6: friends
+      style_manu: reroll.streetwise
+
+    tenant_farmer:
+      lang:
+        i: 0
+      social_rank: commoner
+      skill:
+        i: 1
+        1: nature
+      spec: 
+        i: 1
+        1: husbandry
+      weapon_prowess:
+        i: 1
+        1: cudgel
+      gear: 
+        i: 1
+        1: transport.draft_horse
+      outfit: peasant
+      passion:
+        d6: family
+      style_manu: reroll.nature
+
+    midwife:
+      lang:
+        i: 0
+      social_rank: commoner
+      skill:
+        i: 2
+        1: medicine
+        2: magicks
+      spec: 
+        i: 2
+        1: treat
+        2: brew
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 1
+        1: supplies.medicine2
+      outfit: peasant
+      passion:
+        d6: friends
+      style_manu: reroll.medicine
+
+    criminal:
+      lang:
+        i: 0
+      social_rank: commoner
+      skill:
+        i: 2
+        1: interaction
+        2: streetwise
+      spec: 
+        i: 2
+        1: deceive
+        2: larceny
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 1
+        1: weapon.knife
+      outfit: peasant
+      passion:
+        d6: justice
+      style_manu: reroll.interaction
+
+    veteran:
+      lang:
+        i: 0
+        i: 0
+      social_rank: soldier
+      skill:
+        i: 1
+        1: military
+      spec: 
+        i: 1
+        1: aim
+      weapon_prowess:
+        i: 1
+        1: musket
+      gear: 
+        i: 1
+        1: weapon.musket
+      outfit: peasant
+      passion:
+        d6: country
+      style_manu: reroll.military
+
+    explorer:
+      lang:
+        i: 0
+      social_rank: soldier
+      skill:
+        i: 2
+        1: nature
+        2: culture
+      spec: 
+        i: 2
+        1: explore
+        2: scholarship
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 1
+        1: tool.mariner_astrolabe
+      outfit: corsair
+      passion:
+        d6: knowledge
+      style_manu: reroll.nature
+
+    retired_cavalier:
+      lang:
+        i: 1
+        1: gallinean
+      social_rank: soldier
+      skill:
+        i: 2
+        1: defense
+        2: dueling
+      spec: 
+        i: 2
+        1: lunge
+        2: parry
+      weapon_prowess:
+        i: 1
+        1: sword
+      gear: 
+        i: 1
+        1: weapon.sword
+      outfit: peasant
+      passion:
+        d6: loyalty
+      style_manu: reroll.dueling
+
+    merchant:
+      lang:
+        i: 0
+      social_rank: artisan
+      skill:
+        i: 2
+        1: interaction
+        2: observation
+      spec: 
+        i: 2
+        1: negotiate
+        2: deduce
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 1
+        1: money.reward.d8
+      outfit: crafter
+      passion:
+        d6: wealth
+      style_manu: reroll.interaction
+
+    scholar:
+      lang:
+        i: 0
+      social_rank: artisan
+      skill:
+        i: 1
+        1: culture
+      spec: 
+        i: 2
+        1: scholarship
+        2: arts
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 0
+        1: book.book2
+      outfit: scholar
+      passion:
+        d6: knowledge
+      style_manu: reroll.culture
+
+    artist:
+      lang:
+        i: 0
+      social_rank: artisan
+      skill:
+        i: 2
+        1: interaction
+        2: culture
+      spec: 
+        i: 1
+        1: arts
+        2: inspire
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 1
+        1: supplies.art_supplies2
+      outfit: crafter
+      passion:
+        d6: love
+      style_manu: reroll.interaction
+
+    clergy:
+      lang:
+        i: 1
+        1: old_qartan
+      social_rank: artisan
+      skill:
+        i: 1
+        1: culture
+      spec: 
+        i: 1
+        1: scholarship
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 0
+      outfit: crafter
+      passion:
+        d6: church
+      style_manu: reroll.culture
+
+    nobility:
+      lang:
+        i: 0
+      social_rank: noble
+      skill:
+        i: 1
+        1: culture
+      spec: 
+        i: 2
+        1: arts
+        2: scholarship
+      weapon_prowess:
+        i: 0
+      gear: 
+        i: 0
+      outfit: courtly
+      passion:
+        d6: pride
+      style_manu: reroll.culture
+
+
+# childhood
+
+    death_in_family:
+      skill:
+        i: 1
+        1: observation
+      spec:
+        i: 1
+        1: intuition
+      passion:
+        d8: family
+    accidental_discovery:
+      skill:
+        i: 1
+        1: observation
+      spec:
+        i: 1
+        1: perceive
+      passion:
+        d8: wealth
+    bullied:
+      skill:
+        i: 1
+        1: defense
+      spec:
+        i: 1
+        1: block
+      passion:
+        d8: pride
+    child_prodigy:
+      skill:
+        i: 1
+        1: observation
+      spec:
+        i: 1
+        1: deduce
+      passion:
+        d8: knowledge
+    kidnapped:
+      skill:
+        i: 1
+        1: interaction
+      spec:
+        i: 1
+        1: negotiate
+      passion:
+        d8: justice
+    leader_among_peers:
+      skill:
+        i: 1
+        1: interaction
+      spec:
+        i: 1
+        1: inspire
+      passion:
+        d8: loyalty
+    tall_tales:
+      skill:
+        i: 1
+        1: interaction
+      spec:
+        i: 1
+        1: deceive
+      passion:
+        d8: artistry
+    first_love:
+      skill:
+        i: 1
+        1: interaction
+      spec:
+        i: 1
+        1: inspire
+      passion:
+        d8: love
+
+# education
+
+    alchemist_apprentice:
+      social_rank: artisan
+      lang:
+        i: 0
+      skill:
+        i: 3
+        1: science
+        2: magicks
+        3: medicine
+      spec: 
+        i: 2
+        1: calculus
+        2: poison
+        double:
+          i: 1
+          1: brew
+      gear: 
+        i: 2
+        1: supplies.alchemical_supplies4
+        2: tool.artisan_tools
+      outfit: crafter
+      passion:
+        d10: artistry
+      style_manu: maximize.brew
+      weapon_prowess:
+        i: 0 
+      armor_prowess:
+        i: 0
+
+    asrian_seminary:
+      social_rank: artisan
+      lang:
+        i: 2
+        1: old_qartan
+        2: ondalese
+      skill:
+        i: 3
+        1: culture
+        2: interaction
+        3: observation
+      spec: 
+        i: 2
+        1: inspire
+        2: intuition
+        double:
+          i: 1
+          1: scholarship
+      gear: 
+        i: 0
+      outfit: priest
+      passion:
+        d10: faith
+      style_manu: maximize.inspire
+      weapon_prowess:
+        i: 1
+        1: cudgel
+      armor_prowess:
+        i: 0
+
+    cabingirl:
+      social_rank: commoner
+      lang:
+        i: 0
+      skill:
+        i: 3
+        1: military
+        2: defense
+        3: nature
+      spec: 
+        i: 2
+        1: dodge
+        2: aim
+        double:
+          i: 1
+          1: explore
+      gear: 
+        i: 2
+        1: weapon.sword
+        2: weapon.pistol
+      outfit: corsair
+      passion:
+        d10: loyalty
+      style_manu: maximize.dodge
+      weapon_prowess:
+        i: 3
+        1: sword
+        2: pistol
+        3: cannon
+      armor_prowess:
+        i: 0
+
+    charmweaver_apprentice:
+      social_rank: artisan
+      lang:
+        i: 0
+      skill:
+        i: 3
+        1: culture
+        2: interaction
+        3: magicks
+      spec: 
+        i: 2
+        1: arts
+        2: inspire
+        double:
+          i: 1
+          1: weave
+      gear: 
+        i: 2
+        1: supplies.fabric4
+        2: tool.artisan_tools
+      outfit: crafter
+      passion:
+        d10: artistry
+      style_manu: maximize.weave
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+
+    chirurgeon_apprentice:
+      social_rank: artisan
+      lang:
+        i: 0
+      skill:
+        i: 2
+        1: science
+        2: medicine
+      spec: 
+        i: 2
+        1: calculus
+        2: treat
+        double:
+          i: 1
+          1: surgery
+      gear: 
+        i: 2
+        1: supplies.medicine4
+        2: tool.chirurgeon_knives
+      outfit: physician
+      passion:
+        d10: pride
+      style_manu: maximize.treat
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+
+    coven_initiate:
+      social_rank: commoner
+      lang:
+        i: 0
+      skill:
+        i: 2
+        1: medicine
+        2: magicks
+      spec: 
+        i: 2
+        1: brew
+        2: treat
+        double:
+          i: 1
+          1: portents
+      gear: 
+        i: 3
+        1: supplies.alchemical_supplies4
+        2: supplies.medicine4
+        3: tool.divination_cards
+      outfit: peasant
+      passion:
+        d10: love
+      style_manu: maximize.portents
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+
+    fencing_school:
+      social_rank: soldier
+      lang:
+        i: 0
+      skill:
+        i: 2
+        1: dueling
+        2: defense
+      spec: 
+        i: 4
+        1: parry
+        2: lunge
+        3: riposte
+        4: feint
+        double:
+          i: 0
+      gear: 
+        i: 2
+        1: weapon.sword
+        2: armor.buckler
+      outfit: swashbuckler
+      passion:
+        d10: pride
+      style_manu: maximize.item_die.sword
+      weapon_prowess:
+        i: 1
+        1: sword
+      armor_prowess:
+        i: 2
+        1: light_armor
+        2: shield
+
+    mechanician_apprentice:
+      social_rank: artisan
+      lang:
+        i: 0
+      skill:
+        i: 2
+        1: science
+        2: observation
+      spec: 
+        i: 2
+        1: calculus
+        2: deduce
+        double:
+          i: 1
+          1: clockworks
+      gear: 
+        i: 2
+        1: supplies.clockwork_gears4
+        2: tool.repair_tools
+      outfit: clockworker
+      passion:
+        d10: artistry
+      style_manu: maximize.clockworks
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+
+    military_recruit:
+      social_rank: soldier
+      lang:
+        i: 0
+      skill:
+        i: 3
+        1: dueling
+        2: military
+        3: defense
+      spec: 
+        i: 2
+        1: lunge
+        2: aim
+        double:
+          i: 1
+          1: block
+      gear: 
+        i: 2
+        1: armor.steel_breastplate
+        2: weapon.sword
+      outfit: guard
+      passion:
+        d10: loyalty
+      style_manu: maximize.block
+      weapon_prowess:
+        i: 3
+        1: sword
+        2: pike
+        3: musket
+      armor_prowess:
+        i: 1
+        1: heavy_armor
+
+    officer_academy:
+      social_rank: soldier
+      lang:
+        i: 0
+      skill:
+        i: 2
+        1: military
+        2: dueling
+      spec: 
+        i: 2
+        1: lunge
+        2: aim
+        double:
+          i: 1
+          1: strategy
+      gear: 
+        i: 4
+        1: weapon.sword
+        2: weapon.pistol
+        3: armor.steel_breastplate
+        4: transport.warhorse
+      outfit: guard
+      passion:
+        d10: country
+      style_manu: maximize.strategy
+
+      weapon_prowess:
+        i: 3
+        1: sword
+        2: pistol
+        3: musket
+      armor_prowess:
+        i: 1
+        1: heavy_armor
+
+    royal_universities:
+      social_rank: artisan
+      lang:
+        i: 1
+        1: gallinean
+      skill:
+        i: 3
+        1: science
+        2: culture
+        3: observation
+      spec: 
+        i: 2
+        1: calculus
+        2: deduce
+        double:
+          i: 1
+          1: scholarship
+      gear: 
+        i: 1
+        1: book.book4
+      outfit: scholar
+      passion:
+        d10: knowledge
+      style_manu: maximize.calculus
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+
+    no_formal_training:
+      social_rank: commoner
+      lang:
+        i: 0
+      skill:
+        i: 3
+        1: interaction
+        2: observation
+        3: streetwise
+      spec: 
+        i: 4
+        1: negotiate
+        2: intuition
+        3: banter
+        4: carouse
+        double:
+          i: 0
+      gear: 
+        i: 0
+      outfit: peasant
+      passion:
+        d10: pride
+      style_manu: maximize.intuition
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+    
+# adulthood
+
+    clandestine:
+      skill:
+        i: 3
+        1: nature
+        2: medicine
+        3: streetwise
+      spec:
+        i: 4
+        1: prowl
+        2: poison
+        3: larceny
+        4: carouse
+        double:
+          i: 0
+      passion:
+        d12: country
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.expect_to_talk
+
+    crisis_of_faith:
+      skill:
+        i: 3
+        1: culture
+        2: observation
+        3: magicks
+      spec:
+        i: 2
+        1: portents
+        2: intuition
+        double:
+          i: 1
+          1: scholarship
+      passion:
+        d12: faith
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.me_in_spotlight
+
+    exiled:
+      skill:
+        i: 3
+        1: culture
+        2: streetwise
+        3: nature
+      spec:
+        i: 2
+        1: carouse
+        2: scholarship
+        double:
+          i: 1
+          1: explore
+      passion:
+        d12: country
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.cant_go_home_again
+
+    falsely_accused:
+      skill:
+        i: 3
+        1: interaction
+        2: observation
+        3: streetwise
+      spec:
+        i: 4
+        1: deceive
+        2: deduce
+        3: larceny
+        4: carouse
+        double:
+          i: 0
+      passion:
+        d12: justice
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.i_didnt_do_it
+
+    honor_besmirched:
+      skill:
+        i: 3
+        1: streetwise
+        2: dueling
+        3: interaction
+      spec:
+        i: 4
+        1: lunge
+        2: riposte
+        3: inspire
+        4: banter
+        double:
+          i: 0
+      passion:
+        d12: pride
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.how_dare_you
+
+    looking_for_love:
+      skill:
+        i: 3
+        1: observation
+        2: interaction
+        3: streetwise
+      spec:
+        i: 4
+        1: inspire
+        2: negotiate
+        3: perceive
+        4: carouse
+        double:
+          i: 0
+      passion:
+        d12: lust
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.lover_not_fighter
+
+    lost_love:
+      skill:
+        i: 3
+        1: observation
+        2: streetwise
+        3: culture
+      spec:
+        i: 2
+        1: arts
+        2: intuition
+        double:
+          i: 1
+          1: carouse
+      passion:
+        d12: love
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.never_love_again
+
+    murder_most_foul:
+      skill:
+        i: 3
+        1: culture
+        2: interaction
+        3: observation
+      spec:
+        i: 2
+        1: intuition
+        2: scholarship
+        double:
+          i: 1
+          1: deduce
+      passion:
+        d12: friends
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.will_avenge_you
+
+    revolutionary_invention:
+      skill:
+        i: 2
+        1: science
+        2: observation
+      spec:
+        i: 2
+        1: calculus
+        2: deduce
+        double:
+          i: 1
+          1: clockworks
+      passion:
+        d12: artistry
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.my_creation
+
+    shipwrecked:
+      skill:
+        i: 2
+        1: military
+        2: nature
+      spec:
+        i: 2
+        1: prowl
+        2: aim
+        double:
+          i: 1
+          1: explore
+      passion:
+        d12: family
+      weapon_prowess:
+        i: 1
+        1: bow
+      armor_prowess:
+        i: 0
+      style_manu: custom.make_best_of_things
+
+    sudden_but_inevitable:
+      skill:
+        i: 3
+        1: dueling
+        2: defense
+        3: observation
+      spec:
+        i: 4
+        1: parry
+        2: feint
+        3: perceive
+        4: intuition
+        double:
+          i: 0
+      passion:
+        d12: loyalty
+      weapon_prowess:
+        i: 0
+      armor_prowess:
+        i: 0
+      style_manu: custom.curse_you
+
+    war_is_hell:
+      skill:
+        i: 3
+        1: military
+        2: defense
+        3: nature
+      spec:
+        i: 4
+        1: dodge
+        2: block
+        3: explore
+        4: aim
+        double:
+          i: 0
+      passion:
+        d12: loyalty
+      weapon_prowess:
+        i: 2
+        1: sword
+        2: musket
+      armor_prowess:
+        i: 1
+        1: light_armor
+      style_manu: custom.horrors_of_war
+

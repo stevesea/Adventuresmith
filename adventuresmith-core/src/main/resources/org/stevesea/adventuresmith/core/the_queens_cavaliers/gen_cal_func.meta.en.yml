@@ -1,0 +1,23 @@
+---
+name: Random Date
+input:
+  displayTemplate: "Choose: {{select}} Within: {{set}}"
+  params:
+  - name: select
+    uiName: Selection
+    helpText: What do you want to choose?
+    defaultValue: Week
+    values:
+    - Day
+    - Week
+    - Month
+    - Year
+  - name: set
+    uiName: Set
+    helpText: Choose that within which set of dates?
+    defaultValue: History
+    values:
+    - Week
+    - Month
+    - Year
+    - History

@@ -1,0 +1,7 @@
+---
+templates:
+  - "{{api_cal.random.birthday.all}}"
+
+imports:
+  - lib_calendar
+

@@ -1,0 +1,7 @@
+---
+templates:
+- "{{api_language.set.{{unstr_lang.{{input.select}}}}}}%[[api_language.print.{{unstr_lang.{{input.equiv}}}}]]%"
+
+imports:
+- lib_culture
+

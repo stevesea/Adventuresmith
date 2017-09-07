@@ -1,0 +1,431 @@
+---
+
+definitions:
+
+  str_charsheet:
+    charsheet: Character Sheet
+    other: Other
+
+  str_custom:
+    remainingcustom: Remaining Customizations
+    custom: Customizations
+    custom_explanation:
+      before: "<p>You get to choose up to"
+      after: |
+             customizations for your character. Choose your customizations from the following list (you can choose each customization more than once):
+             <br />&middot; Increase one of your <b>Social Rank</b> values by one step; you can increase each Social Rank die only once.
+             <br />&middot; Add one <b>Weapon or Armor Prowess</b>.
+             <br />&middot; Add a new <b>Language</b>.
+             <br />&middot; Add one <b>Skill Competency</b>.
+             <br />&middot; Add +1 rank in a <b>Specialty</b>, to a maximum of +2.
+             <br />&middot; Add a <b>Style Maneuver</b> from either of your classes or from your Nationality.</p>
+          
+  str_attr:
+    attributes: Attributes
+
+    affinity: Affinity
+    guile: Guile
+    verve: Verve
+
+  str_compdie: 
+    compdie: Competency Die
+
+  str_style:
+    style_manus: Style Maneuvers
+    style_manu: Style Maneuver
+    style_point: Style Point
+    style_points: Style Points
+    maximum: maximum
+
+  str_wealth:
+    barter_dice: Barter Dice
+    barter_die: Barter Die
+    reward: Reward
+    rewards: Rewards
+    wealth: Wealth
+    wealth_pool: Wealth Pool
+
+  str_gear:
+    equipment: Equipment
+    gear: Gear
+    bonus: Bonus Gear
+
+  str_pass:
+    passions: Passions
+    passion: Passion
+    yourrandompassions: Your random Passions are
+    d6: "{{d6}} {{str_pass.passion}}"
+    d8: "{{d6}} {{str_pass.passion}}"
+    d10: "{{d10}} {{str_pass.passion}}"
+    d12: "{{d12}} {{str_pass.passion}}"
+
+    artistry: Artistry
+    church: Church
+    country: Country
+    faith: Faith
+    family: Family
+    friends: Friends
+    justice: Justice
+    knowledge: Knowledge
+    love: Love
+    loyalty: Loyalty
+    lust: Lust
+    pride: Pride
+    wealth: Wealth
+    nop: "{{nop}}"
+
+    desc:
+      artistry: | 
+                <p>
+                A character with a Passion for Artistry is drawn toward things of beauty, 
+                be they works of art, music, science, or nature. Such characters are often 
+                either artists themselves, or patrons of the arts.
+                </p>
+                <p>
+                <i>Example:</i> <b>Countess Lusienne Castenia</b>, the Lady-Mayor of Gallinea,
+                loves nothing more than a grand party to welcome the start of a new
+                play, the opening of a new gallery, or the arrival of an artiste from 
+                far-away lands. She has a strong Passion for Artistry, even though she
+                herself is not artistically talented.
+                </p>
+      church: | 
+              <p>
+              A character with a Passion for the Church is devoted to the hierarchy of a 
+              religious institution, most commonly the Asrian church under the direction
+              of the Matriarch.
+              </p>
+              <p>
+              <i>Example:</i> <b>High Chaplain Farrazin</b>, Guardian of the Faith of 
+              Gallinea, is a very devout man, yes. But ultimately his loyalty is less to 
+              the teachings of the goddess Essere than to her church. Raised in an Asrian
+              orphanage, Farrazin rose through the ranks to become the most powerful
+              chaplain in Lutetia -- and there's nothing he won't do for the Church of
+              Essere.
+              </p>
+      country: | 
+               <p>
+               Passion for one's Country is usually, although not always, the same as 
+               a Passion for the ruler of that country. The Passions may conflict if 
+               one has Loyalty toward one group or cause who opposes the current government.
+               </p>
+               <p>
+               <i>Example:</i> <b>Baudouin de Longpre</b>, the duke of Rhodope, is one
+               of the rare male heads of a province. As the oldest child of his parents,
+               who had no daughter to inherent the throne, he became duke upon his
+               mother's death. The Rhodope family have supported the Throne for
+               generations; they were loyal to the late Queen Elisse III and remain
+               steadfast loyalists to her daughter, Queen Mariana II. The crown is
+               more than the head that wears it.
+               </p>
+      faith: | 
+             <p>
+             As contrasted with Passion for the Church, Passion for one's Faith 
+             is less about the religious organization and more about the beliefs.
+             It's possible (and quite common) to have both Passions, or also to 
+             have just one or the other. Devrans usually have a Passion for 
+             Faith but no Passion for the Church, because worship of the Desert 
+             Mother isn't based around a complex church hierarchy as with the Asrians.
+             </p>
+             <p>
+             <i>Example:</i> <b>Matriarch Isabene de la Justicia, Bride of the Sun,</b>
+             is the head of the Asrian church -- some say she practically <i>is</i>
+             the church. However, her strongest commitment is to her deity and 
+             (ceremonial) wife, Eserre, goddess of the Sun.
+             </p>
+      family: | 
+              <p>
+              Characters with strong familial ties have a Passion for Family. 
+              This can include one's extended family and household, or may just be 
+              one's immediate family – such as parents or children.
+              </p>
+              <p>
+              <i>Example:</i> <b>Prince Jean-Remy</b> is not merely Queen
+              Mariana's favorite uncle, but is also Gallinea's spymaster and head
+              of Her Majesty's Secret Service. Haunted by his failure to detect
+              and thwart the assassination of his sister Queen Elisse and 
+              niece Jehanne, Jean-Remy would do whatever it takes to prevent
+              harm to any of his family.
+              </p>
+      friends: | 
+               <p>
+               Some people are very faithful to their Friends and would do 
+               anything for them – even die for them in some cases. You can decide 
+               if this applies to all your character's friends or just a smaller number 
+               of them.
+               </p>
+               <p>
+               <i>Example:</i> <b>Gabriana Secouriste</b> is a young member of the
+               Queen's Cavaliers. Personable and easy-going, she makes friends easily
+               and is slow to lose them.
+               </p>
+      justice: | 
+               <p>
+               The cause of Justice is a higher calling to right that which is wrong 
+               in the world. The Passion may stem from an innate sense of right and wrong, 
+               but more commonly it is a reaction to some act of terrible injustice 
+               that has been perpetrated against the character or the ones she holds dear.
+               </p>
+               <p>
+               <i>Example:</i> <b>Andreos Grimani</b>, the High Elector of Ekalia, began
+               his public service as a member of the Vigiles Urbani in his home polis of
+               Imera. He went on to become a judge, before retiring to enter politics.
+               First elected to the Plenum 15 years ago, he became the ranking Elector
+               of Imera, then the Senior Elector of Justice, and finally the High Elector 
+               -- a position he has held now for three years. Andreos is known for his
+               strong drive toward justice as well as his detailed knowledge of the laws
+               of Ekalia and neighboring countries.
+               </p>
+      knowledge: | 
+                 <p>
+                 Dedication to the pursuit of Knowledge can be expressed through a 
+                 desire to learn the truth behind mysteries, to explore the world, 
+                 or to learn all that can be learned.
+                 </p>
+                 <p>
+                 <i>Example:</i> As a princess, <b>Mariana of Gallinea</b> was much more
+                 interested in scientific pursuits and clockwork engineering than she
+                 was in courtly rituals and noble intrigues. She was a top student at
+                 the Royal Gallinean Academy of Sciences when her mother and older sister
+                 were assassinated, forcing her to take up the Crown. In truth, she'd
+                 really rather be in a laboratory than in the royal palace.
+                 </p>
+      love: | 
+            <p>
+            Romance is the most common expression of a Passion for Love, although 
+            there are other types of Love that qualify. Love may be for a single 
+            person, or someone's heart may be divided among many loves.
+            </p>
+            <p>
+            <i>Example:</i> <b>Prince-Father Michel Aubene</b>, the widower of 
+            late Queen Elisse III and father of current Queen Mariana II, was 
+            very much in love with his wife, and she with him. When they first met,
+            she was not impressed with the rich southern boy who came to "play
+            cavalier" in Lutetia and guard then-Princess Elisse. After she saved
+            him during an attack on her life, love soon blossomed. Even the dark
+            bonds of death can't quell the love Michel feels for Elisse.
+            </p>
+      loyalty: | 
+               <p>
+               The Passion of Loyalty is about dedication to a specific person or group.
+               You must specify who is the subject of your character's Loyalty if you 
+               choose this Passion. Examples include the Queen (as an individual) or 
+               the Queen's Cavaliers (as an organization).
+               </p>
+               <p>
+               <i>Example:</i> <b>Martine Deveaux</b> was once a faithful and loyal
+               member of the Queen's Cavaliers, willing to die for the organization
+               and those within it. After a disastrous mission with the Cavaliers where
+               she was made the scapegoat, she turned on her former companians. Now
+               a mercenary assassin, Martine hates the Cavaliers as much as she used
+               to love them.
+               </p>
+      lust: | 
+            <p>
+            The Passion of Lust is about following one's baser desires, usually expressed 
+            through sexual pleasure. Characters who are Passionate about Lust can be flirty, 
+            teasing, promiscuous, or even chaste.
+            </p>
+            <p>
+            <i>Example:</i> <b>Genevieve de Longpre</b>, eldest daughter of the Duke of
+            Rhodope, is renowned for her string of love affairs -- most of which ended
+            poorly. It's said she has at least one girl in every port, and perhaps even
+            more! Hopefully they won't all meet at the same time.
+            </p>
+      pride: | 
+             <p>
+             A Passion for Pride means a character is highly focused on her own dignity 
+             and reputation. Affronts to such Pride are met with strong challenges, 
+             as such things are not to be tolerated. 
+             </p>
+             <p>
+             <i>Example:</i> Although only 13 years old, <b>Prince Philippe of Gallinea</b>
+             has more pride than an entire village of Scanbrians. The youngest grandchild of
+             late Queen Elisse III and nephew of the current Queen, he firmly believes he
+             is the most important person in Lutetia, save his aunt Mariana. And sometimes
+             even more important, he believes.
+             </p>
+      wealth: | 
+              <p>
+              Individuals with a Passion for Wealth are focused on the acquisition of, maintenance 
+              of, and spending of sums of money. Some come from poor backgrounds and wish 
+              to move beyond their humble beginnings, while others are rich misers who count every penny.
+              </p>
+              <p>
+              <i>Example:</i> <b>Jennevive d'Angelet</b> is the Duchess of Scanbria and head of
+              the richest family in the north of Gallinea. She and her husband, Lord Gerhardt, are
+              well-known throughout the City of Scanbreille for parsimonious ways, although rumors
+              circulate that she is saving up for a major purchase. What that might be, no one is
+              sure.
+              </p>
+
+  unstr_pass:
+    Standard: api_pass.print.basic.all
+    Verbose: api_pass.print.verbose.all
+
+  str_lang:
+    language: Language
+    languages: Languages
+    bonus: Bonus Languages
+
+    albian: "{{str_language.albian}}"
+    ancient_ekalian: "{{str_language.ancient_ekalian}}"
+    ancient_varendish: "{{str_language.ancient_varendish}}"
+    brigue: "{{str_language.brigue}}"
+    ekalian: "{{str_language.ekalian}}"
+    gallinean: "{{str_language.gallinean}}"
+    ifrani: "{{str_language.ifrani}}"
+    karangan: "{{str_language.karangan}}"
+    khefikkan: "{{str_language.khefikkan}}"
+    mathain: "{{str_language.mathain}}"
+    old_qartan: "{{str_language.old_qartan}}"
+    ondalese: "{{str_language.ondalese}}"
+    serican: "{{str_language.serican}}"
+    talanian: "{{str_language.talanian}}"
+    varendish: "{{str_language.varendish}}"
+    nop: "{{nop}}"
+
+  str_person:
+    opponent: Opponent
+    character: Character
+
+    default_player_name: "(Your name here)"
+    major: Major Character
+    minor: Minor Character
+    player: Player
+    rabble: Rabble
+    stock: Stock Character
+    nop: "{{nop}}"
+
+    drop: Drop
+    dying: Dying
+
+    wound_limit: Wound Limit
+    yield_limit: Yield Limit
+    wounds:
+      1: "1 (<i>{{str_person.dying}}</i>)"
+      2: "2 (<i>{{str_person.drop}} 1, {{str_person.dying}}</i>)"
+      3: "3 (<i>{{str_person.drop}} 1, {{str_person.drop}} 2, {{str_person.dying}}</i>)"
+      4: "4 (<i>{{str_person.drop}} 1, {{str_person.drop}} 2, {{str_person.drop}} 4, {{str_person.dying}}</i>)"
+      5: "5 (<i>{{str_person.drop}} 0, {{str_person.drop}} 1, {{str_person.drop}} 2, {{str_person.drop}} 4, {{str_person.dying}}</i>)"
+
+
+  str_social_rank:
+    rank: Social Rank
+
+    artisan: Artisan
+    commoner: Commoner
+    noble: Noble
+    royalty: Royal
+    soldier: Soldier
+    nop: "{{nop}}"
+
+  str_skill:
+    skills: Skills
+    skill: Skill
+    competency: Skill Competency
+
+    culture: Culture
+    defense: Defense
+    dueling: Dueling
+    initiative: Initiative
+    interaction: Interaction
+    magicks: Magicks
+    medicine: Medicine
+    military: Military
+    nature: Nature
+    observation: Observation
+    science: Science
+    streetwise: Streetwise
+    nop: "{{nop}}"
+            
+  str_spec: 
+    specialties: Specialties
+    specialty: Specialty
+
+    aim: Aim
+    arts: Arts
+    banter: Banter
+    blackpowder: Blackpowder
+    block: Block
+
+    brawl: Brawl
+    brew: Brew
+    calculus: Calculus
+    carouse: Carouse
+    clockworks: Clockworks
+
+    deceive: Deceive
+    deduce: Deduce
+    dodge: Dodge
+    etiquette: Etiquette
+    explore: Explore
+
+    feint: Feint
+    husbandry: Husbandry
+    impulse: Impulse
+    inspire: Inspire
+    intuition: Intuition
+
+    larceny: Larceny
+    lunge: Lunge
+    negotiate: Negotiate
+    parry: Parry
+    perceive: Perceive
+
+    poison: Poison
+    portents: Portents
+    prowl: Prowl
+    riposte: Riposte
+    scholarship: Scholarship
+
+    strategy: Strategy
+    surgery: Surgery
+    timing: Timing
+    treat: Treat
+    vigilance: Vigilance
+
+    weave: Weave
+    nop: "{{nop}}"
+
+  str_prow:
+    prowess: Prowess
+    armor_prowess: Armor Prowess
+    weapon_prowess: Weapon Prowess
+
+    weapon_none: <i>none</i>
+    armor_none: <i>none</i>
+    bow: bow
+    cannon: cannon
+    cudgel: cudgel
+    grenade: grenade
+    heavy_armor: heavy armor (breastplate)
+    knife: knife
+    light_armor: light armor (leather jerkin)
+    musket: musket
+    pike: pike
+    pistol: pistol
+    shield: shield (buckler)
+    sword: sword
+    whip: whip
+    nop: "{{nop}}"
+    net: net
+
+    with_default_dice:
+
+      weapon_none: <i>none</i>
+      armor_none: <i>none</i>
+      bow: Bow (D6)
+      cannon: Cannon (D12)
+      cudgel: Cudgel (D6)
+      grenade: Grenade (D6)
+      heavy_armor: Breastplate (D10)
+      knife: Knife (D6)
+      light_armor: Leather Jerkin (D6)
+      musket: Musket (D6)
+      pike: Pike (D10)
+      pistol: Pistol (D6)
+      shield: Buckler (D8)
+      sword: Sword (D6)
+      whip: Whip (D6)
+      net: Net (D6)
+

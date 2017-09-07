@@ -1,0 +1,611 @@
+---
+definitions:
+
+  str_style_manu:
+
+    reroll:
+      culture:
+        title: "Refined Reliability"
+        text: "Spend 1 Style Point to reroll a Culture roll"
+      defense:
+        title: "Protective Reliability"
+        text: "Spend 1 Style Point to reroll a Defense roll"
+      dueling:
+        title: "Melee Reliability"
+        text: "Spend 1 Style Point to reroll a Dueling roll"
+      initiative:
+        title: "{{nop}}"
+        text: "{{nop}}"
+      interaction:
+        title: "Social Reliability"
+        text: "Spend 1 Style Point to reroll an Interaction roll"
+      magicks:
+        title: "Ritual Reliability"
+        text: "Spend 1 Style Point to reroll a Magicks roll"
+      medicine:
+        title: "Iatric Reliability"
+        text: "Spend 1 Style Point to reroll a Medicine roll"
+      military:
+        title: "Martial Reliability"
+        text: "Spend 1 Style Point to reroll a Military roll"
+      nature:
+        title: "Rural Reliabiity"
+        text: "Spend 1 Style Point to reroll a Nature roll"
+      observation:
+        title: "Watchful Reliability"
+        text: "Spend 1 Style Point to reroll an Observation roll"
+      science:
+        title: "Experimental Reliability"
+        text: "Spend 1 Style Point to reroll a Science roll"
+      streetwise:
+        title: "Savvy Reliability"
+        text: "Spend 1 Style Point to reroll a Streetwise roll"
+
+      knowledge:
+        title: "Knowledgable Reliability"
+        text: "Spend 1 Style Point to reroll a Knowledge roll"
+
+    maximize:
+
+      arts:
+        title: "Aggressive Creativity"
+        text: "Spend 2 Style Points to set the value of one Arts die to its maximum value before rolling"
+      etiquette:
+        title: "Practiced Manners"
+        text: "Spend 2 Style Points to set the value of one Etiquette die to its maximum value before rolling"
+      scholarship:
+        title: "Cunning Erudition"
+        text: "Spend 2 Style Points to set the value of one Scholarship die to its maximum value before rolling"
+
+      parry:
+        title: "Aggressive Deflection"
+        text: "Spend 2 Style Points to set the value of one Parry die to its maximum value before rolling"
+      block:
+        title: "Practiced Resilience"
+        text: "Spend 2 Style Points to set the value of one Block die to its maximum value before rolling"
+      dodge:
+        title: "Cunning Evasion"
+        text: "Spend 2 Style Points to set the value of one Dodge die to its maximum value before rolling"
+
+      lunge:
+        title: "Aggressive Assault"
+        text: "Spend 2 Style Points to set the value of one Lunge die to its maximum value before rolling"
+      riposte:
+        title: "Practiced Retort"
+        text: "Spend 2 Style Points to set the value of one Riposte die to its maximum value before rolling"
+      feint:
+        title: "Cunning Misdirection"
+        text: "Spend 2 Style Points to set the value of one Feint die to its maximum value before rolling"
+
+      impulse:
+        text: "{{nop}}"
+        title: "{{nop}}"
+      vigilance:
+        text: "{{nop}}"
+        title: "{{nop}}"
+      timing:
+        text: "{{nop}}"
+        title: "{{nop}}"
+
+      inspire:
+        title: "Aggressive Influence"
+        text: "Spend 2 Style Points to set the value of one Inspire die to its maximum value before rolling"
+      negotiate:
+        title: "Practiced Diplomacy"
+        text: "Spend 2 Style Points to set the value of one Negotiate die to its maximum value before rolling"
+      deceive:
+        title: "Cunning Prevarication"
+        text: "Spend 2 Style Points to set the value of one Deceive die to its maximum value before rolling"
+        
+      weave:
+        title: "Aggressive Couture"
+        text: "Spend 2 Style Points to set the value of one Weave die to its maximum value before rolling"
+      brew:
+        title: "Practiced Chemomancy"
+        text: "Spend 2 Style Points to set the value of one Brew die to its maximum value before rolling"
+      portents:
+        title: "Cunning Premonition"
+        text: "Spend 2 Style Points to set the value of one Portents die to its maximum value before rolling"
+
+      surgery:
+        title: "Aggressive Chirurgery"
+        text: "Spend 2 Style Points to set the value of one Surgery die to its maximum value before rolling"
+      treat:
+        title: "Practiced Remedy"
+        text: "Spend 2 Style Points to set the value of one Treat die to its maximum value before rolling"
+      poison:
+        title: "Cunning Toxicology"
+        text: "Spend 2 Style Points to set the value of one Poison die to its maximum value before rolling"
+
+      brawl:
+        title: "Aggressive Fisticuffs"
+        text: "Spend 2 Style Points to set the value of one Brawl die to its maximum value before rolling"
+      aim:
+        title: "Practiced Sharpshooting"
+        text: "Spend 2 Style Points to set the value of one Aim die to its maximum value before rolling"
+      strategy:
+        title: "Cunning Tactics"
+        text: "Spend 2 Style Points to set the value of one Strategy die to its maximum value before rolling"
+
+      explore:
+        title: "Aggressive Pathfinding"
+        text: "Spend 2 Style Points to set the value of one Explore die to its maximum value before rolling"
+      husbandry:
+        title: "Practiced Cultivation"
+        text: "Spend 2 Style Points to set the value of one Husbandry die to its maximum value before rolling"
+      prowl:
+        title: "Cunning Camouflage"
+        text: "Spend 2 Style Points to set the value of one Prowl die to its maximum value before rolling"
+
+      perceive:
+        title: "Aggressive Attention"
+        text: "Spend 2 Style Points to set the value of one Perceive die to its maximum value before rolling"
+      intuition:
+        title: "Practiced Hunches"
+        text: "Spend 2 Style Points to set the value of one Intuition die to its maximum value before rolling"
+      deduce:
+        title: "Cunning Analysis"
+        text: "Spend 2 Style Points to set the value of one Deduce die to its maximum value before rolling"
+
+      blackpowder:
+        title: "Aggressive Fulmination"
+        text: "Spend 2 Style Points to set the value of one Blackpowder die to its maximum value before rolling"
+      clockworks:
+        title: "Practiced Crafting"
+        text: "Spend 2 Style Points to set the value of one Clockworks die to its maximum value before rolling"
+      calculus:
+        title: "Cunning Computation"
+        text: "Spend 2 Style Points to set the value of one Calculus die to its maximum value before rolling"
+
+      banter:
+        title: "Aggressive Mockery"
+        text: "Spend 2 Style Points to set the value of one Banter die to its maximum value before rolling"
+      carouse:
+        title: "Practiced Debauchery"
+        text: "Spend 2 Style Points to set the value of one Carouse die to its maximum value before rolling"
+      larceny:
+        title: "Cunning Thievery"
+        text: "Spend 2 Style Points to set the value of one Larceny die to its maximum value before rolling"
+
+      item_die:
+        charm:
+          title: "Precise Enchantments"
+          text: "Spend 2 Style points to set the value of one Charm die to its maximum value before rolling"
+        sword:
+          title: "Precise Swordplay"
+          text: "Spend 2 Style Points to set the value of one Sword weapon die to its maximum value before rolling"
+        cudgel:
+          title: "Precise Bludgeoning"
+          text: "Spend 2 Style Points to set the value of one Cudgel weapon die to its maximum value before rolling"
+        clockwork:
+          title: "Precise Mechanics"
+          text: "Spend 2 Style Points to set the value of one Clockwork weapon die to its maximum value before rolling"
+        breastplate:
+          title: "Precise Bulwark"
+          text: "Spend 2 Style Points to set the value of one Breastplate armor die to its maximum value before rolling"
+        social_rank:
+          title: "Precise Aristocracy"
+          text: "Spend 2 Style Points to set the value of one Social Rank die to its maximum value before rolling"
+
+    custom: 
+    
+      anatomical_studies:
+        text: "When working in a well-equipped surgical theatre, spend 1 Style Point to add Scholarship dice to a Surgery roll"
+        title: "Anatomical Studies"
+
+      apologetics:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Negotiate dice to a Dodge roll"
+        title: "Apologetics"
+
+      automatic_fire:
+        text: "When using a clockwork weapon, spend 1 Style Point to add Clockworks dice to an Aim roll"
+        title: "Automatic Fire"
+
+      ballistics:
+        text: "When firing a cannon, spend 1 Style Point to add Calculus dice to a Blackpowder roll"
+        title: "Ballistics"
+
+      books_of_the_sun:
+        text: "When dealing with someone of the Asrian faith, spend 1 Style Point to add Scholarship dice to an Inspire roll"
+        title: "Books of the Sun"
+
+      broadsides:
+        text: "When firing a ship-mounted cannon, spend 1 Style Point to add Explore dice to a Blackpowder roll"
+        title: "Broadsides"
+
+      camouflage_mastery:
+        text: "When moving though the wilderness, spend 1 Style Point to add Explore dice to a Prowl roll"
+        title: "Camouflage Mastery"
+
+      cartography:
+        text: "When navigating using a map, spend 1 Style Point to add Calculus dice to an Explore roll"
+        title: "Cartography"
+
+      chemical_calculations:
+        text: "When working in a well-equipped laboratory, spend 1 Style Point to add Calculus dice to a Brew roll"
+        title: "Chemical Calculations"
+
+      confidence_game:
+        text: "When engaging in a swindle, spend 1 Style Point to add Banter dice to a Deceive roll"
+        title: "Confidence Game"
+
+      criminology:
+        text: "When investigating a crime scene, spend 1 Style Point to add Scholarship dice to a Deduce roll"
+        title: "Criminology"
+
+      deflecting_shield:
+        text: "When using a buckler to parry, spend 1 Style Point to add Block dice to a Parry roll"
+        title: Deflecting Shield
+
+      diplomatic_immunity:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Negotiate dice to a Dodge roll"
+        title: "Diplomatic Immunity"
+
+      dont_you_know_who_i_am:
+        text: "When speaking with someone of Artisan social rank or lower, spend 1 Style Point to add Social Rank dice to a Negotiate roll"
+        title: "Don't You Know Who I Am?"
+
+      down_n_dirty_fighting:
+        text: "When making a riposte while you have one hand free, spend 1 Style Point to add Brawl dice to a Riposte roll"
+        title: "Down-n-Dirty Fighting"
+
+      dress_to_impress:
+        text: "While wearing an outfit you created yourself, spend 1 Style Point to add Weave dice to a Negotiate roll"
+        title: "Dress to Impress"
+
+      envenomed_blade:
+        text: "When using a poisoned knife, spend 1 Style Point to add Poison dice to a Lunge roll"
+        title: "Envenomed Blade"
+
+      equestrienne:
+        text: "When mounted on a horse you care for yourself, spend 1 Style Point to add Husbandry dice to a Lunge roll"
+        title: "Equestrienne"
+
+      fashion_dodge_to_the_left:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Negotiate dice to a Dodge roll"
+        title: "Fashion! Dodge to the Left"
+
+      fast_talking:
+        text: "When unarmed and facing an armed oppponent, spend 1 Style Point to add Banter dice to a Dodge roll"
+        title: "Fast-Talking"
+
+      folk_remedies:
+        text: "When you have access to a garden, forest, or herb collection, spend 1 Style Point to add Husbandry dice to a Treat roll"
+        title: "Folk Remedies"
+
+      for_the_defense:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Negotiate dice to a Dodge roll"
+        title: "For The Defense"
+
+      forensic_analysis:
+        text: "When using a well-equipped laboratory, spend 1 Style Point to add Scholarship dice to a Deduce roll"
+        title: "Forensic Analysis"
+
+      from_the_heart:
+        text: "When performing or displaying a work of art, spend 1 Style Point to add Arts dice to an Inspire roll"
+        title: "From the Heart"
+
+      honest_dealer:
+        text: "When negotiating in good faith, spend 1 Style Point to add Intuition dice to a Negotiate roll"
+        title: "Honest Dealer"
+
+      in_costume:
+        text: "When wearing a disguise or costume, spend 1 Style Point to add Arts dice to a Deceive roll"
+        title: "In Costume"
+
+      incoming_fire:
+        text: "When avoiding a ranged attack, spend 1 Style Point to add Aim dice to a Dodge roll"
+        title: "Incoming Fire"
+
+      into_the_rigging:
+        text: "When on a ship or a boat, spend 1 Style Point to add Explore dice to a Dodge roll"
+        title: "Into the Rigging"
+
+      its_never_lupus:
+        text: "When diagnosing or treating an unknown illness, spend 1 Style Point to add Deduce dice to a Treat roll"
+        title: "Epidemiology"
+
+      knife_fighting:
+        text: "When using a knife or a cudgel, spend 1 Style Point to add Brawl dice to a Lunge roll"
+        title: "Street Fighting"
+
+      legal_precedents:
+        text: "When speaking in court, spend 1 Style Point to add Scholarship dice to an Inspire roll"
+        title: "Legal Precedents"
+
+      lost_in_the_crowd:
+        text: "When in an area with more than 3 other people, spend 1 Style Point to add Prowl dice to a Dodge roll"
+        title: "Lost in the Crowd"
+
+      mistress_of_fashion:
+        text: "When creating clothing or accoutrements with a base cost of D6 or higher, spend 1 Style Point to add Arts dice to a Weave roll"
+        title: "Mistress of Fashion"
+
+      mostly_harmless:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Deceive dice to a Dodge roll"
+        title: "Mostly Harmless"
+
+      mounted_combatant:
+        text: "When charging while mounted, spend 1 Style Point to add Husbandry dice to a Lunge roll"
+        title: "Mounted Combatant"
+
+      natural_cover:
+        text: "When in an area with vegetation, spend 1 Style Point to add Prowl dice to a Dodge roll"
+        title: "Natural Cover"
+
+      naval_hilt:
+        text: "When using a cutlass, spend 1 Style Point to add Explore dice to a Parry roll"
+        title: "Naval Hilt"
+
+      not_in_the_face:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Arts dice to a Dodge roll"
+        title: "I'm Too Pretty to Die!"
+
+      parrying_shield:
+        text: "When using a buckler to block, spend 1 Style Point to add Parry dice to a Block roll"
+        title: "Parrying Shield"
+
+      polite_fictions:
+        text: "When speaking with someone of at least Noble social rank, spend 1 Style Point to add Etiquette dice to a Deceive roll"
+        title: "Polite Fictions"
+
+      reconnaissance:
+        text: "When trying to spot other people, spend 1 Style Point to add Explore dice to a Perceive roll"
+        title: "Reconnaissance"
+
+      rites_of_the_moon:
+        text: "When dealing with someone of the Devran faith, spend 1 Style Point to add Etiquette dice to an Inspire roll"
+        title: "Rites of the Moon"
+
+      saw_that_coming:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Portents dice to a Dodge roll"
+        title: "Saw That Coming"
+
+      scalpels_cut:
+        text: "When using a knife or chirurgeon's knives, spend 1 Style Point to add Surgery dice to a Lunge roll"
+        title: "Scalpel's Cut"
+
+      shady_negotiations:
+        text: "When dealing with criminals or conspirators, spend 1 Style Point to add Larceny dice to a Negotiate roll"
+        title: "Shady Negotiations"
+
+      sneak_shot:
+        text: "When using a bow or crossbow, spend 1 Style Point to add Feint dice to an Aim roll"
+        title: "Trick Shot"
+
+      sniper:
+        text: "When attacking from at least 3 areas away, spend 1 Style Point to add Prowl dice to an Aim roll"
+        title: "Sniper"
+
+      shoulders_of_giants:
+        text: "When inventing a device in a well-equipped workshop, spend 1 Style Point to add Scholarship dice to a Clockworks roll"
+        title: "Standing on the Shoulders of Giants"
+
+      strategic_maneuvers:
+        text: "When commanding at least 3 troops, spend 1 Style Point to add Explore dice to a Strategy roll"
+        title: "Strategic Maneuvers"
+
+      strategic_withdrawal:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Strategy dice to a Dodge roll"
+        title: "Tactical Retreat"
+
+      the_underground_economy:
+        text: "When buying or selling on the black market, spend 1 Style Point to add Carouse dice to a Larceny roll"
+        title: "The Underground Economy"
+
+      theres_no_need_for_violence:
+        text: "When unarmed and facing an armed opponent, spend 1 Style Point to add Inspire dice to a Dodge roll"
+        title: "There's No Need for Violence"
+
+      toxin_purge:
+        text: "When creating an antidote or countering a poison, spend 1 Style Point to add Brew dice to a Poison roll"
+        title: "Anti-Toxins"
+
+      well_traveled:
+        text: "When dealing with someone from a foreign culture, spend 1 Style Point to add Explore dice to an Etiquette roll"
+        title: "Well-Traveled"
+
+      expect_to_talk:
+        text: "When conversing with other spies, spend 1 Style Point to add Banter dice to a Deceive roll"
+        title: "Do You Expect Me To Talk?"
+
+      me_in_spotlight:
+        text: "When talking with someone who doesn't share your religious beliefs, spend 1 Style Point to add Deduce dice to an Inspire roll"
+        title: "That's Me In the Spotlight"
+
+      cant_go_home_again:
+        text: "When dealing with someone from your home country, spend 1 Style Point to add Explore dice to a Deceive roll"
+        title: "You Can't Go Home Again"
+
+      i_didnt_do_it:
+        text: "When trying to convince someone of your innocence, spend 1 Style Point to add Intuition dice to an Inspire roll"
+        title: "I Didn't Do It"
+
+      how_dare_you:
+        text: "When attacking someone who has already damaged you in the current combat, spend 1 Style Point to add Inspire dice to a Riposte roll"
+        title: "How Dare You"
+
+      lover_not_fighter:
+        text: "When being attacked by someone whom you find attractive, spend 1 Style Point to add Carouse dice to a Dodge roll"
+        title: "I'm a Lover, not a Fighter"
+
+      never_love_again:
+        text: "When fighting in a tavern or while drunk, spend 1 Style Point to add Carouse dice to a Brawl roll"
+        title: "Drinking My Sorrows Away"
+
+      will_avenge_you:
+        text: "When attacking someone who has already damaged one of your friends in the current combat, spend 1 Style Point to add Inspire dice to a Lunge roll"
+        title: "Never Again"
+
+      my_creation:
+        text: "When repairing or using a device that you invented, spend 1 Style Point to add Arts dice to a Clockworks roll"
+        title: "It's My Creation"
+
+      make_best_of_things:
+        text: "When using a bow outdoors, spend 1 Style Point to add Explore dice to an Aim roll"
+        title: "Longbow Hunter"
+
+      curse_you:
+        text: "When defending against a feint, spend 1 Style Point to add Intuition dice to a Parry roll"
+        title: "Curse Your Betrayal"
+
+      horrors_of_war:
+        text: "When talking about war or battle, spend 1 Style Point to add Block dice to an Inspire roll"
+        title: "The Horrors of War"
+
+      huntsman_1:
+        text: "When traveling with a hunting dog, spend 1 Style Point to add Husbandry dice to an Explore roll"
+        title: "Huntsman's Best Friend"
+
+      huntsman_2:
+        text: "When attacking an animal, spend 1 Style Point to add Prowl dice to an Aim roll"
+        title: "Great White Hunter"
+        
+      pilgrim_1:
+        text: When dealing with someone of the Dualitarian faith, spend 1 Style Point to add Scholarship dice to a Negotiate roll.
+        title: Orwand's Proverbs
+
+      pilgrim_2:
+        text: When unarmed and facing an armed opponent, spend 1 Style Point to add Inspire dice to a Dodge roll.
+        title: Strength in Conviction
+
+      lexicographer_1:
+        text: When listening to other people speaking, spend 1 Style Point to add Scholarship dice to a Perceive roll.
+        title: Trained Ear
+
+      lexicographer_2:
+        text: When trying to understand something in a language you don't know, spend 1 Style Point to add Explore dice to a Scholarship roll.
+        title: Linguistics
+
+      hanaster_1:
+        text: When buying or selling wares that have been imported or exported, spend 1 Style Point to add Explore dice a Negotiate roll.
+        title: International Trade
+
+      hanaster_2:
+        text: When sums of at least 1 crown are at stake, spend 1 Style Point to add Calculus dice to a Negotiate roll.
+        title: A Mind for Money
+
+      parroteer_1:
+        text: When working with birds, spend 1 Style Point to add Arts dice to a Husbandry roll.
+        title: Bird Calls
+
+      parroteer_2:
+        text: When looking at things more than one area away, spend 1 Style Point to add Explore dice to a Perceive roll.
+        title: Parrot's Nest
+
+      sibyl_1:
+        text: When dealing with someone of the Dodekarian faith or someone from Ekalia, spend 1 Style Point to add Portents dice to an Inspire roll.
+        title: Oracle of the Twelve
+
+      sibyl_2:
+        text: When unarmed and facing an armed opponent, spend 1 Style Point to add Intuition to a Dodge roll.
+        title: Divine Protection
+
+      cocinera_1:
+        text: When using or neutralizing ingested toxins, spend 1 Style Point to add Husbandry dice to a Poison roll.
+        title: Natural Flavorings
+
+      cocinera_2:
+        text: When following a recipe or a cookbook while cooking, spend 1 Style Point to add Calculus dice to an Arts roll.
+        title: Measuring is Everything
+
+      theologian_1:
+        text: When insulting someone who is competent with the Culture skill, spend 1 Style Point to add Scholarship dice to a Banter roll.
+        title: Supercilious Vituperation
+
+      theologian_2:
+        text: When attacking with a knife that was hidden at the beginning of the fight, spend 1 Style Point to add Deceive dice to a Lunge roll.
+        title: Twist the Knife
+
+      skomorokh_1:
+        text: When mocking someone of higher social rank than you, spend 1 Style Point to add Etiquette dice to a Banter roll.
+        title: Beating a High Horse
+
+      skomorokh_2:
+        text: When unarmed and facing an armed opponent, spend 1 Style Point to add Arts dice to a Block roll.
+        title: Combat Pantomime
+
+      toymaker_1:
+        text: When creating devices of Portable size or smaller, spend 1 Style Point to add Perceive dice to a Clockworks roll.
+        title: Miniaturization
+
+      toymaker_2:
+        text: When giving or showing toys to children, spend 1 Style Point to add Intuition dice to an Inspire roll.
+        title: Better Not Pout, Better Not Cry
+
+      engineer_1:
+        text: When creating a device with a blackpowder flintlock power source, a phlogistone furnace power source, or an explosion component, spend 1 Style Point to add Blackpowder dice to a Clockworks roll.
+        title: Powdersmith
+
+      engineer_2:
+        text: When attacking with a Blackpowder weapon, spend 1 Style Point to add Calculus dice to a Blackpowder roll.
+        title: Bombadier
+
+      mountaineer_1:
+        text: When treating someone who is suffering from exposure to the elements, spend 1 Style Point to add Explore dice to a Medicine roll.
+        title: Emergency Assistance
+
+      mountaineer_2:
+        text: When working with domesticated animals, spend 1 Style Point to add Arts dice to a Husbandry roll.
+        title: Yodeler
+
+      stargazer_1:
+        text: When you know the date and location of a subject's birth, spend 1 Style Point to add Calculus dice to a Portents roll.
+        title: Astrological Charts
+
+      stargazer_2:
+        text: When using a device to help you see, spend 1 Style Point to add Clockworks dice to a Perceive roll.
+        title: Optical Focus
+
+      faris_1:
+        text: When firing a bow, spend 1 Style Point to add Perceive dice to an Aim roll.
+        title: Nomadic Archery
+
+      faris_2:
+        text: When fighting while mounted, spend 1 Style Point to add Husbandry dice to a Parry roll.
+        title: Furusiyya
+
+      moon_curser_1:
+        text: When trying to pass yourself off as someone from another nation, spend 1 Style Point to add Explore dice to a Deceive roll.
+        title: Student of Accents
+
+      moon_curser_2:
+        text: When in darkness or at night, spend 1 Style Point to add Larceny dice to a Prowl roll.
+        title: Smuggler's Moon
+
+      collier_1:
+        text: When prospecting or exploring in caves, spend 1 Style Point to add Blackpowder dice to an Explore roll.
+        title: Speleology
+
+      collier_2:
+        text: When you've been drinking, spend 1 Style Point to add Carouse dice to a Block roll.
+        title: Feeling No Pain
+
+      gallinean_fencing:
+        title: Lutetian School of Fencing
+        text: When fighting with a rapier or colichemarde in one hand and other hand empty, spend 1 Style Point to add Arts dice to a Parry roll.
+
+      albian_cavalry:
+        title: Albian Cavalry
+        text: When mounted with a backsword or sabre in one hand and the other hand free, spend 1 Style Point to add Husbandry dice to a Lunge roll.
+
+      ekalian_fencing:
+        title: Imeran School of Fencing
+        text: When fighting with a cutlass in one hand and a dagger or cinquedea in the other hand, spend 1 Style Point to add Dodge dice to a Lunge roll.
+
+      ondalan_fencing:
+        title: Diegan School of Fencing
+        text: When fighting with a rapier or espada ropera in one hand and a dagger in the other hand, spend 1 Style Point to add Banter dice to a Parry roll.
+
+      talanian_fencing:
+        title: Zamorovian School of Fencing
+        text: When fighting with a szabla in one hand, spend 1 Style Point to add Carouse dice to a Lunge roll.
+
+      varendish_pikefighting:
+        title: Landsknecht Tactics
+        text: When fighting with a pike, spend 1 Style Point to add Strategy dice to a Lunge roll.
+
+      ifrani_swordplay:
+        title: Ifrani School of Swordplay
+        text: When fighting with a shamshir in one hand and the other hand empty, holding a qatar, or holding a jambiya, spend 1 Style Point to add Prowl dice to a Riposte roll.
+

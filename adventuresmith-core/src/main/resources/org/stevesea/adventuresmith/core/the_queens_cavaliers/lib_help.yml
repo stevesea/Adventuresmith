@@ -1,0 +1,14 @@
+---
+imports:
+- str_tqc
+- str_help
+
+definitions:
+  api_help:
+    print: |
+           <h1>{{str_help.{{>get: var_help_topic}}.title}}</h1>
+           {{str_help.{{>get: var_help_topic}}.longhelp}}
+           <hr />
+           <p><b>{{ui_help.see_also}}:</b> {{str_help.{{>get: var_help_topic}}.see_also}}
+           <br /><b>{{ui_help.wikilink}}:</b> <a href="{{str_help.{{>get: var_help_topic}}.wikilink.url}}">{{str_help.{{>get: var_help_topic}}.wikilink.text}}</a>
+           </p>

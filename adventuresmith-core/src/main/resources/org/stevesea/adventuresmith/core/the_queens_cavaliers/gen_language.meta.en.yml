@@ -1,0 +1,23 @@
+---
+name: Random Language
+input:
+  displayTemplate: "Pick from {{select}}, {{equiv}} analogues"
+  params:
+  - name: select
+    uiName: Language Type
+    helpText: What kind of language do you want?
+    defaultValue: Elaran
+    values:
+    - Any
+    - Elaran
+    - Historical
+    - Minor
+    - Modern
+  - name: equiv
+    uiName: Real-World Equivalent
+    helpText: Show real-world analogue?
+    defaultValue: without
+    values:
+    - without
+    - with
+

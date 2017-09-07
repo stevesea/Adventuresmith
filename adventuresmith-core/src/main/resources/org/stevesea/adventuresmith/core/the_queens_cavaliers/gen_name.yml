@@ -1,0 +1,10 @@
+---
+templates:
+- "<p>{{ui_name.yourrandomname}} {{api_name.random.{{unstr_name.{{input.nationality}}}}.{{input.gender}}}}</p>"
+
+imports:
+- str_tqc
+- str_culture
+- lib_culture
+
+

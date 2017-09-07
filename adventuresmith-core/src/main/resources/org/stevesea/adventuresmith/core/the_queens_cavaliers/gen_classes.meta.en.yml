@@ -1,0 +1,33 @@
+---
+name: Random Character Classes
+input:
+  displayTemplate: "Parameters: {{group}} classes, {{method}} selection, {{format}} format"
+
+  params:
+  - name: group
+    uiName: Class Selection
+    helpText: Choose the group of classes from which you wish to select. 
+    defaultValue: Basic
+    values:
+    - Basic
+    - Expanded
+
+  - name: method
+    uiName: Selection Method
+    helpText: Choose the method for picking your classes. (Simple may include duplicate classes.)
+    defaultValue: Thematic
+    values:
+    - DuelistPlus
+    - Balanced
+    - Simple
+    - Thematic
+
+  - name: format
+    uiName: Output Format
+    helpText: Choose the format for your classes.
+    defaultValue: Summary
+    values:
+    - Charsheet
+    - NameOnly
+    - Single
+    - Summary

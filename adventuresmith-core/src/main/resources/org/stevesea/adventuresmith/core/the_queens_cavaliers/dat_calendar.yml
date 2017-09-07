@@ -1,0 +1,758 @@
+---
+
+imports:
+  - str_calendar
+
+tables:
+  day_of_week_list:
+  - moon
+  - second
+  - third
+  - fourth
+  - stars
+  - sun
+
+  month_list:
+  - pluviose
+  - ventose
+  - germinal
+  - floreal
+  - prairial
+  - messidor
+  - fervidor
+  - fructidor
+  - vendemiaire
+  - brumaire
+  - frimaire
+  - nivose
+
+  era_list:
+  - bq
+  - pq
+
+definitions:
+
+  dat_today:
+    year: 1249
+    month: messidor
+    day: 1
+
+  dat_age:
+    human:
+      year: true
+      min: 1
+      max: 109
+      roll: 1d109
+    horse:
+      year: true
+      min: 1
+      max: 30
+      roll: 1d30
+    cat:
+      year: true
+      min: 1
+      max: 16
+      roll: 1d16
+    small_dog:
+      year: true
+      min: 1
+      max: 15
+      roll: 1d15
+    large_dog:
+      year: true
+      min: 1
+      max: 9
+      roll: 1d9
+
+    adult:
+      year: true
+      min: 17
+      max: 59
+      roll: 1d43+16
+    elder:
+      year: true
+      min: 60
+      max: 99
+      roll: 1d30+59
+
+    child:
+      year: true
+      min: 1
+      max: 12
+      roll: 1d12
+    teen:
+      year: true
+      min: 13
+      max: 19
+      roll: 1d7+12
+    20s:
+      year: true
+      min: 20
+      max: 29
+      roll: 1d10+19
+    30s:
+      year: true
+      min: 30
+      max: 39
+      roll: 1d10+29
+    40s:
+      year: true
+      min: 40
+      max: 49
+      roll: 1d10+39
+    50s:
+      year: true
+      min: 50
+      max: 59
+      roll: 1d10+49
+    60s:
+      year: true
+      min: 60
+      max: 69
+      roll: 1d10+59
+    70s:
+      year: true
+      min: 70
+      max: 79
+      roll: 1d10+69
+    80s:
+      year: true
+      min: 80
+      max: 89
+      roll: 1d10+79
+    90s:
+      year: true
+      min: 90
+      max: 99
+      roll: 1d10+89
+    100s:
+      year: true
+      min: 100
+      max: 109
+      roll: 1d10+99
+
+    anyone:
+      year: false
+      min: 1
+      max: 1
+      roll: 1d1
+      
+  dat_day:
+  
+    phase:
+
+      1: full
+      2: waninggibbous
+      3: waninggibbous
+      4: waninggibbous
+      5: waninggibbous
+      6: waninggibbous
+      7: waninggibbous
+      8: last
+      9: waningcrescent
+      10: waningcrescent
+      11: waningcrescent
+      12: waningcrescent
+      13: waningcrescent
+      14: waningcrescent
+      15: waningcrescent
+      16: new
+      17: waxingcrescent
+      18: waxingcrescent
+      19: waxingcrescent
+      20: waxingcrescent
+      21: waxingcrescent
+      22: waxingcrescent
+      23: first
+      24: waxinggibbous
+      25: waxinggibbous
+      26: waxinggibbous
+      27: waxinggibbous
+      28: waxinggibbous
+      29: waxinggibbous
+      30: waxinggibbous
+            
+    of_week:
+      1: moon
+      2: second
+      3: third
+      4: fourth
+      5: stars
+      6: sun
+      7: moon
+      8: second
+      9: third
+      10: fourth
+      11: stars
+      12: sun
+      13: moon
+      14: second
+      15: third
+      16: fourth
+      17: stars
+      18: sun
+      19: moon
+      20: second
+      21: third
+      22: fourth
+      23: stars
+      24: sun
+      25: moon
+      26: second
+      27: third
+      28: fourth
+      29: stars
+      30: sun
+      num:
+        moon: 1
+        second: 2
+        third: 3
+        fourth: 4
+        stars: 5
+        sun: 6
+
+    weeknum:
+      1: 1
+      2: 1
+      3: 1
+      4: 1
+      5: 1
+      6: 1
+      7: 2
+      8: 2
+      9: 2
+      10: 2
+      11: 2
+      12: 2
+      13: 3
+      14: 3
+      15: 3
+      16: 3
+      17: 3
+      18: 3
+      19: 4
+      20: 4
+      21: 4
+      22: 4
+      23: 4
+      24: 4
+      25: 5
+      26: 5
+      27: 5
+      28: 5
+      29: 5
+      30: 5
+
+    fix_age:
+
+      years:
+
+        -30: -1
+        -29: -1
+        -28: -1
+        -27: -1
+        -26: -1
+        -25: -1
+        -24: -1
+        -23: -1
+        -22: -1
+        -21: -1
+        -20: -1
+        -19: -1
+        -18: -1
+        -17: -1
+        -16: -1
+        -15: -1
+        -14: -1
+        -13: -1
+        -12: -1
+        -11: -1
+        -10: -1
+        -9: -1
+        -8: -1
+        -7: -1
+        -6: -1
+        -5: -1
+        -4: -1
+        -3: -1
+        -2: -1
+        -1: -1
+        0: -1
+        1: 0
+        2: 0
+        3: 0
+        4: 0
+        5: 0
+        6: 0
+        7: 0
+        8: 0
+        9: 0
+        10: 0
+        11: 0
+        12: 0
+        13: 0
+        14: 0
+        15: 0
+        16: 0
+        17: 0
+        18: 0
+        19: 0
+        20: 0
+        21: 0
+        22: 0
+        23: 0
+        24: 0
+        25: 0
+        26: 0
+        27: 0
+        28: 0
+        29: 0
+        30: 0
+
+      days:
+
+        -30: 30
+        -29: 30
+        -28: 30
+        -27: 30
+        -26: 30
+        -25: 30
+        -24: 30
+        -23: 30
+        -22: 30
+        -21: 30
+        -20: 30
+        -19: 30
+        -18: 30
+        -17: 30
+        -16: 30
+        -15: 30
+        -14: 30
+        -13: 30
+        -12: 30
+        -11: 30
+        -10: 30
+        -9: 30
+        -8: 30
+        -7: 30
+        -6: 30
+        -5: 30
+        -4: 30
+        -3: 30
+        -2: 30
+        -1: 30
+        0: 0
+        1: 0
+        2: 0
+        3: 0
+        4: 0
+        5: 0
+        6: 0
+        7: 0
+        8: 0
+        9: 0
+        10: 0
+        11: 0
+        12: 0
+        13: 0
+        14: 0
+        15: 0
+        16: 0
+        17: 0
+        18: 0
+        19: 0
+        20: 0
+        21: 0
+        22: 0
+        23: 0
+        24: 0
+        25: 0
+        26: 0
+        27: 0
+        28: 0
+        29: 0
+        30: 0
+
+      months:
+
+        -30: -1
+        -29: -1
+        -28: -1
+        -27: -1
+        -26: -1
+        -25: -1
+        -24: -1
+        -23: -1
+        -22: -1
+        -21: -1
+        -20: -1
+        -19: -1
+        -18: -1
+        -17: -1
+        -16: -1
+        -15: -1
+        -14: -1
+        -13: -1
+        -12: -1
+        -11: -1
+        -10: -1
+        -9: -1
+        -8: -1
+        -7: -1
+        -6: -1
+        -5: -1
+        -4: -1
+        -3: -1
+        -2: -1
+        -1: -1
+        0: 0
+        1: 0
+        2: 0
+        3: 0
+        4: 0
+        5: 0
+        6: 0
+        7: 0
+        8: 0
+        9: 0
+        10: 0
+        11: 0
+        12: 0
+        13: 0
+        14: 0
+        15: 0
+        16: 0
+        17: 0
+        18: 0
+        19: 0
+        20: 0
+        21: 0
+        22: 0
+        23: 0
+        24: 0
+        25: 0
+        26: 0
+        27: 0
+        28: 0
+        29: 0
+        30: 0
+
+  dat_week:
+    start_day:
+      1: 1
+      2: 7
+      3: 13
+      4: 19
+      5: 25
+    end_day:
+      1: 6
+      2: 12
+      3: 18
+      4: 24
+      5: 30
+
+  dat_month:
+
+  # year is 1249
+  # month is ventose
+  # age is 19
+  # date has already passed
+  # year of birth is 1249 - 19 = 1230
+  # ---
+  # month is fervidor
+  # age is 19
+  # date has not passed
+  # in a month you will be 20
+  # year of birth is 1249 - 20 = 1229
+  # ---
+  # year is 2017
+  # month is feb
+  # age is 16
+  # date has already passed
+  # year of birth is 2001
+  # ---
+  # year is 2017
+  # month is october
+  # age is 16
+  # date has not passed
+  # in october you will be 17
+  # year of birth is 2000
+  # ---
+  # >add: var_birth_year 1249
+  # >add: var_birth_year ->get: var_age
+  # 1230
+  # >add: var_birth_year upcoming.>get: var_month
+  # yes = 1230
+  # no = 1229
+  # ---
+  # birthday is Aug 1, date is June 1, dob 8/1/1968, today 6/1/2017
+  # years 48
+  # months 10
+  # days 0
+  # ---
+  # exact age
+  # "today" is messidor (6) 1, 1249
+  # var_dob_day
+  # var_dob_month
+  # var_dob_year
+  # >add: var_age_years 1249
+  # >add: var_age_years ->get: var_dob_year
+  # 1249 - 1230 = 19
+  # 2017 - 1968 = 49
+  # >add: var_age_years upcoming.>get: var_dob_month
+  # yes = 0 = 19
+  # no = -1 = 18
+  # upcoming = yes = -1 = 48
+  # >add: var_age_months today=6
+  # 6
+  # >add: var_age_months ->get: var_dob_month
+  # 6 - 8 -2
+  # >add: var_age_months 12*upcoming.>get: var_dob_month
+  # -2 + 12 = 10 months
+  # if birthday = Feb 1
+  # >add: var_age_months today=6
+  # 6
+  # >add: var_age_months ->get: var_dob_month
+  # 6 - 2 = 4 months
+  # add: var_age_months 12*upcoming.>get: var_dob_month
+  # 4 months
+  # ---
+  # dob is 8/1, today is 6/1
+  # days = 0
+  # dob is 8/2, today is 6/1
+  # days = 29
+  # dob is 8/3, today is 6/1
+  # days = 28
+  # dob is 6/1, today is 6/1
+  # days = 0
+  # 31 - dob = days
+  # 31 - 1 = 30 days = 0 days
+  # so - if 1, subtract 30, otherwise subtract 0
+  # ---
+  # ... or just have a lookup table
+  # >add: var_age_days dat_day.upcoming.adjusted_days.>get: var_dob_day
+  # ---
+  #
+  #
+  # summary:
+  # 
+  # set random age and birthday
+  #
+  # >add: var_dob_month {{>roll: 1d12}}
+  # >add: var_dob_day {{>roll: 1d30}}
+  # >add: var_age {{>roll: {{dat_age.{{unstr_cal.{{input.who}}}}.roll}}}}
+  #
+  # calculate dob
+  # >add: var_dob_year 1249
+  # >add: var_dob_year -{{>get: var_age}}
+  # >add: var_dob_year {{dat_month.upcoming.adj_years.{{>get: var_dob_month}}}}
+  #
+  # calculate exact age
+  # >add: var_age_years 1249
+  # >add: var_age_years -{{>get: var_dob_year}}
+  # >add: var_age_years {{dat_month.upcoming.adj_years.{{>get: var_dob_month}}}}
+  # >add: var_age_months 6
+  # >add: var_age_months -{{>get: var_dob_month}}
+  # >add: var_age_months {{dat_month.upcoming.adj_months.{{>get: var_dob_month}}}}
+  # >add: var_age_days {{dat_day.upcoming.adjusted_days.{{>get: var_dob_day}}}}
+  # 
+  # print
+  # {{ui_cal.dob}}: {{>get: var_dob_day}} {{str_cal.month.{{>get: var_dob_month}}}} {{>get: var_dob_year}} {{str_cal.era.pq}}
+  # {{ui_cal.age}}: {{>get: var_age_years}} {{ui_cal.years}}, {{get: var_age_months}} {{ui_cal.months}}, {{get: var_age_days}} {{ui_cal.days}}
+  
+    fix_dob:
+      years:
+        -12: -1
+        -11: -1
+        -10: -1
+        -9: -1
+        -8: -1
+        -7: -1
+        -6: -1
+        -5: -1
+        -4: -1
+        -3: -1
+        -2: -1
+        -1: -1
+        0: 0
+        1: 0
+        2: 0
+        3: 0
+        4: 0
+        5: 0
+        6: 0
+        7: 0
+        8: 0
+        9: 0
+        10: 0
+        11: 0
+        12: 0
+
+    fix_age:
+
+      months:
+
+        -12: 12
+        -11: 12
+        -10: 12
+        -9: 12
+        -8: 12
+        -7: 12
+        -6: 12
+        -5: 12
+        -4: 12
+        -3: 12
+        -2: 12
+        -1: 12
+        0: 12
+        1: 0
+        2: 0
+        3: 0
+        4: 0
+        5: 0
+        6: 0
+        7: 0
+        8: 0
+        9: 0
+        10: 0
+        11: 0
+        12: -12
+
+      years:
+
+        -12: 0
+        -11: 0
+        -10: 0
+        -9: 0
+        -8: 0
+        -7: 0
+        -6: 0
+        -5: 0
+        -4: 0
+        -3: 0
+        -2: 0
+        -1: 0
+        0: 0
+        1: 1
+        2: 1
+        3: 1
+        4: 1
+        5: 1
+        6: 1
+        7: 1
+        8: 1
+        9: 1
+        10: 1
+        11: 1
+        12: 1
+
+    season:
+      pluviose: winter 
+      ventose: winter
+      germinal: spring
+      floreal: spring
+      prairial: spring
+      messidor: summer
+      fervidor: summer
+      fructidor: summer
+      vendemiaire: autumn
+      brumaire: autumn
+      frimaire: autumn
+      nivose: winter
+
+    num_in_year:
+      pluviose: 1
+      ventose: 2
+      germinal: 3
+      floreal: 4
+      prairial: 5
+      messidor: 6
+      fervidor: 7
+      fructidor: 8
+      vendemiaire: 9
+      brumaire: 10
+      frimaire: 11
+      nivose: 12
+
+    num_in_season:
+      pluviose: 2
+      ventose: 3
+      germinal: 1
+      floreal: 2
+      prairial: 3
+      messidor: 1
+      fervidor: 2
+      fructidor: 3
+      vendemiaire: 1
+      brumaire: 2
+      frimaire: 3
+      nivose: 1
+
+    ordinal:
+      pluviose: first
+      ventose: second
+      germinal: third
+      floreal: fourth
+      prairial: fifth
+      messidor: sixth
+      fervidor: seventh
+      fructidor: eighth
+      vendemiaire: ninth
+      brumaire: tenth
+      frimaire: eleventh
+      nivose: twelfth
+
+    days_so_far:
+      pluviose: 0
+      ventose: 30
+      germinal: 60
+      floreal: 90
+      prairial: 120
+      messidor: 150
+      fervidor: 180
+      fructidor: 210
+      vendemiaire: 240
+      brumaire: 270
+      frimaire: 300
+      nivose: 330
+
+    weeks_so_far:
+      pluviose: 0
+      ventose: 5
+      germinal: 10
+      floreal: 15
+      prairial: 20
+      messidor: 25
+      fervidor: 30
+      fructidor: 35
+      vendemiaire: 40
+      brumaire: 45 
+      frimaire: 50
+      nivose: 55
+
+    birthstone:
+      pluviose: garnet
+      ventose: amethyst
+      germinal: bloodstone
+      floreal: sapphire
+      prairial: agate
+      messidor: emerald
+      fervidor: onyx
+      fructidor: carnelian
+      vendemiaire: peridot
+      brumaire: beryl
+      frimaire: topaz
+      nivose: ruby
+      url:
+        garnet: "File:garnet.jpg"
+        amethyst: "File:amethyst.jpg"
+        bloodstone: "File:bloodstone.jpg"
+        sapphire: "File:sapphire.jpg"
+        agate: "File:agate.jpg"
+        emerald: "File:emerald.jpg"
+        onyx: "File:onyx.jpg"
+        carnelian: "File:carnelian.jpg"
+        peridot: "File:peridot.jpg"
+        beryl: "File:beryl.jpg"
+        topaz: "File:topaz.jpg"
+        ruby: "File:ruby.jpg"

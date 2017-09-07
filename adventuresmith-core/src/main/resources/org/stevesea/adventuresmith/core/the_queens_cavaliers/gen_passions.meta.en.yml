@@ -1,0 +1,12 @@
+---
+name: Random Passions List
+input:
+  displayTemplate: "Display Format: {{format}}"
+  params:
+  - name: format
+    uiName: Display Format
+    helpText: "Choose a display format:"
+    defaultValue: Verbose
+    values:
+    - Standard
+    - Verbose

@@ -1,0 +1,12 @@
+---
+name: Random Date
+input:
+  displayTemplate: ""
+  params:
+  - name: equiv
+    uiName: Random Date
+    helpText: Show real-world equivalent?
+    defaultValue: no
+    values:
+    - yes
+    - no

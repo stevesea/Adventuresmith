@@ -1,0 +1,16 @@
+---
+name: Random Backstory
+input:
+  displayTemplate: "Format: {{format}}"
+  params:
+  - name: format
+    uiName: Random Backstory
+    helpText: Choose the format for your backstory.
+    defaultValue: Sequential
+    values:
+    - Fresh
+    - Story
+    - Summary
+    - Sequential
+    - Charsheet
+

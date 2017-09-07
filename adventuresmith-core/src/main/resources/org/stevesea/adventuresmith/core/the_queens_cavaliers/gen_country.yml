@@ -1,0 +1,6 @@
+---
+templates:
+- "{{api_country.set.{{unstr_nation.{{input.select}}}}}}%[[api_country.print.all]]%"
+
+imports:
+- lib_culture

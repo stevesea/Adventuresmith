@@ -1,0 +1,105 @@
+---
+
+imports:
+- str_tqc
+- str_culture
+
+definitions:
+
+  api_dice_roller:
+    roll:
+      from_input: 
+        all: |
+             <!-- calculating dice pool, rolling dice
+             {{>accum: var_dice_rolls 0}}
+             {{api_dice_roller.roll.from_input.max_{{unstr_dice_roller.{{input.max}}}}}}
+             {{api_dice_roller.roll.from_input.d12_{{bool.{{unstr_dice_roller.{{input.d12}}}}}}}}
+             {{api_dice_roller.roll.from_input.d10_{{bool.{{unstr_dice_roller.{{input.d10}}}}}}}}
+             {{api_dice_roller.roll.from_input.d8_{{bool.{{unstr_dice_roller.{{input.d8}}}}}}}}
+             {{api_dice_roller.roll.from_input.d6_{{bool.{{unstr_dice_roller.{{input.d6}}}}}}}}
+             %[[>sort: var_dice_rolls]]%
+             -->
+
+        d12_false: "nop"
+        d10_false: "nop"
+        d8_false: "nop"
+        d6_false: "nop"
+
+        d12_true: |
+                  {{>accum: var_dice_pool <font color='{{str_color.azure.display_color}}'>{{input.d12}}</font>}}
+                  {{>repeat: {{unstr_dice_roller.{{input.d12}}}} %[[>accumRoll: var_dice_rolls 1d12]]%}}
+        d10_true: |
+                  {{>accum: var_dice_pool <font color='{{str_color.vert.display_color}}'>{{input.d10}}</font>}}
+                  {{>repeat: {{unstr_dice_roller.{{input.d10}}}} %[[>accumRoll: var_dice_rolls 1d10]]%}}
+        d8_true: |
+                 {{>accum: var_dice_pool <font color='{{str_color.sable.display_color}}'>{{input.d8}}</font>}}
+                 {{>repeat: {{unstr_dice_roller.{{input.d8}}}} %[[>accumRoll: var_dice_rolls 1d8]]%}}
+        d6_true: |
+                 {{>accum: var_dice_pool <font color='{{str_color.or.display_color}}'>{{input.d8}}</font>}}
+                 {{>repeat: {{unstr_dice_roller.{{input.d6}}}} %[[>accumRoll: var_dice_rolls 1d6]]%}}
+
+        max_nothing: "{{>set: var_string_max {{nop}}}}"
+        max_D12: |
+                 {{>set: var_string_max , {{ui_dice_roller.plus}} 1D12 {{ui_dice_roller.maximized}} 12}}
+                 {{>accumRoll: var_dice_rolls 1d1+11}}
+        max_D10: |
+                 {{>set: var_string_max , {{ui_dice_roller.plus}} 1D10 {{ui_dice_roller.maximized}} 10}}
+                 {{>accumRoll: var_dice_rolls 1d1+9}}
+        max_D8: |
+                {{>set: var_string_max , {{ui_dice_roller.plus}} 1D8 {{ui_dice_roller.maximized}} 8}}
+                {{>accumRoll: var_dice_rolls 1d1+7}}
+        max_D6: |
+                {{>set: var_string_max , {{ui_dice_roller.plus}} 1D6 {{ui_dice_roller.maximized}} 6}}
+                {{>accumRoll: var_dice_rolls 1d1+5}}
+    process:
+      custom: |
+              <!-- processing dice 
+              {{>set: var_label_yourdiceroll {{ui_dice_roller.custom.before}} 
+              <font color='{{str_color.{{>get: var_color}}.display_color}}'><b>{{input.custom}}</b></font> {{ui_dice_roller.custom.after}}}}
+              {{api_dice_roller.process.all}}
+
+      standard: |
+                <!-- processing dice 
+                {{>set: var_label_yourdiceroll {{ui_dice_roller.yourdiceroll}}}}
+                {{api_dice_roller.process.all}}
+      all: |
+           {{>remove: var_dice_rolls 0}}
+           {{>copy: var_dice_rolls var_keep_dice}}
+           {{>keepLast: var_keep_dice 2}}
+           {{api_dice_roller.process.kept_{{>size: var_keep_dice}}}}
+           -->
+           %[[api_dice_roller.print.all]]%
+      kept_0: |
+              {{>set: var_total 0}}
+              {{>set: var_success_points 0}}
+              {{>set: var_high_die 0}}
+      kept_1: |
+              {{>set: var_total {{>sum: var_keep_dice}}}}
+              {{>set: var_success_points 1}}
+              {{>set: var_high_die {{>sum: var_keep_dice}}}}
+      kept_2: |
+              {{>add: var_total {{>sum: var_keep_dice}}}}
+              {{>copy: var_keep_dice var_success_points}}
+              {{>keepFirst: var_success_points 1}}
+              {{>copy: var_keep_dice var_high_die}}
+              {{>keepLast: var_high_die 1}}
+
+    print:
+      all: |
+           {{api_dice_roller.print.all_{{bool.{{>get: var_total}}}}}}
+      all_false: "{{ui_dice_roller.error.nodice}}"
+      all_true: |
+                <p>{{>get: var_label_yourdiceroll}} ...</p>
+                <h1>
+                <font color='{{str_color.{{>get: var_color}}.display_color}}'>
+                {{>get: var_high_die}},
+                {{>get: var_success_points}}
+                </font> =
+                <font color='{{str_color.{{>get: var_color}}.display_color}}'>
+                {{>get: var_total}} {{ui_dice_roller.total}}</font>, 
+                {{>get: var_success_points}} 
+                {{ui_dice_roller.success_point}}{{plural_s.{{>get: var_success_points}}}}
+                </h1>
+                <p><b>{{ui_dice_roller.dice_pool}}:</b> {{>get: var_dice_pool &#32;+&#32;}}{{>get: var_string_max}}
+                <br /><b>{{ui_dice_roller.individual_rolls}}</b>: {{>get: var_dice_rolls}}</p>
+
