@@ -17,12 +17,12 @@ imports:
 definitions:
   dungeon_explore_config:
     labels:
-      area_type: Area Type
-      common: Common
+      area_type: Secteurs
+      common: Commun
       unique: Unique
-      themed: Themed
-      unthemed: Unthemed
-      contents: Contents
+      themed: Thématique
+      unthemed: Non-Thématique
+      contents: Contenu
 
 tables:
   dungeon_explore:
