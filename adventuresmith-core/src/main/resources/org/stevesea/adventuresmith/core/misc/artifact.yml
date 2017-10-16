@@ -1,27 +1,26 @@
 ---
 templates:
 - |
-  <h4>Artifact</h4>
-  <h5>Origin</h5>
-  {{origin}}
-  <h5>Power</h5>
-  {{power}}
+  <h5>Artifact</h5>
+  <strong>Origin: {{origin}}
+  <br/><br/>
+  <strong>Power: {{power}}
 
 tables:
   origin:
-  - "Holy - {{nested_origin.Holy}}"
-  - "Masterwork - {{nested_origin.Masterwork}}"
-  - "Magic - {{nested_origin.Magic}}"
-  - "Natural - {{nested_origin.Natural}}"
-  - "Otherworldly - {{nested_origin.Otherworldly}}"
-  - "Technological - {{nested_origin.Technological}}"
+  - "Holy</strong><br/>{{nested_origin.Holy}}"
+  - "Masterwork</strong><br/>{{nested_origin.Masterwork}}"
+  - "Magic</strong><br/>{{nested_origin.Magic}}"
+  - "Natural</strong><br/>{{nested_origin.Natural}}"
+  - "Otherworldly</strong><br/>{{nested_origin.Otherworldly}}"
+  - "Technological</strong><br/>{{nested_origin.Technological}}"
   power:
-  - "Blessing - {{nested_power.Blessing}}"
-  - "Curse - {{nested_power.Curse}}"
-  - "Enhancement - {{nested_power.Enhancement}}"
-  - "Force - {{nested_power.Force}}"
-  - "Protection - {{nested_power.Protection}}"
-  - "Utility - {{nested_power.Utility}}"
+  - "Blessing</strong><br/>{{nested_power.Blessing}}"
+  - "Curse</strong><br/>{{nested_power.Curse}}"
+  - "Enhancement</strong><br/>{{nested_power.Enhancement}}"
+  - "Force</strong><br/>{{nested_power.Force}}"
+  - "Protection</strong><br/>{{nested_power.Protection}}"
+  - "Utility</strong><br/>{{nested_power.Utility}}"
 
 
 

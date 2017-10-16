@@ -1,33 +1,32 @@
 ---
 templates:
 - |
-  <h4>Dungeon</h4>
-  <h5>History</h5>
-  {{history}}
-  <h5>Denizen</h5>
-  {{denizen}}
-  <h5>Trial</h5>
-  {{trial}}
-  <h5>Secret</h5>
-  {{secret}}
+  <h5>Dungeon</h5>
+  <strong>History: {{history}}
+  <br/><br/>
+  <strong>Denizen: {{denizen}}
+  <br/><br/>
+  <strong>Trial: {{trial}}
+  <br/><br/>
+  <strong>Secret: {{secret}}
 
 tables:
   history:
-  - "Builder - {{nested_history.Builder}}"
-  - "Downfall - {{nested_history.Downfall}}"
-  - "Purpose - {{nested_history.Purpose}}"
+  - "Builder  </strong><br/>{{nested_history.Builder}}"
+  - "Downfall </strong><br/>{{nested_history.Downfall}}"
+  - "Purpose  </strong><br/>{{nested_history.Purpose}}"
   denizen:
-  - "Community - {{nested_denizen.Community}}"
-  - "Creature - {{nested_denizen.Creature}}"
-  - "Hermit - {{nested_denizen.Hermit}}"
+  - "Community</strong><br/>{{nested_denizen.Community}}"
+  - "Creature </strong><br/>{{nested_denizen.Creature}}"
+  - "Hermit </strong><br/>{{nested_denizen.Hermit}}"
   trial:
-  - "Dilemma - {{nested_trial.Dilemma}}"
-  - "Hazard - {{nested_trial.Hazard}}"
-  - "Trap - {{nested_trial.Trap}}"
+  - "Dilemma</strong><br/>{{nested_trial.Dilemma}}"
+  - "Hazard </strong><br/>{{nested_trial.Hazard}}"
+  - "Trap </strong><br/>{{nested_trial.Trap}}"
   secret:
-  - "Cache - {{nested_secret.Cache}}"
-  - "Lore - {{nested_secret.Lore}}"
-  - "Revelation - {{nested_secret.Revelation}}"
+  - "Cache</strong><br/>{{nested_secret.Cache}}"
+  - "Lore </strong><br/>{{nested_secret.Lore}}"
+  - "Revelation</strong><br/>{{nested_secret.Revelation}}"
 
 nested_tables:
   nested_history:

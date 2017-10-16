@@ -1,33 +1,32 @@
 ---
 templates:
 - |
-  <h4>City</h4>
-  <h5>Feature</h5>
-  {{feature}}
-  <h5>Population</h5>
-  {{population}}
-  <h5>Society</h5>
-  {{society}}
-  <h5>Trouble</h5>
-  {{trouble}}
+  <h5>City</h5>
+  <strong>Feature: {{feature}}
+  <br/><br/>
+  <strong>Population: {{population}}
+  <br/><br/>
+  <strong>Society: {{society}}
+  <br/><br/>
+  <strong>Trouble: {{trouble}}
 
 tables:
   feature:
-  - "District - {{nested_feature.District}}"
-  - "Resource - {{nested_feature.Resource}}"
-  - "Terrain - {{nested_feature.Terrain}}"
+  - "District</strong><br/>{{nested_feature.District}}"
+  - "Resource</strong><br/>{{nested_feature.Resource}}"
+  - "Terrain </strong><br/>{{nested_feature.Terrain}}"
   population:
-  - "Attitude - {{nested_population.Attitude}}"
-  - "Caste - {{nested_population.Caste}}"
-  - "Race - {{nested_population.Race}}"
+  - "Attitude</strong><br/>{{nested_population.Attitude}}"
+  - "Caste</strong><br/>{{nested_population.Caste}}"
+  - "Race </strong><br/>{{nested_population.Race}}"
   society:
-  - "Faith - {{nested_society.Faith}}"
-  - "Guild - {{nested_society.Guild}}"
-  - "Ruler - {{nested_society.Ruler}}"
+  - "Faith </strong><br/>{{nested_society.Faith}}"
+  - "Guild </strong><br/>{{nested_society.Guild}}"
+  - "Ruler </strong><br/>{{nested_society.Ruler}}"
   trouble:
-  - "Rumour - {{nested_trouble.Rumour}}"
-  - "Threat - {{nested_trouble.Threat}}"
-  - "Unrest - {{nested_trouble.Unrest}}"
+  - "Rumour</strong><br/>{{nested_trouble.Rumour}}"
+  - "Threat</strong><br/>{{nested_trouble.Threat}}"
+  - "Unrest</strong><br/>{{nested_trouble.Unrest}}"
 
 nested_tables:
   nested_feature:
