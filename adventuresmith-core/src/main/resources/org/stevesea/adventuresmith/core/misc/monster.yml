@@ -1,36 +1,242 @@
 ---
 templates:
 - |
-  <h4>Monster</h4>
-  <h5>Nature</h5>
-  {{nature}}
-  <h5>Role</h5>
-  {{role}}
-tables:
-  nature:
-  - "Animal and Plant - {{nested_nature.AnimalAndPlant}}"
-  - "Construct - {{nested_nature.Construct}}"
-  - "Elemental - {{nested_nature.Elemental}}"
-  - "Humanoid - {{nested_nature.Humanoid}}"
-  - "MythicalBeast - {{nested_nature.MythicalBeast}}"
-  - "Undead - {{nested_nature.Undead}}"
-  role:
-  - "Artillery - {{nested_role.Artillery}}"
-  - "Brute - {{nested_role.Brute}}"
-  - "Controller - {{nested_role.Controller}}"
-  - "Leader - {{nested_role.Leader}}"
-  - "Lurker - {{nested_role.Lurker}}"
-  - "Soldier - {{nested_role.Soldier}}"
+  <h5>Monster</h5>
+  <strong>Nature: {{nature.template}}
+  <br/><br/>
+  <strong>Habitat: {{habitat.template}}
+  <br/><br/>
+  <strong>Role: {{role.template}}
 
 nested_tables:
-  nested_nature:
+  role:
+    template:
+    - "Artillery </strong><br/> {{role.Artillery}}"
+    - "Boss </strong><br/> {{role.Boss}}"
+    - "Brute </strong><br/> {{role.Brute}}"
+    - "Controller </strong><br/> {{role.Controller}}"
+    - "Horde </strong><br/> {{role.Horde}}"
+    - "Leader </strong><br/> {{role.Leader}}"
+    - "Lurker </strong><br/> {{role.Lurker}}"
+    - "Manipulator </strong><br/> {{role.Manipulator}}"
+    - "Minion </strong><br/> {{role.Minion}}"
+    - "Scout </strong><br/> {{role.Scout}}"
+    - "Skirmisher </strong><br/> {{role.Skirmisher}}"
+    - "Soldier </strong><br/> {{role.Soldier}}"
+    Artillery:
+    - They shoot at you from cover.
+    - You're caught in the blast radius.
+    - They're aware of your approach.
+    - They fall back when threatened.
+    - You're trapped by suppressing fire.
+    - They use unusual ammunition.
+    Boss:
+    - It has mastery over its environment.
+    - First, you'll have to deal with his henchmen.
+    - She’s toying with you.
+    - It rises again in its final form.
+    - You'll have to try an unconventional approach.
+    - He has only one weakness.
+    Brute:
+    - It knocks you down.
+    - It gets in your way.
+    - It goes berserk.
+    - It tramples you.
+    - It wrecks the place.
+    - It cuts a wide swath.
+    Controller:
+    - Their charms confuse you.
+    - The terrain turns treacherous.
+    - It counters your magic.
+    - It's all an illusion.
+    - Their nets and traps ensnare you.
+    - It disarms you.
+    Horde:
+    - There's too many of them.
+    - They swarm your position.
+    - For every one you kill, two more take its place.
+    - Kill their leader and they will break.
+    - They come in all shapes and sizes.
+    - You've awoken them.
+    Leader:
+    - He heals his allies.
+    - She inspires her minions to fight.
+    - His extended monologues are tedious.
+    - It has a master plan.
+    - There is method to his madness.
+    - She leads the charge.
+    Lurker:
+    - You don't see the sneak attack coming.
+    - It blends in with the surroundings.
+    - They dart just out of reach.
+    - It's literally invisible.
+    - They're actually enjoying this.
+    - It waits for just the right moment.
+    Manipulator:
+    - She speaks in a sing-song voice.
+    - His charming smile is disarming.
+    - He wants something from you.
+    - Their loyalties are shifting.
+    - Plans within plans within plans.
+    - It offers you a choice.
+    Minion:
+    - They attack in packs.
+    - They're not paid enough for this shit.
+    - They follow orders blindly.
+    - This one has fled its master.
+    - They cower and flee.
+    - They have a rich society and culture.
+    Scout:
+    - She has incredible endurance.
+    - They’ve warned their companions.
+    - There's one behind you.
+    - He's laden with supplies.
+    - She's carrying a missive of great importance.
+    - You won't catch him when he runs.
+    Skirmisher:
+    - They surround you from all sides.
+    - She slips in and out of combat.
+    - He's carrying a hidden blade.
+    - Your attacks are parried with ease.
+    - She wields two weapons at once.
+    - He fights in tandem with his animal companion.
+    Soldier:
+    - They're careful in their approach.
+    - They're well-armed and well-armoured.
+    - Their teamwork puts yours to shame.
+    - They've been forced to fight.
+    - They defend their weaker allies.
+    - They outnumber you.
+
+  habitat:
+    template:
+    - "City </strong><br/> {{habitat.City}}"
+    - "Coast </strong><br/> {{habitat.Coast}}"
+    - "Desert </strong><br/> {{habitat.Desert}}"
+    - "Dungeon </strong><br/> {{habitat.Dungeon}}"
+    - "Fey Realm </strong><br/> {{habitat.FeyRealm}}"
+    - "Forest </strong><br/> {{habitat.Forest}}"
+    - "Grassland </strong><br/> {{habitat.Grassland}}"
+    - "Mountain </strong><br/> {{habitat.Mountain}}"
+    - "Shadow Realm </strong><br/> {{habitat.ShadowRealm}}"
+    - "Swamp </strong><br/> {{habitat.Swamp}}"
+    - "Tundra </strong><br/> {{habitat.Tundra}}"
+    - "Underground </strong><br/> {{habitat.Underground}}"
+    City:
+    - It's been domesticated.
+    - These vermin are everywhere.
+    - They come in many different breeds.
+    - She's lost.
+    - It's a mage's familiar.
+    - It was summoned here.
+    Coast:
+    - They fight with hooks and nets.
+    - Their carapaces are hard and chitinous.
+    - It came up from the deep.
+    - He revels in the storm.
+    - Their eggs are a delicacy.
+    - They've made a colony here.
+    Desert:
+    - It drinks the blood of its prey.
+    - They burrow beneath the sands.
+    - Skinny and gaunt, it hasn't fed in days.
+    - It rests during the day, and hunts at night.
+    - They travel in caravans.
+    - It scavenges from the dead.
+    Dungeon:
+    - It was put here for a purpose.
+    - They died here, long ago.
+    - It broke free of its chains.
+    - He'll guard this place with his life.
+    - It wanders the halls, aimlessly.
+    - Their banter echoes through the halls.
+    FeyRealm:
+    - He shines with a rainbow of colours.
+    - Her weapons are made of opal.
+    - Verdant flora sprouts wherever she steps.
+    - They flicker in and out of existence.
+    - They're laughing at you.
+    - It's ethereal and translucent.
+    Forest:
+    - They hide in the trees.
+    - It moves more silently than its size suggests.
+    - This hermit is well known in town.
+    - It blends into the environment.
+    - They scurry into the underbrush.
+    - They make excellent game animals.
+    Grassland:
+    - It slithers among the grass.
+    - The herd is migrating to greener pastures.
+    - It charges you at full speed.
+    - They chirp at night.
+    - You've stumbled upon their mating ritual.
+    - There's safety in numbers.
+    Mountain:
+    - It climbs the rocks effortlessly.
+    - They make their nests among the crags.
+    - She hurls rocks with surprising force.
+    - He just wants to be left alone.
+    - They're as ancient as these stones.
+    - It has naturally stone-like skin.
+    ShadowRealm:
+    - Its presence fills you with despair.
+    - You are chilled to the bone.
+    - They're thralls to a darker power.
+    - Her eyes are soulless.
+    - It is caught between worlds.
+    - He speaks in barely audible whispers.
+    Swamp:
+    - It lives on both land and water.
+    - It tries to pull you under.
+    - They come here to spawn.
+    - Even the plants eat meat.
+    - They strike quickly, without warning.
+    - It's slimy.
+    Tundra:
+    - It's covered in thick fur.
+    - Its tusks will tear you apart.
+    - These ones were hibernating.
+    - Steam billows from its internal furnace.
+    - A layer of blubber keeps it warm..
+    - It stalks you in the mists.
+    Underground:
+    - It glows in the dark.
+    - They're digging for something.
+    - They see via echolocation.
+    - He is one with the fungus.
+    - It leaves tunnels in its wake.
+    - They're controlled by a hive mind.
+
+  nature:
+    template:
+    - "Aberration </strong><br/> {{nature.Aberration}}"
+    - "Animal and Plant </strong><br/> {{nature.AnimalAndPlant}}"
+    - "Construct </strong><br/> {{nature.Construct}}"
+    - "Elemental </strong><br/> {{nature.Elemental}}"
+    - "Fey </strong><br/> {{nature.Fey}}"
+    - "Giant </strong><br/> {{nature.Giant}}"
+    - "Humanoid </strong><br/> {{nature.Humanoid}}"
+    - "Monstrosity </strong><br/> {{nature.Monstrosity}}"
+    - "Mythical Beast </strong><br/> {{nature.MythicalBeast}}"
+    - "Ooze </strong><br/> {{nature.Ooze}}"
+    - "Outsider </strong><br/> {{nature.Outsider}}"
+    - "Undead </strong><br/> {{nature.Undead}}"
+    Aberration:
+    - They phase in and out of reality.
+    - It floats unnaturally.
+    - It disobeys the laws of physics and magic.
+    - Ichor drips from its wounds.
+    - You find its gibbering speech disturbing.
+    - Tentacles everywhere.
+
     AnimalAndPlant:
     - Its barbs are filled with poison.
-    - You're entangled in its web.
+    - You're entangled in its web
     - They travel in packs.
     - It's hunting you.
     - Teeth and claws rend and tear.
     - The place is swarming with them.
+
     Construct:
     - They fight with mindless perseverance.
     - They repair their own injuries.
@@ -45,67 +251,62 @@ nested_tables:
     - Water freezes and drowns you.
     - You're seared by blinding light.
     - Your world is plunged into darkness.
+
+
+    Fey:
+    - They are frustratingly elusive.
+    - Her magics are subtle and mysterious.
+    - It hides its true nature.
+    - He's tricked you with misdirection.
+    - You hear eerie music in the distance.
+    - She can sense your intentions.
+    Giant:
+    - He's as slow as he is large.
+    - Two heads are better than one.
+    - Her form is bent and twisted.
+    - It's smarter than it looks.
+    - They command the elements.
+    - Her patience is legendary.
     Humanoid:
-    - Their traps and nets ensnare you.
-    - Their primitive magic is surprisingly effective.
+    - Humanoid, but not mammalian.
+    - Their primitive spells are surprisingly effective.
     - They're simply misunderstood.
     - You've offended them.
     - They wield strange devices.
     - They're a motley crew.
+    Monstrosity:
+    - The experiment has escaped its cage.
+    - Its gaze will turn you to stone.
+    - They were born in the most extreme conditions.
+    - It's larger than anything you've ever seen.
+    - It's hybrid form is misshapen.
+    - She's only protecting her offspring.
+
     MythicalBeast:
     - Its breath is worse than its bite.
-    - It's greater than the sum of its parts.
+    - It's older than civilization.
     - You've encroached on its lair.
     - Its hide is worth a fortune.
     - Its appearance is an ill omen.
     - Its magics are beyond your ken.
+    Ooze:
+    - It dissolves organic matter.
+    - It slips between cracks in the walls.
+    - When you hit them, they split in two.
+    - It shifts its form with frightening speed.
+    - Eww. You’re stepping in it.
+    - It corrodes your weapons and armour.
+    Outsider:
+    - His motives are inscrutable.
+    - Its wingspan is imposing.
+    - Their army is readying for battle.
+    - It smells of fire and brimstone.
+    - She is surrounded by a powerful aura.
+    - They serve a mysterious master.
     Undead:
     - Their howls make you tremble in fear.
     - They remember their former lives.
     - Their touch drains your life force.
     - They just won't stay down.
     - They carry terrible disease.
-    - They phase through solid objects.
-  nested_role:
-    Artillery:
-    - They shoot at you from cover.
-    - You're caught in the blast radius.
-    - They're aware of your approach.
-    - They fall back when threatened.
-    - You're trapped by suppressing fire.
-    - They use unusual ammunition.
-    Brute:
-    - It knocks you down.
-    - It gets in your way.
-    - It goes berserk.
-    - It tramples you.
-    - It wrecks the place.
-    - It cuts a wide swath.
-    Controller:
-    - Their charms confuse you.
-    - The terrain turns treacherous.
-    - It counters your magic.
-    - It's all an illusion.
-    - They surround you from all sides.
-    - It disarms you.
-    Leader:
-    - He heals his allies.
-    - She inspires her minions to fight.
-    - His extended monologues are tedious.
-    - It's master plan is inscrutable.
-    - There is method to his madness.
-    - She leads the charge.
-    Lurker:
-    - You don't see the sneak attack coming.
-    - It blends in with the surroundings.
-    - They dart just out of reach.
-    - It's literally invisible.
-    - They're actually enjoying this.
-    - It waits for just the right moment.
-    Soldier:
-    - They're careful in their approach.
-    - They're well-armed and well-armoured.
-    - Their teamwork puts yours to shame.
-    - They've been forced to fight.
-    - They defend their weaker allies.
-    - They outnumber you.
+    - They pass through solid objects.
