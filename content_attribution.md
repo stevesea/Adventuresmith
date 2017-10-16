@@ -757,8 +757,8 @@ so1um is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa
 <br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
 of this license, visit https://creativecommons.org/licenses/by/3.0/
 <br/>
-<br/>Monster - Licensed under the Creative Commons Attribution 4.0 Unported License. To view a copy
-of this license, visit https://creativecommons.org/licenses/by/4.0/
+<br/>Monster - Licensed under the Creative Commons Attribution 4.0 International License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
 <h4>solodungeoneer</h4>
 <a href="http://solodungeoneer.blogspot.com">Solo Dungeoneer Blog</a>
