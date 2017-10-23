@@ -1,0 +1,8 @@
+id: fourth_page
+icon: cmd-note-multiple
+generators:
+  - artifact
+  - city
+  - dungeon
+  - monster
+
