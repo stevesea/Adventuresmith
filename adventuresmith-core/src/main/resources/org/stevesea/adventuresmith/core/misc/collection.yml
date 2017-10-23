@@ -10,11 +10,6 @@ groupedGenerators:
   - backgrounds
   - names
   - patron_deity
-  grp4th:
-  - artifact
-  - city
-  - dungeon
-  - monster
   grpGME:
   - fate_chart_variant
   - so1um

@@ -10,6 +10,7 @@ publishers and copyright holders. See below for full listing.
 - [Conjecture Games](#conjecture_games)
 - [Coriolis](#coriolis)
 - [Freebooters on the Frontier](#freebooters_on_the_frontier)
+- [Fourth Page Games](#fourth_page)
 - [GameMaster's Apprentice](#gma)
 - [Hack & Slash](#hack_and_slash)
 - [Kaigaku](#kaigaku)
@@ -122,6 +123,22 @@ All rights reserved. <a href="http://www.paradoxplaza.com">www.paradoxplaza.com<
 by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed under a Creative Commons Attribution 3.0 Unported license.</p>
 <p>The text of <em>Freebooters on the Frontier</em> is released under a Creative Commons Attribution - ShareAlike 3.0 Unported license.</p>
 <p><strong>Antoine Pempie</strong> - French translation of Freebooters on the Frontier, released under Creative Commons Attribution - ShareAlike 3.0 Unported license.﻿</p>
+
+
+
+
+<a name="fourth_page"></a>
+## Fourth Page Games - Mike Riverso
+[http://fourthpagegames.com](http://fourthpagegames.com)
+
+<a href="http://fourthpagegames.com">Fourth Page Games</a>
+<cite>Fourth Page</cite> generators for World of Dungeons.
+<br/>
+<br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
+of this license, visit https://creativecommons.org/licenses/by/3.0/
+<br/>
+<br/>Monster - Licensed under the Creative Commons Attribution 4.0 International License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
 
 
@@ -749,16 +766,6 @@ The Patron Deity generator is from the Cleric playbook in Joel's
 <p>so1um is a solo RPG engine created by Matt Jackson.
 <br/>
 so1um is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Commercial-ShareAlike 3.0 Unported License</a></p>
-
-<h4>Mike Riverso</h4>
-<a href="fourthpagegames.com">Fourth Page Games</a>
-<cite>the Fourth Page</cite> generators for World of Dungeons.
-<br/>
-<br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
-of this license, visit https://creativecommons.org/licenses/by/3.0/
-<br/>
-<br/>Monster - Licensed under the Creative Commons Attribution 4.0 International License.
-To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
 <h4>solodungeoneer</h4>
 <a href="http://solodungeoneer.blogspot.com">Solo Dungeoneer Blog</a>
