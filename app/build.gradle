@@ -138,6 +138,7 @@ dependencies {
     // and provides scalable icons. the core is very very light
     // https://github.com/mikepenz/Android-Iconics
     compile "com.mikepenz:iconics-core:$iconics_core_version"
+    compile "com.mikepenz:iconics-views:$iconics_core_version"
     compile "com.mikepenz:community-material-typeface:$iconics_cmd_version"
     compile "com.mikepenz:ionicons-typeface:$iconics_ion_version"
 
