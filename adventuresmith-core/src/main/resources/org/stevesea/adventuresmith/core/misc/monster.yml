@@ -11,18 +11,18 @@ templates:
 nested_tables:
   role:
     template:
-    - "Artillery </strong><br/> {{role.Artillery}}"
-    - "Boss </strong><br/> {{role.Boss}}"
-    - "Brute </strong><br/> {{role.Brute}}"
-    - "Controller </strong><br/> {{role.Controller}}"
-    - "Horde </strong><br/> {{role.Horde}}"
-    - "Leader </strong><br/> {{role.Leader}}"
-    - "Lurker </strong><br/> {{role.Lurker}}"
-    - "Manipulator </strong><br/> {{role.Manipulator}}"
-    - "Minion </strong><br/> {{role.Minion}}"
-    - "Scout </strong><br/> {{role.Scout}}"
-    - "Skirmisher </strong><br/> {{role.Skirmisher}}"
-    - "Soldier </strong><br/> {{role.Soldier}}"
+    - "<big>Artillery</big></strong><br/> {{role.Artillery}}"
+    - "<big>Boss </big></strong><br/> {{role.Boss}}"
+    - "<big>Brute </big></strong><br/> {{role.Brute}}"
+    - "<big>Controller </big></strong><br/> {{role.Controller}}"
+    - "<big>Horde </big></strong><br/> {{role.Horde}}"
+    - "<big>Leader </big></strong><br/> {{role.Leader}}"
+    - "<big>Lurker </big></strong><br/> {{role.Lurker}}"
+    - "<big>Manipulator </big></strong><br/> {{role.Manipulator}}"
+    - "<big>Minion </big></strong><br/> {{role.Minion}}"
+    - "<big>Scout </big></strong><br/> {{role.Scout}}"
+    - "<big>Skirmisher </big></strong><br/> {{role.Skirmisher}}"
+    - "<big>Soldier </big></strong><br/> {{role.Soldier}}"
     Artillery:
     - They shoot at you from cover.
     - You're caught in the blast radius.
@@ -110,18 +110,18 @@ nested_tables:
 
   habitat:
     template:
-    - "City </strong><br/> {{habitat.City}}"
-    - "Coast </strong><br/> {{habitat.Coast}}"
-    - "Desert </strong><br/> {{habitat.Desert}}"
-    - "Dungeon </strong><br/> {{habitat.Dungeon}}"
-    - "Fey Realm </strong><br/> {{habitat.FeyRealm}}"
-    - "Forest </strong><br/> {{habitat.Forest}}"
-    - "Grassland </strong><br/> {{habitat.Grassland}}"
-    - "Mountain </strong><br/> {{habitat.Mountain}}"
-    - "Shadow Realm </strong><br/> {{habitat.ShadowRealm}}"
-    - "Swamp </strong><br/> {{habitat.Swamp}}"
-    - "Tundra </strong><br/> {{habitat.Tundra}}"
-    - "Underground </strong><br/> {{habitat.Underground}}"
+    - "<big>City </big></strong><br/> {{habitat.City}}"
+    - "<big>Coast </big></strong><br/> {{habitat.Coast}}"
+    - "<big>Desert </big></strong><br/> {{habitat.Desert}}"
+    - "<big>Dungeon </big></strong><br/> {{habitat.Dungeon}}"
+    - "<big>Fey Realm </big></strong><br/> {{habitat.FeyRealm}}"
+    - "<big>Forest </big></strong><br/> {{habitat.Forest}}"
+    - "<big>Grassland </big></strong><br/> {{habitat.Grassland}}"
+    - "<big>Mountain </big></strong><br/> {{habitat.Mountain}}"
+    - "<big>Shadow Realm </big></strong><br/> {{habitat.ShadowRealm}}"
+    - "<big>Swamp </big></strong><br/> {{habitat.Swamp}}"
+    - "<big>Tundra </big></strong><br/> {{habitat.Tundra}}"
+    - "<big>Underground </big></strong><br/> {{habitat.Underground}}"
     City:
     - It's been domesticated.
     - These vermin are everywhere.
@@ -209,18 +209,18 @@ nested_tables:
 
   nature:
     template:
-    - "Aberration </strong><br/> {{nature.Aberration}}"
-    - "Animal and Plant </strong><br/> {{nature.AnimalAndPlant}}"
-    - "Construct </strong><br/> {{nature.Construct}}"
-    - "Elemental </strong><br/> {{nature.Elemental}}"
-    - "Fey </strong><br/> {{nature.Fey}}"
-    - "Giant </strong><br/> {{nature.Giant}}"
-    - "Humanoid </strong><br/> {{nature.Humanoid}}"
-    - "Monstrosity </strong><br/> {{nature.Monstrosity}}"
-    - "Mythical Beast </strong><br/> {{nature.MythicalBeast}}"
-    - "Ooze </strong><br/> {{nature.Ooze}}"
-    - "Outsider </strong><br/> {{nature.Outsider}}"
-    - "Undead </strong><br/> {{nature.Undead}}"
+    - "<big>Aberration </big></strong><br/> {{nature.Aberration}}"
+    - "<big>Animal and Plant </big></strong><br/> {{nature.AnimalAndPlant}}"
+    - "<big>Construct </big></strong><br/> {{nature.Construct}}"
+    - "<big>Elemental </big></strong><br/> {{nature.Elemental}}"
+    - "<big>Fey </big></strong><br/> {{nature.Fey}}"
+    - "<big>Giant </big></strong><br/> {{nature.Giant}}"
+    - "<big>Humanoid </big></strong><br/> {{nature.Humanoid}}"
+    - "<big>Monstrosity </big></strong><br/> {{nature.Monstrosity}}"
+    - "<big>Mythical Beast </big></strong><br/> {{nature.MythicalBeast}}"
+    - "<big>Ooze </big></strong><br/> {{nature.Ooze}}"
+    - "<big>Outsider </big></strong><br/> {{nature.Outsider}}"
+    - "<big>Undead </big></strong><br/> {{nature.Undead}}"
     Aberration:
     - They phase in and out of reality.
     - It floats unnaturally.

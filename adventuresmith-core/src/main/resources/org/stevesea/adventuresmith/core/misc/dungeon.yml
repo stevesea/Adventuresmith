@@ -12,21 +12,21 @@ templates:
 
 tables:
   history:
-  - "Builder  </strong><br/>{{nested_history.Builder}}"
-  - "Downfall </strong><br/>{{nested_history.Downfall}}"
-  - "Purpose  </strong><br/>{{nested_history.Purpose}}"
+  - "<big>Builder </big> </strong><br/>{{nested_history.Builder}}"
+  - "<big>Downfall</big> </strong><br/>{{nested_history.Downfall}}"
+  - "<big>Purpose </big> </strong><br/>{{nested_history.Purpose}}"
   denizen:
-  - "Community</strong><br/>{{nested_denizen.Community}}"
-  - "Creature </strong><br/>{{nested_denizen.Creature}}"
-  - "Hermit </strong><br/>{{nested_denizen.Hermit}}"
+  - "<big>Community</big></strong><br/>{{nested_denizen.Community}}"
+  - "<big>Creature </big></strong><br/>{{nested_denizen.Creature}}"
+  - "<big>Hermit   </big></strong><br/>{{nested_denizen.Hermit}}"
   trial:
-  - "Dilemma</strong><br/>{{nested_trial.Dilemma}}"
-  - "Hazard </strong><br/>{{nested_trial.Hazard}}"
-  - "Trap </strong><br/>{{nested_trial.Trap}}"
+  - "<big>Dilemma</big></strong><br/>{{nested_trial.Dilemma}}"
+  - "<big>Hazard </big></strong><br/>{{nested_trial.Hazard}}"
+  - "<big>Trap   </big></strong><br/>{{nested_trial.Trap}}"
   secret:
-  - "Cache</strong><br/>{{nested_secret.Cache}}"
-  - "Lore </strong><br/>{{nested_secret.Lore}}"
-  - "Revelation</strong><br/>{{nested_secret.Revelation}}"
+  - "<big>Cache</big></strong><br/>{{nested_secret.Cache}}"
+  - "<big>Lore </big></strong><br/>{{nested_secret.Lore}}"
+  - "<big>Revelation</big></strong><br/>{{nested_secret.Revelation}}"
 
 nested_tables:
   nested_history:

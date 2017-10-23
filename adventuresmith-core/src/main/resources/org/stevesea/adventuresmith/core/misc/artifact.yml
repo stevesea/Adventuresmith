@@ -8,19 +8,19 @@ templates:
 
 tables:
   origin:
-  - "Holy</strong><br/>{{nested_origin.Holy}}"
-  - "Masterwork</strong><br/>{{nested_origin.Masterwork}}"
-  - "Magic</strong><br/>{{nested_origin.Magic}}"
-  - "Natural</strong><br/>{{nested_origin.Natural}}"
-  - "Otherworldly</strong><br/>{{nested_origin.Otherworldly}}"
-  - "Technological</strong><br/>{{nested_origin.Technological}}"
+  - "<big>Holy</big></strong><br/>{{nested_origin.Holy}}"
+  - "<big>Masterwork</big></strong><br/>{{nested_origin.Masterwork}}"
+  - "<big>Magic</big></strong><br/>{{nested_origin.Magic}}"
+  - "<big>Natural</big></strong><br/>{{nested_origin.Natural}}"
+  - "<big>Otherworldly</big></strong><br/>{{nested_origin.Otherworldly}}"
+  - "<big>Technological</big></strong><br/>{{nested_origin.Technological}}"
   power:
-  - "Blessing</strong><br/>{{nested_power.Blessing}}"
-  - "Curse</strong><br/>{{nested_power.Curse}}"
-  - "Enhancement</strong><br/>{{nested_power.Enhancement}}"
-  - "Force</strong><br/>{{nested_power.Force}}"
-  - "Protection</strong><br/>{{nested_power.Protection}}"
-  - "Utility</strong><br/>{{nested_power.Utility}}"
+  - "<big>Blessing</big></strong><br/>{{nested_power.Blessing}}"
+  - "<big>Curse</big></strong><br/>{{nested_power.Curse}}"
+  - "<big>Enhancement</big></strong><br/>{{nested_power.Enhancement}}"
+  - "<big>Force</big></strong><br/>{{nested_power.Force}}"
+  - "<big>Protection</big></strong><br/>{{nested_power.Protection}}"
+  - "<big>Utility</big></strong><br/>{{nested_power.Utility}}"
 
 
 
