@@ -513,9 +513,12 @@ Roll XX: Double Damage is a book of random tables for fantasy role-playing games
 
 <a name="ss_and_ss"></a>
 ## Sharp Swords & Sinister Spells - Diogo Nogueira / Old Skull Publishing
-[http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells](http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells)
+[http://oldskulling.blogspot.com/](http://oldskulling.blogspot.com/)
 
 <a href="http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells">Sharp Swords & Sinister Spells on DriveThruRPG</a>
+<br/><br/><a href="http://www.drivethrurpg.com/product/219747/Sharp-Swords--Sinister-Spells--Addendum">Sharp Swords & Sinister Spells Addendum on DriveThruRPG</a>
+
+<br/><br/><a href="http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator">Lost Folios of the Book of Creation #1  on DriveThruRPG</a>
 
 
 <h4><cite>Sharp Swords & Sinister Spells</cite> Open Content in Adventuresmith</h4>
@@ -540,9 +543,6 @@ Dave Arneson, David Black, Christian Mehrstam, John Cocking, Peter S. Williams, 
 Harley Stroh, Jason Morningstar, Ian Livingstone, Steve Jackson, Simon Washbourne, Kevin Crawford,
 Sandy Petersen, Mike Manson, Jay Little, James M. Spahn, Ben Milton.</p>
 </blockquote>
-<h4>Lost Folios of the Book of Creation #1 - Adventure Title Generator</h4>
-<a href="http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator">Lost Folios of the Book of Creation #1  on DriveThruRPG</a>
-
 </p>
 <blockquote>
 Open Game License (OGL 1.0a)
