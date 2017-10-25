@@ -1,0 +1,105 @@
+---
+templates:
+- "{{arcane_corruption.template}}"
+
+nested_tables:
+  arcane_corruption:
+    template:
+    - |
+      %[[>pick: 1d6+{{input.spellsKnown}} arcane_corruption.table]]%
+      <br/>
+      <br/><small><em>[spells known: {{input.spellsKnown}}]</em></small>
+    table:
+    - |
+      2,
+      Symbols and signs indicating that the character is a sorcerer
+      appear on a part of the caster’s body that is easily covered.
+    - |
+      Symbols and signs indicating that the character is a sorcerer appear
+      on a part of the caster’s body that is not easily hidden.
+    - |
+      The skin over a part of the character’s body is deformed (animal
+      hair grows, scales appear, skin melts).
+    - |
+      A part of the character’s body elongates or shrinks <strong>{{>roll: 1d6*10}}%</strong>,
+      becoming disproportionate to the rest of their body.
+    - |
+      The character’s eyes acquire a supernatural aspect in accordance to
+      their Vocation.
+    - |
+      The character acquires wounds on parts of his body that never heal
+      completely, reducing his total HP by <strong>{{>roll: 1d3}}</strong> permanently.
+    - |
+      Part of the character’s body acquires a feral aspect.
+    - |
+      The character acquires a cadaverous appearance and loses 1 point
+      of Physique.
+    - |
+      The character feels uncomfortable while in daylight, receiving a
+      Negative Die while under it.
+    - |
+      The character cannot keep his body’s warmth as before, receiving a
+      Negative Die to resist cold effects.
+    - |
+      The character ages <strong>{{>roll: 1d12}}</strong> years.
+    - |
+      The character’s face is completely transformed in accordance to his
+      Vocation or the type of magic he most usually casts.
+    - |
+      The character now sees his conscience as a separate being and
+      constantly talks to it.
+    - |
+      The character’s presence makes animals agitated and
+      uncomfortable, announcing his proximity.
+    - |
+      The character’s presence makes plants within close range wither
+      and die.
+    - |
+      The character is weakened and acquires a beaten appearance,
+      losing 1 point of Physique and Agility permanently.
+    - |
+      A daemon’s face appears on a part of the character’s body and
+      councils him constantly and vociferously to do evil things.
+    - |
+      Chaotic energies consume the character’s vitality, making him lose
+      <strong>{{>roll: 1d4}}</strong> points of Physique or Agility.
+    - |
+      The abundance of chaotic energies inflates the character’s body,
+      making him acquire a morbidly obese appearance.
+    - |
+      Chaotic energies begin to emanate from the character’s body,
+      making anyone maintaining skin contact with him for more than a
+      few seconds suffer <strong>{{>roll: 1d3}}</strong> points of damage per round.
+    - |
+      A part of the character's body acquires the aspects of daemons
+      (forked tail, goat horns, cloves, claws).
+    - |
+      The character has constant nightmares, disturbing and hindering
+      his rests. The character now recovers HP with the die reduced by
+      1 step.
+    - |
+      A necrosis starts to spread on the character's body, who loses 1
+      point of either Physique or Agility per adventure.
+    - |
+      Part of the character's soul is taken by a supernatural entity,
+      reducing his Luck Die by 1 step.
+    - |
+      The character now needs to drink human blood daily and loses 1
+      HD each day he doesn't do so.
+    - |
+      Once per adventure the Referee can ask the character for a Luck
+      Roll. If he is unlucky, his character acquires a split personality with
+      opposing morals. The character needs to pass a Luck Roll in order
+      to make his original personality assume control again.
+    - |
+      An exact copy of the character sprouts from his body. The copy is
+      exactly like the character, but hates him and wants to assume his
+      place.
+    - |
+      The character is impregnated with the embryo of a supernatural
+      entity. If at any moment his Luck Die is reduced below a d4, the
+      embryo is born and the character dies.
+    - |
+      The character is transported to the Plane of Chaos to be questioned
+      about the usage of his spells, potentially having to fight for the right
+      to use them.
