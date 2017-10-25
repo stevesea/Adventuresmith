@@ -1,8 +1,29 @@
 name: Sharp Swords & Sinister Spells
-url: http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells
+url: http://oldskulling.blogspot.com/
 credit: Diogo Nogueira / Old Skull Publishing
+
+groups:
+  - name: grpAdventure
+    uiName: Adventures
+    icon: cmd-sword-cross
+  - name: grpBetweenAdventure
+    uiName: Between Adventures
+    icon: cmd-timer-sand
+  - name: grpChar
+    uiName: Characters
+    icon: cmd-account
+  - name: grpEncounter
+    uiName: Encounters
+    icon: cmd-run
+  - name: grpNPC
+    uiName: NPCs
+    icon: cmd-account-multiple
+
 attribution: |
   <a href="http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells">Sharp Swords & Sinister Spells on DriveThruRPG</a>
+  <br/><br/><a href="http://www.drivethrurpg.com/product/219747/Sharp-Swords--Sinister-Spells--Addendum?term=sharp+swords">Sharp Swords & Sinister Spells Addendum on DriveThruRPG</a>
+
+  <br/><br/><a href="http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator">Lost Folios of the Book of Creation #1  on DriveThruRPG</a>
 
 
   <h4><cite>Sharp Swords & Sinister Spells</cite> Open Content in Adventuresmith</h4>
@@ -27,9 +48,6 @@ attribution: |
   Harley Stroh, Jason Morningstar, Ian Livingstone, Steve Jackson, Simon Washbourne, Kevin Crawford,
   Sandy Petersen, Mike Manson, Jay Little, James M. Spahn, Ben Milton.</p>
   </blockquote>
-  <h4>Lost Folios of the Book of Creation #1 - Adventure Title Generator</h4>
-  <a href="http://www.drivethrurpg.com/product/204344/Lost-Folios-of-the-Book-of-Creation-1--Adventure-Title-Generator">Lost Folios of the Book of Creation #1  on DriveThruRPG</a>
-
   </p>
   <blockquote>
   Open Game License (OGL 1.0a)

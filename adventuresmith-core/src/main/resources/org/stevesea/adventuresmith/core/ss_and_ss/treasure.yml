@@ -1,0 +1,55 @@
+---
+templates:
+- "{{treasure.template}}"
+
+nested_tables:
+  treasure:
+    template:
+    - "Coins and Gems: <br/>{{treasure.coins}}"
+    - "Jewelry: <br/>{{treasure.jewelry}} "
+    - "Weapons and Armor: <br/>{{treasure.weapons}}"
+    - "Goods: <br/>{{treasure.goods}}"
+    - "Art Objects: <br/>{{treasure.art}}"
+    - "Uncommon Objects: <br/>{{treasure.uncommon}}"
+    coins:
+    - Of Platinum
+    - From an Ancient Empire
+    - Larger than Normal
+    - Has Animal Shapes
+    - Shiny and Polished
+    - Artistic Details
+    jewelry:
+    - Richly Detailed
+    - With Precious Gems
+    - Made by Famous Artisans
+    - Made with Rare Materials
+    - Of an Important Person
+    - Of Alien Origin
+    weapons:
+    - Of Tremendous Quality
+    - Of Valuable Materials
+    - Richly Decorated
+    - Of a Famous Person
+    - Made of Star Metal
+    - Enchanted / Cursed
+    goods:
+    - Rare Spices
+    - Raw Minerals
+    - Valuable Beverages
+    - Well Crafted Utensils
+    - Drugs
+    - Valuable Textiles
+    art:
+    - Valuable Paintings
+    - Statues
+    - Musical Instrument
+    - Rare Sheet Music
+    - Ancient Objects
+    - Decorated Utensils
+    uncommon:
+    - Magical Ingredients
+    - Technological Artifact
+    - Spellbook
+    - Masks of Rare Materials
+    - Star Metal Cube
+    - Important Scroll

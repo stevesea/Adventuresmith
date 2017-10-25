@@ -1,13 +1,22 @@
 
 icon: cmd-sword
 id: ss_and_ss
-generators:
+
+
+groupedGenerators:
+  grpAdventure:
   - adventure_title
   - adventure_idea
-  - opponent_reaction
   - adventure_complication
-  - antagonist
-  - complication
   - reward
-  - supporting_character
+  grpBetweenAdventure:
+  - where_gold_go
+  grpChar:
+  - complication
+  grpEncounter:
+  - opponent_reaction
   - spell_catastrophe
+  - treasure
+  grpNPC:
+  - antagonist
+  - supporting_character
