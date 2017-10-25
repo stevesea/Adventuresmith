@@ -1,9 +1,5 @@
 ---
 templates:
-- "{{where_gold_go}}"
-
-tables:
-  where_gold_go:
   - After a night of partying and drinking in the dirtiest tavern in the City-State, you wake up in a filthy alley, surrounded by rats, without any coin and with thank you note. Who is it from?
   - Betting on how strong/agile/wise/intelligent you are, you were bested by someone you never imagined could defeat you. How did she do that? Did she cheat?
   - Involved in some controversy with local authorities, you had your possessions confiscated. What happened?

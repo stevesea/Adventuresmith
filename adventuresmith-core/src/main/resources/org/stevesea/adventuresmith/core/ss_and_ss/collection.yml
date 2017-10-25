@@ -9,6 +9,7 @@ groupedGenerators:
   - adventure_idea
   - adventure_complication
   - reward
+  - travel_hazards
   grpBetweenAdventure:
   - where_gold_go
   grpChar:
