@@ -1,0 +1,15 @@
+---
+name: Arcane Corruption
+
+input:
+  displayTemplate: "Spells known: {{spellsKnown}}"
+  params:
+  - name: spellsKnown
+    uiName: Spells Known
+    helpText: Total number of spells known
+    defaultValue: 1
+    numbersOnly: true
+    isInt: true
+    maxVal: 100
+    minVal: 0
+

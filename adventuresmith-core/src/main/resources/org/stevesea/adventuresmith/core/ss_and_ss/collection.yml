@@ -16,6 +16,8 @@ groupedGenerators:
   - complication
   grpEncounter:
   - opponent_reaction
+  - spellbook_effects
+  - arcane_corruption
   - spell_catastrophe
   - treasure
   grpNPC:
