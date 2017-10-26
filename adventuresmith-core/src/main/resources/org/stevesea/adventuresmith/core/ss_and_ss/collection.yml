@@ -17,9 +17,10 @@ groupedGenerators:
   grpEncounter:
   - opponent_reaction
   - spellbook_effects
+  - treasure
+  - monster
   - arcane_corruption
   - spell_catastrophe
-  - treasure
   grpNPC:
   - antagonist
   - supporting_character

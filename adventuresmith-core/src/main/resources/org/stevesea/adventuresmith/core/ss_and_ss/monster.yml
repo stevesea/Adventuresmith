@@ -1,0 +1,674 @@
+---
+templates:
+- ""
+
+tables:
+  natures:
+  - Humanoid
+  - Beast
+  - Plant
+  - Prehistoric
+  - Undead
+  - Magical
+  - Technological
+  - Alien
+  - Aberration
+  - Mythological
+  - Daemonic
+  - Amalgamation (mix 1d3+1 natures)
+  animals:
+  - Bee
+  - Jellyfish
+  - Eagle
+  - Spider
+  - Baboon
+  - Whale
+  - Cockroach
+  - Beatle
+  - Goat
+  - Buffalo
+  - Hound
+  - Crab
+  - Chameleon
+  - Horse
+  - Snake
+  - Owl
+  - Crocodile
+  - Dromedary
+  - Elephant
+  - Scorpion
+  - Squirrel
+  - Starfish
+  - Falcon
+  - Seal
+  - Ant
+  - Rooster
+  - Ferret
+  - Grasshopper
+  - Goose
+  - Heron
+  - Cat
+  - Giraffe
+  - Dolphin
+  - Gorilla
+  - Raccoon
+  - Hyena
+  - Hippopotamus
+  - Iguana
+  - Alligator
+  - Jaguar
+  - Boar
+  - Boa Constrictor
+  - Centipede
+  - Caterpillar
+  - Gecko
+  - Lizard
+  - Lobster
+  - Lion
+  - Leopard
+  - Snail
+  - Dragonfly
+  - Wolf
+  - Worm
+  - Squid
+  - Monkey
+  - Moth
+  - Earthworm
+  - Bat
+  - Fly
+  - Adder
+  - Oyster
+  - Urchin
+  - Sheep
+  - Panther
+  - Duck
+  - Peacock
+  - Swordfish
+  - Penguin
+  - Piranha
+  - Octopus
+  - Pigeon
+  - Pig
+  - Hedgehog
+  - Sloth
+  - Protozoan
+  - Lynx
+  - Fox
+  - Frog
+  - Rat
+  - Deer
+  - Rhinoceros
+  - Nightingale
+  - Salamander
+  - Manta Ray
+  - Serpent
+  - Anteater
+  - Turtle
+  - Armadillo
+  - Badger
+  - Tiger
+  - Mole
+  - Bull
+  - Shark
+  - Bear
+  - Vulture
+  - Moose
+  - Mule
+  - Maggot
+  - Wasp
+  - Zebra
+
+  weaknesses:
+  - Vanity
+  - Stupidity
+  - Vulnerable special part
+  - Can't distance itself from specific place
+  - Need to feed constantly
+  - Life depends on a specific item
+  - Vulnerable to certain type of attack
+  - Aversion to some substance or object
+  - Methodic compulsion
+  - Honor code
+  - Circumstantial weakness
+  - Powerful enemy
+  - Addiction
+  - Obsession
+  - Vulnerability in another dimension
+  - Simply knowing its True Name makes it weak
+  - Weakness after a ritual
+  - Fears its own reflection
+  - Hubris
+  - True beauty
+
+  powers:
+  1 Acid Attack: Acid deals a die of damage 1 step below normal for the creature's
+  HD for HD rounds.
+  2 Acid Blood: When an attacker inflicts damage in close range to the creature
+  they must make an Agility test or suffer a Damage Die 1 step below the
+  normal for the creature's HD.
+  3 Cause Blindness: Blinds a target for 1d4 rounds per HD. The target receives 2
+  Negative Dice for any action that relies on vision.
+  4 Imprison: The creature imprisons a target in a viscous substance, requiring
+  the victim to make a Physique test to escape.
+  5 Earthquake: Causes an earthquake up to far range, collapsing buildings and
+  causing other damage. Creatures in the area must make an Agility test or are
+  knocked to the floor.
+  6 Tunneling: Can move through solid earth as normal.
+  7 Destroy Metal: Metal objects that touch the creature's body are damaged and
+  become useless. When an attacker hits the creature, he must make a Luck
+  Roll to see if his weapon is ruined.
+  8 Destroy Wood: Wooden objects are destroyed if they come into contact with
+  the creature's skin. When an attacker hits the creature, he must make a Luck
+  Roll to see if his weapon is ruined.
+  9 Lacerate: After the attack, the target receives a Negative Die to all physical
+  actions for HD rounds.
+  10 Corrode Minerals: Rocks and other minerals can be dissolved by the creature,
+  allowing it to pass through walls.
+  11 Animate Object: Gives life to inanimate objects, transforming them into
+  monsters under the creature's command. The creature can animate a number
+  of objects equal to its HD.
+  12 Suffocation: Drains the air from its victims’ lungs.
+  13 Repulsion: Makes it hard for creatures of a certain type (Referee’s discretion)
+  to approach. Characters can resist with a Willpower test.
+  14 Bleeding: In addition to normal damage, this attack causes bleeding, making
+  the target loses a Damage Die 1 step below normal for the creature's HD
+  per round until the wound is treated.
+  15 Necrosis: This attack causes necrosis and the victim loses 1 point of Physique
+  or Agility per day until a cure is found.
+  16 Disease: Causes grave and potentially deadly disease (Referee may impose
+  Attribute damage, Negative Dice and loss of HP). Victims can make a
+  Willpower test to resist it.
+  17 Incubation: An egg or seed is inserted inside the target and it will generate
+  another monster in a set amount of time, leading to the victim's death.
+  18 Drain Attribute: Victim loses 1d4 points of a specific Attribute. The target can
+  usually resist with an appropriate Attribute test.
+  19 Power Vortex: Summons an energy storm that affects all creatures in nearby
+  range who suffer a Damage Die 1 step lower than normal, unless they make
+  an Agility test for half damage. The storm lasts for HD rounds.
+  20 Confusion: Makes victim confused and disoriented, receiving a Negative
+  Die to all actions for a number of rounds determined by the creature's
+  Damage Die.
+  21 Freezing Attack: In addition to normal damage, targets must make Physique
+  tests or are frozen, imprisoned and incapable of moving for HD rounds.
+  22 Command Plants or Animals: Can command a number of plants or animals up
+  to the creature's HD.
+  23 Curse: Curses a victim who can resist with a Willpower test. The Referee
+  will come up with the curse effect (which can have mechanical and narrative
+  effects). Additionally, the target’s Luck Die is lowered by 1 step until the
+  curse is broken.
+  24 Create Barrier: Creates a barrier to hinder of stop movement. Barriers can also
+  inflict damage with thorns or blades. To overcome a barrier, characters will
+  need to make a Physique or Agility test.
+  25 Instant Death: Kills target instantly unless it passes an appropriate
+  Attribute test.
+  26 Slow Death: Target acquires a malady that kills him slowly. He suffers a
+  Damage Die or loss of Attribute points daily and cannot heal this unless a
+  cure is found.
+  27 Drain Life: Causes a Damage Die 1 step lower than normal but the creature
+  regains the same amount of HP.
+  28 Dimensional Confinement: Imprisons a target in an extra-planar space. The
+  victim can only be freed by killing the creature.
+  29 Multidimensional: The creature exists in multiple planes, hopping from one
+  to another in the blink of an eye. Every time the creature is hit, the attacker
+  makes a Luck Roll to determine if the creature did not hop to another
+  dimension the moment it was being hit, avoiding damage.
+  30 Drain Memories: Target loses memories, making it harder to remember
+  information. A Luck Roll is made to determine if a particular subject or spell
+  was forgotten. One memory is forgotten per attack. This effect is permanent.
+  31 Electric Damage: When hitting a target with this ability, creatures within close
+  range must make a Luck Roll or suffer a Damage Die 1 step below normal.
+  32 Electric Creature: Electricity runs through the creature's body and those
+  carrying metal objects that touch it must make a Luck Roll or take a
+  Damage Die 1 step below normal.
+  33 Magnetic Field: Weapons and armor made of metal that make contact with the
+  creature can become stuck unless the attacker makes a Physique test.
+  34 Scare: Forces targets that see the creature to make a Willpower test or suffer
+  a Negative Die on all tests against it.
+  35 Dominate: Can dominate the minds of a number of creatures equal to its HD.
+  Victims can resist with a Willpower test.
+  36 Induce Rage: Targets within nearby range must make a Willpower test or be
+  driven into a rage, attacking anyone within close range in the most violent
+  way they can for a number of rounds equal to the creature's HD.
+  37 Cause Apathy: Causes apathy in up to HD targets (who can resist with a
+  Willpower test). Those affected must make a Willpower test to act each round.
+  38 Cause Ecstasy: The creature's touch causes ecstasy, paralyzing victims with
+  pleasure for HD rounds, unless they pass a Physique test.
+  39 Sleep: Can put to sleep all opponents within nearby range. Targets can resist
+  with a Physique test.
+  40 Incendiary Attack: This attack can set a target on fire, causing the same
+  amount of damage on the following rounds unless the victim makes an
+  Agility test to dampen the flames.
+  41 Flaming Body: Anyone within close range receives a Damage Die 2 steps
+  below normal for the creature's HD.
+  42 Explosion: Causes an explosion that deals 1d6 points of damage per HD to
+  anyone within close range. An Agility test can reduce this damage to half.
+  43 Hallucination: Alters the target's perception, making him believe in things
+  that are not there. Targets can resist with an Intellect test. This lasts for
+  HD turns.
+  44 Project Illusion: Affects an area up to far range, creating an illusion that affects
+  all senses. Can be resisted with a Willpower test.
+  45 Freezing Aura: Affects an area up to nearby range, dropping the temperature
+  to a level below freezing. Targets need to make a Physique test to avoid
+  being frozen into place.
+  46 Crush: Target is crushed by the creature and can make a Physique test per
+  round to escape or suffer a Damage Die 1 step lower than normal.
+  47 Immobilize: Targets within nearby range must make an appropriate Attribute
+  test or cannot move for 1d4 rounds per creature's HD.
+  48 Induce Insanity: A target up to far range must make an Intellect test or
+  acquire a madness relating to the creature. To cure himself, the character will
+  need a number of years equal to the creature's HD.
+  49 Cause Stupidity: Affects one target per creature's HD if they fail an Intellect
+  test. The affected become stupid and unlearned, incapable of taking
+  intelligent actions, remembering languages and spells. This usually lasts for
+  HD hours.
+  50 Spread Shadows: An aura of shadows extends up to nearby range, blocking
+  the vision of anyone within this space.
+  51 Shadow Step: The creature can travel through shadows, covering great or
+  small distances.
+  52 Ethereal Form: Can assume an ethereal form, becoming immune to physical
+  attacks and can enter hard to reach places.
+  53 Augmented Senses: The creature has sharp senses, sensing slight changes in its
+  surroundings. Character's receive a Negative Die when trying to deceive it.
+  54 Extra Senses: The creature has an additional sense like thermal vision, sonar,
+  E.S.P., aura vision, etc.
+  55 Multiple Attacks: Can make additional attacks per round up to their total
+  number of HD.
+  56 Bad Luck: Double the chances of Random Encounters for up to HD
+  creatures who fail a Willpower test for HD days.
+  57 Drain Magic: Up to HD targets within nearby range become unable to cast
+  spells if they fail a Willpower test. This lasts for HD turns.
+  58 Telekinesis: The creature can move objects or beings (Physique test to resist)
+  with its mind and can make attacks with this power.
+  59 Steal Memories: Steal the memories of up to HD targets, becoming able to
+  assume their personalities. Can be resisted with a Willpower test.
+  60 Duplicate Appearance: Can assume the appearance of a touched target for up
+  to HD days.
+  61 Fly: The creature can move through the air with freedom, avoiding obstacles
+  and hazards.
+  62 Scale Surfaces: Can move over walls, ceilings and other non-horizontal
+  surfaces like a spider.
+  63 Amphibious: Can live and act freely on land and water.
+  64 Impair Movement: A target up to nearby range needs twice as much effort
+  and actions to move unless they pass an appropriate Attribute test. This
+  lasts for HD turns.
+  65 Open Portal: Open portals to other places and planes that can last for up to
+  HD turns.
+  66 Poison: The creature’s attack is poisoned with a substance with an Intensity
+  equal to its HD.
+  67 Animate Dead: Can animate up to 2 times its HD of undead minions. They last
+  until killed again.
+  68 Enlarge or Reduce: The creature can increase or decrease its size, improving
+  or reducing its HD and Damage Die 1 step. Some creatures can use this
+  power on other targets. Can resist with a Physique test. Lasts for HD turns.
+  69 Reproduce Sound: Can imitate any sound heard in the last HD days.
+  70 Sonic Attack: Can emit a specific frequency capable of damaging living beings
+  and/or structures within nearby range. Those who fail an Agility test suffer
+  the normal damage for the creature's HD. Success indicates half damage.
+  71 Spell Casting: Can cast spells as a Magic User. Treat as having a Willpower
+  of 10 + HD and knowing a number of spells equal to its HD.
+  72 Regenerate: Regenerates a number of HP per round equal to its HD.
+  73 Cause Deformity: A target touched by the creature is deformed unless it passes
+  a Physique test. The deformity can have various effects, from social rejection
+  to Attribute damage.
+  74 Animal Form: Can assume up to HD different animal forms.
+  75 Energy Ray: The creature can fire an energy ray that does 1d6 points of
+  damage per HD to a target up to far range that fails an Agility test.
+  76 Reinforced Carapace: Grants Damage Reduction of –1d or –2d on the dice
+  chain.
+  77 Invisibility or Camouflage: The creature can become invisible or can use
+  camouflage, requiring an Intellect test with a Negative Die to be detected.
+  78 Immunity to Mundane Attacks: The creature can only be harmed by magical
+  attacks and weapons.
+  79 Magical Immunity: The creature is immune to magical attacks and weapons.
+  80 Variable Immunity: The creature is immune to a certain type of attack (fire,
+  metal weapons, electricity, etc.).
+  81 Magical Resistance: Receives a Positive Die to resist magical effects.
+  82 Divide: The creature can divide itself into several copies, splitting its total
+  HD between them. The copies keep all other stats normally and attack as if
+  having its total HD.
+  83 Reflect Attacks: Can reflect a number of attacks per round equal to its HD.
+  The creature makes an attack against the Attribute used in the original one
+  to hit the target.
+  84 Invoke Ally: Can summon a similar creature of the same amount of HD. A
+  character can make a Luck Roll to avoid this effect.
+  85 Immortal: The creature cannot die naturally and a condition must be met for
+  the creature to be truly killed.
+  86 Teleport: The creature is capable of moving through space with just its
+  thoughts, changing locations instantly. This can be used a number of times
+  equal to its HD per day.
+  87 Thorns: The creature has thorns over its body, making everyone within close
+  range make an Agility test to avoid taking HD points of damage. Some of
+  these creatures can expel these thorns up to nearby range, causing normal
+  damage according to its HD.
+  88 Read Minds: Can read the minds of everyone within far range, making it
+  impossible to surprise this creature in combat. Additionally, it receives a
+  Positive Die in its attacks and imposes a Negative Die on attacks against it.
+  89 Absorption: Can absorb the energy of a specific type of attack (kinetic energy,
+  magic, fire), transforming the potential damage into healing.
+  90 Swallow: On a critical hit (or by taking the target to its mouth with another
+  attack), the creature swallows the victim, who will suffer the normal damage
+  of the monster per round automatically. The target can escape if he inflicts
+  the number of HD the creature has in damage in a single attack.
+  91 Disintegrate: Can disintegrate matter within far range with a ray up to HD
+  times per day. If used as an attack, the ray kills any creature who fails an
+  Agility test. Those who succeed suffer 1d6 points of damage per HD.
+  92 Duplicate: Can generate up to HD illusory copies of itself. Copies can be
+  distinguished with an Intellect test.
+  93 Improved Damage: The normal damage of the creatures HD is increased by 1
+  step on the HD table.
+  94 Psychic Attack: All enemies within nearby range must make a Willpower test
+  or suffer a Damage Die 1 step lower than normal and receive a Negative
+  Die for all actions for HD rounds.
+  95 Silence: A point affecting an area with nearby range has all the sound
+  silenced. This lasts for up to HD rounds.
+  96 Turn to Stone: Victims that look into the creature's eyes must make a
+  Physique test or be turned to stone.
+  97 Create Matter: Generates matter of a specific type (wood, stone, gold, crystal)
+  of a volume equal to a cubic foot per HD per day.
+  98 Time Travel: The creature can travel to the past or the future of its location.
+  99 Foresee Future: The creature can see into the future up to HD decades.
+  100 Combine two abilities into one.
+
+nested_tables:
+  daemonic:
+    characteristics:
+    - Goat horns
+    - Shadow body
+    - Goat legs
+    - Empty eye sockets
+    - Flame eyes
+    - Forked tail
+    - Fangs
+    - Bat wings
+    - Skeletal wings
+    - Blood covered body
+    - Crawling with insects
+    - Morbid obesity
+    - Incredible filthy
+    - Mucus covering the body
+    - Body covered with dark thorns
+    - Crawling with serpents
+    - Extremely beautiful
+    - Horrendous
+    - Guttural voice
+    - Melodic voice
+  beast:
+    form:
+    - Torso of one animal and legs of another.
+    - Head of an animal, limbs of another and the body of a third.
+    - Multiple animal heads with the body of another.
+    - Humanoid body with an animal head.
+    - Body of an animal, tail of another and wings of a third.
+    - Headless animal with many mouths of second animal around his body.
+    - Winged head of an animal.
+    - Body of an animal and extra arms of another.
+    - Animal body with a humanoid head.
+    - Animal with 2 torsos of different animals and no lower body.
+    - Humanoid torso and lower body of an animal.
+    - Animal mixed with other creature (roll to determine the second Monster's Nature).
+  plant:
+    form:
+    - Mushroom
+    - Mold
+    - Vines
+    - Grass
+    - Roots
+    - Tree
+    - Flower
+    - Fruit
+    - Shrubbery
+    - Leaf
+    - Algae
+    - Amalgam between Plant Form and other Monster’s Nature
+    attack:
+    - Sharp Thorns
+    - Bladed Leaves
+    - Poisonous Spores
+    - Crushing Branches
+    - Strangling Roots
+    - Explosive Fruits
+    - Blood Sucking Roots
+    - Acid Sap
+    - Scorching Pollen
+    - Inserting a Seed Inside a Victim’s Heart
+    - Scorching Sun Ray reflected by Flowers
+    - Hypnotic Perfume
+  prehistoric:
+    characteristics:
+    - Reptilian
+    - Gigantic with Small Head
+    - Protruding Bones
+    - Highly Muscular with Small Brain
+    - Unicellular
+    - Protruding Teeth and Claws
+    - Amphibious
+    - Reinforced Carapace
+  undead:
+    form:
+    - Incorporeal, appearing as it was when alive
+    - Incorporeal, cadaverous appearance
+    - Incorporeal, gaunt appearance
+    - Incorporeal, foggy or deformed appearance
+    - Shadow
+    - As alive, with cold skin and white eyes
+    - Appearance as the moment it died, wounds still bleeding
+    - Appearance as a rotting corpse
+    - A floating head with incorporeal body
+    - Skeletal
+    feeds_upon:
+    - Blood
+    - Flesh
+    - Brains
+    - Vitality
+    - Will to Live
+    - Dreams
+    - Memories
+    - Anger
+    - Fear
+    - Beauty
+    - Eyes
+    - Time Left to Live
+  magical:
+    traits:
+    - Static energy radiates from the creature, lightly shocking whoever comes close.
+    - The creature levitates just above ground, having a supernatural lightness.
+    - The creature's hair or body hair is always under the influence of elements (on fire, wet, blown by the wind, full of dirt).
+    - The creature's skin emanates a soft glow.
+    - The creature's eye reflects the soul of whoever gazes at it.
+    - Little energy crystals are scattered throughout the creature's body.
+    - The creature's skin changes color according to its humor.
+    - Translucent body.
+    - Small energy spheres orbit around the creature.
+    - The creature appears different for every person who looks at it.
+    - Strange runes and symbols cover the creature’s body.
+    - Tree branches grow from the creature's body.
+    form:
+    - Sphere
+    - Cube
+    - Concentric Rings
+    - Giant Eye with Bloody Veins
+    - Living Energy
+    - Living Fog
+    - Constant Changing Geometric Figure
+    - Floating Pyramid
+    - Living Weapon
+    - Flying Crystal
+    - A Horde of Glass Insects with Collective Intelligence
+    - An Amalgam of 1d4+1 Monster’s Natures
+  technological:
+    form:
+    - Artificial Human Form
+    - Artificial Animal Form
+    - Flying Computer
+    - Brain Inside Translucent Sphere
+    - Sphere with many Monitors and Mechanica Arms
+    - War Tank
+    - Wheeled Vehicle
+    - Flying Saucer
+    - Helicopter
+    - Oven
+    - Meat Grinder
+    - Rubik’s Cube
+    - Bulldozer
+    - Concrete Mixer
+    - Tripod
+    - Monocycle
+    - Millions of Nanobots
+    - Lamp
+    - Telescope
+    - Bundles of Wires and Cables
+    material:
+    - Plastic
+    - Iron
+    - Mercury
+    - Steel
+    - Wood
+    - Glass Fiber
+    - Glass
+    - Acrylic
+    - Gold
+    - Leather
+    - Textile
+    - Copper
+  alien:
+    tech_level:
+    - Stone Age (prehistory and before)
+    - Bronze Age (3500 B.C).
+    - Iron Age (1200 B.C).
+    - Middle Ages (600 B.C).
+    - Age of Discoveries (1450 A.D).
+    - Industrial Revolution (1730 A.D).
+    - Mechanical Age (1880 A.D).
+    - Nuclear Age (1940 A.D).
+    - Digital Age (1980 A.D).
+    - Microtechnology Age (Nanotechnology and other amazing advances)
+    - Space Age (Space travel and colonization)
+    - Time Age (Time travel)
+    means_of_travel:
+    - Meteor
+    - Black Hole
+    - Portal opened by Sorcerer-King
+    - Dimensional Storm
+    - Astral Projection
+    - Cavern Complex with Extra-Planar Connections
+    - A Bridge Extending to Another World
+    - Magical Ship Sailing on Cosmic Currents
+    - Winged Creatures that Ride the Cosmos
+    - Space Ship
+    - Teleporting Device
+    - Intersecting Planet
+    purposes:
+    - Harvest natural resources.
+    - Colonize a new world.
+    - Escape the destruction of their original world.
+    - Search for ancestors that visited this world.
+    - Dominate this new world.
+    - Conduct scientific experiments.
+    - Warn natives of an incoming doom.
+    - Eat all that it can find.
+    - To reproduce with another species.
+    - Gather slaves for an important task.
+    - To learn and collect information.
+    - To prevent a catastrophic event they have foreseen.
+  aberration:
+    form:
+    - Amorphous
+    - Oval
+    - Sphere
+    - Conical
+    - Cylinder
+    - Pyramid
+    - Ring
+    - Icosahedron
+    - Bidimensional
+    - Tetradimensional
+    - Similar to another Monster's Nature
+    - Mixture of 1d+1 Monster's Nature
+    characteristics:
+    - Hundreds of eyes of different types and sizes cover the creature’s body.
+    - Hundreds of mouths of different sizes and shapes cover the creature's body and spew a disgusting goo.
+    - Body covered by irregular thorns that inject hallucinogenic poison.
+    - Body covered with small lips that keep pronouncing alien poetry which drives listeners insane.
+    - Several tentacles cover the creature’s body.
+    - Faces of several different beings in agonizing expressions cover thecreature's body.
+    - Bubbles expelling nauseous smells forms all over the creature's body.
+    - Hundreds of clawed hands form and dissipate over the creature's body.
+    - Hundreds of genitalia cover the creature's body.
+    - The creature's body is covered with holes expelling feces.
+    - Gelatinous and transparent body, exposing all the bizarre organs inside.
+    - Roll 1d4 times.
+  elemental:
+    element:
+    - Earth
+    - Water
+    - Fire
+    - Air
+    - Rock
+    - Magma
+    - Ashes
+    - Sand
+    - Wood
+    - Mud
+    - Steam
+    - Blood
+    - Metal
+    - Mucus
+    - Acid
+    - Poison
+    - Lightning
+    - Light
+    - Glass
+    - Diamond
+  humanoid:
+    template:
+    skin_color:
+    - yellow
+    - orange
+    - red
+    - purple
+    - blue
+    - emerald
+    - gray
+    - transparent
+    appearance:
+    - Elongated Limbs (can make melee attacks to opponents within nearby range)
+    - Giant Head
+    - Shortened Limbs (slow movement)
+    - Elastic Limbs (can make melee attacks to opponents within nearby range)
+    - Extra Pair of Arms (can act one more time per round)
+    - Extra Pair of Legs (can move twice per round)
+    - Extra Heads (receives a Positive Die to mental actions)
+    - Scaly Skin (-1d of Damage Reduction)
+    - "Colorful Skin ({{humanoid.skin_color}}) – Color may indicate resistance to certain types of damage"
+    - Without Body Hair
+    - With flashy hair or fur
+    - Small body (Positive Die to hide)
+    - Large Body (Positive Die to physical actions)
+    - No distinction between genders (or without genders)
+    - Skeletal Body
+    - Corpulent Body
+    - Protruding Bones
+    - Extra Eyes (Positive Die on perception tests)
+    - Eyeless (augmented senses)
+    - Traits of other nature (roll again on the Monster’s Nature table, ignoring the Humanoid result)
+    culture:
+    - Praises brute strength above all else and dominates inferior races.
+    - The search for knowledge moves this race through the cosmos.
+    - Carnal pleasures are all that matters.
+    - The search for spiritual growth is the most noble quest of an individual .
+    - Hoards riches at any cost, even taking it from weaker races.
+    - To reproduce and spread to all corners of the cosmos.
+    - Dominate intellectually all other cultures.
+    - To produce art is the greater deed an individual can accomplish.
+    - Technological development is the most noble cause to pursue.
+    - Sorcery is a stain that must be cleaned from the world.
+    - The accumulation of magical power is the only way to secure our superiority.
+    - To bring our god to this world is our main task.
+    - To remain isolated from other races is our main safety guarantee.
+    - Hunt the most powerful beast to prove your worth.
+    - Never suppress your primal instincts as savagery is the purest state of being.
+    - The quest for the promised land is the main task of our people.
+    - To obey all the wishes and desires of the Queen-Mother, whatever they may be.
+    - Only by the end of the world as we know it we can build a better one .
+    - Life has no meaning and is empty, nothing and no one can alter this truth.
+    - Transformation and constant change are essential to save Chaos from the tyranny of Order.
