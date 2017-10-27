@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'io.fabric'
 //apply plugin: 'easyrelease'
 
@@ -42,7 +41,7 @@ ext {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "org.steavesea.adventuresmith"
         minSdkVersion 16
@@ -56,6 +55,8 @@ android {
         // Enable VectorDrawableCompat for API < 21
         //vectorDrawables.useSupportLibrary = true
     }
+
+    flavorDimensions "minApi"
     productFlavors {
         // Define separate dev and prod product flavors.
         dev {
@@ -63,10 +64,12 @@ android {
             // to pre-dex each module and produce an APK that can be tested on
             // Android Lollipop without time consuming dex merging processes.
             minSdkVersion 21
+            dimension "minApi"
         }
         prod {
             // The actual minSdkVersion for the application.
             minSdkVersion 16
+            dimension "minApi"
         }
     }
 
