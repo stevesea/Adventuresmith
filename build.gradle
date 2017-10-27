@@ -10,7 +10,7 @@ buildscript {
     ext.mockito_kotlin_version = '1.4.0'
 
     ext.detekt_version = '1.0.0.M8.1'
-    ext.crashlytics_version = '2.6.8'
+    ext.crashlytics_version = '2.7.1'
     ext.jmustache_version = '1.13'
     ext.guava_version = '22.0-android'
     ext.cakeparse_version = '1.1.1'
@@ -33,15 +33,12 @@ buildscript {
     ext.leakcanary_version = '1.5'
 
     repositories {
-        google()
         jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
+        google()
+        mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url 'http://dl.bintray.com/kaleidos/maven' }
         maven { url 'https://maven.fabric.io/public' }
-        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
@@ -61,11 +58,9 @@ plugins {
 
 subprojects {
     repositories {
-        mavenCentral()
         jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
+        google()
+        mavenCentral()
         maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://dl.bintray.com/jetbrains/anko' }
         maven { url  "http://dl.bintray.com/arturbosch/code-analysis" }
