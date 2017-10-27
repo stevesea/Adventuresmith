@@ -29,7 +29,7 @@ buildscript {
     ext.materialdrawer_version = '5.9.4@aar'
     ext.materialize_version = '1.0.2@aar'
 
-    ext.leakcanary_version = '1.5'
+    ext.leakcanary_version = '1.5.4'
 
     repositories {
         jcenter()
