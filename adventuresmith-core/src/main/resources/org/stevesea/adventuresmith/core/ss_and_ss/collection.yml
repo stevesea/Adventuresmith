@@ -18,7 +18,7 @@ groupedGenerators:
   - opponent_reaction
   - spellbook_effects
   - treasure
-  - monster
+  #- monster
   - arcane_corruption
   - spell_catastrophe
   grpNPC:
