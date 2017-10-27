@@ -23,6 +23,8 @@ buildscript {
     ext.iconics_cmd_version = '1.9.32.2@aar'
     ext.iconics_ion_version = '2.0.1.3@aar'
 
+    ext.ankoVersion = '0.9.1' // 0.10.2 ??
+
     ext.fastadapter_version = '2.6.2@aar'
     ext.fastadapter_extensions_version = '2.6.0@aar'
     ext.fastadapter_commons_version = '2.6.0@aar'
