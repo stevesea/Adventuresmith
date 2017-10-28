@@ -52,7 +52,7 @@ android {
         multiDexEnabled true
 
         // Enable VectorDrawableCompat for API < 21
-        //vectorDrawables.useSupportLibrary = true
+        vectorDrawables.useSupportLibrary = true
     }
 
     flavorDimensions "minApi"
