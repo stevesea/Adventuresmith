@@ -81,7 +81,8 @@ object AdventuresmithCli : KLoggable {
     override val logger = logger()
     @JvmStatic fun main(args: Array<String>) {
         val parser = ArgumentParsers
-                .newArgumentParser("adventuresmith-cli")
+                .newFor("adventuresmith-cli")
+                .build()
                 .description("A CLI interface to test Adventuresmith YaML files")
                 .epilog("Go to https://stevesea.github.io/Adventuresmith/ for more information")
                 .defaultHelp(true)
