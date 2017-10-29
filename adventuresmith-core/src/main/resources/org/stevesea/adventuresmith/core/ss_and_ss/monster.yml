@@ -134,332 +134,332 @@ tables:
 
   powers:
   - |
-    1 Acid Attack: Acid deals a die of damage 1 step below normal for the creature's
+    <em>Acid Attack</em>: Acid deals a die of damage 1 step below normal for the creature's
     HD for HD rounds.
   - |
-    Acid Blood: When an attacker inflicts damage in close range to the creature
+    <em>Acid Blood</em>: When an attacker inflicts damage in close range to the creature
     they must make an Agility test or suffer a Damage Die 1 step below the
     normal for the creature's HD.
   - |
-    Cause Blindness: Blinds a target for 1d4 rounds per HD. The target receives 2
+    <em>Cause Blindness</em>: Blinds a target for 1d4 rounds per HD. The target receives 2
     Negative Dice for any action that relies on vision.
   - |
-    Imprison: The creature imprisons a target in a viscous substance, requiring
+    <em>Imprison</em>: The creature imprisons a target in a viscous substance, requiring
     the victim to make a Physique test to escape.
   - |
-    Earthquake: Causes an earthquake up to far range, collapsing buildings and
+    <em>Earthquake</em>: Causes an earthquake up to far range, collapsing buildings and
     causing other damage. Creatures in the area must make an Agility test or are
     knocked to the floor.
   - |
-    Tunneling: Can move through solid earth as normal.
+    <em>Tunneling</em>: Can move through solid earth as normal.
   - |
-    Destroy Metal: Metal objects that touch the creature's body are damaged and
+    <em>Destroy Metal</em>: Metal objects that touch the creature's body are damaged and
     become useless. When an attacker hits the creature, he must make a Luck
     Roll to see if his weapon is ruined.
   - |
-    Destroy Wood: Wooden objects are destroyed if they come into contact with
+    <em>Destroy Wood</em>: Wooden objects are destroyed if they come into contact with
     the creature's skin. When an attacker hits the creature, he must make a Luck
     Roll to see if his weapon is ruined.
   - |
-    Lacerate: After the attack, the target receives a Negative Die to all physical
+    <em>Lacerate</em>: After the attack, the target receives a Negative Die to all physical
     actions for HD rounds.
   - |
-    Corrode Minerals: Rocks and other minerals can be dissolved by the creature,
+    <em>Corrode Minerals</em>: Rocks and other minerals can be dissolved by the creature,
     allowing it to pass through walls.
   - |
-    Animate Object: Gives life to inanimate objects, transforming them into
+    <em>Animate Object</em>: Gives life to inanimate objects, transforming them into
     monsters under the creature's command. The creature can animate a number
     of objects equal to its HD.
   - |
-    Suffocation: Drains the air from its victims’ lungs.
+    <em>Suffocation</em>: Drains the air from its victims’ lungs.
   - |
-    Repulsion: Makes it hard for creatures of a certain type (Referee’s discretion)
+    <em>Repulsion</em>: Makes it hard for creatures of a certain type (Referee’s discretion)
     to approach. Characters can resist with a Willpower test.
   - |
-    Bleeding: In addition to normal damage, this attack causes bleeding, making
+    <em>Bleeding</em>: In addition to normal damage, this attack causes bleeding, making
     the target loses a Damage Die 1 step below normal for the creature's HD
     per round until the wound is treated.
   - |
-    Necrosis: This attack causes necrosis and the victim loses 1 point of Physique
+    <em>Necrosis</em>: This attack causes necrosis and the victim loses 1 point of Physique
     or Agility per day until a cure is found.
   - |
-    Disease: Causes grave and potentially deadly disease (Referee may impose
+    <em>Disease</em>: Causes grave and potentially deadly disease (Referee may impose
     Attribute damage, Negative Dice and loss of HP). Victims can make a
     Willpower test to resist it.
   - |
-    Incubation: An egg or seed is inserted inside the target and it will generate
+    <em>Incubation</em>: An egg or seed is inserted inside the target and it will generate
     another monster in a set amount of time, leading to the victim's death.
   - |
-    Drain Attribute: Victim loses 1d4 points of a specific Attribute. The target can
+    <em>Drain Attribute</em>: Victim loses 1d4 points of a specific Attribute. The target can
     usually resist with an appropriate Attribute test.
   - |
-    Power Vortex: Summons an energy storm that affects all creatures in nearby
+    <em>Power Vortex</em>: Summons an energy storm that affects all creatures in nearby
     range who suffer a Damage Die 1 step lower than normal, unless they make
     an Agility test for half damage. The storm lasts for HD rounds.
   - |
-    Confusion: Makes victim confused and disoriented, receiving a Negative
+    <em>Confusion</em>: Makes victim confused and disoriented, receiving a Negative
     Die to all actions for a number of rounds determined by the creature's
     Damage Die.
   - |
-    Freezing Attack: In addition to normal damage, targets must make Physique
+    <em>Freezing Attack</em>: In addition to normal damage, targets must make Physique
     tests or are frozen, imprisoned and incapable of moving for HD rounds.
   - |
-    Command Plants or Animals: Can command a number of plants or animals up
+    <em>Command Plants or Animals</em>: Can command a number of plants or animals up
     to the creature's HD.
   - |
-    Curse: Curses a victim who can resist with a Willpower test. The Referee
+    <em>Curse</em>: Curses a victim who can resist with a Willpower test. The Referee
     will come up with the curse effect (which can have mechanical and narrative
     effects). Additionally, the target’s Luck Die is lowered by 1 step until the
     curse is broken.
   - |
-    Create Barrier: Creates a barrier to hinder of stop movement. Barriers can also
+    <em>Create Barrier</em>: Creates a barrier to hinder of stop movement. Barriers can also
     inflict damage with thorns or blades. To overcome a barrier, characters will
     need to make a Physique or Agility test.
   - |
-    Instant Death: Kills target instantly unless it passes an appropriate
+    <em>Instant Death</em>: Kills target instantly unless it passes an appropriate
     Attribute test.
   - |
-    Slow Death: Target acquires a malady that kills him slowly. He suffers a
+    <em>Slow Death</em>: Target acquires a malady that kills him slowly. He suffers a
     Damage Die or loss of Attribute points daily and cannot heal this unless a
     cure is found.
   - |
-    Drain Life: Causes a Damage Die 1 step lower than normal but the creature
+    <em>Drain Life</em>: Causes a Damage Die 1 step lower than normal but the creature
     regains the same amount of HP.
   - |
-    Dimensional Confinement: Imprisons a target in an extra-planar space. The
+    <em>Dimensional Confinement:</em> Imprisons a target in an extra-planar space. The
     victim can only be freed by killing the creature.
   - |
-    Multidimensional: The creature exists in multiple planes, hopping from one
+    <em>Multidimensional:</em> The creature exists in multiple planes, hopping from one
     to another in the blink of an eye. Every time the creature is hit, the attacker
     makes a Luck Roll to determine if the creature did not hop to another
     dimension the moment it was being hit, avoiding damage.
   - |
-    Drain Memories: Target loses memories, making it harder to remember
+    <em>Drain Memories:</em> Target loses memories, making it harder to remember
     information. A Luck Roll is made to determine if a particular subject or spell
     was forgotten. One memory is forgotten per attack. This effect is permanent.
   - |
-    Electric Damage: When hitting a target with this ability, creatures within close
+    <em>Electric Damage:</em> When hitting a target with this ability, creatures within close
     range must make a Luck Roll or suffer a Damage Die 1 step below normal.
   - |
-    Electric Creature: Electricity runs through the creature's body and those
+    <em>Electric Creature:</em> Electricity runs through the creature's body and those
     carrying metal objects that touch it must make a Luck Roll or take a
     Damage Die 1 step below normal.
   - |
-    Magnetic Field: Weapons and armor made of metal that make contact with the
+    <em>Magnetic Field:</em> Weapons and armor made of metal that make contact with the
     creature can become stuck unless the attacker makes a Physique test.
   - |
-    Scare: Forces targets that see the creature to make a Willpower test or suffer
+    <em>Scare:</em> Forces targets that see the creature to make a Willpower test or suffer
     a Negative Die on all tests against it.
   - |
-    Dominate: Can dominate the minds of a number of creatures equal to its HD.
+    <em>Dominate:</em> Can dominate the minds of a number of creatures equal to its HD.
     Victims can resist with a Willpower test.
   - |
-    Induce Rage: Targets within nearby range must make a Willpower test or be
+    <em>Induce Rage:</em> Targets within nearby range must make a Willpower test or be
     driven into a rage, attacking anyone within close range in the most violent
     way they can for a number of rounds equal to the creature's HD.
   - |
-    Cause Apathy: Causes apathy in up to HD targets (who can resist with a
+    <em>Cause Apathy:</em> Causes apathy in up to HD targets (who can resist with a
     Willpower test). Those affected must make a Willpower test to act each round.
   - |
-    Cause Ecstasy: The creature's touch causes ecstasy, paralyzing victims with
+    <em>Cause Ecstasy:</em> The creature's touch causes ecstasy, paralyzing victims with
     pleasure for HD rounds, unless they pass a Physique test.
   - |
-    Sleep: Can put to sleep all opponents within nearby range. Targets can resist
+    <em>Sleep:</em> Can put to sleep all opponents within nearby range. Targets can resist
     with a Physique test.
   - |
-    Incendiary Attack: This attack can set a target on fire, causing the same
+    <em>Incendiary Attack:</em> This attack can set a target on fire, causing the same
     amount of damage on the following rounds unless the victim makes an
     Agility test to dampen the flames.
   - |
-    Flaming Body: Anyone within close range receives a Damage Die 2 steps
+    <em>Flaming Body:</em> Anyone within close range receives a Damage Die 2 steps
     below normal for the creature's HD.
   - |
-    Explosion: Causes an explosion that deals 1d6 points of damage per HD to
+    <em>Explosion:</em> Causes an explosion that deals 1d6 points of damage per HD to
     anyone within close range. An Agility test can reduce this damage to half.
   - |
-    Hallucination: Alters the target's perception, making him believe in things
+    <em>Hallucination:</em> Alters the target's perception, making him believe in things
     that are not there. Targets can resist with an Intellect test. This lasts for
     HD turns.
   - |
-    Project Illusion: Affects an area up to far range, creating an illusion that affects
+    <em>Project Illusion:</em> Affects an area up to far range, creating an illusion that affects
     all senses. Can be resisted with a Willpower test.
   - |
-    Freezing Aura: Affects an area up to nearby range, dropping the temperature
+    <em>Freezing Aura:</em> Affects an area up to nearby range, dropping the temperature
     to a level below freezing. Targets need to make a Physique test to avoid
     being frozen into place.
   - |
-    Crush: Target is crushed by the creature and can make a Physique test per
+    <em>Crush:</em> Target is crushed by the creature and can make a Physique test per
     round to escape or suffer a Damage Die 1 step lower than normal.
   - |
-    Immobilize: Targets within nearby range must make an appropriate Attribute
+    <em>Immobilize:</em> Targets within nearby range must make an appropriate Attribute
     test or cannot move for 1d4 rounds per creature's HD.
   - |
-    Induce Insanity: A target up to far range must make an Intellect test or
+    <em>Induce Insanity:</em> A target up to far range must make an Intellect test or
     acquire a madness relating to the creature. To cure himself, the character will
     need a number of years equal to the creature's HD.
   - |
-    Cause Stupidity: Affects one target per creature's HD if they fail an Intellect
+    <em>Cause Stupidity:</em> Affects one target per creature's HD if they fail an Intellect
     test. The affected become stupid and unlearned, incapable of taking
     intelligent actions, remembering languages and spells. This usually lasts for
     HD hours.
   - |
-    Spread Shadows: An aura of shadows extends up to nearby range, blocking
+    <em>Spread Shadows:</em> An aura of shadows extends up to nearby range, blocking
     the vision of anyone within this space.
   - |
-    Shadow Step: The creature can travel through shadows, covering great or
+    <em>Shadow Step:</em> The creature can travel through shadows, covering great or
     small distances.
   - |
-    Ethereal Form: Can assume an ethereal form, becoming immune to physical
+    <em>Ethereal Form:</em> Can assume an ethereal form, becoming immune to physical
     attacks and can enter hard to reach places.
   - |
-    Augmented Senses: The creature has sharp senses, sensing slight changes in its
+    <em>Augmented Senses:</em> The creature has sharp senses, sensing slight changes in its
     surroundings. Character's receive a Negative Die when trying to deceive it.
   - |
-    Extra Senses: The creature has an additional sense like thermal vision, sonar,
+    <em>Extra Senses:</em> The creature has an additional sense like thermal vision, sonar,
     E.S.P., aura vision, etc.
   - |
-    Multiple Attacks: Can make additional attacks per round up to their total
+    <em>Multiple Attacks:</em> Can make additional attacks per round up to their total
     number of HD.
   - |
-    Bad Luck: Double the chances of Random Encounters for up to HD
+    <em>Bad Luck:</em> Double the chances of Random Encounters for up to HD
     creatures who fail a Willpower test for HD days.
   - |
-    Drain Magic: Up to HD targets within nearby range become unable to cast
+    <em>Drain Magic:</em> Up to HD targets within nearby range become unable to cast
     spells if they fail a Willpower test. This lasts for HD turns.
   - |
-    Telekinesis: The creature can move objects or beings (Physique test to resist)
+    <em>Telekinesis:</em> The creature can move objects or beings (Physique test to resist)
     with its mind and can make attacks with this power.
   - |
-    Steal Memories: Steal the memories of up to HD targets, becoming able to
+    <em>Steal Memories:</em> Steal the memories of up to HD targets, becoming able to
     assume their personalities. Can be resisted with a Willpower test.
   - |
-    Duplicate Appearance: Can assume the appearance of a touched target for up
+    <em>Duplicate Appearance:</em> Can assume the appearance of a touched target for up
     to HD days.
   - |
-    Fly: The creature can move through the air with freedom, avoiding obstacles
+    <em>Fly:</em> The creature can move through the air with freedom, avoiding obstacles
     and hazards.
   - |
-    Scale Surfaces: Can move over walls, ceilings and other non-horizontal
+    <em>Scale Surfaces:</em> Can move over walls, ceilings and other non-horizontal
     surfaces like a spider.
   - |
-    Amphibious: Can live and act freely on land and water.
+    <em>Amphibious:</em> Can live and act freely on land and water.
   - |
-    Impair Movement: A target up to nearby range needs twice as much effort
+    <em>Impair Movement:</em> A target up to nearby range needs twice as much effort
     and actions to move unless they pass an appropriate Attribute test. This
     lasts for HD turns.
   - |
-    Open Portal: Open portals to other places and planes that can last for up to
+    <em>Open Portal:</em> Open portals to other places and planes that can last for up to
     HD turns.
   - |
-    Poison: The creature’s attack is poisoned with a substance with an Intensity
+    <em>Poison:</em> The creature’s attack is poisoned with a substance with an Intensity
     equal to its HD.
   - |
-    Animate Dead: Can animate up to 2 times its HD of undead minions. They last
+    <em>Animate Dead:</em> Can animate up to 2 times its HD of undead minions. They last
     until killed again.
   - |
-    Enlarge or Reduce: The creature can increase or decrease its size, improving
+    <em>Enlarge or Reduce:</em> The creature can increase or decrease its size, improving
     or reducing its HD and Damage Die 1 step. Some creatures can use this
     power on other targets. Can resist with a Physique test. Lasts for HD turns.
   - |
-    Reproduce Sound: Can imitate any sound heard in the last HD days.
+    <em>Reproduce Sound:</em> Can imitate any sound heard in the last HD days.
   - |
-    Sonic Attack: Can emit a specific frequency capable of damaging living beings
+    <em>Sonic Attack:</em> Can emit a specific frequency capable of damaging living beings
     and/or structures within nearby range. Those who fail an Agility test suffer
     the normal damage for the creature's HD. Success indicates half damage.
   - |
-    Spell Casting: Can cast spells as a Magic User. Treat as having a Willpower
+    <em>Spell Casting:</em> Can cast spells as a Magic User. Treat as having a Willpower
     of 10 + HD and knowing a number of spells equal to its HD.
   - |
-    Regenerate: Regenerates a number of HP per round equal to its HD.
+    <em>Regenerate:</em> Regenerates a number of HP per round equal to its HD.
   - |
-    Cause Deformity: A target touched by the creature is deformed unless it passes
+    <em>Cause Deformity:</em> A target touched by the creature is deformed unless it passes
     a Physique test. The deformity can have various effects, from social rejection
     to Attribute damage.
   - |
-    Animal Form: Can assume up to HD different animal forms.
+    <em>Animal Form:</em> Can assume up to HD different animal forms.
   - |
-    Energy Ray: The creature can fire an energy ray that does 1d6 points of
+    <em>Energy Ray:</em> The creature can fire an energy ray that does 1d6 points of
     damage per HD to a target up to far range that fails an Agility test.
   - |
-    Reinforced Carapace: Grants Damage Reduction of –1d or –2d on the dice
+    <em>Reinforced Carapace:</em> Grants Damage Reduction of –1d or –2d on the dice
     chain.
   - |
-    Invisibility or Camouflage: The creature can become invisible or can use
+    <em>Invisibility or Camouflage:</em> The creature can become invisible or can use
     camouflage, requiring an Intellect test with a Negative Die to be detected.
   - |
-    Immunity to Mundane Attacks: The creature can only be harmed by magical
+    <em>Immunity to Mundane Attacks:</em> The creature can only be harmed by magical
     attacks and weapons.
   - |
-    Magical Immunity: The creature is immune to magical attacks and weapons.
+    <em>Magical Immunity:</em> The creature is immune to magical attacks and weapons.
   - |
-    Variable Immunity: The creature is immune to a certain type of attack (fire,
+    <em>Variable Immunity:</em> The creature is immune to a certain type of attack (fire,
     metal weapons, electricity, etc.).
   - |
-    Magical Resistance: Receives a Positive Die to resist magical effects.
+    <em>Magical Resistance:</em> Receives a Positive Die to resist magical effects.
   - |
-    Divide: The creature can divide itself into several copies, splitting its total
+    <em>Divide:</em> The creature can divide itself into several copies, splitting its total
     HD between them. The copies keep all other stats normally and attack as if
     having its total HD.
   - |
-    Reflect Attacks: Can reflect a number of attacks per round equal to its HD.
+    <em>Reflect Attacks:</em> Can reflect a number of attacks per round equal to its HD.
     The creature makes an attack against the Attribute used in the original one
     to hit the target.
   - |
-    Invoke Ally: Can summon a similar creature of the same amount of HD. A
+    <em>Invoke Ally:</em> Can summon a similar creature of the same amount of HD. A
     character can make a Luck Roll to avoid this effect.
   - |
-    Immortal: The creature cannot die naturally and a condition must be met for
+    <em>Immortal:</em> The creature cannot die naturally and a condition must be met for
     the creature to be truly killed.
   - |
-    Teleport: The creature is capable of moving through space with just its
+    <em>Teleport:</em> The creature is capable of moving through space with just its
     thoughts, changing locations instantly. This can be used a number of times
     equal to its HD per day.
   - |
-    Thorns: The creature has thorns over its body, making everyone within close
+    <em>Thorns:</em> The creature has thorns over its body, making everyone within close
     range make an Agility test to avoid taking HD points of damage. Some of
     these creatures can expel these thorns up to nearby range, causing normal
     damage according to its HD.
   - |
-    Read Minds: Can read the minds of everyone within far range, making it
+    <em>Read Minds:</em> Can read the minds of everyone within far range, making it
     impossible to surprise this creature in combat. Additionally, it receives a
     Positive Die in its attacks and imposes a Negative Die on attacks against it.
   - |
-    Absorption: Can absorb the energy of a specific type of attack (kinetic energy,
+    <em>Absorption:</em> Can absorb the energy of a specific type of attack (kinetic energy,
     magic, fire), transforming the potential damage into healing.
   - |
-    Swallow: On a critical hit (or by taking the target to its mouth with another
+    <em>Swallow:</em> On a critical hit (or by taking the target to its mouth with another
     attack), the creature swallows the victim, who will suffer the normal damage
     of the monster per round automatically. The target can escape if he inflicts
     the number of HD the creature has in damage in a single attack.
   - |
-    Disintegrate: Can disintegrate matter within far range with a ray up to HD
+    <em>Disintegrate:</em> Can disintegrate matter within far range with a ray up to HD
     times per day. If used as an attack, the ray kills any creature who fails an
     Agility test. Those who succeed suffer 1d6 points of damage per HD.
   - |
-    Duplicate: Can generate up to HD illusory copies of itself. Copies can be
+    <em>Duplicate:</em> Can generate up to HD illusory copies of itself. Copies can be
     distinguished with an Intellect test.
   - |
-    Improved Damage: The normal damage of the creatures HD is increased by 1
+    <em>Improved Damage:</em> The normal damage of the creatures HD is increased by 1
     step on the HD table.
   - |
-    Psychic Attack: All enemies within nearby range must make a Willpower test
+    <em>Psychic Attack:</em> All enemies within nearby range must make a Willpower test
     or suffer a Damage Die 1 step lower than normal and receive a Negative
     Die for all actions for HD rounds.
   - |
-    Silence: A point affecting an area with nearby range has all the sound
+    <em>Silence:</em> A point affecting an area with nearby range has all the sound
     silenced. This lasts for up to HD rounds.
   - |
-    Turn to Stone: Victims that look into the creature's eyes must make a
+    <em>Turn to Stone:</em> Victims that look into the creature's eyes must make a
     Physique test or be turned to stone.
   - |
-    Create Matter: Generates matter of a specific type (wood, stone, gold, crystal)
+    <em>Create Matter:</em> Generates matter of a specific type (wood, stone, gold, crystal)
     of a volume equal to a cubic foot per HD per day.
   - |
-    Time Travel: The creature can travel to the past or the future of its location.
+    <em>Time Travel:</em> The creature can travel to the past or the future of its location.
   - |
-    Foresee Future: The creature can see into the future up to HD decades.
+    <em>Foresee Future:</em> The creature can see into the future up to HD decades.
   - |
-    Combine two abilities into one.
+    {{pickN: 2 powers <br/>}}
 
 nested_tables:
   natures:
