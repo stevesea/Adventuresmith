@@ -6,109 +6,360 @@ templates:
 
   %[[>get: appearance <br/>]]%
 
-tables:
+definitions:
+  nature_appearance:
+    Humanoid:
+    Beast: {{beast.form}}
+    Plant:
+    Prehistorical:
+    Undead:
+    Magical:
+    Technological:
+    Alien:
+    Aberration:
+    Mythological:
+    Daemonic: {{daemonic.characteristics}}
+  nature_extra:
+    Humanoid:
+    Beast:
+    Plant:
+    Prehistorical:
+    Undead:
+    Magical:
+    Technological:
+    Alien:
+    Aberration:
+    Mythological:
+    Daemonic:
 
+tables:
+  animals_winged:
+  - a bee
+  - an eagle
+  - a cockroach
+  - a beatle
+  - an owl
+  - a squirrel
+  - a falcon
+  - a rooster
+  - a grasshopper
+  - a goose
+  - a heron
+  - a dragonfly
+  - a moth
+  - a bat
+  - a fly
+  - a duck
+  - a peacock
+  - a penguin
+  - a pigeon
+  - a nightingale
+  - a manta ray
+  - a vulture
+  - a wasp
   animals:
-  - Bee
-  - Jellyfish
-  - Eagle
-  - Spider
-  - Baboon
-  - Whale
-  - Cockroach
-  - Beatle
-  - Goat
-  - Buffalo
-  - Hound
-  - Crab
-  - Chameleon
-  - Horse
-  - Snake
-  - Owl
-  - Crocodile
-  - Dromedary
-  - Elephant
-  - Scorpion
-  - Squirrel
-  - Starfish
-  - Falcon
-  - Seal
-  - Ant
-  - Rooster
-  - Ferret
-  - Grasshopper
-  - Goose
-  - Heron
-  - Cat
-  - Giraffe
-  - Dolphin
-  - Gorilla
-  - Raccoon
-  - Hyena
-  - Hippopotamus
-  - Iguana
-  - Alligator
-  - Jaguar
-  - Boar
-  - Boa Constrictor
-  - Centipede
-  - Caterpillar
-  - Gecko
-  - Lizard
-  - Lobster
-  - Lion
-  - Leopard
-  - Snail
-  - Dragonfly
-  - Wolf
-  - Worm
-  - Squid
-  - Monkey
-  - Moth
-  - Earthworm
-  - Bat
-  - Fly
-  - Adder
-  - Oyster
-  - Urchin
-  - Sheep
-  - Panther
-  - Duck
-  - Peacock
-  - Swordfish
-  - Penguin
-  - Piranha
-  - Octopus
-  - Pigeon
-  - Pig
-  - Hedgehog
-  - Sloth
-  - Protozoan
-  - Lynx
-  - Fox
-  - Frog
-  - Rat
-  - Deer
-  - Rhinoceros
-  - Nightingale
-  - Salamander
-  - Manta Ray
-  - Serpent
-  - Anteater
-  - Turtle
-  - Armadillo
-  - Badger
-  - Tiger
-  - Mole
-  - Bull
-  - Shark
-  - Bear
-  - Vulture
-  - Moose
-  - Mule
-  - Maggot
-  - Wasp
-  - Zebra
+  - a bee
+  - a jellyfish
+  - an eagle
+  - a spider
+  - a baboon
+  - a whale
+  - a cockroach
+  - a beatle
+  - a goat
+  - a buffalo
+  - a hound
+  - a crab
+  - a chameleon
+  - a horse
+  - a snake
+  - an owl
+  - a crocodile
+  - a dromedary
+  - a elephant
+  - a scorpion
+  - a squirrel
+  - a starfish
+  - a falcon
+  - a seal
+  - an ant
+  - a rooster
+  - a ferret
+  - a grasshopper
+  - a goose
+  - a heron
+  - a cat
+  - a giraffe
+  - a dolphin
+  - a gorilla
+  - a raccoon
+  - a hyena
+  - a hippopotamus
+  - an iguana
+  - an alligator
+  - a jaguar
+  - a boar
+  - a boa constrictor
+  - a centipede
+  - a caterpillar
+  - a gecko
+  - a lizard
+  - a lobster
+  - a lion
+  - a leopard
+  - a snail
+  - a dragonfly
+  - a wolf
+  - a worm
+  - a squid
+  - a monkey
+  - a moth
+  - an earthworm
+  - a bat
+  - a fly
+  - an adder
+  - an oyster
+  - an urchin
+  - a sheep
+  - a panther
+  - a duck
+  - a peacock
+  - a swordfish
+  - a penguin
+  - a piranha
+  - an octopus
+  - a pigeon
+  - a pig
+  - a hedgehog
+  - a sloth
+  - a protozoan
+  - a lynx
+  - a fox
+  - a frog
+  - a rat
+  - a deer
+  - a rhinoceros
+  - a nightingale
+  - a salamander
+  - a manta ray
+  - a serpent
+  - a anteater
+  - a turtle
+  - an armadillo
+  - a badger
+  - a tiger
+  - a mole
+  - a bull
+  - a shark
+  - a bear
+  - a vulture
+  - a moose
+  - a mule
+  - a maggot
+  - a wasp
+  - a zebra
+  animals_no_prefix:
+  - bee
+  - jellyfish
+  - eagle
+  - spider
+  - baboon
+  - whale
+  - cockroach
+  - beatle
+  - goat
+  - buffalo
+  - hound
+  - crab
+  - chameleon
+  - horse
+  - snake
+  - owl
+  - crocodile
+  - dromedary
+  - elephant
+  - scorpion
+  - squirrel
+  - starfish
+  - falcon
+  - seal
+  - ant
+  - rooster
+  - ferret
+  - grasshopper
+  - goose
+  - heron
+  - cat
+  - giraffe
+  - dolphin
+  - gorilla
+  - raccoon
+  - hyena
+  - hippopotamus
+  - iguana
+  - alligator
+  - jaguar
+  - boar
+  - boa constrictor
+  - centipede
+  - caterpillar
+  - gecko
+  - lizard
+  - lobster
+  - lion
+  - leopard
+  - snail
+  - dragonfly
+  - wolf
+  - worm
+  - squid
+  - monkey
+  - moth
+  - earthworm
+  - bat
+  - fly
+  - adder
+  - oyster
+  - urchin
+  - sheep
+  - panther
+  - duck
+  - peacock
+  - swordfish
+  - penguin
+  - piranha
+  - octopus
+  - pigeon
+  - pig
+  - hedgehog
+  - sloth
+  - protozoan
+  - lynx
+  - fox
+  - frog
+  - rat
+  - deer
+  - rhinoceros
+  - nightingale
+  - salamander
+  - manta ray
+  - serpent
+  - anteater
+  - turtle
+  - armadillo
+  - badger
+  - tiger
+  - mole
+  - bull
+  - shark
+  - bear
+  - vulture
+  - moose
+  - mule
+  - maggot
+  - wasp
+  - zebra
+  animals_upper:
+  - A bee
+  - A jellyfish
+  - An eagle
+  - A spider
+  - A baboon
+  - A whale
+  - A cockroach
+  - A beatle
+  - A goat
+  - A buffalo
+  - A hound
+  - A crab
+  - A chameleon
+  - A horse
+  - A snake
+  - An owl
+  - A crocodile
+  - A dromedary
+  - A elephant
+  - A scorpion
+  - A squirrel
+  - A starfish
+  - A falcon
+  - A seal
+  - An ant
+  - A rooster
+  - A ferret
+  - A grasshopper
+  - A goose
+  - A heron
+  - A cat
+  - A giraffe
+  - A dolphin
+  - A gorilla
+  - A raccoon
+  - A hyena
+  - A hippopotamus
+  - An iguana
+  - An alligator
+  - A jaguar
+  - A boar
+  - A boa constrictor
+  - A centipede
+  - A caterpillar
+  - A gecko
+  - A lizard
+  - A lobster
+  - A lion
+  - A leopard
+  - A snail
+  - A dragonfly
+  - A wolf
+  - A worm
+  - A squid
+  - A monkey
+  - A moth
+  - An earthworm
+  - A bat
+  - A fly
+  - An adder
+  - An oyster
+  - An urchin
+  - A sheep
+  - A panther
+  - A duck
+  - A peacock
+  - A swordfish
+  - A penguin
+  - A piranha
+  - An octopus
+  - A pigeon
+  - A pig
+  - A hedgehog
+  - A sloth
+  - A protozoan
+  - A lynx
+  - A fox
+  - A frog
+  - A rat
+  - A deer
+  - A rhinoceros
+  - A nightingale
+  - A salamander
+  - A manta ray
+  - A serpent
+  - A anteater
+  - A turtle
+  - An armadillo
+  - A badger
+  - A tiger
+  - A mole
+  - A bull
+  - A shark
+  - A bear
+  - A vulture
+  - A moose
+  - A mule
+  - A maggot
+  - A wasp
+  - A zebra
 
   weaknesses:
   - Vanity
@@ -464,41 +715,41 @@ tables:
 nested_tables:
   natures:
     base:
-    - Humanoid
-    - Beast
-    - Plant
-    - Prehistoric
-    - Undead
-    - Magical
-    - Technological
-    - Alien
-    - Aberration
-    - Mythological
-    - Daemonic
-    - "{{>pickN: 1d3+1 natures_no_amalgamation}}"
+    - {{>accum: naturesList  Humanoid}}
+    - {{>accum: naturesList  Beast}}
+    - {{>accum: naturesList  Plant}}
+    - {{>accum: naturesList  Prehistoric}}
+    - {{>accum: naturesList  Undead}}
+    - {{>accum: naturesList  Magical}}
+    - {{>accum: naturesList  Technological}}
+    - {{>accum: naturesList  Alien}}
+    - {{>accum: naturesList  Aberration}}
+    - {{>accum: naturesList  Mythological}}
+    - {{>accum: naturesList  Daemonic}}
+    - {{>accum: naturesList  Amalgamation}} {{>pickN: 1d3+1 natures.no_amalgamation}}
     no_amalgamation:
-    - Humanoid
-    - Beast
-    - Plant
-    - Prehistoric
-    - Undead
-    - Magical
-    - Technological
-    - Alien
-    - Aberration
-    - Mythological
-    - Daemonic
+    - {{>accum: naturesList  Humanoid}}
+    - {{>accum: naturesList  Beast}}
+    - {{>accum: naturesList  Plant}}
+    - {{>accum: naturesList  Prehistoric}}
+    - {{>accum: naturesList  Undead}}
+    - {{>accum: naturesList  Magical}}
+    - {{>accum: naturesList  Technological}}
+    - {{>accum: naturesList  Alien}}
+    - {{>accum: naturesList  Aberration}}
+    - {{>accum: naturesList  Mythological}}
+    - {{>accum: naturesList  Daemonic}}
     no_human:
-    - Beast
-    - Plant
-    - Prehistoric
-    - Undead
-    - Magical
-    - Technological
-    - Alien
-    - Aberration
-    - Mythological
-    - Daemonic
+    - {{>accum: naturesList  Beast}}
+    - {{>accum: naturesList  Plant}}
+    - {{>accum: naturesList  Prehistoric}}
+    - {{>accum: naturesList  Undead}}
+    - {{>accum: naturesList  Magical}}
+    - {{>accum: naturesList  Technological}}
+    - {{>accum: naturesList  Alien}}
+    - {{>accum: naturesList  Aberration}}
+    - {{>accum: naturesList  Mythological}}
+    - {{>accum: naturesList  Daemonic}}
   daemonic:
     characteristics:
     - Goat horns
@@ -523,18 +774,18 @@ nested_tables:
     - Melodic voice
   beast:
     form:
-    - Torso of {{animal}} and legs of {{animal}}.
-    - Head of {{animal}}, limbs of {{animal}} and the body of {{animal}}.
-    - Multiple animal heads with the body of {{animal}}.
-    - Humanoid body with an {{animal}} head.
-    - Body of an {{animal}}, tail of {{animal}} and wings of a third.
-    - Headless {{animal}} with many mouths of {{animal}} around his body.
-    - Winged head of {{animal}}.
-    - Body of {{animal}} and extra arms of {{animal}}.
-    - %[[>titleCase: {{animal}}]]% body with a humanoid head.
-    - Animal with 2 torsos of different animals and no lower body.
-    - Humanoid torso and lower body of {{animal}}.
-    - {{animal}} mixed with other creature (roll to determine the second Monster's Nature).
+    - Torso of {{animals}} and legs of {{animals}}.
+    - Head of {{animals}}, limbs of {{animals}} and the body of {{animals}}.
+    - Multiple animal heads ({{>pickN: 1d3+1 animals_no_prefix}}) with the body of {{animals}}.
+    - Humanoid body with an {{animals}} head.
+    - Body of {{animals}}, tail of {{animals}} and wings of {{animals_winged}}.
+    - Headless {{animals_no_prefix}} with many mouths of {{animals}} around his body.
+    - Winged head of {{animals}}.
+    - Body of {{animals}} and extra arms of {{animals}}.
+    - {{animals_upper}} body with a humanoid head.
+    - {{animals_upper}} with 2 torsos of different animals ({{>pickN: 2 animals_no_prefix}}) and no lower body.
+    - Humanoid torso and lower body of {{animals}}.
+    - {{animals_upper}} mixed with other creature {{natures.no_amalgamation}}
   plant:
     form:
     - Mushroom
