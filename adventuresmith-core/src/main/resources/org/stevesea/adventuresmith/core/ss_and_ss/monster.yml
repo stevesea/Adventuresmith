@@ -10,11 +10,11 @@ definitions:
   nature_appearance:
     Humanoid:
     Beast: {{beast.form}}
-    Plant:
-    Prehistorical:
-    Undead:
-    Magical:
-    Technological:
+    Plant: {{plant.form}}
+    Prehistoric: {{prehistoric.characteristics}}
+    Undead: {{undead.form}}
+    Magical: {{magical.form}}
+    Technological: {{technological.material}}
     Alien:
     Aberration:
     Mythological:
@@ -22,11 +22,11 @@ definitions:
   nature_extra:
     Humanoid:
     Beast:
-    Plant:
+    Plant: {{plant.attack}}
     Prehistorical:
-    Undead:
-    Magical:
-    Technological:
+    Undead: Feeds upon {{undead.feeds_upon}}
+    Magical: {{magical.traits}}
+    Technological: {{technological.form}}
     Alien:
     Aberration:
     Mythological:
@@ -799,7 +799,19 @@ nested_tables:
     - Shrubbery
     - Leaf
     - Algae
-    - Amalgam between Plant Form and other Monster’s Nature
+    - Amalgam between Plant Form and other Monster’s Nature {{natures.no_amalgamation}}
+    form_no_amalgam:
+    - Mushroom
+    - Mold
+    - Vines
+    - Grass
+    - Roots
+    - Tree
+    - Flower
+    - Fruit
+    - Shrubbery
+    - Leaf
+    - Algae
     attack:
     - Sharp Thorns
     - Bladed Leaves
@@ -878,7 +890,7 @@ nested_tables:
   technological:
     form:
     - Artificial Human Form
-    - Artificial Animal Form
+    - Artificial Animal Form ({{animals}})
     - Flying Computer
     - Brain Inside Translucent Sphere
     - Sphere with many Monitors and Mechanica Arms
