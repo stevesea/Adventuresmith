@@ -20,6 +20,8 @@ templates:
 definitions:
   render_init: |
     {{>uniq: naturesList}}
+    {{>uniq: descriptorList}}
+    {{>uniq: infoList}}
     %[[render]]%
   render: |
     <h4>{{>get: naturesList}}</h4>
@@ -1174,7 +1176,7 @@ nested_tables:
     - |
       {{>accum: descriptorList A Horde of Glass Insects with Collective Intelligence}}
     - |
-      {{>pickN: 1d4+1 natures.no_meta}}
+      {{>pickN: 1d4+1 natures.no_amalgamation}}
   technological:
     form:
     - |
