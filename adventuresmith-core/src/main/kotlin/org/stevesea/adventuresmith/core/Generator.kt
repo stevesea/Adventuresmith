@@ -722,6 +722,15 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                     return StringReader("")
                                 }
                                 throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                            } else if (cmd_and_params[0] == "uniq:") {
+                                // {{>uniq: <list-variable>}} // ensures only one element of each value in list
+                                val key = cmd_and_params[1]
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.toHashSet().toList())
+                                    return StringReader("")
+                                }
+                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
                             } else if (cmd_and_params[0] == "get:") {
                                 // {{>get: <variable> [<delim>]}}
                                 val params = cmd_and_params[1].split(" ", limit = 2)
