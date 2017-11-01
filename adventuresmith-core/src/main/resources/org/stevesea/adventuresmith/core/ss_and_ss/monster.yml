@@ -136,12 +136,12 @@ tables:
   - 0,
   - |
     <h5>Powers</h5>
-    {{>pickN: numPowers powers <br/>}}
+    {{>pickN: numPowers powers <br/><br/>}}
   render_weaknesses:
   - 0,
   - |
     <h5>Weaknesses</h5>
-    {{>pickN: numWeaknesses weaknesses <br/>}}
+    {{>pickN: numWeaknesses weaknesses <br/><br/>}}
 
   render_info:
   - 0,
@@ -887,6 +887,8 @@ nested_tables:
       {{nature_templates.Plant}}
     - |
       {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Technological}}
     no_human:
     - |
       {{nature_templates.Beast}}
@@ -1343,7 +1345,7 @@ nested_tables:
     - |
       {{natures.no_meta}}
     - |
-      {{nature_templates.Amalgamation}}
+      {{>pickN: 1d4+1 natures.no_amalgamation}}
     characteristics:
     - |
       {{>accum: descriptorList Hundreds of eyes of different types and sizes cover the creature’s body.}}
