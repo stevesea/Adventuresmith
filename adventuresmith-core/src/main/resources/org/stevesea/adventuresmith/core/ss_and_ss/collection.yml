@@ -8,7 +8,6 @@ groupedGenerators:
   - adventure_title
   - adventure_idea
   - adventure_complication
-  - reward
   - travel_hazards
   grpBetweenAdventure:
   - where_gold_go
@@ -16,11 +15,14 @@ groupedGenerators:
   - complication
   grpEncounter:
   - opponent_reaction
-  - spellbook_effects
-  - treasure
   - monster
   - arcane_corruption
   - spell_catastrophe
   grpNPC:
   - antagonist
   - supporting_character
+  grpTreasure:
+  - forgotten_artifacts
+  - reward
+  - spellbook_effects
+  - treasure

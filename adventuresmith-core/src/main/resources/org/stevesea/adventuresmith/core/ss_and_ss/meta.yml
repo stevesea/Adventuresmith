@@ -18,6 +18,9 @@ groups:
   - name: grpNPC
     uiName: NPCs
     icon: cmd-account-multiple
+  - name: grpTreasure
+    uiName: Treasure
+    icon: cmd-treasure-chest
 
 attribution: |
   <a href="http://www.drivethrurpg.com/product/198163/Sharp-Swords--Sinister-Spells">Sharp Swords & Sinister Spells on DriveThruRPG</a>
