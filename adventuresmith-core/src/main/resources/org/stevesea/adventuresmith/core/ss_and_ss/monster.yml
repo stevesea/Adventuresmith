@@ -1,38 +1,139 @@
 ---
+# variables:
+#   naturesList: list of nature names. expect duplicates uniqued
+#   descriptorList: list of appearance-type descriptors
+#   infoList: list of attack / info type entries
+#
+#   numPowers: number of powers
+#   numWeaknesses: number of weaknesses
+#
 templates:
 - |
+  {{>set: numPowers 0}}
+  {{>set: numWeaknesses 0}}
   {{natures.base}}
-  <h5>%[[>get: natureList <br/>]]%</h5>
+  %[[render_init]]%
 
-  %[[>get: appearance <br/>]]%
 
 definitions:
-  nature_appearance:
-    Humanoid:
-    Beast: {{beast.form}}
-    Plant: {{plant.form}}
-    Prehistoric: {{prehistoric.characteristics}}
-    Undead: {{undead.form}}
-    Magical: {{magical.form}}
-    Technological: {{technological.material}}
-    Alien:
-    Aberration:
-    Mythological:
-    Daemonic: {{daemonic.characteristics}}
-  nature_extra:
-    Humanoid:
-    Beast:
-    Plant: {{plant.attack}}
-    Prehistorical:
-    Undead: Feeds upon {{undead.feeds_upon}}
-    Magical: {{magical.traits}}
-    Technological: {{technological.form}}
-    Alien:
-    Aberration:
-    Mythological:
-    Daemonic:
+  render_init: |
+    {{>uniq: natureList}}
+    %[[render]]%
+  render: |
+    <h4>{{>get: natureList}}</h4>
+    <h5>description</h5>
+    {{>get: descriptorList <br/>}}
+    <h5>info</h5>
+    {{>get: infoList <br/>}}
+
+    <h5>powers</h5>
+    {{>pickN: numPowers powers <br/>}}
+    <h5>weaknesses</h5>
+    {{>pickN: numWeaknesses weaknesses <br/>}}
+
+  nature_templates:
+    Humanoid: |
+      {{>accum: naturesList Humanoid}}
+      {{humanoid.appearance}}
+      {{humanoid.culture}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Beast: |
+      {{>accum: naturesList Beast}}
+      {{beast.form}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Plant: |
+      {{>accum: naturesList Plant}}
+      {{plant.form}}
+      {{plant.attack}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Prehistoric: |
+      {{>accum: naturesList Prehistoric}}
+      {{prehistoric.characteristics}}
+      {{natures.no_amalgamation}}
+    Undead: |
+      {{>accum: naturesList Undead}}
+      {{undead.form}}
+      {{undead.feeds_upon}}
+      {{natures.no_amalgamation}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Magical: |
+      {{>accum: naturesList Magical}}
+      {{magical.maybe_other_natures}}
+      {{magical.traits}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Technological: |
+      {{>accum: naturesList Technological}}
+      {{technological.form}}
+      {{technological.material}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Alien: |
+      {{>accum: naturesList Alien}}
+      {{natures.no_amalgamation}}
+      {{alien.tech_level}}
+      {{alien.means_of_travel}}
+      {{alien.purposes}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Aberration: |
+      {{>accum: naturesList Aberration}}
+      {{aberration.form}}
+      {{aberration.characteristics}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Daemonic: |
+      {{>accum: naturesList Daemonic}}
+      {{natures.no_amalgamation}}
+      {{daemonic.characteristics}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Elemental: |
+      {{>accum: naturesList Elemental}}
+      {{natures.no_amalgamation}}
+      {{elemental.element}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Amalgamation: |
+      {{>accum: naturesList Amalgamation}}
+      {{>pickN: 1d3+1 natures.no_amalgamation}}
 
 tables:
+  maybe_powers:
+  - |
+    1..2,
+    {{>add: numPowers 0}}
+  - |
+    {{>add: numPowers 1}}
+  definitely_powers:
+  - |
+    1..2,
+    {{>add: numPowers 1}}
+  - |
+    3..4,
+    {{>add: numPowers 2}}
+  - |
+    {{>add: numPowers 3}}
+  maybe_weaknesses:
+  - |
+    1..2,
+    {{>add: numWeaknesses 0}}
+  - |
+    {{>add: numWeaknesses 1}}
+  definitely_weaknesses:
+  - |
+    1..2,
+    {{>add: numWeaknesses 1}}
+  - |
+    3..4,
+    {{>add: numWeaknesses 2}}
+  - |
+    {{>add: numWeaknesses 3}}
+
   animals_winged:
   - a bee
   - an eagle
@@ -715,306 +816,578 @@ tables:
 nested_tables:
   natures:
     base:
-    - {{>accum: naturesList  Humanoid}}
-    - {{>accum: naturesList  Beast}}
-    - {{>accum: naturesList  Plant}}
-    - {{>accum: naturesList  Prehistoric}}
-    - {{>accum: naturesList  Undead}}
-    - {{>accum: naturesList  Magical}}
-    - {{>accum: naturesList  Technological}}
-    - {{>accum: naturesList  Alien}}
-    - {{>accum: naturesList  Aberration}}
-    - {{>accum: naturesList  Mythological}}
-    - {{>accum: naturesList  Daemonic}}
-    - {{>accum: naturesList  Amalgamation}} {{>pickN: 1d3+1 natures.no_amalgamation}}
+    - |
+      {{nature_templates.Humanoid}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Prehistoric}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Magical}}
+    - |
+      {{nature_templates.Technological}}
+    - |
+      {{nature_templates.Alien}}
+    - |
+      {{nature_templates.Aberration}}
+    - |
+      {{nature_templates.Daemonic}}
+    - |
+      {{nature_templates.Elemental}}
+    - |
+      {{nature_templates.Amalgamation}}
     no_amalgamation:
-    - {{>accum: naturesList  Humanoid}}
-    - {{>accum: naturesList  Beast}}
-    - {{>accum: naturesList  Plant}}
-    - {{>accum: naturesList  Prehistoric}}
-    - {{>accum: naturesList  Undead}}
-    - {{>accum: naturesList  Magical}}
-    - {{>accum: naturesList  Technological}}
-    - {{>accum: naturesList  Alien}}
-    - {{>accum: naturesList  Aberration}}
-    - {{>accum: naturesList  Mythological}}
-    - {{>accum: naturesList  Daemonic}}
+    - |
+      {{nature_templates.Humanoid}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Prehistoric}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Magical}}
+    - |
+      {{nature_templates.Technological}}
+    - |
+      {{nature_templates.Alien}}
+    - |
+      {{nature_templates.Aberration}}
+    - |
+      {{nature_templates.Daemonic}}
+    - |
+      {{nature_templates.Elemental}}
     no_human:
-    - {{>accum: naturesList  Beast}}
-    - {{>accum: naturesList  Plant}}
-    - {{>accum: naturesList  Prehistoric}}
-    - {{>accum: naturesList  Undead}}
-    - {{>accum: naturesList  Magical}}
-    - {{>accum: naturesList  Technological}}
-    - {{>accum: naturesList  Alien}}
-    - {{>accum: naturesList  Aberration}}
-    - {{>accum: naturesList  Mythological}}
-    - {{>accum: naturesList  Daemonic}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Prehistoric}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Magical}}
+    - |
+      {{nature_templates.Technological}}
+    - |
+      {{nature_templates.Alien}}
+    - |
+      {{nature_templates.Aberration}}
+    - |
+      {{nature_templates.Mythological}}
+    - |
+      {{nature_templates.Daemonic}}
+    - |
+      {{nature_templates.Elemental}}
   daemonic:
     characteristics:
-    - Goat horns
-    - Shadow body
-    - Goat legs
-    - Empty eye sockets
-    - Flame eyes
-    - Forked tail
-    - Fangs
-    - Bat wings
-    - Skeletal wings
-    - Blood covered body
-    - Crawling with insects
-    - Morbid obesity
-    - Incredible filthy
-    - Mucus covering the body
-    - Body covered with dark thorns
-    - Crawling with serpents
-    - Extremely beautiful
-    - Horrendous
-    - Guttural voice
-    - Melodic voice
+    - |
+      {{>accum: descriptorList Goat horns}}
+    - |
+      {{>accum: descriptorList Shadow body}}
+    - |
+      {{>accum: descriptorList Goat legs}}
+    - |
+      {{>accum: descriptorList Empty eye sockets}}
+    - |
+      {{>accum: descriptorList Flame eyes}}
+    - |
+      {{>accum: descriptorList Forked tail}}
+    - |
+      {{>accum: descriptorList Fangs}}
+    - |
+      {{>accum: descriptorList Bat wings}}
+    - |
+      {{>accum: descriptorList Skeletal wings}}
+    - |
+      {{>accum: descriptorList Blood covered body}}
+    - |
+      {{>accum: descriptorList Crawling with insects}}
+    - |
+      {{>accum: descriptorList Morbid obesity}}
+    - |
+      {{>accum: descriptorList Incredible filthy}}
+    - |
+      {{>accum: descriptorList Mucus covering the body}}
+    - |
+      {{>accum: descriptorList Body covered with dark thorns}}
+    - |
+      {{>accum: descriptorList Crawling with serpents}}
+    - |
+      {{>accum: descriptorList Extremely beautiful}}
+    - |
+      {{>accum: descriptorList Horrendous}}
+    - |
+      {{>accum: descriptorList Guttural voice}}
+    - |
+      {{>accum: descriptorList Melodic voice}}
   beast:
     form:
-    - Torso of {{animals}} and legs of {{animals}}.
-    - Head of {{animals}}, limbs of {{animals}} and the body of {{animals}}.
-    - Multiple animal heads ({{>pickN: 1d3+1 animals_no_prefix}}) with the body of {{animals}}.
-    - Humanoid body with an {{animals}} head.
-    - Body of {{animals}}, tail of {{animals}} and wings of {{animals_winged}}.
-    - Headless {{animals_no_prefix}} with many mouths of {{animals}} around his body.
-    - Winged head of {{animals}}.
-    - Body of {{animals}} and extra arms of {{animals}}.
-    - {{animals_upper}} body with a humanoid head.
-    - {{animals_upper}} with 2 torsos of different animals ({{>pickN: 2 animals_no_prefix}}) and no lower body.
-    - Humanoid torso and lower body of {{animals}}.
-    - {{animals_upper}} mixed with other creature {{natures.no_amalgamation}}
+    - |
+      {{>accum: descriptorList Torso of %[[animals]]% and legs of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Head of %[[animals]]%, limbs of %[[animals]]% and the body of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Multiple animal heads (%[[>pickN: 1d3+1 animals_no_prefix]]%) with the body of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Humanoid body with an %[[animals]]% head.}}
+    - |
+      {{>accum: descriptorList Body of %[[animals]]%, tail of %[[animals]]% and wings of %[[animals_winged]]%.}}
+    - |
+      {{>accum: descriptorList Headless %[[animals_no_prefix]]% with many mouths of %[[animals]]% around his body.}}
+    - |
+      {{>accum: descriptorList Winged head of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Body of %[[animals]]% and extra arms of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList %[[animals_upper]]% body with a humanoid head.}}
+    - |
+      {{>accum: descriptorList %[[animals_upper]]% with 2 torsos of different animals (%[[>pickN: 2 animals_no_prefix]]%) and no lower body.}}
+    - |
+      {{>accum: descriptorList Humanoid torso and lower body of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList %[[animals_upper]]%}}{{natures.no_amalgamation}}
   plant:
     form:
-    - Mushroom
-    - Mold
-    - Vines
-    - Grass
-    - Roots
-    - Tree
-    - Flower
-    - Fruit
-    - Shrubbery
-    - Leaf
-    - Algae
-    - Amalgam between Plant Form and other Monster’s Nature {{natures.no_amalgamation}}
+    - |
+      {{>accum: descriptorList Mushroom}}
+    - |
+      {{>accum: descriptorList Mold}}
+    - |
+      {{>accum: descriptorList Vines}}
+    - |
+      {{>accum: descriptorList Grass}}
+    - |
+      {{>accum: descriptorList Roots}}
+    - |
+      {{>accum: descriptorList Tree}}
+    - |
+      {{>accum: descriptorList Flower}}
+    - |
+      {{>accum: descriptorList Fruit}}
+    - |
+      {{>accum: descriptorList Shrubbery}}
+    - |
+      {{>accum: descriptorList Leaf}}
+    - |
+      {{>accum: descriptorList Algae}}
+    - |
+      {{plant.form_no_amalgam}} {{natures.no_amalgamation}}
     form_no_amalgam:
-    - Mushroom
-    - Mold
-    - Vines
-    - Grass
-    - Roots
-    - Tree
-    - Flower
-    - Fruit
-    - Shrubbery
-    - Leaf
-    - Algae
+    - |
+      {{>accum: descriptorList Mushroom}}
+    - |
+      {{>accum: descriptorList Mold}}
+    - |
+      {{>accum: descriptorList Vines}}
+    - |
+      {{>accum: descriptorList Grass}}
+    - |
+      {{>accum: descriptorList Roots}}
+    - |
+      {{>accum: descriptorList Tree}}
+    - |
+      {{>accum: descriptorList Flower}}
+    - |
+      {{>accum: descriptorList Fruit}}
+    - |
+      {{>accum: descriptorList Shrubbery}}
+    - |
+      {{>accum: descriptorList Leaf}}
+    - |
+      {{>accum: descriptorList Algae}}
     attack:
-    - Sharp Thorns
-    - Bladed Leaves
-    - Poisonous Spores
-    - Crushing Branches
-    - Strangling Roots
-    - Explosive Fruits
-    - Blood Sucking Roots
-    - Acid Sap
-    - Scorching Pollen
-    - Inserting a Seed Inside a Victim’s Heart
-    - Scorching Sun Ray reflected by Flowers
-    - Hypnotic Perfume
+    - |
+      {{>accum: infoList Attack: Sharp Thorns}}
+    - |
+      {{>accum: infoList Attack: Bladed Leaves}}
+    - |
+      {{>accum: infoList Attack: Poisonous Spores}}
+    - |
+      {{>accum: infoList Attack: Crushing Branches}}
+    - |
+      {{>accum: infoList Attack: Strangling Roots}}
+    - |
+      {{>accum: infoList Attack: Explosive Fruits}}
+    - |
+      {{>accum: infoList Attack: Blood Sucking Roots}}
+    - |
+      {{>accum: infoList Attack: Acid Sap}}
+    - |
+      {{>accum: infoList Attack: Scorching Pollen}}
+    - |
+      {{>accum: infoList Attack: Inserting a Seed Inside a Victim’s Heart}}
+    - |
+      {{>accum: infoList Attack: Scorching Sun Ray reflected by Flowers}}
+    - |
+      {{>accum: infoList Attack: Hypnotic Perfume}}
   prehistoric:
     characteristics:
-    - Reptilian
-    - Gigantic with Small Head
-    - Protruding Bones
-    - Highly Muscular with Small Brain
-    - Unicellular
-    - Protruding Teeth and Claws
-    - Amphibious
-    - Reinforced Carapace
+    - |
+      {{>accum: descriptorList Reptilian}}
+    - |
+      {{>accum: descriptorList Gigantic with Small Head}}
+    - |
+      {{>accum: descriptorList Protruding Bones}}
+    - |
+      {{>accum: descriptorList Highly Muscular with Small Brain}}
+    - |
+      {{>accum: descriptorList Unicellular}}
+    - |
+      {{>accum: descriptorList Protruding Teeth and Claws}}
+    - |
+      {{>accum: descriptorList Amphibious}}
+    - |
+      {{>accum: descriptorList Reinforced Carapace}}
   undead:
     form:
-    - Incorporeal, appearing as it was when alive
-    - Incorporeal, cadaverous appearance
-    - Incorporeal, gaunt appearance
-    - Incorporeal, foggy or deformed appearance
-    - Shadow
-    - As alive, with cold skin and white eyes
-    - Appearance as the moment it died, wounds still bleeding
-    - Appearance as a rotting corpse
-    - A floating head with incorporeal body
-    - Skeletal
+    - |
+      {{>accum: descriptorList Incorporeal, appearing as it was when alive}}
+    - |
+      {{>accum: descriptorList Incorporeal, cadaverous appearance}}
+    - |
+      {{>accum: descriptorList Incorporeal, gaunt appearance}}
+    - |
+      {{>accum: descriptorList Incorporeal, foggy or deformed appearance}}
+    - |
+      {{>accum: descriptorList Shadow}}
+    - |
+      {{>accum: descriptorList As alive, with cold skin and white eyes}}
+    - |
+      {{>accum: descriptorList Appearance as the moment it died, wounds still bleeding}}
+    - |
+      {{>accum: descriptorList Appearance as a rotting corpse}}
+    - |
+      {{>accum: descriptorList A floating head with incorporeal body}}
+    - |
+      {{>accum: descriptorList Skeletal}}
     feeds_upon:
-    - Blood
-    - Flesh
-    - Brains
-    - Vitality
-    - Will to Live
-    - Dreams
-    - Memories
-    - Anger
-    - Fear
-    - Beauty
-    - Eyes
-    - Time Left to Live
+    - |
+      {{>accum: infoList Feeds upon: Blood}}
+    - |
+      {{>accum: infoList Feeds upon: Flesh}}
+    - |
+      {{>accum: infoList Feeds upon: Brains}}
+    - |
+      {{>accum: infoList Feeds upon: Vitality}}
+    - |
+      {{>accum: infoList Feeds upon: Will to Live}}
+    - |
+      {{>accum: infoList Feeds upon: Dreams}}
+    - |
+      {{>accum: infoList Feeds upon: Memories}}
+    - |
+      {{>accum: infoList Feeds upon: Anger}}
+    - |
+      {{>accum: infoList Feeds upon: Fear}}
+    - |
+      {{>accum: infoList Feeds upon: Beauty}}
+    - |
+      {{>accum: infoList Feeds upon: Eyes}}
+    - |
+      {{>accum: infoList Feeds upon: Time Left to Live}}
   magical:
+    maybe_other_nature:
+    - |
+      1..2,
+      {{magical.form}}
+    - |
+      {{natures.no_amalgamation}}
+
     traits:
-    - Static energy radiates from the creature, lightly shocking whoever comes close.
-    - The creature levitates just above ground, having a supernatural lightness.
-    - The creature's hair or body hair is always under the influence of elements (on fire, wet, blown by the wind, full of dirt).
-    - The creature's skin emanates a soft glow.
-    - The creature's eye reflects the soul of whoever gazes at it.
-    - Little energy crystals are scattered throughout the creature's body.
-    - The creature's skin changes color according to its humor.
-    - Translucent body.
-    - Small energy spheres orbit around the creature.
-    - The creature appears different for every person who looks at it.
-    - Strange runes and symbols cover the creature’s body.
-    - Tree branches grow from the creature's body.
+    - |
+      {{>accum: infoList Static energy radiates from the creature, lightly shocking whoever comes close.}}
+    - |
+      {{>accum: infoList The creature levitates just above ground, having a supernatural lightness.}}
+    - |
+      {{>accum: infoList The creature's hair or body hair is always under the influence of elements (on fire, wet, blown by the wind, full of dirt).}}
+    - |
+      {{>accum: infoList The creature's skin emanates a soft glow.}}
+    - |
+      {{>accum: infoList The creature's eye reflects the soul of whoever gazes at it.}}
+    - |
+      {{>accum: infoList Little energy crystals are scattered throughout the creature's body.}}
+    - |
+      {{>accum: infoList The creature's skin changes color according to its humor.}}
+    - |
+      {{>accum: infoList Translucent body.}}
+    - |
+      {{>accum: infoList Small energy spheres orbit around the creature.}}
+    - |
+      {{>accum: infoList The creature appears different for every person who looks at it.}}
+    - |
+      {{>accum: infoList Strange runes and symbols cover the creature’s body.}}
+    - |
+      {{>accum: infoList Tree branches grow from the creature's body.}}
     form:
-    - Sphere
-    - Cube
-    - Concentric Rings
-    - Giant Eye with Bloody Veins
-    - Living Energy
-    - Living Fog
-    - Constant Changing Geometric Figure
-    - Floating Pyramid
-    - Living Weapon
-    - Flying Crystal
-    - A Horde of Glass Insects with Collective Intelligence
-    - An Amalgam of 1d4+1 Monster’s Natures
+    - |
+      {{>accum: descriptorList Sphere}}
+    - |
+      {{>accum: descriptorList Cube}}
+    - |
+      {{>accum: descriptorList Concentric Rings}}
+    - |
+      {{>accum: descriptorList Giant Eye with Bloody Veins}}
+    - |
+      {{>accum: descriptorList Living Energy}}
+    - |
+      {{>accum: descriptorList Living Fog}}
+    - |
+      {{>accum: descriptorList Constant Changing Geometric Figure}}
+    - |
+      {{>accum: descriptorList Floating Pyramid}}
+    - |
+      {{>accum: descriptorList Living Weapon}}
+    - |
+      {{>accum: descriptorList Flying Crystal}}
+    - |
+      {{>accum: descriptorList A Horde of Glass Insects with Collective Intelligence}}
+    - |
+      {{>pickN: 1d4+1 natures.no_amalgamation}}
   technological:
     form:
-    - Artificial Human Form
-    - Artificial Animal Form ({{animals}})
-    - Flying Computer
-    - Brain Inside Translucent Sphere
-    - Sphere with many Monitors and Mechanica Arms
-    - War Tank
-    - Wheeled Vehicle
-    - Flying Saucer
-    - Helicopter
-    - Oven
-    - Meat Grinder
-    - Rubik’s Cube
-    - Bulldozer
-    - Concrete Mixer
-    - Tripod
-    - Monocycle
-    - Millions of Nanobots
-    - Lamp
-    - Telescope
-    - Bundles of Wires and Cables
+    - |
+      {{>accum: descriptorList Artificial Human Form}}
+    - |
+      {{>accum: descriptorList Artificial Animal Form (%[[animals]]%)}}
+    - |
+      {{>accum: descriptorList Flying Computer}}
+    - |
+      {{>accum: descriptorList Brain Inside Translucent Sphere}}
+    - |
+      {{>accum: descriptorList Sphere with many Monitors and Mechanica Arms}}
+    - |
+      {{>accum: descriptorList War Tank}}
+    - |
+      {{>accum: descriptorList Wheeled Vehicle}}
+    - |
+      {{>accum: descriptorList Flying Saucer}}
+    - |
+      {{>accum: descriptorList Helicopter}}
+    - |
+      {{>accum: descriptorList Oven}}
+    - |
+      {{>accum: descriptorList Meat Grinder}}
+    - |
+      {{>accum: descriptorList Rubik’s Cube}}
+    - |
+      {{>accum: descriptorList Bulldozer}}
+    - |
+      {{>accum: descriptorList Concrete Mixer}}
+    - |
+      {{>accum: descriptorList Tripod}}
+    - |
+      {{>accum: descriptorList Monocycle}}
+    - |
+      {{>accum: descriptorList Millions of Nanobots}}
+    - |
+      {{>accum: descriptorList Lamp}}
+    - |
+      {{>accum: descriptorList Telescope}}
+    - |
+      {{>accum: descriptorList Bundles of Wires and Cables}}
     material:
-    - Plastic
-    - Iron
-    - Mercury
-    - Steel
-    - Wood
-    - Glass Fiber
-    - Glass
-    - Acrylic
-    - Gold
-    - Leather
-    - Textile
-    - Copper
+    - |
+      {{>accum: descriptorList Material: Plastic}}
+    - |
+      {{>accum: descriptorList Material: Iron}}
+    - |
+      {{>accum: descriptorList Material: Mercury}}
+    - |
+      {{>accum: descriptorList Material: Steel}}
+    - |
+      {{>accum: descriptorList Material: Wood}}
+    - |
+      {{>accum: descriptorList Material: Glass Fiber}}
+    - |
+      {{>accum: descriptorList Material: Glass}}
+    - |
+      {{>accum: descriptorList Material: Acrylic}}
+    - |
+      {{>accum: descriptorList Material: Gold}}
+    - |
+      {{>accum: descriptorList Material: Leather}}
+    - |
+      {{>accum: descriptorList Material: Textile}}
+    - |
+      {{>accum: descriptorList Material: Copper}}
   alien:
     tech_level:
-    - Stone Age (prehistory and before)
-    - Bronze Age (3500 B.C).
-    - Iron Age (1200 B.C).
-    - Middle Ages (600 B.C).
-    - Age of Discoveries (1450 A.D).
-    - Industrial Revolution (1730 A.D).
-    - Mechanical Age (1880 A.D).
-    - Nuclear Age (1940 A.D).
-    - Digital Age (1980 A.D).
-    - Microtechnology Age (Nanotechnology and other amazing advances)
-    - Space Age (Space travel and colonization)
-    - Time Age (Time travel)
+    - |
+      {{>accum: infoList Tech Level: Stone Age (prehistory and before)}}
+    - |
+      {{>accum: infoList Tech Level: Bronze Age (3500 B.C).}}
+    - |
+      {{>accum: infoList Tech Level: Iron Age (1200 B.C).}}
+    - |
+      {{>accum: infoList Tech Level: Middle Ages (600 B.C).}}
+    - |
+      {{>accum: infoList Tech Level: Age of Discoveries (1450 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Industrial Revolution (1730 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Mechanical Age (1880 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Nuclear Age (1940 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Digital Age (1980 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Microtechnology Age (Nanotechnology and other amazing advances)}}
+    - |
+      {{>accum: infoList Tech Level: Space Age (Space travel and colonization)}}
+    - |
+      {{>accum: infoList Tech Level: Time Age (Time travel)}}
     means_of_travel:
-    - Meteor
-    - Black Hole
-    - Portal opened by Sorcerer-King
-    - Dimensional Storm
-    - Astral Projection
-    - Cavern Complex with Extra-Planar Connections
-    - A Bridge Extending to Another World
-    - Magical Ship Sailing on Cosmic Currents
-    - Winged Creatures that Ride the Cosmos
-    - Space Ship
-    - Teleporting Device
-    - Intersecting Planet
+    - |
+      {{>accum: infoList Means of Travel: Meteor}}
+    - |
+      {{>accum: infoList Means of Travel: Black Hole}}
+    - |
+      {{>accum: infoList Means of Travel: Portal opened by Sorcerer-King}}
+    - |
+      {{>accum: infoList Means of Travel: Dimensional Storm}}
+    - |
+      {{>accum: infoList Means of Travel: Astral Projection}}
+    - |
+      {{>accum: infoList Means of Travel: Cavern Complex with Extra-Planar Connections}}
+    - |
+      {{>accum: infoList Means of Travel: A Bridge Extending to Another World}}
+    - |
+      {{>accum: infoList Means of Travel: Magical Ship Sailing on Cosmic Currents}}
+    - |
+      {{>accum: infoList Means of Travel: Winged Creatures that Ride the Cosmos}}
+    - |
+      {{>accum: infoList Means of Travel: Space Ship}}
+    - |
+      {{>accum: infoList Means of Travel: Teleporting Device}}
+    - |
+      {{>accum: infoList Means of Travel: Intersecting Planet}}
     purposes:
-    - Harvest natural resources.
-    - Colonize a new world.
-    - Escape the destruction of their original world.
-    - Search for ancestors that visited this world.
-    - Dominate this new world.
-    - Conduct scientific experiments.
-    - Warn natives of an incoming doom.
-    - Eat all that it can find.
-    - To reproduce with another species.
-    - Gather slaves for an important task.
-    - To learn and collect information.
-    - To prevent a catastrophic event they have foreseen.
+    - |
+      {{>accum: infoList Purpose: Harvest natural resources.}}
+    - |
+      {{>accum: infoList Purpose: Colonize a new world.}}
+    - |
+      {{>accum: infoList Purpose: Escape the destruction of their original world.}}
+    - |
+      {{>accum: infoList Purpose: Search for ancestors that visited this world.}}
+    - |
+      {{>accum: infoList Purpose: Dominate this new world.}}
+    - |
+      {{>accum: infoList Purpose: Conduct scientific experiments.}}
+    - |
+      {{>accum: infoList Purpose: Warn natives of an incoming doom.}}
+    - |
+      {{>accum: infoList Purpose: Eat all that it can find.}}
+    - |
+      {{>accum: infoList Purpose: To reproduce with another species.}}
+    - |
+      {{>accum: infoList Purpose: Gather slaves for an important task.}}
+    - |
+      {{>accum: infoList Purpose: To learn and collect information.}}
+    - |
+      {{>accum: infoList Purpose: To prevent a catastrophic event they have foreseen.}}
   aberration:
     form:
-    - Amorphous
-    - Oval
-    - Sphere
-    - Conical
-    - Cylinder
-    - Pyramid
-    - Ring
-    - Icosahedron
-    - Bidimensional
-    - Tetradimensional
-    - Similar to another Monster's Nature
-    - Mixture of 1d+1 Monster's Nature
+    - |
+      {{>accum: descriptorList Amorphous}}
+    - |
+      {{>accum: descriptorList Oval}}
+    - |
+      {{>accum: descriptorList Sphere}}
+    - |
+      {{>accum: descriptorList Conical}}
+    - |
+      {{>accum: descriptorList Cylinder}}
+    - |
+      {{>accum: descriptorList Pyramid}}
+    - |
+      {{>accum: descriptorList Ring}}
+    - |
+      {{>accum: descriptorList Icosahedron}}
+    - |
+      {{>accum: descriptorList Bidimensional}}
+    - |
+      {{>accum: descriptorList Tetradimensional}}
+    - |
+      {{natures.no_amalgamation}}
+    - |
+      {{nature_templates.Amalgamation}}
     characteristics:
-    - Hundreds of eyes of different types and sizes cover the creature’s body.
-    - Hundreds of mouths of different sizes and shapes cover the creature's body and spew a disgusting goo.
-    - Body covered by irregular thorns that inject hallucinogenic poison.
-    - Body covered with small lips that keep pronouncing alien poetry which drives listeners insane.
-    - Several tentacles cover the creature’s body.
-    - Faces of several different beings in agonizing expressions cover thecreature's body.
-    - Bubbles expelling nauseous smells forms all over the creature's body.
-    - Hundreds of clawed hands form and dissipate over the creature's body.
-    - Hundreds of genitalia cover the creature's body.
-    - The creature's body is covered with holes expelling feces.
-    - Gelatinous and transparent body, exposing all the bizarre organs inside.
-    - Roll 1d4 times.
+    - |
+      {{>accum: descriptorList Hundreds of eyes of different types and sizes cover the creature’s body.}}
+    - |
+      {{>accum: descriptorList Hundreds of mouths of different sizes and shapes cover the creature's body and spew a disgusting goo.}}
+    - |
+      {{>accum: descriptorList Body covered by irregular thorns that inject hallucinogenic poison.}}
+    - |
+      {{>accum: descriptorList Body covered with small lips that keep pronouncing alien poetry which drives listeners insane.}}
+    - |
+      {{>accum: descriptorList Several tentacles cover the creature’s body.}}
+    - |
+      {{>accum: descriptorList Faces of several different beings in agonizing expressions cover thecreature's body.}}
+    - |
+      {{>accum: descriptorList Bubbles expelling nauseous smells forms all over the creature's body.}}
+    - |
+      {{>accum: descriptorList Hundreds of clawed hands form and dissipate over the creature's body.}}
+    - |
+      {{>accum: descriptorList Hundreds of genitalia cover the creature's body.}}
+    - |
+      {{>accum: descriptorList The creature's body is covered with holes expelling feces.}}
+    - |
+      {{>accum: descriptorList Gelatinous and transparent body, exposing all the bizarre organs inside.}}
+    - |
+      {{>pickN: 1d4 aberration.characteristics}}
   elemental:
     element:
-    - Earth
-    - Water
-    - Fire
-    - Air
-    - Rock
-    - Magma
-    - Ashes
-    - Sand
-    - Wood
-    - Mud
-    - Steam
-    - Blood
-    - Metal
-    - Mucus
-    - Acid
-    - Poison
-    - Lightning
-    - Light
-    - Glass
-    - Diamond
-  humanoid:
-    init:
     - |
-      %[[>accum: appearance {{humanoid.appearance}}]]%
+      {{>accum: descriptorList Element: Earth}}
+    - |
+      {{>accum: descriptorList Element: Water}}
+    - |
+      {{>accum: descriptorList Element: Fire}}
+    - |
+      {{>accum: descriptorList Element: Air}}
+    - |
+      {{>accum: descriptorList Element: Rock}}
+    - |
+      {{>accum: descriptorList Element: Magma}}
+    - |
+      {{>accum: descriptorList Element: Ashes}}
+    - |
+      {{>accum: descriptorList Element: Sand}}
+    - |
+      {{>accum: descriptorList Element: Wood}}
+    - |
+      {{>accum: descriptorList Element: Mud}}
+    - |
+      {{>accum: descriptorList Element: Steam}}
+    - |
+      {{>accum: descriptorList Element: Blood}}
+    - |
+      {{>accum: descriptorList Element: Metal}}
+    - |
+      {{>accum: descriptorList Element: Mucus}}
+    - |
+      {{>accum: descriptorList Element: Acid}}
+    - |
+      {{>accum: descriptorList Element: Poison}}
+    - |
+      {{>accum: descriptorList Element: Lightning}}
+    - |
+      {{>accum: descriptorList Element: Light}}
+    - |
+      {{>accum: descriptorList Element: Glass}}
+    - |
+      {{>accum: descriptorList Element: Diamond}}
+  humanoid:
     skin_color:
     - yellow
     - orange
@@ -1025,45 +1398,84 @@ nested_tables:
     - gray
     - transparent
     appearance:
-    - Elongated Limbs (can make melee attacks to opponents within nearby range)
-    - Giant Head
-    - Shortened Limbs (slow movement)
-    - Elastic Limbs (can make melee attacks to opponents within nearby range)
-    - Extra Pair of Arms (can act one more time per round)
-    - Extra Pair of Legs (can move twice per round)
-    - Extra Heads (receives a Positive Die to mental actions)
-    - Scaly Skin (-1d of Damage Reduction)
-    - "Colorful Skin ({{humanoid.skin_color}}) – Color may indicate resistance to certain types of damage"
-    - Without Body Hair
-    - With flashy hair or fur
-    - Small body (Positive Die to hide)
-    - Large Body (Positive Die to physical actions)
-    - No distinction between genders (or without genders)
-    - Skeletal Body
-    - Corpulent Body
-    - Protruding Bones
-    - Extra Eyes (Positive Die on perception tests)
-    - Eyeless (augmented senses)
-    - "{{natures.no_human}}"
-    #- Traits of other nature (roll again on the Monster’s Nature table, ignoring the Humanoid result)
+    - |
+      {{>accum: descriptorList Elongated Limbs (can make melee attacks to opponents within nearby range)}}
+    - |
+      {{>accum: descriptorList Giant Head}}
+    - |
+      {{>accum: descriptorList Shortened Limbs (slow movement)}}
+    - |
+      {{>accum: descriptorList Elastic Limbs (can make melee attacks to opponents within nearby range)}}
+    - |
+      {{>accum: descriptorList Extra Pair of Arms (can act one more time per round)}}
+    - |
+      {{>accum: descriptorList Extra Pair of Legs (can move twice per round)}}
+    - |
+      {{>accum: descriptorList Extra Heads (receives a Positive Die to mental actions)}}
+    - |
+      {{>accum: descriptorList Scaly Skin (-1d of Damage Reduction)}}
+    - |
+      {{>accum: descriptorList Colorful Skin (%[[humanoid.skin_color]]%) – Color may indicate resistance to certain types of damage}}
+    - |
+      {{>accum: descriptorList Without Body Hair}}
+    - |
+      {{>accum: descriptorList With flashy hair or fur}}
+    - |
+      {{>accum: descriptorList Small body (Positive Die to hide)}}
+    - |
+      {{>accum: descriptorList Large Body (Positive Die to physical actions)}}
+    - |
+      {{>accum: descriptorList No distinction between genders (or without genders)}}
+    - |
+      {{>accum: descriptorList Skeletal Body}}
+    - |
+      {{>accum: descriptorList Corpulent Body}}
+    - |
+      {{>accum: descriptorList Protruding Bones}}
+    - |
+      {{>accum: descriptorList Extra Eyes (Positive Die on perception tests)}}
+    - |
+      {{>accum: descriptorList Eyeless (augmented senses)}}
+    - |
+      {{natures.no_human}}
     culture:
-    - Praises brute strength above all else and dominates inferior races.
-    - The search for knowledge moves this race through the cosmos.
-    - Carnal pleasures are all that matters.
-    - The search for spiritual growth is the most noble quest of an individual .
-    - Hoards riches at any cost, even taking it from weaker races.
-    - To reproduce and spread to all corners of the cosmos.
-    - Dominate intellectually all other cultures.
-    - To produce art is the greater deed an individual can accomplish.
-    - Technological development is the most noble cause to pursue.
-    - Sorcery is a stain that must be cleaned from the world.
-    - The accumulation of magical power is the only way to secure our superiority.
-    - To bring our god to this world is our main task.
-    - To remain isolated from other races is our main safety guarantee.
-    - Hunt the most powerful beast to prove your worth.
-    - Never suppress your primal instincts as savagery is the purest state of being.
-    - The quest for the promised land is the main task of our people.
-    - To obey all the wishes and desires of the Queen-Mother, whatever they may be.
-    - Only by the end of the world as we know it we can build a better one .
-    - Life has no meaning and is empty, nothing and no one can alter this truth.
-    - Transformation and constant change are essential to save Chaos from the tyranny of Order.
+    - |
+      {{>accum: infoList Culture: Praises brute strength above all else and dominates inferior races.}}
+    - |
+      {{>accum: infoList Culture: The search for knowledge moves this race through the cosmos.}}
+    - |
+      {{>accum: infoList Culture: Carnal pleasures are all that matters.}}
+    - |
+      {{>accum: infoList Culture: The search for spiritual growth is the most noble quest of an individual .}}
+    - |
+      {{>accum: infoList Culture: Hoards riches at any cost, even taking it from weaker races.}}
+    - |
+      {{>accum: infoList Culture: To reproduce and spread to all corners of the cosmos.}}
+    - |
+      {{>accum: infoList Culture: Dominate intellectually all other cultures.}}
+    - |
+      {{>accum: infoList Culture: To produce art is the greater deed an individual can accomplish.}}
+    - |
+      {{>accum: infoList Culture: Technological development is the most noble cause to pursue.}}
+    - |
+      {{>accum: infoList Culture: Sorcery is a stain that must be cleaned from the world.}}
+    - |
+      {{>accum: infoList Culture: The accumulation of magical power is the only way to secure our superiority.}}
+    - |
+      {{>accum: infoList Culture: To bring our god to this world is our main task.}}
+    - |
+      {{>accum: infoList Culture: To remain isolated from other races is our main safety guarantee.}}
+    - |
+      {{>accum: infoList Culture: Hunt the most powerful beast to prove your worth.}}
+    - |
+      {{>accum: infoList Culture: Never suppress your primal instincts as savagery is the purest state of being.}}
+    - |
+      {{>accum: infoList Culture: The quest for the promised land is the main task of our people.}}
+    - |
+      {{>accum: infoList Culture: To obey all the wishes and desires of the Queen-Mother, whatever they may be.}}
+    - |
+      {{>accum: infoList Culture: Only by the end of the world as we know it we can build a better one.}}
+    - |
+      {{>accum: infoList Culture: Life has no meaning and is empty, nothing and no one can alter this truth.}}
+    - |
+      {{>accum: infoList Culture: Transformation and constant change are essential to save Chaos from the tyranny of Order.}}
