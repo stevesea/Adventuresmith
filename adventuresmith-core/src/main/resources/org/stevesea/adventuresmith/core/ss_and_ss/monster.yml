@@ -9,9 +9,11 @@
 #
 templates:
 - |
+  <!--
   {{>add: numPowers 0}}
   {{>add: numWeaknesses 0}}
   {{natures.base}}
+  -->
   %[[render_init]]%
 
 
@@ -95,7 +97,6 @@ definitions:
       {{definitely_powers}}
       {{definitely_weaknesses}}
     Amalgamation: |
-      {{>accum: naturesList Amalgamation}}
       {{>pickN: 1d3+1 natures.no_amalgamation}}
 
 tables:
@@ -875,6 +876,13 @@ nested_tables:
       {{nature_templates.Daemonic}}
     - |
       {{nature_templates.Elemental}}
+    no_meta:
+    - |
+      {{nature_templates.Humanoid}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
     no_human:
     - |
       {{nature_templates.Beast}}
