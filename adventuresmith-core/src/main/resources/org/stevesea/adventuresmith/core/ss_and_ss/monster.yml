@@ -905,8 +905,6 @@ nested_tables:
     - |
       {{nature_templates.Aberration}}
     - |
-      {{nature_templates.Mythological}}
-    - |
       {{nature_templates.Daemonic}}
     - |
       {{nature_templates.Elemental}}
