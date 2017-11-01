@@ -9,27 +9,24 @@
 #
 templates:
 - |
-  {{>set: numPowers 0}}
-  {{>set: numWeaknesses 0}}
+  {{>add: numPowers 0}}
+  {{>add: numWeaknesses 0}}
   {{natures.base}}
   %[[render_init]]%
 
 
 definitions:
   render_init: |
-    {{>uniq: natureList}}
+    {{>uniq: naturesList}}
     %[[render]]%
   render: |
-    <h4>{{>get: natureList}}</h4>
-    <h5>description</h5>
+    <h4>{{>get: naturesList}}</h4>
     {{>get: descriptorList <br/>}}
-    <h5>info</h5>
+    <br/><br/>
     {{>get: infoList <br/>}}
 
-    <h5>powers</h5>
-    {{>pickN: numPowers powers <br/>}}
-    <h5>weaknesses</h5>
-    {{>pickN: numWeaknesses weaknesses <br/>}}
+    %[[>pick: {{>get: numPowers}} render_powers]]%
+    %[[>pick: {{>get: numWeaknesses}} render_weaknesses]]%
 
   nature_templates:
     Humanoid: |
@@ -133,6 +130,16 @@ tables:
     {{>add: numWeaknesses 2}}
   - |
     {{>add: numWeaknesses 3}}
+  render_powers:
+  - 0,
+  - |
+    <h5>Powers</h5>
+    {{>pickN: numPowers powers <br/>}}
+  render_weaknesses:
+  - 0,
+  - |
+    <h5>Weaknesses</h5>
+    {{>pickN: numWeaknesses weaknesses <br/>}}
 
   animals_winged:
   - a bee
