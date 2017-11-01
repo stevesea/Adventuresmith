@@ -9,9 +9,6 @@ groups:
   - name: grpBetweenAdventure
     uiName: Between Adventures
     icon: cmd-timer-sand
-  - name: grpChar
-    uiName: Characters
-    icon: cmd-account
   - name: grpEncounter
     uiName: Encounters
     icon: cmd-run

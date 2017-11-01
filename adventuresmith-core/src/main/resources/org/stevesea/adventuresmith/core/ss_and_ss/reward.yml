@@ -5,12 +5,12 @@ templates:
 nested_tables:
   reward:
     template:
-    - "Treasure: {{reward.Treasure}}"
-    - "Magic Artifacts: {{reward.MagicArtifacts}}"
-    - "Power: {{reward.Power}}"
-    - "Knowledge: {{reward.Knowledge}}"
-    - "Influence: {{reward.Influence}}"
-    - "Glory: {{reward.Glory}}"
+    - "Treasure: <br/>{{reward.Treasure}}"
+    - "Magic Artifacts: <br/>{{reward.MagicArtifacts}}"
+    - "Power: <br/>{{reward.Power}}"
+    - "Knowledge: <br/>{{reward.Knowledge}}"
+    - "Influence: <br/>{{reward.Influence}}"
+    - "Glory: <br/>{{reward.Glory}}"
 
     Treasure:
     - Large Sum of Silver and Gold

@@ -1,22 +1,64 @@
 ---
 templates:
-- Mundane animals of the region are strangely agitated and act in weird and disturbing ways during the night. The group cannot sleep well and everyone receives a Negative Die during the next scene, unless they pass a Physique test.
-- "<strong>{{>roll: 1d4}}</strong> days of rations are lost due to insects or other creatures that seemed strangely attracted to the party's food stock."
-- The trail ahead is blocked and the party needs to make a detour, increasing the travel time by 1 day.
-- Bad weather reduces visibility drastically, forcing the party guide to make an Intellect test or lose 1 day of travel time to make sure they do not deviate from their trail.
-- "After a good night of rest, the party wakes up to find out they've been robbed. They lost <strong>{{>roll: 1d6*100}}</strong> sc (or <strong>{{>roll: 1d6}}</strong> Treasure Points) divided amongst them."
-- The landmarks the guide was using as reference have disappeared. She now has to make an Intellect test or the party will follow the wrong path.
-- "A group of untrustworthy merchants is met on the road and tries to take advantage of the party. Each character must pass an Intellect test or lose <strong>{{>roll: 1d6*50}}</strong> sc (or <strong>{{>roll: 1d4}}</strong> Treasure Points)."
-- Having to flee from a terrible threat (a creature or hazard), each character loses one random item of equipment.
-- A traveling warlock curses the group, reducing their Luck Dice 1 step until they perform a task for him. The curse can be resisted by passing a Willpower test.
-- A ghost appears to haunt the party until they help it finish its final mission.
-- The party's scout needs to pass an Intellect test or the adventurers will fall for a trap or ambush set by bandits or viler creatures.
-- Something or someone is following the group. The watcher can test Intellect to detect the pursuer. What might it be?
-- The party crosses the territory of a powerful individual or creature and now needs to negotiate passage, be it by combat or more civilized ways.
-- Strange nightmares take hold of the adventurers’ dreams, disturbing their sleep. Each character needs to make a Willpower test to decipher the prophetic signs hidden in their vision. If they fail, when they confront the situation the dream was based upon, they will receive a Negative Die for all actions. Those who succeed will receive some information that might help them with their adventure.
-- "A perilous obstacle needs to be surpassed (a cliff, a ravine, a raging river). Characters need to make a Physique or Agility test. Failure indicates that they suffer <strong>{{>roll: 1d8}}</strong> points of damage."
-- Predators from the region are following the adventurers. To escape confrontation, they need to shake them off (Intellect test) or be quicker than their pursuers (Agility test).
-- "The food consumed today travel was poisoned. The characters need to pass a Physique test or suffer <strong>{{>roll: 1d4}}</strong> points of damage to that Attribute."
-- A fanatical warrior from a local community challenges one of the characters to a fight to the death. He doesn't seem to be willing to take no for an answer.
-- "The party is exposed to the radiation emitted by an ancient civilization's technological artifact. All characters need to make a Physique test or suffer <strong>{{>roll: 1d6}}</strong> points of damage to Physique or Agility."
-- A supernatural entity casts an illusory spell on the party. The adventurers need to pass an Intellect test to realize the reality they are seeing is false. Only one test can be made per day.
+- |
+  Mundane animals of the region are strangely agitated and act in weird and disturbing ways during the night.
+  <br/><br/>The group cannot sleep well and everyone receives a Negative Die during the next scene, unless they pass
+  a Physique test.
+- |
+  <strong>{{>roll: 1d4}}</strong> days of rations are lost due to insects or other creatures that seemed
+  strangely attracted to the party's food stock.
+- |
+  The trail ahead is blocked and the party needs to make a detour, increasing the travel time by 1 day.
+- |
+  Bad weather reduces visibility drastically, forcing the party guide to make an Intellect test or lose
+  1 day of travel time to make sure they do not deviate from their trail.
+- |
+  After a good night of rest, the party wakes up to find out they've been robbed. <br/><br/>They lost
+  <strong>{{>roll: 1d6*100}}</strong> sc (or <strong>{{>roll: 1d6}}</strong> Treasure Points)
+  divided amongst them.
+- |
+  The landmarks the guide was using as reference have disappeared. <br/><br/>She now has to make an Intellect
+  test or the party will follow the wrong path.
+- |
+  A group of untrustworthy merchants is met on the road and tries to take advantage of the party.
+  <br/><br/>Each character must pass an Intellect test or lose <strong>{{>roll: 1d6*50}}</strong> sc
+  (or <strong>{{>roll: 1d4}}</strong> Treasure Points).
+- |
+  Having to flee from a terrible threat (a creature or hazard), each character loses one random item of equipment.
+- |
+  A traveling warlock curses the group, reducing their Luck Dice 1 step until they perform a task
+  for him. <br/><br/>The curse can be resisted by passing a Willpower test.
+- |
+  A ghost appears to haunt the party until they help it finish its final mission.
+- |
+  The party's scout needs to pass an Intellect test or the adventurers will fall for a trap or
+  ambush set by bandits or viler creatures.
+- |
+  Something or someone is following the group. The watcher can test Intellect to detect the pursuer.
+  <br/><br/>What might it be?
+- |
+  The party crosses the territory of a powerful individual or creature and now needs to negotiate passage,
+  be it by combat or more civilized ways.
+- |
+  Strange nightmares take hold of the adventurers’ dreams, disturbing their sleep. <br/><br/>Each character
+  needs to make a Willpower test to decipher the prophetic signs hidden in their vision.
+  <br/><br/>If they fail, when they confront the situation the dream was based upon, they will receive a Negative Die for all actions.
+  Those who succeed will receive some information that might help them with their adventure.
+- |
+  A perilous obstacle needs to be surpassed (a cliff, a ravine, a raging river).
+  <br/><br/>Characters need to make a Physique or Agility test. Failure indicates that they suffer <strong>{{>roll: 1d8}}</strong> points of damage.
+- |
+  Predators from the region are following the adventurers. <br/><br/>To escape confrontation, they need to
+  shake them off (Intellect test) or be quicker than their pursuers (Agility test).
+- |
+  The food consumed today travel was poisoned. <br/><br/>The characters need to pass a Physique test or
+  suffer <strong>{{>roll: 1d4}}</strong> points of damage to that Attribute.
+- |
+  A fanatical warrior from a local community challenges one of the characters to a fight to the death.
+  He doesn't seem to be willing to take no for an answer.
+- |
+  The party is exposed to the radiation emitted by an ancient civilization's technological artifact.
+  <br/><br/>All characters need to make a Physique test or suffer <strong>{{>roll: 1d6}}</strong> points of damage to Physique or Agility.
+- |
+  A supernatural entity casts an illusory spell on the party. <br/><br/>The adventurers need to pass an
+  Intellect test to realize the reality they are seeing is false. Only one test can be made per day.

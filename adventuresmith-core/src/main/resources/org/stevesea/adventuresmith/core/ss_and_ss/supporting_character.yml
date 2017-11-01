@@ -5,12 +5,12 @@ templates:
 nested_tables:
   supporting:
     template:
-    - "Adventurer: {{supporting.adventurer}}"
-    - "Powerful Person: {{supporting.powerful}}"
-    - "Organization: {{supporting.org}}"
-    - "Monster: {{supporting.monster}}"
-    - "Supernatural Entity: {{supporting.supernatural}}"
-    - "Magic Artifact: {{supporting.artifact}}"
+    - "Adventurer: <br/>{{supporting.adventurer}}"
+    - "Powerful Person: <br/>{{supporting.powerful}}"
+    - "Organization: <br/>{{supporting.org}}"
+    - "Monster: <br/>{{supporting.monster}}"
+    - "Supernatural Entity: <br/>{{supporting.supernatural}}"
+    - "Magic Artifact: <br/>{{supporting.artifact}}"
     adventurer:
     - Travelling Skald
     - Bon-Vivant Thief

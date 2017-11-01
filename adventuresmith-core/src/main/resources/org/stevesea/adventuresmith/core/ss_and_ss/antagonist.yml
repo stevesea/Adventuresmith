@@ -5,12 +5,12 @@ templates:
 nested_tables:
   antagonists:
     template:
-    - "Powerful Person: {{antagonists.powerful}}"
-    - "Magic Artifact: {{antagonists.artifact}}"
-    - "Organization: {{antagonists.org}}"
-    - "Irrational Monster: {{antagonists.irrational}}"
-    - "Intelligent Monster: {{antagonists.intelligent}}"
-    - "Supernatural Entity: {{antagonists.supernatural}}"
+    - "Powerful Person: <br/>{{antagonists.powerful}}"
+    - "Magic Artifact: <br/>{{antagonists.artifact}}"
+    - "Organization: <br/>{{antagonists.org}}"
+    - "Irrational Monster: <br/>{{antagonists.irrational}}"
+    - "Intelligent Monster: <br/>{{antagonists.intelligent}}"
+    - "Supernatural Entity: <br/>{{antagonists.supernatural}}"
     powerful:
     - Feared Necromancer
     - Barbarian Warlord

@@ -33,12 +33,12 @@ nested_tables:
 
   location:
     template:
-    - "Ruins: {{location.ruins}}"
-    - "Isolated Place: {{location.isolated}}"
-    - "City-State: {{location.citystate}}"
-    - "Borderlands: {{location.borderlands}}"
-    - "Wilderness: {{location.wilderness}}"
-    - "Strange Place: {{location.strange}}"
+    - "Ruins: <br/>{{location.ruins}}"
+    - "Isolated Place: <br/>{{location.isolated}}"
+    - "City-State: <br/>{{location.citystate}}"
+    - "Borderlands: <br/>{{location.borderlands}}"
+    - "Wilderness: <br/>{{location.wilderness}}"
+    - "Strange Place: <br/>{{location.strange}}"
     ruins:
     - Ancient City-State
     - Sorcerer’s Tower
@@ -86,12 +86,12 @@ nested_tables:
 
   goal:
     template:
-    - "Attack, Kill, Destroy: {{goal.attack_kill_destroy}}"
-    - "Find, Recover: {{goal.find_recover}}"
-    - "Steal, Capture: {{goal.steal_capture}}"
-    - "Guard, Protect: {{goal.guard_protect}}"
-    - "Explore, Discover: {{goal.explore_discover}}"
-    - "Survive, Escape: {{goal.survive_escape}}"
+    - "Attack, Kill, Destroy: <br/>{{goal.attack_kill_destroy}}"
+    - "Find, Recover: <br/>{{goal.find_recover}}"
+    - "Steal, Capture: <br/>{{goal.steal_capture}}"
+    - "Guard, Protect: <br/>{{goal.guard_protect}}"
+    - "Explore, Discover: <br/>{{goal.explore_discover}}"
+    - "Survive, Escape: <br/>{{goal.survive_escape}}"
     attack_kill_destroy:
     - Influential Person
     - Organization
