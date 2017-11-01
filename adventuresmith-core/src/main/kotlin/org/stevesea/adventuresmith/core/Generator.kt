@@ -795,7 +795,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                     }
                 }
                 // don't let a template force us into infinite loop
-                if (count > 20)
+                if (count > 50)
                     break
 
                 count++
