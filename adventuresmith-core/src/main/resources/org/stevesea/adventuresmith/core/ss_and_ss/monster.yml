@@ -22,8 +22,7 @@ definitions:
   render: |
     <h4>{{>get: naturesList}}</h4>
     {{>get: descriptorList <br/>}}
-    <br/><br/>
-    {{>get: infoList <br/>}}
+    %[[>pick: {{>size: infoList}} render_info]]%
 
     %[[>pick: {{>get: numPowers}} render_powers]]%
     %[[>pick: {{>get: numWeaknesses}} render_weaknesses]]%
@@ -59,7 +58,7 @@ definitions:
       {{maybe_weaknesses}}
     Magical: |
       {{>accum: naturesList Magical}}
-      {{magical.maybe_other_natures}}
+      {{magical.maybe_other_nature}}
       {{magical.traits}}
       {{definitely_powers}}
       {{definitely_weaknesses}}
@@ -140,6 +139,12 @@ tables:
   - |
     <h5>Weaknesses</h5>
     {{>pickN: numWeaknesses weaknesses <br/>}}
+
+  render_info:
+  - 0,
+  - |
+    <br/><br/>
+    {{>get: infoList <br/>}}
 
   animals_winged:
   - a bee
@@ -818,7 +823,7 @@ tables:
   - |
     <em>Foresee Future:</em> The creature can see into the future up to HD decades.
   - |
-    {{pickN: 2 powers <br/>}}
+    {{>pickN: 2 powers <br/>}}
 
 nested_tables:
   natures:
