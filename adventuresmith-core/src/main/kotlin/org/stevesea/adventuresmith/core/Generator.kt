@@ -683,9 +683,9 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 val curVal = state[key]
                                 if (curVal != null && curVal is List<*>) {
                                     return StringReader(curVal.size.toString())
+                                } else {
+                                    return StringReader("0")
                                 }
-                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
-
                             } else if (cmd_and_params[0] == "keepFirst:") {
                                 // {{>keepFirst: <list-variable> <N>}} // keep only first N elements in list
                                 val params = cmd_and_params[1].split(" ", limit = 2)
