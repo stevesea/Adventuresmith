@@ -38,6 +38,22 @@ class SsAndSsTest {
     @Test
     fun monster() {
         Assert.assertEquals("""
+            <!--
+
+
+
+
+            
+
+
+
+
+
+
+            -->
+
+
+
             <h4>Humanoid</h4>
             Elongated Limbs (can make melee attacks to opponents within nearby range)
             <br/><br/>
@@ -47,10 +63,29 @@ class SsAndSsTest {
     @Test
     fun monster2() {
         Assert.assertEquals("""
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+            -->
+
+
+
             <h4>Plant</h4>
             Vines
             <br/><br/>
             Attack: Poisonous Spores
+
 
             <h5>Powers</h5>
             <em>Acid Attack</em>: Acid deals a die of damage 1 step below normal for the creature's
