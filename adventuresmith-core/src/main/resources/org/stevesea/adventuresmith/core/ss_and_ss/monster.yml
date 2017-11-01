@@ -50,12 +50,12 @@ definitions:
     Prehistoric: |
       {{>accum: naturesList Prehistoric}}
       {{prehistoric.characteristics}}
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
     Undead: |
       {{>accum: naturesList Undead}}
       {{undead.form}}
       {{undead.feeds_upon}}
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
       {{maybe_powers}}
       {{maybe_weaknesses}}
     Magical: |
@@ -72,7 +72,7 @@ definitions:
       {{maybe_weaknesses}}
     Alien: |
       {{>accum: naturesList Alien}}
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
       {{alien.tech_level}}
       {{alien.means_of_travel}}
       {{alien.purposes}}
@@ -86,13 +86,13 @@ definitions:
       {{definitely_weaknesses}}
     Daemonic: |
       {{>accum: naturesList Daemonic}}
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
       {{daemonic.characteristics}}
       {{definitely_powers}}
       {{definitely_weaknesses}}
     Elemental: |
       {{>accum: naturesList Elemental}}
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
       {{elemental.element}}
       {{definitely_powers}}
       {{definitely_weaknesses}}
@@ -883,6 +883,8 @@ nested_tables:
       {{nature_templates.Beast}}
     - |
       {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Undead}}
     no_human:
     - |
       {{nature_templates.Beast}}
@@ -973,7 +975,8 @@ nested_tables:
     - |
       {{>accum: descriptorList Humanoid torso and lower body of %[[animals]]%.}}
     - |
-      {{>accum: descriptorList %[[animals_upper]]%}}{{natures.no_amalgamation}}
+      {{>accum: descriptorList %[[animals_upper]]%}}
+      {{natures.no_meta}}
   plant:
     form:
     - |
@@ -999,7 +1002,8 @@ nested_tables:
     - |
       {{>accum: descriptorList Algae}}
     - |
-      {{plant.form_no_amalgam}} {{natures.no_amalgamation}}
+      {{plant.form_no_amalgam}}
+      {{natures.no_meta}}
     form_no_amalgam:
     - |
       {{>accum: descriptorList Mushroom}}
@@ -1119,7 +1123,7 @@ nested_tables:
       1..2,
       {{magical.form}}
     - |
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
 
     traits:
     - |
@@ -1170,7 +1174,7 @@ nested_tables:
     - |
       {{>accum: descriptorList A Horde of Glass Insects with Collective Intelligence}}
     - |
-      {{>pickN: 1d4+1 natures.no_amalgamation}}
+      {{>pickN: 1d4+1 natures.no_meta}}
   technological:
     form:
     - |
@@ -1337,7 +1341,7 @@ nested_tables:
     - |
       {{>accum: descriptorList Tetradimensional}}
     - |
-      {{natures.no_amalgamation}}
+      {{natures.no_meta}}
     - |
       {{nature_templates.Amalgamation}}
     characteristics:
