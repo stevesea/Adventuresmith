@@ -13,3 +13,5 @@
 /captures
 .externalNativeBuild
 app/fabric.properties
+
+app/prod/release/output\.json

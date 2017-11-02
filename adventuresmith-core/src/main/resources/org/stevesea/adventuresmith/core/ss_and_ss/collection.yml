@@ -7,13 +7,13 @@ groupedGenerators:
   grpAdventure:
   - adventure_title
   - adventure_idea
-  - adventure_complication
   - opponent_reaction
   - travel_hazards
+  - adventure_complication
   grpBetweenAdventure:
-  - life_events
   - what_has_changed
   - where_gold_go
+  - life_events
   grpMagicalMishaps:
   - arcane_corruption
   - spell_catastrophe
@@ -25,5 +25,5 @@ groupedGenerators:
   grpTreasure:
   - forgotten_artifacts
   - reward
-  - spellbook_effects
   - treasure
+  - spellbook_effects
