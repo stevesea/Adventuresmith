@@ -9,11 +9,11 @@ groups:
   - name: grpBetweenAdventure
     uiName: Between Adventures
     icon: cmd-timer-sand
-  - name: grpEncounter
-    uiName: Encounters
-    icon: cmd-run
+  - name: grpMagicalMishaps
+    uiName: Magical Mishaps
+    icon: cmd-auto-fix
   - name: grpNPC
-    uiName: NPCs
+    uiName: NPCs / Monsters
     icon: cmd-account-multiple
   - name: grpTreasure
     uiName: Treasure

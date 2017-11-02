@@ -8,19 +8,19 @@ groupedGenerators:
   - adventure_title
   - adventure_idea
   - adventure_complication
+  - opponent_reaction
+  - travel_hazards
   grpBetweenAdventure:
   - life_events
   - what_has_changed
   - where_gold_go
-  grpEncounter:
-  - opponent_reaction
-  - monster
-  - travel_hazards
+  grpMagicalMishaps:
   - arcane_corruption
   - spell_catastrophe
   grpNPC:
   - antagonist
   - complication
+  - monster
   - supporting_character
   grpTreasure:
   - forgotten_artifacts
