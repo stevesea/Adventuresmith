@@ -683,9 +683,9 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 val curVal = state[key]
                                 if (curVal != null && curVal is List<*>) {
                                     return StringReader(curVal.size.toString())
+                                } else {
+                                    return StringReader("0")
                                 }
-                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
-
                             } else if (cmd_and_params[0] == "keepFirst:") {
                                 // {{>keepFirst: <list-variable> <N>}} // keep only first N elements in list
                                 val params = cmd_and_params[1].split(" ", limit = 2)
@@ -719,9 +719,16 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                                 val curVal = state[key]
                                 if (curVal != null && curVal is List<*>) {
                                     state.put(key, curVal.sortMixedList())
-                                    return StringReader("")
                                 }
-                                throw IllegalArgumentException("unable to process '>$name'. variable '$key' is not a list")
+                                return StringReader("")
+                            } else if (cmd_and_params[0] == "uniq:") {
+                                // {{>uniq: <list-variable>}} // ensures only one element of each value in list
+                                val key = cmd_and_params[1]
+                                val curVal = state[key]
+                                if (curVal != null && curVal is List<*>) {
+                                    state.put(key, curVal.toHashSet().toList())
+                                }
+                                return StringReader("")
                             } else if (cmd_and_params[0] == "get:") {
                                 // {{>get: <variable> [<delim>]}}
                                 val params = cmd_and_params[1].split(" ", limit = 2)
@@ -786,7 +793,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
                     }
                 }
                 // don't let a template force us into infinite loop
-                if (count > 20)
+                if (count > 50)
                     break
 
                 count++

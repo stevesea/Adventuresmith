@@ -1,0 +1,146 @@
+---
+templates:
+- |
+  <h5>Forgotten Artifact</h5>
+  <strong>Created by:</strong> {{created_by}}
+  <br/><br/>
+  {{power_price}}
+  <br/><br/>
+  <strong>Purpose</strong>
+  <br/>{{purpose.template}}
+
+nested_tables:
+  purpose:
+    template:
+    - "Attack, Kill , Destroy: <br/>{{purpose.attack}}"
+    - "Find, Recover: <br/>{{purpose.find}} "
+    - "Steal, Capture: <br/>{{purpose.steal}}"
+    - "Watch, Protect: <br/>{{purpose.watch}}"
+    - "Explore, Discover: <br/>{{purpose.explore}}"
+    - "Survive, Escape: <br/>{{purpose.survive}}"
+    attack:
+    - Powerful Person
+    - Organization
+    - Culture
+    - Artifact
+    - Old God
+    - Location
+    find:
+    - A Way to Another World
+    - Individuals
+    - Promised Land
+    - Other Artifact
+    - Rare Resource
+    - Magical Place
+    steal:
+    - Enemy
+    - Magical Energy
+    - Knowledge
+    - Powerful Creature
+    - Resources
+    - Dreams
+    watch:
+    - The World from Chaos
+    - Culture
+    - Important Individual
+    - Supernatural Entity
+    - Secret
+    - Organization
+    explore:
+    - Enemy Weakness
+    - New World
+    - A Way Back
+    - New Ritual
+    - New Dimension
+    - Truth About Something
+    survive:
+    - Cruel Tyrant
+    - Prison
+    - Assassins
+    - Cult
+    - Imminent Disaster
+    - Enemy God
+tables:
+  created_by:
+  - A god long thought to be dead that still lives in the artifact.
+  - An alien sorcerer.
+  - A mad Sorcerer-King.
+  - A guardian spirit.
+  - A sorcerer who came from the future.
+  - A scientist from another dimension.
+  - A serpent-man warlock.
+  - The hive mind of a nation of mushroom men.
+  - An alliance of demigods.
+  - A jealous god.
+  - A vengeful witch.
+  - The imagination of a sleeping child.
+  - The spilled blood of hundreds of people.
+  - The artifact’s own will to exist.
+  - Magic beings’ song of creation.
+  - A powerful entity living in the ocean’s depths.
+  - A cunning demon.
+  - The primal spirit of a volcano.
+  - The living energy of Chaos.
+  - The collective madness of a destroyed world.
+  power_price:
+  - |
+   <strong>Power: </strong>Devastating attacks (increases the Damage Die by one step).
+   <br/><br/><strong>Price: </strong> Character becomes violent and sees insults in even minor disagreements (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Assumes the appearance of others (Intellect test to mime specific person’s mannerism).
+   <br/><br/><strong>Price: </strong> The user becomes confused and can assume the personality of those he impersonates (Intellect test to resist).
+  - |
+   <strong>Power: </strong>Can cast fire based spells and the user becomes immune to fire damage.
+   <br/><br/><strong>Price: </strong> User becomes a pyromaniac (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Can bring a dead person back to life.
+   <br/><br/><strong>Price: </strong> Another person’s life must be offered in return.
+  - |
+   <strong>Power: </strong>Can cast False Friendship with a Positive Die.
+   <br/><br/><strong>Price: </strong> User becomes authoritarian and intolerant (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Can use an academic Vocation as if the user had it.
+   <br/><br/><strong>Price: </strong> User becomes arrogant and ignores other people’s opinions (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Can return 1d6 turns in time.
+   <br/><br/><strong>Price: </strong> User ponders his past actions and its possible infinite ramifications (Willpower test to be able to act).
+  - |
+   <strong>Power: </strong>User gets an extra action per round.
+   <br/><br/><strong>Price: </strong> User ages quicker, each year counting as ten.
+  - |
+   <strong>Power: </strong>Can speak with the spirit of a recently deceased corpse.
+   <br/><br/><strong>Price: </strong> Attracts spirits looking for help or vengeance.
+  - |
+   <strong>Power: </strong>Can glimpse the future (Willpower test to see desired moment).
+   <br/><br/><strong>Price: </strong> User becomes obsessed with maintaining his visions truthfulness (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Stops aging effects on the user.
+   <br/><br/><strong>Price: </strong> User becomes extremely vain.
+  - |
+   <strong>Power: </strong>True vision, seeing through illusions and disguises.
+   <br/><br/><strong>Price: </strong> User becomes extremely perfectionist and sees flaws in everything (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Allow the user to be in two places at once.
+   <br/><br/><strong>Price: </strong> User has amnesia and can’t figure out where he is (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Telepathy with any known target (Intellect test to concentrate).
+   <br/><br/><strong>Price: </strong> User listens to strange voices bearing cryptic messages that confuses him (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Regenerates 1 HD per hour.
+   <br/><br/><strong>Price: </strong> User becomes reckless and imprudent (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Invisibility at will.
+   <br/><br/><strong>Price: </strong> User is gradually ignored and people start not noticing him normally (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Animates objects.
+   <br/><br/><strong>Price: </strong> User values the life of others less and less (Willpower test to resist).
+  - |
+   <strong>Power: </strong>Controls a type of animal (Willpower test to force the animal to take actions against its nature).
+   <br/><br/><strong>Price: </strong> User acquires traces of the animal he controls and surrounds himself with these animals.
+  - |
+   <strong>Power: </strong>Imprisons a creature in the artifact (Willpower test to resist).
+   <br/><br/><strong>Price: </strong> Another creature is released from its prison.
+  - |
+   <strong>Power: </strong>Animates and controls plants.
+   <br/><br/><strong>Price: </strong> User avoids cities and other civilized communities and defends nature at any cost (Willpower test to resist).
+

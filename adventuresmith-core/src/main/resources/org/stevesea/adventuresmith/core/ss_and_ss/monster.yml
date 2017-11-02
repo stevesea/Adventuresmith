@@ -1,0 +1,1507 @@
+---
+# variables:
+#   naturesList: list of nature names. expect duplicates uniqued
+#   descriptorList: list of appearance-type descriptors
+#   infoList: list of attack / info type entries
+#
+#   numPowers: number of powers
+#   numWeaknesses: number of weaknesses
+#
+templates:
+- |
+  <!--
+  {{>add: numPowers 0}}
+  {{>add: numWeaknesses 0}}
+  {{natures.base}}
+  -->
+  %[[render_init]]%
+
+
+definitions:
+  render_init: |
+    {{>uniq: naturesList}}
+    {{>uniq: descriptorList}}
+    {{>uniq: infoList}}
+    %[[render]]%
+  render: |
+    <h4>{{>get: naturesList}}</h4>
+    {{>get: descriptorList <br/>}}
+    %[[>pick: {{>size: infoList}} render_info]]%
+
+    %[[>pick: {{>get: numPowers}} render_powers]]%
+    %[[>pick: {{>get: numWeaknesses}} render_weaknesses]]%
+
+  nature_templates:
+    Humanoid: |
+      {{>accum: naturesList Humanoid}}
+      {{humanoid.appearance}}
+      {{humanoid.culture}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Beast: |
+      {{>accum: naturesList Beast}}
+      {{beast.form}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Plant: |
+      {{>accum: naturesList Plant}}
+      {{plant.form}}
+      {{plant.attack}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Prehistoric: |
+      {{>accum: naturesList Prehistoric}}
+      {{prehistoric.characteristics}}
+      {{natures.no_meta}}
+    Undead: |
+      {{>accum: naturesList Undead}}
+      {{undead.form}}
+      {{undead.feeds_upon}}
+      {{natures.no_meta}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Magical: |
+      {{>accum: naturesList Magical}}
+      {{magical.maybe_other_nature}}
+      {{magical.traits}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Technological: |
+      {{>accum: naturesList Technological}}
+      {{technological.form}}
+      {{technological.material}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Alien: |
+      {{>accum: naturesList Alien}}
+      {{natures.no_meta}}
+      {{alien.tech_level}}
+      {{alien.means_of_travel}}
+      {{alien.purposes}}
+      {{maybe_powers}}
+      {{maybe_weaknesses}}
+    Aberration: |
+      {{>accum: naturesList Aberration}}
+      {{aberration.form}}
+      {{aberration.characteristics}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Daemonic: |
+      {{>accum: naturesList Daemonic}}
+      {{natures.no_meta}}
+      {{daemonic.characteristics}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Elemental: |
+      {{>accum: naturesList Elemental}}
+      {{natures.no_meta}}
+      {{elemental.element}}
+      {{definitely_powers}}
+      {{definitely_weaknesses}}
+    Amalgamation: |
+      {{>pickN: 1d3+1 natures.no_amalgamation}}
+
+tables:
+  maybe_powers:
+  - |
+    1..2,
+    {{>add: numPowers 0}}
+  - |
+    {{>add: numPowers 1}}
+  definitely_powers:
+  - |
+    1..2,
+    {{>add: numPowers 1}}
+  - |
+    3..4,
+    {{>add: numPowers 2}}
+  - |
+    {{>add: numPowers 3}}
+  maybe_weaknesses:
+  - |
+    1..2,
+    {{>add: numWeaknesses 0}}
+  - |
+    {{>add: numWeaknesses 1}}
+  definitely_weaknesses:
+  - |
+    1..2,
+    {{>add: numWeaknesses 1}}
+  - |
+    3..4,
+    {{>add: numWeaknesses 2}}
+  - |
+    {{>add: numWeaknesses 3}}
+  render_powers:
+  - 0,
+  - |
+    <h5>Powers</h5>
+    {{>pickN: numPowers powers <br/><br/>}}
+  render_weaknesses:
+  - 0,
+  - |
+    <h5>Weaknesses</h5>
+    {{>pickN: numWeaknesses weaknesses <br/><br/>}}
+
+  render_info:
+  - 0,
+  - |
+    <br/><br/>
+    {{>get: infoList <br/>}}
+
+  animals_winged:
+  - a bee
+  - an eagle
+  - a cockroach
+  - a beatle
+  - an owl
+  - a squirrel
+  - a falcon
+  - a rooster
+  - a grasshopper
+  - a goose
+  - a heron
+  - a dragonfly
+  - a moth
+  - a bat
+  - a fly
+  - a duck
+  - a peacock
+  - a penguin
+  - a pigeon
+  - a nightingale
+  - a manta ray
+  - a vulture
+  - a wasp
+  animals:
+  - a bee
+  - a jellyfish
+  - an eagle
+  - a spider
+  - a baboon
+  - a whale
+  - a cockroach
+  - a beatle
+  - a goat
+  - a buffalo
+  - a hound
+  - a crab
+  - a chameleon
+  - a horse
+  - a snake
+  - an owl
+  - a crocodile
+  - a dromedary
+  - a elephant
+  - a scorpion
+  - a squirrel
+  - a starfish
+  - a falcon
+  - a seal
+  - an ant
+  - a rooster
+  - a ferret
+  - a grasshopper
+  - a goose
+  - a heron
+  - a cat
+  - a giraffe
+  - a dolphin
+  - a gorilla
+  - a raccoon
+  - a hyena
+  - a hippopotamus
+  - an iguana
+  - an alligator
+  - a jaguar
+  - a boar
+  - a boa constrictor
+  - a centipede
+  - a caterpillar
+  - a gecko
+  - a lizard
+  - a lobster
+  - a lion
+  - a leopard
+  - a snail
+  - a dragonfly
+  - a wolf
+  - a worm
+  - a squid
+  - a monkey
+  - a moth
+  - an earthworm
+  - a bat
+  - a fly
+  - an adder
+  - an oyster
+  - an urchin
+  - a sheep
+  - a panther
+  - a duck
+  - a peacock
+  - a swordfish
+  - a penguin
+  - a piranha
+  - an octopus
+  - a pigeon
+  - a pig
+  - a hedgehog
+  - a sloth
+  - a protozoan
+  - a lynx
+  - a fox
+  - a frog
+  - a rat
+  - a deer
+  - a rhinoceros
+  - a nightingale
+  - a salamander
+  - a manta ray
+  - a serpent
+  - a anteater
+  - a turtle
+  - an armadillo
+  - a badger
+  - a tiger
+  - a mole
+  - a bull
+  - a shark
+  - a bear
+  - a vulture
+  - a moose
+  - a mule
+  - a maggot
+  - a wasp
+  - a zebra
+  animals_no_prefix:
+  - bee
+  - jellyfish
+  - eagle
+  - spider
+  - baboon
+  - whale
+  - cockroach
+  - beatle
+  - goat
+  - buffalo
+  - hound
+  - crab
+  - chameleon
+  - horse
+  - snake
+  - owl
+  - crocodile
+  - dromedary
+  - elephant
+  - scorpion
+  - squirrel
+  - starfish
+  - falcon
+  - seal
+  - ant
+  - rooster
+  - ferret
+  - grasshopper
+  - goose
+  - heron
+  - cat
+  - giraffe
+  - dolphin
+  - gorilla
+  - raccoon
+  - hyena
+  - hippopotamus
+  - iguana
+  - alligator
+  - jaguar
+  - boar
+  - boa constrictor
+  - centipede
+  - caterpillar
+  - gecko
+  - lizard
+  - lobster
+  - lion
+  - leopard
+  - snail
+  - dragonfly
+  - wolf
+  - worm
+  - squid
+  - monkey
+  - moth
+  - earthworm
+  - bat
+  - fly
+  - adder
+  - oyster
+  - urchin
+  - sheep
+  - panther
+  - duck
+  - peacock
+  - swordfish
+  - penguin
+  - piranha
+  - octopus
+  - pigeon
+  - pig
+  - hedgehog
+  - sloth
+  - protozoan
+  - lynx
+  - fox
+  - frog
+  - rat
+  - deer
+  - rhinoceros
+  - nightingale
+  - salamander
+  - manta ray
+  - serpent
+  - anteater
+  - turtle
+  - armadillo
+  - badger
+  - tiger
+  - mole
+  - bull
+  - shark
+  - bear
+  - vulture
+  - moose
+  - mule
+  - maggot
+  - wasp
+  - zebra
+  animals_upper:
+  - A bee
+  - A jellyfish
+  - An eagle
+  - A spider
+  - A baboon
+  - A whale
+  - A cockroach
+  - A beatle
+  - A goat
+  - A buffalo
+  - A hound
+  - A crab
+  - A chameleon
+  - A horse
+  - A snake
+  - An owl
+  - A crocodile
+  - A dromedary
+  - A elephant
+  - A scorpion
+  - A squirrel
+  - A starfish
+  - A falcon
+  - A seal
+  - An ant
+  - A rooster
+  - A ferret
+  - A grasshopper
+  - A goose
+  - A heron
+  - A cat
+  - A giraffe
+  - A dolphin
+  - A gorilla
+  - A raccoon
+  - A hyena
+  - A hippopotamus
+  - An iguana
+  - An alligator
+  - A jaguar
+  - A boar
+  - A boa constrictor
+  - A centipede
+  - A caterpillar
+  - A gecko
+  - A lizard
+  - A lobster
+  - A lion
+  - A leopard
+  - A snail
+  - A dragonfly
+  - A wolf
+  - A worm
+  - A squid
+  - A monkey
+  - A moth
+  - An earthworm
+  - A bat
+  - A fly
+  - An adder
+  - An oyster
+  - An urchin
+  - A sheep
+  - A panther
+  - A duck
+  - A peacock
+  - A swordfish
+  - A penguin
+  - A piranha
+  - An octopus
+  - A pigeon
+  - A pig
+  - A hedgehog
+  - A sloth
+  - A protozoan
+  - A lynx
+  - A fox
+  - A frog
+  - A rat
+  - A deer
+  - A rhinoceros
+  - A nightingale
+  - A salamander
+  - A manta ray
+  - A serpent
+  - A anteater
+  - A turtle
+  - An armadillo
+  - A badger
+  - A tiger
+  - A mole
+  - A bull
+  - A shark
+  - A bear
+  - A vulture
+  - A moose
+  - A mule
+  - A maggot
+  - A wasp
+  - A zebra
+
+  weaknesses:
+  - Vanity
+  - Stupidity
+  - Vulnerable special part
+  - Can't distance itself from specific place
+  - Need to feed constantly
+  - Life depends on a specific item
+  - Vulnerable to certain type of attack
+  - Aversion to some substance or object
+  - Methodic compulsion
+  - Honor code
+  - Circumstantial weakness
+  - Powerful enemy
+  - Addiction
+  - Obsession
+  - Vulnerability in another dimension
+  - Simply knowing its True Name makes it weak
+  - Weakness after a ritual
+  - Fears its own reflection
+  - Hubris
+  - True beauty
+
+  powers:
+  - |
+    <em>Acid Attack</em>: Acid deals a die of damage 1 step below normal for the creature's
+    HD for HD rounds.
+  - |
+    <em>Acid Blood</em>: When an attacker inflicts damage in close range to the creature
+    they must make an Agility test or suffer a Damage Die 1 step below the
+    normal for the creature's HD.
+  - |
+    <em>Cause Blindness</em>: Blinds a target for 1d4 rounds per HD. The target receives 2
+    Negative Dice for any action that relies on vision.
+  - |
+    <em>Imprison</em>: The creature imprisons a target in a viscous substance, requiring
+    the victim to make a Physique test to escape.
+  - |
+    <em>Earthquake</em>: Causes an earthquake up to far range, collapsing buildings and
+    causing other damage. Creatures in the area must make an Agility test or are
+    knocked to the floor.
+  - |
+    <em>Tunneling</em>: Can move through solid earth as normal.
+  - |
+    <em>Destroy Metal</em>: Metal objects that touch the creature's body are damaged and
+    become useless. When an attacker hits the creature, he must make a Luck
+    Roll to see if his weapon is ruined.
+  - |
+    <em>Destroy Wood</em>: Wooden objects are destroyed if they come into contact with
+    the creature's skin. When an attacker hits the creature, he must make a Luck
+    Roll to see if his weapon is ruined.
+  - |
+    <em>Lacerate</em>: After the attack, the target receives a Negative Die to all physical
+    actions for HD rounds.
+  - |
+    <em>Corrode Minerals</em>: Rocks and other minerals can be dissolved by the creature,
+    allowing it to pass through walls.
+  - |
+    <em>Animate Object</em>: Gives life to inanimate objects, transforming them into
+    monsters under the creature's command. The creature can animate a number
+    of objects equal to its HD.
+  - |
+    <em>Suffocation</em>: Drains the air from its victims’ lungs.
+  - |
+    <em>Repulsion</em>: Makes it hard for creatures of a certain type (Referee’s discretion)
+    to approach. Characters can resist with a Willpower test.
+  - |
+    <em>Bleeding</em>: In addition to normal damage, this attack causes bleeding, making
+    the target loses a Damage Die 1 step below normal for the creature's HD
+    per round until the wound is treated.
+  - |
+    <em>Necrosis</em>: This attack causes necrosis and the victim loses 1 point of Physique
+    or Agility per day until a cure is found.
+  - |
+    <em>Disease</em>: Causes grave and potentially deadly disease (Referee may impose
+    Attribute damage, Negative Dice and loss of HP). Victims can make a
+    Willpower test to resist it.
+  - |
+    <em>Incubation</em>: An egg or seed is inserted inside the target and it will generate
+    another monster in a set amount of time, leading to the victim's death.
+  - |
+    <em>Drain Attribute</em>: Victim loses 1d4 points of a specific Attribute. The target can
+    usually resist with an appropriate Attribute test.
+  - |
+    <em>Power Vortex</em>: Summons an energy storm that affects all creatures in nearby
+    range who suffer a Damage Die 1 step lower than normal, unless they make
+    an Agility test for half damage. The storm lasts for HD rounds.
+  - |
+    <em>Confusion</em>: Makes victim confused and disoriented, receiving a Negative
+    Die to all actions for a number of rounds determined by the creature's
+    Damage Die.
+  - |
+    <em>Freezing Attack</em>: In addition to normal damage, targets must make Physique
+    tests or are frozen, imprisoned and incapable of moving for HD rounds.
+  - |
+    <em>Command Plants or Animals</em>: Can command a number of plants or animals up
+    to the creature's HD.
+  - |
+    <em>Curse</em>: Curses a victim who can resist with a Willpower test. The Referee
+    will come up with the curse effect (which can have mechanical and narrative
+    effects). Additionally, the target’s Luck Die is lowered by 1 step until the
+    curse is broken.
+  - |
+    <em>Create Barrier</em>: Creates a barrier to hinder of stop movement. Barriers can also
+    inflict damage with thorns or blades. To overcome a barrier, characters will
+    need to make a Physique or Agility test.
+  - |
+    <em>Instant Death</em>: Kills target instantly unless it passes an appropriate
+    Attribute test.
+  - |
+    <em>Slow Death</em>: Target acquires a malady that kills him slowly. He suffers a
+    Damage Die or loss of Attribute points daily and cannot heal this unless a
+    cure is found.
+  - |
+    <em>Drain Life</em>: Causes a Damage Die 1 step lower than normal but the creature
+    regains the same amount of HP.
+  - |
+    <em>Dimensional Confinement:</em> Imprisons a target in an extra-planar space. The
+    victim can only be freed by killing the creature.
+  - |
+    <em>Multidimensional:</em> The creature exists in multiple planes, hopping from one
+    to another in the blink of an eye. Every time the creature is hit, the attacker
+    makes a Luck Roll to determine if the creature did not hop to another
+    dimension the moment it was being hit, avoiding damage.
+  - |
+    <em>Drain Memories:</em> Target loses memories, making it harder to remember
+    information. A Luck Roll is made to determine if a particular subject or spell
+    was forgotten. One memory is forgotten per attack. This effect is permanent.
+  - |
+    <em>Electric Damage:</em> When hitting a target with this ability, creatures within close
+    range must make a Luck Roll or suffer a Damage Die 1 step below normal.
+  - |
+    <em>Electric Creature:</em> Electricity runs through the creature's body and those
+    carrying metal objects that touch it must make a Luck Roll or take a
+    Damage Die 1 step below normal.
+  - |
+    <em>Magnetic Field:</em> Weapons and armor made of metal that make contact with the
+    creature can become stuck unless the attacker makes a Physique test.
+  - |
+    <em>Scare:</em> Forces targets that see the creature to make a Willpower test or suffer
+    a Negative Die on all tests against it.
+  - |
+    <em>Dominate:</em> Can dominate the minds of a number of creatures equal to its HD.
+    Victims can resist with a Willpower test.
+  - |
+    <em>Induce Rage:</em> Targets within nearby range must make a Willpower test or be
+    driven into a rage, attacking anyone within close range in the most violent
+    way they can for a number of rounds equal to the creature's HD.
+  - |
+    <em>Cause Apathy:</em> Causes apathy in up to HD targets (who can resist with a
+    Willpower test). Those affected must make a Willpower test to act each round.
+  - |
+    <em>Cause Ecstasy:</em> The creature's touch causes ecstasy, paralyzing victims with
+    pleasure for HD rounds, unless they pass a Physique test.
+  - |
+    <em>Sleep:</em> Can put to sleep all opponents within nearby range. Targets can resist
+    with a Physique test.
+  - |
+    <em>Incendiary Attack:</em> This attack can set a target on fire, causing the same
+    amount of damage on the following rounds unless the victim makes an
+    Agility test to dampen the flames.
+  - |
+    <em>Flaming Body:</em> Anyone within close range receives a Damage Die 2 steps
+    below normal for the creature's HD.
+  - |
+    <em>Explosion:</em> Causes an explosion that deals 1d6 points of damage per HD to
+    anyone within close range. An Agility test can reduce this damage to half.
+  - |
+    <em>Hallucination:</em> Alters the target's perception, making him believe in things
+    that are not there. Targets can resist with an Intellect test. This lasts for
+    HD turns.
+  - |
+    <em>Project Illusion:</em> Affects an area up to far range, creating an illusion that affects
+    all senses. Can be resisted with a Willpower test.
+  - |
+    <em>Freezing Aura:</em> Affects an area up to nearby range, dropping the temperature
+    to a level below freezing. Targets need to make a Physique test to avoid
+    being frozen into place.
+  - |
+    <em>Crush:</em> Target is crushed by the creature and can make a Physique test per
+    round to escape or suffer a Damage Die 1 step lower than normal.
+  - |
+    <em>Immobilize:</em> Targets within nearby range must make an appropriate Attribute
+    test or cannot move for 1d4 rounds per creature's HD.
+  - |
+    <em>Induce Insanity:</em> A target up to far range must make an Intellect test or
+    acquire a madness relating to the creature. To cure himself, the character will
+    need a number of years equal to the creature's HD.
+  - |
+    <em>Cause Stupidity:</em> Affects one target per creature's HD if they fail an Intellect
+    test. The affected become stupid and unlearned, incapable of taking
+    intelligent actions, remembering languages and spells. This usually lasts for
+    HD hours.
+  - |
+    <em>Spread Shadows:</em> An aura of shadows extends up to nearby range, blocking
+    the vision of anyone within this space.
+  - |
+    <em>Shadow Step:</em> The creature can travel through shadows, covering great or
+    small distances.
+  - |
+    <em>Ethereal Form:</em> Can assume an ethereal form, becoming immune to physical
+    attacks and can enter hard to reach places.
+  - |
+    <em>Augmented Senses:</em> The creature has sharp senses, sensing slight changes in its
+    surroundings. Character's receive a Negative Die when trying to deceive it.
+  - |
+    <em>Extra Senses:</em> The creature has an additional sense like thermal vision, sonar,
+    E.S.P., aura vision, etc.
+  - |
+    <em>Multiple Attacks:</em> Can make additional attacks per round up to their total
+    number of HD.
+  - |
+    <em>Bad Luck:</em> Double the chances of Random Encounters for up to HD
+    creatures who fail a Willpower test for HD days.
+  - |
+    <em>Drain Magic:</em> Up to HD targets within nearby range become unable to cast
+    spells if they fail a Willpower test. This lasts for HD turns.
+  - |
+    <em>Telekinesis:</em> The creature can move objects or beings (Physique test to resist)
+    with its mind and can make attacks with this power.
+  - |
+    <em>Steal Memories:</em> Steal the memories of up to HD targets, becoming able to
+    assume their personalities. Can be resisted with a Willpower test.
+  - |
+    <em>Duplicate Appearance:</em> Can assume the appearance of a touched target for up
+    to HD days.
+  - |
+    <em>Fly:</em> The creature can move through the air with freedom, avoiding obstacles
+    and hazards.
+  - |
+    <em>Scale Surfaces:</em> Can move over walls, ceilings and other non-horizontal
+    surfaces like a spider.
+  - |
+    <em>Amphibious:</em> Can live and act freely on land and water.
+  - |
+    <em>Impair Movement:</em> A target up to nearby range needs twice as much effort
+    and actions to move unless they pass an appropriate Attribute test. This
+    lasts for HD turns.
+  - |
+    <em>Open Portal:</em> Open portals to other places and planes that can last for up to
+    HD turns.
+  - |
+    <em>Poison:</em> The creature’s attack is poisoned with a substance with an Intensity
+    equal to its HD.
+  - |
+    <em>Animate Dead:</em> Can animate up to 2 times its HD of undead minions. They last
+    until killed again.
+  - |
+    <em>Enlarge or Reduce:</em> The creature can increase or decrease its size, improving
+    or reducing its HD and Damage Die 1 step. Some creatures can use this
+    power on other targets. Can resist with a Physique test. Lasts for HD turns.
+  - |
+    <em>Reproduce Sound:</em> Can imitate any sound heard in the last HD days.
+  - |
+    <em>Sonic Attack:</em> Can emit a specific frequency capable of damaging living beings
+    and/or structures within nearby range. Those who fail an Agility test suffer
+    the normal damage for the creature's HD. Success indicates half damage.
+  - |
+    <em>Spell Casting:</em> Can cast spells as a Magic User. Treat as having a Willpower
+    of 10 + HD and knowing a number of spells equal to its HD.
+  - |
+    <em>Regenerate:</em> Regenerates a number of HP per round equal to its HD.
+  - |
+    <em>Cause Deformity:</em> A target touched by the creature is deformed unless it passes
+    a Physique test. The deformity can have various effects, from social rejection
+    to Attribute damage.
+  - |
+    <em>Animal Form:</em> Can assume up to HD different animal forms.
+  - |
+    <em>Energy Ray:</em> The creature can fire an energy ray that does 1d6 points of
+    damage per HD to a target up to far range that fails an Agility test.
+  - |
+    <em>Reinforced Carapace:</em> Grants Damage Reduction of –1d or –2d on the dice
+    chain.
+  - |
+    <em>Invisibility or Camouflage:</em> The creature can become invisible or can use
+    camouflage, requiring an Intellect test with a Negative Die to be detected.
+  - |
+    <em>Immunity to Mundane Attacks:</em> The creature can only be harmed by magical
+    attacks and weapons.
+  - |
+    <em>Magical Immunity:</em> The creature is immune to magical attacks and weapons.
+  - |
+    <em>Variable Immunity:</em> The creature is immune to a certain type of attack (fire,
+    metal weapons, electricity, etc.).
+  - |
+    <em>Magical Resistance:</em> Receives a Positive Die to resist magical effects.
+  - |
+    <em>Divide:</em> The creature can divide itself into several copies, splitting its total
+    HD between them. The copies keep all other stats normally and attack as if
+    having its total HD.
+  - |
+    <em>Reflect Attacks:</em> Can reflect a number of attacks per round equal to its HD.
+    The creature makes an attack against the Attribute used in the original one
+    to hit the target.
+  - |
+    <em>Invoke Ally:</em> Can summon a similar creature of the same amount of HD. A
+    character can make a Luck Roll to avoid this effect.
+  - |
+    <em>Immortal:</em> The creature cannot die naturally and a condition must be met for
+    the creature to be truly killed.
+  - |
+    <em>Teleport:</em> The creature is capable of moving through space with just its
+    thoughts, changing locations instantly. This can be used a number of times
+    equal to its HD per day.
+  - |
+    <em>Thorns:</em> The creature has thorns over its body, making everyone within close
+    range make an Agility test to avoid taking HD points of damage. Some of
+    these creatures can expel these thorns up to nearby range, causing normal
+    damage according to its HD.
+  - |
+    <em>Read Minds:</em> Can read the minds of everyone within far range, making it
+    impossible to surprise this creature in combat. Additionally, it receives a
+    Positive Die in its attacks and imposes a Negative Die on attacks against it.
+  - |
+    <em>Absorption:</em> Can absorb the energy of a specific type of attack (kinetic energy,
+    magic, fire), transforming the potential damage into healing.
+  - |
+    <em>Swallow:</em> On a critical hit (or by taking the target to its mouth with another
+    attack), the creature swallows the victim, who will suffer the normal damage
+    of the monster per round automatically. The target can escape if he inflicts
+    the number of HD the creature has in damage in a single attack.
+  - |
+    <em>Disintegrate:</em> Can disintegrate matter within far range with a ray up to HD
+    times per day. If used as an attack, the ray kills any creature who fails an
+    Agility test. Those who succeed suffer 1d6 points of damage per HD.
+  - |
+    <em>Duplicate:</em> Can generate up to HD illusory copies of itself. Copies can be
+    distinguished with an Intellect test.
+  - |
+    <em>Improved Damage:</em> The normal damage of the creatures HD is increased by 1
+    step on the HD table.
+  - |
+    <em>Psychic Attack:</em> All enemies within nearby range must make a Willpower test
+    or suffer a Damage Die 1 step lower than normal and receive a Negative
+    Die for all actions for HD rounds.
+  - |
+    <em>Silence:</em> A point affecting an area with nearby range has all the sound
+    silenced. This lasts for up to HD rounds.
+  - |
+    <em>Turn to Stone:</em> Victims that look into the creature's eyes must make a
+    Physique test or be turned to stone.
+  - |
+    <em>Create Matter:</em> Generates matter of a specific type (wood, stone, gold, crystal)
+    of a volume equal to a cubic foot per HD per day.
+  - |
+    <em>Time Travel:</em> The creature can travel to the past or the future of its location.
+  - |
+    <em>Foresee Future:</em> The creature can see into the future up to HD decades.
+  - |
+    {{>pickN: 2 powers <br/>}}
+
+nested_tables:
+  natures:
+    base:
+    - |
+      {{nature_templates.Humanoid}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Prehistoric}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Magical}}
+    - |
+      {{nature_templates.Technological}}
+    - |
+      {{nature_templates.Alien}}
+    - |
+      {{nature_templates.Aberration}}
+    - |
+      {{nature_templates.Daemonic}}
+    - |
+      {{nature_templates.Elemental}}
+    - |
+      {{nature_templates.Amalgamation}}
+    no_amalgamation:
+    - |
+      {{nature_templates.Humanoid}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Prehistoric}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Magical}}
+    - |
+      {{nature_templates.Technological}}
+    - |
+      {{nature_templates.Alien}}
+    - |
+      {{nature_templates.Aberration}}
+    - |
+      {{nature_templates.Daemonic}}
+    - |
+      {{nature_templates.Elemental}}
+    no_meta:
+    - |
+      {{nature_templates.Humanoid}}
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Technological}}
+    no_human:
+    - |
+      {{nature_templates.Beast}}
+    - |
+      {{nature_templates.Plant}}
+    - |
+      {{nature_templates.Prehistoric}}
+    - |
+      {{nature_templates.Undead}}
+    - |
+      {{nature_templates.Magical}}
+    - |
+      {{nature_templates.Technological}}
+    - |
+      {{nature_templates.Alien}}
+    - |
+      {{nature_templates.Aberration}}
+    - |
+      {{nature_templates.Daemonic}}
+    - |
+      {{nature_templates.Elemental}}
+  daemonic:
+    characteristics:
+    - |
+      {{>accum: descriptorList Goat horns}}
+    - |
+      {{>accum: descriptorList Shadow body}}
+    - |
+      {{>accum: descriptorList Goat legs}}
+    - |
+      {{>accum: descriptorList Empty eye sockets}}
+    - |
+      {{>accum: descriptorList Flame eyes}}
+    - |
+      {{>accum: descriptorList Forked tail}}
+    - |
+      {{>accum: descriptorList Fangs}}
+    - |
+      {{>accum: descriptorList Bat wings}}
+    - |
+      {{>accum: descriptorList Skeletal wings}}
+    - |
+      {{>accum: descriptorList Blood covered body}}
+    - |
+      {{>accum: descriptorList Crawling with insects}}
+    - |
+      {{>accum: descriptorList Morbid obesity}}
+    - |
+      {{>accum: descriptorList Incredible filthy}}
+    - |
+      {{>accum: descriptorList Mucus covering the body}}
+    - |
+      {{>accum: descriptorList Body covered with dark thorns}}
+    - |
+      {{>accum: descriptorList Crawling with serpents}}
+    - |
+      {{>accum: descriptorList Extremely beautiful}}
+    - |
+      {{>accum: descriptorList Horrendous}}
+    - |
+      {{>accum: descriptorList Guttural voice}}
+    - |
+      {{>accum: descriptorList Melodic voice}}
+  beast:
+    form:
+    - |
+      {{>accum: descriptorList Torso of %[[animals]]% and legs of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Head of %[[animals]]%, limbs of %[[animals]]% and the body of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Multiple animal heads (%[[>pickN: 1d3+1 animals_no_prefix]]%) with the body of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Humanoid body with an %[[animals]]% head.}}
+    - |
+      {{>accum: descriptorList Body of %[[animals]]%, tail of %[[animals]]% and wings of %[[animals_winged]]%.}}
+    - |
+      {{>accum: descriptorList Headless %[[animals_no_prefix]]% with many mouths of %[[animals]]% around his body.}}
+    - |
+      {{>accum: descriptorList Winged head of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList Body of %[[animals]]% and extra arms of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList %[[animals_upper]]% body with a humanoid head.}}
+    - |
+      {{>accum: descriptorList %[[animals_upper]]% with 2 torsos of different animals (%[[>pickN: 2 animals_no_prefix]]%) and no lower body.}}
+    - |
+      {{>accum: descriptorList Humanoid torso and lower body of %[[animals]]%.}}
+    - |
+      {{>accum: descriptorList %[[animals_upper]]%}}
+      {{natures.no_meta}}
+  plant:
+    form:
+    - |
+      {{>accum: descriptorList Mushroom}}
+    - |
+      {{>accum: descriptorList Mold}}
+    - |
+      {{>accum: descriptorList Vines}}
+    - |
+      {{>accum: descriptorList Grass}}
+    - |
+      {{>accum: descriptorList Roots}}
+    - |
+      {{>accum: descriptorList Tree}}
+    - |
+      {{>accum: descriptorList Flower}}
+    - |
+      {{>accum: descriptorList Fruit}}
+    - |
+      {{>accum: descriptorList Shrubbery}}
+    - |
+      {{>accum: descriptorList Leaf}}
+    - |
+      {{>accum: descriptorList Algae}}
+    - |
+      {{plant.form_no_amalgam}}
+      {{natures.no_meta}}
+    form_no_amalgam:
+    - |
+      {{>accum: descriptorList Mushroom}}
+    - |
+      {{>accum: descriptorList Mold}}
+    - |
+      {{>accum: descriptorList Vines}}
+    - |
+      {{>accum: descriptorList Grass}}
+    - |
+      {{>accum: descriptorList Roots}}
+    - |
+      {{>accum: descriptorList Tree}}
+    - |
+      {{>accum: descriptorList Flower}}
+    - |
+      {{>accum: descriptorList Fruit}}
+    - |
+      {{>accum: descriptorList Shrubbery}}
+    - |
+      {{>accum: descriptorList Leaf}}
+    - |
+      {{>accum: descriptorList Algae}}
+    attack:
+    - |
+      {{>accum: infoList Attack: Sharp Thorns}}
+    - |
+      {{>accum: infoList Attack: Bladed Leaves}}
+    - |
+      {{>accum: infoList Attack: Poisonous Spores}}
+    - |
+      {{>accum: infoList Attack: Crushing Branches}}
+    - |
+      {{>accum: infoList Attack: Strangling Roots}}
+    - |
+      {{>accum: infoList Attack: Explosive Fruits}}
+    - |
+      {{>accum: infoList Attack: Blood Sucking Roots}}
+    - |
+      {{>accum: infoList Attack: Acid Sap}}
+    - |
+      {{>accum: infoList Attack: Scorching Pollen}}
+    - |
+      {{>accum: infoList Attack: Inserting a Seed Inside a Victim’s Heart}}
+    - |
+      {{>accum: infoList Attack: Scorching Sun Ray reflected by Flowers}}
+    - |
+      {{>accum: infoList Attack: Hypnotic Perfume}}
+  prehistoric:
+    characteristics:
+    - |
+      {{>accum: descriptorList Reptilian}}
+    - |
+      {{>accum: descriptorList Gigantic with Small Head}}
+    - |
+      {{>accum: descriptorList Protruding Bones}}
+    - |
+      {{>accum: descriptorList Highly Muscular with Small Brain}}
+    - |
+      {{>accum: descriptorList Unicellular}}
+    - |
+      {{>accum: descriptorList Protruding Teeth and Claws}}
+    - |
+      {{>accum: descriptorList Amphibious}}
+    - |
+      {{>accum: descriptorList Reinforced Carapace}}
+  undead:
+    form:
+    - |
+      {{>accum: descriptorList Incorporeal, appearing as it was when alive}}
+    - |
+      {{>accum: descriptorList Incorporeal, cadaverous appearance}}
+    - |
+      {{>accum: descriptorList Incorporeal, gaunt appearance}}
+    - |
+      {{>accum: descriptorList Incorporeal, foggy or deformed appearance}}
+    - |
+      {{>accum: descriptorList Shadow}}
+    - |
+      {{>accum: descriptorList As alive, with cold skin and white eyes}}
+    - |
+      {{>accum: descriptorList Appearance as the moment it died, wounds still bleeding}}
+    - |
+      {{>accum: descriptorList Appearance as a rotting corpse}}
+    - |
+      {{>accum: descriptorList A floating head with incorporeal body}}
+    - |
+      {{>accum: descriptorList Skeletal}}
+    feeds_upon:
+    - |
+      {{>accum: infoList Feeds upon: Blood}}
+    - |
+      {{>accum: infoList Feeds upon: Flesh}}
+    - |
+      {{>accum: infoList Feeds upon: Brains}}
+    - |
+      {{>accum: infoList Feeds upon: Vitality}}
+    - |
+      {{>accum: infoList Feeds upon: Will to Live}}
+    - |
+      {{>accum: infoList Feeds upon: Dreams}}
+    - |
+      {{>accum: infoList Feeds upon: Memories}}
+    - |
+      {{>accum: infoList Feeds upon: Anger}}
+    - |
+      {{>accum: infoList Feeds upon: Fear}}
+    - |
+      {{>accum: infoList Feeds upon: Beauty}}
+    - |
+      {{>accum: infoList Feeds upon: Eyes}}
+    - |
+      {{>accum: infoList Feeds upon: Time Left to Live}}
+  magical:
+    maybe_other_nature:
+    - |
+      1..2,
+      {{magical.form}}
+    - |
+      {{natures.no_meta}}
+
+    traits:
+    - |
+      {{>accum: infoList Static energy radiates from the creature, lightly shocking whoever comes close.}}
+    - |
+      {{>accum: infoList The creature levitates just above ground, having a supernatural lightness.}}
+    - |
+      {{>accum: infoList The creature's hair or body hair is always under the influence of elements (on fire, wet, blown by the wind, full of dirt).}}
+    - |
+      {{>accum: infoList The creature's skin emanates a soft glow.}}
+    - |
+      {{>accum: infoList The creature's eye reflects the soul of whoever gazes at it.}}
+    - |
+      {{>accum: infoList Little energy crystals are scattered throughout the creature's body.}}
+    - |
+      {{>accum: infoList The creature's skin changes color according to its humor.}}
+    - |
+      {{>accum: infoList Translucent body.}}
+    - |
+      {{>accum: infoList Small energy spheres orbit around the creature.}}
+    - |
+      {{>accum: infoList The creature appears different for every person who looks at it.}}
+    - |
+      {{>accum: infoList Strange runes and symbols cover the creature’s body.}}
+    - |
+      {{>accum: infoList Tree branches grow from the creature's body.}}
+    form:
+    - |
+      {{>accum: descriptorList Sphere}}
+    - |
+      {{>accum: descriptorList Cube}}
+    - |
+      {{>accum: descriptorList Concentric Rings}}
+    - |
+      {{>accum: descriptorList Giant Eye with Bloody Veins}}
+    - |
+      {{>accum: descriptorList Living Energy}}
+    - |
+      {{>accum: descriptorList Living Fog}}
+    - |
+      {{>accum: descriptorList Constant Changing Geometric Figure}}
+    - |
+      {{>accum: descriptorList Floating Pyramid}}
+    - |
+      {{>accum: descriptorList Living Weapon}}
+    - |
+      {{>accum: descriptorList Flying Crystal}}
+    - |
+      {{>accum: descriptorList A Horde of Glass Insects with Collective Intelligence}}
+    - |
+      {{>pickN: 1d4+1 natures.no_amalgamation}}
+  technological:
+    form:
+    - |
+      {{>accum: descriptorList Artificial Human Form}}
+    - |
+      {{>accum: descriptorList Artificial Animal Form (%[[animals]]%)}}
+    - |
+      {{>accum: descriptorList Flying Computer}}
+    - |
+      {{>accum: descriptorList Brain Inside Translucent Sphere}}
+    - |
+      {{>accum: descriptorList Sphere with many Monitors and Mechanica Arms}}
+    - |
+      {{>accum: descriptorList War Tank}}
+    - |
+      {{>accum: descriptorList Wheeled Vehicle}}
+    - |
+      {{>accum: descriptorList Flying Saucer}}
+    - |
+      {{>accum: descriptorList Helicopter}}
+    - |
+      {{>accum: descriptorList Oven}}
+    - |
+      {{>accum: descriptorList Meat Grinder}}
+    - |
+      {{>accum: descriptorList Rubik’s Cube}}
+    - |
+      {{>accum: descriptorList Bulldozer}}
+    - |
+      {{>accum: descriptorList Concrete Mixer}}
+    - |
+      {{>accum: descriptorList Tripod}}
+    - |
+      {{>accum: descriptorList Monocycle}}
+    - |
+      {{>accum: descriptorList Millions of Nanobots}}
+    - |
+      {{>accum: descriptorList Lamp}}
+    - |
+      {{>accum: descriptorList Telescope}}
+    - |
+      {{>accum: descriptorList Bundles of Wires and Cables}}
+    material:
+    - |
+      {{>accum: descriptorList Material: Plastic}}
+    - |
+      {{>accum: descriptorList Material: Iron}}
+    - |
+      {{>accum: descriptorList Material: Mercury}}
+    - |
+      {{>accum: descriptorList Material: Steel}}
+    - |
+      {{>accum: descriptorList Material: Wood}}
+    - |
+      {{>accum: descriptorList Material: Glass Fiber}}
+    - |
+      {{>accum: descriptorList Material: Glass}}
+    - |
+      {{>accum: descriptorList Material: Acrylic}}
+    - |
+      {{>accum: descriptorList Material: Gold}}
+    - |
+      {{>accum: descriptorList Material: Leather}}
+    - |
+      {{>accum: descriptorList Material: Textile}}
+    - |
+      {{>accum: descriptorList Material: Copper}}
+  alien:
+    tech_level:
+    - |
+      {{>accum: infoList Tech Level: Stone Age (prehistory and before)}}
+    - |
+      {{>accum: infoList Tech Level: Bronze Age (3500 B.C).}}
+    - |
+      {{>accum: infoList Tech Level: Iron Age (1200 B.C).}}
+    - |
+      {{>accum: infoList Tech Level: Middle Ages (600 B.C).}}
+    - |
+      {{>accum: infoList Tech Level: Age of Discoveries (1450 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Industrial Revolution (1730 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Mechanical Age (1880 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Nuclear Age (1940 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Digital Age (1980 A.D).}}
+    - |
+      {{>accum: infoList Tech Level: Microtechnology Age (Nanotechnology and other amazing advances)}}
+    - |
+      {{>accum: infoList Tech Level: Space Age (Space travel and colonization)}}
+    - |
+      {{>accum: infoList Tech Level: Time Age (Time travel)}}
+    means_of_travel:
+    - |
+      {{>accum: infoList Means of Travel: Meteor}}
+    - |
+      {{>accum: infoList Means of Travel: Black Hole}}
+    - |
+      {{>accum: infoList Means of Travel: Portal opened by Sorcerer-King}}
+    - |
+      {{>accum: infoList Means of Travel: Dimensional Storm}}
+    - |
+      {{>accum: infoList Means of Travel: Astral Projection}}
+    - |
+      {{>accum: infoList Means of Travel: Cavern Complex with Extra-Planar Connections}}
+    - |
+      {{>accum: infoList Means of Travel: A Bridge Extending to Another World}}
+    - |
+      {{>accum: infoList Means of Travel: Magical Ship Sailing on Cosmic Currents}}
+    - |
+      {{>accum: infoList Means of Travel: Winged Creatures that Ride the Cosmos}}
+    - |
+      {{>accum: infoList Means of Travel: Space Ship}}
+    - |
+      {{>accum: infoList Means of Travel: Teleporting Device}}
+    - |
+      {{>accum: infoList Means of Travel: Intersecting Planet}}
+    purposes:
+    - |
+      {{>accum: infoList Purpose: Harvest natural resources.}}
+    - |
+      {{>accum: infoList Purpose: Colonize a new world.}}
+    - |
+      {{>accum: infoList Purpose: Escape the destruction of their original world.}}
+    - |
+      {{>accum: infoList Purpose: Search for ancestors that visited this world.}}
+    - |
+      {{>accum: infoList Purpose: Dominate this new world.}}
+    - |
+      {{>accum: infoList Purpose: Conduct scientific experiments.}}
+    - |
+      {{>accum: infoList Purpose: Warn natives of an incoming doom.}}
+    - |
+      {{>accum: infoList Purpose: Eat all that it can find.}}
+    - |
+      {{>accum: infoList Purpose: To reproduce with another species.}}
+    - |
+      {{>accum: infoList Purpose: Gather slaves for an important task.}}
+    - |
+      {{>accum: infoList Purpose: To learn and collect information.}}
+    - |
+      {{>accum: infoList Purpose: To prevent a catastrophic event they have foreseen.}}
+  aberration:
+    form:
+    - |
+      {{>accum: descriptorList Amorphous}}
+    - |
+      {{>accum: descriptorList Oval}}
+    - |
+      {{>accum: descriptorList Sphere}}
+    - |
+      {{>accum: descriptorList Conical}}
+    - |
+      {{>accum: descriptorList Cylinder}}
+    - |
+      {{>accum: descriptorList Pyramid}}
+    - |
+      {{>accum: descriptorList Ring}}
+    - |
+      {{>accum: descriptorList Icosahedron}}
+    - |
+      {{>accum: descriptorList Bidimensional}}
+    - |
+      {{>accum: descriptorList Tetradimensional}}
+    - |
+      {{natures.no_meta}}
+    - |
+      {{>pickN: 1d4+1 natures.no_amalgamation}}
+    characteristics:
+    - |
+      {{>accum: descriptorList Hundreds of eyes of different types and sizes cover the creature’s body.}}
+    - |
+      {{>accum: descriptorList Hundreds of mouths of different sizes and shapes cover the creature's body and spew a disgusting goo.}}
+    - |
+      {{>accum: descriptorList Body covered by irregular thorns that inject hallucinogenic poison.}}
+    - |
+      {{>accum: descriptorList Body covered with small lips that keep pronouncing alien poetry which drives listeners insane.}}
+    - |
+      {{>accum: descriptorList Several tentacles cover the creature’s body.}}
+    - |
+      {{>accum: descriptorList Faces of several different beings in agonizing expressions cover thecreature's body.}}
+    - |
+      {{>accum: descriptorList Bubbles expelling nauseous smells forms all over the creature's body.}}
+    - |
+      {{>accum: descriptorList Hundreds of clawed hands form and dissipate over the creature's body.}}
+    - |
+      {{>accum: descriptorList Hundreds of genitalia cover the creature's body.}}
+    - |
+      {{>accum: descriptorList The creature's body is covered with holes expelling feces.}}
+    - |
+      {{>accum: descriptorList Gelatinous and transparent body, exposing all the bizarre organs inside.}}
+    - |
+      {{>pickN: 1d4 aberration.characteristics}}
+  elemental:
+    element:
+    - |
+      {{>accum: descriptorList Element: Earth}}
+    - |
+      {{>accum: descriptorList Element: Water}}
+    - |
+      {{>accum: descriptorList Element: Fire}}
+    - |
+      {{>accum: descriptorList Element: Air}}
+    - |
+      {{>accum: descriptorList Element: Rock}}
+    - |
+      {{>accum: descriptorList Element: Magma}}
+    - |
+      {{>accum: descriptorList Element: Ashes}}
+    - |
+      {{>accum: descriptorList Element: Sand}}
+    - |
+      {{>accum: descriptorList Element: Wood}}
+    - |
+      {{>accum: descriptorList Element: Mud}}
+    - |
+      {{>accum: descriptorList Element: Steam}}
+    - |
+      {{>accum: descriptorList Element: Blood}}
+    - |
+      {{>accum: descriptorList Element: Metal}}
+    - |
+      {{>accum: descriptorList Element: Mucus}}
+    - |
+      {{>accum: descriptorList Element: Acid}}
+    - |
+      {{>accum: descriptorList Element: Poison}}
+    - |
+      {{>accum: descriptorList Element: Lightning}}
+    - |
+      {{>accum: descriptorList Element: Light}}
+    - |
+      {{>accum: descriptorList Element: Glass}}
+    - |
+      {{>accum: descriptorList Element: Diamond}}
+  humanoid:
+    skin_color:
+    - yellow
+    - orange
+    - red
+    - purple
+    - blue
+    - emerald
+    - gray
+    - transparent
+    appearance:
+    - |
+      {{>accum: descriptorList Elongated Limbs (can make melee attacks to opponents within nearby range)}}
+    - |
+      {{>accum: descriptorList Giant Head}}
+    - |
+      {{>accum: descriptorList Shortened Limbs (slow movement)}}
+    - |
+      {{>accum: descriptorList Elastic Limbs (can make melee attacks to opponents within nearby range)}}
+    - |
+      {{>accum: descriptorList Extra Pair of Arms (can act one more time per round)}}
+    - |
+      {{>accum: descriptorList Extra Pair of Legs (can move twice per round)}}
+    - |
+      {{>accum: descriptorList Extra Heads (receives a Positive Die to mental actions)}}
+    - |
+      {{>accum: descriptorList Scaly Skin (-1d of Damage Reduction)}}
+    - |
+      {{>accum: descriptorList Colorful Skin (%[[humanoid.skin_color]]%) – Color may indicate resistance to certain types of damage}}
+    - |
+      {{>accum: descriptorList Without Body Hair}}
+    - |
+      {{>accum: descriptorList With flashy hair or fur}}
+    - |
+      {{>accum: descriptorList Small body (Positive Die to hide)}}
+    - |
+      {{>accum: descriptorList Large Body (Positive Die to physical actions)}}
+    - |
+      {{>accum: descriptorList No distinction between genders (or without genders)}}
+    - |
+      {{>accum: descriptorList Skeletal Body}}
+    - |
+      {{>accum: descriptorList Corpulent Body}}
+    - |
+      {{>accum: descriptorList Protruding Bones}}
+    - |
+      {{>accum: descriptorList Extra Eyes (Positive Die on perception tests)}}
+    - |
+      {{>accum: descriptorList Eyeless (augmented senses)}}
+    - |
+      {{natures.no_human}}
+    culture:
+    - |
+      {{>accum: infoList Culture: Praises brute strength above all else and dominates inferior races.}}
+    - |
+      {{>accum: infoList Culture: The search for knowledge moves this race through the cosmos.}}
+    - |
+      {{>accum: infoList Culture: Carnal pleasures are all that matters.}}
+    - |
+      {{>accum: infoList Culture: The search for spiritual growth is the most noble quest of an individual .}}
+    - |
+      {{>accum: infoList Culture: Hoards riches at any cost, even taking it from weaker races.}}
+    - |
+      {{>accum: infoList Culture: To reproduce and spread to all corners of the cosmos.}}
+    - |
+      {{>accum: infoList Culture: Dominate intellectually all other cultures.}}
+    - |
+      {{>accum: infoList Culture: To produce art is the greater deed an individual can accomplish.}}
+    - |
+      {{>accum: infoList Culture: Technological development is the most noble cause to pursue.}}
+    - |
+      {{>accum: infoList Culture: Sorcery is a stain that must be cleaned from the world.}}
+    - |
+      {{>accum: infoList Culture: The accumulation of magical power is the only way to secure our superiority.}}
+    - |
+      {{>accum: infoList Culture: To bring our god to this world is our main task.}}
+    - |
+      {{>accum: infoList Culture: To remain isolated from other races is our main safety guarantee.}}
+    - |
+      {{>accum: infoList Culture: Hunt the most powerful beast to prove your worth.}}
+    - |
+      {{>accum: infoList Culture: Never suppress your primal instincts as savagery is the purest state of being.}}
+    - |
+      {{>accum: infoList Culture: The quest for the promised land is the main task of our people.}}
+    - |
+      {{>accum: infoList Culture: To obey all the wishes and desires of the Queen-Mother, whatever they may be.}}
+    - |
+      {{>accum: infoList Culture: Only by the end of the world as we know it we can build a better one.}}
+    - |
+      {{>accum: infoList Culture: Life has no meaning and is empty, nothing and no one can alter this truth.}}
+    - |
+      {{>accum: infoList Culture: Transformation and constant change are essential to save Chaos from the tyranny of Order.}}

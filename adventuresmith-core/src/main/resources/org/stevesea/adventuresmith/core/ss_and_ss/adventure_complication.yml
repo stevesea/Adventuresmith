@@ -5,12 +5,12 @@ templates:
 nested_tables:
   complications:
     template:
-    - "Resources: {{complications.resources}}"
-    - "Victims: {{complications.victims}}"
-    - "Perils: {{complications.perils}}"
-    - "Factions: {{complications.factions}}"
-    - "Supernatural: {{complications.supernatural}}"
-    - "Revelations: {{complications.revelations}}"
+    - "Resources: <br/>{{complications.resources}}"
+    - "Victims: <br/>{{complications.victims}}"
+    - "Perils: <br/>{{complications.perils}}"
+    - "Factions: <br/>{{complications.factions}}"
+    - "Supernatural: <br/>{{complications.supernatural}}"
+    - "Revelations: <br/>{{complications.revelations}}"
     resources:
     - Large Treasure at Risk
     - Low on Food and Water

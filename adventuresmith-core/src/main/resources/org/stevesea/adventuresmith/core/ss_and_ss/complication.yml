@@ -1,11 +1,11 @@
 ---
 templates:
-- Debt - {{debt}}
-- Addiction - {{addiction}}
-- Hunted - {{hunted}}
-- Enemy - {{enemy}}
-- Secret - {{secret}}
-- Duty - {{duty}}
+- "Debt: <br/>{{debt}}"
+- "Addiction: <br/>{{addiction}}"
+- "Hunted: <br/>{{hunted}}"
+- "Enemy: <br/>{{enemy}}"
+- "Secret: <br/>{{secret}}"
+- "Duty: <br/>{{duty}}"
 
 tables:
   debt:

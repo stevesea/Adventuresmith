@@ -1,0 +1,272 @@
+---
+templates:
+- |
+  Character is poisoned by an enemy and almost dies. <br/><br/>Who did this? Why?
+- |
+  A fortune teller seeks the character to tell him about his prophetic dreams.
+  <br/><br/>What are those dreams?
+- |
+  The character acquires an apparently worthless object that attracts the
+  attention of the Thieves’ Guild. <br/><br/>What is its secret?
+- |
+  Parts of the character's memory disappears. <br/><br/>What did he forget? Who is
+  responsible for this?
+- |
+  An person important to the character forgets who he is. <br/><br/>Who is that person?
+  How did it happen?
+- |
+  The character is thrown into the local dungeon. <br/><br/>Why?
+- |
+  Something the character said or did makes him the laughing stock of the city.
+  <br/><br/>What was it?
+- |
+  The character is invited to join a strange cult after being watched by its
+  members. <br/><br/>What cult is it and what do they want?
+- |
+  A person the character cares for is affected by a disaster such as fire or
+  landslide and it doesn't look accidental. <br/><br/>What really happened?
+- |
+  The character's home is invaded and searched thoroughly. A valuable object
+  was taken. <br/><br/>What was it?
+- |
+  The character's pet is found dead. <br/><br/>What happened?
+- |
+  An untrustworthy character's relative appears asking for favors. <br/><br/>What do
+  they want?
+- |
+  A character's relative is arrested for a crime he says he didn't commit and
+  asks for help to prove his innocence. <br/><br/>How do you do this?
+- |
+  Tax collectors want to collect a big debt from the character. <br/><br/>How far are they
+  willing to go?
+- |
+  The character's home is destroyed in a suspicious way. <br/><br/>What really
+  happened?
+- |
+  A baby is left at the character's door with an enigmatic note. <br/><br/>What does it
+  say?
+- |
+  A character's elder makes a wish in his death bed. <br/><br/>What did he ask for?
+- |
+  A person the character cares for decides to keep their distance from them,
+  but their reason doesn't seem honest. <br/><br/>What's behind that?
+- |
+  Dozens of people start approaching the character for suspicious reasons.
+  <br/><br/>What do they want?
+- |
+  A person the character cares for dies and appears in his dreams. <br/><br/>What
+  message is she trying to transmit?
+- |
+  The character inherits a debt and the loaner isn't happy about the lack of
+  payments. <br/><br/>What is this debt?
+- |
+  The character has insomnia and hasn't slept for days. <br/><br/>What's keeping
+  him awake?
+- |
+  The character has been betrayed by a former ally. <br/><br/>Why?
+- |
+  A friend becomes an enemy. <br/><br/>What happened?
+- |
+  The character is accused of a crime he did not commit. <br/><br/>Who's behind that?
+- |
+  The character gets romantically involved with an important individual and
+  appears in a scandal. <br/><br/>What happened?
+- |
+  A character’s relative is exiled and shows up at his doorstep asking for help.
+  <br/><br/>What did he do?
+- |
+  Someone the character cares about is murdered in mysterious circumstances.<br/><br/>
+  What's really happening?
+- |
+  A crime the character committed a long time ago resurfaces and authorities
+  are after him again. <br/><br/>What did he do?
+- |
+  The character is being blackmailed for a secret he keeps.<br/><br/> What is this secret?
+- |
+  A person who bullied the character in his infancy comes back asking for
+  help. <br/><br/>What does he want?
+- |
+  The character loses something important or valuable. <br/><br/>What is it?
+- |
+  An annoying and distant relative decides to accompany the character. <br/><br/>What
+  is he looking for?
+- |
+  The character's family home is attacked. <br/><br/>Who is responsible for this?
+- |
+  A younger character's sibling ran away from home. <br/><br/>Where did they go?
+- |
+  The house where the character lived has collapsed and a tunnel is found
+  underneath it. <br/><br/>Where does it lead to?
+- |
+  Terrible nightmares haunt the character's dreams for weeks. <br/><br/>What are they
+  about?
+- |
+  A ghost is haunting the character, appearing in the worst possible moments.
+  <br/><br/>What does he want?
+- |
+  An old rival shows up and wants to settle things once and for all. <br/><br/>Who is he?
+- |
+  The character's favorite tavern closes and becomes a strange cult’s base of
+  operations and its members try to recruit him. <br/><br/>What is that about?
+- |
+  The character's home is infested with rats and insects that seem to possess a
+  sentient hive mind. <br/><br/>What do they want?
+- |
+  An influential noble takes offense st something the character did or didn't do
+  and uses his power to hinder him. <br/><br/>What's he doing?
+- |
+  The character receives a disturbing letter. <br/><br/>What does it say?
+- |
+  Someone the character cares about is being blackmailed and she asks for
+  help. <br/><br/>Who's behind this?
+- |
+  The character discovers a terrible secret about his past. <br/><br/>What is he going
+  to do?
+- |
+  Someone is impersonating the character around town. <br/><br/>What are their
+  intentions?
+- |
+  A jealous rival shows up and wants to take everything the character cares
+  about. <br/><br/>What will he do?
+- |
+  Someone the character cares about snaps and tries to attack him. Clues
+  indicates he was under sorcerous influence. <br/><br/>Who is behind this?
+- |
+  A stranger delivers a message to the character, telling him mysterious secrets
+  about his past he wanted to forget. <br/><br/>Who is this stranger?
+- |
+  Someone the character cares about is kidnapped and he receives a ransom
+  note. <br/><br/>Who is behind this?
+- |
+  The character is declared a traitor by his people. <br/><br/>Why?
+- |
+  The character's home is broken into and ransacked but nothing is taken.
+  <br/><br/>What were they looking for?
+- |
+  An inconvenient law is passed and hinders the character in some way. <br/><br/>What
+  law is that?
+- |
+  A group of activists protest against the character's actions. <br/><br/>What did he do?
+- |
+  The character is conned by a trickster who steals something valuable. <br/><br/>What
+  did he take?
+- |
+  A tavern keeper invites the character to share his tales. <br/><br/>What does he want
+  to know?
+- |
+  The character is invited to a secret society. <br/><br/>What society is that?
+- |
+  The character is mistaken as someone else and is invited to a party. <br/><br/>What
+  party is this?
+- |
+  A nosy neighbor starts frequenting the character's home. <br/><br/>Who is this
+  neighbor?
+- |
+  A character's friend becomes a religious fanatic. <br/><br/>What cult has he joined?
+- |
+  A character's young relative joins the army and is being sent to war. <br/><br/>What
+  war is that?
+- |
+  A character's relative’s baby is cursed. <br/><br/>What curse is this?
+- |
+  The character receives a marriage proposal. <br/><br/>From whom?
+- |
+  A strange and enigmatic person joins the character's family by marriage.
+  <br/><br/>Who is this person?
+- |
+  A letter arrives with an invitation for a family reunion. <br/><br/>What's going to happen?
+- |
+  Someone the character cares about becomes addicted to gambling and
+  acquires a huge debt. <br/><br/>Who is going to collect it?
+- |
+  Someone the character cares about becomes a drug addict. <br/><br/>What is he doing
+  to afford his drugs?
+- |
+  A man shows up saying he is the character's true father and that he has
+  something important to tell him. <br/><br/>What is it?
+- |
+  The character is followed by a fanatic fan. <br/><br/>What does he want?
+- |
+  A local aristocrat is fascinated by the character and tries to attract and please
+  him. <br/><br/>Why?
+- |
+  An influential noble becomes enamored by the character and won't take no
+  for an answer. <br/><br/>What does he do?
+- |
+  The character meets an old friend after long years. <br/><br/>Who's that friend?
+- |
+  The character's family is torn apart by a giant conflict, affecting his life.
+  <br/><br/>What caused this conflict?
+- |
+  The character's mentor asks money from him. <br/><br/>Why does he need money?
+- |
+  A desperate mother pleads with the character to take his son. <br/><br/>What's
+  going on?
+- |
+  A previously unknown relative shows up offering the character an
+  inheritance if he performs a task. <br/><br/>What is that task?
+- |
+  Someone the character cares about is attacked by cultists. <br/><br/>What did they do
+  to him?
+- |
+  Someone the character cares about disappears mysteriously. <br/><br/>What has
+  happened?
+- |
+  A character's young relative offers himself as an apprentice to another
+  character of the party. <br/><br/>What does he want?
+- |
+  A couple the character cares about splits and now he must choose a side.<br/><br/>
+  Which side does he choose and why?
+- |
+  A character's mentor is killed by an old enemy. <br/><br/>Who is this enemy?
+- |
+  The character finds out he has a long lost twin brother. <br/><br/>Where is he?
+- |
+  The character is chosen to occupy an authority seat in his community. <br/><br/>What
+  are his duties?
+- |
+  A notoriously problematic person begs to become the character's apprentice.<br/><br/>
+  What happens?
+- |
+  An influential person spreads compliments about the character in town. <br/><br/>Why?
+- |
+  An influential noble invites the character for a dinner at his manor. <br/><br/>What
+  does he want?
+- |
+  The character inherits the family business. <br/><br/>What business is this?
+- |
+  The character receives an award for something she doesn't remember doing.<br/><br/>
+  What was that?
+- |
+  The character has a secret admirer. <br/><br/>What does he do?
+- |
+  A street animal, which is actually a supernatural entity, follows the character
+  around. <br/><br/>What does it want?
+- |
+  An old rival shows up and asks the character for forgiveness and gives him a
+  gift. <br/><br/>What is this gift?
+- |
+  The character stumbles upon a valuable or important object in an unlikely
+  place. <br/><br/>What is it?
+- |
+  The character receives a gift accompanied by a plea of help. <br/><br/>What do
+  they need?
+- |
+  An old enemy becomes an ally. <br/><br/>What happened?
+- |
+  Someone who owed the character favors or money shows up to pay his debt
+  with a strange artifact. <br/><br/>What is this weird object?
+- |
+  Someone shows up to pay the character for a debt with a deceased
+  character's relative. <br/><br/>What does this person give him?
+- |
+  Some young person asks to become the character's apprentice. <br/><br/>Does she accept?
+- |
+  The character finds scrolls containing secrets pertaining to a rich and famous
+  person. <br/><br/>What use will he make of it?
+- |
+  A group of admirers follows the character and does small favors for him.<br/><br/>
+  How loyal are they?
+- |
+  The character inherits a valuable property that is rumored to be haunted. <br/><br/>Is
+  it true?
