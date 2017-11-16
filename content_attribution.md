@@ -137,7 +137,7 @@ by <strong>Adam Koebel</strong> and <strong>Sage LaTorra</strong>, licensed unde
 <br/>Licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy
 of this license, visit https://creativecommons.org/licenses/by/3.0/
 <br/>
-<br/>Monster - Licensed under the Creative Commons Attribution 4.0 International License.
+<br/>Monster, Artifact - Licensed under the Creative Commons Attribution 4.0 International License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
 

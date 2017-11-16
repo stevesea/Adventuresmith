@@ -2,42 +2,60 @@
 templates:
 - |
   <h5>Artifact</h5>
-  <strong>Origin: {{origin}}
+  <strong>Origin: {{origin.template}}
   <br/><br/>
-  <strong>Power: {{power}}
-
-tables:
-  origin:
-  - "<big>Holy</big></strong><br/>{{nested_origin.Holy}}"
-  - "<big>Masterwork</big></strong><br/>{{nested_origin.Masterwork}}"
-  - "<big>Magic</big></strong><br/>{{nested_origin.Magic}}"
-  - "<big>Natural</big></strong><br/>{{nested_origin.Natural}}"
-  - "<big>Otherworldly</big></strong><br/>{{nested_origin.Otherworldly}}"
-  - "<big>Technological</big></strong><br/>{{nested_origin.Technological}}"
-  power:
-  - "<big>Blessing</big></strong><br/>{{nested_power.Blessing}}"
-  - "<big>Curse</big></strong><br/>{{nested_power.Curse}}"
-  - "<big>Enhancement</big></strong><br/>{{nested_power.Enhancement}}"
-  - "<big>Force</big></strong><br/>{{nested_power.Force}}"
-  - "<big>Protection</big></strong><br/>{{nested_power.Protection}}"
-  - "<big>Utility</big></strong><br/>{{nested_power.Utility}}"
-
-
+  <strong>Power: {{power.template}}
+  <br/><br/>
+  <strong>Drawback: {{drawback.template}}
 
 nested_tables:
-  nested_origin:
-    Holy:
+  origin:
+    template:
+    - "<big><Alchemical/big></strong><br/> {{origin.Alchemical}}"
+    - "<big>Ancient</big></strong><br/> {{origin.Ancient}}"
+    - "<big>Elemental</big></strong><br/> {{origin.Elemental}}"
+    - "<big>Holy</big></strong><br/> {{origin.Holy}}"
+    - "<big>Magic</big></strong><br/> {{origin.Magic}}"
+    - "<big>Masterwork</big></strong><br/> {{origin.Masterwork}}"
+    - "<big>Natural</big></strong><br/> {{origin.Natural}}"
+    - "<big>Otherworldly</big></strong><br/> {{origin.Otherworldly}}"
+    - "<big>Purpose</big></strong><br/> {{origin.Purpose}}"
+    - "<big>Shadow</big></strong><br/> {{origin.Shadow}}"
+    - "<big>Simple</big></strong><br/> {{origin.Simple}}"
+    - "<big>Technological</big></strong><br/> {{origin.Technological}}"
+    Alchemical:
+    - It bubbles.
+    - You rub it into your skin.
+    - It tastes awful.
+    - It splashes when you throw it.
+    - You only have the recipe.
+    - It's inherently unstable.
+    Ancient:
     - It's been lost for centuries.
-    - It once belonged to a dark god.
-    - It was made for a holy quest.
+    - It belongs to a museum.
+    - It's corroded and rusted.
+    - It was passed down through your family.
+    - It's been told of in song and story.
+    - Its creators have gone extinct.
+    Elemental:
+    - It's made of solid ice.
+    - It's glows like magma.
+    - This wood only comes from one place.
+    - It cackles with lightning.
+    - It is light and wispy.
+    - It's basically just a rock.
+    Holy:
+    - It radiates divine energy.
+    - It was the weapon of a god.
+    - Only the good can wield it.
     - It's faithful to you and your cause.
-    - You must prove yourself to it.
+    - It's emblazoned with a holy symbol.
     - They want it back.
     Magic:
     - It's covered in mysterious runes.
-    - It's powered by a trapped soul.
+    - It attunes itself to you.
     - You must speak the proper words.
-    - It's charges are running low.
+    - It emanates power.
     - It's a piece of something bigger.
     - The focus crystal needs replacing.
     Masterwork:
@@ -48,66 +66,240 @@ nested_tables:
     - It's in mint condition.
     - It's the best a human could do.
     Natural:
-    - It breathes and pulses in your hand.
-    - It requires sustenance.
+    - It pulses in your hand.
+    - It grows in the wild.
     - It bonds to your flesh.
     - It's starting its metamorphosis.
     - It glows in the dark.
     - It followed you home.
     Otherworldly:
     - It's decidedly non-euclidean.
-    - It's silicon-based life.
+    - It's a silicon-based lifeform.
     - It hurts to look at it.
     - It's goopy.
     - It's bigger on the inside.
-    - It's made from meteoric iron.
+    - It's made from meteoric ore.
+    Purpose:
+    - It is a key.
+    - It was meant to defeat a great evil.
+    - It's a map to something greater.
+    - It contains a powerful force.
+    - It was used in religious ceremonies.
+    - It denotes royalty.
+    Shadow:
+    - It's easily concealed.
+    - It exists in two places at once.
+    - It feels malevolent.
+    - It is almost translucent.
+    - It whispers to you.
+    - It's inhabited by an tortured soul.
+    Simple:
+    - It belonged to your parents.
+    - It's nothing if not reliable.
+    - It was made by a local craftsman.
+    - It's literally a child's toy.
+    - It was cobbled together quickly.
+    - It's quaint.
     Technological:
     - Its gears click and whiz.
-    - It jams at the worst times.
-    - Sparks fly in all directions.
+    - It blasts steam.
+    - They were once mass-produced.
     - It's a one-of-a-kind prototype.
-    - It leaks acid all over you.
-    - It needs reloading after every use.
-  nested_power:
+    - The gunpowder stinks.
+    - It is from the future.
+  power:
+    template:
+    - "<big>Autonomy</big></strong><br/> {{power.Autonomy}}"
+    - "<big>Blessing</big></strong><br/> {{power.Blessing}}"
+    - "<big>Control</big></strong><br/> {{power.Control}}"
+    - "<big>Divination</big></strong><br/> {{power.Divination}}"
+    - "<big>Enhancement</big></strong><br/> {{power.Enhancement}}"
+    - "<big>Elemental</big></strong><br/> {{power.Elemental}}"
+    - "<big>Healing</big></strong><br/> {{power.Healing}}"
+    - "<big>Illusion</big></strong><br/> {{power.Illusion}}"
+    - "<big>Metamorphosis</big></strong><br/> {{power.Metamorphosis}}"
+    - "<big>Movement</big></strong><br/> {{power.Movement}}"
+    - "<big>Protection</big></strong><br/> {{power.Protection}}"
+    - "<big>Summon</big></strong><br/> {{power.Summon}}"
+    Autonomy:
+    - It fights at your side.
+    - It scouts ahead for you.
+    - It guards your camp.
+    - It delivers your messages.
+    - It carries your burdens.
+    - It stores your knowledge.
     Blessing:
-    - You see visions of the future.
-    - You move unseen.
+    - You are shielded by divine force.
+    - You shed an inspiring aura.
     - You've had fantastic luck lately.
     - You sense lies and deception.
-    - Disease cannot touch you.
+    - You are filled with heroic vigour.
     - Dark entities fear you.
-    Curse:
-    - You're plagued by terrible nightmares.
-    - You've been polymorphed.
-    - Your thoughts are not your own.
-    - You've lost your voice.
-    - You're aging rapidly.
-    - The stink just won't wash off.
+    Control:
+    - You can command simple beasts.
+    - Your enemies are hypnotized.
+    - They must tell the truth.
+    - You paralyze your foe.
+    - He follows your suggestion.
+    - You dominate their mind.
+    Divination:
+    - You see and hear over vast distances.
+    - You understand foreign languages.
+    - You get glimpses of another time.
+    - Illusions uncovered.
+    - You read their thoughts.
+    - The gods grant you guidance.
     Enhancement:
     - You have the might of the giants.
-    - You're as agile as the wind.
+    - You're as agile as a bird.
     - You feel healthier than ever.
     - Your mind is filled with knowledge.
     - Your senses are heightened.
     - Your charm is irresistible.
-    Force:
+    Elemental:
     - It shoots gouts of flame.
-    - You shock your foes with lightning.
+    - You shock your foes.
     - The wind obeys your call.
-    - Thunderous sound blasts your enemies.
-    - You control illusory phantasms.
+    - Thunderous sound staggers your enemies.
+    - The ground rumbles beneath your feet.
     - You freeze your target in place.
+    Healing:
+    - It closes your wounds.
+    - The poison is leeched from your veins.
+    - Your energy is restored.
+    - The curse is lifted.
+    - It resurrects the dead.
+    - It mends broken items.
+    Illusion:
+    - You move unseen.
+    - It puts on a light show.
+    - Smoke fills the room.
+    - You control illusory phantasms.
+    - You are disguised as someone else.
+    - The illusion has physical form.
+    Metamorphosis:
+    - You breathe underwater with gills.
+    - You fly with leathery wings.
+    - Your skin is as hard as stone.
+    - You become mist for a short time.
+    - You grow to crush your enemies.
+    - You take the form of a beast.
+    Movement:
+    - You teleport short distances.
+    - You float gently to the ground.
+    - You phase through walls.
+    - You run as fast as the wind.
+    - You leap to great heights.
+    - You are returned to town.
     Protection:
     - You are immune to the elements.
-    - You skin is as hard as stone.
+    - Weapons bounce right off you.
     - It cloaks you in shadow.
-    - It fights at your side.
+    - Harmful magics are dispelled.
     - You're as steady as a mountain.
-    - It heals your wounds.
-    Utility:
-    - It provides a brilliant light.
-    - You can command simple beasts.
-    - You breathe water as if it were air.
-    - You can teleport short distances.
-    - You understand foreign languages.
-    - You see and hear over vast distances.
+    - It warns you of danger.
+    Summon:
+    - A familiar does your bidding.
+    - You entrap an elemental.
+    - There's a monster in your pocket.
+    - Summoned, but uncontrollable.
+    - The undead serve you.
+    - A spirit guides you.
+  drawback:
+    template:
+    - "<big>Corruption</big></strong><br/> {{drawback.Corruption}}"
+    - "<big>Cost</big></strong><br/> {{drawback.Cost}}"
+    - "<big>Curse</big></strong><br/> {{drawback.Curse}}"
+    - "<big>Flaw</big></strong><br/> {{drawback.Flaw}}"
+    - "<big>Geas</big></strong><br/> {{drawback.Geas}}"
+    - "<big>Hindrance</big></strong><br/> {{drawback.Hindrance}}"
+    - "<big>Limitation</big></strong><br/> {{drawback.Limitation}}"
+    - "<big>Malfunction</big></strong><br/> {{drawback.Malfunction}}"
+    - "<big>Metamorphosis</big></strong><br/> {{drawback.Metamorphosis}}"
+    - "<big>Personality</big></strong><br/> {{drawback.Personality}}"
+    - "<big>Side-Effect</big></strong><br/> {{drawback.SideEffect}}"
+    - "<big>Weakness</big></strong><br/> {{drawback.Weakness}}"
+    Corruption:
+    - Your thoughts are not your own.
+    - Your emotions become unstable.
+    - Nothing can sate your appetite.
+    - You're plagued by terrible nightmares.
+    - You are being drawn somewhere.
+    - Your conscience has gone quiet.
+    Cost:
+    - You'll have to pay for it.
+    - They want to barter.
+    - They'll come to collect someday.
+    - You must reveal a secret.
+    - You'll have to fetch something.
+    - An arm and a leg, literally.
+    Curse:
+    - Your memory is not what it used to be.
+    - You've been polymorphed!
+    - You are plagued by insomnia.
+    - You've lost your voice.
+    - You're aging rapidly.
+    - The stink just won't wash off.
+    Flaw:
+    - You're missing an important part.
+    - It's objectively ugly.
+    - It's magic is unravelling.
+    - You need a mechanic to fix it.
+    - It needs constant adjustment.
+    - It's cracked and dented.
+    Geas:
+    - It cannot leave your possession.
+    - You must join its quest.
+    - It's only on loan.
+    - You must prove yourself to it.
+    - It won't work without the ritual.
+    - You are compelled to use it.
+    Hindrance:
+    - It draws plenty of attention.
+    - You must endure the pain.
+    - The instructions are complex.
+    - Your mind is foggy.
+    - Your senses are dimmed.
+    - It's large and unwieldy.
+    Limitation:
+    - It must be recharged.
+    - You're low on ammunition.
+    - It activates on a cycle.
+    - It will only work once.
+    - Batteries not included.
+    - It is bound to this place.
+    Malfunction:
+    - It spews random magical effects.
+    - It jams at the worst times.
+    - It leaks all over you.
+    - Sparks fly in all directions.
+    - It misfires.
+    - It overheats easily.
+    Metamorphosis:
+    - Your flesh becomes scarred.
+    - The scales are spreading.
+    - Your eyes look strange.
+    - You begin to resemble the previous owner.
+    - That third arm is vestigial.
+    - Are those... horns? Is that... a tail?
+    Personality:
+    - It talks. Loudly. All the time.
+    - It's in love.
+    - It balks at your commands.
+    - It's curiosity will get you killed.
+    - Flattery will get you everywhere.
+    - It seeks nothing but revenge.
+    SideEffect:
+    - Your allies are affected, too.
+    - There's an equal and opposite reaction.
+    - Using it leaves you exhausted.
+    - It leeches energy from its surroundings.
+    - You feel nauseous.
+    - It causes collateral damage.
+    Weakness:
+    - Don’t expose it to sunlight.
+    - It's very fragile.
+    - Some creatures are immune to its effects.
+    - It can be countered.
+    - It's useless when wet.
+    - It's mostly harmless.
