@@ -1,0 +1,13 @@
+---
+templates:
+- |
+  <h4>{{locations.Valkoina}}</h4>
+  <strong><small>Masculin:</small></strong> {{Valkoina.male}}
+  <br/><strong><small>Féminin:</small></strong> {{Valkoina.female}}
+  <br/>
+  <br/><strong><small>Localité:</small></strong> {{Valkoina.steading}}
+  <br/>
+  <br/><strong><small>Monture:</small></strong> {{Valkoina.mount}}
+
+imports:
+- names

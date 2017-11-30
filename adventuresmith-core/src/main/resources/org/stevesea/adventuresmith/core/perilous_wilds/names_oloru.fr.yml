@@ -1,0 +1,13 @@
+---
+templates:
+- |
+  <h4>{{locations.Oloru}}</h4>
+  <strong><small>Masculin:</small></strong> {{Oloru.male}}
+  <br/><strong><small>Féminin:</small></strong> {{Oloru.female}}
+  <br/>
+  <br/><strong><small>Localité:</small></strong> {{Oloru.steading}}
+  <br/>
+  <br/><strong><small>Monture:</small></strong> {{Oloru.mount}}
+
+imports:
+- names
