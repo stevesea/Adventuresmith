@@ -2,16 +2,16 @@
 
 buildscript {
     ext.kodein_version = '3.4.1'
-    ext.kotlin_version = '1.1.51'
-    ext.jackson_version = '2.8.10'
+    ext.kotlin_version = '1.2.70'
+    ext.jackson_version = '2.9.6'
     ext.junit_version = '4.12'
     ext.mockito_version = '2.8.9'
     ext.mockito_kotlin_version = '1.5.0'
 
     ext.detekt_version = '1.0.0.M8.1'
-    ext.crashlytics_version = '2.7.1'
-    ext.jmustache_version = '1.13'
-    ext.guava_version = '23.3-android'
+    ext.crashlytics_version = '2.9.5'
+    ext.jmustache_version = '1.14'
+    ext.guava_version = '26.0-android'
     ext.cakeparse_version = '1.1.1'
     ext.kotlin_logging_version = '1.4.6'
 

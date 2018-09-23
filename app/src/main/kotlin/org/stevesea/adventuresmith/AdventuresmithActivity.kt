@@ -30,11 +30,7 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.view.ActionMode
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.SearchView
-import android.support.v7.widget.StaggeredGridLayoutManager
+import android.support.v7.widget.*
 import android.text.Editable
 import android.text.InputType
 import android.text.InputType.TYPE_CLASS_TEXT
@@ -162,7 +158,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         if (actionMode != null) {
                             //we want color our CAB
-                            findViewById(R.id.action_mode_bar).setBackgroundColor(
+                            findViewById<ActionBarContextView>(R.id.action_mode_bar).setBackgroundColor(
                                     UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
                                             R.attr.colorPrimary, R.color.material_drawer_primary))
                         }
