@@ -9,7 +9,6 @@ buildscript {
     ext.mockito_kotlin_version = '1.5.0'
 
     ext.detekt_version = '1.0.0.M8.1'
-    ext.crashlytics_version = '2.9.5'
     ext.jmustache_version = '1.14'
     ext.guava_version = '26.0-android'
     ext.cakeparse_version = '1.1.1'
@@ -39,12 +38,10 @@ buildscript {
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url 'http://dl.bintray.com/kaleidos/maven' }
-        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
         classpath 'net.kaleidos.gradle.plugins:emerger:0.0.2'
-        classpath 'io.fabric.tools:gradle:1.+'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //classpath 'eu.inloop:easyrelease:0.2.2'
 
@@ -62,7 +59,6 @@ subprojects {
         jcenter()
         google()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://dl.bintray.com/jetbrains/anko' }
         maven { url  "http://dl.bintray.com/arturbosch/code-analysis" }
     }

@@ -115,5 +115,4 @@ Adventuresmith source code is licensed under [GNU General Public License, versio
 * [FastAdapter](https://github.com/mikepenz/fastadapter)
 * [AndroidIconics](https://github.com/mikepenz/Android-Iconics)
 * [Jackson](https://github.com/FasterXML/jackson)
-* [Crashlytics/Answers/Beta](https://fabric.io)
 * [LeakCanary](https://github.com/square/leakcanary)
