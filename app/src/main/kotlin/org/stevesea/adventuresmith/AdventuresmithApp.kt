@@ -25,26 +25,17 @@ import android.os.Build
 import android.support.multidex.MultiDexApplication
 import android.text.Html
 import android.text.Spanned
-import com.crashlytics.android.Crashlytics
-import com.crashlytics.android.core.CrashlyticsCore
-import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.iconics.Iconics
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.squareup.leakcanary.LeakCanary
-import io.fabric.sdk.android.Fabric
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 
-    companion object {
-        val watch = Stopwatch.createStarted()
-    }
-
     override fun onCreate() {
         super.onCreate()
-        info("App Started: ${watch}")
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
@@ -53,16 +44,9 @@ class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
         }
         LeakCanary.install(this)
 
-        val crashlyticsKit = Crashlytics.Builder()
-                .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
-                .build()
-        Fabric.with(this, crashlyticsKit)
-
         Iconics.init(applicationContext)
         Iconics.registerFont(CommunityMaterial())
         Iconics.registerFont(Ionicons())
-
-        info("App onCreate done: ${watch}")
     }
 }
 

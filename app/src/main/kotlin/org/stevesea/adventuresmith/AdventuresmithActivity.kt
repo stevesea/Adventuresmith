@@ -30,11 +30,7 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.view.ActionMode
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.SearchView
-import android.support.v7.widget.StaggeredGridLayoutManager
+import android.support.v7.widget.*
 import android.text.Editable
 import android.text.InputType
 import android.text.InputType.TYPE_CLASS_TEXT
@@ -48,12 +44,9 @@ import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.crashlytics.android.answers.Answers
-import com.crashlytics.android.answers.CustomEvent
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.google.common.base.Stopwatch
 import com.mikepenz.community_material_typeface_library.CommunityMaterial
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.IAdapter
@@ -162,7 +155,7 @@ class AdventuresmithActivity : AppCompatActivity(),
 
                         if (actionMode != null) {
                             //we want color our CAB
-                            findViewById(R.id.action_mode_bar).setBackgroundColor(
+                            findViewById<ActionBarContextView>(R.id.action_mode_bar).setBackgroundColor(
                                     UIUtils.getThemeColorFromAttrOrRes(this@AdventuresmithActivity,
                                             R.attr.colorPrimary, R.color.material_drawer_primary))
                         }
@@ -393,7 +386,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                             try {
                                 val genMeta = generator.getMetadata(getCurrentLocale())
 
-                                val stopwatch = Stopwatch.createStarted()
                                 val resultItems: MutableList<String> = mutableListOf()
                                 for (i in 1..num_to_generate) {
                                     try {
@@ -407,14 +399,6 @@ class AdventuresmithActivity : AppCompatActivity(),
                                         )
                                     }
                                 }
-                                stopwatch.stop()
-
-                                Answers.getInstance().logCustom(
-                                        CustomEvent("Generate")
-                                                .putCustomAttribute("NumGenerated", num_to_generate)
-                                                .putCustomAttribute("ElapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-                                                .putCustomAttribute("GeneratorId", item.generator.getId())
-                                )
 
                                 uiThread {
                                     synchronized(resultAdapter) {
@@ -840,9 +824,6 @@ class AdventuresmithActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val stopwatch = Stopwatch.createStarted()
-        info("Activity onCreate started: $stopwatch (since app start: ${AdventuresmithApp.watch})")
-
         // seems like this bug https://github.com/mikepenz/Android-Iconics/issues/169
         //LayoutInflaterCompat.setFactory(getLayoutInflater(), IconicsLayoutInflater(getDelegate()));
         super.onCreate(savedInstanceState)
@@ -1028,7 +1009,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             drawer = drawerBuilder.build()
         }
 
-        info("Activity onCreate built drawer: $stopwatch (since app start: ${AdventuresmithApp.watch})")
 
         val btnSpanShort = resources.getInteger(R.integer.buttonSpanShort)
         val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)
@@ -1071,7 +1051,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         recycler_results.itemAnimator = DefaultItemAnimator()
         recycler_results.adapter = resultAdapter
 
-        info("Activity onCreate done: $stopwatch (since app start: ${AdventuresmithApp.watch})")
     }
 
     private fun selectDrawerItem(drawerItemId: Long?, savedInstanceState: Bundle?) {
@@ -1085,13 +1064,9 @@ class AdventuresmithActivity : AppCompatActivity(),
         setProgressDialog(indeterminateProgressDialog(R.string.loading_dlg_title))
         doAsync {
             try {
-                val getGenSW = Stopwatch.createStarted()
                 val generators: List<Generator> =
                         if (collGrp != null) {
                             info("Finding generators... $collGrp ")
-                            Answers.getInstance().logCustom(CustomEvent("Selected Dataset")
-                                    .putCustomAttribute("Dataset", collGrp.collectionId)
-                            )
                             debug("getting generators for: ${collGrp.collectionId} ${collGrp.groupId.orEmpty()}")
                             AdventuresmithCore.getGeneratorsByGroup(
                                     collGrp.collectionId,
@@ -1099,28 +1074,14 @@ class AdventuresmithActivity : AppCompatActivity(),
                             )
                         } else if (favName != null) {
                             info("Finding favorites... $favName")
-                            Answers.getInstance().logCustom(CustomEvent("Selected Favorite"))
                             getFavoriteGenerators(favName)
                         } else {
                             listOf()
                         }
-                getGenSW.stop()
-                info("Loading generators for drawer selection done ($getGenSW elapsed)")
-                Answers.getInstance().logCustom(CustomEvent("GetDrawerGenerators")
-                        .putCustomAttribute("elapsedMS", getGenSW.elapsed(TimeUnit.MILLISECONDS))
-                )
-
-                val getGenMetaSW = Stopwatch.createStarted()
 
                 generators.forEach { gen ->
                     gen.getMetadata(getCurrentLocale())
                 }
-
-                getGenMetaSW.stop()
-                info("Loading generator metadata for drawer selection done ($getGenMetaSW elapsed)")
-                Answers.getInstance().logCustom(CustomEvent("GetDrawerGeneratorMetas")
-                        .putCustomAttribute("elapsedMS", getGenMetaSW.elapsed(TimeUnit.MILLISECONDS))
-                )
 
                 uiThread {
                     if (collGrp != null) {
@@ -1153,7 +1114,6 @@ class AdventuresmithActivity : AppCompatActivity(),
     private val BUNDLE_RESULT_ITEMS = AdventuresmithActivity::class.java.name + ".resultItems"
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        val stopwatch = Stopwatch.createStarted()
 
         synchronized(resultAdapter) {
             resultAdapter.saveInstanceState(outState)
@@ -1169,12 +1129,10 @@ class AdventuresmithActivity : AppCompatActivity(),
         outState?.putSerializable(BUNDLE_CURRENT_DRAWER_ITEM, currentDrawerItemId)
 
         super.onSaveInstanceState(outState)
-        debug("onSaveInstanceState: $stopwatch elapsed")
     }
 
     @Suppress("UNCHECKED_CAST")
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        val stopwatch = Stopwatch.createStarted()
         super.onRestoreInstanceState(savedInstanceState)
 
         // NOTE: currentDrawerItem _may_ have saved null
@@ -1196,7 +1154,6 @@ class AdventuresmithActivity : AppCompatActivity(),
             resultAdapter.withSavedInstanceState(savedInstanceState)
             resultAdapter.deselect()
         }
-        debug("onRestoreInstanceState: $stopwatch elapsed")
     }
 
     override fun onResume() {
@@ -1374,14 +1331,7 @@ class AdventuresmithActivity : AppCompatActivity(),
         private fun getCachedCollectionMetas(l: Locale): Map<String, CollectionMetaDto> {
             synchronized(cachedCollectionMeta) {
                 if (l != lastLocale) {
-                    val stopwatch = Stopwatch.createStarted()
                     cachedCollectionMeta = AdventuresmithCore.getCollectionMetas(l)
-                    stopwatch.stop()
-                    info("Loading collection Metas done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
-                    Answers.getInstance().logCustom(CustomEvent("GetCollectionMetas")
-                            .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-                            .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
-                    )
                     lastLocale = l
                 }
                 return cachedCollectionMeta
@@ -1395,18 +1345,8 @@ class AdventuresmithActivity : AppCompatActivity(),
         private fun getCachedCollections() : Map<String, CollectionDto> {
             synchronized(alreadyInitializedCollections) {
                 if (!alreadyInitializedCollections) {
-                    val stopwatch = Stopwatch.createStarted()
-                    try {
-                        alreadyInitializedCollections = true
-                        return AdventuresmithCore.collections
-                    } finally {
-                        stopwatch.stop()
-                        info("Loading collections done. took $stopwatch (since app start: ${AdventuresmithApp.watch})")
-                        Answers.getInstance().logCustom(CustomEvent("GetCollections")
-                                .putCustomAttribute("elapsedMS", stopwatch.elapsed(TimeUnit.MILLISECONDS))
-                                .putCustomAttribute("fromAppStartMS", AdventuresmithApp.watch.elapsed(TimeUnit.MILLISECONDS))
-                        )
-                    }
+                    alreadyInitializedCollections = true
+                    return AdventuresmithCore.collections
                 } else {
                     return AdventuresmithCore.collections
                 }

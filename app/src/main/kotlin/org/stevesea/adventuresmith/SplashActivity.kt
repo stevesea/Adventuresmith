@@ -24,17 +24,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.debug
 
 class SplashActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        debug("SplashActivity Started: ${AdventuresmithApp.watch}")
-
         val intent = Intent(this, AdventuresmithActivity::class.java)
         startActivity(intent)
         finish()
-        debug("SplashActivity finished: ${AdventuresmithApp.watch}")
     }
 }
