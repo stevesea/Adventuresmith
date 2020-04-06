@@ -3,7 +3,8 @@ icon: cmd_skull
 
 generators:
   - character
-  - npc
+  - traits
+  - gear
   - spell
   - reaction
 

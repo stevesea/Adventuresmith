@@ -1,18 +1,42 @@
 ---
 definitions:
   labels:
-    str: <strong><small>Strength:</small></strong>
-    dex: <strong><small>Dexterity:</small></strong>
-    con: <strong><small>Constitution:</small></strong>
-    int: <strong><small>Intelligence:</small></strong>
-    wis: <strong><small>Wisdom:</small></strong>
-    cha: <strong><small>Charisma:</small></strong>
+    str: <strong><small>Strength:</small></strong>&nbsp;
+    dex: <strong><small>Dexterity:</small></strong>&nbsp;
+    con: <strong><small>Constitution:</small></strong>&nbsp;
+    int: <strong><small>Intelligence:</small></strong>&nbsp;
+    wis: <strong><small>Wisdom:</small></strong>&nbsp;
+    cha: <strong><small>Charisma:</small></strong>&nbsp;
+
+    physique: <strong><small>Physique:</small></strong>&nbsp;
+    face: <strong><small>Face:</small></strong>&nbsp;
+    skin: <strong><small>Skin:</small></strong>&nbsp;
+    hair: <strong><small>Hair:</small></strong>&nbsp;
+    clothing: <strong><small>Clothing:</small></strong>&nbsp;
+    virtue: <strong><small>Virtue:</small></strong>&nbsp;
+    vice: <strong><small>Vice:</small></strong>&nbsp;
+    speech: <strong><small>Speech:</small></strong>&nbsp;
+    background: <strong><small>Background:</small></strong>&nbsp;
+    misfortune: <strong><small>Misfortunes:</small></strong>&nbsp;
+    alignment: <strong><small>Alignment:</small></strong>&nbsp;
 
   traits_template: |
-    asdfasdf
-  gear_template: |
-    asdfasdf
+    <h5>Character Traits</h5>
+    {{labels.face}}{{traits.face}}&nbsp;&nbsp;&nbsp; {{labels.physique}}{{traits.physique}}
+    <br/>{{labels.skin}}{{traits.skin}}&nbsp;&nbsp;&nbsp; {{labels.clothing}}{{traits.clothing}}
+    <br/>{{labels.hair}}{{traits.hair}}&nbsp;&nbsp;&nbsp; {{labels.speech}}{{traits.speech}}
+    <br/><br/>{{labels.background}}{{traits.background}}
+    <br/>{{labels.misfortune}}{{traits.misfortune}}
+    <br/><br/>{{labels.virtue}}{{traits.virtue}}&nbsp;&nbsp;&nbsp; {{labels.vice}}{{traits.vice}}
+    <br/><br/>{{labels.alignment}}{{traits.alignment}}
 
+  starting_gear_template: |
+    <h5>Starting Gear</h5>
+    {{gear.armor}}, {{gear.helmet_and_shield}}
+    <br/><br/>
+    {{>pickN: 2 gear.dungeon}},
+    {{gear.general_1}},
+    {{gear.general_2}}
 
 nested_tables:
   traits:
@@ -238,7 +262,7 @@ nested_tables:
       - 15-19, Brigandine
       - 20, Chain
     helmet_and_shield:
-      - 1-13, None
+      - 1-13, No Helmet
       - 14-16, Helmet
       - 17-19, Shield
       - 20, Helmet and Shield

@@ -2,7 +2,6 @@
 templates:
   - |
     {{traits_template}}
-    {{starting_gear_template}}
 
 imports:
   - knave_base
