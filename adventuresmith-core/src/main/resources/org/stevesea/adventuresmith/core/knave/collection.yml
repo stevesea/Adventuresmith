@@ -1,0 +1,9 @@
+id: knave
+icon: cmd_skull
+
+generators:
+  - character
+  - npc
+  - spell
+  - reaction
+

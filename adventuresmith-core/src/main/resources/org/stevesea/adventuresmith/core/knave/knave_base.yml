@@ -1,0 +1,307 @@
+---
+definitions:
+  labels:
+    str: <strong><small>Strength:</small></strong>
+    dex: <strong><small>Dexterity:</small></strong>
+    con: <strong><small>Constitution:</small></strong>
+    int: <strong><small>Intelligence:</small></strong>
+    wis: <strong><small>Wisdom:</small></strong>
+    cha: <strong><small>Charisma:</small></strong>
+
+  traits_template: |
+    asdfasdf
+  gear_template: |
+    asdfasdf
+
+
+nested_tables:
+  traits:
+
+    physique:
+      - Athletic
+      - Brawny
+      - Corpulent
+      - Delicate
+      - Gaunt
+      - Hulking
+      - Lanky
+      - Ripped
+      - Rugged
+      - Scrawny
+      - Short
+      - Sinewy
+      - Slender
+      - Flabby
+      - Statuesque
+      - Stout
+      - Tiny
+      - Towering
+      - Willowy
+      - Wiry
+    face:
+      - Bloated
+      - Blunt
+      - Bony
+      - Chiseled
+      - Delicate
+      - Elongated
+      - Patrician
+      - Pinched
+      - Hawkish
+      - Broken
+      - Impish
+      - Narrow
+      - Ratlike
+      - Round
+      - Sunken
+      - Sharp
+      - Soft
+      - Square
+      - Wide
+      - Wolfish
+    skin:
+      - Battle Scar
+      - Birthmark
+      - Burn Scar
+      - Dark
+      - Makeup
+      - Oily
+      - Pale
+      - Perfect
+      - Pierced
+      - Pockmarked
+      - Reeking
+      - Tattooed
+      - Rosy
+      - Rough
+      - Sallow
+      - Sunburned
+      - Tanned
+      - War Paint
+      - Weathered
+      - Whip Scar
+    hair:
+      - Bald
+      - Braided
+      - Bristly
+      - Cropped
+      - Curly
+      - Disheveled
+      - Dreadlocks
+      - Filthy
+      - Frizzy
+      - Greased
+      - Limp
+      - Long
+      - Luxurious
+      - Mohawk
+      - Oily
+      - Ponytail
+      - Silky
+      - Topknot
+      - Wavy
+      - Wispy
+    clothing:
+      - Antique
+      - Bloody
+      - Ceremonial
+      - Decorated
+      - Eccentric
+      - Elegant
+      - Fashionable
+      - Filthy
+      - Flamboyant
+      - Stained
+      - Foreign
+      - Frayed
+      - Frumpy
+      - Livery
+      - Oversized
+      - Patched
+      - Perfumed
+      - Rancid
+      - Torn
+      - Undersized
+    virtue:
+      - Ambitious
+      - Cautious
+      - Courageous
+      - Courteous
+      - Curious
+      - Disciplined
+      - Focused
+      - Generous
+      - Gregarious
+      - Honest
+      - Honorable
+      - Humble
+      - Idealistic
+      - Just
+      - Loyal
+      - Merciful
+      - Righteous
+      - Serene
+      - Stoic
+      - Tolerant
+    vice:
+      - Aggressive
+      - Arrogant
+      - Bitter
+      - Cowardly
+      - Cruel
+      - Deceitful
+      - Flippant
+      - Gluttonous
+      - Greedy
+      - Irascible
+      - Lazy
+      - Nervous
+      - Prejudiced
+      - Reckless
+      - Rude
+      - Suspicious
+      - Vain
+      - Vengeful
+      - Wasteful
+      - Whiny
+    speech:
+      - Blunt
+      - Booming
+      - Breathy
+      - Cryptic
+      - Drawling
+      - Droning
+      - Flowery
+      - Formal
+      - Gravelly
+      - Hoarse
+      - Mumbling
+      - Precise
+      - Quaint
+      - Rambling
+      - Rapid-fire
+      - Dialect
+      - Slow
+      - Squeaky
+      - Stuttering
+      - Whispery
+    background:
+      - Alchemist
+      - Beggar
+      - Butcher
+      - Burglar
+      - Charlatan
+      - Cleric
+      - Cook
+      - Cultist
+      - Gambler
+      - Herbalist
+      - Magician
+      - Mariner
+      - Mercenary
+      - Merchant
+      - Outlaw
+      - Performer
+      - Pickpocket
+      - Smuggler
+      - Student
+      - Tracker
+    misfortune:
+      - Abandoned
+      - Addicted
+      - Blackmailed
+      - Condemned
+      - Cursed
+      - Defrauded
+      - Demoted
+      - Discredited
+      - Disowned
+      - Exiled
+      - Framed
+      - Haunted
+      - Kidnapped
+      - Mutilated
+      - Poor
+      - Pursued
+      - Rejected
+      - Replaced
+      - Robbed
+      - Suspected
+    alignment:
+      - 1-5, Law
+      - 6-15, Neutrality
+      - 16-20, Chaos
+  gear:
+    armor:
+      - 1-3, No Armor
+      - 4-14, Gambeson
+      - 15-19, Brigandine
+      - 20, Chain
+    helmet_and_shield:
+      - 1-13, None
+      - 14-16, Helmet
+      - 17-19, Shield
+      - 20, Helmet and Shield
+    dungeon:
+      - "Rope (50ft)"
+      - Pulleys
+      - "Candles (5)"
+      - "Chain (10ft)"
+      - "Chalk (10)"
+      - Crowbar
+      - Tinderbox
+      - Grappling Hook
+      - Hammer
+      - Waterskin
+      - Lantern
+      - Lamp oil
+      - Padlock
+      - Manacles
+      - Mirror
+      - "Pole (10ft)"
+      - Sack
+      - Tent
+      - "Spikes (5)"
+      - "Torches (5)"
+    general_1:
+      - Air bladder
+      - Bear trap
+      - Shovel
+      - Bellows
+      - Grease
+      - Saw
+      - Bucket
+      - Caltrops
+      - Chisel
+      - Drill
+      - Fishing rod
+      - Marbles
+      - Glue
+      - Pick
+      - Hourglass
+      - Net
+      - Tongs
+      - Lockpicks
+      - Metal file
+      - Nails
+    general_2:
+      - Incense
+      - Sponge
+      - Lens
+      - Perfume
+      - Horn
+      - Bottle
+      - Soap
+      - Spyglass
+      - Tar pot
+      - Twine
+      - Fake jewels
+      - Blank book
+      - Card deck
+      - Dice set
+      - Cook pots
+      - Face paint
+      - Whistle
+      - Instrument
+      - "Quill & Ink"
+      - Small bell

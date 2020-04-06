@@ -14,6 +14,7 @@ publishers and copyright holders. See below for full listing.
 - [GameMaster's Apprentice](#gma)
 - [Hack & Slash](#hack_and_slash)
 - [Kaigaku](#kaigaku)
+- [Knave](#knave)
 - [Macchiato Monsters](#macchiato_monsters)
 - [Maze Rats](#maze_rats)
 - [Mutant: Year Zero](#mutant_year_zero)
@@ -183,6 +184,20 @@ Copyright 2016, Thunderegg Productions
 inspiration from famous samurai-themed games. You can use this book to play intense duels between
 bushi, wars of words among courtiers, ninja missions and more.</p>
 </blockquote>
+
+
+
+
+<a name="knave"></a>
+## Knave - Ben Milton
+[http://questingblog.com/](http://questingblog.com/)
+
+Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
+<p>Knave was made possible due to the encouragement, feedback, and assistance of
+<a href="https://www.patreon.com/questingbeast">Ben Milton's Patreon supporters</a>.</p>
+<p><a href="https://www.drivethrurpg.com/product/250888/Knave">Knave on DriveThruRPG</a></p>
+<p>The text of <em>Knave</em> is released under a CC Attribution 4.0 International License
+https://creativecommons.org/licenses/by/4.0/</p>
 
 
 
