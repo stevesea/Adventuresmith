@@ -6,5 +6,6 @@ generators:
   - traits
   - gear
   - spell
+  - name
   - reaction
 

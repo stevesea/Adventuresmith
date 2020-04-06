@@ -1,6 +1,7 @@
 ---
 templates:
   - |
+    <h5>Character Traits</h5>
     {{traits_template}}
 
 imports:

@@ -1,8 +1,12 @@
 ---
 templates:
   - |
-    {{traits_template}}
-    {{starting_gear_template}}
+    <h5>Character - {{names.name}}</h5>
+    {{labels.str}}+{{>rollKeepLow: 3 1 1d6}}&nbsp;&nbsp;&nbsp;&nbsp;{{labels.dex}}+{{>rollKeepLow: 3 1 1d6}}&nbsp;&nbsp;&nbsp;&nbsp;{{labels.con}}+{{>rollKeepLow: 3 1 1d6}}
+    <br/>{{labels.int}}+{{>rollKeepLow: 3 1 1d6}}&nbsp;&nbsp;&nbsp;&nbsp;{{labels.wis}}+{{>rollKeepLow: 3 1 1d6}}&nbsp;&nbsp;&nbsp;&nbsp;{{labels.cha}}+{{>rollKeepLow: 3 1 1d6}}
+    <br/><br/>{{labels.hp}}{{>roll: 1d8}}
+    <br/><br/>{{traits_template}}
+    <br/><br/>{{starting_gear_template}}
 
 imports:
   - knave_base

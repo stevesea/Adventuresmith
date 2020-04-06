@@ -1,12 +1,13 @@
 ---
 definitions:
   labels:
-    str: <strong><small>Strength:</small></strong>&nbsp;
-    dex: <strong><small>Dexterity:</small></strong>&nbsp;
-    con: <strong><small>Constitution:</small></strong>&nbsp;
-    int: <strong><small>Intelligence:</small></strong>&nbsp;
-    wis: <strong><small>Wisdom:</small></strong>&nbsp;
-    cha: <strong><small>Charisma:</small></strong>&nbsp;
+    str: <strong><small>STR:</small></strong>&nbsp;
+    dex: <strong><small>DEX:</small></strong>&nbsp;
+    con: <strong><small>CON:</small></strong>&nbsp;
+    int: <strong><small>INT:</small></strong>&nbsp;
+    wis: <strong><small>WIS:</small></strong>&nbsp;
+    cha: <strong><small>CHA:</small></strong>&nbsp;
+    hp: <strong><small>Max HP:</small></strong>&nbsp;
 
     physique: <strong><small>Physique:</small></strong>&nbsp;
     face: <strong><small>Face:</small></strong>&nbsp;
@@ -21,7 +22,6 @@ definitions:
     alignment: <strong><small>Alignment:</small></strong>&nbsp;
 
   traits_template: |
-    <h5>Character Traits</h5>
     {{labels.face}}{{traits.face}}&nbsp;&nbsp;&nbsp; {{labels.physique}}{{traits.physique}}
     <br/>{{labels.skin}}{{traits.skin}}&nbsp;&nbsp;&nbsp; {{labels.clothing}}{{traits.clothing}}
     <br/>{{labels.hair}}{{traits.hair}}&nbsp;&nbsp;&nbsp; {{labels.speech}}{{traits.speech}}
@@ -31,7 +31,6 @@ definitions:
     <br/><br/>{{labels.alignment}}{{traits.alignment}}
 
   starting_gear_template: |
-    <h5>Starting Gear</h5>
     {{gear.armor}}, {{gear.helmet_and_shield}}
     <br/><br/>
     {{>pickN: 2 gear.dungeon}},
@@ -610,3 +609,165 @@ nested_tables:
       - Instrument
       - "Quill & Ink"
       - Small bell
+
+  # names from Maze Rats
+  names:
+    name:
+      - "1..7, {{names.firstname}} {{names.surname}}"
+      # extra snooty
+      - "{{surnames.upper_class}} {{surnames.upper_class}}"
+    surname:
+      - "1..3, {{surnames.upper_class}}"
+      - "4..8, {{surnames.lower_class}}"
+    firstname:
+      - "{{names.male}}"
+      - "{{names.female}}"
+    female:
+      - Adelaide
+      - Alma
+      - Barsaba
+      - Beatrix
+      - Bianca
+      - Cleopha
+      - Clover
+      - Constance
+      - Damaris
+      - Daphne
+      - Demona
+      - Elsbeth
+      - Esme
+      - Fern
+      - Hester
+      - Hippolyta
+      - Jessamine
+      - Jilly
+      - Morgot
+      - Minerva
+      - Nerissa
+      - Odette
+      - Olga
+      - Orchid
+      - Pepper
+      - Phoebe
+      - Piety
+      - Poppy
+      - Silence
+      - Sybil
+      - Trillby
+      - Tuesday
+      - Ursula
+      - Vivian
+      - Wendy
+      - Zora
+    male:
+      - Balthazar
+      - Basil
+      - Bertram
+      - Blaxton
+      - Chadwick
+      - Clovis
+      - Destrian
+      - Ellis
+      - Erasmus
+      - Faustus
+      - Finn
+      - Fitzhugh
+      - Florian
+      - Fox
+      - Godwin
+      - Hannibal
+      - Jasper
+      - Jiles
+      - Jules
+      - Leopold
+      - Merrick
+      - Mortimer
+      - Ogden
+      - Orion
+      - Oswald
+      - Percival
+      - Peregrine
+      - Quentin
+      - Redmaine
+      - Reinhold
+      - Silas
+      - Stilton
+      - Stratford
+      - Tenpiece
+      - Waverly
+      - Webster
+  surnames:
+    upper_class:
+      - Belvedere
+      - Bithesea
+      - Calaver
+      - Carvolo
+      - De Rippe
+      - Droll
+      - Dunlow
+      - Edevane
+      - Erelong
+      - Febland
+      - Fernsby
+      - Fisk
+      - Gastrell
+      - Girdwood
+      - Gorgon
+      - Grimeson
+      - Gruger
+      - Hitheryon
+      - La Margue
+      - Malmora
+      - Miter
+      - Oblington
+      - Onymous
+      - Phillifent
+      - Portendorfer
+      - Romatert
+      - Rothery
+      - Skorbeck
+      - Slora
+      - Southwark
+      - Stavish
+      - Vandermeer
+      - Wellbelove
+      - Westergren
+      - Wexley
+      - Wilberforce
+    lower_class:
+      - Barrow
+      - Beetleman
+      - Berrycloth
+      - Birdwhistle
+      - Bobich
+      - Chips
+      - Coffin
+      - Crumpling
+      - Culpepper
+      - Dankworth
+      - Digworthy
+      - Dreggs
+      - Gimble
+      - Graveworm
+      - Greelish
+      - Hardwick
+      - Hatman
+      - Hovel
+      - Knibbs
+      - Midnighter
+      - Needle
+      - Nethercoat
+      - Pestle
+      - Relish
+      - Rumbold
+      - Rummage
+      - Sallow
+      - Saltmarsh
+      - Silverless
+      - Skitter
+      - Slee
+      - Slitherly
+      - Stoker
+      - Tarwater
+      - Tumbler
+      - Villin

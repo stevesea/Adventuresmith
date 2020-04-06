@@ -1,6 +1,6 @@
 ---
 templates:
-  - "{{spells}}"
+  - "{{names.name}}"
 
 imports:
   - knave_base

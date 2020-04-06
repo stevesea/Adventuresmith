@@ -2,6 +2,7 @@
 
 templates:
   - |
+    <h5>Starting Gear</h5>
     {{starting_gear_template}}
 
 imports:
