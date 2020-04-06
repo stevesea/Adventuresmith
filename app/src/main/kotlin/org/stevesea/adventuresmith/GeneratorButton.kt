@@ -84,7 +84,7 @@ class GeneratorButton(val generator: Generator,
         vh = null
     }
 
-    class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
+    class ViewHolder(v: View?) : RecyclerView.ViewHolder(v!!) {
         val btnText = v?.findViewById(R.id.btn_txt) as TextView
         val btnTextConfig = v?.findViewById(R.id.btn_txt_config) as TextView
         val btnSettings = v?.findViewById(R.id.btn_settings) as ImageView

@@ -21,6 +21,7 @@
 package org.stevesea.adventuresmith
 
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
@@ -38,11 +39,16 @@ class AboutActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_about)
 
         var versionName = ""
-        var versionCode = -1
+        var versionCode = -1L
         try {
             val packageInfo = packageManager.getPackageInfo(packageName, 0)
             versionName = packageInfo.versionName
-            versionCode = packageInfo.versionCode
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                versionCode = packageInfo.longVersionCode
+            } else {
+                versionCode = packageInfo.versionCode.toLong()
+            }
         } catch (e: PackageManager.NameNotFoundException) {
             debug("Ignored exception. ${e.message}")
         }
