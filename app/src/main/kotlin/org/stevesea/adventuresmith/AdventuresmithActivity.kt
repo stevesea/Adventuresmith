@@ -105,7 +105,6 @@ import java.util.GregorianCalendar
 import java.util.Locale
 import java.util.Random
 import java.util.SortedSet
-import java.util.concurrent.TimeUnit
 
 data class CollectionAndGroup(val collectionId: String,
                               val name: String,
@@ -1008,7 +1007,6 @@ class AdventuresmithActivity : AppCompatActivity(),
         } else {
             drawer = drawerBuilder.build()
         }
-
 
         val btnSpanShort = resources.getInteger(R.integer.buttonSpanShort)
         val btnSpanRegular = resources.getInteger(R.integer.buttonSpanRegular)

@@ -40,7 +40,7 @@ buildscript {
         maven { url 'http://dl.bintray.com/kaleidos/maven' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath 'net.kaleidos.gradle.plugins:emerger:0.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //classpath 'eu.inloop:easyrelease:0.2.2'
@@ -51,7 +51,7 @@ buildscript {
 }
 
 plugins {
-    id 'com.gladed.androidgitversion' version '0.2.21'
+    id 'com.gladed.androidgitversion' version '0.4.13'
 }
 
 subprojects {

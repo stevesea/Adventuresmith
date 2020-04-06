@@ -42,17 +42,19 @@ task copyMainResources(type: Copy) {
 copyTestResources.dependsOn copyMainResources
 
 dependencies {
-    compile project(':adventuresmith-core')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':adventuresmith-core')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // for CLI, we'll use logback
-    compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
+    implementation "io.github.microutils:kotlin-logging:$kotlin_logging_version"
+    implementation "com.github.salomonbrys.kodein:kodein:$kodein_version"
 
-    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: argparse4j_version
+    implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: argparse4j_version
 
-    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_7
