@@ -54,23 +54,6 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    flavorDimensions "minApi"
-    productFlavors {
-        // Define separate dev and prod product flavors.
-        dev {
-            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
-            // to pre-dex each module and produce an APK that can be tested on
-            // Android Lollipop without time consuming dex merging processes.
-            minSdkVersion 21
-            dimension "minApi"
-        }
-        prod {
-            // The actual minSdkVersion for the application.
-            minSdkVersion 16
-            dimension "minApi"
-        }
-    }
-
     buildTypes {
         debug {
             applicationIdSuffix '.debug'
