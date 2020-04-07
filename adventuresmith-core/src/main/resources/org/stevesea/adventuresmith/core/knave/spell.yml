@@ -1,0 +1,6 @@
+---
+templates:
+  - "{{spells}}"
+
+imports:
+  - knave_base

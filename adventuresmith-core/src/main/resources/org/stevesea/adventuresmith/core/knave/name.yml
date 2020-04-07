@@ -1,0 +1,6 @@
+---
+templates:
+  - "{{names.name}}"
+
+imports:
+  - knave_base

@@ -30,7 +30,6 @@ import com.mikepenz.iconics.Iconics
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.squareup.leakcanary.LeakCanary
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 
 class AdventuresmithApp : MultiDexApplication(), AnkoLogger {
 

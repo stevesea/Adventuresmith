@@ -1,0 +1,31 @@
+---
+templates:
+  - |
+    {{>set: char_str {{>rollKeepLow: 3 1 1d6}}}}
+    {{>set: char_dex {{>rollKeepLow: 3 1 1d6}}}}
+    {{>set: char_con {{>rollKeepLow: 3 1 1d6}}}}
+    {{>set: char_int {{>rollKeepLow: 3 1 1d6}}}}
+    {{>set: char_wis {{>rollKeepLow: 3 1 1d6}}}}
+    {{>set: char_cha {{>rollKeepLow: 3 1 1d6}}}}
+    {{>set: char_hp {{>roll: 1d8}}}}
+    %[[char_template]]%
+
+definitions:
+  char_template: |
+
+    <h5>Character - {{names.name}}</h5>
+    {{labels.str}}{{>roll: 10+{{>get: char_str}}}}&nbsp;(+{{>get: char_str}})&nbsp;&nbsp;&nbsp;&nbsp;
+    {{labels.dex}}{{>roll: 10+{{>get: char_dex}}}}&nbsp;(+{{>get: char_dex}})&nbsp;&nbsp;&nbsp;&nbsp;
+    {{labels.con}}{{>roll: 10+{{>get: char_con}}}}&nbsp;(+{{>get: char_con}})
+    <br/>
+    {{labels.int}}{{>roll: 10+{{>get: char_int}}}}&nbsp;(+{{>get: char_int}})&nbsp;&nbsp;&nbsp;&nbsp;
+    {{labels.wis}}{{>roll: 10+{{>get: char_wis}}}}&nbsp;(+{{>get: char_wis}})&nbsp;&nbsp;&nbsp;&nbsp;
+    {{labels.cha}}{{>roll: 10+{{>get: char_cha}}}}&nbsp;(+{{>get: char_cha}})
+
+    <br/><br/>{{labels.defense}} %[[>get: armor_def]]% (+%[[>roll: %[[>get: armor_def]]%-10]]%)
+    <br/><br/>{{labels.hp}}{{>get: char_hp}}
+    <br/><br/>{{traits_template}}
+    <br/><br/>{{starting_gear_template}}
+
+imports:
+  - knave_base

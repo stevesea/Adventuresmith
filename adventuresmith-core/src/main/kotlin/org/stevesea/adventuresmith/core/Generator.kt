@@ -775,6 +775,7 @@ class DataDrivenDtoTemplateProcessor(override val kodein: Kodein) : KodeinAware,
         var count = 0
         do {
             try {
+                logger.debug("$count : $result")
                 result = compiler
                         .compile(result)
                         .execute(context)

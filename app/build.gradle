@@ -34,16 +34,16 @@ androidGitVersion {
 }
 
 ext {
-    androidSupportVersion = '27.1.1'
+    androidSupportVersion = '28.0.0'
 }
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "org.steavesea.adventuresmith"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode androidGitVersion.code()
         versionName androidGitVersion.name()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -117,58 +117,60 @@ android {
 }
 
 dependencies {
-    compile project(':adventuresmith-core')
-    compile 'com.android.support:multidex:1.0.1'
-    compile "com.github.salomonbrys.kodein:kodein-android:$kodein_version"
+    implementation project(':adventuresmith-core')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation "com.github.salomonbrys.kodein:kodein-android:$kodein_version"
+    implementation "io.github.microutils:kotlin-logging:$kotlin_logging_version"
+    implementation "com.github.salomonbrys.kodein:kodein:$kodein_version"
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile "com.android.support:appcompat-v7:$androidSupportVersion"
-    compile "com.android.support:recyclerview-v7:$androidSupportVersion"
-    compile "com.android.support:cardview-v7:$androidSupportVersion"
-    compile "com.android.support:design:$androidSupportVersion"
+    implementation "com.android.support:appcompat-v7:$androidSupportVersion"
+    implementation "com.android.support:recyclerview-v7:$androidSupportVersion"
+    implementation "com.android.support:cardview-v7:$androidSupportVersion"
+    implementation "com.android.support:design:$androidSupportVersion"
 
     // used to provide out of the box icon font support. simplifies development,
     // and provides scalable icons. the core is very very light
     // https://github.com/mikepenz/Android-Iconics
-    compile "com.mikepenz:iconics-core:$iconics_core_version"
-    compile "com.mikepenz:iconics-views:$iconics_core_version"
-    compile "com.mikepenz:community-material-typeface:$iconics_cmd_version"
-    compile "com.mikepenz:ionicons-typeface:$iconics_ion_version"
+    implementation "com.mikepenz:iconics-core:$iconics_core_version"
+    implementation "com.mikepenz:iconics-views:$iconics_core_version"
+    implementation "com.mikepenz:community-material-typeface:$iconics_cmd_version"
+    implementation "com.mikepenz:ionicons-typeface:$iconics_ion_version"
 
-    compile("com.mikepenz:materialdrawer:$materialdrawer_version") {
+    implementation("com.mikepenz:materialdrawer:$materialdrawer_version") {
         transitive = true
         exclude module: "fastadapter"
     }
 
-    compile "com.mikepenz:fastadapter:$fastadapter_version"
-    compile "com.mikepenz:fastadapter-commons:$fastadapter_commons_version"
-    compile "com.mikepenz:fastadapter-extensions:$fastadapter_extensions_version"
+    implementation "com.mikepenz:fastadapter:$fastadapter_version"
+    implementation "com.mikepenz:fastadapter-commons:$fastadapter_commons_version"
+    implementation "com.mikepenz:fastadapter-extensions:$fastadapter_extensions_version"
 
-    compile "com.mikepenz:materialize:$materialize_version"
+    implementation "com.mikepenz:materialize:$materialize_version"
 
-    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
-    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
-    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
 
-    testCompile "junit:junit:$junit_version"
-    testCompile "org.mockito:mockito-core:$mockito_version"
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    compile "org.jetbrains.anko:anko-sdk23:$ankoVersion" // sdk19, sdk21, sdk23 are also available
-    compile "org.jetbrains.anko:anko-support-v4:$ankoVersion" // In case you need support-v4 bindings
-    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion" // For appcompat-v7 bindings
+    implementation "org.jetbrains.anko:anko-sdk23:$ankoVersion" // sdk19, sdk21, sdk23 are also available
+    implementation "org.jetbrains.anko:anko-support-v4:$ankoVersion" // In case you need support-v4 bindings
+    implementation "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion" // For appcompat-v7 bindings
 
-    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
-    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 
 
-    compile group: 'org.slf4j', name: 'slf4j-android', version: slf4j_version
+    implementation group: 'org.slf4j', name: 'slf4j-android', version: slf4j_version
 }
 
 // APT doesn't know to make these directories for tests. Force them to
@@ -181,7 +183,7 @@ afterEvaluate {
         file("$buildDir/generated/source/apt/test/prod/debug").mkdirs()
         file("$buildDir/generated/source/apt/test/prod/release").mkdirs()
     }
-    tasks.getByName('mockableAndroidJar').finalizedBy(createAptTestDirs)
+    tasks.getByName('createMockableJar').finalizedBy(createAptTestDirs)
 }
 
 tasks.withType(Test) {

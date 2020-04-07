@@ -1,0 +1,11 @@
+id: knave
+icon: cmd_skull
+
+generators:
+  - character
+  - traits
+  - gear
+  - spell
+  - name
+  - reaction
+

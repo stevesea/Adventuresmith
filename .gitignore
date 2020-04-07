@@ -15,3 +15,8 @@
 app/fabric.properties
 
 app/prod/release/output\.json
+**/.settings/
+adventuresmith-core/bin
+adventuresmith-cli/bin
+**/.classpath
+**/.project

@@ -44,33 +44,33 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "com.github.salomonbrys.kodein:kodein:$kodein_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "com.github.salomonbrys.kodein:kodein:$kodein_version"
 
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 
-    compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
-    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
+    api "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    api "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    api "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
 
     // use a couple things from guava (resource cache and other things)
-    compile group: 'com.google.guava', name: 'guava', version: guava_version
-    compile group: 'com.google.code.findbugs', name: 'jsr305', version: '2.0.1'
+    api group: 'com.google.guava', name: 'guava', version: guava_version
+    api group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 
-    compile "com.samskivert:jmustache:$jmustache_version"
+    api "com.samskivert:jmustache:$jmustache_version"
 
     // framework for dice expression parser
-    compile "me.sargunvohra.lib:cakeparse:$cakeparse_version"
-    compile "io.github.microutils:kotlin-logging:$kotlin_logging_version"
+    api "me.sargunvohra.lib:cakeparse:$cakeparse_version"
+    api "io.github.microutils:kotlin-logging:$kotlin_logging_version"
 
-    testCompile "junit:junit:$junit_version"
-    testCompile "org.mockito:mockito-core:$mockito_version"
-    testCompile "com.nhaarman:mockito-kotlin:$mockito_kotlin_version"
-    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin_version"
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
 }
 
 check.dependsOn detekt

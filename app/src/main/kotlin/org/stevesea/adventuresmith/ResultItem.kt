@@ -83,7 +83,7 @@ class ResultItem(val htmlTxt: String, val useIconicsTextView: Boolean = false) :
 
     }
 
-    class ViewHolder(v: View?) : RecyclerView.ViewHolder(v) {
+    class ViewHolder(v: View?) : RecyclerView.ViewHolder(v!!) {
         val itemText = v?.findViewById(R.id.result_list_item_text) as TextView
         val itemIconicsText = v?.findViewById(R.id.result_list_item_iconics_text) as IconicsTextView
     }

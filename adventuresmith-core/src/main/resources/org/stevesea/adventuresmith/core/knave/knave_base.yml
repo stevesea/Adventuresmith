@@ -1,0 +1,776 @@
+---
+definitions:
+  labels:
+    str: <strong><small>STR:</small></strong>&nbsp;
+    dex: <strong><small>DEX:</small></strong>&nbsp;
+    con: <strong><small>CON:</small></strong>&nbsp;
+    int: <strong><small>INT:</small></strong>&nbsp;
+    wis: <strong><small>WIS:</small></strong>&nbsp;
+    cha: <strong><small>CHA:</small></strong>&nbsp;
+    hp: <strong><small>Max HP:</small></strong>&nbsp;
+
+    physique: <strong><small>Physique:</small></strong>&nbsp;
+    face: <strong><small>Face:</small></strong>&nbsp;
+    skin: <strong><small>Skin:</small></strong>&nbsp;
+    hair: <strong><small>Hair:</small></strong>&nbsp;
+    clothing: <strong><small>Clothing:</small></strong>&nbsp;
+    virtue: <strong><small>Virtue:</small></strong>&nbsp;
+    vice: <strong><small>Vice:</small></strong>&nbsp;
+    speech: <strong><small>Speech:</small></strong>&nbsp;
+    background: <strong><small>Background:</small></strong>&nbsp;
+    misfortune: <strong><small>Misfortunes:</small></strong>&nbsp;
+    alignment: <strong><small>Alignment:</small></strong>&nbsp;
+
+    defense: <strong><small>Defense:</small></strong>
+
+  traits_template: |
+    {{labels.face}}{{traits.face}}&nbsp;&nbsp;&nbsp; {{labels.physique}}{{traits.physique}}
+    <br/>{{labels.skin}}{{traits.skin}}&nbsp;&nbsp;&nbsp; {{labels.clothing}}{{traits.clothing}}
+    <br/>{{labels.hair}}{{traits.hair}}&nbsp;&nbsp;&nbsp; {{labels.speech}}{{traits.speech}}
+    <br/><br/>{{labels.background}}{{traits.background}}
+    <br/>{{labels.misfortune}}{{traits.misfortune}}
+    <br/><br/>{{labels.virtue}}{{traits.virtue}}&nbsp;&nbsp;&nbsp; {{labels.vice}}{{traits.vice}}
+    <br/><br/>{{labels.alignment}}{{traits.alignment}}
+
+  starting_gear_template: |
+    {{gear.armor}}, {{gear.helmet_and_shield}}
+    <br/><br/>
+    {{>pickN: 2 gear.dungeon}},
+    {{gear.general_1}},
+    {{gear.general_2}}
+
+tables:
+  spells:
+    - |
+      <strong>Adhere:</strong> Object is covered in extremely sticky slime.
+    - |
+      <strong>Animate Object:</strong> Object obeys your commands as
+      best it can. It can walk 15ft per round.
+    - |
+      <strong>Anthropomorphize:</strong> A touched animal either gains
+      human intelligence or human appearance for <strong><em>L</em></strong> days.
+    - |
+      <strong>Arcane Eye:</strong> You can see through a magical floating
+      eyeball that flies around at your command.
+    - |
+      <strong>Astral Prison:</strong> An object is frozen in time and space
+      within an invulnerable crystal shell.
+    - |
+      <strong>Attract:</strong> <strong><em>L</em></strong>+1 objects are strongly magnetically attracted
+      to each other if they come within 10 feet.
+    - |
+      <strong>Auditory Illusion:</strong> You create illusory sounds that
+      seem to come from a direction of your choice.
+    - |
+      <strong>Babble:</strong> A creature must loudly and clearly repeat
+      everything you think. It is otherwise mute.
+    - |
+      <strong>Beast Form:</strong> You and your possessions transform into
+      a mundane animal.
+    - |
+      <strong>Befuddle:</strong> <strong><em>L</em></strong> creatures of your choice are unable to
+      form new short term memories for the duration of
+      the spell.
+    - |
+      <strong>Bend Fate:</strong> Roll <strong><em>L</em></strong>+1 d20s. Whenever you must roll a
+      d20 after casting the spell, you must choose and then
+      discard one of the rolled results until they are all gone.
+    - |
+      <strong>Bird Person:</strong> Your arms turn into huge bird wings
+    - |
+      <strong>Body Swap:</strong> You switch bodies with a creature you
+      touch. If one body dies, the other dies as well.
+    - |
+      <strong>Catherine:</strong> A woman wearing a blue dress appears
+      until end of spell. She will obey polite, safe requests.
+    - |
+      <strong>Charm:</strong> <strong><em>L</em></strong> creatures treat you like a friend.
+    - |
+      <strong>Command:</strong> A creature obeys a single, three word
+      command that does not harm it.
+    - |
+      <strong>Comprehend:</strong> You become fluent in all languages
+    - |
+      <strong>Control Plants:</strong> Nearby plants and trees obey you
+      and gain the ability to move at 5 feet per round.
+    - |
+      <strong>Control Weather:</strong> You may alter the type of weather
+      at will, but you do not otherwise control it.
+    - |
+      <strong>Counterspell:</strong> Make an opposed Intelligence save
+      against the Intelligence of the caster of a nearby spell.
+      You may do this out of turn as a reaction, or against
+      an ongoing magical effect. On a success, you may cancel the spell
+    - |
+      <strong>Deafen:</strong> All nearby creatures are deafened.
+    - |
+      <strong>Detect Magic:</strong> You hear nearby magical auras singing. Volume and harmony signify the aura’s power
+      and refinement.
+    - |
+      <strong>Disassemble:</strong> Any of your body parts may be detached and reattached at will, without causing pain or
+      damage. You can still control them.
+    - |
+      <strong>Disguise:</strong> You may alter the appearance of <strong><em>L</em></strong> characters
+      at will as long as they remain humanoid. Attempts
+      to duplicate other characters will seem uncanny.
+    - |
+      <strong>Displace:</strong> An object appears to be up to <strong><em>L</em></strong>x 10ft from
+      its actual position
+    - |
+      <strong>Earthquake:</strong> The ground begins shaking violently.
+      Structures may be damaged or collapse.
+    - |
+      <strong>Elasticity:</strong> Your body can stretch up to <strong><em>L</em></strong>x 10ft
+    - |
+      <strong>Elemental Wall:</strong> A straight wall of ice or fire <strong><em>L</em></strong>x 40ft
+      long and 10ft high rises from the ground.
+    - |
+      <strong>Filch:</strong> <strong><em>L</em></strong> visible items teleport to your hands.
+    - |
+      <strong>Fog Cloud:</strong> Dense fog spreads out from you.
+    - |
+      <strong>Frenzy:</strong> <strong><em>L</em></strong> creatures erupt in a frenzy of violence.
+    - |
+      <strong>Gate:</strong> A portal to a random plane opens.
+    - |
+      <strong>Gravity Shift:</strong> You can change the direction of gravity (for yourself only) up to once per round.
+    - |
+      <strong>Greed:</strong> <strong><em>L</em></strong> creatures develop an overwhelming urge to
+      possess a visible item of your choice.
+    - |
+      <strong>Haste:</strong> Your movement speed is tripled.
+    - |
+      <strong>Hatred:</strong> <strong><em>L</em></strong> creatures develop a deep hatred of another
+      creature or group of creatures and wish to destroy it.
+    - |
+      <strong>Hear Whispers:</strong> You can hear faint sounds clearly.
+    - |
+      <strong>Hover:</strong> An object hovers, frictionless, 2ft above the
+      ground. It can hold up to <strong><em>L</em></strong> humanoids.
+    - |
+      <strong>Hypnotize:</strong> A creature enters a trance and will truthfully answer <strong><em>L</em></strong> yes or no questions you ask it.
+    - |
+      <strong>Icy Touch:</strong> A thick ice layer s preads across a touched
+      surface, up to <strong><em>L</em></strong>x 10ft in radius.
+    - |
+      <strong>Illuminate:</strong> A floating light moves as you command.
+    - |
+      <strong>Increase Gravity:</strong> The gravity in an area triples.
+    - |
+      <strong>Invisible Tether:</strong> Two objects within 10ft of each
+      other cannot be moved more than 10ft apart.
+    - |
+      <strong>Knock:</strong> <strong><em>L</em></strong> nearby mundane or magical locks unlock.
+    - |
+      <strong>Leap:</strong> You can jump up to <strong><em>L</em></strong>x 10ft in the air.
+    - |
+      <strong>Liquid Air:</strong> The air around you becomes swimmable.
+    - |
+      <strong>Magic Dampener:</strong> All nearby magical effects have
+      their effectiveness halved.
+    - |
+      <strong>Manse:</strong> A sturdy, furnished cottage appears for <strong><em>L</em></strong>x 12
+      hours. You can permit and forbid entry to it at will.
+    - |
+      <strong>Marble Madness:</strong> Your pockets are full of marbles,
+      and will refill every round.
+    - |
+      <strong>Masquerade:</strong> <strong><em>L</em></strong> characters’ appearances and voices
+      become identical to a touched character
+    - |
+      <strong>Miniaturize:</strong> You and <strong><em>L</em></strong> other touched creatures are
+      reduced to the size of a mouse.
+    - |
+      <strong>Mirror Image:</strong> <strong><em>L</em></strong> illusory duplicates of yourself appear under your control.
+    - |
+      <strong>Mirrorwalk:</strong> A mirror becomes a gateway to another mirror that you looked into today.
+    - |
+      <strong>Multiarm:</strong> You gain <strong><em>L</em></strong> extra arms.
+    - |
+      <strong>Night Sphere:</strong> An <strong><em>L</em></strong>x 40ft wide sphere of darkness
+      displaying the night sky appears.
+    - |
+      <strong>Objectify:</strong> You become any inanimate object between
+      the size of a grand piano and an apple.
+    - |
+      <strong>Ooze Form:</strong> You become a living jelly.
+    - |
+      <strong>Pacify:</strong> <strong><em>L</em></strong> creatures have an aversion to violence.
+    - |
+      <strong>Phantom Coach:</strong> A ghostly coach appears until end
+      of spell. It moves unnaturally fast over any terrain, including water.
+    - |
+      <strong>Phobia:</strong> <strong><em>L</em></strong> creatures become terrified of an object of
+      your choice.
+    - |
+      <strong>Pit:</strong> A pit 10ft wide and <strong><em>L</em></strong>x 5 ft deep opens in the
+      ground.
+    - |
+      <strong>Primeval Surge:</strong> An object grows to the size of an
+      elephant. If it is an animal, it is enraged.
+    - |
+      <strong>Psychometry:</strong> The referee answers <strong><em>L</em></strong> yes or no questions about a touched object.
+    - |
+      <strong>Pull:</strong> An object of any size is pulled directly towards
+      you with the strength of <strong><em>L</em></strong> men for one round.
+    - |
+      <strong>Push:</strong> An object of any size is pushed directly away
+      from you with the strength of <strong><em>L</em></strong> men for one round.
+    - |
+      <strong>Raise Dead:</strong> <strong><em>L</em></strong> skeletons rise from the ground to serve
+      you. They are incredibly stupid and can only obey
+      simple orders.
+    - |
+      <strong>Raise Spirit:</strong> The spirit of a dead body manifests and
+      will answer <strong><em>L</em></strong> questions.
+    - |
+      <strong>Read Mind:</strong> You can hear the surface thoughts of
+      nearby creatures.
+    - |
+      <strong>Repel:</strong> <strong><em>L</em></strong>+1 objects are strongly magnetically repelled
+      from each other if they come within 10 feet.
+    - |
+      <strong>Scry:</strong> You can see through the eyes of a creature you
+      touched earlier today
+    - |
+      <strong>Sculpt Elements:</strong> All inanimate material behaves like
+      clay in your hands.
+    - |
+      <strong>Shroud:</strong> <strong><em>L</em></strong> creatures are invisible until they move.
+    - |
+      <strong>Shuffle:</strong> <strong><em>L</em></strong> creatures instantly switch places. Determine where they end up randomly.
+    - |
+      <strong>Sleep:</strong> <strong><em>L</em></strong> creatures fall into a light sleep.
+    - |
+      <strong>Smoke Form:</strong> Your body becomes living smoke.
+    - |
+      <strong>Snail Knight:</strong> 10 minutes after casting, a knight sitting
+      astride a giant snail rides into view. He is able to
+      answer most questions related to quests and chivalry,
+      and may aid you if he finds you worthy.
+    - |
+      <strong>Sniff:</strong> You can smell even the faintest traces of scents.
+    - |
+      <strong>Sort:</strong> Inanimate items sort themselves according to
+      categories you set. The categories must be visually
+      verifiable.
+    - |
+      <strong>Spectacle:</strong> A clearly unreal but impressive illusion of
+      your choice appears, under your control. It may be up
+      to the size of a palace and has full motion and sound.
+    - |
+      <strong>Spellseize:</strong> Cast this as a reaction to another spell
+      going off to make a temporary copy of it that you can
+      cast at any time before this spell ends.
+    - |
+      <strong>Spider Climb:</strong> You can climb surfaces like a spider.
+    - |
+      <strong>Summon Cube:</strong> Once per second, (6 times per round)
+      you may summon or banish a 3 foot wide cube of
+      earth. New cubes must be affixed to the earth or to
+      other cubes.
+    - |
+      <strong>Swarm:</strong> You become a swarm of crows, rats, or piranhas. You only take damage from area effects.
+    - |
+      <strong>Telekinesis:</strong> You may mentally move <strong><em>L</em></strong> items.
+    - |
+      <strong>Telepathy:</strong> <strong><em>L</em></strong>+1 creatures can hear each other’s
+      thoughts, no matter how far apart they move.
+    - |
+      <strong>Teleport:</strong> An object disappears and reappears on the
+      ground in a visible, clear area up to <strong><em>L</em></strong>x 40ft away.
+    - |
+      <strong>Thaumaturgic Anchor:</strong> Object becomes the target
+      of every spell cast near it .
+    - |
+      <strong>Thicket:</strong> A thicket of trees and dense brush up to
+      <strong><em>L</em></strong>x 40ft wide suddenly sprouts up.
+    - |
+      <strong>Time Jump:</strong> An object disappears as it jumps <strong><em>L</em></strong>x 10
+      minutes into the future. When it returns, it appears in
+      the unoccupied area nearest to where it left.
+    - |
+      <strong>Summon Idol:</strong> A carved stone statue the size of a four
+      poster bed rises from the ground.
+    - |
+      <strong>Time Rush:</strong> Time in a 40ft bubble starts moving 10
+      times faster.
+    - |
+      <strong>Time Slow:</strong> Time in a 40ft bubble slows to 10%.
+    - |
+      <strong>True Sight:</strong> You see through all nearby illusions.
+    - |
+      <strong>Upwell:</strong> A spring of seawater appears.
+    - |
+      <strong>Vision:</strong> You completely control what a creature sees.
+    - |
+      <strong>Visual Illusion:</strong> A silent, immobile, illusion of your
+      choice appears, up to the size of a bedroom.
+    - |
+      <strong>Ward:</strong> A silver circle 40ft across appears on the
+      ground. Choose one thing that cannot cross it: Living
+      creatures, dead creatures, projectiles or metal.
+    - |
+      <strong>Web:</strong> Your wrists can shoot thick webbing.
+    - |
+      <strong>Wizard Mark:</strong> Your finger can shoot a stream of
+      ulfire-colored paint. This paint is only visible to you,
+      and can be seen at any distance, even through solid
+      objects.
+    - |
+      <strong>X Ray Vision:</strong> You gain X Ray vision.
+
+nested_tables:
+  traits:
+
+    physique:
+      - Athletic
+      - Brawny
+      - Corpulent
+      - Delicate
+      - Gaunt
+      - Hulking
+      - Lanky
+      - Ripped
+      - Rugged
+      - Scrawny
+      - Short
+      - Sinewy
+      - Slender
+      - Flabby
+      - Statuesque
+      - Stout
+      - Tiny
+      - Towering
+      - Willowy
+      - Wiry
+    face:
+      - Bloated
+      - Blunt
+      - Bony
+      - Chiseled
+      - Delicate
+      - Elongated
+      - Patrician
+      - Pinched
+      - Hawkish
+      - Broken
+      - Impish
+      - Narrow
+      - Ratlike
+      - Round
+      - Sunken
+      - Sharp
+      - Soft
+      - Square
+      - Wide
+      - Wolfish
+    skin:
+      - Battle Scar
+      - Birthmark
+      - Burn Scar
+      - Dark
+      - Makeup
+      - Oily
+      - Pale
+      - Perfect
+      - Pierced
+      - Pockmarked
+      - Reeking
+      - Tattooed
+      - Rosy
+      - Rough
+      - Sallow
+      - Sunburned
+      - Tanned
+      - War Paint
+      - Weathered
+      - Whip Scar
+    hair:
+      - Bald
+      - Braided
+      - Bristly
+      - Cropped
+      - Curly
+      - Disheveled
+      - Dreadlocks
+      - Filthy
+      - Frizzy
+      - Greased
+      - Limp
+      - Long
+      - Luxurious
+      - Mohawk
+      - Oily
+      - Ponytail
+      - Silky
+      - Topknot
+      - Wavy
+      - Wispy
+    clothing:
+      - Antique
+      - Bloody
+      - Ceremonial
+      - Decorated
+      - Eccentric
+      - Elegant
+      - Fashionable
+      - Filthy
+      - Flamboyant
+      - Stained
+      - Foreign
+      - Frayed
+      - Frumpy
+      - Livery
+      - Oversized
+      - Patched
+      - Perfumed
+      - Rancid
+      - Torn
+      - Undersized
+    virtue:
+      - Ambitious
+      - Cautious
+      - Courageous
+      - Courteous
+      - Curious
+      - Disciplined
+      - Focused
+      - Generous
+      - Gregarious
+      - Honest
+      - Honorable
+      - Humble
+      - Idealistic
+      - Just
+      - Loyal
+      - Merciful
+      - Righteous
+      - Serene
+      - Stoic
+      - Tolerant
+    vice:
+      - Aggressive
+      - Arrogant
+      - Bitter
+      - Cowardly
+      - Cruel
+      - Deceitful
+      - Flippant
+      - Gluttonous
+      - Greedy
+      - Irascible
+      - Lazy
+      - Nervous
+      - Prejudiced
+      - Reckless
+      - Rude
+      - Suspicious
+      - Vain
+      - Vengeful
+      - Wasteful
+      - Whiny
+    speech:
+      - Blunt
+      - Booming
+      - Breathy
+      - Cryptic
+      - Drawling
+      - Droning
+      - Flowery
+      - Formal
+      - Gravelly
+      - Hoarse
+      - Mumbling
+      - Precise
+      - Quaint
+      - Rambling
+      - Rapid-fire
+      - Dialect
+      - Slow
+      - Squeaky
+      - Stuttering
+      - Whispery
+    background:
+      - Alchemist
+      - Beggar
+      - Butcher
+      - Burglar
+      - Charlatan
+      - Cleric
+      - Cook
+      - Cultist
+      - Gambler
+      - Herbalist
+      - Magician
+      - Mariner
+      - Mercenary
+      - Merchant
+      - Outlaw
+      - Performer
+      - Pickpocket
+      - Smuggler
+      - Student
+      - Tracker
+    misfortune:
+      - Abandoned
+      - Addicted
+      - Blackmailed
+      - Condemned
+      - Cursed
+      - Defrauded
+      - Demoted
+      - Discredited
+      - Disowned
+      - Exiled
+      - Framed
+      - Haunted
+      - Kidnapped
+      - Mutilated
+      - Poor
+      - Pursued
+      - Rejected
+      - Replaced
+      - Robbed
+      - Suspected
+    alignment:
+      - 1-5, Law
+      - 6-15, Neutrality
+      - 16-20, Chaos
+  gear:
+
+    armor:
+      - "1-3, No Armor (Defense 11){{>add: armor_def 11}}"
+      - "4-14, Gambeson (Defense 12, 1 slot, 3 quality){{>add: armor_def 12}}"
+      - "15-19, Brigandine (Defense 13, 2 slots, 4 quality){{>add: armor_def 13}}"
+      - "20, Chain (Defense 14, 3 slots, 5 quality){{>add: armor_def 14}}"
+    helmet_and_shield:
+      - 1-13, No Helmet
+      - "14-16, Helmet (Defense +1, 1 slot){{>add: armor_def 1}}"
+      - "17-19, Shield (Defense +1, 1 slot){{>add: armor_def 1}}"
+      - "20, Helmet (Defense +1, 1 slot) and Shield (Defense +1, 1 slot){{>add: armor_def 2}}"
+    dungeon:
+      - "Rope (50ft)"
+      - Pulleys
+      - "Candles (5)"
+      - "Chain (10ft)"
+      - "Chalk (10)"
+      - Crowbar
+      - Tinderbox
+      - Grappling Hook
+      - Hammer
+      - Waterskin
+      - Lantern
+      - Lamp oil
+      - Padlock
+      - Manacles
+      - Mirror
+      - "Pole (10ft)"
+      - Sack
+      - Tent
+      - "Spikes (5)"
+      - "Torches (5)"
+    general_1:
+      - Air bladder
+      - Bear trap
+      - Shovel
+      - Bellows
+      - Grease
+      - Saw
+      - Bucket
+      - Caltrops
+      - Chisel
+      - Drill
+      - Fishing rod
+      - Marbles
+      - Glue
+      - Pick
+      - Hourglass
+      - Net
+      - Tongs
+      - Lockpicks
+      - Metal file
+      - Nails
+    general_2:
+      - Incense
+      - Sponge
+      - Lens
+      - Perfume
+      - Horn
+      - Bottle
+      - Soap
+      - Spyglass
+      - Tar pot
+      - Twine
+      - Fake jewels
+      - Blank book
+      - Card deck
+      - Dice set
+      - Cook pots
+      - Face paint
+      - Whistle
+      - Instrument
+      - "Quill & Ink"
+      - Small bell
+
+  # names from Maze Rats
+  names:
+    name:
+      - "1..7, {{names.firstname}} {{names.surname}}"
+      # extra snooty
+      - "{{surnames.upper_class}} {{surnames.upper_class}}"
+    surname:
+      - "1..3, {{surnames.upper_class}}"
+      - "4..8, {{surnames.lower_class}}"
+    firstname:
+      - "{{names.male}}"
+      - "{{names.female}}"
+    female:
+      - Adelaide
+      - Alma
+      - Barsaba
+      - Beatrix
+      - Bianca
+      - Cleopha
+      - Clover
+      - Constance
+      - Damaris
+      - Daphne
+      - Demona
+      - Elsbeth
+      - Esme
+      - Fern
+      - Hester
+      - Hippolyta
+      - Jessamine
+      - Jilly
+      - Morgot
+      - Minerva
+      - Nerissa
+      - Odette
+      - Olga
+      - Orchid
+      - Pepper
+      - Phoebe
+      - Piety
+      - Poppy
+      - Silence
+      - Sybil
+      - Trillby
+      - Tuesday
+      - Ursula
+      - Vivian
+      - Wendy
+      - Zora
+    male:
+      - Balthazar
+      - Basil
+      - Bertram
+      - Blaxton
+      - Chadwick
+      - Clovis
+      - Destrian
+      - Ellis
+      - Erasmus
+      - Faustus
+      - Finn
+      - Fitzhugh
+      - Florian
+      - Fox
+      - Godwin
+      - Hannibal
+      - Jasper
+      - Jiles
+      - Jules
+      - Leopold
+      - Merrick
+      - Mortimer
+      - Ogden
+      - Orion
+      - Oswald
+      - Percival
+      - Peregrine
+      - Quentin
+      - Redmaine
+      - Reinhold
+      - Silas
+      - Stilton
+      - Stratford
+      - Tenpiece
+      - Waverly
+      - Webster
+  surnames:
+    upper_class:
+      - Belvedere
+      - Bithesea
+      - Calaver
+      - Carvolo
+      - De Rippe
+      - Droll
+      - Dunlow
+      - Edevane
+      - Erelong
+      - Febland
+      - Fernsby
+      - Fisk
+      - Gastrell
+      - Girdwood
+      - Gorgon
+      - Grimeson
+      - Gruger
+      - Hitheryon
+      - La Margue
+      - Malmora
+      - Miter
+      - Oblington
+      - Onymous
+      - Phillifent
+      - Portendorfer
+      - Romatert
+      - Rothery
+      - Skorbeck
+      - Slora
+      - Southwark
+      - Stavish
+      - Vandermeer
+      - Wellbelove
+      - Westergren
+      - Wexley
+      - Wilberforce
+    lower_class:
+      - Barrow
+      - Beetleman
+      - Berrycloth
+      - Birdwhistle
+      - Bobich
+      - Chips
+      - Coffin
+      - Crumpling
+      - Culpepper
+      - Dankworth
+      - Digworthy
+      - Dreggs
+      - Gimble
+      - Graveworm
+      - Greelish
+      - Hardwick
+      - Hatman
+      - Hovel
+      - Knibbs
+      - Midnighter
+      - Needle
+      - Nethercoat
+      - Pestle
+      - Relish
+      - Rumbold
+      - Rummage
+      - Sallow
+      - Saltmarsh
+      - Silverless
+      - Skitter
+      - Slee
+      - Slitherly
+      - Stoker
+      - Tarwater
+      - Tumbler
+      - Villin

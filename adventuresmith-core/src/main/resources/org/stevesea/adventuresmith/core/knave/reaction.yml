@@ -1,0 +1,11 @@
+---
+templates:
+  - "{{>pick: 2d6 reaction}}"
+
+tables:
+  reaction:
+    - 2, Hostile
+    - 3-5, Unfriendly
+    - 6-8, Unsure
+    - 9-11, Talkative
+    - 12, Helpful
