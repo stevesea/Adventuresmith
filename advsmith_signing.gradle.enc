@@ -1,0 +1,19 @@
+{
+	"data": "ENC[AES256_GCM,data:pn1ztVwoHUtEU/zDQvjSk6+ouQjB/UW2MJ3DP+Ty27lqUphqHiJoDFotEKvc/o1yxWMK0bT9OxoZg+9/7V3Kyd6k5duzd4q0zfZDGk0NhvlXg4vhjXZlV436Oryz9Mpz3a2KkICCmejaD/TeR+2rOVGjg0v46LzEJFYGEkBHiOs4LIyhFFQBqhbrlJLvaRQ+pHt3uBjwypmrEzkmSB7FOJoJDzaUt7jBRdhdKS3X5T9eOiNNxuSmvcpr+mbEfBeKeFZqwmj3Ifn6RuVdeBJrDJPHFiLlzPsA7a57/da7Y+0ACl/6/V42pzIZ/JfQR7DuWiJ034cciKQVkZ5OkhxSOnK3IjzJhrxjBxjU0k5TcLtuNzkJdoo1qtthb+Jblt7M0VWbtPpM8U5hb1yBwDds3/BsuFYsZH4saDQR41PFmJ7mPyp1kJ3ISB+4Ji1uR9L/xcwR3uZza13/q6RHjvHRmF7rWCKu0mXQc+xrnyFqzZQVFgcWVuoUKmLf8JJpCiNTvZsl/eUCOAkgdA4ls/mSD5ZY5JHldY3cW4+MYVRluTTfpGrcWZBv/MiiNXIqtaoSzmsZ+E5NFuaPoMDzgEZOK0FgATiPrGcq+b+jDWepppXK7k4AAh9MghD6nMR0F63M,iv:cOdPC/asL9AwT0Px7SE5otRsWMAW3l2MIebhV5akKbA=,tag:fYmUdPT0fZuKCHbd2LEN4w==,type:str]",
+	"sops": {
+		"kms": null,
+		"gcp_kms": [
+			{
+				"resource_id": "projects/adventuresmith-157107/locations/global/keyRings/sops/cryptoKeys/android-signing",
+				"created_at": "2020-04-07T06:56:21Z",
+				"enc": "CiQAx4r7dEJPh+5bamggVQSdO+MXcaEAodLwlLgSQuWmW2i28moSSQCcrnknLRBGxBdqiZwcq2ZgbWl5GgufwXByXo0MqUTIysnzRTLsJ3LYXlz0XFa6Y7HRThZBc2l+yxQH8D5lA5tUJN3PFx6f26o="
+			}
+		],
+		"azure_kv": null,
+		"lastmodified": "2020-04-07T06:56:22Z",
+		"mac": "ENC[AES256_GCM,data:m4yOnXEmyhhXmXbBF19QDR159noBTBdnbTQtKopPnoeLcSmZdpYwgw6vRsg0o+dPSlCtia477a8B3wp5Rt6ZgqShHqAEa6ecZHsKfZX3Y9QLSzB5VsN3l0hrdrYBJLI1mX0q0ZOzKa8utbX+e6V2gI6MHGhmREYPSMuYTRPuKn8=,iv:39cDxVlS5EUZEfQZaBkVK75Cc9754UJH2nGJiMwlVhk=,tag:53M03YRrHZKXBDA7iu3szg==,type:str]",
+		"pgp": null,
+		"unencrypted_suffix": "_unencrypted",
+		"version": "3.5.0"
+	}
+}

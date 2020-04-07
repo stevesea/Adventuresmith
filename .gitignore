@@ -20,3 +20,6 @@ adventuresmith-core/bin
 adventuresmith-cli/bin
 **/.classpath
 **/.project
+
+advsmith_signing.gradle
+android.jks

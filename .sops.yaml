@@ -1,0 +1,3 @@
+creation_rules:
+  - gcp_kms: projects/adventuresmith-157107/locations/global/keyRings/sops/cryptoKeys/android-signing
+    path_regex: ./*

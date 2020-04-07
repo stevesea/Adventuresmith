@@ -115,3 +115,19 @@ Adventuresmith source code is licensed under [GNU General Public License, versio
 * [AndroidIconics](https://github.com/mikepenz/Android-Iconics)
 * [Jackson](https://github.com/FasterXML/jackson)
 * [LeakCanary](https://github.com/square/leakcanary)
+
+# dev notes
+
+signing file protected via GCP KMS and SOPS
+
+
+```shell 
+
+# encrypt like: 
+$ sops -e android.jks > android.jks.enc
+$ sops -e advsmith_signing.gradle > advsmith_signing.gradle.enc
+
+# decrypt: 
+$ sops -d advsmith_signing.gradle.enc > advsmith_signing.gradle
+$ sops -d android.jks.enc > android.jks
+```
