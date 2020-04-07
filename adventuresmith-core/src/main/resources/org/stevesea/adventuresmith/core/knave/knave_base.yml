@@ -21,6 +21,8 @@ definitions:
     misfortune: <strong><small>Misfortunes:</small></strong>&nbsp;
     alignment: <strong><small>Alignment:</small></strong>&nbsp;
 
+    defense: <strong><small>Defense:</small></strong>
+
   traits_template: |
     {{labels.face}}{{traits.face}}&nbsp;&nbsp;&nbsp; {{labels.physique}}{{traits.physique}}
     <br/>{{labels.skin}}{{traits.skin}}&nbsp;&nbsp;&nbsp; {{labels.clothing}}{{traits.clothing}}
@@ -536,16 +538,17 @@ nested_tables:
       - 6-15, Neutrality
       - 16-20, Chaos
   gear:
+
     armor:
-      - 1-3, No Armor
-      - 4-14, Gambeson
-      - 15-19, Brigandine
-      - 20, Chain
+      - "1-3, No Armor{{>add: armor_def 11}}{{>add: armor_bon 1}}"
+      - "4-14, Gambeson (Defense 12, 1 slot){{>add: armor_def 12}}{{>add: armor_bon 2}}"
+      - "15-19, Brigandine (Defense 13, 2 slots){{>add: armor_def 13}}{{>add: armor_bon 3}}"
+      - "20, Chain (Defense 14, 3 slots){{>add: armor_def 14}}{{>add: armor_bon 4}}"
     helmet_and_shield:
       - 1-13, No Helmet
-      - 14-16, Helmet
-      - 17-19, Shield
-      - 20, Helmet and Shield
+      - "14-16, Helmet (Defense +1, 1 slot){{>add: armor_def 1}}{{>add: armor_bon 1}}"
+      - "17-19, Shield (Defense +1, 1 slot){{>add: armor_def 1}}{{>add: armor_bon 1}}"
+      - "20, Helmet (Defense +1, 1 slot) and Shield (Defense +1, 1 slot){{>add: armor_def 2}}{{>add: armor_bon 2}}"
     dungeon:
       - "Rope (50ft)"
       - Pulleys
