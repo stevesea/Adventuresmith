@@ -22,7 +22,7 @@ definitions:
     {{labels.wis}}{{>roll: 10+{{>get: char_wis}}}}&nbsp;(+{{>get: char_wis}})&nbsp;&nbsp;&nbsp;&nbsp;
     {{labels.cha}}{{>roll: 10+{{>get: char_cha}}}}&nbsp;(+{{>get: char_cha}})
 
-    <br/><br/>{{labels.defense}} %[[>get: armor_def]]% (+%[[>get: armor_bon]]%)
+    <br/><br/>{{labels.defense}} %[[>get: armor_def]]% (+%[[>roll: %[[>get: armor_def]]%-10]]%)
     <br/><br/>{{labels.hp}}{{>get: char_hp}}
     <br/><br/>{{traits_template}}
     <br/><br/>{{starting_gear_template}}
