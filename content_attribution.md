@@ -198,6 +198,7 @@ Created by <strong>Ben Milton</strong>, or "Questing Beast" on YouTube.
 <p><a href="https://www.drivethrurpg.com/product/250888/Knave">Knave on DriveThruRPG</a></p>
 <p>The text of <em>Knave</em> is released under a CC Attribution 4.0 International License
 https://creativecommons.org/licenses/by/4.0/</p>
+<p>Names for chargen are copied from Ben Milton's Maze Rats</p>
 
 
 
