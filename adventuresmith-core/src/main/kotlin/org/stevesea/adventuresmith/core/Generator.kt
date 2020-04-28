@@ -385,8 +385,8 @@ abstract class AbstractContextImporter : ContextImporter {
     }
 
     private fun getImportLoadName(initialName: String, imp: String): String {
-        return if (initialName.contains("/"))
-            initialName.replaceAfterLast("/", imp)
+        return if (initialName.contains(File.separator))
+            initialName.replaceAfterLast(File.separator, imp)
         else
             imp
     }
