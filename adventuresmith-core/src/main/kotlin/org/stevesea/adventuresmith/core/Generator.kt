@@ -29,6 +29,7 @@ import com.samskivert.mustache.Mustache
 import com.samskivert.mustache.MustacheException
 import mu.KLoggable
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.Reader
 import java.io.StringReader
@@ -309,8 +310,9 @@ class DataDrivenGenDtoFileDeserializer(val input: File, override val kodein: Kod
 }
 class DataDrivenGeneratorForFiles(
         val inputFile: File,
-        override val kodein: Kodein) : Generator, KodeinAware {
+        override val kodein: Kodein) : Generator, KodeinAware, KLoggable {
 
+    override val logger = logger()
     val contextLoader : ContextImporterForFiles = instance()
     val templateProcessor: DataDrivenDtoTemplateProcessor = instance()
     val loaderFactory: (File) -> DataDrivenGenDtoFileDeserializer = factory()
@@ -330,7 +332,12 @@ class DataDrivenGeneratorForFiles(
     }
 
     override fun getMetadata(locale: Locale): GeneratorMetaDto {
-        return loaderFactory.invoke(inputFile).getMetadata(locale)
+        try {
+            return loaderFactory.invoke(inputFile).getMetadata(locale)
+        } catch (ex: FileNotFoundException) {
+            logger.warn("unable to locate metadata for ${inputFile.name}: ${ex.message}")
+            return GeneratorMetaDto(name = "UNKNOWN");
+        }
     }
 }
 
