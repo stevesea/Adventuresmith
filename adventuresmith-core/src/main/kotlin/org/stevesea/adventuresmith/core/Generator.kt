@@ -335,7 +335,7 @@ class DataDrivenGeneratorForFiles(
         try {
             return loaderFactory.invoke(inputFile).getMetadata(locale)
         } catch (ex: FileNotFoundException) {
-            logger.warn("unable to locate metadata for ${inputFile.name}: ${ex.message}")
+            logger.debug("unable to locate metadata for ${inputFile.name}: ${ex.message}")
             return GeneratorMetaDto(name = "UNKNOWN");
         }
     }
