@@ -3,4 +3,4 @@ imports:
 - armed_response
 
 templates:
-- "{{armed_response.response_level}}"
+- "{{armed_response.back_up}}"
