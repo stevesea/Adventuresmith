@@ -1,0 +1,148 @@
+---
+templates:
+- "{{settlement.name}}"
+
+nested_tables:
+  settlement:
+    name:
+    - "{{settlement.thematic}}"
+    - "{{settlement.quick}}"
+    thematic:
+    - 1..15, {{settlement.landscape}}
+    - 16..30, {{settlement.manmade}}
+    - 31..45, {{settlement.creature}}
+    - 46..60, {{settlement.event}}
+    - 61..75, {{settlement.old}}
+    - 76..90, {{settlement.aspect}}
+    - 91..100, {{settlement.other}}
+    landscape:
+    - Highmount
+    - Brackwater
+    - Frostwood
+    - Redcrest
+    - Grimtree
+    - Stoneford
+    - Deepwater
+    - Whitefall
+    - Graycliff
+    - Three Rivers
+    manmade:
+    - Whitebridge
+    - Lonefort
+    - Highcairn
+    - Redhall
+    - Darkwell
+    - Timberwall
+    - Stonetower
+    - Thornhall
+    - Cinderhome
+    - Fallowfield
+    creature:
+    - Ravencliff
+    - Bearmark
+    - Wolfcrag
+    - Eaglespire
+    - Wyvern's Rest
+    - Boarwood
+    - Foxhollow
+    - Elderwatch
+    - Elkfield
+    - Dragonshadow
+    event:
+    - Swordbreak
+    - "Fool's Fall"
+    - Firstmeet
+    - Brokenhelm
+    - Mournhaunt
+    - "Olgar's Stand"
+    - Lostwater
+    - "Rojirra's Lament"
+    - Lastmarch
+    - Rockfall
+    old:
+    - Abon
+    - Daveza
+    - Damula
+    - Essus
+    - Sina
+    - Kazeera
+    - Khazu
+    - Sova
+    - Nabuma
+    - Tiza
+    aspect:
+    - Winterhome
+    - Windhaven
+    - Stormrest
+    - Bleakfrost
+    - Springtide
+    - Duskmoor
+    - Frostcrag
+    - Springbrook
+    - Icebreak
+    - Summersong
+    other:
+    - Ironhome
+    - New Arkesh
+    - "Kei's Hall"
+    - Elisora
+    - Blackhelm
+    - Elfbrook
+    - Nessana
+    - Ghostwalk
+    - Hope
+    - Forsaken
+    quick:
+    - "{{settlement.quick_prefix}}{{settlement.quick_suffix}}"
+    quick_prefix:
+    - Bleak
+    - Green
+    - Wolf
+    - Raven
+    - Gray
+    - Red
+    - Axe
+    - Great
+    - Wood
+    - Low
+    - White
+    - Storm
+    - Black
+    - Mourn
+    - New
+    - Stone
+    - Grim
+    - Lost
+    - High
+    - Rock
+    - Shield
+    - Sword
+    - Frost
+    - Thorn
+    - Long
+    quick_suffix:
+    - moor
+    - ford
+    - crag
+    - watch
+    - hope
+    - wood
+    - ridge
+    - stone
+    - haven
+    - falls
+    - river
+    - field
+    - hill
+    - bridge
+    - mark
+    - cairn
+    - land
+    - hall
+    - mount
+    - rock
+    - brook
+    - barrow
+    - stead
+    - home
+    - wick

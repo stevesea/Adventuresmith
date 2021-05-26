@@ -1,0 +1,21 @@
+---
+templates:
+- "{{harm}}"
+
+tables:
+  harm:
+  - 1..10, The harm is mortal. <i>Face Death</i>.
+  - |
+    11..20, You are dying. You need to Heal within an hour or two,
+    or <i>Face Death</i>.
+  - |
+    21..35, You are unconscious and out of action. If left alone,
+    you come bacck to your senses in an hour or two. If you are
+    vulnerable to a foe not inclined to show mercy,
+    <i>Face Death</i>.
+  - |
+    36..50, You are reeling and fighting to stay conscious.
+    If you engage in any vigorous activity (such as running
+    or fighting) before taking a breather for a few minutes,
+    roll on this table again (before resolving the other move).
+  -  51..100, You are battered but still standing.

@@ -1,0 +1,16 @@
+---
+id: ironsworn
+icon: cmd_terrain
+generators:
+  - action_theme
+  - location
+  - settlement
+  - trouble
+  - npc
+  - name
+  - harm
+  - stress
+  - paytheprice
+  - combataction
+  - mysticbacklash
+  - plottwist
