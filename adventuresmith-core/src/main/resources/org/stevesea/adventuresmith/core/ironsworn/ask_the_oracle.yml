@@ -1,0 +1,22 @@
+---
+templates:
+  - |
+    %[[ask_oracle.{{input.odds}}]]%
+
+nested_tables:
+  ask_oracle:
+    Almost_Certain:
+      - 1..10, No
+      - 11..100, Yes
+    Likely:
+      - 1..25, No
+      - 26..100, Yes
+    50/50:
+      - 1..50, No
+      - 51..100, Yes
+    Unlikely:
+      - 1..75, No
+      - 76..100, Yes
+    Small_Chance:
+      - 1..90, No
+      - 91..100, Yes

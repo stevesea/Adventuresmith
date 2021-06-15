@@ -1,0 +1,11 @@
+---
+templates:
+  - "{{challenge_rank}}"
+
+tables:
+  challenge_rank:
+    - 1-20, Troublesome
+    - 21-55, Dangerous
+    - 56-80, Formidable
+    - 81-93, Extreme
+    - 94-100, Epic
