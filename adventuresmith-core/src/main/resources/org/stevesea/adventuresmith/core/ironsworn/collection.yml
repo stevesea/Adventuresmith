@@ -12,13 +12,14 @@ groupedGenerators:
     - location
     - region
     - coastal_waters
-  narrative:
+  inspiration:
     - ask_the_oracle
     - action_theme
-    - plottwist
-    - challenge_rank
-    - paytheprice
     - combataction
-    - mysticbacklash
+    - challenge_rank
+  suffer:
+    - paytheprice
     - harm
     - stress
+    - mysticbacklash
+    - plottwist

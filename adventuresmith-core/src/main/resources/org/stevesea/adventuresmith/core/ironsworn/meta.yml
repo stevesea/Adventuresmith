@@ -16,6 +16,9 @@ groups:
   - name: locations
     uiName: Locations
     icon: cmd_terrain
-  - name: narrative
-    uiName: Narrative & Combat
-    icon: cmd_account_alert
+  - name: inspiration
+    uiName: Inspiration
+    icon: cmd_lightbulb_on_outline
+  - name: suffer
+    uiName: Suffer
+    icon: cmd_heart_broken
