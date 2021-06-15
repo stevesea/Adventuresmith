@@ -1,0 +1,188 @@
+---
+templates:
+- |
+  {{character.disposition}} {{character.role}}<br/>
+  {{>pickN: 1d2+1 character.descriptor}}<br/>
+  <i>Goal:</i> {{character.goal}}
+
+nested_tables:
+  character:
+    disposition:
+    - 1..6, Helpful
+    - 7..13, Friendly
+    - 14..20, Cooperative
+    - 21..28, Curious
+    - 29..36, Indifferent
+    - 37..47, Suspicious
+    - 48..57, Wanting
+    - 58..67, Desperate
+    - 68..76, Demanding
+    - 77..85, Unfriendly
+    - 86..93, Threatening
+    - 94..100, Hostile
+    role:
+    - 1..2, Criminal
+    - 3..4, Healer
+    - 5..6, Bandit
+    - 7..9, Guide
+    - 10..12, Performer
+    - 13..15, Miner
+    - 16..18, Mercenary
+    - 19..21, Outcast
+    - 22..24, Vagrant
+    - 25..27, Forester
+    - 28..30, Traveler
+    - 31..33, Mystic
+    - 34..36, Priest
+    - 37..39, Sailor
+    - 40..42, Pilgrim
+    - 43..45, Thief
+    - 46..48, Adventurer
+    - 49..51, Forager
+    - 52..54, Leader
+    - 55..58, Guard
+    - 59..62, Artisan
+    - 63..66, Scout
+    - 67..70, Herder
+    - 71..74, Fisher
+    - 75..79, Warrior
+    - 80..84, Hunter
+    - 85..89, Raider
+    - 90..94, Trader
+    - 95..99, Farmer
+    - 100, Unusual Character
+    descriptor:
+    - Stoic
+    - Attractive
+    - Passive
+    - Aloof
+    - Affectionate
+    - Generous
+    - Smug
+    - Armed
+    - Clever
+    - Brave
+    - Ugly
+    - Sociable
+    - Doomed
+    - Connected
+    - Bold
+    - Jealous
+    - Angry
+    - Active
+    - Suspicious
+    - Hostile
+    - Hardhearted
+    - Successful
+    - Talented
+    - Experienced
+    - Deceitful
+    - Ambitious
+    - Aggressive
+    - Conceited
+    - Proud
+    - Stern
+    - Dependent
+    - Wary
+    - Strong
+    - Insightful
+    - Dangerous
+    - Quirky
+    - Cheery
+    - Disfigured
+    - Intolerant
+    - Skilled
+    - Stingy
+    - Timid
+    - Insensitive
+    - Wild
+    - Bitter
+    - Cunning
+    - Remorseful
+    - Kind
+    - Charming
+    - Oblivious
+    - Critical
+    - Cautious
+    - Resourceful
+    - Weary
+    - Wounded
+    - Anxious
+    - Powerful
+    - Athletic
+    - Driven
+    - Cruel
+    - Quiet
+    - Honest
+    - Infamous
+    - Dying
+    - Reclusive
+    - Artistic
+    - Disabled
+    - Confused
+    - Manipulative
+    - Relaxed
+    - Stealthy
+    - Confident
+    - Weak
+    - Friendly
+    - Wise
+    - Influential
+    - Young
+    - Adventurous
+    - Oppressed
+    - Vengeful
+    - Cooperative
+    - Armored
+    - Apathetic
+    - Determined
+    - Loyal
+    - Sick
+    - Religious
+    - Selfish
+    - Old
+    - Fervent
+    - Violent
+    - Agreeable
+    - Hot-tempered
+    - Stubborn
+    - Incompetent
+    - Greedy
+    - Cowardly
+    - Obsessed
+    - Careless
+    - Ironsworn
+    goal:
+    - 1..3, Obtain an object
+    - 4..6, Make an agreement
+    - 7..9, Build a relationship
+    - 10..12, Undermine a relationship
+    - 13..15, Seek a truth
+    - 16..18, Pay a debt
+    - 19..21, Refute a falsehood
+    - 22..24, Harm a rival
+    - 25..27, Cure an ill
+    - 28..30, Find a person
+    - 31..33, Find a home
+    - 34..36, Seize power
+    - 37..39, Restore a relationship
+    - 40..42, Create an item
+    - 43..45, Travel to a place
+    - 46..48, Secure provisions
+    - 49..51, Rebel against power
+    - 52..54, Collect a debt
+    - 55..57, Protect a secret
+    - 58..60, Spread faith
+    - 61..63, Enrich themselves
+    - 64..66, Protect a person
+    - 67..69, Protect the status quo
+    - 70..72, Advance status
+    - 73..75, Defend a place
+    - 76..78, Avenge a wrong
+    - 79..81, Fulfill a duty
+    - 82..84, Gain knowledge
+    - 85..87, Prove worthiness
+    - 88..90, Find redemption
+    - 91..92, Escape from something
+    - 93..95, Resolve a dispute
+    - "96..100, {{>pickN: 2 character.goal}}"
