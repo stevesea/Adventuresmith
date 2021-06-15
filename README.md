@@ -48,8 +48,6 @@ are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 
 Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
 
-Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
-
 ## Screenshots
 
 ![alt text](https://github.com/stevesea/Adventuresmith/raw/master/docs/images/nav_drawer1.png "Sliding nav bar")
@@ -72,7 +70,7 @@ Attribution for each set of generators is also available within the app. When yo
 generators, click on the info button on the toolbar to be shown the attribution statement for the
 generators you're using.
 
-If you enjoy using Adventuresmith, follow the attribution links to the creators' blogs or to their
+If you enjoy using Adventuresmith, follow the attribution links to the creators' websites, or to their
 pages on [DriveThruRPG](http://www.drivethrurpg.com/). Give them reviews and other feedback; buy
 their products, and become a patron on Patreon.
 
