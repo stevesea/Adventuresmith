@@ -8,3 +8,14 @@ attribution: |
   Shawn Tomkin, and licensed for our use under the
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
   Attribution-NonCommercial-ShareAlike 4.0 International</a> license.
+
+groups:
+  - name: characters
+    uiName: Characters
+    icon: cmd-account-multiple
+  - name: locations
+    uiName: Locations
+    icon: cmd_terrain
+  - name: narrative
+    uiName: Narrative & Combat
+    icon: cmd_account_alert

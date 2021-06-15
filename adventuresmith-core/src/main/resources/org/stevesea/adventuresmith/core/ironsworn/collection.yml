@@ -1,16 +1,24 @@
 ---
 id: ironsworn
-icon: cmd_terrain
-generators:
-  - action_theme
-  - location
-  - settlement
-  - trouble
-  - npc
-  - name
-  - harm
-  - stress
-  - paytheprice
-  - combataction
-  - mysticbacklash
-  - plottwist
+icon: cmd_sword
+
+groupedGenerators:
+  characters:
+    - npc
+    - name
+  locations:
+    - settlement
+    - settlement_trouble
+    - location
+    - region
+    - coastal_waters
+  narrative:
+    - ask_the_oracle
+    - action_theme
+    - plottwist
+    - challenge_rank
+    - paytheprice
+    - combataction
+    - mysticbacklash
+    - harm
+    - stress
