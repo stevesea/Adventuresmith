@@ -13,6 +13,7 @@ publishers and copyright holders. See below for full listing.
 - [Fourth Page Games](#fourth_page)
 - [GameMaster's Apprentice](#gma)
 - [Hack & Slash](#hack_and_slash)
+- [Ironsworn](#ironsworn)
 - [Kaigaku](#kaigaku)
 - [Knave](#knave)
 - [Macchiato Monsters](#macchiato_monsters)
@@ -170,6 +171,18 @@ To see a copy of this license, go <a href="https://creativecommons.org/licenses/
 All text is © Courtney C. Campbell (2011).
 <br/>
 <br/><a href="http://hackslashmaster.blogspot.com/2011/02/on-tricks-empty-rooms-and-basic-trap.html">Tricks, Empty Rooms, & Basic Trap Design</a>
+
+
+
+
+<a name="ironsworn"></a>
+## Ironsworn - Shawn Tomkin
+[https://www.ironswornrpg.com](https://www.ironswornrpg.com)
+
+<p>This work is based on <a href="https://www.ironswornrpg.com">Ironsworn</a>, created by
+Shawn Tomkin, and licensed for our use under the
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International</a> license.
 
 
 
