@@ -1,0 +1,24 @@
+---
+name: Ironsworn
+credit: Shawn Tomkin
+url: "https://www.ironswornrpg.com"
+
+attribution: |
+  <p>This work is based on <a href="https://www.ironswornrpg.com">Ironsworn</a>, created by
+  Shawn Tomkin, and licensed for our use under the
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+  Attribution-NonCommercial-ShareAlike 4.0 International</a> license.
+
+groups:
+  - name: characters
+    uiName: Characters
+    icon: cmd-account-multiple
+  - name: locations
+    uiName: Locations
+    icon: cmd_terrain
+  - name: inspiration
+    uiName: Inspiration
+    icon: cmd_lightbulb_on_outline
+  - name: suffer
+    uiName: Suffer
+    icon: cmd_heart_broken

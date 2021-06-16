@@ -1,0 +1,16 @@
+---
+name: Name
+input:
+  displayTemplate: "{{name_origin}}"
+  params:
+  - name: name_origin
+    uiName: Culture
+    helpText: Origin of the name
+    defaultValue: Ironlander
+    values:
+    - All
+    - Ironlander
+    - Elf
+    - Giant
+    - Varou
+    - Troll

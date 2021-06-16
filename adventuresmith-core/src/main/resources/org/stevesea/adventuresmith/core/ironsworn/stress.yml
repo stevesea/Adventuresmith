@@ -1,0 +1,10 @@
+---
+templates:
+- "{{stress}}"
+
+tables:
+  stress:
+  - 1..10, You are overwhelmed. <i>Face Desolation</i>.
+  - 11..25, You give up, <i>Forsake Your Vow</i> (if possible, one relevant to your current crisis).
+  - 26..50, You give in to fear or compulsion, and act against your better instincts.
+  - 51..100, You persevere.

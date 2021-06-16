@@ -1,0 +1,15 @@
+---
+name: Ask the Oracle
+input:
+  displayTemplate: "{{odds}}"
+  params:
+    - name: odds
+      uiName: Odds
+      helpText: Odds of a 'yes'
+      defaultValue: 50/50
+      values:
+        - Almost_Certain
+        - Likely
+        - 50/50
+        - Unlikely
+        - Small_Chance
