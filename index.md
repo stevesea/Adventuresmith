@@ -31,9 +31,12 @@ Or, if you decide your party encounters a humanoid in the woods...
 
 ## Downloads
 
-[Google Play](https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith)
+NOTE: as of 2024/09 no longer available in the Play Store. You can get the APK from:
+[APK](https://github.com/stevesea/Adventuresmith/releases/tag/0.30.4) 
 
-[Amazon](http://a.co/9nXGqBY)
+[~~Google Play~~](https://play.google.com/store/apps/details?id=org.steavesea.adventuresmith)
+
+[~~Amazon~~](http://a.co/9nXGqBY)
 
 ## Wiki/FAQ
 
@@ -43,8 +46,6 @@ are instructions on the [wiki](https://github.com/stevesea/Adventuresmith/wiki)
 ## Info
 
 Bugs? Feature Requests? You can provide feedback [here](https://github.com/stevesea/Adventuresmith/issues)
-
-Want to keep up with development? Here's the [G+ community](https://plus.google.com/communities/101389134352217517231)
 
 ## Screenshots
 
